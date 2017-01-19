@@ -3404,36 +3404,36 @@ Fecha de nacimiento:
               <td><input name="textfield40" type="text" id="textfield40" size="50%"  ></td>
               <td>Se adjunta copia: </td>
               <td>Si:
-              <input name="copias" type="radio" value="1">
+              <input name="copias2" type="radio" value="1">
               No:
-              <input name="copias" type="radio" value="2"></td>
+              <input name="copias2" type="radio" value="2"></td>
             </tr>
             <tr>
               <td>Cartilla de servicio militar </td>
               <td><input name="textfield41" type="text" id="textfield41" size="50%" ></td>
               <td>Se adjunta copia: </td>
               <td>Si:
-              <input name="copias" type="radio" value="1">
+              <input name="copias3" type="radio" value="1">
               No:
-              <input name="copias" type="radio" value="2"></td>
+              <input name="copias3" type="radio" value="2"></td>
             </tr>
             <tr>
               <td>Licencia para conducir </td>
               <td><input name="textfield42" type="text" id="textfield42" size="50%"  ></td>
               <td>Se adjunta copia: </td>
               <td>Si:
-              <input name="copias" type="radio" value="1">
+              <input name="copias4" type="radio" value="1">
               No:
-              <input name="copias" type="radio" value="2"></td>
+              <input name="copias4" type="radio" value="2"></td>
             </tr>
             <tr>
               <td>Otra</td>
               <td><input name="textfield43" type="text" id="textfield43" size="50%"  ></td>
               <td>Se adjunta copia: </td>
               <td>Si:
-              <input name="copias" type="radio" value="1">
+              <input name="copias5" type="radio" value="1">
               No:
-              <input name="copias" type="radio" value="2"></td>
+              <input name="copias5" type="radio" value="2"></td>
             </tr>
             <tr>
               <td>Especificar</td>
