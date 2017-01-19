@@ -36,7 +36,7 @@
 <header>
 	<div class="container">
 	  <div class="grid_24">
-			
+			<h1 class="fleft" ><img src="logosfg.png" width="190" height="50"></h1>
 			
 			
 		    
@@ -46,7 +46,7 @@
 	</div>
 	<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
   <!-- Navbar content -->
-<h1 class="fleft" ><img src="logosfg.png" ></h1>
+
 	<ul class="nav justify-content-end">
   <li class="nav-item">
     <a class="nav-link active"  href="indexmenu.php" id="boton">Inicio</a>

@@ -4,9 +4,18 @@
 <title>Home</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0">
-<script type="text/javascript" src="js/editcheck.js"></script>
+<link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
+<script src="js/jquery-1.7.1.min.js"></script>
+<script src="js/script.js"></script>
+<script src="js/superfish.js"></script>
+<script src="js/jquery.responsivemenu.js"></script>
+<script src="js/jquery.flexslider-min.js"></script>
+<script src="js/forms.js"></script>
+<script src="js/superfish.js"></script>
+<script src="js/jquery.responsivemenu.js"></script>
+<script src="js/FF-cash.js"></script>
 <script type="text/javascript">
-/*$(document).ready(function() {
+$(document).ready(function() {
     $("#form1").keypress(function(e) {
         if (e.which == 13) {
             return false;
@@ -82,7 +91,7 @@ function myFunction(x, y, sig) {
 		sig.select();
     }
 }
-*/
+
 </script>
 <!--[if lt IE 8]>
    <div style=' clear: both; text-align:center; position: relative;'>
@@ -99,13 +108,25 @@ function myFunction(x, y, sig) {
 <body>
 <!-- header -->
 <header>
+	<div class="container_24">
+	  <div class="grid_24">
+			<h1 class="fleft"><img src="logosfg.png" width="190" height="50"></h1>
+			<ul class="sf-menu">
+				<li><a href="index.php">Salir</a></li>
+				<li><a href="indexmenu.php">Regresar</a></li>
+			</ul>
+		    
+           
+		</div>
+		
+	</div>
 </header>
 
 <!-- content -->
 <section>
 	<div class="bg" align="center">
 	  <div class="container_24" align="center">
-	  <form name="form1" id="form1"  onsubmit="return valforms(this)" method="post">
+	  <form name="form1" id="form1" action="templatePM.php" method="post">
 	  
 	  <style>
 	 
@@ -120,19 +141,6 @@ input::-moz-placeholder {
 	font-weight: bold;
 }
 	  </style>
-
-	  	<div id="accordion" role="tablist" aria-multiselectable="true">
-  <div class="card">
-    <div class="card-header" role="tab" id="headingOne">
-      <h5 class="mb-0">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Collapsible Group Item #1
-        </a>
-      </h5>
-    </div>
-
-    <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
-      <div class="card-block">
 	  <div id="solicitud">
 	    <h1>Solicitud Persona Moral</h1>
 	    <p align="left"><strong>DATOS DEL SOLICITANTE:</strong> 	      <input name="cliente" type="text" id="cliente" size="30px" placeholder="Si es Cliente, número de cliente/contrato"> 
@@ -145,7 +153,8 @@ input::-moz-placeholder {
 <input name="tipocredito" type="radio" value="3">
 	    </p>
 	    <p align="left">
-	      <input name="nomrazsoc2" type="text" id="nomrazsoc2" onchange="return valforms(this.form,this)"  editcheck ="req=Y=Nombre requerido"size="50px" placeholder="Nombre, Razón Social">
+      
+	      <input name="nomrazsoc2" type="text" id="nomrazsoc2" size="50px" placeholder="Nombre, Razón Social">
 Telefono(Con lada - 10 dígitos):
 <input name="telsol1" type="text" id="telsol1" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol2)"><input name="telsol2" type="text" id="telsol2" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol3)"><input name="telsol3" type="text" id="telsol3" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol4)"><input name="telsol4" type="text" id="telsol4" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol5)"><input name="telsol5" type="text" id="telsol5" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol6)"><input name="telsol6" type="text" id="telsol6" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol7)"><input name="telsol7" type="text" id="telsol7" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol8)"><input name="telsol8" type="text" id="telsol8" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol9)"><input name="telsol9" type="text" id="telsol9" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol10)"><input name="telsol10" type="text" id="telsol10" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfcsol1)">
 	    </p>
@@ -194,9 +203,8 @@ Telefono(Con lada - 10 dígitos):
           <input name="cantperson" type="text" id="cantperson" size="20px" placeholder="Cantidad de personal">
         </p>
 	    <p align="left">Fecha inicio de operaciones:
-	      <input name="inicoper1" type="text" id="inicoper1" size="1px" maxlength="2" placeholder="dd" onKeyUp="myFunction(this,this.value,inicoper2)">
-            <input name="inicoper2" type="text" id="inicoper2" size="1px" maxlength="2" placeholder="mm" onKeyUp="myFunction(this,this.value,inicoper3)">
-            <input name="inicoper3" type="text" id="inicoper3" size="1px" maxlength="4" placeholder="aaaa" onKeyUp="myFunction(this,this.value,inicoper13)">
+      <input type="date" name="inicoper1" id="inicoper1">
+	      
 	    </p>
 	    <hr>
 	    <p align="left"><strong>CONSTITUCIÓN DE LA EMPRESA</strong></p>
@@ -506,29 +514,12 @@ Fecha de nacimiento:
 	    <hr>
 		
 		 <p align="justify">
+		   <input name="continua" type="button" id="continua" value="Continuar" onClick="cambio()">
+          <input name="cancelar" type="button" id="cancelar" value="Cancelar" onClick="window.location.href='indexmenu.php'">
 		 </p>
 		</div>
-
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-		<!--datos generales termina aqui-->
-
-  <div class="card">
-    <div class="card-header" role="tab" id="headingTwo">
-      <h5 class="mb-0">
-        <a class="collapsed" data-toggle="collapse" onClick="window.scrollTo(0,0)" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Collapsible Group Item #2
-        </a>
-      </h5>
-    </div>
-    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
-      <div class="card-block">
-
-
-
-		<div id="riesgo" >
+		
+		<div id="riesgo" style="display:none">
 		<h4 align="center">FORMATO DE IDENTIFICACIÓN DEL CLIENTE POR CLASIFICACIÓN DE RIESGO&nbsp;</h4>
 		<h4 align="left">Datos generales del cliente</h4> 
 		<p align="left">Tipo de Cliente: Nuevo <input name="escliente" type="radio" value="1">
@@ -743,26 +734,15 @@ Fecha de nacimiento:
           </table>
 		  <p align="left">&nbsp;</p>
 		  <p align="justify">
-		    </p>
+		    <input name="regresar" type="button" id="regresar" value="Regresar" onClick="regreso()">
+          <input name="continua" type="button" id="continua" value="Continuar" onClick="cambio2()">
+          <input name="cancelar" type="button" id="cancelar" value="Cancelar" onClick="window.location.href='indexmenu.php'">
+		  </p>
 		
 		</div>
-		   Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-		<!--formato de riesgo termina aqui-->
-		  <div class="card">
-    <div class="card-header" role="tab" id="headingThree">
-      <h5 class="mb-0">
-        <a class="collapsed"  data-toggle="collapse" onClick="window.scrollTo(0,0)" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Collapsible Group Item #3
-        </a>
-      </h5>
-    </div>
-    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" >
-      <div class="card-block">
-
-		<div id="identificacion" >
+		
+		
+		<div id="identificacion" style="display:none">
           <h4>FORMATO DE IDENTIFICACION, CONOCIMIENTO DEL CLIENTE Y CONSTANCIA DE ENTREVISTA</h4>
           <h6 align="left">PERSONA FÍSICA Y RELACIONADOS </h6>
           <table width="100%" border="0">
@@ -1169,19 +1149,14 @@ No:
 		  <br>
           
           <p align="justify">
-         <input name="cancelar" type="button" id="cancelar" value="Cancelar" onClick="window.location.href='indexmenu.php'">
+            <input name="cancelar" type="button" id="cancelar" value="Cancelar" onClick="window.location.href='indexmenu.php'">
             <input name="aceptar" type="submit" id="aceptar" value="Aceptar">
             <input name="regresar" type="button" id="regresar" value="Regresar" onClick="regreso2()">
           </p>
         </div>
-	
 		
-		    		 Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-</div>
-         
+		
+		
 		
 		
 	  </form>

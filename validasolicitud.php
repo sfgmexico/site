@@ -41,9 +41,6 @@ $(document).ready(function() {
 
 <!-- content -->
 <section>
-
-
-  
   <div class="bg" align="center">
     <div class="container_24" align="center">
       <form name="form1" id="form1" action="" method="post">

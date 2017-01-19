@@ -3,6 +3,10 @@
     
     include("Conexion2.php");
     $result = mysqli_query($cnx,"select * from solicitudes where cliente='$cliente' and TipoSolicitud='PFA' order by Id desc");
+    if(!mysqli_num_rows($result)>0){
+        echo "Error El Cliente No Corresponde a PFA";
+        exit;
+    }
     while($row=mysqli_fetch_array($result)){
 
 
@@ -15,6 +19,16 @@
 <title>Home</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
+<script src="js/jquery-1.7.1.min.js"></script>
+<script src="js/script.js"></script>
+<script src="js/superfish.js"></script>
+<script src="js/jquery.responsivemenu.js"></script>
+<script src="js/jquery.flexslider-min.js"></script>
+<script src="js/forms.js"></script>
+<script src="js/superfish.js"></script>
+<script src="js/jquery.responsivemenu.js"></script>
+<script src="js/FF-cash.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
     $("#form1").keypress(function(e) {
@@ -2119,7 +2133,7 @@ function validaTexto(e) {
     }
 
     // Patron de entrada, en este caso solo acepta numeros
-    patron = /[a-zA-Z]/;
+    patron = /[a-zA-ZñÑ]/;
     tecla_final = String.fromCharCode(tecla);
     return patron.test(tecla_final);
 }
@@ -2858,10 +2872,10 @@ input::-moz-placeholder {
             <tr>
               <td width="32%">Actividad | Objeto Social </td>
               <td width="68%"><select id="select" name="select" size="1" style="width:60%;">
-                <option value="---" selected>---</option>
-                <option value="3">Vulnerable</option>
-                <option value="2">Informal</option>
-                <option value="1">Otra</option>
+                <option value="---" >---</option>
+                <option value="3" <?php if($row['Antiguedad_ObjetoSocial']=="Vulnerable"){echo "selected";}?>>Vulnerable</option>
+                <option value="2" <?php if($row['Antiguedad_ObjetoSocial']=="Informal"){echo "selected";}?>>Informal</option>
+                <option value="1" <?php if($row['Antiguedad_ObjetoSocial']=="Otra"){echo "selected";}?>>Otra</option>
               </select>
               </td>
             </tr>
@@ -2869,9 +2883,9 @@ input::-moz-placeholder {
               <td>Antigüedad del cliente </td>
               <td><select id="select2" name="select2" size="1" style="width:60%;">
                 <option value="---" selected>---</option>
-                <option value="3">1-3 años</option>
-                <option value="2">4-6 años</option>
-                <option value="1">7-10 años</option>
+                <option value="3" <?php if($row['Antiguedad_Cliente']=="1-3 años"){echo "selected";}?>>1-3 años</option>
+                <option value="2" <?php if($row['Antiguedad_Cliente']=="4-6 años"){echo "selected";}?>>4-6 años</option>
+                <option value="1" <?php if($row['Antiguedad_Cliente']=="7-10 años"){echo "selected";}?>>7-10 años</option>
                 <option value="0">N/A</option>
               </select></td>
             </tr>
@@ -2879,137 +2893,137 @@ input::-moz-placeholder {
               <td>Naturaleza de las operaciones </td>
               <td><select id="select3" name="select3" size="1" style="width:60%;">
                 <option value="---" selected>---</option>
-                <option value="1">Prestamo</option>
-                <option value="2">Arrendamiento</option>
-                <option value="3">Otros</option>
+                <option value="1"<?php if($row['Naturaleza_Operaciones']=="Prestamo"){echo "selected";}?>>Prestamo</option>
+                <option value="2"<?php if($row['Naturaleza_Operaciones']=="Arrendamiento"){echo "selected";}?>>Arrendamiento</option>
+                <option value="3"<?php if($row['Naturaleza_Operaciones']=="Otros"){echo "selected";}?>>Otros</option>
               </select></td>
             </tr>
             <tr>
-              <td>Q de Beneficiarios </td>
+              <td>N° de Beneficiarios </td>
               <td><select id="select4" name="select4" size="1" style="width:60%;">
                 <option value="---" selected>---</option>
-                <option value="1">1 a 2</option>
-                <option value="2">3 a 4</option>
-                <option value="3">5 o mas</option>
-                <option value="0">N/A</option>
+                <option value="1"<?php if($row['Numero_Beneficiarios']=="1 a 2"){echo "selected";}?>>1 a 2</option>
+                <option value="2"<?php if($row['Numero_Beneficiarios']=="3 a 4"){echo "selected";}?>>3 a 4</option>
+                <option value="3"<?php if($row['Numero_Beneficiarios']=="5 o mas"){echo "selected";}?>>5 o mas</option>
+                <option value="0"<?php if($row['Numero_Beneficiarios']=="N/A"){echo "selected";}?>>N/A</option>
               </select></td>
             </tr>
             <tr>
-              <td>Q de Terceros Relacionados (Apoderados y Cotitulares) </td>
+              <td>N° de Terceros Relacionados (Apoderados y Cotitulares) </td>
               <td><select id="select5" name="select5" size="1" style="width:60%;">
                 <option value="---" selected>---</option>
-                <option value="1">1 a 2</option>
-                <option value="2">3 a 4</option>
-                <option value="3">5 o mas</option>
-                <option value="0">N/A</option>
+                <option value="1"<?php if($row['Numero_TercerosRelacionados']=="1 a 2"){echo "selected";}?>>1 a 2</option>
+                <option value="2"<?php if($row['Numero_TercerosRelacionados']=="3 a 4"){echo "selected";}?>>3 a 4</option>
+                <option value="3"<?php if($row['Numero_TercerosRelacionados']=="5 o mas"){echo "selected";}?>>5 o mas</option>
+                <option value="0"<?php if($row['Numero_TercerosRelacionados']=="N/A"){echo "selected";}?>>N/A</option>
               </select></td>
             </tr>
             <tr>
               <td>PEPs Relacionados </td>
               <td><select id="select6" name="select6" size="1" style="width:60%;">
                 <option value="---" selected>---</option>
-                <option value="1">1% - 49%</option>
-                <option value="2">50% - 74%</option>
-                <option value="3">75% - 100%</option>
+                <option value="1"<?php if($row['PEPs_Relacionados']=="1% - 49%"){echo "selected";}?>>1% - 49%</option>
+                <option value="2"<?php if($row['PEPs_Relacionados']=="50% - 74%"){echo "selected";}?>>50% - 74%</option>
+                <option value="3"<?php if($row['PEPs_Relacionados']=="75% - 100%"){echo "selected";}?>>75% - 100%</option>
               </select></td>
             </tr>
             <tr>
               <td>Alerta Reputacional </td>
               <td><select id="select7" name="select7" size="1" style="width:60%;">
                 <option value="---" selected>---</option>
-                <option value="1">1% - 49%</option>
-                <option value="2">50% - 74%</option>
-                <option value="3">75% - 100%</option>
+                <option value="1"<?php if($row['Alerta_Reputacional']=="1% - 49%"){echo "selected";}?>>1% - 49%</option>
+                <option value="2"<?php if($row['Alerta_Reputacional']=="50% - 74%"){echo "selected";}?>>50% - 74%</option>
+                <option value="3"<?php if($row['Alerta_Reputacional']=="75% - 100%"){echo "selected";}?>>75% - 100%</option>
               </select></td>
             </tr>
             <tr>
               <td>Volumen esperado (Monto) </td>
               <td><select id="select8" name="select8" size="1" style="width:60%;">
                 <option value="---" selected>---</option>
-                <option value="1">$18000 - $20000</option>
-                <option value="2">$21000 - $25000</option>
-                <option value="3">mas de $25000</option>
+                <option value="1"<?php if($row['Volumen_Esperado']=="$18000 - $20000"){echo "selected";}?>>$18000 - $20000</option>
+                <option value="2"<?php if($row['Volumen_Esperado']=="$21000 - $25000"){echo "selected";}?>>$21000 - $25000</option>
+                <option value="3"<?php if($row['Volumen_Esperado']=="mas de $25000"){echo "selected";}?>>mas de $25000</option>
               </select></td>
             </tr>
             <tr>
               <td>Frecuencia esperada (No. Veces) </td>
               <td><select id="select9" name="select9" size="1" style="width:60%;">
                 <option value="---" selected>---</option>
-                <option value="1">1 a 3</option>
-                <option value="2">4 a 6</option>
-                <option value="3">7 a 10</option>
+                <option value="1"<?php if($row['Frecuencia_Esperada']=="1 a 3"){echo "selected";}?>>1 a 3</option>
+                <option value="2"<?php if($row['Frecuencia_Esperada']=="4 a 6"){echo "selected";}?>>4 a 6</option>
+                <option value="3"<?php if($row['Frecuencia_Esperada']=="7 a 10"){echo "selected";}?>>7 a 10</option>
               </select></td>
             </tr>
             <tr>
               <td>Instrumento Monetario Utilizado </td>
               <td><select id="select10" name="select10" size="1" style="width:60%;">
                 <option value="---" selected>---</option>
-                <option value="1">Transferencia</option>
-                <option value="2">Cheque</option>
-                <option value="3">Efectivo</option>
+                <option value="1"<?php if($row['Instrumento_Monetario']=="Transferencia"){echo "selected";}?>>Transferencia</option>
+                <option value="2"<?php if($row['Instrumento_Monetario']=="Cheque"){echo "selected";}?>>Cheque</option>
+                <option value="3"<?php if($row['Instrumento_Monetario']=="Efectivo"){echo "selected";}?>>Efectivo</option>
               </select></td>
             </tr>
             <tr>
               <td>Canales o Medios Utilizados </td>
               <td><select id="select11" name="select11" size="1" style="width:60%;">
                 <option value="---" selected>---</option>
-                <option value="1">Agencia</option>
-                <option value="2">Internet</option>
-                <option value="3">Otro</option>
+                <option value="1"<?php if($row['Canales_MediosUtilizados']=="Agencia"){echo "selected";}?>>Agencia</option>
+                <option value="2"<?php if($row['Canales_MediosUtilizados']=="Internet"){echo "selected";}?>>Internet</option>
+                <option value="3"<?php if($row['Canales_MediosUtilizados']=="Otro"){echo "selected";}?>>Otro</option>
               </select></td>
             </tr>
             <tr>
               <td>País | Estado Oficial </td>
               <td><select id="select12" name="select12" size="1" style="width:60%;">
                 <option value="---" selected>---</option>
-                <option value="1">México</option>
-                <option value="2">Otros</option>
-                <option value="3">Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar</option>
+                <option value="1"<?php if($row['Pais_EstadoOficial']=="México"){echo "selected";}?>>México</option>
+                <option value="2"<?php if($row['Pais_EstadoOficial']=="Otros"){echo "selected";}?>>Otros</option>
+                <option value="3"<?php if($row['Pais_EstadoOficial']=="Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar"){echo "selected";}?>>Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar</option>
               </select></td>
             </tr>
             <tr>
               <td>País | Estado Residencia </td>
               <td><select id="select13" name="select13" size="1" style="width:60%;">
                 <option value="---" selected>---</option>
-                <option value="3">Guerrero-Michoacan-Tamaulipas-Morelos</option>
-                <option value="2">Durango-Chihuhua-Jalisco-México-CD México-Sonora</option>
-                <option value="1">Puebla-Coahuila-Zcatecas-Hidalgo-Durango</option>
+                <option value="3"<?php if($row['Pais_EstadoResidencia']=="Guerrero-Michoacan-Tamaulipas-Morelos"){echo "selected";}?>>Guerrero-Michoacan-Tamaulipas-Morelos</option>
+                <option value="2"<?php if($row['Pais_EstadoResidencia']=="Durango-Chihuhua-Jalisco-México-CD México-Sonora"){echo "selected";}?>>Durango-Chihuhua-Jalisco-México-CD México-Sonora</option>
+                <option value="1"<?php if($row['Pais_EstadoResidencia']=="Puebla-Coahuila-Zcatecas-Hidalgo-Durango"){echo "selected";}?>>Puebla-Coahuila-Zcatecas-Hidalgo-Durango</option>
               </select></td>
             </tr>
             <tr>
               <td>País | Estado Operación </td>
               <td><select id="select14" name="select14" size="1" style="width:60%;">
                 <option value="---" selected>---</option>
-                <option value="3">Guerrero-Michoacan-Tamaulipas-Morelos</option>
-                <option value="2">Durango-Chihuhua-Jalisco-México-CD México-Sonora</option>
-                <option value="1">Puebla-Coahuila-Zcatecas-Hidalgo-Durango</option>
+                <option value="3"<?php if($row['Pais_EstadoOperacion']=="Guerrero-Michoacan-Tamaulipas-Morelos"){echo "selected";}?>>Guerrero-Michoacan-Tamaulipas-Morelos</option>
+                <option value="2"<?php if($row['Pais_EstadoOperacion']=="Durango-Chihuhua-Jalisco-México-CD México-Sonora"){echo "selected";}?>>Durango-Chihuhua-Jalisco-México-CD México-Sonora</option>
+                <option value="1"<?php if($row['Pais_EstadoOperacion']=="Puebla-Coahuila-Zcatecas-Hidalgo-Durango"){echo "selected";}?>>Puebla-Coahuila-Zcatecas-Hidalgo-Durango</option>
               </select></td>
             </tr>
             <tr>
               <td>Origen de los recursos </td>
               <td><select id="select15" name="select15" size="1" style="width:60%;">
                 <option value="---" selected>---</option>
-                <option value="1">México</option>
-                <option value="2">Otros</option>
-                <option value="3">Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar</option>
+                <option value="1"<?php if($row['Origen_Recursos']=="México"){echo "selected";}?>>México</option>
+                <option value="2"<?php if($row['Origen_Recursos']=="Otros"){echo "selected";}?>>Otros</option>
+                <option value="3"<?php if($row['Origen_Recursos']=="Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar"){echo "selected";}?>>Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar</option>
               </select></td>
             </tr>
             <tr>
               <td>Destino de los recursos </td>
               <td><select id="select16" name="select16" size="1" style="width:60%;">
                 <option value="---" selected>---</option>
-                <option value="1">México</option>
-                <option value="2">Otros</option>
-                <option value="3">Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar</option>
+                <option value="1"<?php if($row['Destino_Recursos']=="México"){echo "selected";}?>>México</option>
+                <option value="2"<?php if($row['Destino_Recursos']=="Otros"){echo "selected";}?>>Otros</option>
+                <option value="3"<?php if($row['Destino_Recursos']=="Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar"){echo "selected";}?>>Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar</option>
               </select></td>
             </tr>
             <tr>
               <td>País | Estado Residencia de Terceros Relacionados </td>
               <td><select id="select17" name="select17" size="1" style="width:60%;">
                 <option value="---" selected>---</option>
-                <option value="1">México</option>
-                <option value="2">Otros</option>
-                <option value="3">Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar</option>
+                <option value="1"<?php if($row['Pais_EstadoResidenciaTerceros']=="México"){echo "selected";}?>>México</option>
+                <option value="2"<?php if($row['Pais_EstadoResidenciaTerceros']=="Otros"){echo "selected";}?>>Otros</option>
+                <option value="3"<?php if($row['Pais_EstadoResidenciaTerceros']=="Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar"){echo "selected";}?>>Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar</option>
               </select></td>
             </tr>
           </table>
