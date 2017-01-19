@@ -8,24 +8,21 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 <script src="js/script.js"></script>
-<script src="js/npm.js"></script>
-<link rel="stylesheet" href="css/foundation.css" />
-<link rel="stylesheet" href="css/bootstrap-grid.css" >
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="css/bootstrap.css" >
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="css/bootstrap-theme.min.css" >
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="js/bootstrap.min.js" ></script>
+
 
  <script src="js/vendor/jquery.min.js"></script>
     <script src="js/vendor/what-input.min.js"></script>
+     <script src="js/vendor/foundation.abide.js"></script>
     <script src="js/foundation.min.js"></script>
+    <script src="js/app.js"></script>
     <script>
       $(document).foundation();
     </script>
+    <link rel="stylesheet" href="css/foundation.css" />
+     <link rel="stylesheet" href="css/app.css" />
+
 <!--[if lt IE 8]>
    <div style=' clear: both; text-align:center; position: relative;'>
      <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
@@ -51,29 +48,31 @@
 		</div>
 		
 	</div>
-	<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+	
   <!-- Navbar content -->
 
-	<ul class="nav justify-content-end">
-  <li class="nav-item">
-    <a class="nav-link active"  href="indexmenu.php" id="boton">Inicio</a>
+
+	<ul class="menu">
+  <li>
+    <a href="indexmenu.php" id="boton"><i class="fi-list"></i><span>Inicio</span></a>
   </li>
-  <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"  role="button" aria-haspopup="true" aria-expanded="true">Solicitudes de credito</a>
-    <div class="dropdown-menu">
+  <li><i class="fi-list"></i>
+    <a>Solicitudes de credito</a>
+   
+     <ul class="menu">
+      <li><a class="dropdown-item" href="#"  id="bot1">Solicitud PFA</a></li>
      
-      <a class="dropdown-item" href="#"  id="bot1">Solicitud PFA</a>
-     
-      <a class="dropdown-item" href="#"  id="bot2">Solicitud PM</a>
+       <li><a class="dropdown-item" href="#"  id="bot2">Solicitud PM</a></li>
     
-      <a class="dropdown-item" href="#"  id="bot3">Solicitud PFNA</a>
-   </div> 
+      <li> <a class="dropdown-item" href="#"  id="bot3">Solicitud PFNA</a></li>
+  </ul>
+ 
     
   </li>
-  <li class="nav-item">
+  <li><i class="fi-list"></i>
     <a class="nav-link"  href="#" id="boton2">Solicitudes</a>
   </li>
-  <li class="nav-item">
+  <li><i class="fi-list"></i>
     <a class="nav-link "   href="#" id="boton1">Cotizacion</a>
   </li>
 </ul>
@@ -85,7 +84,7 @@
 
 </div>
 
-</nav>
+
 
 <!-- content -->
 <section>
