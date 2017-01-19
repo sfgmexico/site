@@ -13,8 +13,12 @@
 
 
  <script src="js/vendor/jquery.min.js"></script>
-    <script src="js/vendor/what-input.min.js"></script>
-     <script src="js/vendor/foundation.abide.js"></script>
+    <script src="js/js/what-input.min.js"></script>
+     <script src="js/js/foundation.abide.js"></script>
+       <script src="js/js/foundation.dropdownMenu.js"></script>
+         <script src="js/js/foundation.dropdown.js"></script>
+           <script src="js/js/foundation.responsiveMenu.js"></script>
+           	<script src="js/js/foundation.util.triggers.js"></script>
     <script src="js/foundation.min.js"></script>
     <script src="js/app.js"></script>
     <script>
