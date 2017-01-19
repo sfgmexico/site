@@ -4,16 +4,7 @@
 <title>Home</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0">
-<link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
-<script src="js/jquery-1.7.1.min.js"></script>
-<script src="js/script.js"></script>
-<script src="js/superfish.js"></script>
-<script src="js/jquery.responsivemenu.js"></script>
-<script src="js/jquery.flexslider-min.js"></script>
-<script src="js/forms.js"></script>
-<script src="js/superfish.js"></script>
-<script src="js/jquery.responsivemenu.js"></script>
-<script src="js/FF-cash.js"></script>
+
 <script type="text/javascript">
 $(document).ready(function() {
     $("#form1").keypress(function(e) {
@@ -2680,18 +2671,7 @@ function BuscaInfo(){
 <body>
 <!-- header -->
 <header>
-	<div class="container_24">
-	  <div class="grid_24">
-			<h1 class="fleft"><img src="logosfg.png" width="190" height="50"></h1>
-			<ul class="sf-menu">
-				<li><a href="index.php">Salir</a></li>
-				<li><a href="indexmenu.php">Regresar</a></li>
-			</ul>
-		    
-           
-		</div>
-		
-	</div>
+	
 </header>
 
 <!-- content -->
