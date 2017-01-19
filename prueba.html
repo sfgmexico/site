@@ -1,4 +1,0 @@
-<tr>
-                <td  class="bg-info" width="26%"><?php echo $datos['label'];?></td>
-                <td  width="74%"><input class="<?php if($result['GradoRiesgo']=='Bajo'){echo 'bg-success';}else if ($result['GradoRiesgo']=='Medio') {echo 'bg-warning';}else if ($result['GradoRiesgo']=='Alto') {echo 'bg-danger';} else{echo 'bg-warning';}?> " readonly name="textfield" type="text" value="<?php echo $result[$datos['variable']];?>" size="100%"></td>
-              </tr>
