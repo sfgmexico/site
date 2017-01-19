@@ -44,6 +44,9 @@ function cambio() {
         return false;
     }
 
+////test sincronizacion
+///test2
+
     
 document.getElementById("solicitud").style.display = 'none';
 
