@@ -9,7 +9,7 @@
 
 <script src="js/script.js"></script>
 <script src="js/npm.js"></script>
-
+<link rel="stylesheet" href="css/foundation.css" />
 <link rel="stylesheet" href="css/bootstrap-grid.css" >
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="css/bootstrap.css" >
