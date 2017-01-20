@@ -38,23 +38,10 @@ input::-moz-placeholder {
 	  
     <ul class="accordion" data-accordion>
         <li class="accordion-item is-active" data-accordion-item>
-            <a href="#" class="accordion-title">Accordion 1</a>
+            <a href="#" class="accordion-title"><h4>Solicitud PFNA</h4></a>
                 <div class="accordion-content" data-tab-content>
-                      I would start in the open state, due to using the `is-active` state class.
-                 </div>
-        </li>
-        <li class="accordion-item " data-accordion-item>
-            <a href="#" class="accordion-title">Accordion 2</a>
-                <div class="accordion-content" data-tab-content>
-                      I would start in the open state, due to using the `is-active` state class.
-                 </div>
-        </li>
-  <!-- ... -->
-    </ul>
-
-
-	  <div id="solicitud">
-	    <h1>Solicitud PFNA</h1>
+                     <div id="solicitud">
+	    
 	    <p align="left"><strong>DATOS DEL SOLICITANTE:</strong> 	      <input  name="cliente" type="text" id="cliente" size="30px" onChange="window.location.href='ObtenInfo2.php?dato='+this.value+'&tipocliente=PFNA'" placeholder="Si es Cliente, número de cliente/contrato"> 
           &nbsp;&nbsp;&nbsp;&nbsp; 
           Leasing:
@@ -408,9 +395,13 @@ Fecha de nacimiento:
 		<input name="continua" type="button" id="continua" value="Continuar" onClick="cambio()">
           <input name="cancelar" type="button" id="cancelar" value="Cancelar" onClick="window.location.href='indexmenu.php'">
 		</div>
+                 </div>
+        </li>
+        <li class="accordion-item " data-accordion-item>
+            <a href="#" class="accordion-title" onClick="window.scrollTo(0,0)"><h4 >FORMATO DE IDENTIFICACIÓN DEL CLIENTE POR CLASIFICACIÓN DE RIESGO&nbsp;</h4></a>
+                <div class="accordion-content" data-tab-content>
+                      <div id="riesgo" >
 		
-		<div id="riesgo" style="display:none;">
-		<h4 align="center">FORMATO DE IDENTIFICACIÓN DEL CLIENTE POR CLASIFICACIÓN DE RIESGO&nbsp;</h4>
 		<h4 align="left">Datos generales del cliente</h4> 
 		<p align="left">Tipo de Cliente: Nuevo <input id="escliente" name="escliente" type="radio" value="1">
 		 Actualización <input id="escliente" name="escliente" type="radio" value="2">
@@ -630,9 +621,13 @@ Fecha de nacimiento:
 		  </p>
 		
 		</div>
-		
-		<div id="identificacion" style="display:none;">
-          <h4>FORMATO DE IDENTIFICACION, CONOCIMIENTO DEL CLIENTE Y CONSTANCIA DE ENTREVISTA</h4>
+                 </div>
+        </li>
+        <li class="accordion-item " data-accordion-item>
+            <a href="#" class="accordion-title" onClick="window.scrollTo(0,0)"><h4>FORMATO DE IDENTIFICACION, CONOCIMIENTO DEL CLIENTE Y CONSTANCIA DE ENTREVISTA</h4></a>
+                <div class="accordion-content" data-tab-content>
+                     <div id="identificacion" >
+          
           <h6 align="left">PERSONA FÍSICA Y RELACIONADOS </h6>
           <table width="100%" border="0">
             <tr>
@@ -1055,6 +1050,17 @@ No:
             <input name="regresar" type="button" id="regresar" value="Regresar" onClick="regreso2()">
           </p>
         </div>
+		
+                </div>
+  </li>
+  <!-- ... -->
+    </ul>
+
+
+	  
+		
+		
+		
 		
 		
 		
