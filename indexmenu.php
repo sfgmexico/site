@@ -43,11 +43,15 @@
 <!-- content -->
 <section>
 	<div class="bg" align="center">
+    <div class="medium-9 large-10 medium-push-3 large-push-2 columns">
 	  <div class="container" id="htmlext">
+
 	  	   <div >
       <img src= "images/iu-5.jpeg" width="100%">
     </div>
+
 	  </div>
+  </div>
 	</div>
 	
 </section>
@@ -64,6 +68,7 @@
     <script type="text/javascript" src="js/botones.js"></script>
       <script src="js/cotiza.js"></script>
       <script src="js/PFNA.js"></script>
+      <script src="js/PFA.js"></script>
 </body>
 
 </html>
