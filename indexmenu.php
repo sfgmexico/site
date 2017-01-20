@@ -4,7 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Financiera| Bienvenido</title>
-    <link rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+    <script src="js/vendor/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" href="js/js/css/foundation.css">
+    <link rel="stylesheet" href="js/js/css/foundation.min.css">
+    <link rel="stylesheet" href="js/js/css/app.css">
+    
   </head>
   <body>
 <!-- header -->
@@ -47,8 +51,13 @@
 	</div>
 	
 </section>
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    
+    <script src="js/vendor/app.js"></script>
+    
     <script>
       $(document).foundation();
     </script> 
