@@ -41,7 +41,7 @@
 	<div class="bg" align="center">
 	  <div class="container" id="htmlext">
 	  	   <div >
-      <img src= "images/iu-5.jpeg">
+      <img src= "images/iu-5.jpeg" width="100%">
     </div>
 	  </div>
 	</div>
