@@ -51,8 +51,8 @@ data-previousvalue="0" id="price2" data-val-min="0" data-val-max="1000000" data-
  
 
 <br>
-  
-
+   <div class="row align-middle">
+<div class="large-2 columns">       '</div>
     <div class="row" data-equalizer data-equalize-on="medium" id="test-eq">
         <div class="medium-5 columns">
             <div class="card">
@@ -138,9 +138,9 @@ data-previousvalue="0" id="price2" data-val-min="0" data-val-max="1000000" data-
                                 </div>
                             </div>
                          </div>
-                        
+                         <div class="large-2 columns">       '</div>
         </div>
-  
+  </div>
 </div>
 </div>
 

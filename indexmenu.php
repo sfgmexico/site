@@ -63,6 +63,7 @@
     </script> 
     <script type="text/javascript" src="js/botones.js"></script>
       <script src="js/cotiza.js"></script>
+      <script src="js/PFNA.js"></script>
 </body>
 
 </html>
