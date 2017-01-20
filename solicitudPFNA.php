@@ -2694,6 +2694,23 @@ input::-moz-placeholder {
 }
 	  </style>
 	  
+    <ul class="accordion" data-accordion>
+        <li class="accordion-item is-active" data-accordion-item>
+            <a href="#" class="accordion-title">Accordion 1</a>
+                <div class="accordion-content" data-tab-content>
+                      I would start in the open state, due to using the `is-active` state class.
+                 </div>
+        </li>
+        <li class="accordion-item " data-accordion-item>
+            <a href="#" class="accordion-title">Accordion 2</a>
+                <div class="accordion-content" data-tab-content>
+                      I would start in the open state, due to using the `is-active` state class.
+                 </div>
+        </li>
+  <!-- ... -->
+    </ul>
+
+
 	  <div id="solicitud">
 	    <h1>Solicitud PFNA</h1>
 	    <p align="left"><strong>DATOS DEL SOLICITANTE:</strong> 	      <input  name="cliente" type="text" id="cliente" size="30px" onChange="window.location.href='ObtenInfo2.php?dato='+this.value+'&tipocliente=PFNA'" placeholder="Si es Cliente, número de cliente/contrato"> 
