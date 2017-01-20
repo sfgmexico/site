@@ -15,13 +15,49 @@
 <header>
 <script>
 function Validacioncampos(){
+  
 
-if($("#nomsol").val()==""){
-    $("#segnomsol").prop('required',false);
-}else{
-    $("#segnomsol").prop('required',true);
+var requerido=1;
+$('form#form1').find('input').each(function(){
+var valor = $( this ).val();
+
+
+if(this.id=="cliente"){
+requerido=0;
+
 }
+if(this.id=="tipocredito"){
+requerido=1;
+
+}
+if(this.id=="nomsol" && valor==""){
+requerido=0;
+
+}
+if(this.id=="movsol12"){
+requerido=0;
+
+}
+
+if(requerido=="1"){
+$(this).prop('required',true);
+
+}else{
+  $(this).prop('required',false);
+}
+
+      
+ 
+});
+
+
+
 var pagina=1;
+
+
+
+
+
 ///ciclo de seleccion de pagina
 $('form#form1').find('input').each(function(){
   
@@ -36,9 +72,9 @@ $('form#form1').find('input').each(function(){
 
 
 
-if(($(this).prop('required') && $(this).val()=="") || ($(this).prop('required') && !$(this).prop('checked'))){
+if(($(this).prop('required') && $(this).val()=="") || ($(this).prop('required') && !$("#form1 input[name='"+this.id+"']:radio").is(':checked'))  ){
       
-      
+      alert(this.id);
       
       
       
@@ -117,15 +153,13 @@ input::-moz-placeholder {
           Leasing:
           <input id="tipocredito" name="tipocredito" type="radio" value="1" >
           Credit: 
-           <input id="tipocredito" name="tipocredito" type="radio" value="2" required>
+           <input id="tipocredito" name="tipocredito" type="radio" value="2" >
 &nbsp;&nbsp;&nbsp;&nbsp;Premium Credit:          
 <input id="tipocredito"  name="tipocredito" type="radio" value="3" >
 	    </p>
       
 	    <p align="left">
-	      <input name="nomsol" type="text" id="nomsol" placeholder="Primer Nombre" onChange="BuscaInfo()" required pattern="number"><span class="form-error">
-          Yo, you had better fill this out, it's required.
-        </span>&nbsp;&nbsp;&nbsp;&nbsp;<input name="segnomsol" type="text" id="segnomsol" placeholder="Segundo Nombre" onChange="BuscaInfo()" onkeypress="return validaTexto(event)">&nbsp;&nbsp;&nbsp;&nbsp;<input name="apepasol" type="text" id="apepasol" placeholder="Apellido Parteno" onChange="BuscaInfo()" onkeypress="return validaTexto(event)">&nbsp;&nbsp;&nbsp;&nbsp;<input name="apemasol" type="text" id="apemasol" placeholder="Apellido Materno" onChange="BuscaInfo()" onkeypress="return validaTexto(event)">
+	      <input name="nomsol" type="text" id="nomsol" placeholder="Primer Nombre" onChange="BuscaInfo()"  pattern="number">&nbsp;&nbsp;&nbsp;&nbsp;<input name="segnomsol" type="text" id="segnomsol" placeholder="Segundo Nombre" onChange="BuscaInfo()" onkeypress="return validaTexto(event)">&nbsp;&nbsp;&nbsp;&nbsp;<input name="apepasol" type="text" id="apepasol" placeholder="Apellido Parteno" onChange="BuscaInfo()" onkeypress="return validaTexto(event)">&nbsp;&nbsp;&nbsp;&nbsp;<input name="apemasol" type="text" id="apemasol" placeholder="Apellido Materno" onChange="BuscaInfo()" onkeypress="return validaTexto(event)">
 </p>
 	    <p align="left">RFC con homoclave:
 	      <input name="rfc1" type="text" id="rfc1" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc2)" onkeypress="return validaRFC(event)"><input name="rfc2" type="text" id="rfc2" size="1px" maxlength="1"onkeyup="myFunction(this,this.value,rfc3)" onkeypress="return validaRFC(event)"><input name="rfc3" type="text" id="rfc3" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc4)" onkeypress="return validaRFC(event)"><input name="rfc4" type="text" id="rfc4" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc5)" onkeypress="return validaRFC(event)"><input name="rfc5" type="text" id="rfc5" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc6)" onkeypress="return validaRFC(event)"><input name="rfc6" type="text" id="rfc6" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc7)" onkeypress="return validaRFC(event)"><input name="rfc7" type="text" id="rfc7" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc8)" onkeypress="return validaRFC(event)"><input name="rfc8" type="text" id="rfc8" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc9)" onkeypress="return validaRFC(event)"><input name="rfc9" type="text" id="rfc9" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc10)" onkeypress="return validaRFC(event)"><input name="rfc10" type="text" id="rfc10" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc11)" onkeypress="return validaRFC(event)"><input name="rfc11" type="text" id="rfc11" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc12)" onkeypress="return validaRFC(event)"><input name="rfc12" type="text" id="rfc12" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc13)" onkeypress="return validaRFC(event)"><input name="rfc13" type="text" id="rfc13" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol1)"onkeypress="return validaRFC(event)">
