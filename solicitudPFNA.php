@@ -13,6 +13,68 @@
 <body>
 <!-- header -->
 <header>
+<script>
+function Validacioncampos(){
+
+if($("#nomsol").val()==""){
+    $("#segnomsol").prop('required',false);
+}else{
+    $("#segnomsol").prop('required',true);
+}
+var pagina=1;
+///ciclo de seleccion de pagina
+$('form#form1').find('input').each(function(){
+  
+
+      
+      if(this.id=="escliente"){
+        pagina=2;
+      }
+      if(this.id=="textfield12"){
+        pagina=3;
+      }
+
+
+
+if(($(this).prop('required') && $(this).val()=="") || ($(this).prop('required') && !$(this).prop('checked'))){
+      
+      
+      
+      
+      
+      
+        console.log("IR");
+
+
+
+        if(pagina=="1"){
+        $( '#uno' ).click ();
+        window.scrollTo(0,0);
+        this.focus();
+        return false;
+      }
+      if(pagina=="2"){
+        $( '#dos' ).click ();
+        window.scrollTo(0,0);
+        this.focus();
+        return false;
+      }
+      if(pagina=="3"){
+        $( '#tres' ).click ();
+        window.scrollTo(0,0);
+        this.focus();
+        return false;
+      }
+        
+        
+    } else {
+      console.log("NR");
+    }
+    
+});
+
+}
+</script>
 	
 </header>
 
@@ -20,7 +82,7 @@
 <section>
 	<div class="bg" align="center">
 	  <div class="container_24" align="center">
-	  <form name="form1" id="form1" action="templatePFNA.php" method="post" onsubmit="return validaEspaciosSolos3()">
+	  <form name="form1" id="form1" action="templatePFNA.php" method="post"  data-abide novalidate onsubmit="Validacioncampos()">
 	  
 	  <style>
 	 
@@ -36,9 +98,17 @@ input::-moz-placeholder {
 }
 	  </style>
 	  
+
+
+
     <ul class="accordion" data-accordion>
-        <li class="accordion-item is-active" data-accordion-item>
-            <a href="#" class="accordion-title"><h4>Solicitud PFNA</h4></a>
+   
+        <li  class="accordion-item is-active" data-accordion-item>
+            <a href="#" class="accordion-title"> <label> <h4 id="uno">Solicitud PFNA</h4>
+            <span class="form-error">
+          Yo, you had better fill this out, it's required.
+        </span></label></a>
+            
                 <div class="accordion-content" data-tab-content>
                      <div id="solicitud">
 	    
@@ -47,10 +117,11 @@ input::-moz-placeholder {
     <div class="small-4 columns">   <input  name="cliente" type="text" id="cliente" size="30px" onChange="window.location.href='ObtenInfo2.php?dato='+this.value+'&tipocliente=PFNA'" placeholder="Si es Cliente, número de cliente/contrato"> </div>
           &nbsp;&nbsp;&nbsp;&nbsp; 
           Leasing:
-          <input id="tipocredito" name="tipocredito" type="radio" value="1">
+          <input id="tipocredito" name="tipocredito" type="radio" value="1" >
           Credit: 
-           <input id="tipocredito" name="tipocredito" type="radio" value="2">
+           <input id="tipocredito" name="tipocredito" type="radio" value="2" required>
 &nbsp;&nbsp;&nbsp;&nbsp;Premium Credit:          
+<<<<<<< HEAD
 <input id="tipocredito"  name="tipocredito" type="radio" value="3">
 	    </p></div>
          <div class="row">
@@ -75,6 +146,24 @@ input::-moz-placeholder {
 	    </p></div></div>
 
         <div class="row"> 
+=======
+<input id="tipocredito"  name="tipocredito" type="radio" value="3" >
+	    </p>
+      
+	    <p align="left">
+	      <input name="nomsol" type="text" id="nomsol" placeholder="Primer Nombre" onChange="BuscaInfo()" required pattern="number"><span class="form-error">
+          Yo, you had better fill this out, it's required.
+        </span>&nbsp;&nbsp;&nbsp;&nbsp;<input name="segnomsol" type="text" id="segnomsol" placeholder="Segundo Nombre" onChange="BuscaInfo()" onkeypress="return validaTexto(event)">&nbsp;&nbsp;&nbsp;&nbsp;<input name="apepasol" type="text" id="apepasol" placeholder="Apellido Parteno" onChange="BuscaInfo()" onkeypress="return validaTexto(event)">&nbsp;&nbsp;&nbsp;&nbsp;<input name="apemasol" type="text" id="apemasol" placeholder="Apellido Materno" onChange="BuscaInfo()" onkeypress="return validaTexto(event)">
+</p>
+	    <p align="left">RFC con homoclave:
+	      <input name="rfc1" type="text" id="rfc1" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc2)" onkeypress="return validaRFC(event)"><input name="rfc2" type="text" id="rfc2" size="1px" maxlength="1"onkeyup="myFunction(this,this.value,rfc3)" onkeypress="return validaRFC(event)"><input name="rfc3" type="text" id="rfc3" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc4)" onkeypress="return validaRFC(event)"><input name="rfc4" type="text" id="rfc4" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc5)" onkeypress="return validaRFC(event)"><input name="rfc5" type="text" id="rfc5" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc6)" onkeypress="return validaRFC(event)"><input name="rfc6" type="text" id="rfc6" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc7)" onkeypress="return validaRFC(event)"><input name="rfc7" type="text" id="rfc7" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc8)" onkeypress="return validaRFC(event)"><input name="rfc8" type="text" id="rfc8" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc9)" onkeypress="return validaRFC(event)"><input name="rfc9" type="text" id="rfc9" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc10)" onkeypress="return validaRFC(event)"><input name="rfc10" type="text" id="rfc10" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc11)" onkeypress="return validaRFC(event)"><input name="rfc11" type="text" id="rfc11" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc12)" onkeypress="return validaRFC(event)"><input name="rfc12" type="text" id="rfc12" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc13)" onkeypress="return validaRFC(event)"><input name="rfc13" type="text" id="rfc13" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol1)"onkeypress="return validaRFC(event)">
+</p>
+	    <p align="left">Telefono partiular (Con lada - 10 dígitos) : 
+	      <input name="telsol1" type="text" id="telsol1" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol2)" onkeypress="return validaNumero(event)"><input name="telsol2" type="text" id="telsol2" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol3)" onkeypress="return validaNumero(event)"><input name="telsol3" type="text" id="telsol3" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol4)" onkeypress="return validaNumero(event)"><input name="telsol4" type="text" id="telsol4" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol5)" onkeypress="return validaNumero(event)"><input name="telsol5" type="text" id="telsol5" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol6)" onkeypress="return validaNumero(event)"><input name="telsol6" type="text" id="telsol6" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol7)" onkeypress="return validaNumero(event)"><input name="telsol7" type="text" id="telsol7" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol8)" onkeypress="return validaNumero(event)"><input name="telsol8" type="text" id="telsol8" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol9)" onkeypress="return validaNumero(event)"><input name="telsol9" type="text" id="telsol9" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol10)" onkeypress="return validaNumero(event)"><input name="telsol10" type="text" id="telsol10" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol1)" onkeypress="return validaNumero(event)">
+	    </p>
+	    <p align="left">Telefono movil (Con lada - 10 dígitos):<input name="movsol1" type="text" id="movsol1" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol2)"onkeypress="return validaNumero(event)"><input name="movsol2" type="text" id="movsol2" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol3)"onkeypress="return validaNumero(event)"><input name="movsol3" type="text" id="movsol3" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol4)"onkeypress="return validaNumero(event)"><input name="movsol4" type="text" id="movsol4" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol5)"onkeypress="return validaNumero(event)"><input name="movsol5" type="text" id="movsol5" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol6)"onkeypress="return validaNumero(event)"><input name="movsol6" type="text" id="movsol6" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol7)"onkeypress="return validaNumero(event)"><input name="movsol7" type="text" id="movsol7" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol8)"onkeypress="return validaNumero(event)"><input name="movsol8" type="text" id="movsol8" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol9)"onkeypress="return validaNumero(event)"><input name="movsol9" type="text" id="movsol9" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol10)"onkeypress="return validaNumero(event)"><input name="movsol10" type="text" id="movsol10" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol12)"onkeypress="return validaNumero(event)"> 
+	    </p>
+>>>>>>> origin/master
 	    <p align="left">Fax (Con Lada) : 
 <div class="column small-10">
 	    <div class="small-1 columns">  <input name="movsol12" type="text" id="movsol12" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol22)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol22" type="text" id="movsol22" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol32)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol32" type="text" id="movsol32" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol42)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol42" type="text" id="movsol42" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol52)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol52" type="text" id="movsol52" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol62)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol62" type="text" id="movsol62" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol72)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol72" type="text" id="movsol72" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol82)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol82" type="text" id="movsol82" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol92)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol92" type="text" id="movsol92" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol102)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol102" type="text" id="movsol102" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,dirsol)"onkeypress="return validaNumero(event)"></div>
@@ -407,19 +496,21 @@ Fecha de nacimiento:
 	   
 	    <hr>
 		
-		<input name="continua" type="button" id="continua" value="Continuar" onClick="cambio()">
-          <input name="cancelar" type="button" id="cancelar" value="Cancelar" onClick="window.location.href='indexmenu.php'">
+		
 		</div>
                  </div>
         </li>
+        
+       
+        
         <li class="accordion-item " data-accordion-item>
-            <a href="#" class="accordion-title" onClick="window.scrollTo(0,0)"><h4 >FORMATO DE IDENTIFICACIÓN DEL CLIENTE POR CLASIFICACIÓN DE RIESGO&nbsp;</h4></a>
+            <a href="#" class="accordion-title" onClick="window.scrollTo(0,0)"><h4 id="dos" >FORMATO DE IDENTIFICACIÓN DEL CLIENTE POR CLASIFICACIÓN DE RIESGO&nbsp;</h4></a>
                 <div class="accordion-content" data-tab-content>
                       <div id="riesgo" >
 		
 		<h4 align="left">Datos generales del cliente</h4> 
-		<p align="left">Tipo de Cliente: Nuevo <input id="escliente" name="escliente" type="radio" value="1">
-		 Actualización <input id="escliente" name="escliente" type="radio" value="2">
+		<p align="left">Tipo de Cliente: Nuevo <input id="escliente" name="escliente" type="radio" value="1" required>
+		 Actualización <input id="escliente" name="escliente" type="radio" value="2" required>
 		</p>
 		<table width="100%" border="0">
             <tr>
@@ -440,7 +531,7 @@ Fecha de nacimiento:
             </tr>
             <tr>
               <td>Delegación o municipio </td>
-              <td><input name="textfield5" type="text" id="textfield5" size="100%" ></td>
+              <td><input name="textfield5" type="text" id="textfield5" size="100%" required pattern="number"></td>
             </tr>
             <tr>
               <td>Estado o provincia </td>
@@ -630,16 +721,16 @@ Fecha de nacimiento:
           </table>
 		  <p align="left">&nbsp;</p>
 		  <p align="justify">
-		    <input name="regresar" type="button" id="regresar" value="Regresar" onClick="regreso()">
-          <input name="continua" type="button" id="continua" value="Continuar" onClick="cambio2()">
-          <input name="cancelar" type="button" id="cancelar" value="Cancelar" onClick="window.location.href='indexmenu.php'">
+		    
 		  </p>
 		
 		</div>
                  </div>
         </li>
+        
+
         <li class="accordion-item " data-accordion-item>
-            <a href="#" class="accordion-title" onClick="window.scrollTo(0,0)"><h4>FORMATO DE IDENTIFICACION, CONOCIMIENTO DEL CLIENTE Y CONSTANCIA DE ENTREVISTA</h4></a>
+            <a href="#" class="accordion-title" onClick="window.scrollTo(0,0)"><h4 id="tres">FORMATO DE IDENTIFICACION, CONOCIMIENTO DEL CLIENTE Y CONSTANCIA DE ENTREVISTA</h4></a>
                 <div class="accordion-content" data-tab-content>
                      <div id="identificacion" >
           
@@ -1061,8 +1152,8 @@ No:
           
           <p align="justify">
             <input name="cancelar" type="button" id="cancelar" value="Cancelar" onClick="window.location.href='indexmenu.php'">
-            <input name="aceptar" type="button" id="aceptar" value="Aceptar" onclick="validaEspaciosSolos3()">
-            <input name="regresar" type="button" id="regresar" value="Regresar" onClick="regreso2()">
+            <input name="aceptar" type="submit" id="aceptar" value="Aceptar" >
+          
           </p>
         </div>
 		
@@ -1078,11 +1169,7 @@ No:
 		
 		
 		
-		
-	  </form>
-	  </div>
-	</div>
-	
+
 </section>
 <!-- footer -->
 <footer>
