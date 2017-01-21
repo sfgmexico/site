@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="js/js/css/foundation.css">
     <link rel="stylesheet" href="js/js/css/foundation.min.css">
     <link rel="stylesheet" href="js/js/css/app.css">
+    <link rel="stylesheet" href="js/js/css/foundation-icons/foundation-icons.css">
     
   </head>
   <body>
@@ -20,19 +21,21 @@
 	<div class="title-bar" id="example-menu">
   <div class="title-bar-left">
 	<ul class="dropdown menu" data-dropdown-menu>
-  <li><i class="fi-list"></i>
-    <a href="indexmenu.php"><span>Inicio</span></a>
+  <li>
+    <a href="indexmenu.php"><i class="fi-list"></i><span>Inicio</span></a>
   </li>
-  <li><i class="fi-list"></i>
-    <a href="#0">Solicitudes de credito</a>
+  <li>
+    <a href="#0"><i class="fi-list"></i><span>Solicitudes de credito</span></a>
     <ul class="menu">
-      <li class="secondary label" id="bot1"><a href="#0">Solicitud PFA</a></li>
-      <li class="secondary label" id="bot2"><a href="#0">Solicitud PM</a></li>
-      <li class="secondary label" id="bot3"><a href="#0">Solicitud PFNA</a></li>
+      <li id="bot1"><a href="#0"><i class="fi-clipboard-notes size-36"></i><span>Solicitud PFA</span></a></li>
+      <li id="bot2"><a href="#0"><i class="fi-clipboard-notes"></i><span>Solicitud PM</span></a></li>
+      <li id="bot3"><a href="#0"><i class="fi-clipboard-notes"></i><span>Solicitud PFNA</span></a></li>
+
+
     </ul>
   </li>
-  <li id="boton2"><i class="fi-list" ></i><a href="#0">Solicitudes</a></li>
-  <li id="boton1"><i class="fi-list" ></i><a href='#0'>Cotizacion</a></li>
+  <li id="boton2"><a href="#0"><i class="fi-list"></i><span>Solicitudes</span></a></li>
+  <li id="boton1"><a href='#0'><i class="fi-list"></i><span>Cotizacion</span></a></li>
 </ul>
 
 

@@ -20,7 +20,7 @@ include("Conexion2.php");
         
         <div id="contenido" style="display:none">
           
-<div class="large-6 columns align-self-top">
+
 <div class="row">
   <div class="medium-5 columns">
     <div class="card">
@@ -47,12 +47,12 @@ data-previousvalue="0" id="price2" data-val-min="0" data-val-max="1000000" data-
     </div>
   </div>
 </div>
-</div>
+
  
 
 <br>
-   <div class="row align-middle">
-<div class="large-2 columns">       '</div>
+   
+
     <div class="row" data-equalizer data-equalize-on="medium" id="test-eq">
         <div class="medium-5 columns">
             <div class="card">
@@ -124,7 +124,7 @@ data-previousvalue="0" id="price2" data-val-min="0" data-val-max="1000000" data-
                 </div>
           </div>
 
-                          <div class="medium-3 columns">
+                          <div class="medium-6 columns">
                             <div class="card">
                               <div class="card-section">
                                 <div class="button">
@@ -138,9 +138,8 @@ data-previousvalue="0" id="price2" data-val-min="0" data-val-max="1000000" data-
                                 </div>
                             </div>
                          </div>
-                         <div class="large-2 columns">       '</div>
-        </div>
-  </div>
+                    
+                         </div>
 </div>
 </div>
 
