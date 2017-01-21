@@ -22,20 +22,20 @@
   <div class="title-bar-left">
 	<ul class="dropdown menu" data-dropdown-menu>
   <li>
-    <a href="indexmenu.php"><i class="fi-list"></i><span>Inicio</span></a>
+    <a href="indexmenu.php"><i class="fi-home"></i><span>Inicio</span></a>
   </li>
   <li>
-    <a href="#0"><i class="fi-list"></i><span>Solicitudes de credito</span></a>
+    <a href="#0"><i class="fi-pencil"></i><span>Solicitudes de credito</span></a>
     <ul class="menu">
-      <li id="bot1"><a href="#0"><i class="fi-clipboard-notes size-36"></i><span>Solicitud PFA</span></a></li>
-      <li id="bot2"><a href="#0"><i class="fi-clipboard-notes"></i><span>Solicitud PM</span></a></li>
-      <li id="bot3"><a href="#0"><i class="fi-clipboard-notes"></i><span>Solicitud PFNA</span></a></li>
+      <li id="bot1"><a href="#"><i class="fi-clipboard-notes size-36"></i><span>Solicitud PFA</span></a></li>
+      <li id="bot2"><a href="#"><i class="fi-clipboard-notes"></i><span>Solicitud PM</span></a></li>
+      <li id="bot3"><a href="#"><i class="fi-clipboard-notes"></i><span>Solicitud PFNA</span></a></li>
 
 
     </ul>
   </li>
-  <li id="boton2"><a href="#0"><i class="fi-list"></i><span>Solicitudes</span></a></li>
-  <li id="boton1"><a href='#0'><i class="fi-list"></i><span>Cotizacion</span></a></li>
+  <li id="boton2"><a href="#"><i class="fi-graph-trend"></i><span>Solicitudes</span></a></li>
+  <li id="boton1"><a href='#'><i class="fi-dollar"></i><span>Cotizacion</span></a></li>
 </ul>
 
 
@@ -45,7 +45,7 @@
 
 <!-- content -->
 <section>
-	<div class="bg" align="center">
+	
     <div class="medium-9 large-10 medium-push-3 large-push-2 columns">
 	  <div class="container" id="htmlext">
 
@@ -55,7 +55,7 @@
 
 	  </div>
   </div>
-	</div>
+
 	
 </section>
 
@@ -69,7 +69,7 @@
       $(document).foundation();
     </script> 
     <script type="text/javascript" src="js/botones.js"></script>
-      <script src="js/cotiza.js"></script>
+       
       <script src="js/PFNA.js"></script>
       <script src="js/PFA.js"></script>
 </body>

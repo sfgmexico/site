@@ -41,23 +41,9 @@ $(document).ready(function() {
 
 <!-- content -->
 <section>
-  <div class="bg" align="center">
-    <div class="container_24" align="center">
       <form name="form1" id="form1" action="" method="post">
-        <style>
-	 
-	  input::-webkit-input-placeholder {
-    color:    #c00;
-	font-size:8px;
-	font-weight: bold;
-}
-input::-moz-placeholder {
-    color:    #c00;
-	font-size:8px;
-	font-weight: bold;
-}
-	  </style>
-       
+   
+      
 	   
 	   
 	   <?php
@@ -74,7 +60,7 @@ input::-moz-placeholder {
 		
 			<h3><span class="label label-default">Datos del solicitante</span></h3>
 			<br>
-   
+    <div class="row">
       <input style="display:none" id="res" value="<?php echo $id;?>">
              <?php
 
@@ -82,51 +68,51 @@ input::-moz-placeholder {
               for($i=2 ;$i<264;$i++){
                  $datos=mysqli_fetch_array(mysqli_query($cnx,"select * from ins where id='$i'"));
                 if($i == 17 && $result[$datos['variable']]!=null)
-                  echo "$div[0]";
+                  {echo "<div><label class='secondary label'>".$div[0]."</label></div>";}
                 if($i == 24 && $result[$datos['variable']]!=null)
-                  echo "$div[1]";
+                  {echo "<div><label class='secondary label'>".$div[1]."</label></div>";}
                 if($i == 41 && $result[$datos['variable']]!=null)
-                  echo "$div[2]";
+                  {echo "<div><label class='secondary label'>".$div[2]."</label></div>";}
                 if($i == 55 && $result[$datos['variable']]!=null)
-                  echo "$div[3]";
+                  {echo "<div><label class='secondary label'>".$div[3]."</label></div>";}
                 if($i == 61 && $result[$datos['variable']]!=null)
-                  echo "$div[4]";
+                  {echo "<div><label class='secondary label'>".$div[4]."</label></div>";}
                 if($i == 68 && $result[$datos['variable']]!=null)
-                  echo "$div[5]";
+                  {echo "<div><label class='secondary label'>".$div[5]."</label></div>";}
                 if($i == 73 && $result[$datos['variable']]!=null)
-                  echo "$div[6]";
+                  {echo "<div><label class='secondary label'>".$div[6]."</label></div>";}
                 if($i == 77 && $result[$datos['variable']]!=null)
-                  echo "$div[7]";
+                  {echo "<div><label class='secondary label'>".$div[7]."</label></div>";}
                 if($i == 79 && $result[$datos['variable']]!=null)
-                  echo "$div[8]";
+                  {echo "<div><label class='secondary label'>".$div[8]."</label></div>";}
                 if($i == 88 && $result[$datos['variable']]!=null)
-                  echo "$div[9]";
+                  {echo "<div><label class='secondary label'>".$div[9]."</label></div>";}
                 if($i == 90 && $result[$datos['variable']]!=null)
-                  echo "$div[10]";
+                  {echo "<div><label class='secondary label'>".$div[10]."</label></div>";}
                 if($i == 93 && $result[$datos['variable']]!=null)
-                  echo "$div[11]";
+                  {echo "<div><label class='secondary label'>".$div[11]."</label></div>";}
                 if($i == 105 && $result[$datos['variable']]!=null)
-                  echo "$div[12]";
+                  {echo "<div><label class='secondary label'>".$div[12]."</label></div>";}
                 if($i == 113 && $result[$datos['variable']]!=null)
-                  echo "$div[13]";
+                  {echo "<div><label class='secondary label'>".$div[13]."</label></div>";}
                 if($i == 135 && $result[$datos['variable']]!=null)
-                  echo "$div[14]";
+                  {echo "<div><label class='secondary label'>".$div[14]."</label></div>";}
                 if($i == 155 && $result[$datos['variable']]!=null)
-                  echo "$div[15]";
+                 { echo "<div><label class='secondary label'>".$div[15]."</label></div>";}
                 if($i == 173 && $result[$datos['variable']]!=null)
-                  echo "$div[16]";
+                  {echo "<div><label class='secondary label'>".$div[16]."</label></div>";}
                 if($i == 181 && $result[$datos['variable']]!=null)
-                  echo "$div[17]";
+                  {echo "<div><label class='secondary label'>".$div[17]."</label></div>";}
                  if($i == 186 && $result[$datos['variable']]!=null)
-                  echo "$div[18]";
+                  {echo "<div><label class='secondary label'>".$div[18]."</label></div>";}
                  if($i == 198 && $result[$datos['variable']]!=null)
-                  echo "$div[19]";
+                  {echo "<div><label class='secondary label'>".$div[19]."</label></div>";}
                  if($i == 214 && $result[$datos['variable']]!=null)
-                  echo "$div[20]";
+                  {echo "<div><label class='secondary label'>".$div[20]."</label></div>";}
                   if($i == 243&& $result[$datos['variable']]!=null)
-                  echo "$div[21]"; 
+                 { echo "<div><label class='secondary label'>".$div[21]."</label></div>"; }
                 if($i == 247 && $result[$datos['variable']]!=null)
-                  echo "$div[22]";
+                  {echo "<div><label class='secondary label'>".$div[22]."</label></div>";}
                 
                 
                  if($result[$datos['variable']]==null || $result[$datos['variable']]== "  " || $result[$datos['variable']]== "0000-00-00" || $datos['label']=="B"||$datos['label']=="Tipo de solicitud") {
@@ -137,25 +123,26 @@ input::-moz-placeholder {
                 
              
                 ?>
-             <table  width="100%" border="0">
-              <tr>
-                <td  class="bg-info" width="26%"><?php echo $datos['label'];?></td>
-                <td  width="74%"><input class="<?php if($result[$datos['variable']]=='Bajo'){echo 'bg-success';}else if ($result[$datos['variable']]=='Medio') {echo 'bg-info';}else if ($result[$datos['variable']]=='Alto') {echo 'bg-danger';} else{echo 'bg-warning';}?> " readonly name="textfield" type="text" value="<?php echo $result[$datos['variable']];?>" size="100%"></td>
-              </tr>
+                <div class="input-group">
+    <span class="input-group-label"><?php echo $datos['label'];?></span>
+    <input class="input-group-field" type="url" value="<?php echo $result[$datos['variable']];?>" readonly>
+  </div>
+              
+          
 
 <?php 
             
 }  }?>
-</table>
+</div>
 
 <h3>Comentarios</h3>
 <input id="comentario" name="comentario"class="form-control"  >
 <div class="container">
 			<p>&nbsp;</p>
 			<p>
-			  <input name="cancelar" class="btn btn-default" type="submit" id="cancelar" href="solicitudesPendientes.php" value="Atras">
-			  <input name="rechazada"  class="btn btn-danger" type="button" id="rechazada" value="Rechazar">
-			  <input name="aceptada" class="btn btn-primary" type="button" id="aceptada" data-toggle="modal" data-target="#exampleModal" value="Aceptar">
+			  <input name="cancelar" class="button" type="submit" id="cancelar" href="solicitudesPendientes.php" value="Atras">
+			  <input name="rechazada"  class="alert button" type="button" id="rechazada" value="Rechazar">
+			  <input name="aceptada" class="success button" type="button" id="aceptada" data-toggle="modal" data-target="#exampleModal" value="Aceptar">
 			</p>
 
  
@@ -166,57 +153,7 @@ input::-moz-placeholder {
 			
 		<?php ?>
 <script type="text/javascript">
-  $("#aceptada").click(function(event) {
  
-var sub= "sub3.php?comentario="+document.getElementById("comentario").value+"&id="+ document.getElementById("res").value+"&status=Aceptada" ;
-    if (window.XMLHttpRequest)
-  {// code for IE7+, Firefox, Chrome, Opera, Safari
-  xmlhttp=new XMLHttpRequest();
-  }
-else
-  {// code for IE6, IE5
-  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
-xmlhttp.onreadystatechange=function()
-  {
-    if (xmlhttp.readyState==4 && xmlhttp.status==200)
-      {
-      alert(xmlhttp.responseText);
-      }
-  }
-xmlhttp.open("GET",sub,true);
-xmlhttp.send(null);
-                $("#htmlext").load('solicitudesPendientes.php');
-                                });
-
-    $("#rechazada").click(function(event) {
-
-   if(document.getElementById('comentario').value==""){
- alert("SE REQUIERE MOTIVO DE RECHAZO EN COMENTARIOS");
- return false;
-    }
- var sub= "sub3.php?comentario="+document.getElementById("comentario").value+"&id="+ document.getElementById("res").value+"&status=Rechazada" ;
-      if (window.XMLHttpRequest)
-  {// code for IE7+, Firefox, Chrome, Opera, Safari
-  xmlhttp=new XMLHttpRequest();
-  }
-else
-  {// code for IE6, IE5
-  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
-xmlhttp.onreadystatechange=function()
-  {
-    if (xmlhttp.readyState==4 && xmlhttp.status==200)
-      {
-
-     alert(xmlhttp.responseText);
-      }
-  }
-xmlhttp.open("GET",sub,true);
-xmlhttp.send(null);
-
-               $("#htmlext").load('solicitudesPendientes.php');
-                                });
 
 </script>
 	
@@ -233,4 +170,5 @@ xmlhttp.send(null);
 	</div>
 </footer>  
 </body>
+<script type="text/javascript" src="js/validasolicitud.js"></script>
 </html>

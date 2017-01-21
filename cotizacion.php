@@ -4,8 +4,6 @@ include("Conexion2.php");
 <!DOCTYPE html>
 <title>Financiera|Cotización</title>
 <body onLoad="inicio()" >
-
-<div class="container_2">
         <p>Tipo de Crédito:
         <select name="seleccion" size="1" id="seleccion" onChange="capturar()">
           <option value="---" onClick="capturar()">---</option>
@@ -141,7 +139,7 @@ data-previousvalue="0" id="price2" data-val-min="0" data-val-max="1000000" data-
                     
                          </div>
 </div>
-</div>
+
 
 <div id="pepe" class="container"></div>
       
@@ -149,4 +147,5 @@ data-previousvalue="0" id="price2" data-val-min="0" data-val-max="1000000" data-
 
 
 </body>
+<script type="text/javascript"  src="js/cotiza.js"></script>
 </html>
