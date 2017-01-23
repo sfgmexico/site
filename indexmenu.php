@@ -9,18 +9,20 @@
     <link rel="stylesheet" href="js/js/css/foundation.min.css">
     <link rel="stylesheet" href="js/js/css/app.css">
     <link rel="stylesheet" href="js/js/css/foundation-icons/foundation-icons.css">
-    
+    <style type="text/css">
+
+    </style>
   </head>
-  <body>
+  <body >
 <!-- header -->
-<header>
-	<div class="container">
-			<h1 class="fleft" ><img src="logosfg.png" width="190" height="50"></h1>
-</head>
+<head class="marketing-hero home-large-hero">
+			<img src="logosfg.png" width="190" height="50">
+    
+
 	</div>
 	<div class="title-bar" id="example-menu">
   <div class="title-bar-left">
-	<ul class="dropdown menu" data-dropdown-menu>
+	<ul class="dropdown menu" data-dropdown-menu >
   <li>
     <a href="indexmenu.php"><i class="fi-home"></i><span>Inicio</span></a>
   </li>
@@ -42,18 +44,25 @@
 </div>
 </div>
 
+</head>
+
 
 <!-- content -->
 <section>
 	
     <div class="medium-9 large-10 medium-push-3 large-push-2 columns">
-	  <div class="container" id="htmlext">
+      <div class="medium-9 columns">
 
-	  	   <div >
-      <img src= "images/iu-5.jpeg" width="100%">
+	  <div class="container" id="htmlext" style="background: url(iu-6.jpeg)">
+
+	  	 
+
+         <div>
+   
     </div>
 
 	  </div>
+    </div>
   </div>
 
 	

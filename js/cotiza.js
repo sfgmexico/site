@@ -339,13 +339,13 @@ pago=Math.floor((montofin*intRate)/(1-Math.pow(1+intRate,(-1*months)))*100)/100;
 codigo="<h2>Tabla de amortizacion</h2>"
 codigo+="<table class='table table-hover' width='100%' border='0' id='f'>"; 
 codigo+="<tr class='table-info'>"; 
-codigo+="<td>Balance inicial<\/td>"; 
-codigo+="<td>Pago programado<\/td>"; 
-codigo+="<td>Capital<\/td>"; 
-codigo+="<td>Interés<\/td>"; 
-codigo+="<td>Balance final<\/td>"; 
-codigo+="<td>Iva de los intereses<\/td>"; 
-codigo+="<td>Pago Total Programado<\/td>"; 
+codigo+="<th>Balance inicial<\/th>"; 
+codigo+="<th>Pago programado<\/th>"; 
+codigo+="<th>Capital<\/th>"; 
+codigo+="<th>Interés<\/th>"; 
+codigo+="<th>Balance final<\/th>"; 
+codigo+="<th>Iva de los intereses<\/th>"; 
+codigo+="<th>Pago Total Programado<\/th>"; 
 codigo+="<\/tr>";
 
 falta=montofin; 

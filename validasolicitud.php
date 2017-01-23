@@ -125,7 +125,10 @@ $(document).ready(function() {
                 ?>
                 <div class="input-group">
     <span class="input-group-label"><?php echo $datos['label'];?></span>
-    <input class="input-group-field" type="url" value="<?php echo $result[$datos['variable']];?>" readonly>
+    <input class="input-group-field <?php if($result[$datos['variable']]=='Bajo'){echo 
+'label success';}else if ($result[$datos['variable']]=='Medio') {echo 
+'label primary';}else if ($result[$datos['variable']]=='Alto') {echo 
+'label alert';} else{echo 'label warning';}?>" type="url" value="<?php echo $result[$datos['variable']];?>" readonly>
   </div>
               
           
@@ -170,5 +173,6 @@ $(document).ready(function() {
 	</div>
 </footer>  
 </body>
+
 <script type="text/javascript" src="js/validasolicitud.js"></script>
 </html>

@@ -20,7 +20,7 @@ include("Conexion2.php");
           
 
 <div class="row">
-  <div class="medium-5 columns">
+  <div class="medium-6 columns">
     <div class="card">
       <div class="card-section">
         <h5 class="card-title">Precio: (Costo del vehículo a adquirir)</h5>
@@ -32,7 +32,7 @@ data-previousvalue="0" id="price" data-val-min="0" data-val-max="1000000" data-v
       </div>
     </div>
   </div>
-  <div class="medium-5 columns">
+  <div class="medium-6 columns">
     <div class="card">
       <div class="card-section">
 <h5 class="card-title">Enganche: (Aportación inicial)</h5>
@@ -51,8 +51,8 @@ data-previousvalue="0" id="price2" data-val-min="0" data-val-max="1000000" data-
 <br>
    
 
-    <div class="row" data-equalizer data-equalize-on="medium" id="test-eq">
-        <div class="medium-5 columns">
+    <div class="row small-collapse medium-uncollapse" data-equalizer data-equalize-on="medium" id="test-eq">
+        <div class="medium-7 columns">
             <div class="card">
                 <div class="card-section">
 
@@ -122,10 +122,11 @@ data-previousvalue="0" id="price2" data-val-min="0" data-val-max="1000000" data-
                 </div>
           </div>
 
-                          <div class="medium-6 columns">
+                          <div class="medium-5 columns">
                             <div class="card">
+                                 <div class="button">
                               <div class="card-section">
-                                <div class="button">
+                               
                                             <h3 class="card-title">Monto a Financiar</h3>
                                             <p class="card-text"> <div style="font-size:24px" id="monto" >$0</div></p>
                                             <h3 class="card-title">Pagos</h3>

@@ -12,7 +12,8 @@
    echo'Encontrado';
    $ur="validasolicitud.php?id=";
 			
-		echo	"<table width='20%' border='0' class='table table-sm table-inverse'>
+		echo	"
+    <table width='20%' border='0' class='table table-sm table-inverse'>
   <tr>
     <td>No Solicitud</td>
     <td>Solicitante</td>

@@ -80,6 +80,8 @@ if(($(this).prop('required') && $(this).val()=="") || ($(this).prop('required') 
 
 <!-- content -->
 <section>
+
+
 	<div class="bg" align="center">
 	  <div class="container_24" align="center">
 	  <form name="form1" id="form1" action="templatePFNA.php" method="post"  data-abide novalidate onsubmit="Validacioncampos()">
@@ -97,7 +99,11 @@ input::-moz-placeholder {
 	font-weight: bold;
 }
 	  </style>
-	  
+
+
+
+
+
 
 
 
@@ -115,13 +121,13 @@ input::-moz-placeholder {
 	    <p align="left"><strong>DATOS DEL SOLICITANTE:</strong> 
             <div class="row">
     <div class="small-4 columns">   <input  name="cliente" type="text" id="cliente" size="30px" onChange="window.location.href='ObtenInfo2.php?dato='+this.value+'&tipocliente=PFNA'" placeholder="Si es Cliente, número de cliente/contrato"> </div>
-          &nbsp;&nbsp;&nbsp;&nbsp; 
+  
           Leasing:
           <input id="tipocredito" name="tipocredito" type="radio" value="1" >
           Credit: 
            <input id="tipocredito" name="tipocredito" type="radio" value="2" required>
-&nbsp;&nbsp;&nbsp;&nbsp;Premium Credit:          
-<<<<<<< HEAD
+Premium Credit:          
+
 <input id="tipocredito"  name="tipocredito" type="radio" value="3">
 	    </p></div>
          <div class="row">
@@ -143,7 +149,7 @@ input::-moz-placeholder {
 
 	    <p align="left">Telefono movil (Con lada - 10 dígitos):
             <div class="column small-10"><div class="small-1 columns"><input name="movsol1" type="text" id="movsol1" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol2)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol2" type="text" id="movsol2" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol3)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol3" type="text" id="movsol3" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol4)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol4" type="text" id="movsol4" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol5)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol5" type="text" id="movsol5" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol6)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol6" type="text" id="movsol6" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol7)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol7" type="text" id="movsol7" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol8)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol8" type="text" id="movsol8" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol9)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol9" type="text" id="movsol9" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol10)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol10" type="text" id="movsol10" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol12)"onkeypress="return validaNumero(event)"> </div>
-	    </p></div></div>
+	    </p></div>
 
         <div class="row"> 
 
@@ -722,7 +728,17 @@ Fecha de nacimiento:
             <a href="#" class="accordion-title" onClick="window.scrollTo(0,0)"><h4 id="tres">FORMATO DE IDENTIFICACION, CONOCIMIENTO DEL CLIENTE Y CONSTANCIA DE ENTREVISTA</h4></a>
                 <div class="accordion-content" data-tab-content>
                      <div id="identificacion" >
-          
+          <div data-sticky-container="" class="sticky-container" style="height: 40.375px;">
+  <div class="sticky is-at-top is-stuck" id="sticky-magellan" style="width: 100%; max-width: 555px; margin-top: 0em; bottom: auto; top: 0px;" data-sticky="a2lq9k-sticky" data-margin-top="0" data-margin-bottom="0" data-top-anchor="setup" data-btm-anchor="destroy:bottom" data-sticky-on="small" data-resize="sticky-magellan" data-events="resize">
+    <nav data-magellan="8odbqt-magellan" class="sticky-mag stuck-mag" data-bar-offset="25" data-resize="cq4a0b-magellan" data-scroll="cq4a0b-magellan" id="cq4a0b-magellan" data-events="scroll">
+      <ul class="horizontal menu expanded">
+        <li><a href="#setup" class="active">Setup</a></li>
+        <li><a href="#sticky-navigation" class="">Sticky Navigation</a></li>
+        <li><a href="#javascript-reference" class="">JavaScript Reference</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
           <h6 align="left">PERSONA FÍSICA Y RELACIONADOS </h6>
           <table width="100%" border="0">
             <tr>
@@ -1156,7 +1172,7 @@ No:
 		
 		
 		
-		
+	
 		
 
 </section>
