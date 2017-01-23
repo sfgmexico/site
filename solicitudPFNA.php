@@ -117,6 +117,16 @@ input::-moz-placeholder {
             
                 <div class="accordion-content" data-tab-content>
                      <div id="solicitud">
+                     	       <div data-sticky-container="" class="sticky-container" style="height: 40.375px;">
+  <div class="sticky is-at-top is-stuck" id="sticky-magellan" style="width: 100%; max-width: 555px; margin-top: 0em; bottom: auto; top: 0px;" data-sticky="a2lq9k-sticky" data-margin-top="0" data-margin-bottom="0" data-top-anchor="setup" data-btm-anchor="destroy:bottom" data-sticky-on="small" data-resize="sticky-magellan" data-events="resize">
+    <nav data-magellan="8odbqt-magellan" class="sticky-mag stuck-mag" data-bar-offset="25" data-resize="cq4a0b-magellan" data-scroll="cq4a0b-magellan" id="cq4a0b-magellan" data-events="scroll">
+      <ul class="horizontal menu expanded">
+        <li><a href="#dos" class="">Clasificacion de riesgo</a></li>
+        <li><a href="#tres" class="active">Constancia de entrevista</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
 	    
 	    <p align="left"><strong>DATOS DEL SOLICITANTE:</strong> 
             <div class="row">
@@ -502,7 +512,16 @@ Fecha de nacimiento:
             <a href="#" class="accordion-title" onClick="window.scrollTo(0,0)"><h4 id="dos" >FORMATO DE IDENTIFICACIÓN DEL CLIENTE POR CLASIFICACIÓN DE RIESGO&nbsp;</h4></a>
                 <div class="accordion-content" data-tab-content>
                       <div id="riesgo" >
-		
+		     	       <div data-sticky-container="" class="sticky-container" style="height: 40.375px;">
+  <div class="sticky is-at-top is-stuck" id="sticky-magellan" style="width: 100%; max-width: 555px; margin-top: 0em; bottom: auto; top: 0px;" data-sticky="a2lq9k-sticky" data-margin-top="0" data-margin-bottom="3" data-top-anchor="setup" data-btm-anchor="destroy:bottom" data-sticky-on="small" data-resize="sticky-magellan" data-events="resize">
+    <nav data-magellan="8odbqt-magellan" class="sticky-mag stuck-mag" data-bar-offset="25" data-resize="cq4a0b-magellan" data-scroll="cq4a0b-magellan" id="cq4a0b-magellan" data-events="scroll">
+      <ul class="horizontal menu expanded">
+        <li><a href="#uno" class="">PFNA</a></li>
+        <li><a href="#tres" class="active">Constancia de entrevista</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
 		<h4 align="left">Datos generales del cliente</h4> 
 		<p align="left">Tipo de Cliente: Nuevo <input id="escliente" name="escliente" type="radio" value="1" required>
 		 Actualización <input id="escliente" name="escliente" type="radio" value="2" required>
@@ -732,9 +751,8 @@ Fecha de nacimiento:
   <div class="sticky is-at-top is-stuck" id="sticky-magellan" style="width: 100%; max-width: 555px; margin-top: 0em; bottom: auto; top: 0px;" data-sticky="a2lq9k-sticky" data-margin-top="0" data-margin-bottom="0" data-top-anchor="setup" data-btm-anchor="destroy:bottom" data-sticky-on="small" data-resize="sticky-magellan" data-events="resize">
     <nav data-magellan="8odbqt-magellan" class="sticky-mag stuck-mag" data-bar-offset="25" data-resize="cq4a0b-magellan" data-scroll="cq4a0b-magellan" id="cq4a0b-magellan" data-events="scroll">
       <ul class="horizontal menu expanded">
-        <li><a href="#setup" class="active">Setup</a></li>
-        <li><a href="#sticky-navigation" class="">Sticky Navigation</a></li>
-        <li><a href="#javascript-reference" class="">JavaScript Reference</a></li>
+        <li><a href="#uno" class="active">PFNA</a></li>
+        <li><a href="#dos" class="">Clasificacion de riesgo</a></li>
       </ul>
     </nav>
   </div>
