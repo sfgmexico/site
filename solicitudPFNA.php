@@ -15,12 +15,31 @@
 <header>
 <script>
 function Validacioncampos(){
+ 
+var requerido=0;
+//seccion del solicitante
+$('#secSolicitante').find('input').each(function(){  
+if(document.getElementById("nomsol").value!="" && document.getElementById("apepasol").value!="" ){
 
-if($("#nomsol").val()==""){
-    $("#segnomsol").prop('required',false);
-}else{
-    $("#segnomsol").prop('required',true);
-}
+
+  if(this.id=="segnomsol" || this.id=="apemasol" || this.id=="movsol12"||this.id=="movsol22"||this.id=="movsol32"||this.id=="movsol42"||this.id=="movsol52"||this.id=="movsol62"||this.id=="movsol72"||this.id=="movsol82"||this.id=="movsol92"||this.id=="movsol102"){
+    $(this).prop('required',false);
+    
+  }else{
+    $(this).prop('required',true);
+    
+  }
+
+ }else{
+ $(this).prop('required',false);
+
+ }
+});
+//
+
+//SECCION DE REFERENCIAS PERSONALES
+
+
 var pagina=1;
 ///ciclo de seleccion de pagina
 $('form#form1').find('input').each(function(){
@@ -35,10 +54,13 @@ $('form#form1').find('input').each(function(){
       }
 
 
+if(($(this).prop('required') && this.value=="") || ($(this).prop('required') && !$("#form1 input[name='"+this.name+"']:radio").is(':checked') && $(this).get(0).type == 'radio') ){
+      
+ 
 
-if(($(this).prop('required') && $(this).val()=="") || ($(this).prop('required') && !$(this).prop('checked'))){
-      
-      
+
+      alert("dentro: "+this.id);
+    
       
       
       
@@ -51,6 +73,7 @@ if(($(this).prop('required') && $(this).val()=="") || ($(this).prop('required') 
         $( '#uno' ).click ();
         window.scrollTo(0,0);
         this.focus();
+        this.select();
         return false;
       }
       if(pagina=="2"){
@@ -114,49 +137,47 @@ input::-moz-placeholder {
 	    
 	    <p align="left"><strong>DATOS DEL SOLICITANTE:</strong> 
             <div class="row">
-    <div class="small-4 columns">   <input  name="cliente" type="text" id="cliente" size="30px" onChange="window.location.href='ObtenInfo2.php?dato='+this.value+'&tipocliente=PFNA'" placeholder="Si es Cliente, número de cliente/contrato"> </div>
-          &nbsp;&nbsp;&nbsp;&nbsp; 
-          Leasing:
-          <input id="tipocredito" name="tipocredito" type="radio" value="1" >
-          Credit: 
-           <input id="tipocredito" name="tipocredito" type="radio" value="2" required>
-&nbsp;&nbsp;&nbsp;&nbsp;Premium Credit:          
-<<<<<<< HEAD
-<input id="tipocredito"  name="tipocredito" type="radio" value="3">
+    <div  class="small-4 columns">   <input  name="cliente" type="text" id="cliente" size="30px" onChange="window.location.href='ObtenInfo2.php?dato='+this.value+'&tipocliente=PFNA'" placeholder="Si es Cliente, número de cliente/contrato"> </div> 
+          <input id="tipocredito1" name="tipocredito" type="radio" value="1" required><label for="tipocredito1">Leasing</label>
+          <input id="tipocredito2" name="tipocredito" type="radio" value="2" required><label for="tipocredito2">Credit</label>
+          <input id="tipocredito3"  name="tipocredito" type="radio" value="3" required><label for="tipocredito3">Premium Credit</label>
 	    </p></div>
+
+      <!-- empieza seccion del solicitante-->
+      <div id="secSolicitante">
          <div class="row">
   
 	    <p align="left">
-	        <div class="small-3 columns"> <input name="nomsol" type="text" id="nomsol" placeholder="Primer Nombre" onChange="BuscaInfo()" onkeypress="return validaTexto(event)"> </div> <div class="small-3 columns"> <input name="segnomsol" type="text" id="segnomsol" placeholder="Segundo Nombre" onChange="BuscaInfo()" onkeypress="return validaTexto(event)"></div>  <div class="small-3 columns"> <input name="apepasol" type="text" id="apepasol" placeholder="Apellido Parteno" onChange="BuscaInfo()" onkeypress="return validaTexto(event)"></div>  <div class="small-3 columns"> <input name="apemasol" type="text" id="apemasol" placeholder="Apellido Materno" onChange="BuscaInfo()" onkeypress="return validaTexto(event)"></div>
+	        <div class="small-3 columns"> <input name="nomsol" type="text" id="nomsol" placeholder="Primer Nombre" onChange="BuscaInfo()" pattern="alpha"> </div> <div class="small-3 columns"> <input name="segnomsol" type="text" id="segnomsol" placeholder="Segundo Nombre" onChange="BuscaInfo()" pattern="alpha"></div>  <div class="small-3 columns"> <input name="apepasol" type="text" id="apepasol" placeholder="Apellido Parteno" onChange="BuscaInfo()" pattern="alpha"></div>  <div class="small-3 columns"> <input name="apemasol" type="text" id="apemasol" placeholder="Apellido Materno" onChange="BuscaInfo()" pattern="alpha"></div>
 </p></div>
 	    <div class="row"><p align="left">RFC con homoclave:
              <div class="column small-10 ">
-	    <div class="small-1 columns"><input name="rfc1" type="text" id="rfc1" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc2)" onkeypress="return validaRFC(event)"></div><div class="small-1 columns"><input name="rfc2" type="text" id="rfc2" size="1px" maxlength="1"onkeyup="myFunction(this,this.value,rfc3)" onkeypress="return validaRFC(event)"></div><div class="small-1 columns"><input name="rfc3" type="text" id="rfc3" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc4)" onkeypress="return validaRFC(event)"></div><div class="small-1 columns"><input name="rfc4" type="text" id="rfc4" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc5)" onkeypress="return validaRFC(event)"></div><div class="small-1 columns"><input name="rfc5" type="text" id="rfc5" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc6)" onkeypress="return validaRFC(event)"></div><div class="small-1 columns"><input name="rfc6" type="text" id="rfc6" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc7)" onkeypress="return validaRFC(event)"></div><div class="small-1 columns"><input name="rfc7" type="text" id="rfc7" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc8)" onkeypress="return validaRFC(event)"></div><div class="small-1 columns"><input name="rfc8" type="text" id="rfc8" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc9)" onkeypress="return validaRFC(event)"></div><div class="small-1 columns"><input name="rfc9" type="text" id="rfc9" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc10)" onkeypress="return validaRFC(event)"></div><div class="small-1 columns"><input name="rfc10" type="text" id="rfc10" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc11)" onkeypress="return validaRFC(event)"></div><div class="small-1 columns"><input name="rfc11" type="text" id="rfc11" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc12)" onkeypress="return validaRFC(event)"></div><div class="small-1 columns"><input name="rfc12" type="text" id="rfc12" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc13)" onkeypress="return validaRFC(event)"></div></div><div class="small-1 columns"><input name="rfc13" type="text" id="rfc13" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol1)"onkeypress="return validaRFC(event)"></div>
+	    <div class="small-1 columns"><input name="rfc1" type="text" id="rfc1" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc2)" pattern="alpha_numeric"></div><div class="small-1 columns"><input name="rfc2" type="text" id="rfc2" size="1px" maxlength="1"onkeyup="myFunction(this,this.value,rfc3)" pattern="alpha_numeric"></div><div class="small-1 columns"><input name="rfc3" type="text" id="rfc3" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc4)" pattern="alpha_numeric"></div><div class="small-1 columns"><input name="rfc4" type="text" id="rfc4" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc5)" pattern="alpha_numeric"></div><div class="small-1 columns"><input name="rfc5" type="text" id="rfc5" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc6)" pattern="alpha_numeric"></div><div class="small-1 columns"><input name="rfc6" type="text" id="rfc6" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc7)" pattern="alpha_numeric"></div><div class="small-1 columns"><input name="rfc7" type="text" id="rfc7" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc8)" pattern="alpha_numeric"></div><div class="small-1 columns"><input name="rfc8" type="text" id="rfc8" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc9)" pattern="alpha_numeric"></div><div class="small-1 columns"><input name="rfc9" type="text" id="rfc9" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc10)" pattern="alpha_numeric"></div><div class="small-1 columns"><input name="rfc10" type="text" id="rfc10" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc11)" pattern="alpha_numeric"></div><div class="small-1 columns"><input name="rfc11" type="text" id="rfc11" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc12)" pattern="alpha_numeric"></div><div class="small-1 columns"><input name="rfc12" type="text" id="rfc12" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc13)" pattern="alpha_numeric"></div></div><div class="small-1 columns"><input name="rfc13" type="text" id="rfc13" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol1)"pattern="alpha_numeric"></div>
  </p></div>
 
 	    <div class="row"> <p align="left">Telefono partiular (Con lada - 10 dígitos) : 
              <div class="column small-10">
-	    <div class="small-1 columns">  <input name="telsol1" type="text" id="telsol1" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol2)" onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="telsol2" type="text" id="telsol2" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol3)" onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="telsol3" type="text" id="telsol3" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol4)" onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="telsol4" type="text" id="telsol4" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol5)" onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="telsol5" type="text" id="telsol5" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol6)" onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="telsol6" type="text" id="telsol6" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol7)" onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="telsol7" type="text" id="telsol7" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol8)" onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="telsol8" type="text" id="telsol8" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol9)" onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="telsol9" type="text" id="telsol9" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol10)" onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="telsol10" type="text" id="telsol10" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol1)" onkeypress="return validaNumero(event)"></div>
+	    <div class="small-1 columns">  <input name="telsol1" type="text" id="telsol1" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol2)" pattern="integer"></div><div class="small-1 columns"><input name="telsol2" type="text" id="telsol2" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol3)" pattern="integer"></div><div class="small-1 columns"><input name="telsol3" type="text" id="telsol3" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol4)" pattern="integer"></div><div class="small-1 columns"><input name="telsol4" type="text" id="telsol4" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol5)" pattern="integer"></div><div class="small-1 columns"><input name="telsol5" type="text" id="telsol5" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol6)" pattern="integer"></div><div class="small-1 columns"><input name="telsol6" type="text" id="telsol6" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol7)" pattern="integer"></div><div class="small-1 columns"><input name="telsol7" type="text" id="telsol7" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol8)" pattern="integer"></div><div class="small-1 columns"><input name="telsol8" type="text" id="telsol8" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol9)" pattern="integer"></div><div class="small-1 columns"><input name="telsol9" type="text" id="telsol9" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol10)" pattern="integer"></div><div class="small-1 columns"><input name="telsol10" type="text" id="telsol10" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol1)" pattern="integer"></div>
 	   </p></div></div> 
 
         <div class="row"> 
 
 	    <p align="left">Telefono movil (Con lada - 10 dígitos):
-            <div class="column small-10"><div class="small-1 columns"><input name="movsol1" type="text" id="movsol1" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol2)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol2" type="text" id="movsol2" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol3)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol3" type="text" id="movsol3" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol4)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol4" type="text" id="movsol4" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol5)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol5" type="text" id="movsol5" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol6)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol6" type="text" id="movsol6" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol7)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol7" type="text" id="movsol7" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol8)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol8" type="text" id="movsol8" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol9)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol9" type="text" id="movsol9" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol10)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol10" type="text" id="movsol10" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol12)"onkeypress="return validaNumero(event)"> </div>
+            <div class="column small-10"><div class="small-1 columns"><input name="movsol1" type="text" id="movsol1" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol2)"pattern="integer"></div><div class="small-1 columns"><input name="movsol2" type="text" id="movsol2" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol3)"pattern="integer"></div><div class="small-1 columns"><input name="movsol3" type="text" id="movsol3" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol4)"pattern="integer"></div><div class="small-1 columns"><input name="movsol4" type="text" id="movsol4" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol5)"pattern="integer"></div><div class="small-1 columns"><input name="movsol5" type="text" id="movsol5" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol6)"pattern="integer"></div><div class="small-1 columns"><input name="movsol6" type="text" id="movsol6" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol7)"pattern="integer"></div><div class="small-1 columns"><input name="movsol7" type="text" id="movsol7" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol8)"pattern="integer"></div><div class="small-1 columns"><input name="movsol8" type="text" id="movsol8" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol9)"pattern="integer"></div><div class="small-1 columns"><input name="movsol9" type="text" id="movsol9" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol10)"pattern="integer"></div><div class="small-1 columns"><input name="movsol10" type="text" id="movsol10" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol12)"pattern="integer"> </div>
 	    </p></div></div>
 
         <div class="row"> 
 
 	    <p align="left">Fax (Con Lada) : 
 <div class="column small-10">
-	    <div class="small-1 columns">  <input name="movsol12" type="text" id="movsol12" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol22)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol22" type="text" id="movsol22" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol32)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol32" type="text" id="movsol32" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol42)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol42" type="text" id="movsol42" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol52)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol52" type="text" id="movsol52" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol62)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol62" type="text" id="movsol62" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol72)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol72" type="text" id="movsol72" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol82)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol82" type="text" id="movsol82" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol92)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol92" type="text" id="movsol92" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol102)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol102" type="text" id="movsol102" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,dirsol)"onkeypress="return validaNumero(event)"></div>
+	    <div class="small-1 columns">  <input name="movsol12" type="text" id="movsol12" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol22)"pattern="integer"></div><div class="small-1 columns"><input name="movsol22" type="text" id="movsol22" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol32)"pattern="integer"></div><div class="small-1 columns"><input name="movsol32" type="text" id="movsol32" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol42)"pattern="integer"></div><div class="small-1 columns"><input name="movsol42" type="text" id="movsol42" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol52)"pattern="integer"></div><div class="small-1 columns"><input name="movsol52" type="text" id="movsol52" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol62)"pattern="integer"></div><div class="small-1 columns"><input name="movsol62" type="text" id="movsol62" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol72)"pattern="integer"></div><div class="small-1 columns"><input name="movsol72" type="text" id="movsol72" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol82)"pattern="integer"></div><div class="small-1 columns"><input name="movsol82" type="text" id="movsol82" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol92)"pattern="integer"></div><div class="small-1 columns"><input name="movsol92" type="text" id="movsol92" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol102)"pattern="integer"></div><div class="small-1 columns"><input name="movsol102" type="text" id="movsol102" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,dirsol)"pattern="integer"></div>
 </p></div></div>
 <div class="row"> 
 	    <p align="left">
-         <div class="small-3 columns">      <input name="mailsol" type="text" id="mailsol" size="20px" placeholder="Email" ></div>
-	    <div class="small-3 columns">    <input name="dirsol" type="text" id="dirsol" size="74px" placeholder="Dirección / Calle" onkeypress="return validaTexto(event)"></div>
-         <div class="small-1 columns">    <input name="dirnumsol" type="text" id="dirnumsol" size="20px" placeholder="No #"onkeypress="return validaNumero(event)"></div>
-		    <div class="small-3 columns">    <input name="colsol" type="text" id="colsol" size="49px" placeholder="Colonia"> </div>
+         <div class="small-3 columns">      <input name="mailsol" type="text" id="mailsol" size="20px" placeholder="Email" pattern="email"></div>
+	    <div class="small-3 columns">    <input name="dirsol" type="text" id="dirsol" size="74px" placeholder="Dirección / Calle" pattern="text"></div>
+         <div class="small-1 columns">    <input name="dirnumsol" type="text" id="dirnumsol" size="20px" placeholder="No #" pattern="alpha_numeric"></div>
+		    <div class="small-3 columns">    <input name="colsol" type="text" id="colsol" size="49px" placeholder="Colonia" pattern="text"> </div>
 	    </p>
 </div>
 
@@ -168,56 +189,53 @@ input::-moz-placeholder {
 		</p>
 </div>        
 	    <p align="left">
-		<input name="cpsol" type="text" id="cpsol" size="20px" placeholder="C.P." onkeypress="return validaNumero(event)">
-		<input name="curpsol" type="text" id="curpsol" size="49px" placeholder="CURP" onkeypress="return validaRFC(event)"></p>
+		<input name="cpsol" type="text" id="cpsol" size="20px" placeholder="C.P."  pattern="integer">
+		<input name="curpsol" type="text" id="curpsol" size="49px" placeholder="CURP"  pattern="alpha_numeric"></p>
 		<hr>
 	    <p align="left"><strong>DATOS GENERALES</strong> </p>
 	    <p align="left">Sexo:
-	      M
-	      <input id="sexsol" name="sexsol" type="radio" value="M"> 
-	      F 
-	      <input id="sexsol" name="sexsol" type="radio" value="F">
-	    Fecha de nacimiento: 
-	    <input name="fechnacsol1" type="text" id="fechnacsol1" size="1px" maxlength="2" placeholder="dd" onKeyUp="myFunction(this,this.value,fechnacsol2)"onkeypress="return validaNumero(event)"><input name="fechnacsol2" type="text" id="fechnacsol2" size="1px" maxlength="2" placeholder="mm" onKeyUp="myFunction(this,this.value,fechnacsol3)"onkeypress="return validaNumero(event)"><input name="fechnacsol3" type="text" id="fechnacsol3" size="1px" maxlength="4" placeholder="aaaa" onKeyUp="myFunction(this,this.value,edsol)"onkeypress="return validaNumero(event)">
-	    <input name="edsol" type="text" id="edsol" size="2px" placeholder="Edad" onkeypress="return validaNumero(event)">
+	      
+	      <input id="sexsol1" name="sexsol" type="radio" value="M"><label for="sexsol1">M</label> 
+	       
+	      <input id="sexsol2" name="sexsol" type="radio" value="F"><label for="sexsol2">F</label>
+	      Fecha de nacimiento: <input name="fechnacsol" type="date" id="fechnacsol" size="1px" maxlength="2" placeholder="dd" pattern="date">
+	
+	    <input name="edsol" type="text" id="edsol" size="2px" placeholder="Edad" pattern="integer">
 	    <input name="nacsol" type="text" id="nacsol" size="10px" placeholder="Nacionalidad">
-	    <input name="depensol" type="text" id="depensol" size="10px" placeholder="Num. Dependientes"onkeypress="return validaNumero(event)">
+	    <input name="depensol" type="text" id="depensol" size="10px" placeholder="Num. Dependientes" pattern="integer">
 	    <input name="acdomsol" type="text" id="acdomsol" size="10px" placeholder="Acredita Domicilio con">
 	    </p>
 	    <p align="left">vive en: <br>
-	    Casa Propia<input id="vivsol" name="vivsol" type="radio" value="1">
-	      Rentada<input id="vivsol" name="vivsol" type="radio" value="2">
-	      Hipotecada<input id="vivsol" name="vivsol" type="radio" value="3">
-	      Con familiares
-	      <input id="vivsol" name="vivsol" type="radio" value="4">
-	      <input name="impmenpag" type="text" id="impmenpag" placeholder="Importe mensual del pago"onkeypress="return validaNumero(event)">
+	      <input id="vivsol1" name="vivsol" type="radio" value="1"><label for="vivsol1">Casa Propia</label>
+	      <input id="vivsol2" name="vivsol" type="radio" value="2"><label for="vivsol2">Rentada</label>
+	      <input id="vivsol3" name="vivsol" type="radio" value="3"><label for="vivsol3">Hipotecada</label>
+	      <input id="vivsol4" name="vivsol" type="radio" value="4"><label for="vivsol4">Con familiares</label>
+	      <input name="impmenpag" type="text" id="impmenpag" placeholder="Importe mensual del pago" pattern="number">
 	    </p>
-	    <p align="left">Tiene una Propiedad a su nombre?: Si
-	      <input id="inmusol" name="inmusol" type="radio" value="1">
-	    No
-	    <input id="inmusol" name="inmusol" type="radio" value="2">
-	    <input name="arraisol" type="text" id="arraisol" placeholder="Arraigo en el domicilio desde el año"onkeypress="return validaNumero(event)">
+	    <p align="left">Tiene una Propiedad a su nombre?: 
+	      <input id="inmusol1" name="inmusol" type="radio" value="1"><label for="inmusol1">Si</label>
+	      <input id="inmusol2" name="inmusol" type="radio" value="2"><label for="inmusol2">No</label>
+	      <input name="arraisol" type="text" id="arraisol" placeholder="Arraigo en el domicilio desde el año" pattern="integer">
 	    </p>
 	    <p align="left">
-	      <input name="anosol2" type="text" id="anosol2" size="20px" placeholder="Años de residir en la ciudad"onkeypress="return validaNumero(event)">
+	      <input name="anosol2" type="text" id="anosol2" size="20px" placeholder="Años de residir en la ciudad" pattern="integer">
         </p>
 	      <p align="left">
                 Beneficiario en caso de fallecimiento:
-            <input name="benesol1" type="text" id="benesol1" size="20px" placeholder="Apellido Paterno"onkeypress="return validaTexto(event)">
-            <input name="benesol2" type="text" id="benesol2" size="20px" placeholder="Apellido Materno"onkeypress="return validaTexto(event)">
-            <input name="benesol3" type="text" id="benesol3" size="30px" placeholder="Nombre(s)"onkeypress="return validaTexto(event)">
+            <input name="benesol1" type="text" id="benesol1" size="20px" placeholder="Apellido Paterno"pattern="alpha">
+            <input name="benesol2" type="text" id="benesol2" size="20px" placeholder="Apellido Materno"pattern="alpha">
+            <input name="benesol3" type="text" id="benesol3" size="30px" placeholder="Nombre(s)">
           </p>
 	    <p align="left">Estado civil:<br> 
-		Casado Bienes Mancomunados<input id="civilsol" name="civilsol" type="radio" value="1">
-		Casado Bienes Separados<input id="civilsol" name="civilsol" type="radio" value="2">
-		Viudo<input id="civilsol" name="civilsol" type="radio" value="3">
-		Divorciado<input id="civilsol" name="civilsol" type="radio" value="4">
-		Soltero<input id="civilsol" name="civilsol" type="radio" value="5">
+		      <input id="civilsol1" name="civilsol" type="radio" value="1"><label for="civilsol1">Casado Bienes Mancomunados</label>
+		      <input id="civilsol2" name="civilsol" type="radio" value="2"><label for="civilsol2">Casado Bienes Separados</label>
+		      <input id="civilsol3" name="civilsol" type="radio" value="3"><label for="civilsol3">Viudo</label>
+		      <input id="civilsol4" name="civilsol" type="radio" value="4"><label for="civilsol4">Divorciado</label>
+		      <input id="civilsol5" name="civilsol" type="radio" value="5"><label for="civilsol5">Soltero</label>
 	    </p>
-	    <p align="left">Tiene Auto Propio: Si
-	      <input id="autosol" name="autosol" type="radio" value="1"> 
-        No 
-        <input id="autosol" name="autosol" type="radio" value="2">
+	    <p align="left">Tiene Auto Propio: 
+	      <input id="autosol1" name="autosol" type="radio" value="1"><label for="autosol1">Si</label>
+        <input id="autosol2" name="autosol" type="radio" value="2"><label for="autosol2"> No</label>
         <input name="marcasol" type="text" id="marcasol" size="70px" placeholder="Especifique Marca y Tipo">
 	    </p>
 		<hr>
@@ -225,21 +243,23 @@ input::-moz-placeholder {
 	    <p align="left">
 	      <input name="giroprof" type="text" id="giroprof" size="40px" placeholder="Ocupación/Giro según alta o último cambio ante SHCP">
           <input name="depasol" type="text" id="depasol" size="30px" placeholder="Puesto">
-          Antigüedad desde: 
-          <input name="desdesol1" type="text" id="desdesol1" size="1px" maxlength="2" placeholder="dd" onKeyUp="myFunction(this,this.value,desdesol2)"onkeypress="return validaNumero(event)"><input name="desdesol2" maxlength="2" type="text" id="desdesol2" size="1px" placeholder="mm" onKeyUp="myFunction(this,this.value,desdesol3)"onkeypress="return validaNumero(event)"><input name="desdesol3" maxlength="4" type="text" id="desdesol3" size="1px" placeholder="aaaa" onKeyUp="myFunction(this,this.value,compasol)"onkeypress="return validaNumero(event)">
+          Antigüedad desde: <input name="desdesol" type="date" id="desdesol" size="1px" maxlength="2" placeholder="dd" >
+          
 </p>
 	    <p align="left">
 	      <input name="compasol" type="text" id="compasol" size="70px" placeholder="Compañía">
-	      <input name="noempleados" type="text" id="noempleados"placeholder="Núm. de empleados"onkeypress="return validaNumero(event)">
+	      <input name="noempleados" type="text" id="noempleados"placeholder="Núm. de empleados"pattern="integer">
 	    </p>
 	    <p align="left">Telefono(Con lada - 10 dígitos):
-	      <input name="compatelsol1" type="text" id="compatelsol1" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,compatelsol2)"onkeypress="return validaNumero(event)"><input name="compatelsol2" type="text" id="compatelsol2" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,compatelsol3)"onkeypress="return validaNumero(event)"><input name="compatelsol3" type="text" id="compatelsol3" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,compatelsol4)"onkeypress="return validaNumero(event)"><input name="compatelsol4" type="text" id="compatelsol4" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,compatelsol5)"onkeypress="return validaNumero(event)"><input name="compatelsol5" type="text" id="compatelsol5" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,compatelsol6)"onkeypress="return validaNumero(event)"><input name="compatelsol6" type="text" id="compatelsol6" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,compatelsol7)"onkeypress="return validaNumero(event)"><input name="compatelsol7" type="text" id="compatelsol7" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,compatelsol8)"onkeypress="return validaNumero(event)"><input name="compatelsol8" type="text" id="compatelsol8" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,compatelsol9)"onkeypress="return validaNumero(event)"><input name="compatelsol9" type="text" id="compatelsol9" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,compatelsol10)"onkeypress="return validaNumero(event)"><input name="compatelsol10" type="text" id="compatelsol10" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,compatelsolext)"onkeypress="return validaNumero(event)">
-	      <input name="compatelsolext" type="text" id="compatelsolext" size="20px" placeholder="Extensión"onkeypress="return validaNumero(event)">
+	      <input name="compatelsol1" type="text" id="compatelsol1" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,compatelsol2)"pattern="integer"><input name="compatelsol2" type="text" id="compatelsol2" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,compatelsol3)"pattern="integer"><input name="compatelsol3" type="text" id="compatelsol3" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,compatelsol4)"pattern="integer"><input name="compatelsol4" type="text" id="compatelsol4" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,compatelsol5)"pattern="integer"><input name="compatelsol5" type="text" id="compatelsol5" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,compatelsol6)"pattern="integer"><input name="compatelsol6" type="text" id="compatelsol6" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,compatelsol7)"pattern="integer"><input name="compatelsol7" type="text" id="compatelsol7" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,compatelsol8)"pattern="integer"><input name="compatelsol8" type="text" id="compatelsol8" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,compatelsol9)"pattern="integer"><input name="compatelsol9" type="text" id="compatelsol9" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,compatelsol10)"pattern="integer"><input name="compatelsol10" type="text" id="compatelsol10" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,compatelsolext)"pattern="integer">
+	      <input name="compatelsolext" type="text" id="compatelsolext" size="20px" placeholder="Extensión"pattern="integer">
 	    </p>
 	    <p align="left">
 	      <input name="giroactreal" type="text" id="giroactreal" size="44px" placeholder="Giro del negocio: actividad que realiza">
           <input name="domneg" type="text" id="domneg" size="44px" placeholder="Domicilio del negocio:">
 </p>
+
+</div>
 	    <hr>
 	    <p align="left"><strong>REFERENCIAS PERSONALES</strong></p>
 	    <p align="left">
