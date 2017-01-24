@@ -133,6 +133,22 @@ $('#secDatObligadoPersonaMoral').find('input').each(function(){
   }
 
 });
+///SECCION OBLIGADO SOLIDARIO PERSONA FISICA 1 
+$('#secDatObligadoSolidarioPF1').find('input').each(function(){
+  
+  if(document.getElementById("datobnom1").value!="" && document.getElementById("datobappat1").value!="" ){
+    if(this.id=="datobapmat1"){
+      $(this).prop('required',false);
+    }else{
+      $(this).prop('required',true);
+    }
+    
+  }else{
+    $(this).prop('required',false);
+  }
+
+});
+
 
 var pagina=1;
 ///ciclo de seleccion de pagina
@@ -535,6 +551,7 @@ Telefono(Con lada - 10 dígitos):
         </p>
          </div>
 	    <hr>
+      <div id="secDatObligadoSolidarioPF1">
 	    <p align="left"><strong>DATOS DEL OBLIGADO SOLIDARIO PERSONA FÍSICA, PROPIETARIO DE BIEN INMUEBLE </strong></p>
 	    <p align="left">
 	      <input name="datobnom1" type="text" id="datobnom1" size="30px" placeholder="Nombre(s)"onkeypress="return validaTexto(event)">
@@ -548,20 +565,20 @@ Telefono(Con lada - 10 dígitos):
 	    <p align="left">
 	      <input name="datobcd1" type="text" id="datobcd1" size="20px" placeholder="Ciudad">
 	      <input name="datoblugnac1" type="text" id="datoblugnac1" size="30px" placeholder="Lugar nacimiento (País y Edo.)">
-	    Tiene propiedad a su nombre? Si
-	    <input id="datobprop1" name="datobprop1" type="radio" value="1"> 
-	    No
-	    <input id="datobprop1" name="datobprop1" type="radio" value="2">
+	    Tiene propiedad a su nombre? 
+	    <input id="datobprop1A" name="datobprop1" type="radio" value="1"><label for="datobprop1A">Si</label>
+	    
+	    <input id="datobprop1B" name="datobprop1" type="radio" value="2"><label for="datobprop1B">No</label>
 </p>
 	    <p align="left">
 	      <input name="datobedo1" type="text" id="datobedo1" size="30px" placeholder="Estado">
           <input name="datobcp1" type="text" id="datobcp1" size="30px" placeholder="C.P."onkeypress="return validaNumero(event)">
           <input  name="datobmail1" type="text" id="datobmail1" size="30px" placeholder="Email">
 	    </p>
-	    <p align="left">sexo: M
-	      <input id="datobsex1" name="datobsex1" type="radio" value="M"> 
-	      F
-	      <input id="datobsex1" name="datobsex1" type="radio" value="F">
+	    <p align="left">sexo:
+	      <input id="datobsex1A" name="datobsex1" type="radio" value="M"> <label for="datobsex1A">M</label>
+	      
+	      <input id="datobsex1B" name="datobsex1" type="radio" value="F"><label for="datobsex1B">F</label>
 Fecha de nacimiento:
 <input name="datobfechnac1d" type="text" id="datobfechnac1d" size="1px" maxlength="2" placeholder="dd" onKeyUp="myFunction(this,this.value,datobfechnac1m)"onkeypress="return validaNumero(event)"><input name="datobfechnac1m" type="text" id="datobfechnac1m" size="1px" maxlength="2" placeholder="mm" onKeyUp="myFunction(this,this.value,datobfechnac1a)"onkeypress="return validaNumero(event)"><input name="datobfechnac1a" type="text" id="datobfechnac1a" size="1px" maxlength="4" placeholder="aaaa" onKeyUp="myFunction(this,this.value,datobed1)"onkeypress="return validaNumero(event)">
 	    <input name="datobed1" type="text" id="datobed1" size="2px" placeholder="Edad"onkeypress="return validaNumero(event)">
@@ -585,7 +602,9 @@ Fecha de nacimiento:
           <input name="datobtel192" type="text" id="datobtel192" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,datobtel1102)"onkeypress="return validaNumero(event)">
           <input name="datobtel1102" type="text" id="datobtel1102" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,datobnom2)"onkeypress="return validaNumero(event)">
 </p>
+      </div>
 	    <hr>
+      <div id="secDatObligadoSolidarioPF2">
 	    <p align="left"><strong>DATOS DEL OBLIGADO SOLIDARIO (2) PERSONA FÍSICA, PROPIETARIO DE BIEN INMUEBLE </strong></p>
 	    <p align="left">
 	      <input name="datobnom2" type="text" id="datobnom2" size="30px" placeholder="Nombre(s)"onkeypress="return validaTexto(event)">
@@ -636,6 +655,7 @@ Fecha de nacimiento:
           <input name="datobtel292" type="text" id="datobtel292" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,datobtel2102)"onkeypress="return validaNumero(event)">
           <input name="datobtel2102" type="text" id="datobtel2102" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,clavcon)"onkeypress="return validaNumero(event)">
 	    </p>
+      </div>
 	    <hr>
 	    <p align="justify">
 	      <input name="clavcon" type="text" id="clavcon" size="30px" placeholder="Clave Consesionario o Distribuidor">
