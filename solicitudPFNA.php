@@ -19,7 +19,7 @@ function Validacioncampos(){
 var requerido=0;
 //seccion del solicitante
 $('#secSolicitante').find('input').each(function(){  
-if(document.getElementById("nomsol").value!="" && document.getElementById("apepasol").value!="" ){
+  if(document.getElementById("nomsol").value!="" && document.getElementById("apepasol").value!="" ){
 
 
   if(this.id=="segnomsol" || this.id=="apemasol" || this.id=="movsol12"||this.id=="movsol22"||this.id=="movsol32"||this.id=="movsol42"||this.id=="movsol52"||this.id=="movsol62"||this.id=="movsol72"||this.id=="movsol82"||this.id=="movsol92"||this.id=="movsol102"){
@@ -30,15 +30,109 @@ if(document.getElementById("nomsol").value!="" && document.getElementById("apepa
     
   }
 
- }else{
- $(this).prop('required',false);
+  }else{
+    $(this).prop('required',false);
 
  }
 });
-//
+////SECCION DE REFERENCIAS PERSONALES 1 
+$('#secRefPersonales1').find('input').each(function(){  
+  
+  if(document.getElementById("nomref1").value!="" ){
+    $(this).prop('required',true);
+  }else{
+    $(this).prop('required',false);
+  }
+});
+//SECCION DE REFERENCIAS PERSONALES 2 
+$('#secRefPersonales2').find('input').each(function(){  
+  
+  if(document.getElementById("nomref2").value!="" ){
+    $(this).prop('required',true);
+  }else{
+    $(this).prop('required',false);
+  }
+});
+///SECCION DE REFERENCIAS BANCARIAS 1
+$('#secRefBancarias1').find('input').each(function(){
+  
+  if(document.getElementById("refbanc").value!="" ){
+    $(this).prop('required',true);
+  }else{
+    $(this).prop('required',false);
+  }
 
-//SECCION DE REFERENCIAS PERSONALES
+});
+///SECCION DE REFERENCIAS BANCARIAS 2
+$('#secRefBancarias2').find('input').each(function(){
+  
+  if(document.getElementById("refbanc2").value!="" ){
+    $(this).prop('required',true);
+  }else{
+    $(this).prop('required',false);
+  }
 
+});
+///SECCION DE REFERENCIAS COMERCIALES 1
+$('#secRefComerciales1').find('input').each(function(){
+  
+  if(document.getElementById("refcomemp1").value!="" ){
+    $(this).prop('required',true);
+  }else{
+    $(this).prop('required',false);
+  }
+
+});
+///SECCION DE REFERENCIAS COMERCIALES 2
+$('#secRefComerciales2').find('input').each(function(){
+  
+  if(document.getElementById("refcomemp2").value!="" ){
+    $(this).prop('required',true);
+  }else{
+    $(this).prop('required',false);
+  }
+
+});
+///SECCION DE CARGO DIRECTO 
+$('#secCarDirecto').find('input').each(function(){
+  
+  if(document.getElementById("cargdir").value!="" ){
+    $(this).prop('required',true);
+  }else{
+    $(this).prop('required',false);
+  }
+
+});
+//SECCION DEL CONYUGE 
+$('#secDatConyuge').find('input').each(function(){
+  
+  if(document.getElementById("conyunom").value!="" && document.getElementById("conyuape1").value!=""){
+    if(this.id=="conyuape2"){
+      $(this).prop('required',false);
+    }else{
+      $(this).prop('required',true);
+    }
+    
+  }else{
+    $(this).prop('required',false);
+  }
+
+});
+///SECCION OBLIGADO SOLIDARIO PERSONA MORAL 
+$('#secDatObligadoPersonaMoral').find('input').each(function(){
+  
+  if(document.getElementById("nomrazsoc").value!="" ){
+    if(this.id=="faxpermor1" || this.id=="faxpermor2" || this.id=="faxpermor3" || this.id=="faxpermor4" || this.id=="faxpermor5" || this.id=="faxpermor6" || this.id=="faxpermor7" || this.id=="faxpermor8" || this.id=="faxpermor9" || this.id=="faxpermor10"){
+      $(this).prop('required',false);
+    }else{
+      $(this).prop('required',true);
+    }
+    
+  }else{
+    $(this).prop('required',false);
+  }
+
+});
 
 var pagina=1;
 ///ciclo de seleccion de pagina
@@ -261,22 +355,27 @@ input::-moz-placeholder {
 
 </div>
 	    <hr>
+      <div id="secRefPersonales1">
 	    <p align="left"><strong>REFERENCIAS PERSONALES</strong></p>
 	    <p align="left">
 	      <input name="nomref1" type="text" id="nomref1" size="54px" placeholder="Nombre"onkeypress="return validaTexto(event)">
           <input name="parenref1" type="text" id="parenref1" size="40px" placeholder="Parentesco o relación"onkeypress="return validaTexto(event)">
 </p>
 	    <p align="left">Telefono(Con lada - 10 dígitos):
-          <input name="telref11" type="text" id="telref11" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref12)"onkeypress="return validaNumero(event)"><input name="telref12" type="text" id="telref12" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref13)"onkeypress="return validaNumero(event)"><input name="telref13" type="text" id="telref13" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref14)"onkeypress="return validaNumero(event)"><input name="telref14" type="text" id="telref14" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref15)"onkeypress="return validaNumero(event)"><input name="telref15" type="text" id="telref15" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref16)"onkeypress="return validaNumero(event)"><input name="telref16" type="text" id="telref16" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref17)"onkeypress="return validaNumero(event)"><input name="telref17" type="text" id="telref17" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref18)"onkeypress="return validaNumero(event)"><input name="telref18" type="text" id="telref18" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref19)"onkeypress="return validaNumero(event)"><input name="telref19" type="text" id="telref19" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref110)"onkeypress="return validaNumero(event)"><input name="telref110" type="text" id="telref110" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,nomref2)"onkeypress="return validaNumero(event)">
+          <input name="telref11" type="text" id="telref11" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref12)"pattern="integer"><input name="telref12" type="text" id="telref12" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref13)"pattern="integer"><input name="telref13" type="text" id="telref13" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref14)"pattern="integer"><input name="telref14" type="text" id="telref14" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref15)"pattern="integer"><input name="telref15" type="text" id="telref15" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref16)"pattern="integer"><input name="telref16" type="text" id="telref16" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref17)"pattern="integer"><input name="telref17" type="text" id="telref17" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref18)"pattern="integer"><input name="telref18" type="text" id="telref18" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref19)"pattern="integer"><input name="telref19" type="text" id="telref19" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref110)"pattern="integer"><input name="telref110" type="text" id="telref110" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,nomref2)"pattern="integer">
 	    </p>
+      </div>
+      <div id="secRefPersonales2">
 		<p align="left">
 	      <input name="nomref2" type="text" id="nomref2" size="54px" placeholder="Nombre"onkeypress="return validaTexto(event)">
           <input name="parenref2" type="text" id="parenref2" size="40px" placeholder="Parentesco o relación"onkeypress="return validaTexto(event)">
 </p>
 	    <p align="left">Telefono(Con lada - 10 dígitos):
-          <input name="telref21" type="text" id="telref21" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref22)"onkeypress="return validaNumero(event)"><input name="telref22" type="text" id="telref22" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref23)"onkeypress="return validaNumero(event)"><input name="telref23" type="text" id="telref23" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref24)"onkeypress="return validaNumero(event)"><input name="telref24" type="text" id="telref24" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref25)"onkeypress="return validaNumero(event)"><input name="telref25" type="text" id="telref25" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref26)"onkeypress="return validaNumero(event)"><input name="telref26" type="text" id="telref26" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref27)"onkeypress="return validaNumero(event)"><input name="telref27" type="text" id="telref27" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref28)"onkeypress="return validaNumero(event)"><input name="telref28" type="text" id="telref28" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref29)"onkeypress="return validaNumero(event)"><input name="telref29" type="text" id="telref29" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref210)"onkeypress="return validaNumero(event)"><input name="telref210" type="text" id="telref210" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,refbanc)"onkeypress="return validaNumero(event)">
+          <input name="telref21" type="text" id="telref21" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref22)"pattern="integer"><input name="telref22" type="text" id="telref22" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref23)"pattern="integer"><input name="telref23" type="text" id="telref23" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref24)"pattern="integer"><input name="telref24" type="text" id="telref24" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref25)"pattern="integer"><input name="telref25" type="text" id="telref25" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref26)"pattern="integer"><input name="telref26" type="text" id="telref26" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref27)"pattern="integer"><input name="telref27" type="text" id="telref27" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref28)"pattern="integer"><input name="telref28" type="text" id="telref28" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref29)"pattern="integer"><input name="telref29" type="text" id="telref29" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref210)"pattern="integer"><input name="telref210" type="text" id="telref210" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,refbanc)"pattern="integer">
 	    </p>
+      </div>
 		<hr>
+    <div id="secRefBancarias1">
 	    <p align="left"><strong>REFERENCIAS BANCARIAS (TARJETA DE CRÉDITO)</strong></p>
 	    <p align="left">
 	      <input name="refbanc" type="text" id="refbanc" size="54px" placeholder="Banco">
@@ -285,8 +384,10 @@ input::-moz-placeholder {
 	    <p align="left">
 	      <input name="sucbanc1" type="text" id="sucbanc1" size="54px" placeholder="Sucursal">
 	      Fecha de apertura: 
-	      <input name="aperbanc1d" type="text" id="aperbanc1d" size="1" placeholder="dd" maxlength="2" onKeyUp="myFunction(this,this.value,aperbanc1m)"onkeypress="return validaNumero(event)"><input name="aperbanc1m" type="text" id="aperbanc1m" size="1" placeholder="mm" maxlength="2" onKeyUp="myFunction(this,this.value,aperbanc1a)"onkeypress="return validaNumero(event)"><input name="aperbanc1a" type="text" id="aperbanc1a" size="1" placeholder="aaaa" maxlength="4" onKeyUp="myFunction(this,this.value,refbanc2)"onkeypress="return validaNumero(event)">
+	      <input name="aperbanc1d" type="date" id="aperbanc1d" size="1" placeholder="dd" >
 	    </p>
+      </div>
+      <div id="secRefBancarias2">
 	    <p align="left">
 	      <input name="refbanc2" type="text" id="refbanc2" size="54px" placeholder="Banco">
           <input name="tarjrefbanc" type="text" id="tarjrefbanc" size="40px" placeholder="Número de Tarjeta de Crédito">
@@ -294,32 +395,40 @@ input::-moz-placeholder {
 	    <p align="left">
           <input name="sucbanc2" type="text" id="sucbanc2" size="54px" placeholder="Sucursal">
 	      Fecha de apertura:
-  <input name="aperbanc1d2" type="text" id="aperbanc1d2" size="1" placeholder="dd" maxlength="2" onKeyUp="myFunction(this,this.value,aperbanc1m2)"onkeypress="return validaNumero(event)"><input name="aperbanc1m2" type="text" id="aperbanc1m2" size="1" placeholder="mm" maxlength="2" onKeyUp="myFunction(this,this.value,aperbanc1a2)"onkeypress="return validaNumero(event)"><input name="aperbanc1a2" type="text" id="aperbanc1a2" size="1" placeholder="aaaa" maxlength="4" onKeyUp="myFunction(this,this.value,refcomemp1)"onkeypress="return validaNumero(event)">
+  <input name="aperbanc1d2" type="date" id="aperbanc1d2" size="1" placeholder="dd" >
         </p>
+        </div>
 		<hr>
+    <div id="secRefComerciales1">
 	    <p align="left"><strong>REFERENCIAS COMERCIALES</strong></p>
 	    <p align="left">
 	      <input name="refcomemp1" type="text" id="refcomemp1" size="50px" placeholder="Empresa">
 	      Telefono(Con lada - 10 dígitos):
-          <input name="telrefcom11" type="text" id="telrefcom11" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telrefcom12)"onkeypress="return validaNumero(event)"><input name="telrefcom12" type="text" id="telrefcom12" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telrefcom13)"onkeypress="return validaNumero(event)"><input name="telrefcom13" type="text" id="telrefcom13" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telrefcom14)"onkeypress="return validaNumero(event)"><input name="telrefcom14" type="text" id="telrefcom14" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telrefcom15)"onkeypress="return validaNumero(event)"><input name="telrefcom15" type="text" id="telrefcom15" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telrefcom16)"onkeypress="return validaNumero(event)"><input name="telrefcom16" type="text" id="telrefcom16" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telrefcom17)"onkeypress="return validaNumero(event)"><input name="telrefcom17" type="text" id="telrefcom17" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telrefcom18)"onkeypress="return validaNumero(event)"><input name="telrefcom18" type="text" id="telrefcom18" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telrefcom19)"onkeypress="return validaNumero(event)"><input name="telrefcom19" type="text" id="telrefcom19" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telrefcom110)"onkeypress="return validaNumero(event)"><input name="telrefcom110" type="text" id="telrefcom110" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,antirefcom1)"onkeypress="return validaNumero(event)">
+          <input name="telrefcom11" type="text" id="telrefcom11" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telrefcom12)"pattern="integer"><input name="telrefcom12" type="text" id="telrefcom12" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telrefcom13)"pattern="integer"><input name="telrefcom13" type="text" id="telrefcom13" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telrefcom14)"pattern="integer"><input name="telrefcom14" type="text" id="telrefcom14" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telrefcom15)"pattern="integer"><input name="telrefcom15" type="text" id="telrefcom15" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telrefcom16)"pattern="integer"><input name="telrefcom16" type="text" id="telrefcom16" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telrefcom17)"pattern="integer"><input name="telrefcom17" type="text" id="telrefcom17" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telrefcom18)"pattern="integer"><input name="telrefcom18" type="text" id="telrefcom18" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telrefcom19)"pattern="integer"><input name="telrefcom19" type="text" id="telrefcom19" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telrefcom110)"pattern="integer"><input name="telrefcom110" type="text" id="telrefcom110" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,antirefcom1)"pattern="integer">
 	    </p>
 	    <p align="left">
-	      <input name="antirefcom1" type="text" id="antirefcom1" placeholder="Antigüedad Desde el Año"onkeypress="return validaNumero(event)">
+	      <input name="antirefcom1" type="text" id="antirefcom1" placeholder="Antigüedad Desde el Año"pattern="integer">
 	    </p>
+      </div>
+      <div id="secRefComerciales2">
 	    <p align="left">
 	      <input name="refcomemp2" type="text" id="refcomemp2" size="50px" placeholder="Empresa">
 Telefono(Con lada - 10 dígitos):
-<input name="telrefcom21" type="text" id="telrefcom21" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telrefcom22)"onkeypress="return validaNumero(event)"><input name="telrefcom22" type="text" id="telrefcom22" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telrefcom23)"onkeypress="return validaNumero(event)"><input name="telrefcom23" type="text" id="telrefcom23" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telrefcom24)"onkeypress="return validaNumero(event)"><input name="telrefcom24" type="text" id="telrefcom24" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telrefcom25)"onkeypress="return validaNumero(event)"><input name="telrefcom25" type="text" id="telrefcom25" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telrefcom26)"onkeypress="return validaNumero(event)"><input name="telrefcom26" type="text" id="telrefcom26" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telrefcom27)"onkeypress="return validaNumero(event)"><input name="telrefcom27" type="text" id="telrefcom27" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telrefcom28)"onkeypress="return validaNumero(event)"><input name="telrefcom28" type="text" id="telrefcom28" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telrefcom29)"onkeypress="return validaNumero(event)"><input name="telrefcom29" type="text" id="telrefcom29" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telrefcom210)"onkeypress="return validaNumero(event)"><input name="telrefcom210" type="text" id="telrefcom210" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,antirefcom2)"onkeypress="return validaNumero(event)">	    </p>
+<input name="telrefcom21" type="text" id="telrefcom21" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telrefcom22)"pattern="integer"><input name="telrefcom22" type="text" id="telrefcom22" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telrefcom23)"pattern="integer"><input name="telrefcom23" type="text" id="telrefcom23" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telrefcom24)"pattern="integer"><input name="telrefcom24" type="text" id="telrefcom24" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telrefcom25)"pattern="integer"><input name="telrefcom25" type="text" id="telrefcom25" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telrefcom26)"pattern="integer"><input name="telrefcom26" type="text" id="telrefcom26" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telrefcom27)"pattern="integer"><input name="telrefcom27" type="text" id="telrefcom27" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telrefcom28)"pattern="integer"><input name="telrefcom28" type="text" id="telrefcom28" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telrefcom29)"pattern="integer"><input name="telrefcom29" type="text" id="telrefcom29" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telrefcom210)"pattern="integer"><input name="telrefcom210" type="text" id="telrefcom210" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,antirefcom2)"pattern="integer">	    </p>
 	    <p align="left">
-          <input name="antirefcom2" type="text" id="antirefcom2" placeholder="Antigüedad Desde el Año"onkeypress="return validaNumero(event)">
+          <input name="antirefcom2" type="text" id="antirefcom2" placeholder="Antigüedad Desde el Año"pattern="integer">
         </p>
+        </div>
 		<hr>
+    <div id="secCarDirecto">
 	    <p align="left"><strong>CARGO DIRECTO (para contratos en M.N.) </strong></p>
 	    <p align="left">
           <input name="cargdir" type="text" id="cargdir" size="54px" placeholder="Banco">
           <input name="nocuentcd" type="text" id="nocuentcd" size="40px" placeholder="Número de Cuenta (CLAVE)">
 	    </p>
+      </div>
 	    <hr>
+      <div id="secDatConyuge">
 	    <p align="left"><strong>DATOS DEL CONYUGE (EN CASO DE UNIR INGRESOS) </strong></p>
 	    <p align="left">
           <input name="conyunom" type="text" id="conyunom" size="20px" placeholder="Nombre(s)"onkeypress="return validaTexto(event)">
@@ -328,41 +437,43 @@ Telefono(Con lada - 10 dígitos):
           <input name="compaconyu" type="text" id="compaconyu" size="30px" placeholder="Compañia">
           <input name="puestconyu" type="text" id="puestconyu" size="20px" placeholder="Puesto">
 	    </p>
+      </div>
 	    <hr>
 	    <p align="left"><strong>DATOS DEL OBLIGADO SOLIDARIO PERSONA MORAL</strong></p>
+      <div id="secDatObligadoPersonaMoral">
 	    <p align="left">
           <input name="nomrazsoc" type="text" id="nomrazsoc" size="50px" placeholder="Nombre, Razón Social">
 	      Telefono(Con lada - 10 dígitos):
-  <input name="telpermor1" type="text" id="telpermor1" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telpermor2)"onkeypress="return validaNumero(event)"><input name="telpermor2" type="text" id="telpermor2" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telpermor3)"onkeypress="return validaNumero(event)"><input name="telpermor3" type="text" id="telpermor3" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telpermor4)"onkeypress="return validaNumero(event)"><input name="telpermor4" type="text" id="telpermor4" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telpermor5)"onkeypress="return validaNumero(event)"><input name="telpermor5" type="text" id="telpermor5" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telpermor6)"onkeypress="return validaNumero(event)"><input name="telpermor6" type="text" id="telpermor6" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telpermor7)"onkeypress="return validaNumero(event)"><input name="telpermor7" type="text" id="telpermor7" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telpermor8)"onkeypress="return validaNumero(event)"><input name="telpermor8" type="text" id="telpermor8" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telpermor9)"onkeypress="return validaNumero(event)"><input name="telpermor9" type="text" id="telpermor9" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telpermor10)"onkeypress="return validaNumero(event)"><input name="telpermor10" type="text" id="telpermor10" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,permorrfc1)"onkeypress="return validaNumero(event)">
+  <input name="telpermor1" type="text" id="telpermor1" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telpermor2)"pattern="integer"><input name="telpermor2" type="text" id="telpermor2" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telpermor3)"pattern="integer"><input name="telpermor3" type="text" id="telpermor3" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telpermor4)"pattern="integer"><input name="telpermor4" type="text" id="telpermor4" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telpermor5)"pattern="integer"><input name="telpermor5" type="text" id="telpermor5" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telpermor6)"pattern="integer"><input name="telpermor6" type="text" id="telpermor6" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telpermor7)"pattern="integer"><input name="telpermor7" type="text" id="telpermor7" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telpermor8)"pattern="integer"><input name="telpermor8" type="text" id="telpermor8" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telpermor9)"pattern="integer"><input name="telpermor9" type="text" id="telpermor9" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telpermor10)"pattern="integer"><input name="telpermor10" type="text" id="telpermor10" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,permorrfc1)"pattern="integer">
          </p>
 	    <p align="left">RFC con homoclave:
-	      <input name="permorrfc1" type="text" id="permorrfc1" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,permorrfc2)"onkeypress="return validaRFC(event)">
-            <input name="permorrfc2" type="text" id="permorrfc2" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,permorrfc3)"onkeypress="return validaRFC(event)">
-            <input name="permorrfc3" type="text" id="permorrfc3" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,permorrfc4)"onkeypress="return validaRFC(event)">
-            <input name="permorrfc4" type="text" id="permorrfc4" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,permorrfc5)"onkeypress="return validaRFC(event)">
-            <input name="permorrfc5" type="text" id="permorrfc5" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,permorrfc6)"onkeypress="return validaRFC(event)">
-            <input name="permorrfc6" type="text" id="permorrfc6" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,permorrfc7)"onkeypress="return validaRFC(event)">
-            <input name="permorrfc7" type="text" id="permorrfc7" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,permorrfc8)"onkeypress="return validaRFC(event)">
-            <input name="permorrfc8" type="text" id="permorrfc8" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,permorrfc9)"onkeypress="return validaRFC(event)">
-            <input name="permorrfc9" type="text" id="permorrfc9" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,permorrfc10)"onkeypress="return validaRFC(event)">
-            <input name="permorrfc10" type="text" id="permorrfc10" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,permorrfc11)"onkeypress="return validaRFC(event)">
-            <input name="permorrfc11" type="text" id="permorrfc11" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,permorrfc12)"onkeypress="return validaRFC(event)">
-            <input name="permorrfc12" type="text" id="permorrfc12" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,permorrfc13)"onkeypress="return validaRFC(event)">
-            <input name="permorrfc13" type="text" id="permorrfc13" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,dirpermor)"onkeypress="return validaRFC(event)">
+	      <input name="permorrfc1" type="text" id="permorrfc1" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,permorrfc2)" pattern="alpha_numeric">
+            <input name="permorrfc2" type="text" id="permorrfc2" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,permorrfc3)" pattern="alpha_numeric">
+            <input name="permorrfc3" type="text" id="permorrfc3" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,permorrfc4)" pattern="alpha_numeric">
+            <input name="permorrfc4" type="text" id="permorrfc4" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,permorrfc5)" pattern="alpha_numeric">
+            <input name="permorrfc5" type="text" id="permorrfc5" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,permorrfc6)" pattern="alpha_numeric">
+            <input name="permorrfc6" type="text" id="permorrfc6" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,permorrfc7)" pattern="alpha_numeric">
+            <input name="permorrfc7" type="text" id="permorrfc7" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,permorrfc8)" pattern="alpha_numeric">
+            <input name="permorrfc8" type="text" id="permorrfc8" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,permorrfc9)" pattern="alpha_numeric">
+            <input name="permorrfc9" type="text" id="permorrfc9" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,permorrfc10)" pattern="alpha_numeric">
+            <input name="permorrfc10" type="text" id="permorrfc10" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,permorrfc11)" pattern="alpha_numeric">
+            <input name="permorrfc11" type="text" id="permorrfc11" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,permorrfc12)" pattern="alpha_numeric">
+            <input name="permorrfc12" type="text" id="permorrfc12" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,permorrfc13)" pattern="alpha_numeric">
+            <input name="permorrfc13" type="text" id="permorrfc13" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,dirpermor)" pattern="alpha_numeric">
         </p>
 	    <p align="left">
           <input name="dirpermor" type="text" id="dirpermor" size="50px" placeholder="Dirección / Calle y número">
 	      Fax(Con lada - 10 dígitos):
-  <input name="faxpermor1" type="text" id="faxpermor1" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,faxpermor2)"onkeypress="return validaNumero(event)">
-  <input name="faxpermor2" type="text" id="faxpermor2" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,faxpermor3)"onkeypress="return validaNumero(event)">
-  <input name="faxpermor3" type="text" id="faxpermor3" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,faxpermor4)"onkeypress="return validaNumero(event)">
-  <input name="faxpermor4" type="text" id="faxpermor4" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,faxpermor5)"onkeypress="return validaNumero(event)">
-  <input name="faxpermor5" type="text" id="faxpermor5" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,faxpermor6)"onkeypress="return validaNumero(event)">
-  <input name="faxpermor6" type="text" id="faxpermor6" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,faxpermor7)"onkeypress="return validaNumero(event)">
-  <input name="faxpermor7" type="text" id="faxpermor7" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,faxpermor8)"onkeypress="return validaNumero(event)">
-  <input name="faxpermor8" type="text" id="faxpermor8" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,faxpermor9)"onkeypress="return validaNumero(event)">
-  <input name="faxpermor9" type="text" id="faxpermor9" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,faxpermor10)"onkeypress="return validaNumero(event)">
-  <input name="faxpermor10" type="text" id="faxpermor10" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,colpermor)"onkeypress="return validaNumero(event)">
+  <input name="faxpermor1" type="text" id="faxpermor1" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,faxpermor2)" pattern="integer">
+  <input name="faxpermor2" type="text" id="faxpermor2" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,faxpermor3)" pattern="integer">
+  <input name="faxpermor3" type="text" id="faxpermor3" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,faxpermor4)" pattern="integer">
+  <input name="faxpermor4" type="text" id="faxpermor4" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,faxpermor5)" pattern="integer">
+  <input name="faxpermor5" type="text" id="faxpermor5" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,faxpermor6)" pattern="integer">
+  <input name="faxpermor6" type="text" id="faxpermor6" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,faxpermor7)" pattern="integer">
+  <input name="faxpermor7" type="text" id="faxpermor7" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,faxpermor8)" pattern="integer">
+  <input name="faxpermor8" type="text" id="faxpermor8" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,faxpermor9)" pattern="integer">
+  <input name="faxpermor9" type="text" id="faxpermor9" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,faxpermor10)" pattern="integer">
+  <input name="faxpermor10" type="text" id="faxpermor10" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,colpermor)" pattern="integer">
         </p>
 	    <p align="left">
 	      <input name="colpermor" type="text" id="colpermor" size="49px" placeholder="Colonia">
@@ -371,8 +482,9 @@ Telefono(Con lada - 10 dígitos):
         </p>
 	    <p align="left">
           <input name="edopermor" type="text" id="edopermor" size="20px" placeholder="Estado">
-          <input name="cppremor" type="text" id="cppremor" size="20px" placeholder="C.P."onkeypress="return validaNumero(event)">
+          <input name="cppremor" type="text" id="cppremor" size="20px" placeholder="C.P." pattern="integer">
 	    </p>
+     
 	    <hr>
 	    <p align="left"><strong>CONSTITUCIÓN DE LA EMPRESA</strong></p>
 	    <p align="left">
@@ -383,13 +495,12 @@ Telefono(Con lada - 10 dígitos):
 	    <p align="left"><strong>DATOS GENERALES</strong></p>
 	    <p align="left">
           <input name="actprinc" type="text" id="actprinc" size="50px" placeholder="Actividad Principal/según alta o último cambio ante SHCP">
-          <input name="cantperson" type="text" id="cantperson" size="20px" placeholder="Cantidad de personal"onkeypress="return validaNumero(event)">
+          <input name="cantperson" type="text" id="cantperson" size="20px" placeholder="Cantidad de personal" pattern="integer">
         </p>
 	    <p align="left">Fecha inicio de operaciones:
-	      <input name="inicoper1" type="text" id="inicoper1" size="1px" maxlength="2" placeholder="dd" onKeyUp="myFunction(this,this.value,inicoper2)"onkeypress="return validaNumero(event)">
-	      <input name="inicoper2" type="text" id="inicoper2" size="1px" maxlength="2" placeholder="mm" onKeyUp="myFunction(this,this.value,inicoper3)"onkeypress="return validaNumero(event)">
-	      <input name="inicoper3" type="text" id="inicoper3" size="1px" maxlength="4" placeholder="aaaa" onKeyUp="myFunction(this,this.value,datobnom1)"onkeypress="return validaNumero(event)">
+	      <input name="inicoper1" type="date" id="inicoper1" size="1px" maxlength="2" placeholder="dd" >
         </p>
+         </div>
 	    <hr>
 	    <p align="left"><strong>DATOS DEL OBLIGADO SOLIDARIO PERSONA FÍSICA, PROPIETARIO DE BIEN INMUEBLE </strong></p>
 	    <p align="left">
