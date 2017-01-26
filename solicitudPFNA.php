@@ -14,6 +14,26 @@
 <!-- header -->
 <header>
 <script>
+
+function enlace(actual,destino){
+      
+      $("#"+destino).text($(actual).val());
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function Validacioncampos(){
  
 var requerido=0;
@@ -300,7 +320,7 @@ Premium Credit:
          <div class="row">
   
 	    <p align="left">
-	        <div class="small-3 columns"> <input name="nomsol" type="text" id="nomsol" placeholder="Primer Nombre" onChange="BuscaInfo()" pattern="alpha"> </div> <div class="small-3 columns"> <input name="segnomsol" type="text" id="segnomsol" placeholder="Segundo Nombre" onChange="BuscaInfo()" pattern="alpha"></div>  <div class="small-3 columns"> <input name="apepasol" type="text" id="apepasol" placeholder="Apellido Parteno" onChange="BuscaInfo()" pattern="alpha"></div>  <div class="small-3 columns"> <input name="apemasol" type="text" id="apemasol" placeholder="Apellido Materno" onChange="BuscaInfo()" pattern="alpha"></div>
+	        <div class="small-3 columns"> <input name="nomsol" type="text" id="nomsol" placeholder="Primer Nombre" onChange="BuscaInfo()" onKeyUp="enlace(this,textfield14)" pattern="alpha"> </div> <div class="small-3 columns"> <input name="segnomsol" type="text" id="segnomsol" placeholder="Segundo Nombre" onChange="BuscaInfo()" pattern="alpha"></div>  <div class="small-3 columns"> <input name="apepasol" type="text" id="apepasol" placeholder="Apellido Parteno" onChange="BuscaInfo()" pattern="alpha"></div>  <div class="small-3 columns"> <input name="apemasol" type="text" id="apemasol" placeholder="Apellido Materno" onChange="BuscaInfo()" pattern="alpha"></div>
 </p></div>
 	    <div class="row"><p align="left">RFC con homoclave:
              <div class="column small-10 ">
