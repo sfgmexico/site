@@ -15,12 +15,6 @@
 <header>
 <script>
 
-function enlace(actual,destino){
-      
-      $("#"+destino).text($(actual).val());
-
-  }
-
 
 
 
@@ -190,7 +184,7 @@ $('form#form1').find('input').each(function(){
   
 
       
-      if(this.id=="escliente"){
+      if(this.id=="escliente1"){
         pagina=2;
       }
       if(this.id=="textfield12"){
@@ -297,22 +291,12 @@ input::-moz-placeholder {
 	    
 	    <p align="left"><strong>DATOS DEL SOLICITANTE:</strong> 
             <div class="row">
-<<<<<<< HEAD
-    <div class="small-4 columns">   <input  name="cliente" type="text" id="cliente" size="30px" onChange="window.location.href='ObtenInfo2.php?dato='+this.value+'&tipocliente=PFNA'" placeholder="Si es Cliente, número de cliente/contrato"> </div>
-  
-          Leasing:
-          <input id="tipocredito" name="tipocredito" type="radio" value="1" >
-          Credit: 
-           <input id="tipocredito" name="tipocredito" type="radio" value="2" required>
-Premium Credit:          
 
-<input id="tipocredito"  name="tipocredito" type="radio" value="3">
-=======
     <div  class="small-4 columns">   <input  name="cliente" type="text" id="cliente" size="30px" onChange="window.location.href='ObtenInfo2.php?dato='+this.value+'&tipocliente=PFNA'" placeholder="Si es Cliente, número de cliente/contrato"> </div> 
           <input id="tipocredito1" name="tipocredito" type="radio" value="1" required><label for="tipocredito1">Leasing</label>
           <input id="tipocredito2" name="tipocredito" type="radio" value="2" required><label for="tipocredito2">Credit</label>
           <input id="tipocredito3"  name="tipocredito" type="radio" value="3" required><label for="tipocredito3">Premium Credit</label>
->>>>>>> origin/master
+
 	    </p></div>
 
       <!-- empieza seccion del solicitante-->
@@ -320,7 +304,7 @@ Premium Credit:
          <div class="row">
   
 	    <p align="left">
-	        <div class="small-3 columns"> <input name="nomsol" type="text" id="nomsol" placeholder="Primer Nombre" onChange="BuscaInfo()" onKeyUp="enlace(this,textfield14)" pattern="alpha"> </div> <div class="small-3 columns"> <input name="segnomsol" type="text" id="segnomsol" placeholder="Segundo Nombre" onChange="BuscaInfo()" pattern="alpha"></div>  <div class="small-3 columns"> <input name="apepasol" type="text" id="apepasol" placeholder="Apellido Parteno" onChange="BuscaInfo()" pattern="alpha"></div>  <div class="small-3 columns"> <input name="apemasol" type="text" id="apemasol" placeholder="Apellido Materno" onChange="BuscaInfo()" pattern="alpha"></div>
+	        <div class="small-3 columns"> <input name="nomsol" type="text" id="nomsol" placeholder="Primer Nombre" onChange="BuscaInfo()"  pattern="alpha"> </div> <div class="small-3 columns"> <input name="segnomsol" type="text" id="segnomsol" placeholder="Segundo Nombre" onChange="BuscaInfo()"   pattern="alpha"></div>  <div class="small-3 columns"> <input name="apepasol" type="text" id="apepasol" placeholder="Apellido Parteno" onChange="BuscaInfo()" pattern="alpha"></div>  <div class="small-3 columns"> <input name="apemasol" type="text" id="apemasol" placeholder="Apellido Materno" onChange="BuscaInfo()" pattern="alpha"></div>
 </p></div>
 	    <div class="row"><p align="left">RFC con homoclave:
              <div class="column small-10 ">
@@ -347,13 +331,10 @@ Premium Credit:
         <div class="row"> 
 
 	    <p align="left">Telefono movil (Con lada - 10 dígitos):
-<<<<<<< HEAD
-            <div class="column small-10"><div class="small-1 columns"><input name="movsol1" type="text" id="movsol1" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol2)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol2" type="text" id="movsol2" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol3)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol3" type="text" id="movsol3" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol4)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol4" type="text" id="movsol4" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol5)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol5" type="text" id="movsol5" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol6)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol6" type="text" id="movsol6" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol7)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol7" type="text" id="movsol7" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol8)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol8" type="text" id="movsol8" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol9)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol9" type="text" id="movsol9" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol10)"onkeypress="return validaNumero(event)"></div><div class="small-1 columns"><input name="movsol10" type="text" id="movsol10" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol12)"onkeypress="return validaNumero(event)"> </div>
-	    </p></div>
-=======
+
             <div class="column small-10"><div class="small-1 columns"><input name="movsol1" type="text" id="movsol1" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol2)"pattern="integer"></div><div class="small-1 columns"><input name="movsol2" type="text" id="movsol2" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol3)"pattern="integer"></div><div class="small-1 columns"><input name="movsol3" type="text" id="movsol3" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol4)"pattern="integer"></div><div class="small-1 columns"><input name="movsol4" type="text" id="movsol4" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol5)"pattern="integer"></div><div class="small-1 columns"><input name="movsol5" type="text" id="movsol5" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol6)"pattern="integer"></div><div class="small-1 columns"><input name="movsol6" type="text" id="movsol6" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol7)"pattern="integer"></div><div class="small-1 columns"><input name="movsol7" type="text" id="movsol7" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol8)"pattern="integer"></div><div class="small-1 columns"><input name="movsol8" type="text" id="movsol8" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol9)"pattern="integer"></div><div class="small-1 columns"><input name="movsol9" type="text" id="movsol9" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol10)"pattern="integer"></div><div class="small-1 columns"><input name="movsol10" type="text" id="movsol10" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol12)"pattern="integer"> </div>
 	    </p></div></div>
->>>>>>> origin/master
+
 
         <div class="row"> 
 
@@ -723,7 +704,7 @@ Fecha de nacimiento:
        
         
         <li class="accordion-item " data-accordion-item>
-            <a href="#" class="accordion-title" onClick="window.scrollTo(0,0)"><h4 id="dos" >FORMATO DE IDENTIFICACIÓN DEL CLIENTE POR CLASIFICACIÓN DE RIESGO&nbsp;</h4></a>
+            <a href="#" class="accordion-title" onClick="cambio()"><h4 id="dos" >FORMATO DE IDENTIFICACIÓN DEL CLIENTE POR CLASIFICACIÓN DE RIESGO&nbsp;</h4></a>
                 <div class="accordion-content" data-tab-content>
                       <div id="riesgo" >
 		     	       <div data-sticky-container="" class="sticky-container" style="height: 40.375px;">
@@ -737,8 +718,8 @@ Fecha de nacimiento:
   </div>
 </div>
 		<h4 align="left">Datos generales del cliente</h4> 
-		<p align="left">Tipo de Cliente: Nuevo <input id="escliente" name="escliente" type="radio" value="1" required>
-		 Actualización <input id="escliente" name="escliente" type="radio" value="2" required>
+		<p align="left">Tipo de Cliente: <input id="escliente1" name="escliente" type="radio" value="1" required><label for="escliente1">Nuevo</label>
+		<input id="escliente2" name="escliente" type="radio" value="2" required><label for="escliente2"> Actualización </label>
 		</p>
 		<table width="100%" border="0">
             <tr>
@@ -791,8 +772,8 @@ Fecha de nacimiento:
 		  <table width="100%" border="0">
             <tr>
               <td width="32%">Actividad | Objeto Social </td>
-              <td width="68%"><select id="select" name="select" size="1" style="width:60%;">
-                <option value="---" selected>---</option>
+              <td width="68%"><select id="select" name="select" size="1" style="width:60%;" required>
+                <option value="" selected></option>
                 <option value="3">Vulnerable</option>
                 <option value="2">Informal</option>
                 <option value="1">Otra</option>
@@ -801,7 +782,7 @@ Fecha de nacimiento:
             </tr>
             <tr>
               <td>Antigüedad del cliente </td>
-              <td><select id="select2" name="select2" size="1" style="width:60%;">
+              <td><select id="select2" name="select2" size="1" style="width:60%;" required>
                 <option value="---" selected>---</option>
                 <option value="3">1-3 años</option>
                 <option value="2">4-6 años</option>
@@ -811,7 +792,7 @@ Fecha de nacimiento:
             </tr>
             <tr>
               <td>Naturaleza de las operaciones </td>
-              <td><select id="select3" name="select3" size="1" style="width:60%;">
+              <td><select id="select3" name="select3" size="1" style="width:60%;" required>
                 <option value="---" selected>---</option>
                 <option value="1">Prestamo</option>
                 <option value="2">Arrendamiento</option>
@@ -820,7 +801,7 @@ Fecha de nacimiento:
             </tr>
             <tr>
               <td>Q de Beneficiarios </td>
-              <td><select id="select4" name="select4" size="1" style="width:60%;">
+              <td><select id="select4" name="select4" size="1" style="width:60%;" required>
                 <option value="---" selected>---</option>
                 <option value="1">1 a 2</option>
                 <option value="2">3 a 4</option>
@@ -830,7 +811,7 @@ Fecha de nacimiento:
             </tr>
             <tr>
               <td>Q de Terceros Relacionados (Apoderados y Cotitulares) </td>
-              <td><select id="select5" name="select5" size="1" style="width:60%;">
+              <td><select id="select5" name="select5" size="1" style="width:60%;" required>
                 <option value="---" selected>---</option>
                 <option value="1">1 a 2</option>
                 <option value="2">3 a 4</option>
@@ -840,7 +821,7 @@ Fecha de nacimiento:
             </tr>
             <tr>
               <td>PEPs Relacionados </td>
-              <td><select id="select6" name="select6" size="1" style="width:60%;">
+              <td><select id="select6" name="select6" size="1" style="width:60%;" required>
                 <option value="---" selected>---</option>
                 <option value="1">1% - 49%</option>
                 <option value="2">50% - 74%</option>
@@ -849,7 +830,7 @@ Fecha de nacimiento:
             </tr>
             <tr>
               <td>Alerta Reputacional </td>
-              <td><select id="select7" name="select7" size="1" style="width:60%;">
+              <td><select id="select7" name="select7" size="1" style="width:60%;" required>
                 <option value="---" selected>---</option>
                 <option value="1">1% - 49%</option>
                 <option value="2">50% - 74%</option>
@@ -858,7 +839,7 @@ Fecha de nacimiento:
             </tr>
             <tr>
               <td>Volumen esperado (Monto) </td>
-              <td><select id="select8" name="select8" size="1" style="width:60%;">
+              <td><select id="select8" name="select8" size="1" style="width:60%;" required>
                 <option value="---" selected>---</option>
                 <option value="1">$18000 - $20000</option>
                 <option value="2">$21000 - $25000</option>
@@ -867,7 +848,7 @@ Fecha de nacimiento:
             </tr>
             <tr>
               <td>Frecuencia esperada (No. Veces) </td>
-              <td><select id="select9" name="select9" size="1" style="width:60%;">
+              <td><select id="select9" name="select9" size="1" style="width:60%;" required>
                 <option value="---" selected>---</option>
                 <option value="1">1 a 3</option>
                 <option value="2">4 a 6</option>
@@ -876,7 +857,7 @@ Fecha de nacimiento:
             </tr>
             <tr>
               <td>Instrumento Monetario Utilizado </td>
-              <td><select id="select10" name="select10" size="1" style="width:60%;">
+              <td><select id="select10" name="select10" size="1" style="width:60%;" required>
                 <option value="---" selected>---</option>
                 <option value="1">Transferencia</option>
                 <option value="2">Cheque</option>
@@ -885,7 +866,7 @@ Fecha de nacimiento:
             </tr>
             <tr>
               <td>Canales o Medios Utilizados </td>
-              <td><select id="select11" name="select11" size="1" style="width:60%;">
+              <td><select id="select11" name="select11" size="1" style="width:60%;" required>
                 <option value="---" selected>---</option>
                 <option value="1">Agencia</option>
                 <option value="2">Internet</option>
@@ -894,7 +875,7 @@ Fecha de nacimiento:
             </tr>
             <tr>
               <td>País | Estado Oficial </td>
-              <td><select id="select12" name="select12" size="1" style="width:60%;">
+              <td><select id="select12" name="select12" size="1" style="width:60%;" required>
                 <option value="---" selected>---</option>
                 <option value="1">México</option>
                 <option value="2">Otros</option>
@@ -903,7 +884,7 @@ Fecha de nacimiento:
             </tr>
             <tr>
               <td>País | Estado Residencia </td>
-              <td><select id="select13" name="select13" size="1" style="width:60%;">
+              <td><select id="select13" name="select13" size="1" style="width:60%;" required>
                 <option value="---" selected>---</option>
                 <option value="3">Guerrero-Michoacan-Tamaulipas-Morelos</option>
                 <option value="2">Durango-Chihuhua-Jalisco-México-CD México-Sonora</option>
@@ -912,7 +893,7 @@ Fecha de nacimiento:
             </tr>
             <tr>
               <td>País | Estado Operación </td>
-              <td><select id="select14" name="select14" size="1" style="width:60%;">
+              <td><select id="select14" name="select14" size="1" style="width:60%;" required>
                 <option value="---" selected>---</option>
                 <option value="3">Guerrero-Michoacan-Tamaulipas-Morelos</option>
                 <option value="2">Durango-Chihuhua-Jalisco-México-CD México-Sonora</option>
@@ -921,7 +902,7 @@ Fecha de nacimiento:
             </tr>
             <tr>
               <td>Origen de los recursos </td>
-              <td><select id="select15" name="select15" size="1" style="width:60%;">
+              <td><select id="select15" name="select15" size="1" style="width:60%;" required>
                 <option value="---" selected>---</option>
                 <option value="1">México</option>
                 <option value="2">Otros</option>
@@ -930,7 +911,7 @@ Fecha de nacimiento:
             </tr>
             <tr>
               <td>Destino de los recursos </td>
-              <td><select id="select16" name="select16" size="1" style="width:60%;">
+              <td><select id="select16" name="select16" size="1" style="width:60%;" required>
                 <option value="---" selected>---</option>
                 <option value="1">México</option>
                 <option value="2">Otros</option>
@@ -939,7 +920,7 @@ Fecha de nacimiento:
             </tr>
             <tr>
               <td>País | Estado Residencia de Terceros Relacionados </td>
-              <td><select id="select17" name="select17" size="1" style="width:60%;">
+              <td><select id="select17" name="select17" size="1" style="width:60%;" required>
                 <option value="---" selected>---</option>
                 <option value="1">México</option>
                 <option value="2">Otros</option>
@@ -958,7 +939,7 @@ Fecha de nacimiento:
         
 
         <li class="accordion-item " data-accordion-item>
-            <a href="#" class="accordion-title" onClick="window.scrollTo(0,0)"><h4 id="tres">FORMATO DE IDENTIFICACION, CONOCIMIENTO DEL CLIENTE Y CONSTANCIA DE ENTREVISTA</h4></a>
+            <a href="#" class="accordion-title" onClick="cambio2()"><h4 id="tres">FORMATO DE IDENTIFICACION, CONOCIMIENTO DEL CLIENTE Y CONSTANCIA DE ENTREVISTA</h4></a>
                 <div class="accordion-content" data-tab-content>
                      <div id="identificacion" >
           <div data-sticky-container="" class="sticky-container" style="height: 40.375px;">
@@ -1422,6 +1403,7 @@ No:
     <script src="js/vendor/foundation.js"></script>
     
     <script src="js/vendor/app.js"></script>
+    <script src="js/PFNA.js"></script>
     <!--sd-->
 </body>
 </html>

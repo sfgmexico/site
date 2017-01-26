@@ -79,7 +79,7 @@
     </script> 
     <script type="text/javascript" src="js/botones.js"></script>
        
-      <script src="js/PFNA.js"></script>
+      
       <script src="js/PFA.js"></script>
 </body>
 
