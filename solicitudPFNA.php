@@ -304,7 +304,19 @@ Premium Credit:
 </p></div>
 	    <div class="row"><p align="left">RFC con homoclave:
              <div class="column small-10 ">
-	    <div class="small-1 columns"><input name="rfc1" type="text" id="rfc1" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc2)" pattern="alpha_numeric"></div><div class="small-1 columns"><input name="rfc2" type="text" id="rfc2" size="1px" maxlength="1"onkeyup="myFunction(this,this.value,rfc3)" pattern="alpha_numeric"></div><div class="small-1 columns"><input name="rfc3" type="text" id="rfc3" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc4)" pattern="alpha_numeric"></div><div class="small-1 columns"><input name="rfc4" type="text" id="rfc4" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc5)" pattern="alpha_numeric"></div><div class="small-1 columns"><input name="rfc5" type="text" id="rfc5" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc6)" pattern="alpha_numeric"></div><div class="small-1 columns"><input name="rfc6" type="text" id="rfc6" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc7)" pattern="alpha_numeric"></div><div class="small-1 columns"><input name="rfc7" type="text" id="rfc7" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc8)" pattern="alpha_numeric"></div><div class="small-1 columns"><input name="rfc8" type="text" id="rfc8" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc9)" pattern="alpha_numeric"></div><div class="small-1 columns"><input name="rfc9" type="text" id="rfc9" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc10)" pattern="alpha_numeric"></div><div class="small-1 columns"><input name="rfc10" type="text" id="rfc10" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc11)" pattern="alpha_numeric"></div><div class="small-1 columns"><input name="rfc11" type="text" id="rfc11" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc12)" pattern="alpha_numeric"></div><div class="small-1 columns"><input name="rfc12" type="text" id="rfc12" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc13)" pattern="alpha_numeric"></div></div><div class="small-1 columns"><input name="rfc13" type="text" id="rfc13" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol1)"pattern="alpha_numeric"></div>
+	    <div class="small-1 columns"><input name="rfc1" type="text" id="rfc1" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc2)" pattern="alpha_numeric"></div>
+      <div class="small-1 columns"><input name="rfc2" type="text" id="rfc2" size="1px" maxlength="1"onkeyup="myFunction(this,this.value,rfc3)" pattern="alpha_numeric"></div>
+      <div class="small-1 columns"><input name="rfc3" type="text" id="rfc3" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc4)" pattern="alpha_numeric"></div>
+      <div class="small-1 columns"><input name="rfc4" type="text" id="rfc4" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc5)" pattern="alpha_numeric"></div>
+      <div class="small-1 columns"><input name="rfc5" type="text" id="rfc5" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc6)" pattern="alpha_numeric"></div>
+      <div class="small-1 columns"><input name="rfc6" type="text" id="rfc6" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc7)" pattern="alpha_numeric"></div>
+      <div class="small-1 columns"><input name="rfc7" type="text" id="rfc7" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc8)" pattern="alpha_numeric"></div>
+      <div class="small-1 columns"><input name="rfc8" type="text" id="rfc8" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc9)" pattern="alpha_numeric"></div>
+      <div class="small-1 columns"><input name="rfc9" type="text" id="rfc9" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc10)" pattern="alpha_numeric"></div>
+      <div class="small-1 columns"><input name="rfc10" type="text" id="rfc10" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc11)" pattern="alpha_numeric"></div>
+      <div class="small-1 columns"><input name="rfc11" type="text" id="rfc11" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc12)" pattern="alpha_numeric"></div>
+      <div class="small-1 columns"><input name="rfc12" type="text" id="rfc12" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc13)" pattern="alpha_numeric"></div></div>
+      <div class="small-1 columns"><input name="rfc13" type="text" id="rfc13" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol1)"pattern="alpha_numeric"></div>
  </p></div>
 
 	    <div class="row"> <p align="left">Telefono partiular (Con lada - 10 dígitos) : 
@@ -715,7 +727,7 @@ Fecha de nacimiento:
             </tr>
             <tr>
               <td>Número de cliente </td>
-              <td><input name="textfield2" type="text" id="textfield2" size="100%" readonly=""></td>
+              <td><input name="textfield2" type="text" id="textfield2" size="100%"  readonly=""></td>
             </tr>
             <tr>
               <td>Domicilio particular(Calle, número) </td>
