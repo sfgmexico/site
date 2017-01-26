@@ -148,7 +148,21 @@ $('#secDatObligadoSolidarioPF1').find('input').each(function(){
   }
 
 });
+////SECCION OBLIGADO SOLIDARIO PERSONA FISICA
+$('#secDatObligadoSolidarioPF2').find('input').each(function(){
+  
+  if(document.getElementById("datobnom2").value!="" && document.getElementById("datobappat2").value!="" ){
+    if(this.id=="datobapmat2"){
+      $(this).prop('required',false);
+    }else{
+      $(this).prop('required',true);
+    }
+    
+  }else{
+    $(this).prop('required',false);
+  }
 
+});
 
 var pagina=1;
 ///ciclo de seleccion de pagina
@@ -555,8 +569,8 @@ Telefono(Con lada - 10 dígitos):
 	    <p align="left"><strong>DATOS DEL OBLIGADO SOLIDARIO PERSONA FÍSICA, PROPIETARIO DE BIEN INMUEBLE </strong></p>
 	    <p align="left">
 	      <input name="datobnom1" type="text" id="datobnom1" size="30px" placeholder="Nombre(s)"onkeypress="return validaTexto(event)">
-          <input name="datobappat1" type="text" id="datobappat1" size="30px" placeholder="Apellido Paterno"onkeypress="return validaTexto(event)">
-          <input name="datobapmat1" type="text" id="datobapmat1" size="30px" placeholder="Apellido Materno"onkeypress="return validaTexto(event)">
+          <input name="datobappat1" type="text" id="datobappat1" size="30px" placeholder="Apellido Paterno" pattern="alpha">
+          <input name="datobapmat1" type="text" id="datobapmat1" size="30px" placeholder="Apellido Materno"pattern="alpha">
 	    </p>
 	    <p align="left">
 	      <input name="datobdir1" type="text" id="datobdir1" size="48px" placeholder="Dirección / Calle y número">
@@ -658,13 +672,13 @@ Fecha de nacimiento:
       </div>
 	    <hr>
 	    <p align="justify">
-	      <input name="clavcon" type="text" id="clavcon" size="30px" placeholder="Clave Consesionario o Distribuidor">
-          <input name="nomcons" type="text" id="nomcons" size="30px" placeholder="Nombre Concesionario o Distribuidor">
+	      <input name="clavcon" type="text" id="clavcon" size="30px" placeholder="Clave Consesionario o Distribuidor" required>
+          <input name="nomcons" type="text" id="nomcons" size="30px" placeholder="Nombre Concesionario o Distribuidor" required>
           <input name="fecha" type="text" id="fecha" value="<?php echo date("Y-m-d");?>" size="10px" readonly>
 </p>
 	    <p align="justify">
-	      <input  name="nomvend" type="text" id="nomvend" size="48px" placeholder="Nombre del Vendedor"onkeypress="return validaTexto(event)">
-          <input name="gerentegral" type="text" id="gerentegral" size="48px" placeholder="Nombre y firma del Gerente General">
+	      <input  name="nomvend" type="text" id="nomvend" size="48px" placeholder="Nombre del Vendedor"onkeypress="return validaTexto(event)" required>
+          <input name="gerentegral" type="text" id="gerentegral" size="48px" placeholder="Nombre y firma del Gerente General" required>
 </p>
 	   
 	    <hr>
