@@ -177,6 +177,105 @@ $('#secDatObligadoSolidarioPF2').find('input').each(function(){
   }
 
 });
+///SECCION CREDENCIALES 
+///INE
+$('#secINE').find('input').each(function(){
+  if(document.getElementById("textfield39").value!="" ){
+    $(this).prop('required',true);
+    
+  }else{
+    $(this).prop('required',false);
+  }
+  
+});
+///SECCION PASAPORTE CEDULA PROF
+$('#secCedProfesional').find('input').each(function(){
+  if(document.getElementById("textfield40").value!="" ){
+    $(this).prop('required',true);
+    
+  }else{
+    $(this).prop('required',false);
+  }
+  
+});
+///CARTILLA SERV MILITAR    
+$('#secCarMilitar').find('input').each(function(){
+  if(document.getElementById("textfield41").value!="" ){
+    $(this).prop('required',true);
+    
+  }else{
+    $(this).prop('required',false);
+  }
+  
+});
+///LICENCIA PARA CONDUCIR 
+$('#secLicConducir').find('input').each(function(){
+  if(document.getElementById("textfield42").value!="" ){
+    $(this).prop('required',true);
+    
+  }else{
+    $(this).prop('required',false);
+  }
+  
+});
+///OTRA IDENTIFICACION
+$('#secOtrIdentificacion').find('input').each(function(){
+  if(document.getElementById("textfield43").value!="" ){
+    $(this).prop('required',true);
+    
+  }else{
+    $(this).prop('required',false);
+  }
+  
+});
+$('#secOtrIdentificacion2').find('input').each(function(){
+  if(document.getElementById("textfield43").value!="" ){
+    $(this).prop('required',true);
+    
+  }else{
+    $(this).prop('required',false);
+  }
+  
+});
+////SECCION DE BENEFICIARIO 
+$('#secBeneficiario').find('input').each(function(){
+  if(document.getElementById("textfield45").value!="" && document.getElementById("textfield47").value!="" ){
+    $(this).prop('required',true);
+    
+  }else{
+    $(this).prop('required',false);
+  }
+  
+});
+///SECCION PERFIL TRANSACCIONAL INICIAL 
+$('#secPerTransaccional').find('input').each(function(){
+ 
+  if(this.id=="textfield66" && document.getElementById("textfield65").value!="" ){ $(this).prop('required',true);}else{ $(this).prop('required',false);}
+  if(this.id=="textfield68" && document.getElementById("textfield67").value!="" ){ $(this).prop('required',true);}else{ $(this).prop('required',false);}
+  if(this.id=="textfield70" && document.getElementById("textfield69").value!="" ){ $(this).prop('required',true);}else{ $(this).prop('required',false);}
+  if(this.id=="textfield72" && document.getElementById("textfield71").value!="" ){ $(this).prop('required',true);}else{ $(this).prop('required',false);}
+  if(this.id=="textfield74" && document.getElementById("textfield73").value!="" ){ $(this).prop('required',true);}else{ $(this).prop('required',false);}
+  if(this.id=="textfield76" && document.getElementById("textfield75").value!="" ){ $(this).prop('required',true);}else{ $(this).prop('required',false);}
+  if(this.id=="textfield78" && document.getElementById("textfield77").value!="" ){ $(this).prop('required',true);}else{ $(this).prop('required',false);}
+  if(this.id=="textfield80" && document.getElementById("textfield79").value!="" ){ $(this).prop('required',true);}else{ $(this).prop('required',false);}
+  if(this.id=="textfield82" && document.getElementById("textfield81").value!="" ){ $(this).prop('required',true);}else{ $(this).prop('required',false);}
+  if(this.id=="textfield84" && document.getElementById("textfield83").value!="" ){ $(this).prop('required',true);}else{ $(this).prop('required',false);}
+  
+});
+///SECCION PEPS 
+$('#secPEPS').find('input').each(function(){
+ 
+  if($('input:radio[name=PEPS]:checked').val()=="1" ){ 
+    $(this).prop('required',true);
+    }else{
+      $(this).prop('required',false);
+    }
+
+
+  
+  
+  
+});
 
 var pagina=1;
 ///ciclo de seleccion de pagina
@@ -218,12 +317,13 @@ if(($(this).prop('required') && this.value=="") || ($(this).prop('required') && 
         $( '#dos' ).click ();
         window.scrollTo(0,0);
         this.focus();
+        this.select();
         return false;
       }
       if(pagina=="3"){
-        $( '#tres' ).click ();
-        window.scrollTo(0,0);
+       
         this.focus();
+        this.select();
         return false;
       }
         
@@ -232,6 +332,7 @@ if(($(this).prop('required') && this.value=="") || ($(this).prop('required') && 
       console.log("NR");
     }
     
+    return true;
 });
 
 }
@@ -783,7 +884,7 @@ Fecha de nacimiento:
             <tr>
               <td>Antigüedad del cliente </td>
               <td><select id="select2" name="select2" size="1" style="width:60%;" required>
-                <option value="---" selected>---</option>
+                <option value="" selected></option>
                 <option value="3">1-3 años</option>
                 <option value="2">4-6 años</option>
                 <option value="1">7-10 años</option>
@@ -793,7 +894,7 @@ Fecha de nacimiento:
             <tr>
               <td>Naturaleza de las operaciones </td>
               <td><select id="select3" name="select3" size="1" style="width:60%;" required>
-                <option value="---" selected>---</option>
+                <option value="" selected></option>
                 <option value="1">Prestamo</option>
                 <option value="2">Arrendamiento</option>
                 <option value="3">Otros</option>
@@ -802,7 +903,7 @@ Fecha de nacimiento:
             <tr>
               <td>Q de Beneficiarios </td>
               <td><select id="select4" name="select4" size="1" style="width:60%;" required>
-                <option value="---" selected>---</option>
+                <option value="" selected></option>
                 <option value="1">1 a 2</option>
                 <option value="2">3 a 4</option>
                 <option value="3">5 o mas</option>
@@ -812,7 +913,7 @@ Fecha de nacimiento:
             <tr>
               <td>Q de Terceros Relacionados (Apoderados y Cotitulares) </td>
               <td><select id="select5" name="select5" size="1" style="width:60%;" required>
-                <option value="---" selected>---</option>
+                <option value="" selected></option>
                 <option value="1">1 a 2</option>
                 <option value="2">3 a 4</option>
                 <option value="3">5 o mas</option>
@@ -822,7 +923,7 @@ Fecha de nacimiento:
             <tr>
               <td>PEPs Relacionados </td>
               <td><select id="select6" name="select6" size="1" style="width:60%;" required>
-                <option value="---" selected>---</option>
+                <option value="" selected></option>
                 <option value="1">1% - 49%</option>
                 <option value="2">50% - 74%</option>
                 <option value="3">75% - 100%</option>
@@ -831,7 +932,7 @@ Fecha de nacimiento:
             <tr>
               <td>Alerta Reputacional </td>
               <td><select id="select7" name="select7" size="1" style="width:60%;" required>
-                <option value="---" selected>---</option>
+                <option value="" selected></option>
                 <option value="1">1% - 49%</option>
                 <option value="2">50% - 74%</option>
                 <option value="3">75% - 100%</option>
@@ -840,7 +941,7 @@ Fecha de nacimiento:
             <tr>
               <td>Volumen esperado (Monto) </td>
               <td><select id="select8" name="select8" size="1" style="width:60%;" required>
-                <option value="---" selected>---</option>
+                <option value="" selected></option>
                 <option value="1">$18000 - $20000</option>
                 <option value="2">$21000 - $25000</option>
                 <option value="3">mas de $25000</option>
@@ -849,7 +950,7 @@ Fecha de nacimiento:
             <tr>
               <td>Frecuencia esperada (No. Veces) </td>
               <td><select id="select9" name="select9" size="1" style="width:60%;" required>
-                <option value="---" selected>---</option>
+                <option value="" selected></option>
                 <option value="1">1 a 3</option>
                 <option value="2">4 a 6</option>
                 <option value="3">7 a 10</option>
@@ -858,7 +959,7 @@ Fecha de nacimiento:
             <tr>
               <td>Instrumento Monetario Utilizado </td>
               <td><select id="select10" name="select10" size="1" style="width:60%;" required>
-                <option value="---" selected>---</option>
+                <option value="" selected></option>
                 <option value="1">Transferencia</option>
                 <option value="2">Cheque</option>
                 <option value="3">Efectivo</option>
@@ -867,7 +968,7 @@ Fecha de nacimiento:
             <tr>
               <td>Canales o Medios Utilizados </td>
               <td><select id="select11" name="select11" size="1" style="width:60%;" required>
-                <option value="---" selected>---</option>
+                <option value="" selected></option>
                 <option value="1">Agencia</option>
                 <option value="2">Internet</option>
                 <option value="3">Otro</option>
@@ -876,7 +977,7 @@ Fecha de nacimiento:
             <tr>
               <td>País | Estado Oficial </td>
               <td><select id="select12" name="select12" size="1" style="width:60%;" required>
-                <option value="---" selected>---</option>
+                <option value="" selected></option>
                 <option value="1">México</option>
                 <option value="2">Otros</option>
                 <option value="3">Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar</option>
@@ -885,7 +986,7 @@ Fecha de nacimiento:
             <tr>
               <td>País | Estado Residencia </td>
               <td><select id="select13" name="select13" size="1" style="width:60%;" required>
-                <option value="---" selected>---</option>
+                <option value="" selected></option>
                 <option value="3">Guerrero-Michoacan-Tamaulipas-Morelos</option>
                 <option value="2">Durango-Chihuhua-Jalisco-México-CD México-Sonora</option>
                 <option value="1">Puebla-Coahuila-Zcatecas-Hidalgo-Durango</option>
@@ -894,7 +995,7 @@ Fecha de nacimiento:
             <tr>
               <td>País | Estado Operación </td>
               <td><select id="select14" name="select14" size="1" style="width:60%;" required>
-                <option value="---" selected>---</option>
+                <option value="" selected></option>
                 <option value="3">Guerrero-Michoacan-Tamaulipas-Morelos</option>
                 <option value="2">Durango-Chihuhua-Jalisco-México-CD México-Sonora</option>
                 <option value="1">Puebla-Coahuila-Zcatecas-Hidalgo-Durango</option>
@@ -903,7 +1004,7 @@ Fecha de nacimiento:
             <tr>
               <td>Origen de los recursos </td>
               <td><select id="select15" name="select15" size="1" style="width:60%;" required>
-                <option value="---" selected>---</option>
+                <option value="" selected></option>
                 <option value="1">México</option>
                 <option value="2">Otros</option>
                 <option value="3">Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar</option>
@@ -912,7 +1013,7 @@ Fecha de nacimiento:
             <tr>
               <td>Destino de los recursos </td>
               <td><select id="select16" name="select16" size="1" style="width:60%;" required>
-                <option value="---" selected>---</option>
+                <option value="" selected></option>
                 <option value="1">México</option>
                 <option value="2">Otros</option>
                 <option value="3">Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar</option>
@@ -921,7 +1022,7 @@ Fecha de nacimiento:
             <tr>
               <td>País | Estado Residencia de Terceros Relacionados </td>
               <td><select id="select17" name="select17" size="1" style="width:60%;" required>
-                <option value="---" selected>---</option>
+                <option value="" selected></option>
                 <option value="1">México</option>
                 <option value="2">Otros</option>
                 <option value="3">Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar</option>
@@ -1028,7 +1129,7 @@ Fecha de nacimiento:
             </tr>
             <tr>
               <td>Numero de serie de la FIEL*</td>
-              <td><input name="textfield30" type="text" id="textfield30" size="100%"  ></td>
+              <td><input name="textfield30" type="text" id="textfield30" size="100%"  required></td>
             </tr>
             <tr>
               <td>Nacionalidad</td>
@@ -1048,7 +1149,7 @@ Fecha de nacimiento:
             </tr>
             <tr>
               <td>Sueldo o ingreso mensual </td>
-              <td><input name="textfield35" type="text" id="textfield35" size="100%" ></td>
+              <td><input name="textfield35" type="text" id="textfield35" size="100%" required></td>
             </tr>
             <tr>
               <td>Puesto</td>
@@ -1056,11 +1157,11 @@ Fecha de nacimiento:
             </tr>
             <tr>
               <td>Actividad Económica Adicional </td>
-              <td><input name="textfield37" type="text" id="textfield37" size="100%" ></td>
+              <td><input name="textfield37" type="text" id="textfield37" size="100%" required></td>
             </tr>
             <tr>
               <td>Ingresos Adicionales Mensuales Apox </td>
-              <td><input name="textfield38" type="text" id="textfield38" size="100%"  ></td>
+              <td><input name="textfield38" type="text" id="textfield38" size="100%"  required></td>
             </tr>
           </table>
 		  <br>
@@ -1068,77 +1169,90 @@ Fecha de nacimiento:
 		  <br>
           <h6 align="left">DOCUMENTACION DE IDENTIFICACION </h6>
           <table width="100%" border="0">
+            
             <tr>
+            
               <td width="21%">Credencial para votar </td>
               <td width="35%"><input name="textfield39" type="text" id="textfield39" size="50%" ></td>
               <td width="15%">Se adjunta copia: </td>
-              <td>Si:
-              <input name="copias" type="radio" value="1">
-              No:
-              <input name="copias" type="radio" value="2"></td>
+              <td id="secINE"> 
+              <input id="copiasA" name="copias" type="radio" value="1"><label for="copiasA">Si</label>
+             
+              <input id="copiasB" name="copias" type="radio" value="2"><label for="copiasB">No</label></td>
+             
             </tr>
+            
+           
             <tr>
               <td>Pasaporte cedula profesional </td>
               <td><input name="textfield40" type="text" id="textfield40" size="50%"  ></td>
               <td>Se adjunta copia: </td>
-              <td>Si:
-              <input name="copias2" type="radio" value="1">
-              No:
-              <input name="copias2" type="radio" value="2"></td>
+              <td id="secCedProfesional">
+              <input id="copias2A" name="copias2" type="radio" value="1"><label for="copias2A">Si</label>
+              
+              <input id="copias2B" name="copias2" type="radio" value="2"><label for="copias2B">No</label></td>
             </tr>
+            
+            
             <tr>
               <td>Cartilla de servicio militar </td>
               <td><input name="textfield41" type="text" id="textfield41" size="50%" ></td>
               <td>Se adjunta copia: </td>
-              <td>Si:
-              <input name="copias3" type="radio" value="1">
-              No:
-              <input name="copias3" type="radio" value="2"></td>
+              <td id="secCarMilitar">
+              <input id="copias3A" name="copias3" type="radio" value="1"><label for="copias3A">Si</label>
+              
+              <input id="copias3B" name="copias3" type="radio" value="2"><label for="copias3B">No</label></td>
             </tr>
+            
+            
             <tr>
               <td>Licencia para conducir </td>
               <td><input name="textfield42" type="text" id="textfield42" size="50%"  ></td>
               <td>Se adjunta copia: </td>
-              <td>Si:
-              <input name="copias4" type="radio" value="1">
-              No:
-              <input name="copias4" type="radio" value="2"></td>
+              <td id="secLicConducir">
+              <input id="copias4A" name="copias4" type="radio" value="1"><label for="copias4A">Si</label>
+              
+              <input id="copias4B" name="copias4" type="radio" value="2"><label for="copias4B">No</label></td>
             </tr>
+            
+           
             <tr>
               <td>Otra</td>
               <td><input name="textfield43" type="text" id="textfield43" size="50%"  ></td>
               <td>Se adjunta copia: </td>
-              <td>Si:
-              <input name="copias5" type="radio" value="1">
-              No:
-              <input name="copias5" type="radio" value="2"></td>
+              <td id="secOtrIdentificacion">
+              <input id="copias5A" name="copias5" type="radio" value="1"><label for="copias5A">Si</label>
+              
+              <input id="copias5B" name="copias5" type="radio" value="2"><label for="copias5B">No</label></td>
             </tr>
+           
             <tr>
               <td>Especificar</td>
-              <td><input name="textfield44" type="text" id="textfield44" size="50%"  ></td>
+              <td id="secOtrIdentificacion2"><input name="textfield44" type="text" id="textfield44" size="50%"  ></td>
               <td>Se cotejo vs original: </td>
-              <td>Si:
-                <input name="cotejo" type="radio" value="1">
-No:
-<input name="cotejo" type="radio" value="2"></td>
+              <td>
+                <input id="cotejo1" name="cotejo" type="radio" value="1" required><label for="cotejo1">Si</label>
+
+                <input id="cotejo2" name="cotejo" type="radio" value="2" required><label for="cotejo2">No</label></td>
             </tr>
+             </div>
           </table>
 		  <BR>
 		  <p align="left">OTROS DOCUMENTOS QUE SE ADJUNTAN:</p>
 		  <table width="100%" border="0">
             <tr>
               <td width="30%">Se adjunta CURP y/o cédula RFC, FEA* </td>
-              <td width="70%">Si:
-                <input name="adjuntos1" type="radio" value="1">
-No:
-<input name="adjuntos1" type="radio" value="2"></td>
+              <td width="70%">
+                <input id="adjuntos1A" name="adjuntos1" type="radio" value="1" required><label for="adjuntos1A" >Si</label>
+
+                <input id="adjuntos1B" name="adjuntos1" type="radio" value="2" required><label for="adjuntos1B" >No</label></td>
             </tr>
             <tr>
               <td>Se adjunta comprobante de domicilio </td>
-              <td>Si:
-                <input name="adjuntos2" type="radio" value="1">
-No:
-<input name="adjuntos2" type="radio" value="2"></td>
+              <td>
+                <input id="adjuntos2A" name="adjuntos2" type="radio" value="1" required><label for="adjuntos2A" >Si</label>
+
+                <input id="adjuntos2B" name="adjuntos2" type="radio" value="2" required><label for="adjuntos2B" >No</label></td>
             </tr>
             <tr>
               <td>Fecha del comprobante de domicilio </td>
@@ -1146,10 +1260,10 @@ No:
             </tr>
             <tr>
               <td>Domicilio manifestado coincide con la ID</td>
-              <td>Si:
-                <input name="adjuntos3" type="radio" value="1">
-No:
-<input name="adjuntos3" type="radio" value="2"></td>
+              <td>
+                <input id="adjuntos3A" name="adjuntos3" type="radio" value="1" required><label for="adjuntos3A" >Si</label>
+
+                <input id="adjuntos3B" name="adjuntos3" type="radio" value="2" required><label for="adjuntos3B" >No</label></td>
             </tr>
           </table>
 		  <br>
@@ -1157,11 +1271,12 @@ No:
 		
 		  <hr>
 		  <br>
+        <div id="secBeneficiario">
           <H6 align="left">BENEFICIARIO</H6>
           <table width="100%" border="0">
             <tr>
               <td width="18%">Apellido Paterno </td>
-              <td width="82%"><input name="textfield45" type="text" id="textfield45" size="50%" readonly ></td>
+              <td width="82%"><input name="textfield45" type="text" id="textfield45" size="50%"  ></td>
             </tr>
             <tr>
               <td>Apellido Materno </td>
@@ -1240,10 +1355,12 @@ No:
               <td><input name="textfield64" type="text" id="textfield64" size="50%"  ></td>
             </tr>
           </table>
+          </div>
 		  <br>
 		  <hr>
 		  <br>
           <H6 align="left">PERFIL TRANSACCIONAL INICIAL</H6>
+          <div id="secPerTransaccional">
           <table width="100%" border="0">
             <tr>
               <td width="21%">Ingresos Comprobable(1) </td>
@@ -1306,19 +1423,20 @@ No:
               <td><input name="textfield84" type="text" id="textfield84" size="50%"  ></td>
             </tr>
           </table>
+          </div>
 		  <br>
           <table width="100%" border="0">
             <tr>
               <td width="19%">Total de Ingresos </td>
-              <td width="81%"><input name="textfield85" type="text" id="textfield85" size="50%" onkeypress="return validaNumeroDecimal(event)"  ></td>
+              <td width="81%"><input name="textfield85" type="text" id="textfield85" size="50%" onkeypress="return validaNumeroDecimal(event)"  readonly></td>
             </tr>
             <tr>
               <td>Valor del Automóvil </td>
-              <td><input name="textfield86" type="text" id="textfield86" size="50%" onkeypress="return validaNumeroDecimal(event)" ></td>
+              <td><input name="textfield86" type="text" id="textfield86" size="50%" onkeypress="return validaNumeroDecimal(event)" required></td>
             </tr>
             <tr>
               <td>Enganche del Automóvil </td>
-              <td><input name="textfield87" type="text" id="textfield87" size="50%" onkeypress="return validaNumeroDecimal(event)" ></td>
+              <td><input name="textfield87" type="text" id="textfield87" size="50%" onkeypress="return validaNumeroDecimal(event)" onchange="datosAuto()" required></td>
             </tr>
             <tr>
               <td>Porcentaje de Enganche </td>
@@ -1334,22 +1452,23 @@ No:
             </tr>
             <tr>
               <td>Plazo (meses)</td>
-              <td><input name="textfield91" type="text" id="textfield91" size="50%" onkeypress="return validaNumero(event)"></td>
+              <td><input name="textfield91" type="text" id="textfield91" size="50%" onkeypress="return validaNumero(event)" required></td>
             </tr>
             <tr>
               <td>Pago Mensual Esperado </td>
-              <td><input name="textfield92" type="text" id="textfield92" size="50%" onkeypress="return validaNumero(event)"></td>
+              <td><input name="textfield92" type="text" id="textfield92" size="50%" onkeypress="return validaNumero(event)" required></td>
             </tr>
           </table>
 		  
 		  <br>
 	      <p align="left">¿ Usted o algún familiar suyo de hasta segundo grado de consanguinidad o afinidad (cónyuge,padre,madre,hijos,hermanos, abuelos, tios, primos, cuñados, suegros, yernos, etc), desempeña o a desempeñado funciones públicas destacadas en el territorio nacional o en el Extranjero (incluyendo puestos de Gobierno Federales, Estatales ,Municipales, funciones gubernamentales o judiciales, en partidos politicos, militares de alta jerarquía, altos ejecutivos de empresas paraestatales, etc.?<br>
-	        Si:
-                <input name="PEPS" type="radio" value="1">
-No:
-<input name="PEPS" type="radio" value="2">
+	        
+                <input id="PEPS1" name="PEPS" type="radio" value="1"><label for="PEPS1" required>Si</label>
+
+                <input id="PEPS2" name="PEPS" type="radio" value="2"><label for="PEPS2" required>No</label>
 	      </p>
 	      <p align="left">En caso de si:</p>
+        <div id="secPEPS">
 	      <table width="100%" border="0">
             <tr>
               <td width="18%">¿Quién? (Nombre) </td>
@@ -1364,6 +1483,7 @@ No:
               <td><input name="textfield95" type="text" id="textfield95" size="50%"  ></td>
             </tr>
           </table>
+          </div>
 	      <p align="left">&nbsp; </p>
 	      <hr>
 		  <br>
