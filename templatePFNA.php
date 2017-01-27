@@ -204,13 +204,13 @@ if ($datobnom1 != "" && $datobappat1 !="" && $datobapmat1!="") {
 	$datobsex1="";
 }
 
+$datobfechnac1a=substr($_REQUEST['datobfechnac1d'], 0,4);
+
+$datobfechnac1m=substr($_REQUEST['datobfechnac1d'], 5,2);
+
+$datobfechnac1d=substr($_REQUEST['datobfechnac1d'], 8,2);
 
 
-$datobfechnac1d=$_REQUEST['datobfechnac1d'];
-
-$datobfechnac1m=$_REQUEST['datobfechnac1m'];
-
-$datobfechnac1a=$_REQUEST['datobfechnac1a'];
 
 $datobed1=$_REQUEST['datobed1'];
 
@@ -277,12 +277,14 @@ if ($datobnom2 != "" && $datobappat2 !="" && $datobapmat2!="") {
 }
 
 
+$datobfechnac2a=substr($_REQUEST['datobfechnac2d'], 0,4);
 
-$datobfechnac2d=$_REQUEST['datobfechnac2d'];
+$datobfechnac2m=substr($_REQUEST['datobfechnac2d'], 5,2);
 
-$datobfechnac2m=$_REQUEST['datobfechnac2m'];
+$datobfechnac2d=substr($_REQUEST['datobfechnac2d'], 8,2);
 
-$datobfechnac2a=$_REQUEST['datobfechnac2a'];
+
+
 
 $datobed2=$_REQUEST['datobed2'];
 
@@ -2157,9 +2159,9 @@ $RFCSolicitante.=$rfc1.$rfc2.$rfc3.$rfc4.$rfc5.$rfc6.$rfc7.$rfc8.$rfc9.$rfc10.$r
 	
 	
 		
-$objPHPExcel->getActiveSheet()->setCellValue('M6', $Cliente);
-$objPHPExcel->getActiveSheet()->setCellValue('AH251', $Cliente);
-$objPHPExcel->getActiveSheet()->setCellValue('J179', $Cliente);
+$objPHPExcel->getActiveSheet()->setCellValue('M7', $Cliente);
+$objPHPExcel->getActiveSheet()->setCellValue('AF312', $Cliente);
+$objPHPExcel->getActiveSheet()->setCellValue('I222', $Cliente);
 
 	}else {
 		mysqli_query($cnx,"insert into solicitudes (Cliente,

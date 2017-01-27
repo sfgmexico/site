@@ -8,14 +8,22 @@
     <link rel="stylesheet" href="js/js/css/foundation.css">
     <link rel="stylesheet" href="js/js/css/foundation.min.css">
     <link rel="stylesheet" href="js/js/css/app.css">
-
+    <link rel="stylesheet" href="js/jquery-ui/jquery-ui.css">
 </head>
 <body>
 <!-- header -->
 <header>
 <script>
 
-
+$( document ).ready(function() {
+    $fecha=$('#fechnacsol');
+    console.log( $fecha );
+if ($fecha[0].type!="date"){
+$fecha.datepicker({ dateFormat: 'yy-mm-dd' ,changeMonth: true,
+      changeYear: true} );
+}
+console.log( "ready!" );
+});
 
 
 
@@ -1527,6 +1535,7 @@ Fecha de nacimiento:
     
     <script src="js/vendor/app.js"></script>
     <script src="js/PFNA.js"></script>
+    <script src="js/jquery-ui/jquery-ui.js"></script>
     <!--sd-->
 </body>
 </html>
