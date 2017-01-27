@@ -270,11 +270,6 @@ $('#secPEPS').find('input').each(function(){
     }else{
       $(this).prop('required',false);
     }
-
-
-  
-  
-  
 });
 
 var pagina=1;
