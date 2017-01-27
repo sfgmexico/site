@@ -440,10 +440,10 @@ input::-moz-placeholder {
 </p></div></div>
 <div class="row"> 
 	    <p align="left">
-         <div class="small-3 columns">      <input name="mailsol" type="text" id="mailsol" size="20px" placeholder="Email" pattern="email"></div>
-	    <div class="small-3 columns">    <input name="dirsol" type="text" id="dirsol" size="74px" placeholder="Dirección / Calle" pattern="text"></div>
-         <div class="small-1 columns">    <input name="dirnumsol" type="text" id="dirnumsol" size="20px" placeholder="No #" pattern="alpha_numeric"></div>
-		    <div class="small-3 columns">    <input name="colsol" type="text" id="colsol" size="49px" placeholder="Colonia" pattern="text"> </div>
+         <div class="small-3 columns"> <input name="mailsol" type="text" id="mailsol" size="20px" placeholder="Email" pattern="email"></div>
+	    <div class="small-3 columns"> <input name="dirsol" type="text" id="dirsol" size="74px" placeholder="Dirección / Calle" pattern="text"></div>
+         <div class="small-2 columns"> <input name="dirnumsol" type="text" id="dirnumsol" size="20px" placeholder="No #" pattern="alpha_numeric"></div>
+		    <div class="small-3 columns"> <input name="colsol" type="text" id="colsol" size="49px" placeholder="Colonia" pattern="text"> </div>
 	    </p>
 </div>
 
@@ -453,31 +453,39 @@ input::-moz-placeholder {
 		<div class="small-3 columns"><input name="edosol" type="text" id="edosol" size="20px" placeholder="Estado"></div>
         <div class="small-3 columns">  <input name="lugnacsol" type="text" id="lugnacsol" size="20px" placeholder="Lugar de nacimiento (País y Estado)"></div>
 		</p>
-</div>        
-	    <p align="left">
-		<input name="cpsol" type="text" id="cpsol" size="20px" placeholder="C.P."  pattern="integer">
-		<input name="curpsol" type="text" id="curpsol" size="49px" placeholder="CURP"  pattern="alpha_numeric"></p>
+</div>   
+<div class="row">
+      <p align="left">
+   <div class="small-5 columns" ><input name="cpsol" type="text" id="cpsol" size="20px" placeholder="C.P."  pattern="integer"></div>
+   <div class="small-5 columns" ><input name="curpsol" type="text" id="curpsol" size="49px" placeholder="CURP"  pattern="alpha_numeric"></div>
+   </p>
+</div>     
 		<hr>
 	    <p align="left"><strong>DATOS GENERALES</strong> </p>
 	    <p align="left">Sexo:
 	      
-	      <input id="sexsol1" name="sexsol" type="radio" value="M"><label for="sexsol1">M</label> 
+	      <input id="sexsol1" name="sexsol" type="radio" value="M"><label for="sexsol1"> <i class="step fi-male size-72"></i> M</label> 
 	       
-	      <input id="sexsol2" name="sexsol" type="radio" value="F"><label for="sexsol2">F</label>
+	      <input id="sexsol2" name="sexsol" type="radio" value="F"><label for="sexsol2"> <i class="step fi-female size-72"></i> F</label>
 	      Fecha de nacimiento: <input name="fechnacsol" type="date" id="fechnacsol" size="1px" maxlength="2" placeholder="dd" pattern="date">
-	
-	    <input name="edsol" type="text" id="edsol" size="2px" placeholder="Edad" pattern="integer">
-	    <input name="nacsol" type="text" id="nacsol" size="10px" placeholder="Nacionalidad">
-	    <input name="depensol" type="text" id="depensol" size="10px" placeholder="Num. Dependientes" pattern="integer">
-	    <input name="acdomsol" type="text" id="acdomsol" size="10px" placeholder="Acredita Domicilio con">
 	    </p>
-	    <p align="left">vive en: <br>
-	      <input id="vivsol1" name="vivsol" type="radio" value="1"><label for="vivsol1">Casa Propia</label>
-	      <input id="vivsol2" name="vivsol" type="radio" value="2"><label for="vivsol2">Rentada</label>
-	      <input id="vivsol3" name="vivsol" type="radio" value="3"><label for="vivsol3">Hipotecada</label>
-	      <input id="vivsol4" name="vivsol" type="radio" value="4"><label for="vivsol4">Con familiares</label>
-	      <input name="impmenpag" type="text" id="impmenpag" placeholder="Importe mensual del pago" pattern="number">
-	    </p>
+      <div class="row">
+         <p align="left">
+          <div class="small-5 columns"><input name="edsol" type="text" id="edsol" size="2px" placeholder="Edad" pattern="integer"></div>
+          <div class="small-5 columns"><input name="nacsol" type="text" id="nacsol" size="10px" placeholder="Nacionalidad"></div>
+          <div class="small-5 columns"><input name="depensol" type="text" id="depensol" size="10px" placeholder="Num. Dependientes" pattern="integer"></div>
+          <div class="small-5 columns"><input name="acdomsol" type="text" id="acdomsol" size="10px" placeholder="Acredita Domicilio con"></div>
+      </p>
+    </div>
+	   <div class="row">
+      <p align="left">vive en: <br>
+        <input id="vivsol1" name="vivsol" type="radio" value="1"><label for="vivsol1">Casa Propia</label>
+        <input id="vivsol2" name="vivsol" type="radio" value="2"><label for="vivsol2">Rentada</label>
+        <input id="vivsol3" name="vivsol" type="radio" value="3"><label for="vivsol3">Hipotecada</label>
+        <input id="vivsol4" name="vivsol" type="radio" value="4"><label for="vivsol4">Con familiares</label>
+        <<input name="impmenpag" type="text" id="impmenpag" placeholder="Importe mensual del pago" pattern="number">
+      </p>
+     </div>
 	    <p align="left">Tiene una Propiedad a su nombre?: 
 	      <input id="inmusol1" name="inmusol" type="radio" value="1"><label for="inmusol1">Si</label>
 	      <input id="inmusol2" name="inmusol" type="radio" value="2"><label for="inmusol2">No</label>
