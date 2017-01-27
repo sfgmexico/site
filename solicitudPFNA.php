@@ -1271,7 +1271,7 @@ Fecha de nacimiento:
           <table width="100%" border="0">
             <tr>
               <td width="18%">Apellido Paterno </td>
-              <td width="82%"><input name="textfield45" type="text" id="textfield45" size="50%"  ></td>
+              <td width="82%"><input name="textfield45" type="text" id="textfield45" size="50%" readonly ></td>
             </tr>
             <tr>
               <td>Apellido Materno </td>
