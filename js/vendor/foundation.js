@@ -2436,7 +2436,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     validateOnBlur: false,
 
     patterns: {
-      alpha: /^[a-zA-Z]+$/,
+      alpha: /^[a-zA-ZñÑ\s]+$/,
       alpha_numeric: /^[a-zA-Z0-9]+$/,
       integer: /^[-+]?\d+$/,
       number: /^[-+]?\d*(?:[\.\,]\d+)?$/,
