@@ -703,7 +703,7 @@ Telefono(Con lada - 10 dígitos):
 	      
 	      <input id="datobsex1B" name="datobsex1" type="radio" value="F"><label for="datobsex1B">F</label>
 Fecha de nacimiento:
-<input name="datobfechnac1d" type="text" id="datobfechnac1d" size="1px" maxlength="2" placeholder="dd" onKeyUp="myFunction(this,this.value,datobfechnac1m)"onkeypress="return validaNumero(event)"><input name="datobfechnac1m" type="text" id="datobfechnac1m" size="1px" maxlength="2" placeholder="mm" onKeyUp="myFunction(this,this.value,datobfechnac1a)"onkeypress="return validaNumero(event)"><input name="datobfechnac1a" type="text" id="datobfechnac1a" size="1px" maxlength="4" placeholder="aaaa" onKeyUp="myFunction(this,this.value,datobed1)"onkeypress="return validaNumero(event)">
+<input name="datobfechnac1d" type="date" id="datobfechnac1d" size="1px" maxlength="2" placeholder="dd" >
 	    <input name="datobed1" type="text" id="datobed1" size="2px" placeholder="Edad"onkeypress="return validaNumero(event)">
 		<input name="datobcurp1" type="text" id="datobcurp1" size="22px" placeholder="CURP"onkeypress="return validaRFC(event)">
 	    </p>
@@ -756,7 +756,7 @@ Fecha de nacimiento:
 	      F
   <input id="datobsex2"name="datobsex2" type="radio" value="F">
 	      Fecha de nacimiento:
-  <input name="datobfechnac2d" type="text" id="datobfechnac2d" size="1px" maxlength="2" placeholder="dd" onKeyUp="myFunction(this,this.value,datobfechnac2m)"onkeypress="return validaNumero(event)"><input name="datobfechnac2m" type="text" id="datobfechnac2m" size="1px" maxlength="2" placeholder="mm" onKeyUp="myFunction(this,this.value,datobfechnac2a)"onkeypress="return validaNumero(event)"><input name="datobfechnac2a" type="text" id="datobfechnac2a" size="1px" maxlength="4" placeholder="aaaa" onKeyUp="myFunction(this,this.value,datobed2)"onkeypress="return validaNumero(event)">
+  <input name="datobfechnac2d" type="date" id="datobfechnac2d" size="1px" maxlength="2" placeholder="dd" >
   <input name="datobed2" type="text" id="datobed2" size="2px" placeholder="Edad"onkeypress="return validaNumero(event)">
     <input name="datobcurp2" type="text" id="datobcurp2" size="22px" placeholder="CURP"onkeypress="return validaRFC(event)">
         </p>

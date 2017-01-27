@@ -71,11 +71,11 @@ $curpsol=strtoupper($_REQUEST['curpsol']);
 
 $sexsol=$_REQUEST['sexsol'];
 
-$fechnacsol1=$_REQUEST['fechnacsol1'];
+$fechnacsol3=substr($_REQUEST['fechnacsol'], 0,4);
 
-$fechnacsol2=$_REQUEST['fechnacsol2'];
+$fechnacsol2=substr($_REQUEST['fechnacsol'], 5,2);
 
-$fechnacsol3=$_REQUEST['fechnacsol3'];
+$fechnacsol1=substr($_REQUEST['fechnacsol'], 8,2);
 
 $edsol=$_REQUEST['edsol'];
 
@@ -185,7 +185,12 @@ $datobcd1=$_REQUEST['datobcd1'];
 
 $datoblugnac1=$_REQUEST['datoblugnac1'];
 
-$datobprop1=$_REQUEST['datobprop1'];
+if ($datobnom1 != "" && $datobappat1 !="" && $datobapmat1!="") {
+	$datobprop1=$_REQUEST['datobprop1'];
+}else{
+	$datobprop1="";
+}
+
 
 $datobedo1=$_REQUEST['datobedo1'];
 
@@ -193,7 +198,13 @@ $datobcp1=$_REQUEST['datobcp1'];
 
 $datobmail1=$_REQUEST['datobmail1'];
 
-$datobsex1=$_REQUEST['datobsex1'];
+if ($datobnom1 != "" && $datobappat1 !="" && $datobapmat1!="") {
+	$datobsex1=$_REQUEST['datobsex1'];
+}else{
+	$datobsex1="";
+}
+
+
 
 $datobfechnac1d=$_REQUEST['datobfechnac1d'];
 
@@ -246,7 +257,12 @@ $datobcd2=$_REQUEST['datobcd2'];
 
 $datoblugnac2=$_REQUEST['datoblugnac2'];
 
-$datobprop2=$_REQUEST['datobprop2'];
+if ($datobnom2 != "" && $datobappat2 !="" && $datobapmat2!="") {
+	$datobprop2=$_REQUEST['datobprop2'];
+}else{
+	$datobprop2="";
+}
+
 
 $datobedo2=$_REQUEST['datobedo2'];
 
@@ -254,7 +270,13 @@ $datobcp2=$_REQUEST['datobcp2'];
 
 $datobmail2=$_REQUEST['datobmail2'];
 
-$datobsex2=$_REQUEST['datobsex2'];
+if ($datobnom2 != "" && $datobappat2 !="" && $datobapmat2!="") {
+	$datobsex2=$_REQUEST['datobsex2'];
+}else{
+	$datobsex2="";
+}
+
+
 
 $datobfechnac2d=$_REQUEST['datobfechnac2d'];
 
@@ -312,9 +334,14 @@ $impmenpag=$_REQUEST['impmenpag'];
 $giroprof=$_REQUEST['giroprof'];
 
 
-$desdesol1=$_REQUEST['desdesol1'];
-$desdesol2=$_REQUEST['desdesol2'];
-$desdesol3=$_REQUEST['desdesol3'];
+
+$desdesol3=substr($_REQUEST['desdesol'], 0,4);
+
+$desdesol2=substr($_REQUEST['desdesol'], 5,2);
+
+$desdesol1=substr($_REQUEST['desdesol'], 8,2);
+
+
 
 $noempleados=$_REQUEST['noempleados'];
 
@@ -333,14 +360,19 @@ $refbanc2=$_REQUEST['refbanc2'];
 
 $sucbanc2=$_REQUEST['sucbanc2'];
 
+$aperbanc1a=substr($_REQUEST['aperbanc1d'], 0,4);
 
-$aperbanc1d=$_REQUEST['aperbanc1d'];
-$aperbanc1m=$_REQUEST['aperbanc1m'];
-$aperbanc1a=$_REQUEST['aperbanc1a'];
+$aperbanc1m=substr($_REQUEST['aperbanc1d'], 5,2);
 
-$aperbanc1d2=$_REQUEST['aperbanc1d2'];
-$aperbanc1m2=$_REQUEST['aperbanc1m2'];
-$aperbanc1a2=$_REQUEST['aperbanc1a2'];
+$aperbanc1d=substr($_REQUEST['aperbanc1d'], 8,2);
+
+
+$aperbanc1a2=substr($_REQUEST['aperbanc1d2'], 0,4);
+
+$aperbanc1m2=substr($_REQUEST['aperbanc1d2'], 5,2);
+
+$aperbanc1d2=substr($_REQUEST['aperbanc1d2'], 8,2);
+
 
 
 $refcomemp1=$_REQUEST['refcomemp1'];
@@ -422,10 +454,13 @@ $apodsusc=$_REQUEST['apodsusc'];
 $actprinc=$_REQUEST['actprinc'];
 $cantperson=$_REQUEST['cantperson'];
 
+$inicoper3=substr($_REQUEST['inicoper1'], 0,4);
 
-$inicoper1=$_REQUEST['inicoper1'];
-$inicoper2=$_REQUEST['inicoper2'];
-$inicoper3=$_REQUEST['inicoper3'];
+$inicoper2=substr($_REQUEST['inicoper1'], 5,2);
+
+$inicoper1=substr($_REQUEST['inicoper1'], 8,2);
+
+
 /**
  * PHPExcel
  *
@@ -469,7 +504,7 @@ require_once dirname(__FILE__) . '/Classes/PHPExcel/IOFactory.php';
 // Create new PHPExcel object
 $objPHPExcel = new PHPExcel();
 $objReader = PHPExcel_IOFactory::createReader('Excel5');
-$objPHPExcel = $objReader->load("Solicitud_PFNA_VWL_2016sept-2.xls");
+$objPHPExcel = $objReader->load("formatos/Solicitud_PFNA_VWL_2016sept-2.xls");
 
 
 
