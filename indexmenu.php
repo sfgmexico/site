@@ -55,8 +55,8 @@
 
 	  <div class="container" id="htmlext" style="background: url(iu-6.jpeg)">
 
-	  	 
-
+	  	 <img src="logosfg 2.png" >
+<img src="logosfg 2.png" ><img src="logosfg 2.png" ><img src="logosfg 2.png" ><img src="logosfg 2.png" >
          <div>
    
     </div>
