@@ -3,7 +3,7 @@
 <head>
 <title>Home</title>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width; initial-scale=1.0">
+<meta name="viewport" content="width=device-width initial-scale=1.0">
 <script src="js/vendor/jquery-3.1.1.min.js"></script>
     <link rel="stylesheet" href="js/js/css/foundation.css">
     <link rel="stylesheet" href="js/js/css/foundation.min.css">
@@ -15,26 +15,14 @@
 <header>
 <script>
 
-$( document ).ready(function() {
+$( document).ready(function() {
     $fecha=$('#fechnacsol');
     console.log( $fecha );
-if ($fecha[0].type!="date"){
-$fecha.datepicker({ dateFormat: 'yy-mm-dd' ,changeMonth: true,
-      changeYear: true} );
-}
+
+$fecha.datepicker({dateFormat: "yy-mm-dd",changeMonth: true,changeYear: true} );
+
 console.log( "ready!" );
 });
-
-
-
-
-
-
-
-
-
-
-
 
 function Validacioncampos(){
  

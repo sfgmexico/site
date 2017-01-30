@@ -11,6 +11,6 @@ $("#boton1").click(function(event) {
 						$("#bot2").click(function(event) {
         				$("#htmlext").load('solicitudPM.php');
     														});
-						$("#bot3").click(function(event) {
+						$("#bot3").click(function(event){
         				$("#htmlext").load('solicitudPFNA.php');
     														});

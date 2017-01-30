@@ -9,14 +9,15 @@
     <link rel="stylesheet" href="js/js/css/foundation.min.css">
     <link rel="stylesheet" href="js/js/css/app.css">
     <link rel="stylesheet" href="js/js/css/foundation-icons/foundation-icons.css">
+     <link rel="stylesheet" href="js/jquery-ui/jquery-ui.css">
     <style type="text/css">
 
     </style>
   </head>
-  <body >
+  <body style="background: url(images/iu-6.jpeg)">
 <!-- header -->
-<head class="marketing-hero home-large-hero">
-			<img src="logosfg.png" width="190" height="50">
+<head>
+			<img src="logosfg 2.png" >
     
 
 	</div>
@@ -50,13 +51,11 @@
 <!-- content -->
 <section>
 	
-    <div class="medium-9 large-10 medium-push-3 large-push-2 columns">
+    <div class="medium-9 large-10 medium-push-3 large-push-2 columns" >
       <div class="medium-9 columns">
 
-	  <div class="container" id="htmlext" style="background: url(iu-6.jpeg)">
+	  <div class="container" id="htmlext" >
 
-	  	 <img src="logosfg 2.png" >
-<img src="logosfg 2.png" ><img src="logosfg 2.png" ><img src="logosfg 2.png" ><img src="logosfg 2.png" >
          <div>
    
     </div>
@@ -71,11 +70,12 @@
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.js"></script>
-    
+     <script src="js/jquery-ui/jquery-ui.js"></script>
     <script src="js/vendor/app.js"></script>
     
     <script>
-      $(document).foundation();
+    
+
     </script> 
     <script type="text/javascript" src="js/botones.js"></script>
        
