@@ -8,6 +8,8 @@ $result=mysqli_query($cnx,"select * from clientes where id='$valor'");
 
 
 if(mysqli_num_rows($result)>0){
+    
+    
     header('Location: '.$raiz.'solicitudPFArequestNum.php?cliente='.$valor);
 }elseif (mysqli_num_rows(mysqli_query($cnx,"select * from clientes where Nombre='$valor'"))>0) {
     $result2=mysqli_query($cnx,"select * from clientes where Nombre='$valor'");
