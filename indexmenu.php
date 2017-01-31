@@ -9,11 +9,7 @@
     <link rel="stylesheet" href="js/js/css/foundation.min.css">
     <link rel="stylesheet" href="js/js/css/app.css">
     <link rel="stylesheet" href="js/js/css/foundation-icons/foundation-icons.css">
-<<<<<<< HEAD
      <link rel="stylesheet" href="js/jquery-ui/jquery-ui.css">
-=======
-    <link rel="stylesheet" href="js/jquery-ui/jquery-ui.css">
->>>>>>> origin/master
     <style type="text/css">
 
     </style>
@@ -74,23 +70,12 @@
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.js"></script>
-<<<<<<< HEAD
      <script src="js/jquery-ui/jquery-ui.js"></script>
     <script src="js/vendor/app.js"></script>
     
     <script>
     
 
-=======
-    <script src="js/jquery-ui/jquery-ui.js"></script>
-    <script src="js/vendor/app.js"></script>
-    
-    <script>
-      $(document).foundation();
-
-
-     
->>>>>>> origin/master
     </script> 
     <script type="text/javascript" src="js/botones.js"></script>
        

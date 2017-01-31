@@ -4,8 +4,7 @@
 <title>Home</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0">
-<link rel="stylesheet" href="js/jquery-ui/jquery-ui.css">
-<script src="js/vendor/jquery-3.1.1.min.js"></script>
+
 
 
 
@@ -1167,7 +1166,7 @@ No:
 <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.js"></script>
-    <script src="js/jquery-ui/jquery-ui.js"></script>
+    
     <script src="js/vendor/app.js"></script>
 </body>
 </html>
