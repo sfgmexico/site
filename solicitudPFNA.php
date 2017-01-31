@@ -10,14 +10,42 @@
     <link rel="stylesheet" href="js/js/css/app.css">
     <link rel="stylesheet" href="js/jquery-ui/jquery-ui.css">
 </head>
-<body>
+<body >
 <!-- header -->
 <header>
 <script>
 
+<<<<<<< HEAD
 $( document).ready(function() {
     $fecha=$('#fechnacsol');
     console.log( $fecha );
+=======
+$( document ).ready(function() {
+
+$('form#form1').find('input').each(function(){  
+if(this.id=="fechnacsol" || this.id=="desdesol" || this.id=="aperbanc1d" || this.id=="aperbanc1d2"  || this.id=="inicoper1" || this.id=="datobfechnac1d"  || this.id=="datobfechnac2d"){
+    $fecha=$(this);
+    if ($fecha[0].type!="date"){
+      $fecha.datepicker({ dateFormat: 'yy-mm-dd' ,changeMonth: true,changeYear: true} );
+      }
+      console.log( "ready!" );   
+  }
+
+  
+ });
+});
+
+
+    
+   
+
+
+
+
+
+
+
+>>>>>>> origin/master
 
 $fecha.datepicker({dateFormat: "yy-mm-dd",changeMonth: true,changeYear: true} );
 
@@ -479,7 +507,11 @@ input::-moz-placeholder {
         <input id="vivsol2" name="vivsol" type="radio" value="2"><label for="vivsol2">Rentada</label>
         <input id="vivsol3" name="vivsol" type="radio" value="3"><label for="vivsol3">Hipotecada</label>
         <input id="vivsol4" name="vivsol" type="radio" value="4"><label for="vivsol4">Con familiares</label>
+<<<<<<< HEAD
        <div class="small-5 columns"> <input name="impmenpag" type="text" id="impmenpag" placeholder="Importe mensual del pago" pattern="number"></div>
+=======
+        <input name="impmenpag" type="text" id="impmenpag" placeholder="Importe mensual del pago" pattern="number">
+>>>>>>> origin/master
       </p>
      </div>
      <div class="row">
