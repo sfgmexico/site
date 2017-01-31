@@ -20,7 +20,7 @@
 			<img src="logosfg 2.png" >
     
 
-	</div>
+
 	<div class="title-bar" id="example-menu">
   <div class="title-bar-left">
 	<ul class="dropdown menu" data-dropdown-menu >
@@ -28,7 +28,7 @@
     <a href="indexmenu.php"><i class="fi-home"></i><span>Inicio</span></a>
   </li>
   <li>
-    <a href="#0"><i class="fi-pencil"></i><span>Solicitudes de credito</span></a>
+    <a href="#"><i class="fi-pencil"></i><span>Solicitudes de credito</span></a>
     <ul class="menu">
       <li id="bot1"><a href="#"><i class="fi-clipboard-notes size-36"></i><span>Solicitud PFA</span></a></li>
       <li id="bot2"><a href="#"><i class="fi-clipboard-notes"></i><span>Solicitud PM</span></a></li>
@@ -38,7 +38,7 @@
     </ul>
   </li>
   <li id="boton2"><a href="#"><i class="fi-graph-trend"></i><span>Solicitudes</span></a></li>
-  <li id="boton1"><a href='#'><i class="fi-dollar"></i><span>Cotizacion</span></a></li>
+  <li id="boton1"><a href="#"><i class="fi-dollar"></i><span>Cotizacion</span></a></li>
 </ul>
 
 
