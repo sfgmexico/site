@@ -479,23 +479,26 @@ input::-moz-placeholder {
         <input id="vivsol2" name="vivsol" type="radio" value="2"><label for="vivsol2">Rentada</label>
         <input id="vivsol3" name="vivsol" type="radio" value="3"><label for="vivsol3">Hipotecada</label>
         <input id="vivsol4" name="vivsol" type="radio" value="4"><label for="vivsol4">Con familiares</label>
-        <<input name="impmenpag" type="text" id="impmenpag" placeholder="Importe mensual del pago" pattern="number">
+       <div class="small-5 columns"> <input name="impmenpag" type="text" id="impmenpag" placeholder="Importe mensual del pago" pattern="number"></div>
       </p>
      </div>
-	    <p align="left">Tiene una Propiedad a su nombre?: 
-	      <input id="inmusol1" name="inmusol" type="radio" value="1"><label for="inmusol1">Si</label>
-	      <input id="inmusol2" name="inmusol" type="radio" value="2"><label for="inmusol2">No</label>
-	      <input name="arraisol" type="text" id="arraisol" placeholder="Arraigo en el domicilio desde el año" pattern="integer">
-	    </p>
-	    <p align="left">
-	      <input name="anosol2" type="text" id="anosol2" size="20px" placeholder="Años de residir en la ciudad" pattern="integer">
-        </p>
-	      <p align="left">
+     <div class="row">
+      <p align="left">Tiene una Propiedad a su nombre?: 
+        <input id="inmusol1" name="inmusol" type="radio" value="1"><label for="inmusol1">Si</label>
+        <input id="inmusol2" name="inmusol" type="radio" value="2"><label for="inmusol2">No</label>
+        <div class="small-5 columns"> <input name="arraisol" type="text" id="arraisol" placeholder="Arraigo en el domicilio desde el año" pattern="integer"></div>
+        <div class="small-5 columns"> <input name="anosol2" type="text" id="anosol2"  placeholder="Años de residir en la ciudad" pattern="integer"></div>
+       
+     </div>
+      </p>
+      <div class="row">
+        <p align="left">
                 Beneficiario en caso de fallecimiento:
-            <input name="benesol1" type="text" id="benesol1" size="20px" placeholder="Apellido Paterno"pattern="alpha">
-            <input name="benesol2" type="text" id="benesol2" size="20px" placeholder="Apellido Materno"pattern="alpha">
-            <input name="benesol3" type="text" id="benesol3" size="30px" placeholder="Nombre(s)">
+            <div class="small-4 columns"><input name="benesol1" type="text" id="benesol1" size="20px" placeholder="Apellido Paterno"pattern="alpha"></div>
+            <div class="small-4 columns"><input name="benesol2" type="text" id="benesol2" size="20px" placeholder="Apellido Materno"pattern="alpha"></div>
+            <div class="small-4 columns"><input name="benesol3" type="text" id="benesol3" size="30px" placeholder="Nombre(s)"></div>
           </p>
+      </div>
 	    <p align="left">Estado civil:<br> 
 		      <input id="civilsol1" name="civilsol" type="radio" value="1"><label for="civilsol1">Casado Bienes Mancomunados</label>
 		      <input id="civilsol2" name="civilsol" type="radio" value="2"><label for="civilsol2">Casado Bienes Separados</label>
@@ -503,75 +506,124 @@ input::-moz-placeholder {
 		      <input id="civilsol4" name="civilsol" type="radio" value="4"><label for="civilsol4">Divorciado</label>
 		      <input id="civilsol5" name="civilsol" type="radio" value="5"><label for="civilsol5">Soltero</label>
 	    </p>
-	    <p align="left">Tiene Auto Propio: 
-	      <input id="autosol1" name="autosol" type="radio" value="1"><label for="autosol1">Si</label>
+      <div class="row">
+      <p align="left">Tiene Auto Propio: 
+        <input id="autosol1" name="autosol" type="radio" value="1"><label for="autosol1">Si</label>
         <input id="autosol2" name="autosol" type="radio" value="2"><label for="autosol2"> No</label>
-        <input name="marcasol" type="text" id="marcasol" size="70px" placeholder="Especifique Marca y Tipo">
-	    </p>
+        <div class="small-5 columns"><input name="marcasol" type="text" id="marcasol" size="70px" placeholder="Especifique Marca y Tipo"></div>
+      </p>
+      </div>
 		<hr>
 	    <p align="left"><strong>DATOS DE SU EMPLEO O PROFESIÓN</strong></p>
 	    <p align="left">
-	      <input name="giroprof" type="text" id="giroprof" size="40px" placeholder="Ocupación/Giro según alta o último cambio ante SHCP">
-          <input name="depasol" type="text" id="depasol" size="30px" placeholder="Puesto">
-          Antigüedad desde: <input name="desdesol" type="date" id="desdesol" size="1px" maxlength="2" placeholder="dd" >
+        <div class="row">
+          <div class="small-6 columns"><input name="giroprof" type="text" id="giroprof" size="40px" placeholder="Ocupación/Giro según alta o último cambio ante SHCP"></div>
+          <div class="small-6 columns"><input name="depasol" type="text" id="depasol" size="30px" placeholder="Puesto"></div>
+         <div class="small-6 columns">  Antigüedad desde:<input name="desdesol" type="date" id="desdesol" size="1px" maxlength="2" placeholder="dd" ></div>
           
 </p>
-	    <p align="left">
-	      <input name="compasol" type="text" id="compasol" size="70px" placeholder="Compañía">
-	      <input name="noempleados" type="text" id="noempleados"placeholder="Núm. de empleados"pattern="integer">
-	    </p>
-	    <p align="left">Telefono(Con lada - 10 dígitos):
-	      <input name="compatelsol1" type="text" id="compatelsol1" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,compatelsol2)"pattern="integer"><input name="compatelsol2" type="text" id="compatelsol2" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,compatelsol3)"pattern="integer"><input name="compatelsol3" type="text" id="compatelsol3" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,compatelsol4)"pattern="integer"><input name="compatelsol4" type="text" id="compatelsol4" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,compatelsol5)"pattern="integer"><input name="compatelsol5" type="text" id="compatelsol5" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,compatelsol6)"pattern="integer"><input name="compatelsol6" type="text" id="compatelsol6" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,compatelsol7)"pattern="integer"><input name="compatelsol7" type="text" id="compatelsol7" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,compatelsol8)"pattern="integer"><input name="compatelsol8" type="text" id="compatelsol8" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,compatelsol9)"pattern="integer"><input name="compatelsol9" type="text" id="compatelsol9" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,compatelsol10)"pattern="integer"><input name="compatelsol10" type="text" id="compatelsol10" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,compatelsolext)"pattern="integer">
-	      <input name="compatelsolext" type="text" id="compatelsolext" size="20px" placeholder="Extensión"pattern="integer">
-	    </p>
-	    <p align="left">
-	      <input name="giroactreal" type="text" id="giroactreal" size="44px" placeholder="Giro del negocio: actividad que realiza">
-          <input name="domneg" type="text" id="domneg" size="44px" placeholder="Domicilio del negocio:">
-</p>
+        </div>
+<div class="row">
+      <p align="left">
+        <div class="small-5 columns"><input name="compasol" type="text" id="compasol" size="70px" placeholder="Compañía"></div>
+        <div class="small-5 columns"><input name="noempleados" type="text" id="noempleados"placeholder="Núm. de empleados"pattern="integer"></div>
+      </p>
+</div>
+<div class="row">
+      <p align="left">Telefono(Con lada - 10 dígitos):
+        <div class="small-1 columns"><input name="compatelsol1" type="text" id="compatelsol1" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,compatelsol2)"pattern="integer"></div>
+        <div class="small-1 columns"><input name="compatelsol2" type="text" id="compatelsol2" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,compatelsol3)"pattern="integer"></div>
+        <div class="small-1 columns"><input name="compatelsol3" type="text" id="compatelsol3" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,compatelsol4)"pattern="integer"></div>
+        <div class="small-1 columns"><input name="compatelsol4" type="text" id="compatelsol4" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,compatelsol5)"pattern="integer"></div>
+        <div class="small-1 columns"><input name="compatelsol5" type="text" id="compatelsol5" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,compatelsol6)"pattern="integer"></div>
+        <div class="small-1 columns"><input name="compatelsol6" type="text" id="compatelsol6" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,compatelsol7)"pattern="integer"></div>
+        <div class="small-1 columns"><input name="compatelsol7" type="text" id="compatelsol7" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,compatelsol8)"pattern="integer"></div>
+        <div class="small-1 columns"><input name="compatelsol8" type="text" id="compatelsol8" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,compatelsol9)"pattern="integer"></div>
+        <div class="small-1 columns"><input name="compatelsol9" type="text" id="compatelsol9" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,compatelsol10)"pattern="integer"></div>
+        <div class="small-1 columns"><input name="compatelsol10" type="text" id="compatelsol10" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,compatelsolext)"pattern="integer"></div>
+        <div class="small-2 columns"><input name="compatelsolext" type="text" id="compatelsolext" size="20px" placeholder="Extensión"pattern="integer"></div>
+	      <div class="small-5 columns"><input name="giroactreal" type="text" id="giroactreal" size="44px" placeholder="Giro del negocio: actividad que realiza"></div>
+         <div class="small-5 columns"> <input name="domneg" type="text" id="domneg" size="44px" placeholder="Domicilio del negocio:"></div>
+      </p>
+</div>
+    
+
 
 </div>
 	    <hr>
       <div id="secRefPersonales1">
-	    <p align="left"><strong>REFERENCIAS PERSONALES</strong></p>
-	    <p align="left">
-	      <input name="nomref1" type="text" id="nomref1" size="54px" placeholder="Nombre"onkeypress="return validaTexto(event)">
-          <input name="parenref1" type="text" id="parenref1" size="40px" placeholder="Parentesco o relación"onkeypress="return validaTexto(event)">
+        <div class="row">
+      <p align="left"><strong>REFERENCIAS PERSONALES</strong></p>
+      <p align="left">
+        <div class="small-5 columns"><input name="nomref1" type="text" id="nomref1" size="54px" placeholder="Nombre"onkeypress="return validaTexto(event)"></div>
+        <div class="small-5 columns"><input name="parenref1" type="text" id="parenref1" size="40px" placeholder="Parentesco o relación"onkeypress="return validaTexto(event)"></div>
 </p>
-	    <p align="left">Telefono(Con lada - 10 dígitos):
-          <input name="telref11" type="text" id="telref11" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref12)"pattern="integer"><input name="telref12" type="text" id="telref12" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref13)"pattern="integer"><input name="telref13" type="text" id="telref13" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref14)"pattern="integer"><input name="telref14" type="text" id="telref14" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref15)"pattern="integer"><input name="telref15" type="text" id="telref15" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref16)"pattern="integer"><input name="telref16" type="text" id="telref16" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref17)"pattern="integer"><input name="telref17" type="text" id="telref17" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref18)"pattern="integer"><input name="telref18" type="text" id="telref18" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref19)"pattern="integer"><input name="telref19" type="text" id="telref19" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref110)"pattern="integer"><input name="telref110" type="text" id="telref110" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,nomref2)"pattern="integer">
-	    </p>
+</div>
+<div class="row">
+      <p align="left">Telefono(Con lada - 10 dígitos):
+          <div class="small-1 columns"><input name="telref11" type="text" id="telref11" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref12)"pattern="integer"></div>
+          <div class="small-1 columns"><input name="telref12" type="text" id="telref12" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref13)"pattern="integer"></div>
+          <div class="small-1 columns"><input name="telref13" type="text" id="telref13" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref14)"pattern="integer"></div>
+          <div class="small-1 columns"><input name="telref14" type="text" id="telref14" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref15)"pattern="integer"></div>
+          <div class="small-1 columns"><input name="telref15" type="text" id="telref15" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref16)"pattern="integer"></div>
+          <div class="small-1 columns"><input name="telref16" type="text" id="telref16" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref17)"pattern="integer"></div>
+          <div class="small-1 columns"><input name="telref17" type="text" id="telref17" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref18)"pattern="integer"></div>
+          <div class="small-1 columns"><input name="telref18" type="text" id="telref18" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref19)"pattern="integer"></div>
+          <div class="small-1 columns"><input name="telref19" type="text" id="telref19" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref110)"pattern="integer"></div>
+          <div class="small-1 columns"><input name="telref110" type="text" id="telref110" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,nomref2)"pattern="integer"></div>
+      </p>
       </div>
+        </div>
       <div id="secRefPersonales2">
-		<p align="left">
-	      <input name="nomref2" type="text" id="nomref2" size="54px" placeholder="Nombre"onkeypress="return validaTexto(event)">
-          <input name="parenref2" type="text" id="parenref2" size="40px" placeholder="Parentesco o relación"onkeypress="return validaTexto(event)">
+        <div class="row">
+    <p align="left">
+        <div class="small-5 columns"><input name="nomref2" type="text" id="nomref2" size="54px" placeholder="Nombre"onkeypress="return validaTexto(event)"></div>
+        <div class="small-5 columns"><input name="parenref2" type="text" id="parenref2" size="40px" placeholder="Parentesco o relación"onkeypress="return validaTexto(event)"></div>
 </p>
-	    <p align="left">Telefono(Con lada - 10 dígitos):
-          <input name="telref21" type="text" id="telref21" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref22)"pattern="integer"><input name="telref22" type="text" id="telref22" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref23)"pattern="integer"><input name="telref23" type="text" id="telref23" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref24)"pattern="integer"><input name="telref24" type="text" id="telref24" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref25)"pattern="integer"><input name="telref25" type="text" id="telref25" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref26)"pattern="integer"><input name="telref26" type="text" id="telref26" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref27)"pattern="integer"><input name="telref27" type="text" id="telref27" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref28)"pattern="integer"><input name="telref28" type="text" id="telref28" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref29)"pattern="integer"><input name="telref29" type="text" id="telref29" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref210)"pattern="integer"><input name="telref210" type="text" id="telref210" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,refbanc)"pattern="integer">
-	    </p>
+        </div>
+        <div class="row">
+      <p align="left">Telefono(Con lada - 10 dígitos):
+          <div class="small-1 columns"><input name="telref21" type="text" id="telref21" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref22)"pattern="integer"></div>
+          <div class="small-1 columns"><input name="telref22" type="text" id="telref22" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref23)"pattern="integer"></div>
+          <div class="small-1 columns"><input name="telref23" type="text" id="telref23" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref24)"pattern="integer"></div>
+          <div class="small-1 columns"><input name="telref24" type="text" id="telref24" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref25)"pattern="integer"></div>
+          <div class="small-1 columns"><input name="telref25" type="text" id="telref25" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref26)"pattern="integer"></div>
+          <div class="small-1 columns"><input name="telref26" type="text" id="telref26" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref27)"pattern="integer"></div>
+          <div class="small-1 columns"><input name="telref27" type="text" id="telref27" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref28)"pattern="integer"></div>
+          <div class="small-1 columns"><input name="telref28" type="text" id="telref28" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref29)"pattern="integer"></div>
+          <div class="small-1 columns"><input name="telref29" type="text" id="telref29" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telref210)"pattern="integer"></div>
+            <div class="small-1 columns"><input name="telref210" type="text" id="telref210" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,refbanc)"pattern="integer"></div>
+      </p>
+        </div>
       </div>
 		<hr>
+
     <div id="secRefBancarias1">
-	    <p align="left"><strong>REFERENCIAS BANCARIAS (TARJETA DE CRÉDITO)</strong></p>
-	    <p align="left">
-	      <input name="refbanc" type="text" id="refbanc" size="54px" placeholder="Banco">
-          <input name="numcuebanc" type="text" id="numcuebanc" size="40px" placeholder="Número de cuenta">
+      <div>
+      <p align="left"><strong>REFERENCIAS BANCARIAS (TARJETA DE CRÉDITO)</strong></p>
+      <p align="left">
+        <div class="small-4 columns"><input name="refbanc" type="text" id="refbanc" size="54px" placeholder="Banco"></div>
+        <div class="small-4 columns"><input name="numcuebanc" type="text" id="numcuebanc" size="40px" placeholder="Número de cuenta"></div>
+	      <div class="small-4 columns"><input name="sucbanc1" type="text" id="sucbanc1" size="54px" placeholder="Sucursal"></div>
 </p>
-	    <p align="left">
-	      <input name="sucbanc1" type="text" id="sucbanc1" size="54px" placeholder="Sucursal">
-	      Fecha de apertura: 
-	      <input name="aperbanc1d" type="date" id="aperbanc1d" size="1" placeholder="dd" >
-	    </p>
       </div>
+      <div class="row">
+      <p align="left">
+        Fecha de apertura: 
+       <div class="small-5 columns"> <input name="aperbanc1d" type="date" id="aperbanc1d" size="1" placeholder="dd" ></div>
+      </p>
+      </div>
+      </div>
+<hr>
+      <div class="row">
       <div id="secRefBancarias2">
-	    <p align="left">
-	      <input name="refbanc2" type="text" id="refbanc2" size="54px" placeholder="Banco">
-          <input name="tarjrefbanc" type="text" id="tarjrefbanc" size="40px" placeholder="Número de Tarjeta de Crédito">
-</p>
-	    <p align="left">
-          <input name="sucbanc2" type="text" id="sucbanc2" size="54px" placeholder="Sucursal">
-	      Fecha de apertura:
-  <input name="aperbanc1d2" type="date" id="aperbanc1d2" size="1" placeholder="dd" >
+      <p align="left">
+        <div class="small-4 columns"><input name="refbanc2" type="text" id="refbanc2" size="54px" placeholder="Banco"></div>
+        <div class="small-4 columns"><input name="tarjrefbanc" type="text" id="tarjrefbanc" size="40px" placeholder="Número de Tarjeta de Crédito"></div>
+      </div>
+        <div class="small-4 columns"><input name="sucbanc2" type="text" id="sucbanc2" size="54px" placeholder="Sucursal"></div>
+	      
+        <div class="small-5 columns">Fecha de apertura:<input name="aperbanc1d2" type="date" id="aperbanc1d2" size="1" placeholder="dd" ></div>
         </p>
         </div>
 		<hr>
