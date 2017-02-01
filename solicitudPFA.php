@@ -5,23 +5,348 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0">
 <link rel="stylesheet" href="js/jquery-ui/jquery-ui.css">
+
 <script src="js/vendor/jquery-3.1.1.min.js"></script>
 
 
-
-
 </head>
-<body oncontextmenu="return false" >
+<body  >
 <!-- header -->
 <header>
+<script>
+$( document ).ready(function() {
+  alert("Ready!!!");
+$('form#form1').find('input').each(function(){  
 
+if(this.id=="fechnacsol" || this.id=="desdesol" || this.id=="aperbanc1d" || this.id=="aperbanc1d2"  || this.id=="inicoper1" || this.id=="datobfechnac1d"  || this.id=="datobfechnac2d"){
+    $fecha=$(this);
+    if ($fecha[0].type!="date"){
+      $fecha.datepicker({ dateFormat: 'yy-mm-dd',changeMonth: true,changeYear: true} );
+      }
+      console.log( "ready!" );   
+  }
+
+  
+ });
+});
+
+
+function Validacioncampos(){
+ 
+var requerido=0;
+//seccion del solicitante
+$('#secSolicitante').find('input').each(function(){  
+  if(document.getElementById("nomsol").value!="" && document.getElementById("apepasol").value!="" ){
+
+
+  if(this.id=="segnomsol" || this.id=="apemasol" || this.id=="movsol12"||this.id=="movsol22"||this.id=="movsol32"||this.id=="movsol42"||this.id=="movsol52"||this.id=="movsol62"||this.id=="movsol72"||this.id=="movsol82"||this.id=="movsol92"||this.id=="movsol102"){
+    $(this).prop('required',false);
+    
+  }else{
+    $(this).prop('required',true);
+    
+  }
+
+  }else{
+    $(this).prop('required',false);
+
+ }
+});
+////SECCION DE REFERENCIAS PERSONALES 1 
+$('#secRefPersonales1').find('input').each(function(){  
+  
+  if(document.getElementById("nomref1").value!="" ){
+    $(this).prop('required',true);
+  }else{
+    $(this).prop('required',false);
+  }
+});
+//SECCION DE REFERENCIAS PERSONALES 2 
+$('#secRefPersonales2').find('input').each(function(){  
+  
+  if(document.getElementById("nomref2").value!="" ){
+    $(this).prop('required',true);
+  }else{
+    $(this).prop('required',false);
+  }
+});
+///SECCION DE REFERENCIAS BANCARIAS 1
+$('#secRefBancarias1').find('input').each(function(){
+  
+  if(document.getElementById("refbanc").value!="" ){
+    $(this).prop('required',true);
+  }else{
+    $(this).prop('required',false);
+  }
+
+});
+///SECCION DE REFERENCIAS BANCARIAS 2
+$('#secRefBancarias2').find('input').each(function(){
+  
+  if(document.getElementById("refbanc2").value!="" ){
+    $(this).prop('required',true);
+  }else{
+    $(this).prop('required',false);
+  }
+
+});
+///SECCION DE REFERENCIAS COMERCIALES 1
+$('#secRefComerciales1').find('input').each(function(){
+  
+  if(document.getElementById("refcomemp1").value!="" ){
+    $(this).prop('required',true);
+  }else{
+    $(this).prop('required',false);
+  }
+
+});
+///SECCION DE REFERENCIAS COMERCIALES 2
+$('#secRefComerciales2').find('input').each(function(){
+  
+  if(document.getElementById("refcomemp2").value!="" ){
+    $(this).prop('required',true);
+  }else{
+    $(this).prop('required',false);
+  }
+
+});
+///SECCION DE CARGO DIRECTO 
+$('#secCarDirecto').find('input').each(function(){
+  
+  if(document.getElementById("cargdir").value!="" ){
+    $(this).prop('required',true);
+  }else{
+    $(this).prop('required',false);
+  }
+
+});
+//SECCION DEL CONYUGE 
+$('#secDatConyuge').find('input').each(function(){
+  
+  if(document.getElementById("conyunom").value!="" && document.getElementById("conyuape1").value!=""){
+    if(this.id=="conyuape2"){
+      $(this).prop('required',false);
+    }else{
+      $(this).prop('required',true);
+    }
+    
+  }else{
+    $(this).prop('required',false);
+  }
+
+});
+///SECCION OBLIGADO SOLIDARIO PERSONA MORAL 
+$('#secDatObligadoPersonaMoral').find('input').each(function(){
+  
+  if(document.getElementById("nomrazsoc").value!="" ){
+    if(this.id=="faxpermor1" || this.id=="faxpermor2" || this.id=="faxpermor3" || this.id=="faxpermor4" || this.id=="faxpermor5" || this.id=="faxpermor6" || this.id=="faxpermor7" || this.id=="faxpermor8" || this.id=="faxpermor9" || this.id=="faxpermor10"){
+      $(this).prop('required',false);
+    }else{
+      $(this).prop('required',true);
+    }
+    
+  }else{
+    $(this).prop('required',false);
+  }
+
+});
+///SECCION OBLIGADO SOLIDARIO PERSONA FISICA 1 
+$('#secDatObligadoSolidarioPF1').find('input').each(function(){
+  
+  if(document.getElementById("datobnom1").value!="" && document.getElementById("datobappat1").value!="" ){
+    if(this.id=="datobapmat1"){
+      $(this).prop('required',false);
+    }else{
+      $(this).prop('required',true);
+    }
+    
+  }else{
+    $(this).prop('required',false);
+  }
+
+});
+////SECCION OBLIGADO SOLIDARIO PERSONA FISICA
+$('#secDatObligadoSolidarioPF2').find('input').each(function(){
+  
+  if(document.getElementById("datobnom2").value!="" && document.getElementById("datobappat2").value!="" ){
+    if(this.id=="datobapmat2"){
+      $(this).prop('required',false);
+    }else{
+      $(this).prop('required',true);
+    }
+    
+  }else{
+    $(this).prop('required',false);
+  }
+
+});
+///SECCION CREDENCIALES 
+///INE
+$('#secINE').find('input').each(function(){
+  if(document.getElementById("textfield39").value!="" ){
+    $(this).prop('required',true);
+    
+  }else{
+    $(this).prop('required',false);
+  }
+  
+});
+///SECCION PASAPORTE CEDULA PROF
+$('#secCedProfesional').find('input').each(function(){
+  if(document.getElementById("textfield40").value!="" ){
+    $(this).prop('required',true);
+    
+  }else{
+    $(this).prop('required',false);
+  }
+  
+});
+///CARTILLA SERV MILITAR    
+$('#secCarMilitar').find('input').each(function(){
+  if(document.getElementById("textfield41").value!="" ){
+    $(this).prop('required',true);
+    
+  }else{
+    $(this).prop('required',false);
+  }
+  
+});
+///LICENCIA PARA CONDUCIR 
+$('#secLicConducir').find('input').each(function(){
+  if(document.getElementById("textfield42").value!="" ){
+    $(this).prop('required',true);
+    
+  }else{
+    $(this).prop('required',false);
+  }
+  
+});
+///OTRA IDENTIFICACION
+$('#secOtrIdentificacion').find('input').each(function(){
+  if(document.getElementById("textfield43").value!="" ){
+    $(this).prop('required',true);
+    
+  }else{
+    $(this).prop('required',false);
+  }
+  
+});
+$('#secOtrIdentificacion2').find('input').each(function(){
+  if(document.getElementById("textfield43").value!="" ){
+    $(this).prop('required',true);
+    
+  }else{
+    $(this).prop('required',false);
+  }
+  
+});
+////SECCION DE BENEFICIARIO 
+$('#secBeneficiario').find('input').each(function(){
+  if(document.getElementById("textfield45").value!="" && document.getElementById("textfield47").value!="" ){
+    $(this).prop('required',true);
+    
+  }else{
+    $(this).prop('required',false);
+  }
+  
+});
+///SECCION PERFIL TRANSACCIONAL INICIAL 
+$('#secPerTransaccional').find('input').each(function(){
+ 
+  if(this.id=="textfield66" && document.getElementById("textfield65").value!="" ){ $(this).prop('required',true);}else{ $(this).prop('required',false);}
+  if(this.id=="textfield68" && document.getElementById("textfield67").value!="" ){ $(this).prop('required',true);}else{ $(this).prop('required',false);}
+  if(this.id=="textfield70" && document.getElementById("textfield69").value!="" ){ $(this).prop('required',true);}else{ $(this).prop('required',false);}
+  if(this.id=="textfield72" && document.getElementById("textfield71").value!="" ){ $(this).prop('required',true);}else{ $(this).prop('required',false);}
+  if(this.id=="textfield74" && document.getElementById("textfield73").value!="" ){ $(this).prop('required',true);}else{ $(this).prop('required',false);}
+  if(this.id=="textfield76" && document.getElementById("textfield75").value!="" ){ $(this).prop('required',true);}else{ $(this).prop('required',false);}
+  if(this.id=="textfield78" && document.getElementById("textfield77").value!="" ){ $(this).prop('required',true);}else{ $(this).prop('required',false);}
+  if(this.id=="textfield80" && document.getElementById("textfield79").value!="" ){ $(this).prop('required',true);}else{ $(this).prop('required',false);}
+  if(this.id=="textfield82" && document.getElementById("textfield81").value!="" ){ $(this).prop('required',true);}else{ $(this).prop('required',false);}
+  if(this.id=="textfield84" && document.getElementById("textfield83").value!="" ){ $(this).prop('required',true);}else{ $(this).prop('required',false);}
+  
+});
+///SECCION PEPS 
+$('#secPEPS').find('input').each(function(){
+ 
+  if($('input:radio[name=PEPS]:checked').val()=="1" ){ 
+    $(this).prop('required',true);
+    }else{
+      $(this).prop('required',false);
+    }
+});
+
+
+
+
+var pagina=1;
+///ciclo de seleccion de pagina
+$('form#form1').find('input').each(function(){
+  
+
+      
+      if(this.id=="escliente1"){
+        pagina=2;
+      }
+      if(this.id=="textfield12"){
+        pagina=3;
+      }
+
+
+if(($(this).prop('required') && this.value=="") || ($(this).prop('required') && !$("#form1 input[name='"+this.name+"']:radio").is(':checked') && $(this).get(0).type == 'radio') ){
+      
+ 
+
+
+      alert("dentro: "+this.id);
+    
+      
+      
+      
+      
+        console.log("IR");
+
+
+
+        if(pagina=="1"){
+        $( '#uno' ).click ();
+        window.scrollTo(0,0);
+        this.focus();
+        this.select();
+        return false;
+      }
+      if(pagina=="2"){
+        $( '#dos' ).click ();
+        window.scrollTo(0,0);
+        this.focus();
+        this.select();
+        return false;
+      }
+      if(pagina=="3"){
+       
+        this.focus();
+        this.select();
+        return false;
+      }
+        
+        
+    } else {
+      console.log("NR");
+    }
+    
+    return true;
+});
+
+}
+
+
+</script>
 </header>
 
 <!-- content -->
 <section>
   <div class="bg" align="center">
     <div class="container_24" align="center">
-      <form name="form1" id="form1" action="templatePFA.php" method="post" onsubmit="return validaEspaciosSolos3()">
+      <form name="form1" id="form1" action="templatePFA.php" method="post" data-abide novalidate onsubmit=" Validacioncampos()">
         <style>
 	 
 	  input::-webkit-input-placeholder {
@@ -136,7 +461,7 @@ input::-moz-placeholder {
            <div class="row">
            <p align="left">
             Fecha de nacimiento:
-            <div class="small-5 columns"><input name="fechnacsol1" type="date" id="fechnacsol1" placeholder="dd" ></div>
+            <div class="small-5 columns"><input name="fechnacsol" type="date" id="fechnacsol" placeholder="dd" ></div>
             <div class="small-5 columns"><input name="edsol" type="number" id="edsol" size="2px" placeholder="Edad"maxlength="2" onKeyUp="mayorEdad(this, this.value)" onkeypress="return validaNumero(event)"></div>
             <div class="small-5 columns"><input name="nacsol" type="text" id="nacsol" size="10px" placeholder="Nacionalidad" onkeypress="return validaTexto(event)" ></div>
             <div class="small-5 columns"><input name="depensol" type="text" id="depensol" size="10px" placeholder="Num. Dependientes" onkeypress="return validaNumero(event)"></div>
@@ -1168,6 +1493,7 @@ No:
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.js"></script>
     <script src="js/jquery-ui/jquery-ui.js"></script>
+    
     <script src="js/vendor/app.js"></script>
 </body>
 </html>

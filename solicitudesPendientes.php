@@ -46,7 +46,7 @@ input::-moz-placeholder {
 	     <table width="100%" border="0">
            <tr>
              <td>Ingresa el elemento a buscar: </td>
-             <td><input name="textfield" id="textfield"type="text" size="100%"></td>
+             <td><input name="textfield" id="textfield"type="number" size="100%"></td>
            </tr>
           
          </table>
