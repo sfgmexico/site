@@ -30,7 +30,7 @@
   <li>
     <a href="#"><i class="fi-pencil"></i><span>Solicitudes de credito</span></a>
     <ul class="menu">
-      <li id="bot1"><a href="#"><i class="fi-clipboard-notes size-36"></i><span>Solicitud PFA</span></a></li>
+      <li id="bot1"><a href="#"><i class="fi-clipboard-notes"></i><span>Solicitud PFA</span></a></li>
       <li id="bot2"><a href="#"><i class="fi-clipboard-notes"></i><span>Solicitud PM</span></a></li>
       <li id="bot3"><a href="#"><i class="fi-clipboard-notes"></i><span>Solicitud PFNA</span></a></li>
 
