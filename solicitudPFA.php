@@ -390,7 +390,7 @@ input::-moz-placeholder {
           </div>  
           </p>
           </div>
-<div>
+<div class="row">
           <p align="left">RFC con homoclave:
             <div class="small-9 columns">
             <div class="small-1 columns"><input name="rfc1" type="text" id="rfc1" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc2)" onkeypress="return validaRFC(event)"></div>
