@@ -15,6 +15,8 @@
 <header>
 <script>
 
+
+
 $( document ).ready(function() {
  
 $('form#form1').find('input').each(function(){  

@@ -3,17 +3,10 @@
 <head>
 <title>Home</title>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width; initial-scale=1.0">
-<link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
-<script src="js/jquery-1.7.1.min.js"></script>
-<script src="js/script.js"></script>
-<script src="js/superfish.js"></script>
-<script src="js/jquery.responsivemenu.js"></script>
-<script src="js/jquery.flexslider-min.js"></script>
-<script src="js/forms.js"></script>
-<script src="js/superfish.js"></script>
-<script src="js/jquery.responsivemenu.js"></script>
-<script src="js/FF-cash.js"></script>
+<meta name="viewport" content="width=device-width initial-scale=1.0">
+    <script src="js/vendor/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" href="css/log.css">
+  
 <!--[if lt IE 8]>
    <div style=' clear: both; text-align:center; position: relative;'>
      <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
@@ -29,46 +22,14 @@
 <body>
 <!-- header -->
 <header>
-	<div class="container_24">
-	  <div class="grid_24">
-			<h1 class="fleft">Volkswagen</h1>
-			<ul class="sf-menu">
-				<li><a href="index.html">Home</a></li>
-			</ul>
-		    
-           
-		</div>
-		
-	</div>
+	<img src="images/logosfg 2.png" >
 </header>
 
 <!-- content -->
 <section>
-	<div class="bg" align="center">
-	  <div class="container_24" align="center">
+	
 	  <form method="post">
                   
-                  <fieldset>
-                  <div class="wrapper">
-                    <div class="grid_8 suffix_1 alpha" >
-                     
-                      <p>Usuario:</p>
-                      <p>
-                        <input name="user" type="text" id="user" >
-                      </p>
-                      <p>Contraseña:</p>
-                      <p>
-                        <input name="pass" type="password" id="pass" >
-                      </p>
-                      <p>
-                        <input  name="aceptar" type="submit" class="button" id="aceptar" value="Entrar">
-                      </p>
-                     
-                    </div>
-                   
-                  </div>
-                  </fieldset>
-				  
 				  <?php 
 				  if(isset($_POST['aceptar'])){
 				  $user=$_REQUEST['user'];
@@ -78,7 +39,7 @@
 				  <?php
 				  }else{
 				  	include("Conexion2.php");
-					include("carpetaraiz.php");
+					//include("carpetaraiz.php");
 					$row=mysqli_fetch_array(mysqli_query($cnx,"select * from acceso where user='$user' and pass='$pass'"));
 					
 					if($row==false){
@@ -86,25 +47,69 @@
 				  	<script>alert("¡¡Error de Identificación!!");</script>
 				  <?php
 					}else{
-						header('Location: '.$raiz.'indexmenu.php');
+						?> <script> window.location='indexmenu.php';</script> <?php
+						//header('Location:/site/indexmenu.php');
 					}
 					
 					
 				  }
 				  }			  
 				  
-				  ?>
-                </form></div>
+				  ?>  
+                  
+                <div class="content">
+	<div class="container">
+		<img class="bg-img" src="images/iu.jpg" alt="">
+			<div class="menu">
+				<a href="#connexion" class="btn-connexion"><h2>Iniciar Secion</h2></a>
+			</div>
+			<div class="connexion">
+
+				<div class="contact-form">
+					<label id="usuario">Usuario</label>
+                                        <input required name="user" placeholder="usuario..." value="" type="text"  style="color:#white;background-color:#EFF8FB"  >
+					
+					<label id="pass">Contraseña</label>
+                                        <input required name="pass" placeholder="pass..." value="" type="password" style="color:#black;background-color:#EFF8FB" >
+					
+					<!--<div class="check">
+						<label>				
+							<input id="check" type="checkbox" class="checkbox">
+								<svg xmlns="http://www.w3.org/2000/svg" width="26px" height="23px">
+									<path class="path-back"  d="M1.5,6.021V2.451C1.5,2.009,1.646,1.5,2.3,1.5h18.4c0.442,0,0.8,0.358,0.8,0.801v18.398c0,0.442-0.357,0.801-0.8,0.801H2.3c-0.442,0-0.8-0.358-0.8-0.801V6"/>
+									<path class="path-moving" d="M24.192,3.813L11.818,16.188L1.5,6.021V2.451C1.5,2.009,1.646,1.5,2.3,1.5h18.4c0.442,0,0.8,0.358,0.8,0.801v18.398c0,0.442-0.357,0.801-0.8,0.801H2.3c-0.442,0-0.8-0.358-0.8-0.801V6"/>
+								</svg>
+						</label>
+						<!--<h3>Manternerme Dentro</h3>-->
+					</div>
+                            <div>
+					<input class="submit" value="Ingresar" id="aceptar" name="aceptar" type="submit">
+                                        </div>
+                                         </form>
+				</div>
+				
+				<hr>
+			</div>
+			
+			
+			
 	</div>
+                  
+				
+                </form>
 	
 </section>
 <!-- footer -->
 <footer>
-	<div class="container_24">
-		<div class="wrapper">
-			<div class="grid_24"><a href="index.html" class="link"></a> &copy; 2012</div>
-		</div>
-	</div>
+	
 </footer>  
+<script type="text/javascript">
+function log(){
+
+alert("si jala");
+
+}
+
+</script>
 </body>
 </html>
