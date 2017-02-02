@@ -18,7 +18,7 @@
 $( document ).ready(function() {
  
 $('form#form1').find('input').each(function(){  
-if(this.id=="fechnacsol" || this.id=="desdesol" || this.id=="aperbanc1d" || this.id=="aperbanc1d2"  || this.id=="inicoper1" || this.id=="datobfechnac1d"  || this.id=="datobfechnac2d" || this.id=="textfield57"){
+if(this.id=="fechnacsol" || this.id=="desdesol" || this.id=="aperbanc1d" || this.id=="aperbanc1d2"  || this.id=="inicoper1" || this.id=="datobfechnac1d"  || this.id=="datobfechnac2d" || this.id=="textfield57" || this.id=="fechaComprobante"){
     $fecha=$(this);
     
     if ($fecha[0].type!="date"){
@@ -225,16 +225,16 @@ $('#secBeneficiario').find('input').each(function(){
 ///SECCION PERFIL TRANSACCIONAL INICIAL 
 $('#secPerTransaccional').find('input').each(function(){
  
-  if(this.id=="textfield66" && document.getElementById("textfield65").value!="" ){ $(this).prop('required',true);}else{ $(this).prop('required',false);}
-  if(this.id=="textfield68" && document.getElementById("textfield67").value!="" ){ $(this).prop('required',true);}else{ $(this).prop('required',false);}
-  if(this.id=="textfield70" && document.getElementById("textfield69").value!="" ){ $(this).prop('required',true);}else{ $(this).prop('required',false);}
-  if(this.id=="textfield72" && document.getElementById("textfield71").value!="" ){ $(this).prop('required',true);}else{ $(this).prop('required',false);}
-  if(this.id=="textfield74" && document.getElementById("textfield73").value!="" ){ $(this).prop('required',true);}else{ $(this).prop('required',false);}
-  if(this.id=="textfield76" && document.getElementById("textfield75").value!="" ){ $(this).prop('required',true);}else{ $(this).prop('required',false);}
-  if(this.id=="textfield78" && document.getElementById("textfield77").value!="" ){ $(this).prop('required',true);}else{ $(this).prop('required',false);}
-  if(this.id=="textfield80" && document.getElementById("textfield79").value!="" ){ $(this).prop('required',true);}else{ $(this).prop('required',false);}
-  if(this.id=="textfield82" && document.getElementById("textfield81").value!="" ){ $(this).prop('required',true);}else{ $(this).prop('required',false);}
-  if(this.id=="textfield84" && document.getElementById("textfield83").value!="" ){ $(this).prop('required',true);}else{ $(this).prop('required',false);}
+  if(this.id=="textfield66" && document.getElementById("textfield65").value!="" ){ $(this).prop('required',true);alert("Required");}
+  if(this.id=="textfield68" && document.getElementById("textfield67").value!="" ){ $(this).prop('required',true);}
+  if(this.id=="textfield70" && document.getElementById("textfield69").value!="" ){ $(this).prop('required',true);}
+  if(this.id=="textfield72" && document.getElementById("textfield71").value!="" ){ $(this).prop('required',true);}
+  if(this.id=="textfield74" && document.getElementById("textfield73").value!="" ){ $(this).prop('required',true);}
+  if(this.id=="textfield76" && document.getElementById("textfield75").value!="" ){ $(this).prop('required',true);}
+  if(this.id=="textfield78" && document.getElementById("textfield77").value!="" ){ $(this).prop('required',true);}
+  if(this.id=="textfield80" && document.getElementById("textfield79").value!="" ){ $(this).prop('required',true);}
+  if(this.id=="textfield82" && document.getElementById("textfield81").value!="" ){ $(this).prop('required',true);}
+  if(this.id=="textfield84" && document.getElementById("textfield83").value!="" ){ $(this).prop('required',true);}
   
 });
 ///SECCION PEPS 
@@ -269,7 +269,7 @@ if(($(this).prop('required') && this.value=="") || ($(this).prop('required') && 
  
 
 
-      alert("dentro: "+this.id);
+      alert("¡¡Por Favor, Verifica Que Todos Los Datos Esten Correctos!!");
     
       
       
@@ -725,10 +725,10 @@ input::-moz-placeholder {
           </p>
          </div>
           <p align="left">
-            Tiene propiedad a su nombre? Si
-            <input id="datobprop2" name="datobprop2" type="radio" value="Si">
-            No
-            <input id="datobprop2" name="datobprop2" type="radio" value="No">
+            Tiene propiedad a su nombre? 
+            <input id="datobprop2A" name="datobprop2" type="radio" value="Si"><label for="datobprop2A">Si</label>
+            
+            <input id="datobprop2B" name="datobprop2" type="radio" value="No"><label for="datobprop2B">No</label>
           </p>
           <div class="row">
           <p align="left">
@@ -737,10 +737,10 @@ input::-moz-placeholder {
             <div class="small-4 columns"><input  name="datobmail2" type="text" id="datobmail2" size="30px" placeholder="Email"></div>
           </p>
           </div>
-          <p align="left">sexo: <i class="step fi-male size-72"></i>  M
-            <input id="datobsex2" name="datobsex2" type="radio" value="M">
-            <i class="step fi-female size-72"></i> F
-            <input id="datobsex2" name="datobsex2" type="radio" value="F">
+          <p align="left">sexo: <i class="step fi-male size-72"></i>
+            <input id="datobsex2" name="datobsex2" type="radio" value="M"><i class="step fi-male size-72"></i>  M</label>
+            <i class="step fi-female size-72"></i>
+            <input id="datobsex2" name="datobsex2" type="radio" value="F"><i class="step fi-male size-72"></i>  F</label>
             </p>
             <div class="row"> 
             <p align="left">
@@ -800,10 +800,10 @@ input::-moz-placeholder {
           <hr>
           <div class="row">
           <p align="justify">
-            <div class="small-5 columns"><input name="clavcon" type="text" id="clavcon" size="30px" placeholder="Clave Consesionario o Distribuidor"></div>
-            <div class="small-5 columns"><input name="nomcons" type="text" id="nomcons" size="30px" placeholder="Nombre Concesionario o Distribuidor"></div>
-            <div class="small-5 columns"><input name="nomvend" type="text" id="nomvend" size="48px" placeholder="Nombre del Vendedor"></div>
-            <div class="small-5 columns"><input name="gerentegral" type="text" id="gerentegral" size="48px" placeholder="Nombre y firma del Gerente General"></div>
+            <div class="small-5 columns"><input name="clavcon" type="text" id="clavcon" size="30px" placeholder="Clave Consesionario o Distribuidor" required></div>
+            <div class="small-5 columns"><input name="nomcons" type="text" id="nomcons" size="30px" placeholder="Nombre Concesionario o Distribuidor" required></div>
+            <div class="small-5 columns"><input name="nomvend" type="text" id="nomvend" size="48px" placeholder="Nombre del Vendedor" required></div>
+            <div class="small-5 columns"><input name="gerentegral" type="text" id="gerentegral" size="48px" placeholder="Nombre y firma del Gerente General" required></div>
             <div class="small-10 columns"><input name="fecha" type="text" id="fecha" value="<?php echo date("Y-m-d");?>" size="10px" readonly></div>
           </p>
           </div>
@@ -819,10 +819,10 @@ input::-moz-placeholder {
         <div id="riesgo">
           
           <h4 align="left">Datos generales del cliente</h4>
-          <p align="left">Tipo de Cliente: Nuevo
-            <input id="escliente" name="escliente" type="radio" value="1" checked>
-            Actualización
-            <input id="escliente" name="escliente" type="radio" value="2">
+          <p align="left">Tipo de Cliente: 
+            <input id="escliente1" name="escliente" type="radio" value="1" required><label for="escliente1"> Nuevo</label>
+            
+            <input id="escliente2" name="escliente" type="radio" value="2" required><label for="escliente2"> Actualización</label>
               
           </p>
           <table width="100%" border="0">
@@ -844,7 +844,7 @@ input::-moz-placeholder {
             </tr>
             <tr>
               <td>Delegación o municipio </td>
-              <td><input name="textfield5" type="text" id="textfield5" size="100%" ></td>
+              <td><input name="textfield5" type="text" id="textfield5" size="100%" required></td>
             </tr>
             <tr>
               <td>Estado o provincia </td>
@@ -876,8 +876,8 @@ input::-moz-placeholder {
           <table width="100%" border="0">
             <tr>
               <td width="32%">Actividad | Objeto Social </td>
-              <td width="68%"><select id="select" name="select" size="1" style="width:60%;">
-                <option value="---" selected>---</option>
+              <td width="68%"><select id="select" name="select" size="1" style="width:60%;" required>
+                <option value="" selected></option>
                 <option value="3">Vulnerable</option>
                 <option value="2">Informal</option>
                 <option value="1">Otra</option>
@@ -886,8 +886,8 @@ input::-moz-placeholder {
             </tr>
             <tr>
               <td>Antigüedad del cliente </td>
-              <td><select id="select2" name="select2" size="1" style="width:60%;">
-                <option value="---" selected>---</option>
+              <td><select id="select2" name="select2" size="1" style="width:60%;" required>
+                <option value="" selected></option>
                 <option value="3">1-3 años</option>
                 <option value="2">4-6 años</option>
                 <option value="1">7-10 años</option>
@@ -896,8 +896,8 @@ input::-moz-placeholder {
             </tr>
             <tr>
               <td>Naturaleza de las operaciones </td>
-              <td><select id="select3" name="select3" size="1" style="width:60%;">
-                <option value="---" selected>---</option>
+              <td><select id="select3" name="select3" size="1" style="width:60%;" required>
+                <option value="" selected></option>
                 <option value="1">Prestamo</option>
                 <option value="2">Arrendamiento</option>
                 <option value="3">Otros</option>
@@ -905,8 +905,8 @@ input::-moz-placeholder {
             </tr>
             <tr>
               <td>Q de Beneficiarios </td>
-              <td><select id="select4" name="select4" size="1" style="width:60%;">
-                <option value="---" selected>---</option>
+              <td><select id="select4" name="select4" size="1" style="width:60%;" required>
+                <option value="" selected></option>
                 <option value="1">1 a 2</option>
                 <option value="2">3 a 4</option>
                 <option value="3">5 o mas</option>
@@ -915,8 +915,8 @@ input::-moz-placeholder {
             </tr>
             <tr>
               <td>Q de Terceros Relacionados (Apoderados y Cotitulares) </td>
-              <td><select id="select5" name="select5" size="1" style="width:60%;">
-                <option value="---" selected>---</option>
+              <td><select id="select5" name="select5" size="1" style="width:60%;" required>
+                <option value="" selected></option>
                 <option value="1">1 a 2</option>
                 <option value="2">3 a 4</option>
                 <option value="3">5 o mas</option>
@@ -925,8 +925,8 @@ input::-moz-placeholder {
             </tr>
             <tr>
               <td>PEPs Relacionados </td>
-              <td><select id="select6" name="select6" size="1" style="width:60%;">
-                <option value="---" selected>---</option>
+              <td><select id="select6" name="select6" size="1" style="width:60%;" required>
+                <option value="" selected></option>
                 <option value="1">1% - 49%</option>
                 <option value="2">50% - 74%</option>
                 <option value="3">75% - 100%</option>
@@ -934,8 +934,8 @@ input::-moz-placeholder {
             </tr>
             <tr>
               <td>Alerta Reputacional </td>
-              <td><select id="select7" name="select7" size="1" style="width:60%;">
-                <option value="---" selected>---</option>
+              <td><select id="select7" name="select7" size="1" style="width:60%;" required>
+                <option value="" selected></option>
                 <option value="1">1% - 49%</option>
                 <option value="2">50% - 74%</option>
                 <option value="3">75% - 100%</option>
@@ -943,8 +943,8 @@ input::-moz-placeholder {
             </tr>
             <tr>
               <td>Volumen esperado (Monto) </td>
-              <td><select id="select8" name="select8" size="1" style="width:60%;">
-                <option value="---" selected>---</option>
+              <td><select id="select8" name="select8" size="1" style="width:60%;" required>
+                <option value="" selected></option>
                 <option value="1">$18000 - $20000</option>
                 <option value="2">$21000 - $25000</option>
                 <option value="3">mas de $25000</option>
@@ -952,8 +952,8 @@ input::-moz-placeholder {
             </tr>
             <tr>
               <td>Frecuencia esperada (No. Veces) </td>
-              <td><select id="select9" name="select9" size="1" style="width:60%;">
-                <option value="---" selected>---</option>
+              <td><select id="select9" name="select9" size="1" style="width:60%;" required>
+                <option value="" selected></option>
                 <option value="1">1 a 3</option>
                 <option value="2">4 a 6</option>
                 <option value="3">7 a 10</option>
@@ -961,8 +961,8 @@ input::-moz-placeholder {
             </tr>
             <tr>
               <td>Instrumento Monetario Utilizado </td>
-              <td><select id="select10" name="select10" size="1" style="width:60%;">
-                <option value="---" selected>---</option>
+              <td><select id="select10" name="select10" size="1" style="width:60%;" required>
+                <option value="" selected></option>
                 <option value="1">Transferencia</option>
                 <option value="2">Cheque</option>
                 <option value="3">Efectivo</option>
@@ -970,8 +970,8 @@ input::-moz-placeholder {
             </tr>
             <tr>
               <td>Canales o Medios Utilizados </td>
-              <td><select id="select11" name="select11" size="1" style="width:60%;">
-                <option value="---" selected>---</option>
+              <td><select id="select11" name="select11" size="1" style="width:60%;" required>
+                <option value="" selected></option>
                 <option value="1">Agencia</option>
                 <option value="2">Internet</option>
                 <option value="3">Otro</option>
@@ -979,8 +979,8 @@ input::-moz-placeholder {
             </tr>
             <tr>
               <td>País | Estado Oficial </td>
-              <td><select id="select12" name="select12" size="1" style="width:60%;">
-                <option value="---" selected>---</option>
+              <td><select id="select12" name="select12" size="1" style="width:60%;" required>
+                <option value="" selected></option>
                 <option value="1">México</option>
                 <option value="2">Otros</option>
                 <option value="3">Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar</option>
@@ -988,8 +988,8 @@ input::-moz-placeholder {
             </tr>
             <tr>
               <td>País | Estado Residencia </td>
-              <td><select id="select13" name="select13" size="1" style="width:60%;">
-                <option value="---" selected>---</option>
+              <td><select id="select13" name="select13" size="1" style="width:60%;" required>
+                <option value="" selected></option>
                 <option value="3">Guerrero-Michoacan-Tamaulipas-Morelos</option>
                 <option value="2">Durango-Chihuhua-Jalisco-México-CD México-Sonora</option>
                 <option value="1">Puebla-Coahuila-Zcatecas-Hidalgo-Durango</option>
@@ -997,8 +997,8 @@ input::-moz-placeholder {
             </tr>
             <tr>
               <td>País | Estado Operación </td>
-              <td><select id="select14" name="select14" size="1" style="width:60%;">
-                <option value="---" selected>---</option>
+              <td><select id="select14" name="select14" size="1" style="width:60%;" required>
+                <option value="" selected></option>
                 <option value="3">Guerrero-Michoacan-Tamaulipas-Morelos</option>
                 <option value="2">Durango-Chihuhua-Jalisco-México-CD México-Sonora</option>
                 <option value="1">Puebla-Coahuila-Zcatecas-Hidalgo-Durango</option>
@@ -1006,8 +1006,8 @@ input::-moz-placeholder {
             </tr>
             <tr>
               <td>Origen de los recursos </td>
-              <td><select id="select15" name="select15" size="1" style="width:60%;">
-                <option value="---" selected>---</option>
+              <td><select id="select15" name="select15" size="1" style="width:60%;" required>
+                <option value="" selected></option>
                 <option value="1">México</option>
                 <option value="2">Otros</option>
                 <option value="3">Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar</option>
@@ -1015,8 +1015,8 @@ input::-moz-placeholder {
             </tr>
             <tr>
               <td>Destino de los recursos </td>
-              <td><select id="select16" name="select16" size="1" style="width:60%;">
-                <option value="---" selected>---</option>
+              <td><select id="select16" name="select16" size="1" style="width:60%;" required>
+                <option value="" selected></option>
                 <option value="1">México</option>
                 <option value="2">Otros</option>
                 <option value="3">Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar</option>
@@ -1024,8 +1024,8 @@ input::-moz-placeholder {
             </tr>
             <tr>
               <td>País | Estado Residencia de Terceros Relacionados </td>
-              <td><select id="select17" name="select17" size="1" style="width:60%;">
-                <option value="---" selected>---</option>
+              <td><select id="select17" name="select17" size="1" style="width:60%;" required>
+                <option value="" selected></option>
                 <option value="1">México</option>
                 <option value="2">Otros</option>
                 <option value="3">Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar</option>
@@ -1121,7 +1121,7 @@ input::-moz-placeholder {
             </tr>
             <tr>
               <td>Numero de serie de la FIEL*</td>
-              <td><input name="textfield30" type="text" id="textfield30" size="100%"  ></td>
+              <td><input name="textfield30" type="text" id="textfield30" size="100%"  required></td>
             </tr>
             <tr>
               <td>Nacionalidad</td>
@@ -1137,11 +1137,11 @@ input::-moz-placeholder {
             </tr>
             <tr>
               <td>Domicilio donde labora </td>
-              <td><input name="textfield34" type="text" id="textfield34" size="100%" ></td>
+              <td><input name="textfield34" type="text" id="textfield34" size="100%" required></td>
             </tr>
             <tr>
               <td>Sueldo o ingreso mensual </td>
-              <td><input name="textfield35" type="text" id="textfield35" size="100%" onkeypress="return validaNumero(event)" ></td>
+              <td><input name="textfield35" type="text" id="textfield35" size="100%" onkeypress="return validaNumero(event)" required></td>
             </tr>
             <tr>
               <td>Puesto</td>
@@ -1149,11 +1149,11 @@ input::-moz-placeholder {
             </tr>
             <tr>
               <td>Actividad Económica Adicional </td>
-              <td><input name="textfield37" type="text" id="textfield37" size="100%" ></td>
+              <td><input name="textfield37" type="text" id="textfield37" size="100%" required></td>
             </tr>
             <tr>
               <td>Ingresos Adicionales Mensuales Apox </td>
-              <td><input name="textfield38" type="text" id="textfield38" size="100%"  onkeypress="return validaNumero(event)"></td>
+              <td><input name="textfield38" type="text" id="textfield38" size="100%"  onkeypress="return validaNumero(event)" required></td>
             </tr>
           </table>
 		  <br>
@@ -1165,55 +1165,40 @@ input::-moz-placeholder {
               <td width="21%">Credencial para votar </td>
               <td width="35%"><input name="textfield39" type="text" id="textfield39" size="50%" ></td>
               <td width="15%">Se adjunta copia: </td>
-              <td width="29%">Si:
-              <input id="copias" name="copias" type="radio" value="1" >
-              No:
-              <input id="copias" name="copias" type="radio" value="2" ></td>
+              <td width="29%" id="secINE"><input id="copiasA" name="copias" type="radio" value="1" ><label for="copiasA"> Si</label>  <input id="copiasB" name="copias" type="radio" value="2" ><label for="copiasB"> No</label></td>
             </tr>
             <tr>
               <td>Pasaporte cedula profesional </td>
               <td><input name="textfield40" type="text" id="textfield40" size="50%"  ></td>
               <td>Se adjunta copia: </td>
-              <td>Si:
-              <input id="copias2" name="copias2" type="radio" value="1">
-              No:
-              <input id="copias2" name="copias2" type="radio" value="2"></td>
+              <td id="secCedProfesional"><input id="copias2A" name="copias2" type="radio" value="1"><label for="copias2A"> Si</label>  <input id="copias2B" name="copias2" type="radio" value="2"><label for="copias2B"> No</label></td>
             </tr>
             <tr>
               <td>Cartilla de servicio militar </td>
               <td><input name="textfield41" type="text" id="textfield41" size="50%" ></td>
               <td>Se adjunta copia: </td>
-              <td>Si:
-              <input id="copias3" name="copias3" type="radio" value="1" >
-              No:
-              <input id="copias3" name="copias3" type="radio" value="2" ></td>
+              <td id="secCarMilitar"><input id="copias3A" name="copias3" type="radio" value="1" ><label for="copias3A"> Si</label>  <input id="copias3B" name="copias3" type="radio" value="2" ><label for="copias3B"> No</label></td>
             </tr>
             <tr>
               <td>Licencia para conducir </td>
               <td><input name="textfield42" type="text" id="textfield42" size="50%"  ></td>
               <td>Se adjunta copia: </td>
-              <td>Si:
-              <input id="copias4" name="copias4" type="radio" value="1" >
-              No:
-              <input id="copias4" name="copias4" type="radio" value="2" ></td>
+              <td id="secLicConducir"><input id="copias4A" name="copias4" type="radio" value="1" ><label for="copias4A"> Si</label>
+                                      <input id="copias4B" name="copias4" type="radio" value="2" ><label for="copias4B"> No</label></td>
             </tr>
             <tr>
               <td>Otra</td>
               <td><input name="textfield43" type="text" id="textfield43" size="50%"  ></td>
               <td>Se adjunta copia: </td>
-              <td>Si:
-              <input id="copias5" name="copias5" type="radio" value="1" >
-              No:
-              <input id="copias5" name="copias5" type="radio" value="2" ></td>
+              <td id="secOtrIdentificacion"><input id="copias5A" name="copias5" type="radio" value="1" ><label for="copias5A"> Si</label>
+                                            <input id="copias5B" name="copias5" type="radio" value="2" ><label for="copias5B"> No</label></td>
             </tr>
             <tr>
               <td>Especificar</td>
-              <td><input name="textfield44" type="text" id="textfield44" size="50%"  ></td>
+              <td id="secOtrIdentificacion2"><input name="textfield44" type="text" id="textfield44" size="50%"  ></td>
               <td>Se cotejo vs original: </td>
-              <td>Si:
-                <input id="cotejo" name="cotejo" type="radio" value="1" >
-No:
-<input id="cotejo" name="cotejo" type="radio" value="2" ></td>
+              <td ><input id="cotejo1" name="cotejo" type="radio" value="1" ><label for="cotejo1"> Si</label>
+                   <input id="cotejo2" name="cotejo" type="radio" value="2" ><label for="cotejo2"> No</label></td>
             </tr>
           </table>
 		  <BR>
@@ -1221,28 +1206,22 @@ No:
 		  <table width="100%" border="0">
             <tr>
               <td width="30%">Se adjunta CURP y/o cédula RFC, FEA* </td>
-              <td width="70%">Si:
-                <input id="adjuntos1" name="adjuntos1" type="radio" value="1">
-No:
-<input id="adjuntos1" name="adjuntos1" type="radio" value="2"></td>
+              <td width="70%"><input id="adjuntos1A" name="adjuntos1" type="radio" value="1" required><label for="adjuntos1A"> Si</label>
+                              <input id="adjuntos1B" name="adjuntos1" type="radio" value="2" required><label for="adjuntos1B"> No</label></td>
             </tr>
             <tr>
               <td>Se adjunta comprobante de domicilio </td>
-              <td>Si:
-                <input id="adjuntos2" name="adjuntos2" type="radio" value="1">
-No:
-<input id="adjuntos2" name="adjuntos2" type="radio" value="2"></td>
+              <td><input id="adjuntos2A" name="adjuntos2" type="radio" value="1" required><label for="adjuntos2A"> Si</label>
+                  <input id="adjuntos2B" name="adjuntos2" type="radio" value="2" required><label for="adjuntos2B"> No</label></td>
             </tr>
             <tr>
               <td>Fecha del comprobante de domicilio </td>
-              <td>&nbsp;</td>
+              <td><input name="fechaComprobante" type="date" id="fechaComprobante" size="50%"  required></td>
             </tr>
             <tr>
               <td>Domicilio manifestado coincide con la ID</td>
-              <td>Si:
-                <input id="adjuntos3" name="adjuntos3" type="radio" value="1">
-No:
-<input id="adjuntos3" name="adjuntos3" type="radio" value="2"></td>
+              <td><input id="adjuntos3A" name="adjuntos3" type="radio" value="1" required><label for="adjuntos3A"> Si</label>
+                  <input id="adjuntos3B" name="adjuntos3" type="radio" value="2" required><label for="adjuntos3B"> No</label></td>
             </tr>
           </table>
 		  <br>
@@ -1251,6 +1230,7 @@ No:
 		  <hr>
 		  <br>
           <H6 align="left">BENEFICIARIO</H6>
+          <div id="secBeneficiario">
           <table width="100%" border="0">
             <tr>
               <td width="18%">Apellido Paterno </td>
@@ -1333,10 +1313,12 @@ No:
               <td><input name="textfield64" type="text" id="textfield64" size="50%"  ></td>
             </tr>
           </table>
+          </div>
 		  <br>
 		  <hr>
 		  <br>
           <H6 align="left">PERFIL TRANSACCIONAL INICIAL</H6>
+          <div id="secPerTransaccional">
           <table width="100%" border="0">
             <tr>
               <td width="21%">Ingresos Comprobable(1) </td>
@@ -1427,14 +1409,14 @@ No:
             </tr>
             <tr>
               <td>Plazo (meses)</td>
-              <td><input name="textfield91" type="text" id="textfield91" size="50%" onkeypress="return validaNumero(event)"></td>
+              <td><input name="textfield91" type="text" id="textfield91" size="50%" onkeypress="return validaNumero(event)" required></td>
             </tr>
             <tr>
               <td>Pago Mensual Esperado </td>
-              <td><input name="textfield92" type="text" id="textfield92" size="50%" onkeypress="return validaNumeroDecimal(event)"></td>
+              <td><input name="textfield92" type="text" id="textfield92" size="50%" onkeypress="return validaNumeroDecimal(event)" required></td>
             </tr>
           </table>
-		  
+          <div>
 		  <br>
 	      <p align="left">¿ Usted o algún familiar suyo de hasta segundo grado de consanguinidad o afinidad (cónyuge,padre,madre,hijos,hermanos, abuelos, tios, primos, cuñados, suegros, yernos, etc), desempeña o a desempeñado funciones públicas destacadas en el territorio nacional o en el Extranjero (incluyendo puestos de Gobierno Federales, Estatales ,Municipales, funciones gubernamentales o judiciales, en partidos politicos, militares de alta jerarquía, altos ejecutivos de empresas paraestatales, etc.?<br>
 	        Si:
@@ -1443,6 +1425,7 @@ No:
 <input id="PEPS" name="PEPS" type="radio" value="2">
 	      </p>
 	      <p align="left">En caso de si:</p>
+        <div id="secPEPS">
 	      <table width="100%" border="0">
             <tr>
               <td width="18%">¿Quién? (Nombre) </td>
@@ -1457,6 +1440,7 @@ No:
               <td><input name="textfield95" type="text" id="textfield95" size="50%"  ></td>
             </tr>
           </table>
+          </div>
 	      <p align="left">&nbsp; </p>
 	      <hr>
 		  <br>
