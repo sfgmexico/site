@@ -33,7 +33,7 @@ if(this.id=="fechnacsol" || this.id=="desdesol" || this.id=="aperbanc1d" || this
 
 
 function Validacioncampos(){
- alert("entra submit");
+ 
 var requerido=0;
 //seccion del solicitante
 $('#secSolicitante').find('input').each(function(){  
@@ -617,8 +617,8 @@ input::-moz-placeholder {
           <div id="secDatConyuge">
           <div class="row">
           <p align="left">
-            <div class="small-5 columns"><input name="conyunom" type="text" id="conyunom" size="40px" placeholder="Nombre del conyuge)"><input name="conyuape1" type="text" id="conyuape1" size="20px" placeholder="Apellido Paterno"onkeypress="return validaTexto(event)">
-          <input name="conyuape2" type="text" id="conyuape2" size="20px" placeholder="Apellido Materno"onkeypress="return validaTexto(event)"></div>
+            <div class="small-5 columns"><input name="conyunom" type="text" id="conyunom" size="40px" placeholder="Nombre del conyuge)" pattern="alpha"><input name="conyuape1" type="text" pattern="alpha" id="conyuape1" size="20px" placeholder="Apellido Paterno"onkeypress="return validaTexto(event)" pattern="alpha">
+          <input name="conyuape2" type="text" id="conyuape2" size="20px" placeholder="Apellido Materno"onkeypress="return validaTexto(event)" pattern="alpha"></div>
             
             <div class="small-3 columns"><input name="compaconyu" type="text" id="compaconyu" size="30px" placeholder="Compañia"></div>
             <div class="small-3 columns"><input name="puestconyu" type="text" id="puestconyu" size="20px" placeholder="Puesto"></div>
@@ -627,12 +627,12 @@ input::-moz-placeholder {
           </div>
           <hr>
           <p align="left"><strong>DATOS DEL OBLIGADO SOLIDARIO PERSONA FÍSICA, PROPIETARIO DE BIEN INMUEBLE </strong></p>
-          <div id="secDatObligadoPersonaMoral">
+          <div id="secDatObligadoSolidarioPF1">
           <div class="row">
           <p align="left">
-            <div class="small-5 columns"><input name="datobnom1" type="text" id="datobnom1" size="30px" placeholder="Nombre(s)"></div>
-            <div class="small-5 columns"><input name="datobappat1" type="text" id="datobappat1" size="30px" placeholder="Apellido Paterno"></div>
-            <div class="small-5 columns"><input name="datobapmat1" type="text" id="datobapmat1" size="30px" placeholder="Apellido Materno"></div>
+            <div class="small-5 columns"><input name="datobnom1" type="text" id="datobnom1" size="30px" placeholder="Nombre(s)" pattern="alpha"></div>
+            <div class="small-5 columns"><input name="datobappat1" type="text" id="datobappat1" size="30px" placeholder="Apellido Paterno" pattern="alpha"></div>
+            <div class="small-5 columns"><input name="datobapmat1" type="text" id="datobapmat1" size="30px" placeholder="Apellido Materno" pattern="alpha"></div>
             <div class="small-5 columns"><input name="datobdir1" type="text" id="datobdir1" size="48px" placeholder="Dirección / Calle y número"></div>
             <div class="small-5 columns"><input name="datobcol1" type="text" id="datobcol1" size="48px" placeholder="Colonia"></div>
             <div class="small-5 columns"><input name="datobcd1" type="text" id="datobcd1" size="20px" placeholder="Ciudad"></div>
@@ -640,78 +640,79 @@ input::-moz-placeholder {
           </p>
           </div>
           <p align="left">
-            Tiene propiedad a su nombre? Si
-            <input id="datobprop1" name="datobprop1" type="radio" value="1">
-            No
-            <input id="datobprop1" name="datobprop1" type="radio" value="2">
+            Tiene propiedad a su nombre? 
+            <input id="datobprop1A" name="datobprop1" type="radio" value="1"><label for="datobprop1A">Si</label>
+            
+            <input id="datobprop1B" name="datobprop1" type="radio" value="2"><label for="datobprop1B">No</label>
           </p>
           <div class="row"> 
           <p align="left">
             <div class="small-4 columns"><input name="datobedo1" type="text" id="datobedo1" size="30px" placeholder="Estado"></div>
-            <div class="small-4 columns"><input name="datobcp1" type="text" id="datobcp1" size="30px" placeholder="C.P." onkeypress="return validaNumero(event)"></div>
-            <div class="small-4 columns"><input  name="datobmail1" type="text" id="datobmail1" size="30px" placeholder="Email"></div>
+            <div class="small-4 columns"><input name="datobcp1" type="text" id="datobcp1" size="30px" placeholder="C.P." onkeypress="return validaNumero(event)" patern="integer"></div>
+            <div class="small-4 columns"><input  name="datobmail1" type="text" id="datobmail1" size="30px" placeholder="Email" pattern="email"></div>
           </p>
           </div>
-          <p align="left">sexo:<i class="step fi-male size-72"></i>  M
-            <input id="datobsex1" name="datobsex1" type="radio" value="M">
-            <i class="step fi-female size-72"></i> F
-            <input id="datobsex1" name="datobsex1" type="radio" value="F">
+          <p align="left">sexo:
+            <input id="datobsex1" name="datobsex1" type="radio" value="M"><label for="datobprop1B"><i class="step fi-male size-72"></i>  M</label>
+            
+            <input id="datobsex1" name="datobsex1" type="radio" value="F"><label for="datobprop1B"><i class="step fi-female size-72"></i>  F</label>
           </p>
           <div class="row">
           <p align="left">
             Fecha de nacimiento:
             <div class="small-4 columns"><input name="datobfechnac1d" type="date" id="datobfechnac1d" size="1px" maxlength="2" placeholder="dd" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobfechnac1m)"></div>
-            <div class="small-4 columns"><input name="datobed1" type="text" id="datobed1" size="2px" placeholder="Edad" onkeypress="return validaNumero(event)"></div>
-            <div class="small-4 columns"><input name="datobcurp1" type="text" id="datobcurp1" size="22px" placeholder="CURP" onkeypress="return validaRFC(event)"></div>
+            <div class="small-4 columns"><input name="datobed1" type="text" id="datobed1" size="2px" placeholder="Edad" onkeypress="return validaNumero(event)" pattern="integer"></div>
+            <div class="small-4 columns"><input name="datobcurp1" type="text" id="datobcurp1" size="22px" placeholder="CURP" onkeypress="return validaRFC(event)" pattern="alpha_numeric"></div>
           </p>
           </div>
           <div class="row">
           <p align="left">RFC con homoclave:
             <div class="small-10 columns">
-            <div class="small-1 columns"><input name="datobrfc11" type="text" id="datobrfc11" size="1px" maxlength="1" onkeypress="return validaRFC(event)" onKeyUp="myFunction(this,this.value,datobrfc12)"></div>
-            <div class="small-1 columns"><input name="datobrfc12" type="text" id="datobrfc12" size="1px" maxlength="1" onkeypress="return validaRFC(event)" onKeyUp="myFunction(this,this.value,datobrfc13)"></div>
-            <div class="small-1 columns"><input name="datobrfc13" type="text" id="datobrfc13" size="1px" maxlength="1" onkeypress="return validaRFC(event)" onKeyUp="myFunction(this,this.value,datobrfc14)"></div>
-            <div class="small-1 columns"><input name="datobrfc14" type="text" id="datobrfc14" size="1px" maxlength="1" onkeypress="return validaRFC(event)" onKeyUp="myFunction(this,this.value,datobrfc15)"></div>
-            <div class="small-1 columns"><input name="datobrfc15" type="text" id="datobrfc15" size="1px" maxlength="1" onkeypress="return validaRFC(event)" onKeyUp="myFunction(this,this.value,datobrfc16)"></div>
-            <div class="small-1 columns"><input name="datobrfc16" type="text" id="datobrfc16" size="1px" maxlength="1" onkeypress="return validaRFC(event)" onKeyUp="myFunction(this,this.value,datobrfc17)"></div>
-            <div class="small-1 columns"><input name="datobrfc17" type="text" id="datobrfc17" size="1px" maxlength="1" onkeypress="return validaRFC(event)" onKeyUp="myFunction(this,this.value,datobrfc18)"></div>
-            <div class="small-1 columns"><input name="datobrfc18" type="text" id="datobrfc18" size="1px" maxlength="1" onkeypress="return validaRFC(event)" onKeyUp="myFunction(this,this.value,datobrfc19)"></div>
-            <div class="small-1 columns"><input name="datobrfc19" type="text" id="datobrfc19" size="1px" maxlength="1" onkeypress="return validaRFC(event)" onKeyUp="myFunction(this,this.value,datobrfc110)"></div>
-            <div class="small-1 columns"><input name="datobrfc110" type="text" id="datobrfc110" size="1px" maxlength="1" onkeypress="return validaRFC(event)" onKeyUp="myFunction(this,this.value,datobrfc111)"></div>
-            <div class="small-1 columns"><input name="datobrfc111" type="text" id="datobrfc111" size="1px" maxlength="1" onkeypress="return validaRFC(event)" onKeyUp="myFunction(this,this.value,datobrfc112)"></div>
-            <div class="small-1 columns"><input name="datobrfc112" type="text" id="datobrfc112" size="1px" maxlength="1" onkeypress="return validaRFC(event)" onKeyUp="myFunction(this,this.value,datobrfc113)"></div></div>
-            <div class="small-1 columns"><input name="datobrfc113" type="text" id="datobrfc113" size="1px" maxlength="1" onkeypress="return validaRFC(event)" onKeyUp="myFunction(this,this.value,datobtel11)"></div>
+            <div class="small-1 columns"><input name="datobrfc11" type="text" id="datobrfc11" size="1px" maxlength="1" onkeypress="return validaRFC(event)" onKeyUp="myFunction(this,this.value,datobrfc12)" pattern="alpha_numeric"></div>
+            <div class="small-1 columns"><input name="datobrfc12" type="text" id="datobrfc12" size="1px" maxlength="1" onkeypress="return validaRFC(event)" onKeyUp="myFunction(this,this.value,datobrfc13)" pattern="alpha_numeric"></div>
+            <div class="small-1 columns"><input name="datobrfc13" type="text" id="datobrfc13" size="1px" maxlength="1" onkeypress="return validaRFC(event)" onKeyUp="myFunction(this,this.value,datobrfc14)" pattern="alpha_numeric"></div>
+            <div class="small-1 columns"><input name="datobrfc14" type="text" id="datobrfc14" size="1px" maxlength="1" onkeypress="return validaRFC(event)" onKeyUp="myFunction(this,this.value,datobrfc15)" pattern="alpha_numeric"></div>
+            <div class="small-1 columns"><input name="datobrfc15" type="text" id="datobrfc15" size="1px" maxlength="1" onkeypress="return validaRFC(event)" onKeyUp="myFunction(this,this.value,datobrfc16)" pattern="alpha_numeric"></div>
+            <div class="small-1 columns"><input name="datobrfc16" type="text" id="datobrfc16" size="1px" maxlength="1" onkeypress="return validaRFC(event)" onKeyUp="myFunction(this,this.value,datobrfc17)" pattern="alpha_numeric"></div>
+            <div class="small-1 columns"><input name="datobrfc17" type="text" id="datobrfc17" size="1px" maxlength="1" onkeypress="return validaRFC(event)" onKeyUp="myFunction(this,this.value,datobrfc18)" pattern="alpha_numeric"></div>
+            <div class="small-1 columns"><input name="datobrfc18" type="text" id="datobrfc18" size="1px" maxlength="1" onkeypress="return validaRFC(event)" onKeyUp="myFunction(this,this.value,datobrfc19)" pattern="alpha_numeric"></div>
+            <div class="small-1 columns"><input name="datobrfc19" type="text" id="datobrfc19" size="1px" maxlength="1" onkeypress="return validaRFC(event)" onKeyUp="myFunction(this,this.value,datobrfc110)" pattern="alpha_numeric"></div>
+            <div class="small-1 columns"><input name="datobrfc110" type="text" id="datobrfc110" size="1px" maxlength="1" onkeypress="return validaRFC(event)" onKeyUp="myFunction(this,this.value,datobrfc111)" pattern="alpha_numeric"></div>
+            <div class="small-1 columns"><input name="datobrfc111" type="text" id="datobrfc111" size="1px" maxlength="1" onkeypress="return validaRFC(event)" onKeyUp="myFunction(this,this.value,datobrfc112)" pattern="alpha_numeric"></div>
+            <div class="small-1 columns"><input name="datobrfc112" type="text" id="datobrfc112" size="1px" maxlength="1" onkeypress="return validaRFC(event)" onKeyUp="myFunction(this,this.value,datobrfc113)" pattern="alpha_numeric"></div></div>
+            <div class="small-1 columns"><input name="datobrfc113" type="text" id="datobrfc113" size="1px" maxlength="1" onkeypress="return validaRFC(event)" onKeyUp="myFunction(this,this.value,datobtel11)" pattern="alpha_numeric"></div>
           </p>
           </div>
           <div class="row">
           <p align="left">Telefono(Con lada - 10 dígitos):
-            <div class="small-1 columns"><input name="datobtel11" type="text" id="datobtel11" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel12)"></div>
-            <div class="small-1 columns"><input name="datobtel12" type="text" id="datobtel12" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel13)"></div>
-            <div class="small-1 columns"><input name="datobtel13" type="text" id="datobtel13" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel14)"></div>
-            <div class="small-1 columns"><input name="datobtel14" type="text" id="datobtel14" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel15)"></div>
-            <div class="small-1 columns"><input name="datobtel15" type="text" id="datobtel15" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel16)"></div>
-            <div class="small-1 columns"><input name="datobtel16" type="text" id="datobtel16" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel17)"></div>
-            <div class="small-1 columns"><input name="datobtel17" type="text" id="datobtel17" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel18)"></div>
-            <div class="small-1 columns"><input name="datobtel18" type="text" id="datobtel18" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel19)"></div>
-            <div class="small-1 columns"><input name="datobtel19" type="text" id="datobtel19" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel110)"></div>
-            <div class="small-1 columns"><input name="datobtel110" type="text" id="datobtel110" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel112)"></div>
+            <div class="small-1 columns"><input name="datobtel11" type="text" id="datobtel11" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel12)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="datobtel12" type="text" id="datobtel12" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel13)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="datobtel13" type="text" id="datobtel13" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel14)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="datobtel14" type="text" id="datobtel14" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel15)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="datobtel15" type="text" id="datobtel15" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel16)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="datobtel16" type="text" id="datobtel16" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel17)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="datobtel17" type="text" id="datobtel17" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel18)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="datobtel18" type="text" id="datobtel18" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel19)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="datobtel19" type="text" id="datobtel19" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel110)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="datobtel110" type="text" id="datobtel110" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel112)" pattern="integer"></div>
           </p>
           </div>
           <p align="left">Telefono Movil (Con lada - 10 dígitos):
-            <div class="small-1 columns"><input name="datobtel112" type="text" id="datobtel112" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel122)"></div>
-            <div class="small-1 columns"><input name="datobtel122" type="text" id="datobtel122" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel132)"></div>
-            <div class="small-1 columns"><input name="datobtel132" type="text" id="datobtel132" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel142)"></div>
-            <div class="small-1 columns"><input name="datobtel142" type="text" id="datobtel142" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel152)"></div>
-            <div class="small-1 columns"><input name="datobtel152" type="text" id="datobtel152" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel162)"></div>
-            <div class="small-1 columns"><input name="datobtel162" type="text" id="datobtel162" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel172)"></div>
-            <div class="small-1 columns"><input name="datobtel172" type="text" id="datobtel172" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel182)"></div>
-            <div class="small-1 columns"><input name="datobtel182" type="text" id="datobtel182" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel192)"></div>
-            <div class="small-1 columns"><input name="datobtel192" type="text" id="datobtel192" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel1102)"></div>
-            <div class="small-1 columns"><input name="datobtel1102" type="text" id="datobtel1102" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobnom2)"></div>
+            <div class="small-1 columns"><input name="datobtel112" type="text" id="datobtel112" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel122)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="datobtel122" type="text" id="datobtel122" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel132)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="datobtel132" type="text" id="datobtel132" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel142)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="datobtel142" type="text" id="datobtel142" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel152)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="datobtel152" type="text" id="datobtel152" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel162)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="datobtel162" type="text" id="datobtel162" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel172)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="datobtel172" type="text" id="datobtel172" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel182)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="datobtel182" type="text" id="datobtel182" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel192)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="datobtel192" type="text" id="datobtel192" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel1102)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="datobtel1102" type="text" id="datobtel1102" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobnom2)" pattern="integer"></div>
           </p>
           </div>
           <hr>
           <p align="left"><strong>DATOS DEL OBLIGADO SOLIDARIO (2) PERSONA FÍSICA, PROPIETARIO DE BIEN INMUEBLE </strong></p>
+          <div id="secDatObligadoSolidarioPF2">
          <div class="row">
           <p align="left">
             <div class="small-5 columns"><input name="datobnom2" type="text" id="datobnom2" size="30px" placeholder="Nombre(s)"></div>
@@ -795,6 +796,7 @@ input::-moz-placeholder {
             <div class="small-1 columns"><input name="datobtel2102" type="text" id="datobtel2102" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,clavcon)"></div>
           </p>
             </div>
+            </div>
           <hr>
           <div class="row">
           <p align="justify">
@@ -805,6 +807,7 @@ input::-moz-placeholder {
             <div class="small-10 columns"><input name="fecha" type="text" id="fecha" value="<?php echo date("Y-m-d");?>" size="10px" readonly></div>
           </p>
           </div>
+          
           <hr>
         </div>
          </div>
@@ -1469,12 +1472,7 @@ No:
     </li>
         </ul>
 
-          <div id="layerFinal" style="display:none;">
-              <h4>Solicitud generada</h4>
-              <p>
-                  <input id="aceptar0" name="aceptar0"  type="button" value="Aceptar" onClick="window.location.href='indexmenu.php'"/></p>
-
-          </div>
+          
       </form>
     </div>
   </div>
