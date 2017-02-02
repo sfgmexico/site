@@ -1,13 +1,18 @@
 <?php
-    $cliente=$_GET['cliente'];
+    if($_GET['cliente']){
+        $cliente=$_GET['cliente'];
     
     include("Conexion2.php");
     $result = mysqli_query($cnx,"select * from solicitudes where cliente='$cliente' and TipoSolicitud='PFA' order by Id desc");
     if(!mysqli_num_rows($result)>0){
+
         echo "Error El Cliente No Corresponde a PFA";
         exit;
     }
-    while($row=mysqli_fetch_array($result)){
+    $row=mysqli_fetch_array($result);
+    echo $row['Cliente'];
+    }
+    
 
 
 
@@ -2215,7 +2220,7 @@ input::-moz-placeholder {
         <div id="solicitud">
           <h1>Solicitud PFA</h1>
           <p align="left"><strong>DATOS DEL SOLICITANTE:</strong>
-              <input name="cliente" type="text" id="cliente" size="30px" value="<?php echo $row['Cliente'];?>" placeholder="Si es Cliente, número de cliente/contrato" readonly>
+              <input name="cliente" type="text" id="cliente" size="30px" value="<?php if(isset($row['Cliente'])) { echo $row['Cliente']; } ?>" placeholder="Si es Cliente, número de cliente/contrato" readonly>
             &nbsp;&nbsp;&nbsp;&nbsp; Credit:
             <input id="tipocredito" name="tipocredito" type="radio" value="1" <?php if($row['TipoCredito']=='Credit'){echo "checked";}?>>
             &nbsp;&nbsp;&nbsp;&nbsp;Premium Credit:
@@ -3479,6 +3484,5 @@ No:
 </body>
 </html>
 <?php
-break;
-    }
+
 ?>

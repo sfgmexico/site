@@ -32,14 +32,11 @@ function ucFirst(string) {
 }
 
 function cambio() {
-    if (!validaEspaciosSolos()) {
-        return false;
-    }
-
+    
 
 
     
-document.getElementById("solicitud").style.display = 'none';
+
 
 
 if(document.getElementById("segnomsol").value==""){
@@ -50,7 +47,7 @@ document.getElementById("textfield").value=nombreCompleto;
 var nombreCompleto=MaysPrimera(document.getElementById("nomsol").value)+" "+MaysPrimera(document.getElementById("segnomsol").value)+" "+MaysPrimera(document.getElementById("apepasol").value)+" "+MaysPrimera(document.getElementById("apemasol").value);
 document.getElementById("textfield").value=nombreCompleto;
 }
-document.getElementById("riesgo").style.display = 'block';
+
 document.getElementById("textfield2").value=document.getElementById("cliente").value;
 document.getElementById("textfield3").value=document.getElementById("dirsol").value;
 document.getElementById("textfield4").value=document.getElementById("colsol").value;

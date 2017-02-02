@@ -18,7 +18,7 @@
 $( document ).ready(function() {
  
 $('form#form1').find('input').each(function(){  
-if(this.id=="fechnacsol" || this.id=="desdesol" || this.id=="aperbanc1d" || this.id=="aperbanc1d2"  || this.id=="inicoper1" || this.id=="datobfechnac1d"  || this.id=="datobfechnac2d" || this.id=="textfield57" || this.id=="fechaComprobante"){
+if(this.id=="fechnacsol" ||  this.id=="aperbanc1d" || this.id=="aperbanc1d2"  || this.id=="inicoper1" || this.id=="datobfechnac1d"  || this.id=="datobfechnac2d" || this.id=="textfield57" || this.id=="fechaComprobante"){
     $fecha=$(this);
     
     if ($fecha[0].type!="date"){
