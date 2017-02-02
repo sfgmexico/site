@@ -31,16 +31,19 @@ input::-moz-placeholder {
 }
 	  </style>
        
-	   
+	   <div class="callout">
 	   <h4>Buscador de solicitudes</h4>
+	   
 	   <p>Buscar por: 
 	     <select name="select" id="select" size="1" onChange="capturar()">
 	       <option value="---" selected >---</option>
 	       <option value="1" >Número de solicitud</option>
 	       <option value="2">Solicitudes Pendientes</option>
 	       <option value="3" >Solicitudes Aceptadas</option>
+	       <option value="4" >Solicitudes Rechazadas</option>
           </select>
 	   </p>
+	</div>
 	   
 	   <div id="contenido1" style="display:none">
 	     <table width="100%" border="0">
@@ -75,7 +78,14 @@ input::-moz-placeholder {
 	   <input type="text" style="display:none" name="id2" id="id2" >
          </p>
         </div>
+	    <div id="contenido4" style="display:none" >
 	   
+         <p>
+           <input name="rechazados" type="button" id="rechazados" value="Buscar">
+            	<input type="text" style="display:none" name="id1" id="id1" >
+	   <input type="text" style="display:none" name="id2" id="id2" >
+         </p>
+        </div>
 	   
 	   
 	  <div id="porid">
