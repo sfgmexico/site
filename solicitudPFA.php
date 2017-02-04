@@ -225,7 +225,7 @@ $('#secBeneficiario').find('input').each(function(){
 ///SECCION PERFIL TRANSACCIONAL INICIAL 
 $('#secPerTransaccional').find('input').each(function(){
  
-  if(this.id=="textfield66" && document.getElementById("textfield65").value!="" ){ $(this).prop('required',true);alert("Required");}
+  if(this.id=="textfield66" && document.getElementById("textfield65").value!="" ){ $(this).prop('required',true);}
   if(this.id=="textfield68" && document.getElementById("textfield67").value!="" ){ $(this).prop('required',true);}
   if(this.id=="textfield70" && document.getElementById("textfield69").value!="" ){ $(this).prop('required',true);}
   if(this.id=="textfield72" && document.getElementById("textfield71").value!="" ){ $(this).prop('required',true);}
@@ -617,8 +617,9 @@ input::-moz-placeholder {
           <div id="secDatConyuge">
           <div class="row">
           <p align="left">
-            <div class="small-5 columns"><input name="conyunom" type="text" id="conyunom" size="40px" placeholder="Nombre del conyuge)" pattern="alpha"><input name="conyuape1" type="text" pattern="alpha" id="conyuape1" size="20px" placeholder="Apellido Paterno"onkeypress="return validaTexto(event)" pattern="alpha">
-          <input name="conyuape2" type="text" id="conyuape2" size="20px" placeholder="Apellido Materno"onkeypress="return validaTexto(event)" pattern="alpha"></div>
+            <div class="small-5 columns"><input name="conyunom" type="text" id="conyunom" size="40px" placeholder="Nombre(s) del conyuge" pattern="alpha">
+                                         <input name="conyuape1" type="text" pattern="alpha" id="conyuape1" size="20px" placeholder="Apellido Paterno"onkeypress="return validaTexto(event)" pattern="alpha">
+                                         <input name="conyuape2" type="text" id="conyuape2" size="20px" placeholder="Apellido Materno"onkeypress="return validaTexto(event)" pattern="alpha"></div>
             
             <div class="small-3 columns"><input name="compaconyu" type="text" id="compaconyu" size="30px" placeholder="Compañia"></div>
             <div class="small-3 columns"><input name="puestconyu" type="text" id="puestconyu" size="20px" placeholder="Puesto"></div>
@@ -715,9 +716,9 @@ input::-moz-placeholder {
           <div id="secDatObligadoSolidarioPF2">
          <div class="row">
           <p align="left">
-            <div class="small-5 columns"><input name="datobnom2" type="text" id="datobnom2" size="30px" placeholder="Nombre(s)"></div>
-            <div class="small-5 columns"><input name="datobappat2" type="text" id="datobappat2" size="30px" placeholder="Apellido Paterno"></div>
-            <div class="small-5 columns"><input name="datobapmat2" type="text" id="datobapmat2" size="30px" placeholder="Apellido Materno"></div>
+            <div class="small-5 columns"><input name="datobnom2" type="text" id="datobnom2" size="30px" placeholder="Nombre(s)" pattern="alpha"></div>
+            <div class="small-5 columns"><input name="datobappat2" type="text" id="datobappat2" size="30px" placeholder="Apellido Paterno" pattern="alpha"></div>
+            <div class="small-5 columns"><input name="datobapmat2" type="text" id="datobapmat2" size="30px" placeholder="Apellido Materno" pattern="alpha"></div>
             <div class="small-5 columns"><input name="datobdir2" type="text" id="datobdir2" size="48px" placeholder="Dirección / Calle y número"></div>
             <div class="small-5 columns"><input name="datobcol2" type="text" id="datobcol2" size="48px" placeholder="Colonia"></div>
             <div class="small-5 columns"><input name="datobcd2" type="text" id="datobcd2" size="20px" placeholder="Ciudad"></div>
@@ -733,14 +734,12 @@ input::-moz-placeholder {
           <div class="row">
           <p align="left">
             <div class="small-4 columns"><input name="datobedo2" type="text" id="datobedo2" size="30px" placeholder="Estado"></div>
-            <div class="small-4 columns"><input name="datobcp2" type="text" id="datobcp2" size="30px" placeholder="C.P." onkeypress="return validaNumero(event)"></div>
-            <div class="small-4 columns"><input  name="datobmail2" type="text" id="datobmail2" size="30px" placeholder="Email"></div>
+            <div class="small-4 columns"><input name="datobcp2" type="text" id="datobcp2" size="30px" placeholder="C.P." onkeypress="return validaNumero(event)" pattern="integer"></div>
+            <div class="small-4 columns"><input  name="datobmail2" type="text" id="datobmail2" size="30px" placeholder="Email" pattern="email"></div>
           </p>
           </div>
-          <p align="left">sexo: <i class="step fi-male size-72"></i>
-            <input id="datobsex2" name="datobsex2" type="radio" value="M"><i class="step fi-male size-72"></i>  M</label>
-            <i class="step fi-female size-72"></i>
-            <input id="datobsex2" name="datobsex2" type="radio" value="F"><i class="step fi-male size-72"></i>  F</label>
+          <p align="left">sexo:<input id="datobsex2" name="datobsex2" type="radio" value="M"><i class="step fi-male size-72"></i>  M</label>
+                               <input id="datobsex2" name="datobsex2" type="radio" value="F"><i class="step fi-male size-72"></i>  F</label>
             </p>
             <div class="row"> 
             <p align="left">
@@ -814,7 +813,7 @@ input::-moz-placeholder {
 </li>
 
   <li class="accordion-item" data-accordion-item>
-    <a href="#" onClick="window.scrollTo(0,0)" class="accordion-title"><h4 align="center" id="dos">FORMATO DE IDENTIFICACIÓN DEL CLIENTE POR CLASIFICACIÓN DE RIESGO&nbsp;</h4></a>
+    <a href="#" onClick="cambio()" class="accordion-title"><h4 align="center" id="dos">FORMATO DE IDENTIFICACIÓN DEL CLIENTE POR CLASIFICACIÓN DE RIESGO&nbsp;</h4></a>
     <div class="accordion-content" data-tab-content>
         <div id="riesgo">
           
@@ -1039,7 +1038,7 @@ input::-moz-placeholder {
 </li>
 
 <li class="accordion-item" data-accordion-item>
-    <a href="#" onClick="window.scrollTo(0,0)" class="accordion-title"><h4 id="tres">FORMATO DE IDENTIFICACION, CONOCIMIENTO DEL CLIENTE Y CONSTANCIA DE ENTREVISTA</h4></a>
+    <a href="#" onClick="cambio2()" class="accordion-title"><h4 id="tres">FORMATO DE IDENTIFICACION, CONOCIMIENTO DEL CLIENTE Y CONSTANCIA DE ENTREVISTA</h4></a>
     <div class="accordion-content" data-tab-content>
 
 
@@ -1072,11 +1071,11 @@ input::-moz-placeholder {
               <td><input name="textfield17" type="text" id="textfield17" size="100%" readonly="" ></td>
             </tr>
             <tr>
-              <td>Domicilio (calle y número) </td>
+              <td>Domicilio (calle) </td>
               <td><input name="textfield18" type="text" id="textfield18" size="100%" readonly="" ></td>
             </tr>
             <tr>
-              <td>&nbsp;</td>
+              <td>Domicilio (Número)</td>
               <td><input name="textfield19" type="text" id="textfield19" size="100%" readonly="" ></td>
             </tr>
             <tr>
@@ -1197,8 +1196,8 @@ input::-moz-placeholder {
               <td>Especificar</td>
               <td id="secOtrIdentificacion2"><input name="textfield44" type="text" id="textfield44" size="50%"  ></td>
               <td>Se cotejo vs original: </td>
-              <td ><input id="cotejo1" name="cotejo" type="radio" value="1" ><label for="cotejo1"> Si</label>
-                   <input id="cotejo2" name="cotejo" type="radio" value="2" ><label for="cotejo2"> No</label></td>
+              <td ><input id="cotejo1" name="cotejo" type="radio" value="1" required><label for="cotejo1"> Si</label>
+                   <input id="cotejo2" name="cotejo" type="radio" value="2" required><label for="cotejo2"> No</label></td>
             </tr>
           </table>
 		  <BR>

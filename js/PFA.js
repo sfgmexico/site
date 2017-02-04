@@ -32,12 +32,7 @@ function ucFirst(string) {
 }
 
 function cambio() {
-    
-
-
-    
-
-
+   window.scrollTo(0, 0);
 
 if(document.getElementById("segnomsol").value==""){
 var nombreCompleto=MaysPrimera(document.getElementById("nomsol").value)+" "+MaysPrimera(document.getElementById("apepasol").value)+" "+MaysPrimera(document.getElementById("apemasol").value);
@@ -53,24 +48,21 @@ document.getElementById("textfield3").value=document.getElementById("dirsol").va
 document.getElementById("textfield4").value=document.getElementById("colsol").value;
 //document.getElementById("textfield5").value="";
 document.getElementById("textfield6").value=document.getElementById("edosol").value;
-document.getElementById("textfield7").value=document.getElementById("fechnacsol3").value+"-"+document.getElementById("fechnacsol2").value+"-"+document.getElementById("fechnacsol1").value;
+document.getElementById("textfield7").value=document.getElementById("fechnacsol").value;
 document.getElementById("textfield8").value=document.getElementById("cpsol").value;
 document.getElementById("textfield9").value=document.getElementById("cdsol").value;
 document.getElementById("textfield10").value=document.getElementById("lugnacsol").value;
 document.getElementById("textfield11").value=MaysPrimera(document.getElementById("rfc1").value)+MaysPrimera(document.getElementById("rfc2").value)+MaysPrimera(document.getElementById("rfc3").value)+MaysPrimera(document.getElementById("rfc4").value)+MaysPrimera(document.getElementById("rfc5").value)+MaysPrimera(document.getElementById("rfc6").value)+MaysPrimera(document.getElementById("rfc7").value)+MaysPrimera(document.getElementById("rfc8").value)+MaysPrimera(document.getElementById("rfc9").value)+MaysPrimera(document.getElementById("rfc10").value)+MaysPrimera(document.getElementById("rfc11").value)+MaysPrimera(document.getElementById("rfc12").value)+MaysPrimera(document.getElementById("rfc13").value);
 
-window.scrollTo(0, 0);
+
 
 }///cierre del cambio
 
 
 
 function cambio2() {
-    if (! validaEspaciosSolos2()) {
-        return false;
-    }
-   
-document.getElementById("riesgo").style.display = 'none';
+    window.scrollTo(0,0);
+
 
 document.getElementById("textfield12").value=MaysPrimera(document.getElementById("apepasol").value);
 document.getElementById("textfield13").value=MaysPrimera(document.getElementById("apemasol").value);
@@ -85,7 +77,7 @@ if(porNombre[1].checked){
 document.getElementById("textfield15").value="Femenino";
 }
 document.getElementById("textfield16").value=document.getElementById("lugnacsol").value;
-document.getElementById("textfield17").value=document.getElementById("fechnacsol3").value+"-"+document.getElementById("fechnacsol2").value+"-"+document.getElementById("fechnacsol1").value;
+document.getElementById("textfield17").value=document.getElementById("fechnacsol").value;
 document.getElementById("textfield18").value=document.getElementById("dirsol").value;
 document.getElementById("textfield20").value=document.getElementById("cpsol").value;
 document.getElementById("textfield21").value=document.getElementById("colsol").value;
@@ -123,9 +115,9 @@ document.getElementById("textfield47").value = ucWords(document.getElementById("
 
 
 
-document.getElementById("identificacion").style.display = 'block';
 
-window.scrollTo(0, 0);
+
+
 
 
 }///cierre del cambio

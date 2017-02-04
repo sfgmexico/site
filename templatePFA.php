@@ -59,11 +59,11 @@ $curpsol=strtoupper($_REQUEST['curpsol']);
 
 $sexsol=$_REQUEST['sexsol'];
 
-$fechnacsol1=$_REQUEST['fechnacsol1'];
+$fechnacsol3=substr($_REQUEST['fechnacsol'], 0,4);
 
-$fechnacsol2=$_REQUEST['fechnacsol2'];
+$fechnacsol2=substr($_REQUEST['fechnacsol'], 5,2);
 
-$fechnacsol3=$_REQUEST['fechnacsol3'];
+$fechnacsol1=substr($_REQUEST['fechnacsol'], 8,2);
 
 $edsol=$_REQUEST['edsol'];
 
@@ -87,7 +87,10 @@ $acdomsol2=$_REQUEST['acdomsol2'];
 
 $anosol2=$_REQUEST['anosol2'];
 
-$benesol=ucwords($_REQUEST['benesol3'].' '.$_REQUEST['benesol1'].' '.$_REQUEST['benesol2']);
+$benesol=ucwords($_REQUEST['benesol3']);
+$benesol2=ucwords($_REQUEST['benesol1']);
+$benesol3=ucwords($_REQUEST['benesol2']);
+$benesolC=$benesol.' '.$benesol2.' '.$benesol3;
 
 $civilsol=$_REQUEST['civilsol'];
 
@@ -155,6 +158,8 @@ $cargdir=$_REQUEST['cargdir'];
 $nocuentcd=$_REQUEST['nocuentcd'];
 
 $conyunom=ucwords($_REQUEST['conyunom']);
+$ApPatDatCon=ucwords($_REQUEST['conyuape1']);
+$ApMatDatCon=ucwords($_REQUEST['conyuape2']);
 
 $compaconyu=$_REQUEST['compaconyu'];
 
@@ -193,12 +198,14 @@ if ($datobnom1 != "" && $datobappat1 !="" && $datobapmat1!="") {
 	$datobsex1="";
 }
 
+$datobfechnac1a=substr($_REQUEST['datobfechnac1d'], 0,4);
 
-$datobfechnac1d=$_REQUEST['datobfechnac1d'];
+$datobfechnac1m=substr($_REQUEST['datobfechnac1d'], 5,2);
 
-$datobfechnac1m=$_REQUEST['datobfechnac1m'];
+$datobfechnac1d=substr($_REQUEST['datobfechnac1d'], 8,2);
 
-$datobfechnac1a=$_REQUEST['datobfechnac1a'];
+
+
 
 $datobed1=$_REQUEST['datobed1'];
 
@@ -264,12 +271,13 @@ if ($datobnom2 != "" && $datobappat2 !="" && $datobapmat2!="") {
 	$datobsex2="";
 }
 
+$datobfechnac2a=substr($_REQUEST['datobfechnac2d'], 0,4);
 
-$datobfechnac2d=$_REQUEST['datobfechnac2d'];
+$datobfechnac2m=substr($_REQUEST['datobfechnac2d'], 5,2);
 
-$datobfechnac2m=$_REQUEST['datobfechnac2m'];
+$datobfechnac2d=substr($_REQUEST['datobfechnac2d'], 8,2);
 
-$datobfechnac2a=$_REQUEST['datobfechnac2a'];
+
 
 $datobed2=$_REQUEST['datobed2'];
 
@@ -363,7 +371,7 @@ $rendererLibraryPath = dirname(__FILE__).'/' . $rendererLibrary;
 // Create new PHPExcel object
 $objPHPExcel = new PHPExcel();
 $objReader = PHPExcel_IOFactory::createReader('Excel5');
-$objPHPExcel = $objReader->load("Solicitud_PFA_VWL_septi 2016-2.xls");
+$objPHPExcel = $objReader->load("formatos/Solicitud_PFA_VWL_septi 2016-2.xls");
 
 
 
@@ -481,7 +489,7 @@ $objPHPExcel = $objReader->load("Solicitud_PFA_VWL_septi 2016-2.xls");
 	
 	$objPHPExcel->getActiveSheet()->setCellValue('k39', $anosol2);
 	
-	$objPHPExcel->getActiveSheet()->setCellValue('p40', $benesol);
+	$objPHPExcel->getActiveSheet()->setCellValue('p40', $benesol.' '.$benesol2.' '.$benesol3);
 	
 	if($civilsol=="1"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L43', "X");
@@ -561,7 +569,7 @@ $objPHPExcel = $objReader->load("Solicitud_PFA_VWL_septi 2016-2.xls");
 	$objPHPExcel->getActiveSheet()->setCellValue('b73', $cargdir);
 	$objPHPExcel->getActiveSheet()->setCellValue('x73', $nocuentcd);
 	
-	$objPHPExcel->getActiveSheet()->setCellValue('b77', $conyunom);
+	$objPHPExcel->getActiveSheet()->setCellValue('b77', $conyunom.' '.$ApPatDatCon.' '.$ApMatDatCon);
 	$objPHPExcel->getActiveSheet()->setCellValue('ab77', $compaconyu);
 	$objPHPExcel->getActiveSheet()->setCellValue('at77', $puestconyu);
 	
@@ -720,7 +728,7 @@ $objPHPExcel = $objReader->load("Solicitud_PFA_VWL_septi 2016-2.xls");
 $objDrawing = new PHPExcel_Worksheet_Drawing();
 $objDrawing->setName('Logo');
 $objDrawing->setDescription('Logo');
-$logo =  'logosfg.png'; // Provide path to your logo file
+$logo =  'images/logosfg.png'; // Provide path to your logo file
 $objDrawing->setPath($logo);
 $objDrawing->setOffsetX(8);    // setOffsetX works properly
 $objDrawing->setOffsetY(300);  //setOffsetY has no effect
@@ -732,7 +740,7 @@ $objDrawing->setWorksheet($objPHPExcel->getActiveSheet());
 $objDrawing = new PHPExcel_Worksheet_Drawing();
 $objDrawing->setName('Logo');
 $objDrawing->setDescription('Logo');
-$logo =  'logosfg.png'; // Provide path to your logo file
+$logo =  'images/logosfg.png'; // Provide path to your logo file
 $objDrawing->setPath($logo);
 $objDrawing->setOffsetX(8);    // setOffsetX works properly
 $objDrawing->setOffsetY(300);  //setOffsetY has no effect
@@ -743,7 +751,7 @@ $objDrawing->setWorksheet($objPHPExcel->getActiveSheet());
 $objDrawing = new PHPExcel_Worksheet_Drawing();
 $objDrawing->setName('Logo');
 $objDrawing->setDescription('Logo');
-$logo =  'logosfg.png'; // Provide path to your logo file
+$logo =  'images/logosfg.png'; // Provide path to your logo file
 $objDrawing->setPath($logo);
 $objDrawing->setOffsetX(8);    // setOffsetX works properly
 $objDrawing->setOffsetY(300);  //setOffsetY has no effect
@@ -1495,6 +1503,9 @@ $RFCSolicitante.=$rfc1.$rfc2.$rfc3.$rfc4.$rfc5.$rfc6.$rfc7.$rfc8.$rfc9.$rfc10.$r
 		}
 	}
 
+		$fechaComprobante=$_REQUEST['fechaComprobante'];
+		$objPHPExcel->getActiveSheet()->setCellValue('U333', $fechaComprobante);
+
 		if($_REQUEST['adjuntos1']=="1"){
 			$adjuntos1="Si";
 		}
@@ -1513,6 +1524,8 @@ $RFCSolicitante.=$rfc1.$rfc2.$rfc3.$rfc4.$rfc5.$rfc6.$rfc7.$rfc8.$rfc9.$rfc10.$r
 		if($_REQUEST['adjuntos3']=="2"){
 			$adjuntos3="No";
 		}
+
+		
 
 	$DomBeneficiario=$_REQUEST['textfield48'];
 	$ColBeneficiario=$_REQUEST['textfield49'];
@@ -1583,7 +1596,7 @@ $RFCSolicitante.=$rfc1.$rfc2.$rfc3.$rfc4.$rfc5.$rfc6.$rfc7.$rfc8.$rfc9.$rfc10.$r
 
 	
 	if($cliente==""){
-		mysqli_query($cnx,"insert into clientes (id,Nombre,RFC,Tel,Cel,Direccion,Numero,Email,Colonia,Ciudad,LugNacimiento,Estado,CP,CURP,Sexo,Nacimiento,Edad,Nacionalidad,Dependientes,AcreDom,Vivienda,Inmueble,AnResidirCD,ArraigoDomicilio,Beneficiario,EstadoCivil,AutoPropio,PuestoEmpleo,DepartamentoEmpleo,Desdean,Empresa,TelEmpleo,ExtensionEmpleo,TipoCliente) values ('null','$NomSolicitante','$RFCSolicitante','$TelSolicitante','$MovSolicitante','$dirsol','$numeroDirSol','$mailsol','$colsol','$cdsol','$lugnacsol','$edosol','$cpsol','$curpsol','$SexoDatGen','$FeNacDatGen','$edsol','$nacsol','$depensol','$acdomsol','$VivDatGen','$PropInmuDatGen','$anosol','$arraisol','$benesol','$EstCivDatGen','$AuPropDatGen','$puestosol','$depasol','$desdesol','$compasol','$TelDatEmp','$compatelsolext','PFA')");
+		mysqli_query($cnx,"insert into clientes (id,Nombre,RFC,Tel,Cel,Direccion,Numero,Email,Colonia,Ciudad,LugNacimiento,Estado,CP,CURP,Sexo,Nacimiento,Edad,Nacionalidad,Dependientes,AcreDom,Vivienda,Inmueble,AnResidirCD,ArraigoDomicilio,Beneficiario,EstadoCivil,AutoPropio,PuestoEmpleo,DepartamentoEmpleo,Desdean,Empresa,TelEmpleo,ExtensionEmpleo,TipoCliente) values ('null','$NomSolicitante','$RFCSolicitante','$TelSolicitante','$MovSolicitante','$dirsol','$numeroDirSol','$mailsol','$colsol','$cdsol','$lugnacsol','$edosol','$cpsol','$curpsol','$SexoDatGen','$FeNacDatGen','$edsol','$nacsol','$depensol','$acdomsol','$VivDatGen','$PropInmuDatGen','$anosol','$arraisol','$benesolC','$EstCivDatGen','$AuPropDatGen','$puestosol','$depasol','$desdesol','$compasol','$TelDatEmp','$compatelsolext','PFA')");
 
 		
 
@@ -1591,18 +1604,18 @@ $RFCSolicitante.=$rfc1.$rfc2.$rfc3.$rfc4.$rfc5.$rfc6.$rfc7.$rfc8.$rfc9.$rfc10.$r
 		$result=mysqli_query($cnx,"select MAX(id) AS id FROM clientes");
 		$row=mysqli_fetch_array($result);
 		$Cliente=$row['id'];
-		mysqli_query($cnx,"insert into solicitudes (Cliente,TipoCredito,NomSolicitante,RFCSolicitante,TelSolicitante,MovSolicitante,DirSolicitante,ColSolicitante,CdSolicitante,LugNacSolicitante,EdoSolicitante,CPSolicitante,CURPSolicitante,EmailSolicitante,SexoDatGen,FeNacDatGen,EdDatGen,NaDatGen,NoDepDatGen,AcDomDatGen,VivDatGen,OtrvivDatGen,ArDomDatGen,AnResDatGen,BenDatGen,EstCivDatGen,PropInmuDatGen,AuPropDatGen,MarDatGen,PuestDatEmp,DepDatEmp,DesAnDatEmp,CompDatEmp,TelDatEmp,ExtDatEmp,NomRefPer,ParenRefPer,TelRefPer,NomRefPer2,ParenRefPer2,TelRefPer2,BancRefBan,NoTarRefBan,BancCarDir,NoTarCarDir,NomDatCon,CompDatCon,PuestDatCon,NomObSol,RFCObSol,TelObSol,MovObSol,DirObSol,ColObSol,CdObSol,LugNacObSol,PropObSol,EdoObSol,CPObSol,EmailObSol,SexoObSol,FeNacObSol,EdObSol,CURPObSol,NomObSol2,RFCObSol2,TelObSol2,MovObSol2,DirObSol2,ColObSol2,CdObSol2,LugNacObSol2,PropObSol2,EdoObSol2,CPObSol2,EmailObSol2,SexoObSol2,FeNacObSol2,EdObSol2,CURPObSol2,Fecha,ClavConcesionario,NomConcesionario,NomVendedor,NomGerenteGral,StatusSolicitud,TipoSolicitud,NumDirSol,MunicipioSolicitante,NumSerieFIEL,DomicilioLaboral,SueldoSolicitante,ActEcoAdicional,IngAdMensualAprox,INESolicitante,Adjunta_INESolicitante,Pasaporte_o_CedulaProfSolicitante,Adjunta_Pasaporte_o_CedulaProfSolicitante,CartillaMilitarSolicitante,Adjunta_CartillaMilitarSolicitante,LicenciaConducirSolicitante,Adjunta_LicenciaConducirSolicitante,OtraIdentSolicitante,Adjunta_OtraIdentSolicitante,EspIdentSolicitante,CotejoVsOriginal,Adjunta_CURP_RFC_FEA,Adjunta_ComprobanteDom,DomicilioCoincideId,DomBeneficiario,ColBeneficiario,CPBeneficiario,PaisBeneficiario,TelBeneficiario,CURPBeneficiario,RFCBeneficiario,ParentescoBeneficiario,PorcientoBeneficiario,FeNacBeneficiario,MunBeneficiario,EdoBeneficiario,EdoCivilBeneficiario,SoConBeneficiario,OcuProfBeneficiario,PEPSBeneficiario,OrigenRecBeneficiario,PerTrans1,FuentePerTrans1,PerTrans2,FuentePerTrans2,PerTrans3,FuentePerTrans3,PerTrans4,FuentePerTrans4,PerTrans5,FuentePerTrans5,PerTrans6,FuentePerTrans6,PerTrans7,FuentePerTrans7,PerTrans8,FuentePerTrans8,PerTrans9,FuentePerTrans9,PerTrans10,FuentePerTrans10,ValorAuto,EngAutomovil,PorEnganche,PorFinanciamiento,MontoFinanciado,Plazo,PagoMensEsp,PEPS,NombrePEPS,ParentescoPEPS,PuestoPEPS,Antiguedad_ObjetoSocial,Antiguedad_Cliente,Naturaleza_Operaciones,Numero_Beneficiarios,Numero_TercerosRelacionados,PEPs_Relacionados,Alerta_Reputacional,Volumen_Esperado,Frecuencia_Esperada,Instrumento_Monetario,Canales_MediosUtilizados,Pais_EstadoOficial,Pais_EstadoResidencia,Pais_EstadoOperacion,Origen_Recursos,Destino_Recursos,Pais_EstadoResidenciaTerceros,GradoRiesgo) 
+		mysqli_query($cnx,"insert into solicitudes (Cliente,TipoCredito,NomSolicitante,RFCSolicitante,TelSolicitante,MovSolicitante,DirSolicitante,ColSolicitante,CdSolicitante,LugNacSolicitante,EdoSolicitante,CPSolicitante,CURPSolicitante,EmailSolicitante,SexoDatGen,FeNacDatGen,EdDatGen,NaDatGen,NoDepDatGen,AcDomDatGen,VivDatGen,OtrvivDatGen,ArDomDatGen,AnResDatGen,NomBenDatGen,EstCivDatGen,PropInmuDatGen,AuPropDatGen,MarDatGen,PuestDatEmp,DepDatEmp,DesAnDatEmp,CompDatEmp,TelDatEmp,ExtDatEmp,NomRefPer,ParenRefPer,TelRefPer,NomRefPer2,ParenRefPer2,TelRefPer2,BancRefBan,NoTarRefBan,BancCarDir,NoTarCarDir,NomDatCon,CompDatCon,PuestDatCon,NomObSol,RFCObSol,TelObSol,MovObSol,DirObSol,ColObSol,CdObSol,LugNacObSol,PropObSol,EdoObSol,CPObSol,EmailObSol,SexoObSol,FeNacObSol,EdObSol,CURPObSol,NomObSol2,RFCObSol2,TelObSol2,MovObSol2,DirObSol2,ColObSol2,CdObSol2,LugNacObSol2,PropObSol2,EdoObSol2,CPObSol2,EmailObSol2,SexoObSol2,FeNacObSol2,EdObSol2,CURPObSol2,Fecha,ClavConcesionario,NomConcesionario,NomVendedor,NomGerenteGral,StatusSolicitud,TipoSolicitud,NumDirSol,MunicipioSolicitante,NumSerieFIEL,DomicilioLaboral,SueldoSolicitante,ActEcoAdicional,IngAdMensualAprox,INESolicitante,Adjunta_INESolicitante,Pasaporte_o_CedulaProfSolicitante,Adjunta_Pasaporte_o_CedulaProfSolicitante,CartillaMilitarSolicitante,Adjunta_CartillaMilitarSolicitante,LicenciaConducirSolicitante,Adjunta_LicenciaConducirSolicitante,OtraIdentSolicitante,Adjunta_OtraIdentSolicitante,EspIdentSolicitante,CotejoVsOriginal,Adjunta_CURP_RFC_FEA,Adjunta_ComprobanteDom,DomicilioCoincideId,DomBeneficiario,ColBeneficiario,CPBeneficiario,PaisBeneficiario,TelBeneficiario,CURPBeneficiario,RFCBeneficiario,ParentescoBeneficiario,PorcientoBeneficiario,FeNacBeneficiario,MunBeneficiario,EdoBeneficiario,EdoCivilBeneficiario,SoConBeneficiario,OcuProfBeneficiario,PEPSBeneficiario,OrigenRecBeneficiario,PerTrans1,FuentePerTrans1,PerTrans2,FuentePerTrans2,PerTrans3,FuentePerTrans3,PerTrans4,FuentePerTrans4,PerTrans5,FuentePerTrans5,PerTrans6,FuentePerTrans6,PerTrans7,FuentePerTrans7,PerTrans8,FuentePerTrans8,PerTrans9,FuentePerTrans9,PerTrans10,FuentePerTrans10,ValorAuto,EngAutomovil,PorEnganche,PorFinanciamiento,MontoFinanciado,Plazo,PagoMensEsp,PEPS,NombrePEPS,ParentescoPEPS,PuestoPEPS,Antiguedad_ObjetoSocial,Antiguedad_Cliente,Naturaleza_Operaciones,Numero_Beneficiarios,Numero_TercerosRelacionados,PEPs_Relacionados,Alerta_Reputacional,Volumen_Esperado,Frecuencia_Esperada,Instrumento_Monetario,Canales_MediosUtilizados,Pais_EstadoOficial,Pais_EstadoResidencia,Pais_EstadoOperacion,Origen_Recursos,Destino_Recursos,Pais_EstadoResidenciaTerceros,GradoRiesgo,fechaComprobante,ApPatDatCon,ApMatDatCon,SegNomSolicitante,ApPatSolicitante,ApMatSolicitante,ApPatBenDatGen,ApMatBenDatGen) 
 
-values('$Cliente','$tipocredito','$NomSolicitante','$RFCSolicitante','$TelSolicitante','$MovSolicitante','$dirsol','$colsol','$cdsol','$lugnacsol','$edosol','$cpsol','$curpsol','$mailsol','$SexoDatGen','$FeNacDatGen','$edsol','$nacsol','$depensol','$acdomsol','$VivDatGen','$OtrvivDatGen','$arraisol','$anosol','$benesol','$EstCivDatGen','$PropInmuDatGen','$AuPropDatGen','$MarDatGen','$puestosol','$depasol','$desdesol','$compasol','$TelDatEmp','$compatelsolext','$nomref1','$parenref1','$TelRefPer','$nomref2','$parenref2','$TelRefPer2','$refbanc','$tarjrefbanc','$cargdir','$nocuentcd','$conyunom','$compaconyu','$puestconyu','$NomObSol','$RFCObSol','$TelObSol','$MovObSol','$datobdir1','$datobcol1','$datobcd1','$datoblugnac1','$PropObSol','$datobedo1','$datobcp1','$datobmail1','$SexoObSol','$FeNacObSol','$datobed1','$datobcurp1','$NomObSol2','$RFCObSol2','$TelObSol2','$MovObSol2','$datobdir2','$datobcol2','$datobcd2','$datoblugnac2','$PropObSol2','$datobedo2','$datobcp2','$datobmail2','$SexoObSol2','$FeNacObSol2','$datobed2','$datobcurp2','$fecha','$clavcon','$nomcons','$nomvend','$gerentegral','Pendiente','PFA','$numeroDirSol','$municipioSol','$numSerieFiel','$domicilioLaboral','$SueldoSolicitante','$ActividadAdicional','$IngAdMensualAprox','$INESolicitante','$copias','$Pasaporte_o_CedulaProfSolicitante','$copias2','$CartillaMilitarSolicitante','$copias3','$LicenciaConducirSolicitante','$copias4','$OtraIdentSolicitante','$copias5','$EspIdentSolicitante','$cotejo','$adjuntos1','$adjuntos2','$adjuntos3','$DomBeneficiario','$ColBeneficiario','$CPBeneficiario','$PaisBeneficiario','$TelBeneficiario','$CURPBeneficiario','$RFCBeneficiario','$ParentescoBeneficiario','$PorcientoBeneficiario','$FeNacBeneficiario','$MunBeneficiario','$EdoBeneficiario','$EdoCivilBeneficiario','$SoConBeneficiario','$OcuProfBeneficiario','$PEPSBeneficiario','$OrigenRecBeneficiario','$PerTrans1','$FuentePerTrans1','$PerTrans2','$FuentePerTrans2','$PerTrans3','$FuentePerTrans3','$PerTrans4','$FuentePerTrans4','$PerTrans5','$FuentePerTrans5','$PerTrans6','$FuentePerTrans6','$PerTrans7','$FuentePerTrans7','$PerTrans8','$FuentePerTrans8','$PerTrans9','$FuentePerTrans9','$PerTrans10','$FuentePerTrans10','$ValorAuto','$EngAutomovil','$PorEnganche','$PorFinanciamiento','$MontoFinanciado','$Plazo','$PagoMensEsp','$PEPS','$NombrePEPS','$ParentescoPEPS','$PuestoPEPS','$select','$select2','$select3','$select4','$select5','$select6','$select7','$select8','$select9','$select10','$select11','$select12','$select13','$select14','$select15','$select16','$select17','$GradoRiesgo')");
+values('$Cliente','$tipocredito','$nomsol','$RFCSolicitante','$TelSolicitante','$MovSolicitante','$dirsol','$colsol','$cdsol','$lugnacsol','$edosol','$cpsol','$curpsol','$mailsol','$SexoDatGen','$FeNacDatGen','$edsol','$nacsol','$depensol','$acdomsol','$VivDatGen','$OtrvivDatGen','$arraisol','$anosol','$benesol','$EstCivDatGen','$PropInmuDatGen','$AuPropDatGen','$MarDatGen','$puestosol','$depasol','$desdesol','$compasol','$TelDatEmp','$compatelsolext','$nomref1','$parenref1','$TelRefPer','$nomref2','$parenref2','$TelRefPer2','$refbanc','$tarjrefbanc','$cargdir','$nocuentcd','$conyunom','$compaconyu','$puestconyu','$NomObSol','$RFCObSol','$TelObSol','$MovObSol','$datobdir1','$datobcol1','$datobcd1','$datoblugnac1','$PropObSol','$datobedo1','$datobcp1','$datobmail1','$SexoObSol','$FeNacObSol','$datobed1','$datobcurp1','$NomObSol2','$RFCObSol2','$TelObSol2','$MovObSol2','$datobdir2','$datobcol2','$datobcd2','$datoblugnac2','$PropObSol2','$datobedo2','$datobcp2','$datobmail2','$SexoObSol2','$FeNacObSol2','$datobed2','$datobcurp2','$fecha','$clavcon','$nomcons','$nomvend','$gerentegral','Pendiente','PFA','$numeroDirSol','$municipioSol','$numSerieFiel','$domicilioLaboral','$SueldoSolicitante','$ActividadAdicional','$IngAdMensualAprox','$INESolicitante','$copias','$Pasaporte_o_CedulaProfSolicitante','$copias2','$CartillaMilitarSolicitante','$copias3','$LicenciaConducirSolicitante','$copias4','$OtraIdentSolicitante','$copias5','$EspIdentSolicitante','$cotejo','$adjuntos1','$adjuntos2','$adjuntos3','$DomBeneficiario','$ColBeneficiario','$CPBeneficiario','$PaisBeneficiario','$TelBeneficiario','$CURPBeneficiario','$RFCBeneficiario','$ParentescoBeneficiario','$PorcientoBeneficiario','$FeNacBeneficiario','$MunBeneficiario','$EdoBeneficiario','$EdoCivilBeneficiario','$SoConBeneficiario','$OcuProfBeneficiario','$PEPSBeneficiario','$OrigenRecBeneficiario','$PerTrans1','$FuentePerTrans1','$PerTrans2','$FuentePerTrans2','$PerTrans3','$FuentePerTrans3','$PerTrans4','$FuentePerTrans4','$PerTrans5','$FuentePerTrans5','$PerTrans6','$FuentePerTrans6','$PerTrans7','$FuentePerTrans7','$PerTrans8','$FuentePerTrans8','$PerTrans9','$FuentePerTrans9','$PerTrans10','$FuentePerTrans10','$ValorAuto','$EngAutomovil','$PorEnganche','$PorFinanciamiento','$MontoFinanciado','$Plazo','$PagoMensEsp','$PEPS','$NombrePEPS','$ParentescoPEPS','$PuestoPEPS','$select','$select2','$select3','$select4','$select5','$select6','$select7','$select8','$select9','$select10','$select11','$select12','$select13','$select14','$select15','$select16','$select17','$GradoRiesgo','$fechaComprobante','$ApPatDatCon','$ApMatDatCon','$segnomsol','$apepasol','$apemasol','$benesol2','$benesol3')");
 
 $objPHPExcel->getActiveSheet()->setCellValue('M6', $Cliente);
 $objPHPExcel->getActiveSheet()->setCellValue('AH251', $Cliente);
 $objPHPExcel->getActiveSheet()->setCellValue('J179', $Cliente);
 
 	}else {
-		mysqli_query($cnx,"insert into solicitudes (Cliente,TipoCredito,NomSolicitante,RFCSolicitante,TelSolicitante,MovSolicitante,DirSolicitante,ColSolicitante,CdSolicitante,LugNacSolicitante,EdoSolicitante,CPSolicitante,CURPSolicitante,EmailSolicitante,SexoDatGen,FeNacDatGen,EdDatGen,NaDatGen,NoDepDatGen,AcDomDatGen,VivDatGen,OtrvivDatGen,ArDomDatGen,AnResDatGen,BenDatGen,EstCivDatGen,PropInmuDatGen,AuPropDatGen,MarDatGen,PuestDatEmp,DepDatEmp,DesAnDatEmp,CompDatEmp,TelDatEmp,ExtDatEmp,NomRefPer,ParenRefPer,TelRefPer,NomRefPer2,ParenRefPer2,TelRefPer2,BancRefBan,NoTarRefBan,BancCarDir,NoTarCarDir,NomDatCon,CompDatCon,PuestDatCon,NomObSol,RFCObSol,TelObSol,MovObSol,DirObSol,ColObSol,CdObSol,LugNacObSol,PropObSol,EdoObSol,CPObSol,EmailObSol,SexoObSol,FeNacObSol,EdObSol,CURPObSol,NomObSol2,RFCObSol2,TelObSol2,MovObSol2,DirObSol2,ColObSol2,CdObSol2,LugNacObSol2,PropObSol2,EdoObSol2,CPObSol2,EmailObSol2,SexoObSol2,FeNacObSol2,EdObSol2,CURPObSol2,Fecha,ClavConcesionario,NomConcesionario,NomVendedor,NomGerenteGral,StatusSolicitud,TipoSolicitud,NumDirSol,MunicipioSolicitante,NumSerieFIEL,DomicilioLaboral,SueldoSolicitante,ActEcoAdicional,IngAdMensualAprox,INESolicitante,Adjunta_INESolicitante,Pasaporte_o_CedulaProfSolicitante,Adjunta_Pasaporte_o_CedulaProfSolicitante,CartillaMilitarSolicitante,Adjunta_CartillaMilitarSolicitante,LicenciaConducirSolicitante,Adjunta_LicenciaConducirSolicitante,OtraIdentSolicitante,Adjunta_OtraIdentSolicitante,EspIdentSolicitante,CotejoVsOriginal,Adjunta_CURP_RFC_FEA,Adjunta_ComprobanteDom,DomicilioCoincideId,DomBeneficiario,ColBeneficiario,CPBeneficiario,PaisBeneficiario,TelBeneficiario,CURPBeneficiario,RFCBeneficiario,ParentescoBeneficiario,PorcientoBeneficiario,FeNacBeneficiario,MunBeneficiario,EdoBeneficiario,EdoCivilBeneficiario,SoConBeneficiario,OcuProfBeneficiario,PEPSBeneficiario,OrigenRecBeneficiario,PerTrans1,FuentePerTrans1,PerTrans2,FuentePerTrans2,PerTrans3,FuentePerTrans3,PerTrans4,FuentePerTrans4,PerTrans5,FuentePerTrans5,PerTrans6,FuentePerTrans6,PerTrans7,FuentePerTrans7,PerTrans8,FuentePerTrans8,PerTrans9,FuentePerTrans9,PerTrans10,FuentePerTrans10,ValorAuto,EngAutomovil,PorEnganche,PorFinanciamiento,MontoFinanciado,Plazo,PagoMensEsp,PEPS,NombrePEPS,ParentescoPEPS,PuestoPEPS,Antiguedad_ObjetoSocial,Antiguedad_Cliente,Naturaleza_Operaciones,Numero_Beneficiarios,Numero_TercerosRelacionados,PEPs_Relacionados,Alerta_Reputacional,Volumen_Esperado,Frecuencia_Esperada,Instrumento_Monetario,Canales_MediosUtilizados,Pais_EstadoOficial,Pais_EstadoResidencia,Pais_EstadoOperacion,Origen_Recursos,Destino_Recursos,Pais_EstadoResidenciaTerceros,GradoRiesgo) 
+		mysqli_query($cnx,"insert into solicitudes (Cliente,TipoCredito,NomSolicitante,RFCSolicitante,TelSolicitante,MovSolicitante,DirSolicitante,ColSolicitante,CdSolicitante,LugNacSolicitante,EdoSolicitante,CPSolicitante,CURPSolicitante,EmailSolicitante,SexoDatGen,FeNacDatGen,EdDatGen,NaDatGen,NoDepDatGen,AcDomDatGen,VivDatGen,OtrvivDatGen,ArDomDatGen,AnResDatGen,NomBenDatGen,EstCivDatGen,PropInmuDatGen,AuPropDatGen,MarDatGen,PuestDatEmp,DepDatEmp,DesAnDatEmp,CompDatEmp,TelDatEmp,ExtDatEmp,NomRefPer,ParenRefPer,TelRefPer,NomRefPer2,ParenRefPer2,TelRefPer2,BancRefBan,NoTarRefBan,BancCarDir,NoTarCarDir,NomDatCon,CompDatCon,PuestDatCon,NomObSol,RFCObSol,TelObSol,MovObSol,DirObSol,ColObSol,CdObSol,LugNacObSol,PropObSol,EdoObSol,CPObSol,EmailObSol,SexoObSol,FeNacObSol,EdObSol,CURPObSol,NomObSol2,RFCObSol2,TelObSol2,MovObSol2,DirObSol2,ColObSol2,CdObSol2,LugNacObSol2,PropObSol2,EdoObSol2,CPObSol2,EmailObSol2,SexoObSol2,FeNacObSol2,EdObSol2,CURPObSol2,Fecha,ClavConcesionario,NomConcesionario,NomVendedor,NomGerenteGral,StatusSolicitud,TipoSolicitud,NumDirSol,MunicipioSolicitante,NumSerieFIEL,DomicilioLaboral,SueldoSolicitante,ActEcoAdicional,IngAdMensualAprox,INESolicitante,Adjunta_INESolicitante,Pasaporte_o_CedulaProfSolicitante,Adjunta_Pasaporte_o_CedulaProfSolicitante,CartillaMilitarSolicitante,Adjunta_CartillaMilitarSolicitante,LicenciaConducirSolicitante,Adjunta_LicenciaConducirSolicitante,OtraIdentSolicitante,Adjunta_OtraIdentSolicitante,EspIdentSolicitante,CotejoVsOriginal,Adjunta_CURP_RFC_FEA,Adjunta_ComprobanteDom,DomicilioCoincideId,DomBeneficiario,ColBeneficiario,CPBeneficiario,PaisBeneficiario,TelBeneficiario,CURPBeneficiario,RFCBeneficiario,ParentescoBeneficiario,PorcientoBeneficiario,FeNacBeneficiario,MunBeneficiario,EdoBeneficiario,EdoCivilBeneficiario,SoConBeneficiario,OcuProfBeneficiario,PEPSBeneficiario,OrigenRecBeneficiario,PerTrans1,FuentePerTrans1,PerTrans2,FuentePerTrans2,PerTrans3,FuentePerTrans3,PerTrans4,FuentePerTrans4,PerTrans5,FuentePerTrans5,PerTrans6,FuentePerTrans6,PerTrans7,FuentePerTrans7,PerTrans8,FuentePerTrans8,PerTrans9,FuentePerTrans9,PerTrans10,FuentePerTrans10,ValorAuto,EngAutomovil,PorEnganche,PorFinanciamiento,MontoFinanciado,Plazo,PagoMensEsp,PEPS,NombrePEPS,ParentescoPEPS,PuestoPEPS,Antiguedad_ObjetoSocial,Antiguedad_Cliente,Naturaleza_Operaciones,Numero_Beneficiarios,Numero_TercerosRelacionados,PEPs_Relacionados,Alerta_Reputacional,Volumen_Esperado,Frecuencia_Esperada,Instrumento_Monetario,Canales_MediosUtilizados,Pais_EstadoOficial,Pais_EstadoResidencia,Pais_EstadoOperacion,Origen_Recursos,Destino_Recursos,Pais_EstadoResidenciaTerceros,GradoRiesgo,fechaComprobante,ApPatDatCon,ApMatDatCon,SegNomSolicitante,ApPatSolicitante,ApMatSolicitanteApMatSolicitante,ApPatBenDatGen,ApMatBenDatGen) 
 
-values('$cliente','$tipocredito','$NomSolicitante','$RFCSolicitante','$TelSolicitante','$MovSolicitante','$dirsol','$colsol','$cdsol','$lugnacsol','$edosol','$cpsol','$curpsol','$mailsol','$SexoDatGen','$FeNacDatGen','$edsol','$nacsol','$depensol','$acdomsol','$VivDatGen','$OtrvivDatGen','$arraisol','$anosol','$benesol','$EstCivDatGen','$PropInmuDatGen','$AuPropDatGen','$MarDatGen','$puestosol','$depasol','$desdesol','$compasol','$TelDatEmp','$compatelsolext','$nomref1','$parenref1','$TelRefPer','$nomref2','$parenref2','$TelRefPer2','$refbanc','$tarjrefbanc','$cargdir','$nocuentcd','$conyunom','$compaconyu','$puestconyu','$NomObSol','$RFCObSol','$TelObSol','$MovObSol','$datobdir1','$datobcol1','$datobcd1','$datoblugnac1','$PropObSol','$datobedo1','$datobcp1','$datobmail1','$SexoObSol','$FeNacObSol','$datobed1','$datobcurp1','$NomObSol2','$RFCObSol2','$TelObSol2','$MovObSol2','$datobdir2','$datobcol2','$datobcd2','$datoblugnac2','$PropObSol2','$datobedo2','$datobcp2','$datobmail2','$SexoObSol2','$FeNacObSol2','$datobed2','$datobcurp2','$fecha','$clavcon','$nomcons','$nomvend','$gerentegral','Pendiente','PFA','$numeroDirSol','$municipioSol','$numSerieFiel','$domicilioLaboral','$SueldoSolicitante','$ActividadAdicional','$IngAdMensualAprox','$INESolicitante','$copias','$Pasaporte_o_CedulaProfSolicitante','$copias2','$CartillaMilitarSolicitante','$copias3','$LicenciaConducirSolicitante','$copias4','$OtraIdentSolicitante','$copias5','$EspIdentSolicitante','$cotejo','$adjuntos1','$adjuntos2','$adjuntos3','$DomBeneficiario','$ColBeneficiario','$CPBeneficiario','$PaisBeneficiario','$TelBeneficiario','$CURPBeneficiario','$RFCBeneficiario','$ParentescoBeneficiario','$PorcientoBeneficiario','$FeNacBeneficiario','$MunBeneficiario','$EdoBeneficiario','$EdoCivilBeneficiario','$SoConBeneficiario','$OcuProfBeneficiario','$PEPSBeneficiario','$OrigenRecBeneficiario','$PerTrans1','$FuentePerTrans1','$PerTrans2','$FuentePerTrans2','$PerTrans3','$FuentePerTrans3','$PerTrans4','$FuentePerTrans4','$PerTrans5','$FuentePerTrans5','$PerTrans6','$FuentePerTrans6','$PerTrans7','$FuentePerTrans7','$PerTrans8','$FuentePerTrans8','$PerTrans9','$FuentePerTrans9','$PerTrans10','$FuentePerTrans10','$ValorAuto','$EngAutomovil','$PorEnganche','$PorFinanciamiento','$MontoFinanciado','$Plazo','$PagoMensEsp','$PEPS','$NombrePEPS','$ParentescoPEPS','$PuestoPEPS','$select','$select2','$select3','$select4','$select5','$select6','$select7','$select8','$select9','$select10','$select11','$select12','$select13','$select14','$select15','$select16','$select17','$GradoRiesgo')");
+values('$cliente','$tipocredito','$nomsol','$RFCSolicitante','$TelSolicitante','$MovSolicitante','$dirsol','$colsol','$cdsol','$lugnacsol','$edosol','$cpsol','$curpsol','$mailsol','$SexoDatGen','$FeNacDatGen','$edsol','$nacsol','$depensol','$acdomsol','$VivDatGen','$OtrvivDatGen','$arraisol','$anosol','$benesol','$EstCivDatGen','$PropInmuDatGen','$AuPropDatGen','$MarDatGen','$puestosol','$depasol','$desdesol','$compasol','$TelDatEmp','$compatelsolext','$nomref1','$parenref1','$TelRefPer','$nomref2','$parenref2','$TelRefPer2','$refbanc','$tarjrefbanc','$cargdir','$nocuentcd','$conyunom','$compaconyu','$puestconyu','$NomObSol','$RFCObSol','$TelObSol','$MovObSol','$datobdir1','$datobcol1','$datobcd1','$datoblugnac1','$PropObSol','$datobedo1','$datobcp1','$datobmail1','$SexoObSol','$FeNacObSol','$datobed1','$datobcurp1','$NomObSol2','$RFCObSol2','$TelObSol2','$MovObSol2','$datobdir2','$datobcol2','$datobcd2','$datoblugnac2','$PropObSol2','$datobedo2','$datobcp2','$datobmail2','$SexoObSol2','$FeNacObSol2','$datobed2','$datobcurp2','$fecha','$clavcon','$nomcons','$nomvend','$gerentegral','Pendiente','PFA','$numeroDirSol','$municipioSol','$numSerieFiel','$domicilioLaboral','$SueldoSolicitante','$ActividadAdicional','$IngAdMensualAprox','$INESolicitante','$copias','$Pasaporte_o_CedulaProfSolicitante','$copias2','$CartillaMilitarSolicitante','$copias3','$LicenciaConducirSolicitante','$copias4','$OtraIdentSolicitante','$copias5','$EspIdentSolicitante','$cotejo','$adjuntos1','$adjuntos2','$adjuntos3','$DomBeneficiario','$ColBeneficiario','$CPBeneficiario','$PaisBeneficiario','$TelBeneficiario','$CURPBeneficiario','$RFCBeneficiario','$ParentescoBeneficiario','$PorcientoBeneficiario','$FeNacBeneficiario','$MunBeneficiario','$EdoBeneficiario','$EdoCivilBeneficiario','$SoConBeneficiario','$OcuProfBeneficiario','$PEPSBeneficiario','$OrigenRecBeneficiario','$PerTrans1','$FuentePerTrans1','$PerTrans2','$FuentePerTrans2','$PerTrans3','$FuentePerTrans3','$PerTrans4','$FuentePerTrans4','$PerTrans5','$FuentePerTrans5','$PerTrans6','$FuentePerTrans6','$PerTrans7','$FuentePerTrans7','$PerTrans8','$FuentePerTrans8','$PerTrans9','$FuentePerTrans9','$PerTrans10','$FuentePerTrans10','$ValorAuto','$EngAutomovil','$PorEnganche','$PorFinanciamiento','$MontoFinanciado','$Plazo','$PagoMensEsp','$PEPS','$NombrePEPS','$ParentescoPEPS','$PuestoPEPS','$select','$select2','$select3','$select4','$select5','$select6','$select7','$select8','$select9','$select10','$select11','$select12','$select13','$select14','$select15','$select16','$select17','$GradoRiesgo','$fechaComprobante','$ApPatDatCon','$ApMatDatCon','$segnomsol','$apepasol','$apemasol','$benesol2','$benesol3')");
 
 $objPHPExcel->getActiveSheet()->setCellValue('M6', $cliente);
 	}
