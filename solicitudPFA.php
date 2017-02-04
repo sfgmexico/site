@@ -355,12 +355,12 @@ input::-moz-placeholder {
          
           <p align="left">
             <div class="small-5 columns">
-            <input name="nomsol" type="text" id="nomsol" value="<?php if(isset($_GET['PrNombre'])){echo $_GET['PrNombre'];}?>" placeholder="Primer Nombre" onChange="BuscaInfo()" onkeypress="return validaTexto(event)"pattern="alpha"> 
+            <input name="nomsol" type="text" id="nomsol" value="<?php if(isset($_GET['PrNombre'])){echo $_GET['PrNombre'];}?>" placeholder="Primer Nombre"  onkeypress="return validaTexto(event)"pattern="alpha"> 
             <input name="segnomsol" type="text" id="segnomsol" value="<?php if(isset($_GET['SgNombre'])){echo $_GET['SgNombre'];}?>" placeholder="Segundo Nombre" onkeypress="return validaTexto(event)" pattern="alpha">
             </div>
           <div class="small-5 columns">
-            <input name="apepasol" type="text" id="apepasol" value="<?php if(isset($_GET['PrApellido'])){echo $_GET['PrApellido'];}?>" placeholder="Apellido Parteno" onChange="BuscaInfo()" onkeypress="return validaTexto(event)" pattern="alpha">  
-            <input name="apemasol" type="text" id="apemasol" value="<?php if(isset($_GET['SgApellido'])){echo $_GET['SgApellido'];}?>" placeholder="Apellido Materno" onChange="BuscaInfo()" onkeypress="return validaTexto(event)" pattern="alpha">
+            <input name="apepasol" type="text" id="apepasol" value="<?php if(isset($_GET['PrApellido'])){echo $_GET['PrApellido'];}?>" placeholder="Apellido Parteno"  onkeypress="return validaTexto(event)" pattern="alpha">  
+            <input name="apemasol" type="text" id="apemasol" value="<?php if(isset($_GET['SgApellido'])){echo $_GET['SgApellido'];}?>" placeholder="Apellido Materno"  onkeypress="return validaTexto(event)" pattern="alpha">
           </div>  
           </p>
           </div>
