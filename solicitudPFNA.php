@@ -1062,7 +1062,7 @@ input::-moz-placeholder {
 </div>
 		<h4 align="left">Datos generales del cliente</h4> 
 		<p align="left">Tipo de Cliente: <input id="escliente1" name="escliente" type="radio" value="1" required><label for="escliente1">Nuevo</label>
-		<input id="escliente2" name="escliente" type="radio" value="2" required><label for="escliente2"> Actualización </label>
+		<input id="escliente2" name="escliente" type="radio" value="2" <?php if(isset($row['Cliente'])){echo "checked";}?> required><label for="escliente2"> Actualización </label>
 		</p>
 		<table width="100%" border="0">
             <tr>
@@ -1083,7 +1083,7 @@ input::-moz-placeholder {
             </tr>
             <tr>
               <td>Delegación o municipio </td>
-              <td><input name="textfield5" type="text" id="textfield5" size="100%" required pattern="number"></td>
+              <td><input name="textfield5" type="text" id="textfield5" size="100%" required pattern="number" value="<?php if(isset($row['Cliente'])) {  echo $row['MunicipioSolicitante']; } ?>" ></td>
             </tr>
             <tr>
               <td>Estado o provincia </td>
@@ -1117,9 +1117,9 @@ input::-moz-placeholder {
               <td width="32%">Actividad | Objeto Social </td>
               <td width="68%"><select id="select" name="select" size="1" style="width:60%;" required>
                 <option value="" selected></option>
-                <option value="3">Vulnerable</option>
-                <option value="2">Informal</option>
-                <option value="1">Otra</option>
+                <option value="3" <?php if($row['Antiguedad_ObjetoSocial']=="Vulnerable"){echo "selected";}?>>Vulnerable</option>
+                <option value="2" <?php if($row['Antiguedad_ObjetoSocial']=="Informal"){echo "selected";}?>>Informal</option>
+                <option value="1" <?php if($row['Antiguedad_ObjetoSocial']=="Otra"){echo "selected";}?>>Otra</option>
               </select>
               </td>
             </tr>
@@ -1127,9 +1127,9 @@ input::-moz-placeholder {
               <td>Antigüedad del cliente </td>
               <td><select id="select2" name="select2" size="1" style="width:60%;" required>
                 <option value="" selected></option>
-                <option value="3">1-3 años</option>
-                <option value="2">4-6 años</option>
-                <option value="1">7-10 años</option>
+                <option value="3" <?php if($row['Antiguedad_Cliente']=="1-3 años"){echo "selected";}?> >1-3 años</option>
+                <option value="2" <?php if($row['Antiguedad_Cliente']=="4-6 años"){echo "selected";}?> >4-6 años</option>
+                <option value="1" <?php if($row['Antiguedad_Cliente']=="7-10 años"){echo "selected";}?> >7-10 años</option>
                 <option value="0">N/A</option>
                                           </select></td>
             </tr>
@@ -1137,137 +1137,137 @@ input::-moz-placeholder {
               <td>Naturaleza de las operaciones </td>
               <td><select id="select3" name="select3" size="1" style="width:60%;" required>
                 <option value="" selected></option>
-                <option value="1">Prestamo</option>
-                <option value="2">Arrendamiento</option>
-                <option value="3">Otros</option>
+                <option value="1" <?php if($row['Naturaleza_Operaciones']=="Prestamo"){echo "selected";}?>>Prestamo</option>
+                <option value="2" <?php if($row['Naturaleza_Operaciones']=="Arrendamiento"){echo "selected";}?>>Arrendamiento</option>
+                <option value="3" <?php if($row['Naturaleza_Operaciones']=="Otros"){echo "selected";}?>>Otros</option>
                             </select></td>
             </tr>
             <tr>
               <td>Q de Beneficiarios </td>
               <td><select id="select4" name="select4" size="1" style="width:60%;" required>
                 <option value="" selected></option>
-                <option value="1">1 a 2</option>
-                <option value="2">3 a 4</option>
-                <option value="3">5 o mas</option>
-                <option value="0">N/A</option>
+                <option value="1" <?php if($row['Numero_Beneficiarios']=="1 a 2"){echo "selected";}?>>1 a 2</option>
+                <option value="2" <?php if($row['Numero_Beneficiarios']=="3 a 4"){echo "selected";}?>>3 a 4</option>
+                <option value="3" <?php if($row['Numero_Beneficiarios']=="5 o mas"){echo "selected";}?>>5 o mas</option>
+                <option value="0" <?php if($row['Numero_Beneficiarios']=="N/A"){echo "selected";}?>>N/A</option>
                             </select></td>
             </tr>
             <tr>
               <td>Q de Terceros Relacionados (Apoderados y Cotitulares) </td>
               <td><select id="select5" name="select5" size="1" style="width:60%;" required>
                 <option value="" selected></option>
-                <option value="1">1 a 2</option>
-                <option value="2">3 a 4</option>
-                <option value="3">5 o mas</option>
-                <option value="0">N/A</option>
+                <option value="1"<?php if($row['Numero_TercerosRelacionados']=="1 a 2"){echo "selected";}?>>1 a 2</option>
+                <option value="2"<?php if($row['Numero_TercerosRelacionados']=="3 a 4"){echo "selected";}?>>3 a 4</option>
+                <option value="3"<?php if($row['Numero_TercerosRelacionados']=="5 o mas"){echo "selected";}?>>5 o mas</option>
+                <option value="0"<?php if($row['Numero_TercerosRelacionados']=="N/A"){echo "selected";}?>>N/A</option>
                             </select></td>
             </tr>
             <tr>
               <td>PEPs Relacionados </td>
               <td><select id="select6" name="select6" size="1" style="width:60%;" required>
                 <option value="" selected></option>
-                <option value="1">1% - 49%</option>
-                <option value="2">50% - 74%</option>
-                <option value="3">75% - 100%</option>
+                <option value="1" <?php if($row['PEPs_Relacionados']=="1% - 49%"){echo "selected";}?>>1% - 49%</option>
+                <option value="2" <?php if($row['PEPs_Relacionados']=="50% - 74%"){echo "selected";}?>>50% - 74%</option>
+                <option value="3" <?php if($row['PEPs_Relacionados']=="75% - 100%"){echo "selected";}?>>75% - 100%</option>
                             </select></td>
             </tr>
             <tr>
               <td>Alerta Reputacional </td>
               <td><select id="select7" name="select7" size="1" style="width:60%;" required>
                 <option value="" selected></option>
-                <option value="1">1% - 49%</option>
-                <option value="2">50% - 74%</option>
-                <option value="3">75% - 100%</option>
+                <option value="1" <?php if($row['Alerta_Reputacional']=="1% - 49%"){echo "selected";}?>>1% - 49%</option>
+                <option value="2" <?php if($row['Alerta_Reputacional']=="50% - 74%"){echo "selected";}?>>50% - 74%</option>
+                <option value="3" <?php if($row['Alerta_Reputacional']=="75% - 100%"){echo "selected";}?>>75% - 100%</option>
                             </select></td>
             </tr>
             <tr>
               <td>Volumen esperado (Monto) </td>
               <td><select id="select8" name="select8" size="1" style="width:60%;" required>
                 <option value="" selected></option>
-                <option value="1">$18000 - $20000</option>
-                <option value="2">$21000 - $25000</option>
-                <option value="3">mas de $25000</option>
+                <option value="1"<?php if($row['Volumen_Esperado']=="$18000 - $20000"){echo "selected";}?>>$18000 - $20000</option>
+                <option value="2"<?php if($row['Volumen_Esperado']=="$21000 - $25000"){echo "selected";}?>>$21000 - $25000</option>
+                <option value="3"<?php if($row['Volumen_Esperado']=="mas de $25000"){echo "selected";}?>>mas de $25000</option>
                             </select></td>
             </tr>
             <tr>
               <td>Frecuencia esperada (No. Veces) </td>
               <td><select id="select9" name="select9" size="1" style="width:60%;" required>
                 <option value="" selected></option>
-                <option value="1">1 a 3</option>
-                <option value="2">4 a 6</option>
-                <option value="3">7 a 10</option>
+                <option value="1"<?php if($row['Frecuencia_Esperada']=="1 a 3"){echo "selected";}?>>1 a 3</option>
+                <option value="2"<?php if($row['Frecuencia_Esperada']=="4 a 6"){echo "selected";}?>>4 a 6</option>
+                <option value="3"<?php if($row['Frecuencia_Esperada']=="7 a 10"){echo "selected";}?>>7 a 10</option>
                             </select></td>
             </tr>
             <tr>
               <td>Instrumento Monetario Utilizado </td>
               <td><select id="select10" name="select10" size="1" style="width:60%;" required>
                 <option value="" selected></option>
-                <option value="1">Transferencia</option>
-                <option value="2">Cheque</option>
-                <option value="3">Efectivo</option>
+                <option value="1"<?php if($row['Instrumento_Monetario']=="Transferencia"){echo "selected";}?>>Transferencia</option>
+                <option value="2"<?php if($row['Instrumento_Monetario']=="Cheque"){echo "selected";}?>>Cheque</option>
+                <option value="3"<?php if($row['Instrumento_Monetario']=="Efectivo"){echo "selected";}?>>Efectivo</option>
                             </select></td>
             </tr>
             <tr>
               <td>Canales o Medios Utilizados </td>
               <td><select id="select11" name="select11" size="1" style="width:60%;" required>
                 <option value="" selected></option>
-                <option value="1">Agencia</option>
-                <option value="2">Internet</option>
-                <option value="3">Otro</option>
+                <option value="1"<?php if($row['Canales_MediosUtilizados']=="Agencia"){echo "selected";}?>>Agencia</option>
+                <option value="2"<?php if($row['Canales_MediosUtilizados']=="Internet"){echo "selected";}?>>Internet</option>
+                <option value="3"<?php if($row['Canales_MediosUtilizados']=="Otro"){echo "selected";}?>>Otro</option>
                             </select></td>
             </tr>
             <tr>
               <td>País | Estado Oficial </td>
               <td><select id="select12" name="select12" size="1" style="width:60%;" required>
                 <option value="" selected></option>
-                <option value="1">México</option>
-                <option value="2">Otros</option>
-                <option value="3">Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar</option>
+                <option value="1"<?php if($row['Pais_EstadoOficial']=="México"){echo "selected";}?>>México</option>
+                <option value="2"<?php if($row['Pais_EstadoOficial']=="Otros"){echo "selected";}?>>Otros</option>
+                <option value="3"<?php if($row['Pais_EstadoOficial']=="Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar"){echo "selected";}?>>Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar</option>
                             </select></td>
             </tr>
             <tr>
               <td>País | Estado Residencia </td>
               <td><select id="select13" name="select13" size="1" style="width:60%;" required>
                 <option value="" selected></option>
-                <option value="3">Guerrero-Michoacan-Tamaulipas-Morelos</option>
-                <option value="2">Durango-Chihuhua-Jalisco-México-CD México-Sonora</option>
-                <option value="1">Puebla-Coahuila-Zcatecas-Hidalgo-Durango</option>
+                <option value="3"<?php if($row['Pais_EstadoResidencia']=="Guerrero-Michoacan-Tamaulipas-Morelos"){echo "selected";}?>>Guerrero-Michoacan-Tamaulipas-Morelos</option>
+                <option value="2"<?php if($row['Pais_EstadoResidencia']=="Durango-Chihuhua-Jalisco-México-CD México-Sonora"){echo "selected";}?>>Durango-Chihuhua-Jalisco-México-CD México-Sonora</option>
+                <option value="1"<?php if($row['Pais_EstadoResidencia']=="Puebla-Coahuila-Zcatecas-Hidalgo-Durango"){echo "selected";}?>>Puebla-Coahuila-Zcatecas-Hidalgo-Durango</option>
                             </select></td>
             </tr>
             <tr>
               <td>País | Estado Operación </td>
               <td><select id="select14" name="select14" size="1" style="width:60%;" required>
                 <option value="" selected></option>
-                <option value="3">Guerrero-Michoacan-Tamaulipas-Morelos</option>
-                <option value="2">Durango-Chihuhua-Jalisco-México-CD México-Sonora</option>
-                <option value="1">Puebla-Coahuila-Zcatecas-Hidalgo-Durango</option>
+                <option value="3"<?php if($row['Pais_EstadoOperacion']=="Guerrero-Michoacan-Tamaulipas-Morelos"){echo "selected";}?>>Guerrero-Michoacan-Tamaulipas-Morelos</option>
+                <option value="2"<?php if($row['Pais_EstadoOperacion']=="Durango-Chihuhua-Jalisco-México-CD México-Sonora"){echo "selected";}?>>Durango-Chihuhua-Jalisco-México-CD México-Sonora</option>
+                <option value="1"<?php if($row['Pais_EstadoOperacion']=="Puebla-Coahuila-Zcatecas-Hidalgo-Durango"){echo "selected";}?>>Puebla-Coahuila-Zcatecas-Hidalgo-Durango</option>
                             </select></td>
             </tr>
             <tr>
               <td>Origen de los recursos </td>
               <td><select id="select15" name="select15" size="1" style="width:60%;" required>
                 <option value="" selected></option>
-                <option value="1">México</option>
-                <option value="2">Otros</option>
-                <option value="3">Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar</option>
+                <option value="1"<?php if($row['Origen_Recursos']=="México"){echo "selected";}?>>México</option>
+                <option value="2"<?php if($row['Origen_Recursos']=="Otros"){echo "selected";}?>>Otros</option>
+                <option value="3"<?php if($row['Origen_Recursos']=="Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar"){echo "selected";}?>>Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar</option>
                             </select></td>
             </tr>
             <tr>
               <td>Destino de los recursos </td>
               <td><select id="select16" name="select16" size="1" style="width:60%;" required>
                 <option value="" selected></option>
-                <option value="1">México</option>
-                <option value="2">Otros</option>
-                <option value="3">Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar</option>
+                <option value="1"<?php if($row['Destino_Recursos']=="México"){echo "selected";}?>>México</option>
+                <option value="2"<?php if($row['Destino_Recursos']=="Otros"){echo "selected";}?>>Otros</option>
+                <option value="3"<?php if($row['Destino_Recursos']=="Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar"){echo "selected";}?>>Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar</option>
                             </select></td>
             </tr>
             <tr>
               <td>País | Estado Residencia de Terceros Relacionados </td>
               <td><select id="select17" name="select17" size="1" style="width:60%;" required>
                 <option value="" selected></option>
-                <option value="1">México</option>
-                <option value="2">Otros</option>
-                <option value="3">Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar</option>
+                <option value="1"<?php if($row['Pais_EstadoResidenciaTerceros']=="México"){echo "selected";}?>>México</option>
+                <option value="2"<?php if($row['Pais_EstadoResidenciaTerceros']=="Otros"){echo "selected";}?>>Otros</option>
+                <option value="3"<?php if($row['Pais_EstadoResidenciaTerceros']=="Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar"){echo "selected";}?>>Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar</option>
                             </select></td>
             </tr>
           </table>
@@ -1371,7 +1371,7 @@ input::-moz-placeholder {
             </tr>
             <tr>
               <td>Numero de serie de la FIEL*</td>
-              <td><input name="textfield30" type="text" id="textfield30" size="100%"  required></td>
+              <td><input name="textfield30" type="text" id="textfield30" value="<?php if(isset($row['Cliente'])) {  echo $row['NumSerieFIEL']; } ?>" size="100%"  required></td>
             </tr>
             <tr>
               <td>Nacionalidad</td>
@@ -1391,7 +1391,7 @@ input::-moz-placeholder {
             </tr>
             <tr>
               <td>Sueldo o ingreso mensual </td>
-              <td><input name="textfield35" type="text" id="textfield35" size="100%" required></td>
+              <td><input name="textfield35" type="text" id="textfield35" value="<?php if(isset($row['Cliente'])) {  echo $row['SueldoSolicitante']; } ?>" size="100%" required></td>
             </tr>
             <tr>
               <td>Puesto</td>
@@ -1399,11 +1399,11 @@ input::-moz-placeholder {
             </tr>
             <tr>
               <td>Actividad Económica Adicional </td>
-              <td><input name="textfield37" type="text" id="textfield37" size="100%" required></td>
+              <td><input name="textfield37" type="text" id="textfield37" value="<?php if(isset($row['Cliente'])) {  echo $row['ActEcoAdicional']; } ?>" size="100%" required></td>
             </tr>
             <tr>
               <td>Ingresos Adicionales Mensuales Apox </td>
-              <td><input name="textfield38" type="text" id="textfield38" size="100%"  required></td>
+              <td><input name="textfield38" type="text" id="textfield38" value="<?php if(isset($row['Cliente'])) {  echo $row['IngAdMensualAprox']; } ?>" size="100%"  required></td>
             </tr>
           </table>
 		  <br>
@@ -1415,67 +1415,67 @@ input::-moz-placeholder {
             <tr>
             
               <td width="21%">Credencial para votar </td>
-              <td width="35%"><input name="textfield39" type="text" id="textfield39" size="50%" ></td>
+              <td width="35%"><input name="textfield39" value="<?php echo $row['INESolicitante'];?>" type="text" id="textfield39" size="50%" ></td>
               <td width="15%">Se adjunta copia: </td>
               <td id="secINE"> 
-              <input id="copiasA" name="copias" type="radio" value="1"><label for="copiasA">Si</label>
+              <input id="copiasA" name="copias" type="radio" value="1" <?php if($row['Adjunta_INESolicitante']=='Si'){echo "checked";}?> ><label for="copiasA">Si</label>
              
-              <input id="copiasB" name="copias" type="radio" value="2"><label for="copiasB">No</label></td>
+              <input id="copiasB" name="copias" type="radio" value="2" <?php if($row['Adjunta_INESolicitante']=='No'){echo "checked";}?> ><label for="copiasB">No</label></td>
              
             </tr>
             
            
             <tr>
               <td>Pasaporte cedula profesional </td>
-              <td><input name="textfield40" type="text" id="textfield40" size="50%"  ></td>
+              <td><input name="textfield40" type="text" id="textfield40" size="50%" value="<?php echo $row['Pasaporte_o_CedulaProfSolicitante'];?>" ></td>
               <td>Se adjunta copia: </td>
               <td id="secCedProfesional">
-              <input id="copias2A" name="copias2" type="radio" value="1"><label for="copias2A">Si</label>
+              <input id="copias2A" name="copias2" type="radio" value="1"<?php if($row['Adjunta_Pasaporte_o_CedulaProfSolicitante']=='Si'){echo "checked";}?> ><label for="copias2A">Si</label>
               
-              <input id="copias2B" name="copias2" type="radio" value="2"><label for="copias2B">No</label></td>
+              <input id="copias2B" name="copias2" type="radio" value="2"<?php if($row['Adjunta_Pasaporte_o_CedulaProfSolicitante']=='No'){echo "checked";}?> ><label for="copias2B">No</label></td>
             </tr>
             
             
             <tr>
               <td>Cartilla de servicio militar </td>
-              <td><input name="textfield41" type="text" id="textfield41" size="50%" ></td>
+              <td><input name="textfield41" type="text" id="textfield41" value="<?php echo $row['CartillaMilitarSolicitante'];?>" size="50%" ></td>
               <td>Se adjunta copia: </td>
               <td id="secCarMilitar">
-              <input id="copias3A" name="copias3" type="radio" value="1"><label for="copias3A">Si</label>
+              <input id="copias3A" name="copias3" type="radio" value="1" <?php if($row['Adjunta_CartillaMilitarSolicitante']=='Si'){echo "checked";}?> ><label for="copias3A">Si</label>
               
-              <input id="copias3B" name="copias3" type="radio" value="2"><label for="copias3B">No</label></td>
+              <input id="copias3B" name="copias3" type="radio" value="2" <?php if($row['Adjunta_CartillaMilitarSolicitante']=='No'){echo "checked";}?> ><label for="copias3B">No</label></td>
             </tr>
             
             
             <tr>
               <td>Licencia para conducir </td>
-              <td><input name="textfield42" type="text" id="textfield42" size="50%"  ></td>
+              <td><input name="textfield42" type="text" id="textfield42" value="<?php echo $row['LicenciaConducirSolicitante'];?>" size="50%"  ></td>
               <td>Se adjunta copia: </td>
               <td id="secLicConducir">
-              <input id="copias4A" name="copias4" type="radio" value="1"><label for="copias4A">Si</label>
+              <input id="copias4A" name="copias4" type="radio" value="1" <?php if($row['Adjunta_LicenciaConducirSolicitante']=='Si'){echo "checked";}?> ><label for="copias4A">Si</label>
               
-              <input id="copias4B" name="copias4" type="radio" value="2"><label for="copias4B">No</label></td>
+              <input id="copias4B" name="copias4" type="radio" value="2" <?php if($row['Adjunta_LicenciaConducirSolicitante']=='No'){echo "checked";}?> ><label for="copias4B">No</label></td>
             </tr>
             
            
             <tr>
               <td>Otra</td>
-              <td><input name="textfield43" type="text" id="textfield43" size="50%"  ></td>
+              <td><input name="textfield43" type="text" id="textfield43" value="<?php echo $row['OtraIdentSolicitante'];?>" size="50%"  ></td>
               <td>Se adjunta copia: </td>
               <td id="secOtrIdentificacion">
-              <input id="copias5A" name="copias5" type="radio" value="1"><label for="copias5A">Si</label>
+              <input id="copias5A" name="copias5" type="radio" value="1"<?php if($row['Adjunta_OtraIdentSolicitante']=='Si'){echo "checked";}?>><label for="copias5A">Si</label>
               
-              <input id="copias5B" name="copias5" type="radio" value="2"><label for="copias5B">No</label></td>
+              <input id="copias5B" name="copias5" type="radio" value="2"<?php if($row['Adjunta_OtraIdentSolicitante']=='No'){echo "checked";}?>><label for="copias5B">No</label></td>
             </tr>
            
             <tr>
               <td>Especificar</td>
-              <td id="secOtrIdentificacion2"><input name="textfield44" type="text" id="textfield44" size="50%"  ></td>
+              <td id="secOtrIdentificacion2"><input name="textfield44" value="<?php echo $row['EspIdentSolicitante'];?>" type="text" id="textfield44" size="50%"  ></td>
               <td>Se cotejo vs original: </td>
               <td>
-                <input id="cotejo1" name="cotejo" type="radio" value="1" required><label for="cotejo1">Si</label>
+                <input id="cotejo1" name="cotejo" type="radio" value="1" <?php if($row['CotejoVsOriginal']=='Si'){echo "checked";}?> required><label for="cotejo1">Si</label>
 
-                <input id="cotejo2" name="cotejo" type="radio" value="2" required><label for="cotejo2">No</label></td>
+                <input id="cotejo2" name="cotejo" type="radio" value="2" <?php if($row['CotejoVsOriginal']=='No'){echo "checked";}?> required><label for="cotejo2">No</label></td>
             </tr>
              </div>
           </table>
@@ -1485,16 +1485,16 @@ input::-moz-placeholder {
             <tr>
               <td width="30%">Se adjunta CURP y/o cédula RFC, FEA* </td>
               <td width="70%">
-                <input id="adjuntos1A" name="adjuntos1" type="radio" value="1" required><label for="adjuntos1A" >Si</label>
+                <input id="adjuntos1A" name="adjuntos1" type="radio" value="1" <?php if($row['Adjunta_CURP_RFC_FEA']=='Si'){echo "checked";}?> required><label for="adjuntos1A" >Si</label>
 
-                <input id="adjuntos1B" name="adjuntos1" type="radio" value="2" required><label for="adjuntos1B" >No</label></td>
+                <input id="adjuntos1B" name="adjuntos1" type="radio" value="2" <?php if($row['Adjunta_CURP_RFC_FEA']=='No'){echo "checked";}?> required><label for="adjuntos1B" >No</label></td>
             </tr>
             <tr>
               <td>Se adjunta comprobante de domicilio </td>
               <td>
-                <input id="adjuntos2A" name="adjuntos2" type="radio" value="1" required><label for="adjuntos2A" >Si</label>
+                <input id="adjuntos2A" name="adjuntos2" type="radio" value="1" <?php if($row['Adjunta_ComprobanteDom']=='Si'){echo "checked";}?> required><label for="adjuntos2A"  >Si</label>
 
-                <input id="adjuntos2B" name="adjuntos2" type="radio" value="2" required><label for="adjuntos2B" >No</label></td>
+                <input id="adjuntos2B" name="adjuntos2" type="radio" value="2" <?php if($row['Adjunta_ComprobanteDom']=='No'){echo "checked";}?> required><label for="adjuntos2B"  >No</label></td>
             </tr>
             <tr>
               <td>Fecha del comprobante de domicilio </td>
@@ -1503,9 +1503,9 @@ input::-moz-placeholder {
             <tr>
               <td>Domicilio manifestado coincide con la ID</td>
               <td>
-                <input id="adjuntos3A" name="adjuntos3" type="radio" value="1" required><label for="adjuntos3A" >Si</label>
+                <input id="adjuntos3A" name="adjuntos3" type="radio" value="1" <?php if($row['DomicilioCoincideId']=='Si'){echo "checked";}?> required><label for="adjuntos3A" >Si</label>
 
-                <input id="adjuntos3B" name="adjuntos3" type="radio" value="2" required><label for="adjuntos3B" >No</label></td>
+                <input id="adjuntos3B" name="adjuntos3" type="radio" value="2" <?php if($row['DomicilioCoincideId']=='No'){echo "checked";}?> required><label for="adjuntos3B" >No</label></td>
             </tr>
           </table>
 		  <br>
@@ -1529,72 +1529,72 @@ input::-moz-placeholder {
               <td><input name="textfield47" type="text" id="textfield47" size="50%" readonly ></td>
             </tr>
             <tr>
-              <td>Domicilio (calle y número) </td>
-              <td><input name="textfield48" type="text" id="textfield48" size="50%"  ></td>
+               <td>Domicilio (calle y número) </td>
+              <td><input name="textfield48" type="text" id="textfield48" value="<?php if(isset($row['Cliente'])){ echo $row['DomBeneficiario'];}?>" size="50%"  ></td>
             </tr>
             <tr>
               <td>Colonia</td>
-              <td><input name="textfield49" type="text" id="textfield49" size="50%" ></td>
+              <td><input name="textfield49" type="text" id="textfield49" value="<?php if(isset($row['Cliente'])){ echo $row['ColBeneficiario'];}?>" size="50%" ></td>
             </tr>
             <tr>
               <td>Código Postal </td>
-              <td><input name="textfield50" type="text" id="textfield50" size="50%" onkeypress="return validaNumero(event)" ></td>
+              <td><input name="textfield50" type="text" id="textfield50" value="<?php if(isset($row['Cliente'])){ echo $row['CPBeneficiario'];}?>" size="50%" onkeypress="return validaNumero(event)"></td>
             </tr>
             <tr>
               <td>País</td>
-              <td><input name="textfield51" type="text" id="textfield51" size="50%" ></td>
+              <td><input name="textfield51" type="text" id="textfield51" value="<?php if(isset($row['Cliente'])){ echo $row['PaisBeneficiario'];}?>" size="50%" ></td>
             </tr>
             <tr>
               <td>Teléfono</td>
-              <td><input name="textfield52" type="text" id="textfield52" size="50%" onkeypress="return validaNumero(event)"></td>
+              <td><input name="textfield52" type="text" id="textfield52" value="<?php if(isset($row['Cliente'])){ echo $row['TelBeneficiario'];}?>" size="50%" onkeypress="return validaNumero(event)"></td>
             </tr>
             <tr>
               <td>CURP</td>
-              <td><input name="textfield53" type="text" id="textfield53" size="50%" onkeypress="return validaRFC(event)"></td>
+              <td><input name="textfield53" type="text" id="textfield53" value="<?php if(isset($row['Cliente'])){ echo $row['CURPBeneficiario'];}?>" size="50%" onkeypress="return validaRFC(event)"></td>
             </tr>
             <tr>
               <td>RFC</td>
-              <td><input name="textfield54" type="text" id="textfield54" size="50%" onkeypress="return validaRFC(event)"></td>
+              <td><input name="textfield54" type="text" id="textfield54" value="<?php if(isset($row['Cliente'])){ echo $row['RFCBeneficiario'];}?>" size="50%" onkeypress="return validaRFC(event)"></td>
             </tr>
             <tr>
               <td>Parentesco</td>
-              <td><input name="textfield55" type="text" id="textfield55" size="50%"  ></td>
+              <td><input name="textfield55" type="text" id="textfield55" value="<?php if(isset($row['Cliente'])){ echo $row['ParentescoBeneficiario'];}?>"size="50%"  ></td>
             </tr>
             <tr>
               <td>Porciento</td>
-              <td><input name="textfield56" type="text" id="textfield56" size="50%" onkeypress="return validaNumero(event)" ></td>
+              <td><input name="textfield56" type="text" id="textfield56" value="<?php if(isset($row['Cliente'])){ echo $row['PorcientoBeneficiario'];}?>" size="50%"  onkeypress="return validaNumero(event)"></td>
             </tr>
             <tr>
               <td>Fecha de Nacimiento </td>
-              <td><input name="textfield57" type="text" id="textfield57" size="50%" ></td>
+              <td><input name="textfield57" type="text" id="textfield57" value="<?php if(isset($row['Cliente'])){ echo $row['FeNacBeneficiario'];}?>" size="50%" ></td>
             </tr>
             <tr>
               <td>Municipio</td>
-              <td><input name="textfield58" type="text" id="textfield58" size="50%" ></td>
+              <td><input name="textfield58" type="text" id="textfield58" value="<?php if(isset($row['Cliente'])){ echo $row['MunBeneficiario'];}?>" size="50%" ></td>
             </tr>
             <tr>
               <td>Estado</td>
-              <td><input name="textfield59" type="text" id="textfield59" size="50%"></td>
+              <td><input name="textfield59" type="text" id="textfield59" value="<?php if(isset($row['Cliente'])){ echo $row['EdoBeneficiario'];}?>" size="50%"></td>
             </tr>
             <tr>
               <td>Estado Civil </td>
-              <td><input name="textfield60" type="text" id="textfield60" size="50%" ></td>
+              <td><input name="textfield60" type="text" id="textfield60" value="<?php if(isset($row['Cliente'])){ echo $row['EdoCivilBeneficiario'];}?>" size="50%" ></td>
             </tr>
             <tr>
               <td>Sociedad Conyugal </td>
-              <td><input name="textfield61" type="text" id="textfield61" size="50%"  ></td>
+              <td><input name="textfield61" type="text" id="textfield61" value="<?php if(isset($row['Cliente'])){ echo $row['SoConBeneficiario'];}?>" size="50%"  ></td>
             </tr>
             <tr>
               <td>Ocupación o Profesión </td>
-              <td><input name="textfield62" type="text" id="textfield62" size="50%"  ></td>
+              <td><input name="textfield62" type="text" id="textfield62" value="<?php if(isset($row['Cliente'])){ echo $row['OcuProfBeneficiario'];}?>" size="50%"  ></td>
             </tr>
             <tr>
               <td>PEP´s</td>
-              <td><input name="textfield63" type="text" id="textfield63" size="50%" ></td>
+              <td><input name="textfield63" type="text" id="textfield63" value="<?php if(isset($row['Cliente'])){ echo $row['PEPSBeneficiario'];}?>" size="50%" ></td>
             </tr>
             <tr>
               <td>Origen de los Recursos </td>
-              <td><input name="textfield64" type="text" id="textfield64" size="50%"  ></td>
+              <td><input name="textfield64" type="text" id="textfield64" value="<?php if(isset($row['Cliente'])){ echo $row['OrigenRecBeneficiario'];}?>"size="50%"  ></td>
             </tr>
           </table>
           </div>
