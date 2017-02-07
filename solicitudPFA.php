@@ -1,3 +1,21 @@
+<?php
+    if(isset($_GET['cliente'])){
+        $cliente=$_GET['cliente'];
+        
+    include("Conexion2.php");
+    $result = mysqli_query($cnx,"select * from solicitudes where cliente='$cliente' and TipoSolicitud='PFA' order by Id desc");
+    if(!mysqli_num_rows($result)>0){
+
+        echo "Error El Cliente No Corresponde a PFA";
+        exit;
+    }
+    $row=mysqli_fetch_array($result);
+    echo $row['Id'];
+    }
+
+    ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -343,11 +361,11 @@ input::-moz-placeholder {
           
           <p align="left"><strong>DATOS DEL SOLICITANTE:</strong>
             <div class="row">
-              <div class="small-5 columns"><input name="cliente" type="text" id="cliente" value="<?php if(isset($_GET['retorna'])){echo $_GET['retorna'];}?>" size="30px" onChange="window.location.href='ObtenInfo.php?dato='+this.value" placeholder="Si es Cliente, número de cliente/contrato"></div>
+              <div class="small-5 columns"><input name="cliente" type="text" id="cliente" value="<?php if(isset($row['Cliente'])) { echo $row['Cliente']; } ?>" size="30px" onChange="obten()" placeholder="Si es Cliente, número de cliente/contrato"></div>
              
-            <input id="tipocredito1" name="tipocredito" type="radio" value="1" required><label for="tipocredito1">Credit</label>
+            <input id="tipocredito1" name="tipocredito" type="radio" value="1" required <?php if(isset($row['Cliente'])) { if($row['TipoCredito']=='Credit'){echo "checked";} } ?>><label for="tipocredito1">Credit</label>
             
-            <input id="tipocredito2" name="tipocredito" type="radio" value="2" required><label for="tipocredito2">Premium Credit</label>
+            <input id="tipocredito2" name="tipocredito" type="radio" value="2" required <?php if(isset($row['Cliente'])) { if($row['TipoCredito']=='Premium Credit'){echo "checked";} } ?>><label for="tipocredito2">Premium Credit</label>
             </div>
           </p>
            <div id="secSolicitante">
@@ -355,186 +373,176 @@ input::-moz-placeholder {
          
           <p align="left">
             <div class="small-5 columns">
-            <input name="nomsol" type="text" id="nomsol" value="<?php if(isset($_GET['PrNombre'])){echo $_GET['PrNombre'];}?>" placeholder="Primer Nombre"  onkeypress="return validaTexto(event)"pattern="alpha"> 
-            <input name="segnomsol" type="text" id="segnomsol" value="<?php if(isset($_GET['SgNombre'])){echo $_GET['SgNombre'];}?>" placeholder="Segundo Nombre" onkeypress="return validaTexto(event)" pattern="alpha">
+            <input name="nomsol" type="text" id="nomsol" value="<?php if(isset($row['Cliente'])) { echo $row['NomSolicitante']; } ?>" placeholder="Primer Nombre"  onkeypress="return validaTexto(event)"pattern="alpha"> 
+            <input name="segnomsol" type="text" id="segnomsol"   value="<?php if(isset($row['Cliente'])) { echo $row['SegNomSolicitante']; } ?>" placeholder="Segundo Nombre" onkeypress="return validaTexto(event)" pattern="alpha">
             </div>
           <div class="small-5 columns">
-            <input name="apepasol" type="text" id="apepasol" value="<?php if(isset($_GET['PrApellido'])){echo $_GET['PrApellido'];}?>" placeholder="Apellido Parteno"  onkeypress="return validaTexto(event)" pattern="alpha">  
-            <input name="apemasol" type="text" id="apemasol" value="<?php if(isset($_GET['SgApellido'])){echo $_GET['SgApellido'];}?>" placeholder="Apellido Materno"  onkeypress="return validaTexto(event)" pattern="alpha">
+            <input name="apepasol" type="text" id="apepasol"  value="<?php if(isset($row['Cliente'])) { echo $row['ApPatSolicitante']; } ?>" placeholder="Apellido Parteno"  onkeypress="return validaTexto(event)" pattern="alpha">  
+            <input name="apemasol" type="text" id="apemasol" value="<?php if(isset($row['Cliente'])) { echo $row['ApMatSolicitante']; } ?>" placeholder="Apellido Materno"  onkeypress="return validaTexto(event)" pattern="alpha">
           </div>  
           </p>
           </div>
 <div class="row">
           <p align="left">RFC con homoclave:
             <div class="small-9 columns">
-            <div class="small-1 columns"><input name="rfc1" type="text" id="rfc1" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc2)" onkeypress="return validaRFC(event)" pattern="alpha_numeric"></div>
-            <div class="small-1 columns"><input name="rfc2" type="text" id="rfc2" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc3)" onkeypress="return validaRFC(event)" pattern="alpha_numeric"></div>
-            <div class="small-1 columns"><input name="rfc3" type="text" id="rfc3" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc4)" onkeypress="return validaRFC(event)" pattern="alpha_numeric"></div>
-            <div class="small-1 columns"><input name="rfc4" type="text" id="rfc4" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc5)" onkeypress="return validaRFC(event)" pattern="alpha_numeric"></div>
-            <div class="small-1 columns"><input name="rfc5" type="text" id="rfc5" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc6)" onkeypress="return validaRFC(event)" pattern="alpha_numeric"></div>
-            <div class="small-1 columns"><input name="rfc6" type="text" id="rfc6" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc7)" onkeypress="return validaRFC(event)" pattern="alpha_numeric"></div>
-            <div class="small-1 columns"><input name="rfc7" type="text" id="rfc7" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc8)" onkeypress="return validaRFC(event)" pattern="alpha_numeric"></div>
-            <div class="small-1 columns"><input name="rfc8" type="text" id="rfc8" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc9)" onkeypress="return validaRFC(event)" pattern="alpha_numeric"></div>
-            <div class="small-1 columns"><input name="rfc9" type="text" id="rfc9" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc10)" onkeypress="return validaRFC(event)" pattern="alpha_numeric"></div>
-            <div class="small-1 columns"><input name="rfc10" type="text" id="rfc10" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc11)" onkeypress="return validaRFC(event)" pattern="alpha_numeric"></div>
-            <div class="small-1 columns"><input name="rfc11" type="text" id="rfc11" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc12)" onkeypress="return validaRFC(event)" pattern="alpha_numeric"></div>
-            <div class="small-1 columns"><input name="rfc12" type="text" id="rfc12" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,rfc13)" onkeypress="return validaRFC(event)" pattern="alpha_numeric"></div></div>
-            <div class="small-1 columns"><input name="rfc13" type="text" id="rfc13" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol1)" onkeypress="return validaRFC(event)" pattern="alpha_numeric"></div>
+            <div class="small-1 columns"><input name="rfc1" type="text" id="rfc1" size="1px" value="<?php if(isset ($row['Cliente']))  { echo $row['RFCSolicitante'][0];}?>" maxlength="1" onKeyUp="myFunction(this,this.value,rfc2)" onkeypress="return validaRFC(event)" pattern="alpha_numeric"></div>
+            <div class="small-1 columns"><input name="rfc2" type="text" id="rfc2" size="1px" value="<?php if(isset ($row['Cliente']))  { echo $row['RFCSolicitante'][1];}?>" maxlength="1" onKeyUp="myFunction(this,this.value,rfc3)" onkeypress="return validaRFC(event)" pattern="alpha_numeric"></div>
+            <div class="small-1 columns"><input name="rfc3" type="text" id="rfc3" size="1px" value="<?php if(isset ($row['Cliente']))  { echo $row['RFCSolicitante'][2];}?>" maxlength="1" onKeyUp="myFunction(this,this.value,rfc4)" onkeypress="return validaRFC(event)" pattern="alpha_numeric"></div>
+            <div class="small-1 columns"><input name="rfc4" type="text" id="rfc4" size="1px" value="<?php if(isset ($row['Cliente']))  { echo $row['RFCSolicitante'][3];}?>" maxlength="1" onKeyUp="myFunction(this,this.value,rfc5)" onkeypress="return validaRFC(event)" pattern="alpha_numeric"></div>
+            <div class="small-1 columns"><input name="rfc5" type="text" id="rfc5" size="1px" value="<?php if(isset ($row['Cliente']))  { echo $row['RFCSolicitante'][4];}?>" maxlength="1" onKeyUp="myFunction(this,this.value,rfc6)" onkeypress="return validaRFC(event)" pattern="alpha_numeric"></div>
+            <div class="small-1 columns"><input name="rfc6" type="text" id="rfc6" size="1px" value="<?php if(isset ($row['Cliente']))  { echo $row['RFCSolicitante'][5];}?>" maxlength="1" onKeyUp="myFunction(this,this.value,rfc7)" onkeypress="return validaRFC(event)" pattern="alpha_numeric"></div>
+            <div class="small-1 columns"><input name="rfc7" type="text" id="rfc7" size="1px" value="<?php if(isset ($row['Cliente']))  { echo $row['RFCSolicitante'][6];}?>" maxlength="1" onKeyUp="myFunction(this,this.value,rfc8)" onkeypress="return validaRFC(event)" pattern="alpha_numeric"></div>
+            <div class="small-1 columns"><input name="rfc8" type="text" id="rfc8" size="1px" value="<?php if(isset ($row['Cliente']))  { echo $row['RFCSolicitante'][7];}?>" maxlength="1" onKeyUp="myFunction(this,this.value,rfc9)" onkeypress="return validaRFC(event)" pattern="alpha_numeric"></div>
+            <div class="small-1 columns"><input name="rfc9" type="text" id="rfc9" size="1px" value="<?php if(isset ($row['Cliente']))  { echo $row['RFCSolicitante'][8];}?>" maxlength="1" onKeyUp="myFunction(this,this.value,rfc10)" onkeypress="return validaRFC(event)" pattern="alpha_numeric"></div>
+            <div class="small-1 columns"><input name="rfc10" type="text" id="rfc10" size="1px" value="<?php if(isset ($row['Cliente']))  { echo $row['RFCSolicitante'][9];}?>" maxlength="1" onKeyUp="myFunction(this,this.value,rfc11)" onkeypress="return validaRFC(event)" pattern="alpha_numeric"></div>
+            <div class="small-1 columns"><input name="rfc11" type="text" id="rfc11" size="1px" value="<?php if(isset ($row['Cliente']))  { echo $row['RFCSolicitante'][10];}?>" maxlength="1" onKeyUp="myFunction(this,this.value,rfc12)" onkeypress="return validaRFC(event)" pattern="alpha_numeric"></div>
+            <div class="small-1 columns"><input name="rfc12" type="text" id="rfc12" size="1px" value="<?php if(isset ($row['Cliente']))  { echo $row['RFCSolicitante'][11];}?>" maxlength="1" onKeyUp="myFunction(this,this.value,rfc13)" onkeypress="return validaRFC(event)" pattern="alpha_numeric"></div></div>
+            <div class="small-1 columns"><input name="rfc13" type="text" id="rfc13" size="1px" value="<?php if(isset ($row['Cliente']))  { echo $row['RFCSolicitante'][12];}?>" maxlength="1" onKeyUp="myFunction(this,this.value,telsol1)" onkeypress="return validaRFC(event)" pattern="alpha_numeric"></div>
              
           </p>
 </div>
          <div class="row">
           <p align="left">Telefono partiular (Con lada - 10 dígitos) :
-            <div class="small-1 columns"><input name="telsol1" type="text" id="telsol1" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol2)" onkeypress="return validaNumero(event)" pattern="integer"></div>
-            <div class="small-1 columns"><input name="telsol2" type="text" id="telsol2" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol3)" onkeypress="return validaNumero(event)" pattern="integer"></div>
-            <div class="small-1 columns"><input name="telsol3" type="text" id="telsol3" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol4)" onkeypress="return validaNumero(event)" pattern="integer"></div>
-            <div class="small-1 columns"><input name="telsol4" type="text" id="telsol4" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol5)" onkeypress="return validaNumero(event)" pattern="integer"></div>
-            <div class="small-1 columns"><input name="telsol5" type="text" id="telsol5" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol6)" onkeypress="return validaNumero(event)" pattern="integer"></div>
-            <div class="small-1 columns"><input name="telsol6" type="text" id="telsol6" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol7)" onkeypress="return validaNumero(event)" pattern="integer"></div>
-            <div class="small-1 columns"><input name="telsol7" type="text" id="telsol7" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol8)" onkeypress="return validaNumero(event)" pattern="integer"></div>
-            <div class="small-1 columns"><input name="telsol8" type="text" id="telsol8" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol9)" onkeypress="return validaNumero(event)" pattern="integer"></div>
-            <div class="small-1 columns"><input name="telsol9" type="text" id="telsol9" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,telsol10)" onkeypress="return validaNumero(event)" pattern="integer"></div>
-            <div class="small-1 columns"><input name="telsol10" type="text" id="telsol10" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol1)" onkeypress="return validaNumero(event)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="telsol1" type="text" id="telsol1" size="1px" value="<?php if(isset($row['Cliente'])) { echo $row['TelSolicitante'][0]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,telsol2)" onkeypress="return validaNumero(event)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="telsol2" type="text" id="telsol2" size="1px" value="<?php if(isset($row['Cliente'])) { echo $row['TelSolicitante'][1]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,telsol3)" onkeypress="return validaNumero(event)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="telsol3" type="text" id="telsol3" size="1px" value="<?php if(isset($row['Cliente'])) { echo $row['TelSolicitante'][2]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,telsol4)" onkeypress="return validaNumero(event)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="telsol4" type="text" id="telsol4" size="1px" value="<?php if(isset($row['Cliente'])) { echo $row['TelSolicitante'][3]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,telsol5)" onkeypress="return validaNumero(event)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="telsol5" type="text" id="telsol5" size="1px" value="<?php if(isset($row['Cliente'])) { echo $row['TelSolicitante'][4]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,telsol6)" onkeypress="return validaNumero(event)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="telsol6" type="text" id="telsol6" size="1px" value="<?php if(isset($row['Cliente'])) { echo $row['TelSolicitante'][5]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,telsol7)" onkeypress="return validaNumero(event)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="telsol7" type="text" id="telsol7" size="1px" value="<?php if(isset($row['Cliente'])) { echo $row['TelSolicitante'][6]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,telsol8)" onkeypress="return validaNumero(event)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="telsol8" type="text" id="telsol8" size="1px" value="<?php if(isset($row['Cliente'])) { echo $row['TelSolicitante'][7]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,telsol9)" onkeypress="return validaNumero(event)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="telsol9" type="text" id="telsol9" size="1px" value="<?php if(isset($row['Cliente'])) { echo $row['TelSolicitante'][8]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,telsol10)" onkeypress="return validaNumero(event)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="telsol10" type="text" id="telsol10" size="1px" value="<?php if(isset($row['Cliente'])) { echo $row['TelSolicitante'][9]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,movsol1)" onkeypress="return validaNumero(event)" pattern="integer"></div>
           </p>
          </div>
          <div class="row">
           <p align="left">Telefono movil (Con lada - 10 dígitos):
-            <div class="small-1 columns"><input name="movsol1" type="text" id="movsol1" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol2)" onkeypress="return validaNumero(event)" pattern="integer"></div>
-            <div class="small-1 columns"><input name="movsol2" type="text" id="movsol2" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol3)" onkeypress="return validaNumero(event)" pattern="integer"></div>
-            <div class="small-1 columns"><input name="movsol3" type="text" id="movsol3" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol4)" onkeypress="return validaNumero(event)" pattern="integer"></div>
-            <div class="small-1 columns"><input name="movsol4" type="text" id="movsol4" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol5)" onkeypress="return validaNumero(event)" pattern="integer"></div>
-            <div class="small-1 columns"><input name="movsol5" type="text" id="movsol5" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol6)" onkeypress="return validaNumero(event)" pattern="integer"></div>
-            <div class="small-1 columns"><input name="movsol6" type="text" id="movsol6" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol7)" onkeypress="return validaNumero(event)" pattern="integer"></div>
-            <div class="small-1 columns"><input name="movsol7" type="text" id="movsol7" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol8)" onkeypress="return validaNumero(event)" pattern="integer"></div>
-            <div class="small-1 columns"><input name="movsol8" type="text" id="movsol8" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol9)" onkeypress="return validaNumero(event)" pattern="integer"></div>
-            <div class="small-1 columns"><input name="movsol9" type="text" id="movsol9" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,movsol10)" onkeypress="return validaNumero(event)" pattern="integer"></div>
-            <div class="small-1 columns"><input name="movsol10" type="text" id="movsol10" size="1px" maxlength="1" onKeyUp="myFunction(this,this.value,dirsol)" onkeypress="return validaNumero(event)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="movsol1" type="text" id="movsol1" size="1px" value="<?php if(isset($row['Cliente'])) { echo $row['MovSolicitante'][0]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,movsol2)" onkeypress="return validaNumero(event)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="movsol2" type="text" id="movsol2" size="1px" value="<?php if(isset($row['Cliente'])) { echo $row['MovSolicitante'][1]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,movsol3)" onkeypress="return validaNumero(event)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="movsol3" type="text" id="movsol3" size="1px" value="<?php if(isset($row['Cliente'])) { echo $row['MovSolicitante'][2]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,movsol4)" onkeypress="return validaNumero(event)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="movsol4" type="text" id="movsol4" size="1px" value="<?php if(isset($row['Cliente'])) { echo $row['MovSolicitante'][3]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,movsol5)" onkeypress="return validaNumero(event)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="movsol5" type="text" id="movsol5" size="1px" value="<?php if(isset($row['Cliente'])) { echo $row['MovSolicitante'][4]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,movsol6)" onkeypress="return validaNumero(event)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="movsol6" type="text" id="movsol6" size="1px" value="<?php if(isset($row['Cliente'])) { echo $row['MovSolicitante'][5]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,movsol7)" onkeypress="return validaNumero(event)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="movsol7" type="text" id="movsol7" size="1px" value="<?php if(isset($row['Cliente'])) { echo $row['MovSolicitante'][6]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,movsol8)" onkeypress="return validaNumero(event)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="movsol8" type="text" id="movsol8" size="1px" value="<?php if(isset($row['Cliente'])) { echo $row['MovSolicitante'][7]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,movsol9)" onkeypress="return validaNumero(event)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="movsol9" type="text" id="movsol9" size="1px" value="<?php if(isset($row['Cliente'])) { echo $row['MovSolicitante'][8]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,movsol10)" onkeypress="return validaNumero(event)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="movsol10" type="text" id="movsol10" size="1px" value="<?php if(isset($row['Cliente'])) { echo $row['MovSolicitante'][9]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,dirsol)" onkeypress="return validaNumero(event)" pattern="integer"></div>
           </p>
          </div>
          <div class="row">
           <p align="left">
-            <div class="small-5 columns"> <input name="dirsol" type="text" id="dirsol" size="74px" placeholder="Dirección / Calle" onkeypress="return validaTexto(event)" pattern="alpha"></div>
-            <div class="small-5 columns"> <input name="dirnumsol" type="text" id="dirnumsol" size="20px" placeholder="Número" onkeypress="return validaNumero(event)" pattern="integer"></div>
-            <div class="small-5 columns"><input name="mailsol" type="text" id="mailsol" size="20px" placeholder="Email" pattern="email"></div>
-            <div class="small-5 columns"><input name="colsol" type="text" id="colsol" size="49px" placeholder="Colonia"></div>
-            <div class="small-5 columns"><input name="cdsol" type="text" id="cdsol" size="20px" placeholder="Ciudad"></div>
-            <div class="small-5 columns"><input name="lugnacsol" type="text" id="lugnacsol" size="20px" placeholder="Lugar de nacimiento (País y Estado)"></div>
-            <div class="small-5 columns"><input name="edosol" type="text" id="edosol" size="20px" placeholder="Estado"></div>
-            <div class="small-5 columns"><input name="cpsol" type="text" id="cpsol" size="20px" placeholder="C.P." onkeypress="return validaNumero(event)" pattern="integer"></div>
-            <div class="small-5 columns"><input name="curpsol" type="text" id="curpsol" size="49px" placeholder="CURP" onkeypress="return validaRFC(event)" pattern="alpha_numeric"></div>
+            <div class="small-5 columns"> <input name="dirsol" type="text" id="dirsol" size="74px" value="<?php if (isset($row['Cliente'])) { echo $row['DirSolicitante']; } ?>" placeholder="Dirección / Calle" onkeypress="return validaTexto(event)" pattern="alpha"></div>
+            <div class="small-5 columns"> <input name="dirnumsol" type="text" id="dirnumsol" size="20px" value="<?php if (isset($row['Cliente'])) { echo $row['NumDirSol']; } ?>" placeholder="Número" onkeypress="return validaNumero(event)" pattern="integer"></div>
+            <div class="small-5 columns"><input name="mailsol" type="text" id="mailsol" size="20px" value="<?php if (isset($row['Cliente'])) { echo $row['EmailSolicitante']; } ?>"placeholder="Email" pattern="email"></div>
+            <div class="small-5 columns"><input name="colsol" type="text" id="colsol" size="49px" value="<?php if (isset($row['Cliente'])) { echo $row['ColSolicitante']; } ?>" placeholder="Colonia"></div>
+            <div class="small-5 columns"><input name="cdsol" type="text" id="cdsol" size="20px" value="<?php if (isset($row['Cliente'])) { echo $row['CdSolicitante']; } ?>" placeholder="Ciudad"></div>
+            <div class="small-5 columns"><input name="lugnacsol" type="text" id="lugnacsol" size="20px" value="<?php if (isset($row['Cliente'])) { echo $row['LugNacSolicitante']; } ?>"placeholder="Lugar de nacimiento (País y Estado)"></div>
+            <div class="small-5 columns"><input name="edosol" type="text" id="edosol" size="20px" value="<?php if (isset($row['Cliente'])) { echo $row['EdoSolicitante']; } ?>"placeholder="Estado"></div>
+            <div class="small-5 columns"><input name="cpsol" type="text" id="cpsol" size="20px" placeholder="C.P." value="<?php if (isset($row['Cliente'])) { echo $row['CPSolicitante']; } ?>"onkeypress="return validaNumero(event)" pattern="integer"></div>
+            <div class="small-5 columns"><input name="curpsol" type="text" id="curpsol" size="49px" placeholder="CURP" value="<?php if (isset($row['Cliente'])) { echo $row['CURPSolicitante']; } ?>" onkeypress="return validaRFC(event)" pattern="alpha_numeric"></div>
           </p>
          </div>
           <hr>
           <p align="left"><strong>DATOS GENERALES</strong> </p>
           <p align="left">Sexo:
              
-            <input id="sexsol1" name="sexsol" type="radio" value="M"><label for="sexsol1"><i class="step fi-male size-72"></i> M</label>
+            <input id="sexsol1" name="sexsol" type="radio" <?php if (isset($row['Cliente'])) { if($row['SexoDatGen']=='Masculino'){echo "checked";} } ?> value="M"><label for="sexsol1"><i class="step fi-male size-72"></i> M</label>
              
-            <input id="sexsol2" name="sexsol" type="radio" value="F"><label for="sexsol2"><i class="step fi-female size-72"></i> F</label>
+            <input id="sexsol2" name="sexsol" type="radio" <?php if (isset($row['Cliente'])) { if($row['SexoDatGen']=='Femenino'){echo "checked";} } ?> value="F"><label for="sexsol2"><i class="step fi-female size-72"></i> F</label>
            </p>
            <div class="row">
            <p align="left">
             Fecha de nacimiento:
-            <div class="small-5 columns"><input name="fechnacsol" type="date" id="fechnacsol" placeholder="dd" ></div>
-            <div class="small-5 columns"><input name="edsol" type="number" id="edsol" size="2px" placeholder="Edad"maxlength="2" onKeyUp="mayorEdad(this, this.value)" onkeypress="return validaNumero(event)" pattern="integer"></div>
-            <div class="small-5 columns"><input name="nacsol" type="text" id="nacsol" size="10px" placeholder="Nacionalidad" onkeypress="return validaTexto(event)" pattern="alpha"></div>
-            <div class="small-5 columns"><input name="depensol" type="text" id="depensol" size="10px" placeholder="Num. Dependientes" onkeypress="return validaNumero(event)" pattern="integer"></div>
-            <div class="small-5 columns"><input name="acdomsol" type="text" id="acdomsol" size="10px" placeholder="Acredita Domicilio con"></div>
+            <div class="small-5 columns"><input name="fechnacsol" type="date" id="fechnacsol" value="<?php if(isset($row['Cliente'])) { echo $row['FeNacDatGen']; } ?>" placeholder="dd" ></div>
+            <div class="small-5 columns"><input name="edsol" type="number" id="edsol" size="2px" value="<?php if(isset($row['Cliente'])) { echo $row['EdDatGen']; } ?>" placeholder="Edad"maxlength="2" onKeyUp="mayorEdad(this, this.value)" onkeypress="return validaNumero(event)" pattern="integer"></div>
+            <div class="small-5 columns"><input name="nacsol" type="text" id="nacsol" size="10px" value="<?php if(isset($row['Cliente'])) {  echo $row['NaDatGen']; } ?>" placeholder="Nacionalidad" onkeypress="return validaTexto(event)" pattern="alpha"></div>
+            <div class="small-5 columns"><input name="depensol" type="text" id="depensol" size="10px" value="<?php if(isset($row['Cliente'])) {  echo $row['NoDepDatGen']; } ?>" placeholder="Num. Dependientes" onkeypress="return validaNumero(event)" pattern="integer"></div>
+            <div class="small-5 columns"><input name="acdomsol" type="text" id="acdomsol" size="10px" value="<?php if(isset($row['Cliente'])) {  echo $row['AcDomDatGen']; } ?>" placeholder="Acredita Domicilio con"></div>
           </p>
            </div>
 
            <div class="row">
           <p align="left">vive en: <br>
              <div class="small-5 columns">
-            
-              <input id="vivsol1" name="vivsol" type="radio" value="1"><label for="vivsol1">Casa Propia</label>
-            
-            <input id="vivsol2" name="vivsol" type="radio" value="2"><label for="vivsol2">Rentada</label>
-            
-            <input id="vivsol3" name="vivsol" type="radio" value="3"><label for="vivsol3">Hipotecada</label>
+               <input id="vivsol1" name="vivsol" type="radio" <?php if(isset($row['Cliente'])) { if($row['VivDatGen']=='Casa Propia'){echo "checked";} }?> value="1"><label for="vivsol1">Casa Propia</label>
+               <input id="vivsol2" name="vivsol" type="radio" <?php if(isset($row['Cliente'])) { if($row['VivDatGen']=='Rentada'){echo "checked";} } ?> value="2"><label for="vivsol2">Rentada</label>
+               <input id="vivsol3" name="vivsol" type="radio" <?php if(isset($row['Cliente'])) { if($row['VivDatGen']=='Hipotecada'){echo "checked";} } ?> value="3"><label for="vivsol3">Hipotecada</label>
              </div>
              <div class="small-5 columns">
-            
-            <input id="vivsol4" name="vivsol" type="radio" value="4"><label for="vivsol4">Casa propiedad de sus familiares</label>
-            
-            <input id="vivsol5" name="vivsol" type="radio" value="5"><label for="vivsol5">Otros especificar</label>
-            <input name="vivsolesp" type="text" id="vivsolesp" pattern="alpha">
+                <input id="vivsol4" name="vivsol" type="radio" <?php if(isset($row['Cliente'])) { if($row['VivDatGen']=='Casa propiedad de sus familiares'){echo "checked";} } ?> value="4"><label for="vivsol4">Casa propiedad de sus familiares</label>
+                <input id="vivsol5" name="vivsol" type="radio" <?php if(isset($row['Cliente'])) { if($row['VivDatGen']=='Otros especificar'){echo "checked";} } ?> value="5"><label for="vivsol5">Otros especificar</label>
+                <input name="vivsolesp" type="text" id="vivsolesp" value="<?php if(isset($row['Cliente'])) { echo $row['OtrvivDatGen']; } ?>" pattern="alpha">
           </div>
           </p>
            </div>
 
           <p align="left">Es propietario de algún inmueble:
-            <input id="inmusol1" name="inmusol" type="radio" value="1"><label for="inmusol1">Si</label>
+            <input id="inmusol1" name="inmusol" type="radio" <?php if(isset($row['Cliente'])) { if($row['PropInmuDatGen']=='Si'){echo "checked";} } ?> value="1"><label for="inmusol1">Si</label>
             
-            <input id="inmusol2" name="inmusol" type="radio" value="2"><label for="inmusol2">No</label>
+            <input id="inmusol2" name="inmusol" type="radio" <?php if(isset($row['Cliente'])) { if($row['PropInmuDatGen']=='No'){echo "checked";} } ?> value="2"><label for="inmusol2">No</label>
           </p>
             <div class="row">
           <p align="left">
-            <div class="small-5 columns"><input name="anosol" type="text" id="anosol" size="13" placeholder="Años de residir en la ciudad" onkeypress="return validaNumero(event)" pattern="integer"></div>
-            <div class="small-5 columns"><input name="arraisol" type="text" id="arraisol" placeholder="Arraigo en el domicilio desde el año" onkeypress="return validaNumero(event)" pattern="integer"></div>
-            <div class="small-5 columns"><input name="acdomsol2" type="text" id="acdomsol2" size="16px" placeholder="Acredita Domicilio con"></div>
+            <div class="small-5 columns"><input name="anosol" type="text" id="anosol" size="13" value="<?php if(isset($row['Cliente'])) {  echo $row['AnResDatGen']; } ?>" placeholder="Años de residir en la ciudad" onkeypress="return validaNumero(event)" pattern="integer"></div>
+            <div class="small-5 columns"><input name="arraisol" type="text" id="arraisol" value="<?php if(isset($row['Cliente'])) {  echo $row['ArDomDatGen']; } ?>" placeholder="Arraigo en el domicilio desde el año" onkeypress="return validaNumero(event)" pattern="integer"></div>
+            <div class="small-5 columns"><input name="acdomsol2" type="text" id="acdomsol2" value="<?php if(isset($row['Cliente'])) {  echo $row['AcDomDatGen']; } ?>" size="16px" placeholder="Acredita Domicilio con"></div>
             
-            <div class="small-5 columns"> <input name="anosol2" type="text" id="anosol2" size="20px" placeholder="Años de residir en la ciudad" onkeypress="return validaNumero(event)" pattern="integer"></div>
+            <div class="small-5 columns"> <input name="anosol2" type="text" id="anosol2" value="<?php if(isset($row['Cliente'])) {  echo $row['AnResDatGen']; } ?>" size="20px" placeholder="Años de residir en la ciudad" onkeypress="return validaNumero(event)" pattern="integer"></div>
           </p>
             </div>
             <div class="row">
             <p align="left">
                 Beneficiario en caso de fallecimiento:
-             <div class="small-4 columns"><input name="benesol1" type="text" id="benesol1" size="20px" placeholder="Apellido Paterno" onkeypress="return validaTexto(event)" pattern="alpha"></div>
-             <div class="small-4 columns"><input name="benesol2" type="text" id="benesol2" size="20px" placeholder="Apellido Materno" onkeypress="return validaTexto(event)" pattern="alpha"></div>
-             <div class="small-4 columns"><input name="benesol3" type="text" id="benesol3" size="30px" placeholder="Nombre(s)" onkeypress="return validaTexto(event)" pattern="alpha"></div>
+             <div class="small-4 columns"><input name="benesol1" type="text" id="benesol1" size="20px" value="<?php if(isset($row['Cliente'])) {  echo $row['ApPatBenDatGen']; } ?>" placeholder="Apellido Paterno" onkeypress="return validaTexto(event)" pattern="alpha"></div>
+             <div class="small-4 columns"><input name="benesol2" type="text" id="benesol2" size="20px" value="<?php if(isset($row['Cliente'])) {  echo $row['ApMatBenDatGen']; } ?>" placeholder="Apellido Materno" onkeypress="return validaTexto(event)" pattern="alpha"></div>
+             <div class="small-4 columns"><input name="benesol3" type="text" id="benesol3" size="30px" value="<?php if(isset($row['Cliente'])) {  echo $row['NomBenDatGen']; } ?>" placeholder="Nombre(s)" onkeypress="return validaTexto(event)" pattern="alpha"></div>
           </p>
             </div>
             <div class="row">
           <p align="left">Estado civil:<br>
             <div class="small-6 columns">
-            
-              <input id="civilsol1" name="civilsol" type="radio" value="1"><label for="civilsol1">Casado Bienes Mancomunados</label>
-            
-            <input id="civilsol2" name="civilsol" type="radio" value="2"><label for="civilsol2">Casado Bienes Separados</label>
+                <input id="civilsol1" name="civilsol" type="radio" <?php if(isset($row['Cliente'])) { if($row['EstCivDatGen']=='Csado Bienes Mancomunados'){echo "checked";} } ?> value="1"><label for="civilsol1">Casado Bienes Mancomunados</label>
+                <input id="civilsol2" name="civilsol" type="radio" <?php if(isset($row['Cliente'])) { if($row['EstCivDatGen']=='Casado Bienes Separados'){echo "checked";} } ?> value="2"><label for="civilsol2">Casado Bienes Separados</label>
             </div>
             <div class="small-4 columns">
-            
-            <input id="civilsol3" name="civilsol" type="radio" value="3"><label for="civilsol3">Viudo</label>
-            
-            <input id="civilsol4" name="civilsol" type="radio" value="4"><label for="civilsol4">Divorciado</label>
-            
-            <input id="civilsol5" name="civilsol" type="radio" value="5"><label for="civilsol5">Soltero</label>
+                <input id="civilsol3" name="civilsol" type="radio" <?php if(isset($row['Cliente'])) { if($row['EstCivDatGen']=='Viudo'){echo "checked";} } ?> value="3"><label for="civilsol3">Viudo</label>
+                <input id="civilsol4" name="civilsol" type="radio" <?php if(isset($row['Cliente'])) { if($row['EstCivDatGen']=='Divorciado'){echo "checked";} } ?> value="4"><label for="civilsol4">Divorciado</label>
+                <input id="civilsol5" name="civilsol" type="radio" <?php if(isset($row['Cliente'])) { if($row['EstCivDatGen']=='Soltero'){echo "checked";} } ?> value="5"><label for="civilsol5">Soltero</label>
             </div>
           </p>
             </div>
 
           <p align="left">Tiene Auto Propio: 
-            <input id="autosol1" name="autosol" type="radio" value="1"><label for="autosol1">Si</label>
+            <input id="autosol1" name="autosol" type="radio" <?php if(isset($row['Cliente'])) { if($row['AuPropDatGen']=='Si'){echo "checked";} } ?> value="1"><label for="autosol1">Si</label>
             
-            <input id="autosol2" name="autosol" type="radio" value="2"><label for="autosol2">No</label>
-         <div class="small-5 columns"> <input name="marcasol" type="text" id="marcasol" size="70px" placeholder="Especifique Marca y Tipo"></div>
+            <input id="autosol2" name="autosol" type="radio" <?php if(isset($row['Cliente'])) { if($row['AuPropDatGen']=='No'){echo "checked";} } ?> value="2"><label for="autosol2">No</label>
+         <div class="small-5 columns"> <input name="marcasol"value="<?php if(isset($row['Cliente'])) {  echo $row['MarDatGen']; } ?>"  type="text" id="marcasol" size="70px" placeholder="Especifique Marca y Tipo"></div>
           </p>
             
           <hr>
           <p align="left"><strong>DATOS DE SU EMPLEO O PROFESIÓN</strong></p>
           <div class="row">
           <p align="left">
-            <div class="small-5 columns"><input name="puestosol" type="text" id="puestosol" size="40px" placeholder="Puesto"></div>
-            <div class="small-5 columns"><input name="depasol" type="text" id="depasol" size="30px" placeholder="Departamento o área"></div>
-            <div class="small-5 columns"><input name="desdesol" type="text" id="desdesol" size="20px" placeholder="Desde el año"></div>
-            <div class="small-5 columns"><input name="compasol" type="text" id="compasol" size="70px" placeholder="Compañía"></div>
+            <div class="small-5 columns"><input name="puestosol" value="<?php if(isset($row['Cliente'])) {  echo $row['PuestDatEmp']; } ?>" type="text" id="puestosol" size="40px" placeholder="Puesto"></div>
+            <div class="small-5 columns"><input name="depasol" value="<?php if(isset($row['Cliente'])) {  echo $row['DepDatEmp']; } ?>" type="text" id="depasol" size="30px" placeholder="Departamento o área"></div>
+            <div class="small-5 columns"><input name="desdesol" value="<?php if(isset($row['Cliente'])) {  echo $row['DesAnDatEmp']; } ?>" type="text" id="desdesol" size="20px" placeholder="Desde el año"></div>
+            <div class="small-5 columns"><input name="compasol" value="<?php if(isset($row['Cliente'])) {  echo $row['CompDatEmp']; } ?>" type="text" id="compasol" size="70px" placeholder="Compañía"></div>
           </p>
           </div>
           
           <div>
           <p align="left">Telefono(Con lada - 10 dígitos):
-            <div class="small-1 columns" ><input name="compatelsol1" type="text" id="compatelsol1" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,compatelsol2)"></div>
-            <div class="small-1 columns" ><input name="compatelsol2" type="text" id="compatelsol2" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,compatelsol3)"></div>
-            <div class="small-1 columns" ><input name="compatelsol3" type="text" id="compatelsol3" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,compatelsol4)"></div>
-            <div class="small-1 columns" ><input name="compatelsol4" type="text" id="compatelsol4" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,compatelsol5)"></div>
-            <div class="small-1 columns" ><input name="compatelsol5" type="text" id="compatelsol5" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,compatelsol6)"></div>
-            <div class="small-1 columns" ><input name="compatelsol6" type="text" id="compatelsol6" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,compatelsol7)"></div>
-            <div class="small-1 columns" ><input name="compatelsol7" type="text" id="compatelsol7" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,compatelsol8)"></div>
-            <div class="small-1 columns" ><input name="compatelsol8" type="text" id="compatelsol8" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,compatelsol9)"></div>
-            <div class="small-1 columns" ><input name="compatelsol9" type="text" id="compatelsol9" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,compatelsol10)"></div>
-            <div class="small-1 columns" ><input name="compatelsol10" type="text" id="compatelsol10" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,compatelsolext)"></div>
-            <div class="small-2 columns" ><input name="compatelsolext" type="text" id="compatelsolext" size="20px" placeholder="Extensión" onkeypress="return validaNumero(event)"></div>
+            <div class="small-1 columns" ><input name="compatelsol1" type="text" id="compatelsol1"  value="<?php if(isset($row['Cliente'])&& $row['TelDatEmp']!= '') {  echo $row['TelDatEmp'][0]; } ?>" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,compatelsol2)"></div>
+            <div class="small-1 columns" ><input name="compatelsol2" type="text" id="compatelsol2" value="<?php if(isset($row['Cliente'])&& $row['TelDatEmp']!= '') {  echo $row['TelDatEmp'][1]; } ?>" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,compatelsol3)"></div>
+            <div class="small-1 columns" ><input name="compatelsol3" type="text" id="compatelsol3" value="<?php if(isset($row['Cliente'])&& $row['TelDatEmp']!= '') {  echo $row['TelDatEmp'][2]; } ?>" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,compatelsol4)"></div>
+            <div class="small-1 columns" ><input name="compatelsol4" type="text" id="compatelsol4" value="<?php if(isset($row['Cliente'])&& $row['TelDatEmp']!= '') {  echo $row['TelDatEmp'][3]; } ?>" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,compatelsol5)"></div>
+            <div class="small-1 columns" ><input name="compatelsol5" type="text" id="compatelsol5" value="<?php if(isset($row['Cliente'])&& $row['TelDatEmp']!= '') {  echo $row['TelDatEmp'][4]; } ?>" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,compatelsol6)"></div>
+            <div class="small-1 columns" ><input name="compatelsol6" type="text" id="compatelsol6" value="<?php if(isset($row['Cliente'])&& $row['TelDatEmp']!= '') {  echo $row['TelDatEmp'][5]; } ?>" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,compatelsol7)"></div>
+            <div class="small-1 columns" ><input name="compatelsol7" type="text" id="compatelsol7" value="<?php if(isset($row['Cliente'])&& $row['TelDatEmp']!= '') {  echo $row['TelDatEmp'][6]; } ?>" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,compatelsol8)"></div>
+            <div class="small-1 columns" ><input name="compatelsol8" type="text" id="compatelsol8" value="<?php if(isset($row['Cliente'])&& $row['TelDatEmp']!= '') {  echo $row['TelDatEmp'][7]; } ?>" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,compatelsol9)"></div>
+            <div class="small-1 columns" ><input name="compatelsol9" type="text" id="compatelsol9" value="<?php if(isset($row['Cliente'])&& $row['TelDatEmp']!= '') {  echo $row['TelDatEmp'][8]; } ?>" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,compatelsol10)"></div>
+            <div class="small-1 columns" ><input name="compatelsol10" type="text" id="compatelsol10" value="<?php if(isset($row['Cliente'])&& $row['TelDatEmp']!= '') {  echo $row['TelDatEmp'][9]; } ?>" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,compatelsolext)"></div>
+            <div class="small-2 columns" ><input name="compatelsolext" type="text" id="compatelsolext" value="<?php if(isset($row['Cliente'])) {  echo $row['ExtDatEmp']; } ?>" size="20px" placeholder="Extensión" onkeypress="return validaNumero(event)"></div>
           </p>
           </div>
 
@@ -546,22 +554,22 @@ input::-moz-placeholder {
           <div id="secRefPersonales1">
           <div class="row">
           <p align="left">
-            <div class="small-5 columns"><input name="nomref1" type="text" id="nomref1" size="54px" placeholder="Nombre" pattern="alpha"></div>
-            <div class="small-5 columns"><input name="parenref1" type="text" id="parenref1" size="40px" placeholder="Parentesco o relación" pattern ="alpha"></div>
+            <div class="small-5 columns"><input name="nomref1" type="text" id="nomref1" value="<?php if(isset($row['Cliente'])) {  echo $row['NomRefPer']; } ?>" size="54px" placeholder="Nombre" pattern="alpha"></div>
+            <div class="small-5 columns"><input name="parenref1" type="text" id="parenref1" value="<?php if(isset($row['Cliente'])) {  echo $row['ParenRefPer']; } ?>" size="40px" placeholder="Parentesco o relación" pattern ="alpha"></div>
           </p>
           </div>
           <div class="row">
           <p align="left">Telefono(Con lada - 10 dígitos):
-            <div class="small-1 columns"><input name="telref11" type="text" id="telref11" size="1px" maxlength="1"  onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,telref12)" pattern="integer"></div>
-            <div class="small-1 columns"><input name="telref12" type="text" id="telref12" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,telref13)" pattern="integer"></div>
-            <div class="small-1 columns"><input name="telref13" type="text" id="telref13" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,telref14)" pattern="integer"></div>
-            <div class="small-1 columns"><input name="telref14" type="text" id="telref14" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,telref15)" pattern="integer"></div>
-            <div class="small-1 columns"><input name="telref15" type="text" id="telref15" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,telref16)" pattern="integer"></div>
-            <div class="small-1 columns"><input name="telref16" type="text" id="telref16" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,telref17)" pattern="integer"></div>
-            <div class="small-1 columns"><input name="telref17" type="text" id="telref17" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,telref18)" pattern="integer"></div>
-            <div class="small-1 columns"><input name="telref18" type="text" id="telref18" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,telref19)" pattern="integer"></div>
-            <div class="small-1 columns"><input name="telref19" type="text" id="telref19" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,telref110)" pattern="integer"></div>
-            <div class="small-1 columns"><input name="telref110" type="text" id="telref110" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,nomref2)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="telref11" type="text" id="telref11" size="1px" value="<?php if(isset($row['Cliente'])) {  echo $row['TelRefPer'][0]; } ?>" maxlength="1"  onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,telref12)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="telref12" type="text" id="telref12" size="1px" value="<?php if(isset($row['Cliente'])) {  echo $row['TelRefPer'][1]; } ?>" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,telref13)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="telref13" type="text" id="telref13" size="1px" value="<?php if(isset($row['Cliente'])) {  echo $row['TelRefPer'][2]; } ?>" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,telref14)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="telref14" type="text" id="telref14" size="1px" value="<?php if(isset($row['Cliente'])) {  echo $row['TelRefPer'][3]; } ?>" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,telref15)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="telref15" type="text" id="telref15" size="1px" value="<?php if(isset($row['Cliente'])) {  echo $row['TelRefPer'][4]; } ?>" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,telref16)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="telref16" type="text" id="telref16" size="1px" value="<?php if(isset($row['Cliente'])) {  echo $row['TelRefPer'][5]; } ?>" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,telref17)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="telref17" type="text" id="telref17" size="1px" value="<?php if(isset($row['Cliente'])) {  echo $row['TelRefPer'][6]; } ?>" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,telref18)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="telref18" type="text" id="telref18" size="1px" value="<?php if(isset($row['Cliente'])) {  echo $row['TelRefPer'][7]; } ?>" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,telref19)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="telref19" type="text" id="telref19" size="1px" value="<?php if(isset($row['Cliente'])) {  echo $row['TelRefPer'][8]; } ?>" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,telref110)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="telref110" type="text" id="telref110" size="1px" value="<?php if(isset($row['Cliente'])) {  echo $row['TelRefPer'][9]; } ?>" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,nomref2)" pattern="integer"></div>
           </p>
           </div>
           </div>
@@ -569,23 +577,23 @@ input::-moz-placeholder {
           <div id="secRefPersonales2">
           <div class="row">
           <p align="left">
-            <div class="small-5 columns"><input name="nomref2" type="text" id="nomref2" size="54px" placeholder="Nombre" pattern="alpha"></div>
-            <div class="small-5 columns"><input name="parenref2" type="text" id="parenref2" size="40px" placeholder="Parentesco o relación" pattern="alpha"></div>
+            <div class="small-5 columns"><input name="nomref2" type="text" id="nomref2" value="<?php if(isset($row['Cliente'])) {  echo $row['NomRefPer2']; } ?>" size="54px" placeholder="Nombre" pattern="alpha"></div>
+            <div class="small-5 columns"><input name="parenref2" type="text" id="parenref2" value="<?php if(isset($row['Cliente'])) {  echo $row['ParenRefPer2']; } ?>" size="40px" placeholder="Parentesco o relación" pattern="alpha"></div>
           </p>
           </div>
           <br>
           <div class="row">
           <p align="left">Telefono(Con lada - 10 dígitos):
-            <div class="small-1 columns"><input name="telref21" type="text" id="telref21" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,telref22)" pattern="integer"></div>
-            <div class="small-1 columns"><input name="telref22" type="text" id="telref22" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,telref23)" pattern="integer"></div>
-            <div class="small-1 columns"><input name="telref23" type="text" id="telref23" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,telref24)" pattern="integer"></div>
-            <div class="small-1 columns"><input name="telref24" type="text" id="telref24" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,telref25)" pattern="integer"></div>
-            <div class="small-1 columns"><input name="telref25" type="text" id="telref25" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,telref26)" pattern="integer"></div>
-            <div class="small-1 columns"><input name="telref26" type="text" id="telref26" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,telref27)" pattern="integer"></div>
-            <div class="small-1 columns"><input name="telref27" type="text" id="telref27" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,telref28)" pattern="integer"></div>
-            <div class="small-1 columns"><input name="telref28" type="text" id="telref28" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,telref29)" pattern="integer"></div>
-            <div class="small-1 columns"><input name="telref29" type="text" id="telref29" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,telref210)" pattern="integer"></div>
-            <div class="small-1 columns"><input name="telref210" type="text" id="telref210" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,refbanc)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="telref21" type="text" id="telref21" size="1px" maxlength="1" value="<?php if(isset($row['Cliente'])) {  echo $row['TelRefPer2'][0]; } ?>" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,telref22)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="telref22" type="text" id="telref22" size="1px" maxlength="1" value="<?php if(isset($row['Cliente'])) {  echo $row['TelRefPer2'][1]; } ?>" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,telref23)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="telref23" type="text" id="telref23" size="1px" maxlength="1" value="<?php if(isset($row['Cliente'])) {  echo $row['TelRefPer2'][2]; } ?>" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,telref24)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="telref24" type="text" id="telref24" size="1px" maxlength="1" value="<?php if(isset($row['Cliente'])) {  echo $row['TelRefPer2'][3]; } ?>" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,telref25)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="telref25" type="text" id="telref25" size="1px" maxlength="1" value="<?php if(isset($row['Cliente'])) {  echo $row['TelRefPer2'][4]; } ?>" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,telref26)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="telref26" type="text" id="telref26" size="1px" maxlength="1" value="<?php if(isset($row['Cliente'])) {  echo $row['TelRefPer2'][5]; } ?>" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,telref27)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="telref27" type="text" id="telref27" size="1px" maxlength="1" value="<?php if(isset($row['Cliente'])) {  echo $row['TelRefPer2'][6]; } ?>" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,telref28)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="telref28" type="text" id="telref28" size="1px" maxlength="1" value="<?php if(isset($row['Cliente'])) {  echo $row['TelRefPer2'][7]; } ?>" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,telref29)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="telref29" type="text" id="telref29" size="1px" maxlength="1" value="<?php if(isset($row['Cliente'])) {  echo $row['TelRefPer2'][8]; } ?>" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,telref210)" pattern="integer"></div>
+            <div class="small-1 columns"><input name="telref210" type="text" id="telref210" size="1px" maxlength="1" value="<?php if(isset($row['Cliente'])) {  echo $row['TelRefPer2'][9]; } ?>" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,refbanc)" pattern="integer"></div>
           </p>
           </div>
           </div>
@@ -596,8 +604,8 @@ input::-moz-placeholder {
           <div id="secRefBancarias1">
           <div class="row">
           <p align="left">
-           <div class="small-5 columns"> <input name="refbanc" type="text" id="refbanc" size="54px" placeholder="Banco"></div>
-           <div class="small-5 columns"> <input name="tarjrefbanc" type="text" id="tarjrefbanc" size="40px" placeholder="Número de Tarjeta de Crédito"></div>
+           <div class="small-5 columns"> <input name="refbanc" value="<?php if(isset($row['Cliente'])) {  echo $row['BancRefBan']; } ?>" type="text" id="refbanc" size="54px" placeholder="Banco"></div>
+           <div class="small-5 columns"> <input name="tarjrefbanc" value="<?php if(isset($row['Cliente'])) {  echo $row['NoTarRefBan']; } ?>" type="text" id="tarjrefbanc" size="40px" placeholder="Número de Tarjeta de Crédito"></div>
           </p>
           </div>
           </div>
@@ -607,8 +615,8 @@ input::-moz-placeholder {
           <div id="secCarDirecto">
           <div class="row">
           <p align="left">
-            <div class="small-5 columns"><input name="cargdir" type="text" id="cargdir" size="54px" placeholder="Banco"></div>
-            <div class="small-5 columns"><input name="nocuentcd" type="text" id="nocuentcd" size="40px" placeholder="Número de Cuenta (CLAVE)"></div>
+            <div class="small-5 columns"><input name="cargdir" value="<?php if(isset($row['Cliente'])) {  echo $row['BancCarDir']; } ?>" type="text" id="cargdir" size="54px" placeholder="Banco"></div>
+            <div class="small-5 columns"><input name="nocuentcd" value="<?php if(isset($row['Cliente'])) {  echo $row['NoTarCarDir']; } ?>" type="text" id="nocuentcd" size="40px" placeholder="Número de Cuenta (CLAVE)"></div>
           </p>
           </div>
           </div>
@@ -617,12 +625,12 @@ input::-moz-placeholder {
           <div id="secDatConyuge">
           <div class="row">
           <p align="left">
-            <div class="small-5 columns"><input name="conyunom" type="text" id="conyunom" size="40px" placeholder="Nombre(s) del conyuge" pattern="alpha">
-                                         <input name="conyuape1" type="text" pattern="alpha" id="conyuape1" size="20px" placeholder="Apellido Paterno"onkeypress="return validaTexto(event)" pattern="alpha">
-                                         <input name="conyuape2" type="text" id="conyuape2" size="20px" placeholder="Apellido Materno"onkeypress="return validaTexto(event)" pattern="alpha"></div>
+            <div class="small-5 columns"><input name="conyunom" value="<?php if(isset($row['Cliente'])) {  echo $row['NomDatCon']; } ?>" type="text" id="conyunom" size="40px" placeholder="Nombre(s) del conyuge" pattern="alpha">
+                                         <input name="conyuape1" value="<?php if(isset($row['Cliente'])) {  echo $row['ApPatDatCon']; } ?>" type="text" pattern="alpha" id="conyuape1" size="20px" placeholder="Apellido Paterno"onkeypress="return validaTexto(event)" pattern="alpha">
+                                         <input name="conyuape2" value="<?php if(isset($row['Cliente'])) {  echo $row['ApMatDatCon']; } ?>" type="text" id="conyuape2" size="20px" placeholder="Apellido Materno"onkeypress="return validaTexto(event)" pattern="alpha"></div>
             
-            <div class="small-3 columns"><input name="compaconyu" type="text" id="compaconyu" size="30px" placeholder="Compañia"></div>
-            <div class="small-3 columns"><input name="puestconyu" type="text" id="puestconyu" size="20px" placeholder="Puesto"></div>
+            <div class="small-3 columns"><input name="compaconyu" value="<?php if(isset($row['Cliente'])) {  echo $row['CompDatCon']; } ?>" type="text" id="compaconyu" size="30px" placeholder="Compañia"></div>
+            <div class="small-3 columns"><input name="puestconyu" value="<?php if(isset($row['Cliente'])) {  echo $row['PuestDatCon']; } ?>" type="text" id="puestconyu" size="20px" placeholder="Puesto"></div>
           </p>
           </div>
           </div>
@@ -1463,7 +1471,29 @@ No:
 </section>
 <!-- footer -->
 <footer>
-	
+	<script type="text/javascript">  
+function obten() {
+var sub = "ObtenInfo2.php?dato="+document.getElementById("cliente").value;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
+    $("#htmlext").load("solicitudPFA.php?cliente="+xmlhttp.responseText)
+      }
+  }
+xmlhttp.open("GET",sub,true);
+xmlhttp.send(null);
+}
+
+</script>
 </footer>  
 <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
