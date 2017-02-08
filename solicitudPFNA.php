@@ -1612,122 +1612,121 @@ input::-moz-placeholder {
             </tr>
             <tr>
               <td>Ingresos Comprobable(2) </td>
-              <td><input name="textfield67" type="text" id="textfield67" size="50%" onkeypress="return validaNumeroDecimal(event)" onchange="ingresosPagina3()"  ></td>
+              <td><input name="textfield67" type="text" id="textfield67" value="<?php if($row['PerTrans2']!="0.00"){echo $row['PerTrans2'];}?>" size="50%" onkeypress="return validaNumeroDecimal(event)" onchange="ingresosPagina3()" ></td>
               <td>Fuente</td>
-              <td><input name="textfield68" type="text" id="textfield68" size="50%"  ></td>
+              <td><input name="textfield68" type="text" id="textfield68" value="<?php echo $row['FuentePerTrans2'];?>" size="50%"  ></td>
             </tr>
             <tr>
               <td>Ingresos Comprobable(3) </td>
-              <td><input name="textfield69" type="text" id="textfield69" size="50%" onkeypress="return validaNumeroDecimal(event)" onchange="ingresosPagina3()"  ></td>
+              <td><input name="textfield69" type="text" id="textfield69" value="<?php if($row['PerTrans3']!="0.00"){echo $row['PerTrans3'];}?>" size="50%" onkeypress="return validaNumeroDecimal(event)" onchange="ingresosPagina3()" ></td>
               <td>Fuente</td>
-              <td><input name="textfield70" type="text" id="textfield70" size="50%" ></td>
+              <td><input name="textfield70" type="text" id="textfield70" value="<?php echo $row['FuentePerTrans3'];?>" size="50%" ></td>
             </tr>
             <tr>
               <td>Ingresos Comprobable(4) </td>
-              <td><input name="textfield71" type="text" id="textfield71" size="50%" onkeypress="return validaNumeroDecimal(event)" onchange="ingresosPagina3()"  ></td>
+              <td><input name="textfield71" type="text" id="textfield71" value="<?php if($row['PerTrans4']!="0.00"){echo $row['PerTrans4'];}?>" size="50%" onkeypress="return validaNumeroDecimal(event)" onchange="ingresosPagina3()" ></td>
               <td>Fuente</td>
-              <td><input name="textfield72" type="text" id="textfield72" size="50%"  ></td>
+              <td><input name="textfield72" type="text" id="textfield72" value="<?php echo $row['FuentePerTrans4'];?>" size="50%"  ></td>
             </tr>
             <tr>
               <td>Ingresos Comprobable(5) </td>
-              <td><input name="textfield73" type="text" id="textfield73" size="50%" onkeypress="return validaNumeroDecimal(event)" onchange="ingresosPagina3()"  ></td>
+              <td><input name="textfield73" type="text" id="textfield73" value="<?php if($row['PerTrans5']!="0.00"){echo $row['PerTrans5'];}?>" size="50%" onkeypress="return validaNumeroDecimal(event)" onchange="ingresosPagina3()" ></td>
               <td>Fuente</td>
-              <td><input name="textfield74" type="text" id="textfield74" size="50%"  ></td>
+              <td><input name="textfield74" type="text" id="textfield74" value="<?php echo $row['FuentePerTrans5'];?>" size="50%"  ></td>
             </tr>
             <tr>
               <td>Ingresos No Comprobable(1) </td>
-              <td><input name="textfield75" type="text" id="textfield75" size="50%" onkeypress="return validaNumeroDecimal(event)" onchange="ingresosPagina3()"  ></td>
+              <td><input name="textfield75" type="text" id="textfield75" value="<?php if($row['PerTrans6']!="0.00"){echo $row['PerTrans6'];}?>" size="50%" onkeypress="return validaNumeroDecimal(event)" onchange="ingresosPagina3()" ></td>
               <td>Fuente</td>
-              <td><input name="textfield76" type="text" id="textfield76" size="50%"  ></td>
+              <td><input name="textfield76" type="text" id="textfield76" value="<?php echo $row['FuentePerTrans6'];?>" size="50%"  ></td>
             </tr>
             <tr>
               <td>Ingresos No Comprobable(2)</td>
-              <td><input name="textfield77" type="text" id="textfield77" size="50%" onkeypress="return validaNumeroDecimal(event)" onchange="ingresosPagina3()"  ></td>
+              <td><input name="textfield77" type="text" id="textfield77" value="<?php if($row['PerTrans7']!="0.00"){echo $row['PerTrans7'];}?>" size="50%" onkeypress="return validaNumeroDecimal(event)" onchange="ingresosPagina3()" ></td>
               <td>Fuente</td>
-              <td><input name="textfield78" type="text" id="textfield78" size="50%"  ></td>
+              <td><input name="textfield78" type="text" id="textfield78" value="<?php echo $row['FuentePerTrans7'];?>" size="50%"  ></td>
             </tr>
             <tr>
               <td>Ingresos No Comprobable(3)</td>
-              <td><input name="textfield79" type="text" id="textfield79" size="50%" onkeypress="return validaNumeroDecimal(event)" onchange="ingresosPagina3()" ></td>
+              <td><input name="textfield79" type="text" id="textfield79" value="<?php if($row['PerTrans8']!="0.00"){echo $row['PerTrans8'];}?>" size="50%" onkeypress="return validaNumeroDecimal(event)" onchange="ingresosPagina3()" ></td>
               <td>Fuente</td>
-              <td><input name="textfield80" type="text" id="textfield80" size="50%"  ></td>
+              <td><input name="textfield80" type="text" id="textfield80" value="<?php echo $row['FuentePerTrans8'];?>" size="50%"  ></td>
             </tr>
             <tr>
               <td>Ingresos No Comprobable(4)</td>
-              <td><input name="textfield81" type="text" id="textfield81" size="50%" onkeypress="return validaNumeroDecimal(event)" onchange="ingresosPagina3()"  ></td>
+              <td><input name="textfield81" type="text" id="textfield81" value="<?php if($row['PerTrans9']!="0.00"){echo $row['PerTrans9'];}?>" size="50%" onkeypress="return validaNumeroDecimal(event)" onchange="ingresosPagina3()" ></td>
               <td>Fuente</td>
-              <td><input name="textfield82" type="text" id="textfield82" size="50%"  ></td>
+              <td><input name="textfield82" type="text" id="textfield82" value="<?php echo $row['FuentePerTrans9'];?>" size="50%"  ></td>
             </tr>
             <tr>
               <td>Ingresos No Comprobable(5)</td>
-              <td><input name="textfield83" type="text" id="textfield83" size="50%" onkeypress="return validaNumeroDecimal(event)" onchange="ingresosPagina3()"  ></td>
+              <td><input name="textfield83" type="text" id="textfield83" value="<?php if($row['PerTrans10']!="0.00"){echo $row['PerTrans10'];}?>" size="50%" onkeypress="return validaNumeroDecimal(event)" onchange="ingresosPagina3()" ></td>
               <td>Fuente</td>
-              <td><input name="textfield84" type="text" id="textfield84" size="50%"  ></td>
+              <td><input name="textfield84" type="text" id="textfield84" value="<?php echo $row['FuentePerTrans10'];?>" size="50%"  ></td>
             </tr>
           </table>
           </div>
 		  <br>
           <table width="100%" border="0">
-            <tr>
+         <tr>
               <td width="19%">Total de Ingresos </td>
-              <td width="81%"><input name="textfield85" type="text" id="textfield85" size="50%" onkeypress="return validaNumeroDecimal(event)"  readonly></td>
+              <td width="81%"><input name="textfield85" type="text" id="textfield85" value="<?php echo $row['PerTrans1']+$row['PerTrans2']+$row['PerTrans3']+$row['PerTrans4']+$row['PerTrans5']+$row['PerTrans6']+$row['PerTrans7']+$row['PerTrans8']+$row['PerTrans9']+$row['PerTrans10'];?>" size="50%" readonly></td>
             </tr>
             <tr>
               <td>Valor del Automóvil </td>
-              <td><input name="textfield86" type="text" id="textfield86" size="50%" onkeypress="return validaNumeroDecimal(event)" required></td>
+              <td><input name="textfield86" type="text" id="textfield86" value="<?php echo $row['ValorAuto'];?>" size="50%" onkeypress="return validaNumeroDecimal(event)"></td>
             </tr>
             <tr>
               <td>Enganche del Automóvil </td>
-              <td><input name="textfield87" type="text" id="textfield87" size="50%" onkeypress="return validaNumeroDecimal(event)" onchange="datosAuto()" required></td>
+              <td><input name="textfield87" type="text" id="textfield87" value="<?php echo $row['EngAutomovil'];?>" size="50%" onkeypress="return validaNumeroDecimal(event)" onchange="datosAuto()"></td>
             </tr>
             <tr>
               <td>Porcentaje de Enganche </td>
-              <td><input name="textfield88" type="text" id="textfield88" size="50%" readonly></td>
+              <td><input name="textfield88" type="text" id="textfield88" value="<?php echo $row['PorEnganche'];?>" size="50%" readonly></td>
             </tr>
             <tr>
               <td>Porcentaje de Financieamiento </td>
-              <td><input name="textfield89" type="text" id="textfield89" size="50%" readonly></td>
+              <td><input name="textfield89" type="text" id="textfield89" value="<?php echo $row['PorFinanciamiento'];?>" size="50%" readonly></td>
             </tr>
             <tr>
               <td>Monto Financiado </td>
-              <td><input name="textfield90" type="text" id="textfield90" size="50%" readonly ></td>
+              <td><input name="textfield90" type="text" id="textfield90" value="<?php echo $row['MontoFinanciado'];?>" size="50%" readonly></td>
             </tr>
             <tr>
               <td>Plazo (meses)</td>
-              <td><input name="textfield91" type="text" id="textfield91" size="50%" onkeypress="return validaNumero(event)" required></td>
+              <td><input name="textfield91" type="text" id="textfield91" value="<?php echo $row['Plazo'];?>" size="50%" onkeypress="return validaNumero(event)"></td>
             </tr>
             <tr>
               <td>Pago Mensual Esperado </td>
-              <td><input name="textfield92" type="text" id="textfield92" size="50%" onkeypress="return validaNumero(event)" required></td>
+              <td><input name="textfield92" type="text" id="textfield92" value="<?php echo $row['PagoMensEsp'];?>" size="50%" onkeypress="return validaNumeroDecimal(event)"></td>
             </tr>
           </table>
 		  
 		  <br>
-	      <p align="left">¿ Usted o algún familiar suyo de hasta segundo grado de consanguinidad o afinidad (cónyuge,padre,madre,hijos,hermanos, abuelos, tios, primos, cuñados, suegros, yernos, etc), desempeña o a desempeñado funciones públicas destacadas en el territorio nacional o en el Extranjero (incluyendo puestos de Gobierno Federales, Estatales ,Municipales, funciones gubernamentales o judiciales, en partidos politicos, militares de alta jerarquía, altos ejecutivos de empresas paraestatales, etc.?<br>
-	        
-                <input id="PEPS1" name="PEPS" type="radio" value="1"><label for="PEPS1" required>Si</label>
-
-                <input id="PEPS2" name="PEPS" type="radio" value="2"><label for="PEPS2" required>No</label>
-	      </p>
+	    <p align="left">¿ Usted o algún familiar suyo de hasta segundo grado de consanguinidad o afinidad (cónyuge,padre,madre,hijos,hermanos, abuelos, tios, primos, cuñados, suegros, yernos, etc), desempeña o a desempeñado funciones públicas destacadas en el territorio nacional o en el Extranjero (incluyendo puestos de Gobierno Federales, Estatales ,Municipales, funciones gubernamentales o judiciales, en partidos politicos, militares de alta jerarquía, altos ejecutivos de empresas paraestatales, etc.?<br>
+          Si:
+                <input id="PEPS" name="PEPS" type="radio" value="1" <?php if($row['PEPS']=='Si'){echo "checked";}?>>
+No:
+<input id="PEPS" name="PEPS" type="radio" value="2" <?php if($row['PEPS']=='No'){echo "checked";}?>>
+        </p>
 	      <p align="left">En caso de si:</p>
         <div id="secPEPS">
 	      <table width="100%" border="0">
-            <tr>
+           <tr>
               <td width="18%">¿Quién? (Nombre) </td>
-              <td width="82%"><input name="textfield93" type="text" id="textfield93" size="50%" ></td>
+              <td width="82%"><input name="textfield93" type="text" id="textfield93" value="<?php echo $row['NombrePEPS'];?>" size="50%" ></td>
             </tr>
             <tr>
               <td>Parentesco</td>
-              <td><input name="textfield94" type="text" id="textfield94" size="50%" ></td>
+              <td><input name="textfield94" type="text" id="textfield94" value="<?php echo $row['ParentescoPEPS'];?>" size="50%" ></td>
             </tr>
             <tr>
               <td>Puesto</td>
-              <td><input name="textfield95" type="text" id="textfield95" size="50%"  ></td>
+              <td><input name="textfield95" type="text" id="textfield95" value="<?php echo $row['PuestoPEPS'];?>" size="50%"  ></td>
             </tr>
           </table>
-          </div>
-	      <p align="left">&nbsp; </p>
-	      <hr>
+        <p align="left">&nbsp; </p>
+        <hr>
 		  <br>
           
           <p align="justify">
