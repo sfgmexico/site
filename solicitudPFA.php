@@ -639,39 +639,39 @@ input::-moz-placeholder {
           <div id="secDatObligadoSolidarioPF1">
           <div class="row">
           <p align="left">
-            <div class="small-5 columns"><input name="datobnom1" type="text" id="datobnom1" size="30px" placeholder="Nombre(s)" pattern="alpha"></div>
-            <div class="small-5 columns"><input name="datobappat1" type="text" id="datobappat1" size="30px" placeholder="Apellido Paterno" pattern="alpha"></div>
-            <div class="small-5 columns"><input name="datobapmat1" type="text" id="datobapmat1" size="30px" placeholder="Apellido Materno" pattern="alpha"></div>
-            <div class="small-5 columns"><input name="datobdir1" type="text" id="datobdir1" size="48px" placeholder="Dirección / Calle y número"></div>
-            <div class="small-5 columns"><input name="datobcol1" type="text" id="datobcol1" size="48px" placeholder="Colonia"></div>
-            <div class="small-5 columns"><input name="datobcd1" type="text" id="datobcd1" size="20px" placeholder="Ciudad"></div>
-            <div class="small-10 columns"><input name="datoblugnac1" type="text" id="datoblugnac1" size="30px" placeholder="Lugar nacimiento (País y Edo.)"></div>
+            <div class="small-5 columns"><input name="datobnom1" type="text" id="datobnom1" size="30px" value="<?php if(isset($row['Cliente'])) {  echo $row['NomObSol']; } ?>" placeholder="Nombre(s)" pattern="alpha"></div>
+            <div class="small-5 columns"><input name="datobappat1" type="text" id="datobappat1" size="30px" value="<?php if(isset($row['Cliente'])) {  echo $row['ApPatObSol']; } ?>" placeholder="Apellido Paterno" pattern="alpha"></div>
+            <div class="small-5 columns"><input name="datobapmat1" type="text" id="datobapmat1" size="30px" value="<?php if(isset($row['Cliente'])) {  echo $row['ApMatObSol']; } ?>" placeholder="Apellido Materno" pattern="alpha"></div>
+            <div class="small-5 columns"><input name="datobdir1" type="text" id="datobdir1" size="48px" value="<?php if(isset($row['Cliente'])) {  echo $row['DirObSol']; } ?>" placeholder="Dirección / Calle y número"></div>
+            <div class="small-5 columns"><input name="datobcol1" type="text" id="datobcol1" size="48px" value="<?php if(isset($row['Cliente'])) {  echo $row['ColObSol']; } ?>" placeholder="Colonia"></div>
+            <div class="small-5 columns"><input name="datobcd1" type="text" id="datobcd1" size="20px" value="<?php if(isset($row['Cliente'])) {  echo $row['CdObSol']; } ?>" placeholder="Ciudad"></div>
+            <div class="small-10 columns"><input name="datoblugnac1" type="text" id="datoblugnac1" value="<?php if(isset($row['Cliente'])) {  echo $row['LugNacObSol']; } ?>" size="30px" placeholder="Lugar nacimiento (País y Edo.)"></div>
           </p>
           </div>
           <p align="left">
             Tiene propiedad a su nombre? 
-            <input id="datobprop1A" name="datobprop1" type="radio" value="1"><label for="datobprop1A">Si</label>
+            <input id="datobprop1A" name="datobprop1" type="radio" <?php if($row['PropObSol']=='Si') {echo "checked";} ?> value="1"><label for="datobprop1A">Si</label>
             
-            <input id="datobprop1B" name="datobprop1" type="radio" value="2"><label for="datobprop1B">No</label>
+            <input id="datobprop1B" name="datobprop1" type="radio" <?php if($row['PropObSol']=='No') {echo "checked";} ?> value="2"><label for="datobprop1B">No</label>
           </p>
           <div class="row"> 
           <p align="left">
-            <div class="small-4 columns"><input name="datobedo1" type="text" id="datobedo1" size="30px" placeholder="Estado"></div>
-            <div class="small-4 columns"><input name="datobcp1" type="text" id="datobcp1" size="30px" placeholder="C.P." onkeypress="return validaNumero(event)" patern="integer"></div>
-            <div class="small-4 columns"><input  name="datobmail1" type="text" id="datobmail1" size="30px" placeholder="Email" pattern="email"></div>
+            <div class="small-4 columns"><input name="datobedo1" type="text" id="datobedo1" value="<?php if(isset($row['Cliente'])) {  echo $row['EdoObSol']; } ?>" size="30px" placeholder="Estado"></div>
+            <div class="small-4 columns"><input name="datobcp1" type="text" id="datobcp1" value="<?php if(isset($row['Cliente'])) {  echo $row['CPObSol']; } ?>" size="30px" placeholder="C.P." onkeypress="return validaNumero(event)" patern="integer"></div>
+            <div class="small-4 columns"><input  name="datobmail1" type="text" id="datobmail1" value="<?php if(isset($row['Cliente'])) {  echo $row['EmailObSol']; } ?>" size="30px" placeholder="Email" pattern="email"></div>
           </p>
           </div>
           <p align="left">sexo:
-            <input id="datobsex1" name="datobsex1" type="radio" value="M"><label for="datobprop1B"><i class="step fi-male size-72"></i>  M</label>
+            <input id="datobsex1" name="datobsex1" type="radio" value="M" <?php if ($row['SexoObSol']=='Masculino') {echo "checked"; }?>><label for="datobprop1B"><i class="step fi-male size-72"></i>  M</label>
             
-            <input id="datobsex1" name="datobsex1" type="radio" value="F"><label for="datobprop1B"><i class="step fi-female size-72"></i>  F</label>
+            <input id="datobsex1" name="datobsex1" type="radio" value="F" <?php if ($row['SexoObSol']=='Femenino') {echo "checked"; }?>><label for="datobprop1B"><i class="step fi-female size-72"></i>  F</label>
           </p>
           <div class="row">
           <p align="left">
             Fecha de nacimiento:
-            <div class="small-4 columns"><input name="datobfechnac1d" type="date" id="datobfechnac1d" size="1px" maxlength="2" placeholder="dd" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobfechnac1m)"></div>
-            <div class="small-4 columns"><input name="datobed1" type="text" id="datobed1" size="2px" placeholder="Edad" onkeypress="return validaNumero(event)" pattern="integer"></div>
-            <div class="small-4 columns"><input name="datobcurp1" type="text" id="datobcurp1" size="22px" placeholder="CURP" onkeypress="return validaRFC(event)" pattern="alpha_numeric"></div>
+            <div class="small-4 columns"><input name="datobfechnac1d" type="date" id="datobfechnac1d" size="1px" value="<?php if(isset($row['Cliente'])) {  echo $row['FeNacObSol']; } ?>" maxlength="2" placeholder="dd" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobfechnac1m)"></div>
+            <div class="small-4 columns"><input name="datobed1" type="text" id="datobed1" size="2px" placeholder="Edad" value="<?php if(isset($row['Cliente'])) {  echo $row['EdObSol']; } ?>" onkeypress="return validaNumero(event)" pattern="integer"></div>
+            <div class="small-4 columns"><input name="datobcurp1" type="text" id="datobcurp1" size="22px" placeholder="CURP" value="<?php if(isset($row['Cliente'])) {  echo $row['CURPObSol']; } ?>" onkeypress="return validaRFC(event)" pattern="alpha_numeric"></div>
           </p>
           </div>
           <div class="row">
