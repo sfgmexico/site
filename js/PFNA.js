@@ -135,7 +135,10 @@ window.scrollTo(0,0);
 }///cierre del cambio
 
 
-
+function top(){
+window.scrollTo(0,0);
+    
+}
 
 
 

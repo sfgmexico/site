@@ -23,7 +23,7 @@
    while($row=mysqli_fetch_array($result)){
 
  echo "<tr class='bg-primary' >
-    <td  id='".$row['Id']."' onClick= 'su(this.id)'><input name='textfield2' id='467' class='btn btn-warning' value='".$row['Id']."'readonly=''></td>
+    <td  id='".$row['Id']."' onClick= 'su(this.id)'><input name='textfield2' type='button' id='467' class='btn btn-warning' value='".$row['Id']."'></td>
     <td >". $row['NomSolicitante']."</td>
 	<td >". $row['StatusSolicitud'] ."</td>
   </tr>

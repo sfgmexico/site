@@ -57,7 +57,8 @@
 	  <div class="container" id="htmlext" >
 
          <div>
-   
+ 
+
     </div>
 
 	  </div>
@@ -78,13 +79,12 @@
     <script src="js/jquery-ui/jquery-ui.js"></script>
     <script src="js/vendor/app.js"></script>
     
-    <script>
-      $(document).foundation();
-
-
-     
-
-    </script> 
+  <script>$(document).foundation();
+  $('.title-bar').on('sticky.zf.stuckto:top', function(){
+  $(this).addClass('shrink');
+}).on('sticky.zf.unstuckfrom:top', function(){
+  $(this).removeClass('shrink');
+})</script>
     <script type="text/javascript" src="js/botones.js"></script>
        
       
