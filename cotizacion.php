@@ -17,26 +17,7 @@ include("Conexion2.php");
         
         
         <div id="contenido" style="display:none">
-           <div data-sticky-container="" class="sticky-container" style="height: 72px;">
-    <div class="title-bar sticky is-anchored is-at-top" data-sticky="t371ll-sticky" data-options="marginTop:0;" data-resize="urbu0t-sticky" style="max-width: 410px; margin-top: 0px; bottom: auto; top: 0px;" data-events="resize">
-      <div class="title-bar-left">
-
-        <span class="title-bar-title">Sticky Navigation</span>
-      </div>
-
-      <div class="title-bar-right">
-            <ul class="tabs" data-tabs id="example-tabs">
-  <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Datos generales</a></li>
-  <li class="tabs-title"><a href="#panel2">Referencias Personales</a></li>
-  <li class="tabs-title"><a href="#panel3">Referencias Bancarias</a></li>
-  <li class="tabs-title"><a href="#panel4">Obligado Solidario</a></li>
-  <li class="tabs-title"><a href="#panel5">Propietario  inmueble</a></li>
-  <li class="tabs-title"><a href="#panel6">Consecionario</a></li>
-</ul>
-
-      </div>
-    </div>
-  </div>
+      
 
 <div class="row">
   <div class="medium-6 columns">

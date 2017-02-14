@@ -2731,7 +2731,8 @@ input::-moz-placeholder {
 	  
 	  <div id="solicitud">
 	    <h1>Solicitud PFNA</h1>
-	    <p align="left"><strong>DATOS DEL SOLICITANTE:</strong> 	      <input  name="cliente" type="text" id="cliente" size="30px" onChange="window.location.href='ObtenInfo2.php?dato='+this.value+'&tipocliente=PFNA'" placeholder="Si es Cliente, número de cliente/contrato"> 
+	    <p align="left"><strong>DATOS DEL SOLICITANTE:</strong> 	
+    <input  name="cliente" type="text" id="cliente" size="30px" onChange="window.location.href='ObtenInfo2.php?dato='+this.value+'&tipocliente=PFNA'" placeholder="Si es Cliente, número de cliente/contrato"> 
           &nbsp;&nbsp;&nbsp;&nbsp; 
           Leasing:
           <input id="tipocredito" name="tipocredito" type="radio" value="1">
