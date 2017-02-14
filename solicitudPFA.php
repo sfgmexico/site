@@ -328,6 +328,36 @@ if(($(this).prop('required') && this.value=="") || ($(this).prop('required') && 
 
 }
 
+function submitForm(oFormElement)
+{
+
+ var xhr;
+try{
+xhr=new XMLHttpRequest(); // Firefox, Opera 8.0+, Safari
+}
+catch (e){
+try{
+xhr=new ActiveXObject("Msxml2.XMLHTTP"); // Internet Explorer
+}
+catch (e){
+try{
+xhr=new ActiveXObject("Microsoft.XMLHTTP");
+}
+catch (e){
+alert("Tu explorador no soporta AJAX.");
+return false;
+}
+}
+}
+
+  xhr.onload = function(){ 
+      
+      document.getElementById("rec").innerHTML=xhr.responseText;
+    }
+  xhr.open (oFormElement.method, oFormElement.action, true);
+  xhr.send (new FormData (oFormElement));
+  return false;
+}
 
 </script>
 </header>
@@ -336,7 +366,7 @@ if(($(this).prop('required') && this.value=="") || ($(this).prop('required') && 
 <section>
   <div class="bg" align="center">
     <div class="container_24" align="center">
-      <form name="form1" id="form1" action="templatePFA.php" method="post" data-abide novalidate onsubmit="Validacioncampos()">
+      <form name="form1" id="form1" action="templatePFA-V2.0.php" method="post" data-abide novalidate onsubmit="return submitForm(this)">
         <style>
 	 
 	  input::-webkit-input-placeholder {
