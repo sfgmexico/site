@@ -1,6 +1,15 @@
 <?php
 
 $cliente=$_REQUEST['cliente'];
+$tipocredito=$_REQUEST['tipocredito'];
+$nomsol=$_REQUEST['nomsol'];
+$segnomsol=$_REQUEST['segnomsol'];
+$apepasol=$_REQUEST['apepasol'];
+$apemasol=$_REQUEST['apemasol'];
+
+
+
+
 
 
 /**
@@ -58,17 +67,14 @@ $objPHPExcel = $objReader->load("formatos/Solicitud_PFA_VWL_septi 2016-2.xls");
 
 
 	
-	$objPHPExcel->getActiveSheet()->setCellValue('B9', $nomsol);
+	$objPHPExcel->getActiveSheet()->setCellValue('B9', $cliente);
 	
-
-
-
-
-if($cliente!=""){
+	echo $nomsol;
+if($cliente==""){
 	include('Conexion2.php');
-	$result=mysqli_query($cnx,"insert into pfa (NomSolicitante) values('Adrian') select SCOPE_IDENTITY()");
-	echo $result;
-
+	mysqli_query($cnx,"insert into pfa (NomSolicitante,SegNomSolicitante,ApPatSolicitante,ApMatSolicitante) values('$nomsol','$segnomsol','$apepasol','$apemasol');");
+	
+	mysqli_query($cnx,"insert into registro (Folio_Cliente,Fecha_apertura) values((select Folio_Cliente from pfa where Id= LAST_INSERT_ID()),CURDATE());");
 	
 		
 }else {
@@ -80,7 +86,9 @@ if($cliente!=""){
 
 
 
-/*	
+
+/*
+	
 //elementos para descargar en excel
 // Redirect output to a client’s web browser (Excel5)
 header('Content-Type: application/vnd.ms-excel');
@@ -98,10 +106,15 @@ header ('Pragma: public'); // HTTP/1.0
 $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
 
 $objWriter->save('php://output');
+?>
+<script>
+alert("REalizado");
 
+</script>
+<?php
 //elementos para descargar excel
 
-*/
+
 
 /*
 header('Content-Type: application/pdf');
