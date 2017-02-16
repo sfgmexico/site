@@ -1,17 +1,27 @@
 <?php
+$valor="";
+$nombre="";
+$segundonom="";
+$paterno="";
+$materno="";
+if (isset($_GET['dato'])){
 $valor=$_GET['dato'];
+}
+
+
+
 //$tipocliente=$_GET['tipocliente'];
 include("Conexion2.php");
 //include("carpetaraiz.php");
 
-$result=mysqli_query($cnx,"select * from clientes where id='$valor'");
+$result=mysqli_query($cnx,"select * from pfa where Folio_Cliente='$valor'");
 
 
 
 if(mysqli_num_rows($result)>0){
  echo $valor; 
-}elseif (mysqli_num_rows(mysqli_query($cnx,"select * from clientes where Nombre='$valor' "))>0) {
-    $result2=mysqli_query($cnx,"select * from clientes where Nombre='$valor'");
+}elseif (mysqli_num_rows(mysqli_query($cnx,"select * from pfa where NomSolicitante='$nombre' and SegNomSolicitante='$segundonom' and ApPatSolicitante='$paterno' and ApMatSolicitante='$materno'"))>0) {
+    $result2=mysqli_query($cnx,"select * from pfa where Nombre='$valor'");
     $row=mysqli_fetch_array($result2);
   echo $row['id'];
     

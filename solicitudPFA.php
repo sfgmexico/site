@@ -3,10 +3,10 @@
         $cliente=$_GET['cliente'];
         
     include("Conexion2.php");
-    $result = mysqli_query($cnx,"select * from solicitudes where cliente='$cliente' and TipoSolicitud='PFA' order by Id desc");
+    $result = mysqli_query($cnx,"select * from solicitudes where cliente='$cliente' order by Id desc");
     if(!mysqli_num_rows($result)>0){
 
-        echo "Error El Cliente No Corresponde a PFA";
+        echo "Error";
         exit;
     }
     $row=mysqli_fetch_array($result);
@@ -336,7 +336,7 @@ if(($(this).prop('required') && this.value=="") || ($(this).prop('required') && 
 <section>
   <div class="bg" align="center">
     <div class="container_24" align="center">
-      <form name="form1" id="form1" action="templatePFA.php" method="post" data-abide novalidate onsubmit="Validacioncampos()">
+      <form name="form1" id="form1" action="templatePFA-V1.0.php" method="post" data-abide novalidate onsubmit="Validacioncampos()">
         <style>
 	 
 	  input::-webkit-input-placeholder {
@@ -350,7 +350,7 @@ input::-moz-placeholder {
 	font-weight: bold;
 }
 	  </style>
-<input name="aceptar" type="button" id="aceptar" value="Aceptar" onClick="ClickedId()">
+
     <ul class="accordion" data-accordion>
   <li class="accordion-item is-active" data-accordion-item>
     <a href="#" class="accordion-title"><h4 align="center" id="uno">Solicitud PFA</h4></a>
