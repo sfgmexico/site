@@ -144,11 +144,11 @@ xmlhttp.onreadystatechange=function()
   }
 xmlhttp.open("POST","sub4.php",true);
 xmlhttp.send('');
-
-
-    														});
-						$("#aceptar").click(function(event) {
-var sub = "sub2.php?textfield="+document.getElementById("textfield").value;
+});
+		$("#aceptar").click(function(event){
+        				$("#htmlext").load('contenedor.php?textfield='+document.getElementById("textfield").value);
+    /*														
+var sub = "consult.php?textfield="+document.getElementById("textfield").value;
 if (window.XMLHttpRequest)
   {// code for IE7+, Firefox, Chrome, Opera, Safari
   xmlhttp=new XMLHttpRequest();
@@ -161,11 +161,16 @@ xmlhttp.onreadystatechange=function()
   {
   	if (xmlhttp.readyState==4 && xmlhttp.status==200)
     	{
-    	document.getElementById("htmlext").innerHTML=xmlhttp.responseText;
+    	document.getElementById("tabla").innerHTML=xmlhttp.responseText;
     	}
   }
 xmlhttp.open("GET",sub,true);
 xmlhttp.send(null);
 
+    														*/});
 
-    														});
+    													
+
+
+
+    													

@@ -20,8 +20,8 @@
    while($row=mysqli_fetch_array($result)){
  echo 
  " <tr>
-    <td class='bg-success'>" .$row['Id']."</td>
-    <td class='bg-primary'>".$row['NomSolicitante']."</td>
+    <td>" .$row['Id']."</td>
+    <td>".$row['NomSolicitante']."</td>
   </tr>";
 
 			}
