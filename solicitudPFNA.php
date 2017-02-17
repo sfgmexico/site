@@ -1148,7 +1148,7 @@ input::-moz-placeholder {
                 <option value="3" <?php if($row['Antiguedad_Cliente']=="1-3 años"){echo "selected";}?> >1-3 años</option>
                 <option value="2" <?php if($row['Antiguedad_Cliente']=="4-6 años"){echo "selected";}?> >4-6 años</option>
                 <option value="1" <?php if($row['Antiguedad_Cliente']=="7-10 años"){echo "selected";}?> >7-10 años</option>
-                <option value="0">N/A</option>
+                <option value="0"<?php if($row['Antiguedad_Cliente']=="N/A"){echo "selected";}?>>N/A</option>
                                           </select></td>
             </tr>
             <tr>

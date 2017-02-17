@@ -79,6 +79,7 @@ document.getElementById("textfield15").value="Femenino";
 document.getElementById("textfield16").value=document.getElementById("lugnacsol").value;
 document.getElementById("textfield17").value=document.getElementById("fechnacsol").value;
 document.getElementById("textfield18").value=document.getElementById("dirsol").value;
+document.getElementById("textfield19").value=document.getElementById("dirnumsol").value;
 document.getElementById("textfield20").value=document.getElementById("cpsol").value;
 document.getElementById("textfield21").value=document.getElementById("colsol").value;
 document.getElementById("textfield22").value=document.getElementById("textfield5").value;
