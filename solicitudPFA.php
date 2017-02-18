@@ -20,8 +20,15 @@
     echo "Solicitud: ".$row['Id'];
     echo "Cliente: ".$row2['Id'];
     echo "grado de riesgo".$row3['Folio_sol'];
+    ?><script>document.getElementById("cliente").readOnly = true;</script> <?php
  
     }
+
+    
+
+
+
+
 
     ?>
 
@@ -383,11 +390,11 @@ input::-moz-placeholder {
          
           <p align="left">
             <div class="small-5 columns">
-            <input name="nomsol" type="text" id="nomsol" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['NomSolicitante']; } ?>" onChange="viewButton()" placeholder="Primer Nombre"  onkeypress="return validaTexto(event)"pattern="alpha"> 
+            <input name="nomsol" type="text" id="nomsol" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['NomSolicitante']; } ?>" onkeyup="viewButton()" placeholder="Primer Nombre"  onkeypress="return validaTexto(event)"pattern="alpha"> 
             <input name="segnomsol" type="text" id="segnomsol"   value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['SegNomSolicitante']; } ?>" placeholder="Segundo Nombre" onkeypress="return validaTexto(event)" pattern="alpha">
             </div>
           <div class="small-5 columns">
-            <input name="apepasol" type="text" id="apepasol"  value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['ApPatSolicitante']; } ?>" onChange="viewButton()" placeholder="Apellido Parteno"  onkeypress="return validaTexto(event)" pattern="alpha">  
+            <input name="apepasol" type="text" id="apepasol"  value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['ApPatSolicitante']; } ?>" onkeyup="viewButton()" placeholder="Apellido Parteno"  onkeypress="return validaTexto(event)" pattern="alpha">  
             <input name="apemasol" type="text" id="apemasol" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['ApMatSolicitante']; } ?>" placeholder="Apellido Materno"  onkeypress="return validaTexto(event)" pattern="alpha">
           </div>  
           
@@ -1510,6 +1517,9 @@ xmlhttp.send(null);
 
 function obten2() {
 var sub = "ObtenInfo2.php?nombre="+document.getElementById("nomsol").value+"&segundo="+document.getElementById("segnomsol").value+"&paterno="+document.getElementById("apepasol").value+"&materno="+document.getElementById("apemasol").value;
+//var sub = "ObtenInfo2.php?nombre=adrian&segundo=eduardo&paterno=mata&materno=martinez";
+
+
 if (window.XMLHttpRequest)
   {// code for IE7+, Firefox, Chrome, Opera, Safari
   xmlhttp=new XMLHttpRequest();
@@ -1522,7 +1532,15 @@ xmlhttp.onreadystatechange=function()
   {
     if (xmlhttp.readyState==4 && xmlhttp.status==200)
       {
-     $("#htmlext").load("solicitudPFA.php?cliente="+xmlhttp.responseText);
+        
+        if(xmlhttp.responseText!="cliente no encontrado"){
+            $("#htmlext").load("solicitudPFA.php?cliente="+xmlhttp.responseText);
+            
+        }else{
+            alert(xmlhttp.responseText);
+
+        }
+     
 
       }
   }
@@ -1531,10 +1549,13 @@ xmlhttp.send(null);
 }
 
 function viewButton(){
+
   if(document.getElementById("nomsol").value!="" && document.getElementById("apepasol").value!=""){
-    document.getElementById("botonAceptar").display="block";
+  
+    document.getElementById("botonAceptar").style.display="block";
   }else{
-    document.getElementById("botonAceptar").display="none";
+    
+    document.getElementById("botonAceptar").style.display="none";
   }
 }
 
