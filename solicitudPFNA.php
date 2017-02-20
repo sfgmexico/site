@@ -395,22 +395,7 @@ input::-moz-placeholder {
             
                 <div class="accordion-content" data-tab-content>
                      <div id="solicitud">
-                     	       <div data-sticky-container="" class="sticky-container" style="height: 40.375px;">
-  <div class="sticky is-at-top is-stuck" id="sticky-magellan" style="width: 100%; max-width: 555px; margin-top: 0em; bottom: auto; top: 0px;" data-sticky="a2lq9k-sticky" data-margin-top="0" data-margin-bottom="0" data-top-anchor="setup" data-btm-anchor="destroy:bottom" data-sticky-on="small" data-resize="sticky-magellan" data-events="resize">
-    <nav data-magellan="8odbqt-magellan" class="sticky-mag stuck-mag" data-bar-offset="25" data-resize="cq4a0b-magellan" data-scroll="cq4a0b-magellan" id="cq4a0b-magellan" data-events="scroll">
-      <ul class="horizontal menu expanded">
-       <ul class="tabs" data-tabs id="example-tabs">
-  <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Datos generales</a></li>
-  <li class="tabs-title"><a href="#panel2">Referencias Personales</a></li>
-  <li class="tabs-title"><a href="#panel3">Referencias Bancarias</a></li>
-  <li class="tabs-title"><a href="#panel4">Obligado Solidario</a></li>
-  <li class="tabs-title"><a href="#panel5">Propietario  inmueble</a></li>
-  <li class="tabs-title"><a href="#panel6">Consecionario</a></li>
-</ul>
-      </ul>
-    </nav>
-  </div>
-</div>
+ 
 
 	    
 	    <p align="left"><strong>DATOS DEL SOLICITANTE:</strong> 
@@ -423,7 +408,7 @@ input::-moz-placeholder {
 
 	    </p></div>
 <div class="tabs-content" data-tabs-content="example-tabs">
-<div class="tabs-panel is-active" id="panel1">
+
       <!-- empieza seccion del solicitante-->
       <div id="secSolicitante" class="row">
     
@@ -624,9 +609,9 @@ input::-moz-placeholder {
     
 
 
-</div>
+
       <hr>
-      <div class="tabs-panel is-active" id="panel2">
+      
       <div id="secRefPersonales1" class="row">
       <p align="left"><strong>REFERENCIAS PERSONALES</strong></p>
       <p align="left">
@@ -675,8 +660,7 @@ input::-moz-placeholder {
       </div>
     <hr>
 
-      </div>
-      <div class="tabs-panel is-active" id="panel3">
+
     <div id="secRefBancarias1" class="row">
      
       <p align="left"><strong>REFERENCIAS BANCARIAS (TARJETA DE CRÉDITO)</strong></p>
@@ -782,8 +766,7 @@ input::-moz-placeholder {
       </p>
       </div>
       <hr>
-      </div>
-      <div class="tabs-panel is-active" id="panel4" >
+   
       <p align="left"><strong>DATOS DEL OBLIGADO SOLIDARIO PERSONA MORAL</strong></p>
       <div id="secDatObligadoPersonaMoral" class="row">
       <p align="left">
@@ -868,8 +851,7 @@ input::-moz-placeholder {
         </p>
          </div>
       <hr>
-      </div>
-      <div class="tabs-panel is-active" id="panel5">
+    
       <div id="secDatObligadoSolidarioPF1" class="row">
       <p align="left"><strong>DATOS DEL OBLIGADO SOLIDARIO PERSONA FÍSICA, PROPIETARIO DE BIEN INMUEBLE </strong></p>
       <p align="left">
