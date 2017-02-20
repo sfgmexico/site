@@ -7,25 +7,38 @@
       
   include('Conexion2.php');
   $result=mysqli_query($cnx,"select * from solicitudpfa where Folio_Sol='$solicitudNo'");
+  $result1=mysqli_query($cnx,"select * from solicitudpfna where Folio_Sol='$solicitudNo'");
+  $result2=mysqli_query($cnx,"select * from solicitudpm where Folio_Sol='$solicitudNo'");
+  if (stristr($solicitudNo, 'SA')== TRUE) {
   $ob=mysqli_fetch_array($result,MYSQL_NUM);
+  $cliente=$ob[2];
+    $tab=mysqli_query($cnx,"select * from pfa where Folio_cliente='$cliente'");
+    
+  }
+  elseif (stristr($solicitudNo, 'SN')== TRUE) {
+     $ob=mysqli_fetch_array($result1,MYSQL_NUM);
+     $cliente=$ob[2];
+       $tab=mysqli_query($cnx,"select * from pfna where Folio_cliente='$cliente'");
+  }
+    elseif (stristr($solicitudNo, 'SM')== TRUE) {
+     $ob=mysqli_fetch_array($result2,MYSQL_NUM);
 $cliente=$ob[2];
+       $tab=mysqli_query($cnx,"select * from pm where Folio_cliente='$cliente'");
+  }
   $gra=mysqli_query($cnx,"select * from gradoriesgo where Folio_Sol='$solicitudNo'");
 
-  $tab=mysqli_query($cnx,"select * from pfa where Folio_cliente='$cliente'");
-  
-  $tab1=mysqli_query($cnx,"select * from pfna where Folio_cliente='$ob[1]'");
-
-  $tab2=mysqli_query($cnx,"select * from pm where Folio_cliente='$ob[1]'");
 
   
-if (stristr($solicitudNo, 'SA')== TRUE || stristr($solicitudNo, 'SM')== TRUE || stristr($solicitudNo, 'SM')== TRUE) {
+
+
+  
+if (stristr($solicitudNo, 'SA')== TRUE || stristr($solicitudNo, 'SM')== TRUE || stristr($solicitudNo, 'SN')== TRUE) {
   # code...
   if(mysqli_num_rows($tab) == 0){
   echo "<h4>No Se Encontro El Registro</h4>";
   }else{
     $con= array(  " Id  " ,
   " Folio " ,
-  " Tipo de Credito " ,
   " Nombre  " ,
   " Segundo nombre  " ,
   " Apellido parteno  " ,
@@ -60,13 +73,19 @@ if (stristr($solicitudNo, 'SA')== TRUE || stristr($solicitudNo, 'SM')== TRUE || 
   " Estado civil  " ,
   " Auto propio " ,
   " Marca/Tipo  " ,
+  "Ocupacion ",
   " Puesto  " ,
   " Departamento  " ,
   " Desde el año  " ,
   " Compañía  " ,
   " Telefono  " ,
   " Extencion ",
-  "  Domicilio laboral" );
+  "  Domicilio laboral",
+  " FIEL",
+  " Sueldo ",
+  " Actividad Adicional",
+  "Ingreso mensual"
+   );
 
   $sol = array( 
     "ID ",
@@ -152,10 +171,6 @@ $gr = array(  " Folio solicitud " ,
   " Destino Recursos  " ,
   " Pais Estado Residencia Terceros " ,
   " Grado de Riesgo " ,
-  " Numero Serie FIEL " ,
-  " Sueldo Solicitante  " ,
-  " Actividad Economica Adicional " ,
-  " Ingreso Adicional Mensual Aproximado  " ,
   " INE Solicitante " ,
   " Adjunta INE Solicitante " ,
   " Pasaporte o Cedula Profecional Solicitante  " ,
@@ -170,6 +185,7 @@ $gr = array(  " Folio solicitud " ,
   " Cotejo Vs Original  " ,
   " Adjunta CURP  RFC FEA " ,
   " Adjunta Comprobante Domicilio " ,
+  "Fecha del comprobante",
   " Domicilio Coincide Id " ,
   " Domicilio Beneficiario  " ,
   " Colonia " ,
@@ -220,7 +236,7 @@ $gr = array(  " Folio solicitud " ,
   " NombrePEPS  " ,
   " ParentescoPEPS  " ,
   " PuestoPEPS  " );
-$CPfna = array( 
+$CPFNA = array( 
   " Id   ",
   " Folio Cliente " ,
   " Tipo Credito  " ,
@@ -524,7 +540,15 @@ if ($row[$j]=="") {
     else{
 ?>
 <tr>
-    <td > <?php echo $con[$i]; ?> </td>
+    <td > <?php if (stristr($solicitudNo, 'SA')== TRUE) { echo $con[$i]; }  
+                elseif (stristr($solicitudNo, 'SN')== TRUE) { echo $CPFNA[$i]; }
+                  elseif (stristr($solicitudNo, 'SM')== TRUE) { echo $CPM[$i]; }
+
+
+
+    
+    ?>
+     </td>
 
 
       <td > <?php echo  $row[$j] ?> </td>
@@ -552,7 +576,13 @@ if ($ob[$l]=="") {
     else{
 
 ?> <tr class='bg-primary' >
-    <td > <?php echo $sol[$k] ?> </td>
+    <td > <?php 
+
+          if (stristr($solicitudNo, 'SA')== TRUE) { echo $sol[$k]; }  
+                elseif (stristr($solicitudNo, 'SN')== TRUE) { echo $SPFNA[$k]; }
+                  elseif (stristr($solicitudNo, 'SM')== TRUE) { echo $SPM[$k]; }
+
+    ?> </td>
   
    
     <td > <?php echo $ob[$l] ?></td>
@@ -595,9 +625,19 @@ if ($row1[$j]=="") {
 }
 ?>
   </table> 
+  <h3>Comentarios</h3>
+<input id="comentario" name="comentario"class="form-control"  >
+<div class="container">
+      <p>&nbsp;</p>
+      <p>
+        <input name="cancelar" class="button" type="button" id="cancelar" onclick="window.location.href='indexmenu.php'" value="Atras">
+        <input name="rechazada"  class="alert button" type="button" id="rechazada" value="Rechazar">
+        <input name="aceptada" class="success button" type="button" id="aceptada" data-toggle="modal" data-target="#exampleModal" value="Aceptar">
+      </p>
+      <input style="display:none" id="res" value="<?php echo $solicitudNo ;?>">
  </div>
-
 </div>
+
 
 <?php
 
@@ -622,14 +662,67 @@ echo "";
 
 
 
+    <script  scr="js/validasolicitud.js"></script>
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.js"></script>
-
      <script src="js/jquery-ui/jquery-ui.js"></script>
     <script src="js/vendor/app.js"></script>
     <script>
       $(document).foundation();
+
+ $("#aceptada").click(function(event) {
+ 
+var sub= "sub3.php?comentario="+document.getElementById("comentario").value+"&id="+ document.getElementById("res").value+"&status=Aceptada" ;
+    if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
+      alert(xmlhttp.responseText);
+      }
+  }
+xmlhttp.open("GET",sub,true);
+xmlhttp.send(null);
+                $("#htmlext").load('solicitudesPendientes.php');
+                                });
+
+    $("#rechazada").click(function(event) {
+
+   if(document.getElementById('comentario').value==""){
+ alert("SE REQUIERE MOTIVO DE RECHAZO EN COMENTARIOS");
+ return false;
+    }
+ var sub= "sub3.php?comentario="+document.getElementById("comentario").value+"&id="+ document.getElementById("res").value+"&status=Rechazada" ;
+      if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
+
+     alert(xmlhttp.responseText);
+      }
+  }
+xmlhttp.open("GET",sub,true);
+xmlhttp.send(null);
+
+               $("#htmlext").load('solicitudesPendientes.php');
+                                });
+
     </script>
   </body>
 </html>

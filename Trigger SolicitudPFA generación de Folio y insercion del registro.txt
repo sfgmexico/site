@@ -1,12 +1,12 @@
 DELIMITER $$
-CREATE TRIGGER solicitudpm_id
+CREATE TRIGGER solicitudpfa_id
 BEFORE INSERT ON solicitudpm
 FOR EACH ROW
 BEGIN
-    if (SELECT COUNT(*) FROM solicitudpm)=0   THEN
-        SET NEW.Folio_Sol= 'SM-001';
+    if (SELECT COUNT(*) FROM solicitudpfa)=0   THEN
+        SET NEW.Folio_Sol= 'SA-001';
     else
-        SET NEW.Folio_Sol= CONCAT('SM-', LPAD((select MAX(Id)+1 from solicitudpm), 3, '0'));
+        SET NEW.Folio_Sol= CONCAT('SA-‘, LPAD((select MAX(Id)+1 from solicitudpfa), 3, '0'));
   END IF;
 END$$
 DELIMITER ;
