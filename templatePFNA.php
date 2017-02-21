@@ -1023,7 +1023,7 @@ $objPHPExcel = $objReader->load("formatos/Solicitud_PFNA_VWL_2016sept-2.xls");
 $objDrawing = new PHPExcel_Worksheet_Drawing();
 $objDrawing->setName('Logo');
 $objDrawing->setDescription('Logo');
-$logo =  'logosfg.png'; // Provide path to your logo file
+$logo =  'images/logosfg.png'; // Provide path to your logo file
 $objDrawing->setPath($logo);
 $objDrawing->setOffsetX(8);    // setOffsetX works properly
 $objDrawing->setOffsetY(300);  //setOffsetY has no effect
@@ -1034,7 +1034,7 @@ $objDrawing->setWorksheet($objPHPExcel->getActiveSheet());
 $objDrawing = new PHPExcel_Worksheet_Drawing();
 $objDrawing->setName('Logo');
 $objDrawing->setDescription('Logo');
-$logo =  'logosfg.png'; // Provide path to your logo file
+$logo =  'images/logosfg.png'; // Provide path to your logo file
 $objDrawing->setPath($logo);
 $objDrawing->setOffsetX(8);    // setOffsetX works properly
 $objDrawing->setOffsetY(300);  //setOffsetY has no effect
@@ -1045,7 +1045,7 @@ $objDrawing->setWorksheet($objPHPExcel->getActiveSheet());
 $objDrawing = new PHPExcel_Worksheet_Drawing();
 $objDrawing->setName('Logo');
 $objDrawing->setDescription('Logo');
-$logo =  'logosfg.png'; // Provide path to your logo file
+$logo =  'images/logosfg.png'; // Provide path to your logo file
 $objDrawing->setPath($logo);
 $objDrawing->setOffsetX(8);    // setOffsetX works properly
 $objDrawing->setOffsetY(300);  //setOffsetY has no effect
@@ -1911,8 +1911,10 @@ $RFCSolicitante.=$rfc1.$rfc2.$rfc3.$rfc4.$rfc5.$rfc6.$rfc7.$rfc8.$rfc9.$rfc10.$r
 
 			
 	if($cliente==""){
-		mysqli_query($cnx,"insert into clientes (id,Nombre,RFC,Tel,Cel,Direccion,Numero,Email,Colonia,Ciudad,LugNacimiento,Estado,CP,CURP,Sexo,Nacimiento,Edad,Nacionalidad,Dependientes,AcreDom,Vivienda,Inmueble,AnResidirCD,ArraigoDomicilio,Beneficiario,EstadoCivil,AutoPropio,PuestoEmpleo,DepartamentoEmpleo,Desdean,Empresa,TelEmpleo,ExtensionEmpleo,TipoCliente) values ('null','$NomSolicitante','$RFCSolicitante','$TelSolicitante','$MovSolicitante','$dirsol','$numeroDirSol','$mailsol','$colsol','$cdsol','$lugnacsol','$edosol','$cpsol','$curpsol','$SexoDatGen','$FeNacDatGen','$edsol','$nacsol','$depensol','$acdomsol','$VivDatGen','$PropInmuDatGen','$anosol2','$arraisol','$benesol','$EstCivDatGen','$AuPropDatGen','$depasol','','$desdesol3','$compasol','$TelDatEmp','$compatelsolext','PFNA')");
+		//mysqli_query($cnx,"insert into clientes (id,Nombre,RFC,Tel,Cel,Direccion,Numero,Email,Colonia,Ciudad,LugNacimiento,Estado,CP,CURP,Sexo,Nacimiento,Edad,Nacionalidad,Dependientes,AcreDom,Vivienda,Inmueble,AnResidirCD,ArraigoDomicilio,Beneficiario,EstadoCivil,AutoPropio,PuestoEmpleo,DepartamentoEmpleo,Desdean,Empresa,TelEmpleo,ExtensionEmpleo,TipoCliente) values ('null','$NomSolicitante','$RFCSolicitante','$TelSolicitante','$MovSolicitante','$dirsol','$numeroDirSol','$mailsol','$colsol','$cdsol','$lugnacsol','$edosol','$cpsol','$curpsol','$SexoDatGen','$FeNacDatGen','$edsol','$nacsol','$depensol','$acdomsol','$VivDatGen','$PropInmuDatGen','$anosol2','$arraisol','$benesol','$EstCivDatGen','$AuPropDatGen','$depasol','','$desdesol3','$compasol','$TelDatEmp','$compatelsolext','PFNA')");
 
+		mysqli_query($cnx,"insert into pfna (NomSolicitante,SegNomSolicitante,ApPatSolicitante,ApMatSolicitante,RFCSolicitante,TelSolicitante,MovSolicitante,DirSolicitante,NumDirSol,ColSolicitante,CdSolicitante,LugNacSolicitante,EdoSolicitante,MunicipioSolicitante,CPSolicitante,CURPSolicitante,EmailSolicitante,SexoDatGen,FeNacDatGen,EdDatGen,NaDatGen,NoDepDatGen,AcDomDatGen,VivDatGen,OtrDatGen,PropInmuDatGen,ArDomDatGen,AnResDatGen,NomBenDatGen,ApPatBenDatGen,ApMatBenDatGen,EstCivDatGen,AuPropDatGen,MarDatGen,PuestDatEmp,DepDatEmp,DesAnDatEmp,CompDatEmp,TelDatEmp,ExtDatEmp,DomicilioLaboral,NumSerieFIEL,SueldoSolicitante,ActEcoAdicional,IngAdMensualAprox,Ocupacion_Profesion) values('$nomsol','$segnomsol','$apepasol','$apemasol','$RFCSolicitante','$TelSolicitante','$MovSolicitante','$dirsol','$numeroDirSol','$colsol','$cdsol','$lugnacsol','$edosol','$municipioSol','$cpsol','$curpsol','$mailsol','$SexoDatGen','$FeNacDatGen','$edsol','$nacsol','$depensol','$acdomsol','$VivDatGen','$OtrvivDatGen','$PropInmuDatGen','$arraisol','$anosol','$benesol','$benesol2','$benesol3','$EstCivDatGen','$AuPropDatGen','$MarDatGen','$puestosol','$depasol','$desdesol','$compasol','$TelDatEmp','$compatelsolext','$domicilioLaboral','$numSerieFiel','$SueldoSolicitante','$ActividadAdicional','$IngAdMensualAprox','$Ocupacion_Profesion');");
+		
 		
 
 

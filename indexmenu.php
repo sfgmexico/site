@@ -4,12 +4,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Financiera| Bienvenido</title>
+    
     <script src="js/vendor/jquery-3.1.1.min.js"></script>
+    
     <link rel="stylesheet" href="js/js/css/foundation.css">
     <link rel="stylesheet" href="js/js/css/foundation.min.css">
     <link rel="stylesheet" href="js/js/css/app.css">
     <link rel="stylesheet" href="js/js/css/foundation-icons/foundation-icons.css">
      <link rel="stylesheet" href="js/jquery-ui/jquery-ui.css">
+     
     <style type="text/css">
 
     </style>
@@ -68,7 +71,7 @@
 	
 </section>
 
-
+    
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.js"></script>
@@ -86,10 +89,11 @@
 }).on('sticky.zf.unstuckfrom:top', function(){
   $(this).removeClass('shrink');
 })</script>
+
     <script type="text/javascript" src="js/botones.js"></script>
        
       
-      <!--<script src="js/PFA.js"></script>-->
+      
 </body>
 
 </html>

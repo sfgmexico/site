@@ -6,13 +6,10 @@ $(document).ready(function() {
     });
 });
 
-
+///Mayusculas la primera
 function MaysPrimera(string){
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
-
-
-
 /// Mayusculas primera letra de cada palabra
 function ucWords(string) {
     var arrayWords;
@@ -34,9 +31,9 @@ function ucFirst(string) {
     return string.substr(0, 1).toUpperCase() + string.substr(1, string.length).toLowerCase();
 }
 
+function cambio() {
+   window.scrollTo(0, 0);
 
-function cambio(){
- 
 if(document.getElementById("segnomsol").value==""){
 var nombreCompleto=MaysPrimera(document.getElementById("nomsol").value)+" "+MaysPrimera(document.getElementById("apepasol").value)+" "+MaysPrimera(document.getElementById("apemasol").value);
 
@@ -57,14 +54,15 @@ document.getElementById("textfield9").value=document.getElementById("cdsol").val
 document.getElementById("textfield10").value=document.getElementById("lugnacsol").value;
 document.getElementById("textfield11").value=MaysPrimera(document.getElementById("rfc1").value)+MaysPrimera(document.getElementById("rfc2").value)+MaysPrimera(document.getElementById("rfc3").value)+MaysPrimera(document.getElementById("rfc4").value)+MaysPrimera(document.getElementById("rfc5").value)+MaysPrimera(document.getElementById("rfc6").value)+MaysPrimera(document.getElementById("rfc7").value)+MaysPrimera(document.getElementById("rfc8").value)+MaysPrimera(document.getElementById("rfc9").value)+MaysPrimera(document.getElementById("rfc10").value)+MaysPrimera(document.getElementById("rfc11").value)+MaysPrimera(document.getElementById("rfc12").value)+MaysPrimera(document.getElementById("rfc13").value);
 
-window.scrollTo(0, 0);
+
 
 }///cierre del cambio
 
-function cambio2(){
 
 
-window.scrollTo(0,0);
+function cambio2() {
+    window.scrollTo(0,0);
+
 
 document.getElementById("textfield12").value=MaysPrimera(document.getElementById("apepasol").value);
 document.getElementById("textfield13").value=MaysPrimera(document.getElementById("apemasol").value);
@@ -78,17 +76,15 @@ document.getElementById("textfield15").value="Masculino";
 if(porNombre[1].checked){
 document.getElementById("textfield15").value="Femenino";
 }
-
-
 document.getElementById("textfield16").value=document.getElementById("lugnacsol").value;
 document.getElementById("textfield17").value=document.getElementById("fechnacsol").value;
 document.getElementById("textfield18").value=document.getElementById("dirsol").value;
+document.getElementById("textfield19").value=document.getElementById("dirnumsol").value;
 document.getElementById("textfield20").value=document.getElementById("cpsol").value;
 document.getElementById("textfield21").value=document.getElementById("colsol").value;
 document.getElementById("textfield22").value=document.getElementById("textfield5").value;
 document.getElementById("textfield23").value=document.getElementById("edosol").value;
 document.getElementById("textfield24").value=document.getElementById("cdsol").value;
-
 document.getElementById("textfield25").value=document.getElementById("telsol1").value+document.getElementById("telsol2").value+document.getElementById("telsol3").value+document.getElementById("telsol4").value+document.getElementById("telsol5").value+document.getElementById("telsol6").value+document.getElementById("telsol7").value+document.getElementById("telsol8").value+document.getElementById("telsol9").value+document.getElementById("telsol10").value;
 
 var estadocivil=document.getElementsByName("civilsol");
@@ -107,11 +103,9 @@ document.getElementById("textfield26").value="Divorciado";
 if(estadocivil[4].checked){
 document.getElementById("textfield26").value="Soltero";
 }
-
 document.getElementById("textfield27").value=document.getElementById("mailsol").value;
 document.getElementById("textfield28").value=document.getElementById("curpsol").value.toUpperCase();
 document.getElementById("textfield29").value=MaysPrimera(document.getElementById("rfc1").value)+MaysPrimera(document.getElementById("rfc2").value)+MaysPrimera(document.getElementById("rfc3").value)+MaysPrimera(document.getElementById("rfc4").value)+MaysPrimera(document.getElementById("rfc5").value)+MaysPrimera(document.getElementById("rfc6").value)+MaysPrimera(document.getElementById("rfc7").value)+MaysPrimera(document.getElementById("rfc8").value)+MaysPrimera(document.getElementById("rfc9").value)+MaysPrimera(document.getElementById("rfc10").value)+MaysPrimera(document.getElementById("rfc11").value)+MaysPrimera(document.getElementById("rfc12").value)+MaysPrimera(document.getElementById("rfc13").value);
-
 document.getElementById("textfield31").value=document.getElementById("nacsol").value;
 
 document.getElementById("textfield33").value = document.getElementById("compasol").value + ' - ' + document.getElementById("giroactreal").value;
@@ -127,18 +121,10 @@ document.getElementById("textfield46").value = MaysPrimera(document.getElementBy
 document.getElementById("textfield47").value = ucWords(document.getElementById("benesol3").value);
 
 
-
-
-window.scrollTo(0,0);
-
-
 }///cierre del cambio
 
 
-function top(){
-window.scrollTo(0,0);
-    
-}
+
 
 
 
