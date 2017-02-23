@@ -98,7 +98,9 @@ $arraisol=$_REQUEST['arraisol'];
 
 $anosol2=$_REQUEST['anosol2'];
 
-$benesol=ucwords($_REQUEST['benesol3'].' '.$_REQUEST['benesol1'].' '.$_REQUEST['benesol2']);
+$benesol1=ucwords($_REQUEST['benesol1']);
+$benesol2=ucwords($_REQUEST['benesol2']);
+$benesol3=ucwords($_REQUEST['benesol3']);
 
 $civilsol=$_REQUEST['civilsol'];
 
@@ -636,7 +638,7 @@ $objPHPExcel = $objReader->load("formatos/Solicitud_PFNA_VWL_2016sept-2.xls");
 	
 	$objPHPExcel->getActiveSheet()->setCellValue('k39', $anosol2);
 	
-	$objPHPExcel->getActiveSheet()->setCellValue('p40', $benesol);
+	$objPHPExcel->getActiveSheet()->setCellValue('p40', $benesol3.' '.$benesol1.' '.$benesol2);
 	
 	if($civilsol=="1"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L43', "X");
@@ -1067,39 +1069,39 @@ $objDrawing->setWorksheet($objPHPExcel->getActiveSheet());
 	if($_REQUEST['select']=="1"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L234', "Otra");
 	$objPHPExcel->getActiveSheet()->setCellValue('W234', "1");
-	$select="";
+	$select="Otra";
 	}
 	if($_REQUEST['select']=="2"){
 	$objPHPExcel->getActiveSheet()->setCellValue('l234', "Informal");
 	$objPHPExcel->getActiveSheet()->setCellValue('W234', "2");
-	$select="";
+	$select="Informal";
 	}
 	if($_REQUEST['select']=="3"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L234', "Vulnerable");
 	$objPHPExcel->getActiveSheet()->setCellValue('W234', "3");
-	$select="";
+	$select="Vulnerable";
 	}
 	
 	
 	if($_REQUEST['select2']=="0"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L235', "N/A");
 	$objPHPExcel->getActiveSheet()->setCellValue('W235', "0");
-	$select2="";
+	$select2="N/A";
 	}
 	if($_REQUEST['select2']=="1"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L235', "7-10 años");
 	$objPHPExcel->getActiveSheet()->setCellValue('W235', "1");
-	$select2="";
+	$select2="7-10 años";
 	}
 	if($_REQUEST['select2']=="2"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L235', "4-6 años");
 	$objPHPExcel->getActiveSheet()->setCellValue('W235', "2");
-	$select2="";
+	$select2="4-6 años";
 	}
 	if($_REQUEST['select2']=="3"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L235', "1-3 años");
 	$objPHPExcel->getActiveSheet()->setCellValue('W235', "3");
-	$select2="";
+	$select2="1-3 años";
 	}
 	
 	
@@ -1107,146 +1109,146 @@ $objDrawing->setWorksheet($objPHPExcel->getActiveSheet());
 	if($_REQUEST['select3']=="1"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L236', "Prestamo");
 	$objPHPExcel->getActiveSheet()->setCellValue('W236', "1");
-	$select3="";
+	$select3="Prestamo";
 	}
 	if($_REQUEST['select3']=="2"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L236', "Arrendamiento");
 	$objPHPExcel->getActiveSheet()->setCellValue('W236', "2");
-	$select3="";
+	$select3="Arrendamiento";
 	}
 	if($_REQUEST['select3']=="3"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L236', "Otros");
 	$objPHPExcel->getActiveSheet()->setCellValue('W236', "3");
-	$select3="";
+	$select3="Otros";
 	}
 	
 	
 	if($_REQUEST['select4']=="0"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L237', "N/A");
 	$objPHPExcel->getActiveSheet()->setCellValue('W237', "0");
-	$select4="";
+	$select4="N/A";
 	}
 	if($_REQUEST['select4']=="1"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L237', "1 a 2");
 	$objPHPExcel->getActiveSheet()->setCellValue('W237', "1");
-	$select4="";
+	$select4="1 a 2";
 	}
 	if($_REQUEST['select4']=="2"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L237', "3 a 4");
 	$objPHPExcel->getActiveSheet()->setCellValue('W237', "2");
-	$select4="";
+	$select4="3 a 4";
 	}
 	if($_REQUEST['select4']=="3"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L237', "5 o mas");
 	$objPHPExcel->getActiveSheet()->setCellValue('W237', "3");
-	$select4="";
+	$select4="5 o mas";
 	}
 	
 	
 	if($_REQUEST['select5']=="0"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L238', "N/A");
 	$objPHPExcel->getActiveSheet()->setCellValue('W238', "0");
-	$select5="";
+	$select5="N/A";
 	}
 	if($_REQUEST['select5']=="1"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L238', "1 a 2");
 	$objPHPExcel->getActiveSheet()->setCellValue('W238', "1");
-	$select5="";
+	$select5="1 a 2";
 	}
 	if($_REQUEST['select5']=="2"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L238', "3 a 4");
 	$objPHPExcel->getActiveSheet()->setCellValue('W238', "2");
-	$select5="";
+	$select5="3 a 4";
 	}
 	if($_REQUEST['select5']=="3"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L238', "5 o mas");
 	$objPHPExcel->getActiveSheet()->setCellValue('W238', "3");
-	$select5="";
+	$select5="5 o mas";
 	}
 	
 	
 	if($_REQUEST['select6']=="1"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L239', "1% - 49%");
 	$objPHPExcel->getActiveSheet()->setCellValue('W239', "1");
-	$select6="";
+	$select6="1% - 49%";
 	}
 	if($_REQUEST['select6']=="2"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L239', "50% - 74%");
 	$objPHPExcel->getActiveSheet()->setCellValue('W239', "2");
-	$select6="";
+	$select6="50% - 74%";
 	}
 	if($_REQUEST['select6']=="3"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L239', "75% - 100%");
 	$objPHPExcel->getActiveSheet()->setCellValue('W239', "3");
-	$select6="";
+	$select6="75% - 100%";
 	}
 	
 	
 	if($_REQUEST['select7']=="1"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L240', "1% - 49%");
 	$objPHPExcel->getActiveSheet()->setCellValue('W240', "1");
-	$select7="";
+	$select7="1% - 49%";
 	}
 	if($_REQUEST['select7']=="2"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L240', "50% - 74%");
 	$objPHPExcel->getActiveSheet()->setCellValue('W240', "2");
-	$select7="";
+	$select7="50% - 74%";
 	}
 	if($_REQUEST['select7']=="3"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L240', "75% - 100%");
 	$objPHPExcel->getActiveSheet()->setCellValue('W240', "3");
-	$select7="";
+	$select7="75% - 100%";
 	}
 	
 	
 	if($_REQUEST['select8']=="1"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L241', "$18000 - $20000");
 	$objPHPExcel->getActiveSheet()->setCellValue('W241', "1");
-	$select8="";
+	$select8="$18000 - $20000";
 	}
 	if($_REQUEST['select8']=="2"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L241', "$21000 - $25000");
 	$objPHPExcel->getActiveSheet()->setCellValue('W241', "2");
-	$select8="";
+	$select8="$21000 - $25000";
 	}
 	if($_REQUEST['select8']=="3"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L241', "mas de $25000");
 	$objPHPExcel->getActiveSheet()->setCellValue('W241', "3");
-	$select8="";
+	$select8="mas de $25000";
 	}
 	
 	
 	if($_REQUEST['select9']=="1"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L242', "1 a 3");
 	$objPHPExcel->getActiveSheet()->setCellValue('W242', "1");
-	$select9="";
+	$select9="1 a 3";
 	}
 	if($_REQUEST['select9']=="2"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L242', "4 a 6");
 	$objPHPExcel->getActiveSheet()->setCellValue('W242', "2");
-	$select9="";
+	$select9="4 a 6";
 	}
 	if($_REQUEST['select9']=="3"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L242', "7 a 10");
 	$objPHPExcel->getActiveSheet()->setCellValue('W242', "3");
-	$select9="";
+	$select9="7 a 10";
 	}
 	
 	
 	if($_REQUEST['select10']=="1"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L243', "Transferencia");
 	$objPHPExcel->getActiveSheet()->setCellValue('W243', "1");
-	$select10="";
+	$select10="Transferencia";
 	}
 	if($_REQUEST['select10']=="2"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L243', "Cheque");
 	$objPHPExcel->getActiveSheet()->setCellValue('W243', "2");
-	$select10="";
+	$select10="Cheque";
 	}
 	if($_REQUEST['select10']=="3"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L243', "Efectivo");
 	$objPHPExcel->getActiveSheet()->setCellValue('W243', "3");
-	$select10="";
+	$select10="Efectivo";
 	}
 	
 	
@@ -1254,118 +1256,118 @@ $objDrawing->setWorksheet($objPHPExcel->getActiveSheet());
 	if($_REQUEST['select11']=="1"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L244', "Agencia");
 	$objPHPExcel->getActiveSheet()->setCellValue('W244', "1");
-	$select11="";
+	$select11="Agencia";
 	}
 	if($_REQUEST['select11']=="2"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L244', "Internet");
 	$objPHPExcel->getActiveSheet()->setCellValue('W244', "2");
-	$select11="";
+	$select11="Internet";
 	}
 	if($_REQUEST['select11']=="3"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L244', "Otro");
 	$objPHPExcel->getActiveSheet()->setCellValue('W244', "3");
-	$select11="";
+	$select11="Otro";
 	}
 	
 	
 	if($_REQUEST['select12']=="1"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L245', "México");
 	$objPHPExcel->getActiveSheet()->setCellValue('W245', "1");
-	$select12="";
+	$select12="México";
 	}
 	if($_REQUEST['select12']=="2"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L245', "Otros");
 	$objPHPExcel->getActiveSheet()->setCellValue('W245', "2");
-	$select12="";
+	$select12="Otros";
 	}
 	if($_REQUEST['select12']=="3"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L245', "Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar");
 	$objPHPExcel->getActiveSheet()->setCellValue('W245', "3");
-	$select12="";
+	$select12="Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar";
 	}
 	
 	
 	if($_REQUEST['select13']=="1"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L246', "Puebla-Coahuila-Zcatecas-Hidalgo-Durango");
 	$objPHPExcel->getActiveSheet()->setCellValue('W246', "1");
-	$select13="";
+	$select13="Puebla-Coahuila-Zcatecas-Hidalgo-Durango";
 	}
 	if($_REQUEST['select13']=="2"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L246', "Durango-Chihuhua-Jalisco-México-CD México-Sonora");
 	$objPHPExcel->getActiveSheet()->setCellValue('W246', "2");
-	$select13="";
+	$select13="Durango-Chihuhua-Jalisco-México-CD México-Sonora";
 	}
 	if($_REQUEST['select13']=="3"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L246', "Guerrero-Michoacan-Tamaulipas-Morelos");
 	$objPHPExcel->getActiveSheet()->setCellValue('W246', "3");
-	$select13="";
+	$select13="Guerrero-Michoacan-Tamaulipas-Morelos";
 	}
 	
 	if($_REQUEST['select14']=="1"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L247', "Puebla-Coahuila-Zcatecas-Hidalgo-Durango");
 	$objPHPExcel->getActiveSheet()->setCellValue('W247', "1");
-	$select14="";
+	$select14="Puebla-Coahuila-Zcatecas-Hidalgo-Durango";
 	}
 	if($_REQUEST['select14']=="2"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L247', "Durango-Chihuhua-Jalisco-México-CD México-Sonora");
 	$objPHPExcel->getActiveSheet()->setCellValue('W247', "2");
-	$select14="";
+	$select14="Durango-Chihuhua-Jalisco-México-CD México-Sonora";
 	}
 	if($_REQUEST['select14']=="3"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L247', "Guerrero-Michoacan-Tamaulipas-Morelos");
 	$objPHPExcel->getActiveSheet()->setCellValue('W247', "3");
-	$select14="";
+	$select14="Guerrero-Michoacan-Tamaulipas-Morelos";
 	}
 	
 	
 	if($_REQUEST['select15']=="1"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L248', "México");
 	$objPHPExcel->getActiveSheet()->setCellValue('W248', "1");
-	$select15="";
+	$select15="México";
 	}
 	if($_REQUEST['select15']=="2"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L248', "Otros");
 	$objPHPExcel->getActiveSheet()->setCellValue('W248', "2");
-	$select15="";
+	$select15="Otros";
 	}
 	if($_REQUEST['select15']=="3"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L248', "Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar");
 	$objPHPExcel->getActiveSheet()->setCellValue('W248', "3");
-	$select15="";
+	$select15="Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar";
 	}
 	
 	
 	if($_REQUEST['select16']=="1"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L249', "México");
 	$objPHPExcel->getActiveSheet()->setCellValue('W249', "1");
-	$select16="";
+	$select16="México";
 	}
 	if($_REQUEST['select16']=="2"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L249', "Otros");
 	$objPHPExcel->getActiveSheet()->setCellValue('W249', "2");
-	$select16="";
+	$select16="Otros";
 	}
 	if($_REQUEST['select16']=="3"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L249', "Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar");
 	$objPHPExcel->getActiveSheet()->setCellValue('W249', "3");
-	$select16="";
+	$select16="Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar";
 	}
 	
 	
 	if($_REQUEST['select17']=="1"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L250', "México");
 	$objPHPExcel->getActiveSheet()->setCellValue('W250', "1");
-	$select17="";
+	$select17="México";
 	}
 	if($_REQUEST['select17']=="2"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L250', "Otros");
 	$objPHPExcel->getActiveSheet()->setCellValue('W250', "2");
-	$select17="";
+	$select17="Otros";
 	}
 	if($_REQUEST['select17']=="3"){
 	$objPHPExcel->getActiveSheet()->setCellValue('L250', "Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar");
 	$objPHPExcel->getActiveSheet()->setCellValue('W250', "3");
-	$select17="";
+	$select17="Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar";
 	}
 	
 	
@@ -1445,20 +1447,6 @@ $objDrawing->setWorksheet($objPHPExcel->getActiveSheet());
 	
 	$objPHPExcel->getActiveSheet()->setCellValue('L397', $_REQUEST['textfield43']);
 	$objPHPExcel->getActiveSheet()->setCellValue('L398', $_REQUEST['textfield44']);
-	
-	if($_REQUEST['copias']=="1"){
-	$objPHPExcel->getActiveSheet()->setCellValue('AC394', "P");
-	}
-	if($_REQUEST['copias']=="2"){
-	$objPHPExcel->getActiveSheet()->setCellValue('AG394', "P");
-	}
-	
-	if($_REQUEST['cotejo']=="1"){
-	$objPHPExcel->getActiveSheet()->setCellValue('AC397', "P");
-	}
-	if($_REQUEST['cotejo']=="2"){
-	$objPHPExcel->getActiveSheet()->setCellValue('Ag397', "P");
-	}
 	
 	
 	if($_REQUEST['adjuntos1']=="1"){
@@ -1542,13 +1530,13 @@ $objDrawing->setWorksheet($objPHPExcel->getActiveSheet());
 	$objPHPExcel->getActiveSheet()->setCellValue('J512', $_REQUEST['textfield92']);
 	
 	
-	if(isset($_REQUEST['PEPS'])=="1"){
+	if($_REQUEST['PEPS']=="1"){
 	$objPHPExcel->getActiveSheet()->setCellValue('V579', "P");
 	$objPHPExcel->getActiveSheet()->setCellValue('G583', $_REQUEST['textfield93']);
 	$objPHPExcel->getActiveSheet()->setCellValue('AE583', $_REQUEST['textfield94']);
 	$objPHPExcel->getActiveSheet()->setCellValue('G585', $_REQUEST['textfield95']);
 	}
-	if(isset($_REQUEST['PEPS'])=="2"){
+	if($_REQUEST['PEPS']=="2"){
 	$objPHPExcel->getActiveSheet()->setCellValue('AA579', "P");
 	}
 
@@ -1557,9 +1545,9 @@ $objDrawing->setWorksheet($objPHPExcel->getActiveSheet());
 	
 	include("Conexion2.php");
 	
-	$row=mysqli_fetch_Array(mysqli_query($cnx,"select max(id)+1 from solicitudes"));
+
 	
-	$objPHPExcel->getActiveSheet()->setCellValue('At3', $row['max(id)+1']);
+	
 	
 	$TipoCredito="";
 	if($tipocredito=="1"){
@@ -1761,44 +1749,44 @@ $RFCSolicitante.=$rfc1.$rfc2.$rfc3.$rfc4.$rfc5.$rfc6.$rfc7.$rfc8.$rfc9.$rfc10.$r
 	if($INESolicitante!=""){
 		if($_REQUEST['copias']=="1"){
 			$copias="Si";
-			$objPHPExcel->getActiveSheet()->setCellValue('AD321', "P");
+			$objPHPExcel->getActiveSheet()->setCellValue('AC393', "P");
 		}
 		if($_REQUEST['copias']=="2"){
 			$copias="No";
-			$objPHPExcel->getActiveSheet()->setCellValue('AH321', "P");
+			$objPHPExcel->getActiveSheet()->setCellValue('AG393', "P");
 		}
 	}
 	$Pasaporte_o_CedulaProfSolicitante=$_REQUEST['textfield40'];
 	if($Pasaporte_o_CedulaProfSolicitante!=""){
 		if($_REQUEST['copias2']=="1"){
 			$copias2="Si";
-			$objPHPExcel->getActiveSheet()->setCellValue('AD322', "P");
+			$objPHPExcel->getActiveSheet()->setCellValue('AC394', "P");
 		}
 		if($_REQUEST['copias2']=="2"){
 			$copias2="No";
-			$objPHPExcel->getActiveSheet()->setCellValue('AD322', "P");
+			$objPHPExcel->getActiveSheet()->setCellValue('AG394', "P");
 		}
 	}
 	$CartillaMilitarSolicitante=$_REQUEST['textfield41'];
 	if($CartillaMilitarSolicitante!=""){
 		if($_REQUEST['copias3']=="1"){
 			$copias3="Si";
-			$objPHPExcel->getActiveSheet()->setCellValue('AD323', "P");
+			$objPHPExcel->getActiveSheet()->setCellValue('AC395', "P");
 		}
 		if($_REQUEST['copias3']=="2"){
 			$copias3="No";
-			$objPHPExcel->getActiveSheet()->setCellValue('AD323', "P");
+			$objPHPExcel->getActiveSheet()->setCellValue('AG395', "P");
 		}
 	}
 	$LicenciaConducirSolicitante=$_REQUEST['textfield42'];
 	if($LicenciaConducirSolicitante!=""){
 		if($_REQUEST['copias4']=="1"){
 			$copias4="Si";
-			$objPHPExcel->getActiveSheet()->setCellValue('AD324', "P");
+			$objPHPExcel->getActiveSheet()->setCellValue('AC396', "P");
 		}
 		if($_REQUEST['copias4']=="2"){
 			$copias4="No";
-			$objPHPExcel->getActiveSheet()->setCellValue('AD324', "P");
+			$objPHPExcel->getActiveSheet()->setCellValue('AG396', "P");
 		}
 	}
 	$OtraIdentSolicitante=$_REQUEST['textfield43'];
@@ -1806,11 +1794,11 @@ $RFCSolicitante.=$rfc1.$rfc2.$rfc3.$rfc4.$rfc5.$rfc6.$rfc7.$rfc8.$rfc9.$rfc10.$r
 	if($OtraIdentSolicitante!=""){
 		if($_REQUEST['copias5']=="1"){
 			$copias5="Si";
-			$objPHPExcel->getActiveSheet()->setCellValue('AD325', "P");
+			$objPHPExcel->getActiveSheet()->setCellValue('AC397', "P");
 		}
 		if($_REQUEST['copias5']=="2"){
 			$copias5="No";
-			$objPHPExcel->getActiveSheet()->setCellValue('AD325', "P");
+			$objPHPExcel->getActiveSheet()->setCellValue('AG397', "P");
 		}
 		$EspIdentSolicitante=$_REQUEST['textfield44'];
 	}
@@ -1818,11 +1806,11 @@ $RFCSolicitante.=$rfc1.$rfc2.$rfc3.$rfc4.$rfc5.$rfc6.$rfc7.$rfc8.$rfc9.$rfc10.$r
 	if($LicenciaConducirSolicitante!="" || $OtraIdentSolicitante!="" || $CartillaMilitarSolicitante!="" || $Pasaporte_o_CedulaProfSolicitante!="" || $INESolicitante!=""){
 		if($_REQUEST['cotejo']=="1"){
 			$cotejo="Si";
-			$objPHPExcel->getActiveSheet()->setCellValue('AD326', "P");
+			$objPHPExcel->getActiveSheet()->setCellValue('AC398', "P");
 		}
 		if($_REQUEST['cotejo']=="2"){
 			$cotejo="No";
-			$objPHPExcel->getActiveSheet()->setCellValue('AD326', "P");
+			$objPHPExcel->getActiveSheet()->setCellValue('AG398', "P");
 		}
 	}
 
@@ -1844,6 +1832,10 @@ $RFCSolicitante.=$rfc1.$rfc2.$rfc3.$rfc4.$rfc5.$rfc6.$rfc7.$rfc8.$rfc9.$rfc10.$r
 		if($_REQUEST['adjuntos3']=="2"){
 			$adjuntos3="No";
 		}
+
+		$fechaComprobante=$_REQUEST['fechaComprobante'];
+		$objPHPExcel->getActiveSheet()->setCellValue('T405', $fechaComprobante);
+
 
 	$DomBeneficiario=$_REQUEST['textfield48'];
 	$ColBeneficiario=$_REQUEST['textfield49'];
@@ -1881,6 +1873,7 @@ $RFCSolicitante.=$rfc1.$rfc2.$rfc3.$rfc4.$rfc5.$rfc6.$rfc7.$rfc8.$rfc9.$rfc10.$r
 	$PerTrans9=$_REQUEST['textfield81'];
 	$FuentePerTrans9=$_REQUEST['textfield82'];
 	$PerTrans10=$_REQUEST['textfield83'];
+	$totalIngreso=$PerTrans1+$PerTrans2+$PerTrans3+$PerTrans4+$PerTrans5+$PerTrans6+$PerTrans7+$PerTrans8+$PerTrans9+$PerTrans10;
 	$FuentePerTrans10=$_REQUEST['textfield84'];
 	$ValorAuto=$_REQUEST['textfield86'];
 	$EngAutomovil=$_REQUEST['textfield87'];
@@ -1913,257 +1906,33 @@ $RFCSolicitante.=$rfc1.$rfc2.$rfc3.$rfc4.$rfc5.$rfc6.$rfc7.$rfc8.$rfc9.$rfc10.$r
 	if($cliente==""){
 		//mysqli_query($cnx,"insert into clientes (id,Nombre,RFC,Tel,Cel,Direccion,Numero,Email,Colonia,Ciudad,LugNacimiento,Estado,CP,CURP,Sexo,Nacimiento,Edad,Nacionalidad,Dependientes,AcreDom,Vivienda,Inmueble,AnResidirCD,ArraigoDomicilio,Beneficiario,EstadoCivil,AutoPropio,PuestoEmpleo,DepartamentoEmpleo,Desdean,Empresa,TelEmpleo,ExtensionEmpleo,TipoCliente) values ('null','$NomSolicitante','$RFCSolicitante','$TelSolicitante','$MovSolicitante','$dirsol','$numeroDirSol','$mailsol','$colsol','$cdsol','$lugnacsol','$edosol','$cpsol','$curpsol','$SexoDatGen','$FeNacDatGen','$edsol','$nacsol','$depensol','$acdomsol','$VivDatGen','$PropInmuDatGen','$anosol2','$arraisol','$benesol','$EstCivDatGen','$AuPropDatGen','$depasol','','$desdesol3','$compasol','$TelDatEmp','$compatelsolext','PFNA')");
 
-		mysqli_query($cnx,"insert into pfna (NomSolicitante,SegNomSolicitante,ApPatSolicitante,ApMatSolicitante,RFCSolicitante,TelSolicitante,MovSolicitante,DirSolicitante,NumDirSol,ColSolicitante,CdSolicitante,LugNacSolicitante,EdoSolicitante,MunicipioSolicitante,CPSolicitante,CURPSolicitante,EmailSolicitante,SexoDatGen,FeNacDatGen,EdDatGen,NaDatGen,NoDepDatGen,AcDomDatGen,VivDatGen,OtrDatGen,PropInmuDatGen,ArDomDatGen,AnResDatGen,NomBenDatGen,ApPatBenDatGen,ApMatBenDatGen,EstCivDatGen,AuPropDatGen,MarDatGen,PuestDatEmp,DepDatEmp,DesAnDatEmp,CompDatEmp,TelDatEmp,ExtDatEmp,DomicilioLaboral,NumSerieFIEL,SueldoSolicitante,ActEcoAdicional,IngAdMensualAprox,Ocupacion_Profesion) values('$nomsol','$segnomsol','$apepasol','$apemasol','$RFCSolicitante','$TelSolicitante','$MovSolicitante','$dirsol','$numeroDirSol','$colsol','$cdsol','$lugnacsol','$edosol','$municipioSol','$cpsol','$curpsol','$mailsol','$SexoDatGen','$FeNacDatGen','$edsol','$nacsol','$depensol','$acdomsol','$VivDatGen','$OtrvivDatGen','$PropInmuDatGen','$arraisol','$anosol','$benesol','$benesol2','$benesol3','$EstCivDatGen','$AuPropDatGen','$MarDatGen','$puestosol','$depasol','$desdesol','$compasol','$TelDatEmp','$compatelsolext','$domicilioLaboral','$numSerieFiel','$SueldoSolicitante','$ActividadAdicional','$IngAdMensualAprox','$Ocupacion_Profesion');");
+		mysqli_query($cnx,"insert into pfna (NomSolicitante,SegNomSolicitante,ApPatSolicitante,ApMatSolicitante,RFCSolicitante,TelSolicitante,MovSolicitante,DirSolicitante,NumDirSol,ColSolicitante,CdSolicitante,LugNacSolicitante,EdoSolicitante,MunicipioSolicitante,CPSolicitante,CURPSolicitante,EmailSolicitante,SexoDatGen,FeNacDatGen,EdDatGen,NaDatGen,NoDepDatGen,AcDomDatGen,VivDatGen,ImpMenDatGen,PropInmuDatGen,ArDomDatGen,AnResDatGen,NomBenDatGen,ApPatBenDatGen,ApMatBenDatGen,EstCivDatGen,AuPropDatGen,MarDatGen,PuestDatEmp,DesAnDatEmp,CompDatEmp,TelDatEmp,ExtDatEmp,DomicilioLaboral,NumSerieFIEL,SueldoSolicitante,ActEcoAdicional,IngAdMensualAprox,Ocupacion_Profesion,FaxSolicitante,GiroDatEmp) values('$nomsol','$segnomsol','$apepasol','$apemasol','$RFCSolicitante','$TelSolicitante','$MovSolicitante','$dirsol','$numeroDirSol','$colsol','$cdsol','$lugnacsol','$edosol','$municipioSol','$cpsol','$curpsol','$mailsol','$SexoDatGen','$FeNacDatGen','$edsol','$nacsol','$depensol','$acdomsol','$VivDatGen','$impmenpag','$PropInmuDatGen','$arraisol','$anosol2','$benesol3','$benesol1','$benesol2','$EstCivDatGen','$AuPropDatGen','$MarDatGen','$depasol','$DesAnDatEmp','$compasol','$TelDatEmp','$compatelsolext','$domicilioLaboral','$numSerieFiel','$SueldoSolicitante','$ActividadAdicional','$IngAdMensualAprox','$giroprof','$MovSolicitante','$giroactreal');");
 		
+		$id_pfnaRequest=mysqli_fetch_array(mysqli_query($cnx,"select LAST_INSERT_ID()"));							 
+		$id_pfna=$id_pfnaRequest['LAST_INSERT_ID()'];
+		$folio_request=mysqli_fetch_array(mysqli_query($cnx,"select Folio_Cliente from pfna where Id='$id_pfna'"));
+		$Folio_Cliente=$folio_request['Folio_Cliente'];
+		mysqli_query($cnx,"insert into registro (Folio_Cliente,Fecha_apertura) values('$Folio_Cliente',CURDATE());");
+		mysqli_query($cnx,"insert into solicitudpfna (Folio_Cliente,TipoCredito,NomRefPer,ParenRefPer,TelRefPer,NomRefPer2,ParenRefPer2,TelRefPer2,BancRefBan,NoTarRefBan,SucRefBan,FecApRefBan,BancRefBan2,NoTarRefBan2,SucRefBan2,FecApRefBan2,EmpRefCom,AntRefCom,TelRefCom,EmpRefCom2,AntRefCom2,TelRefCom2,BancCarDir,NoTarCarDir,NomDatCon,ApPatDatCon,ApMatDatCon,CompDatCon,PuestDatCon,NomObPerMor,DirObPerMor,ColObPerMor,CdObPerMor,LugNacObPerMor,EdoObPerMor,CPObPerMor,RFCObPerMor,TelObPerMor,FaxObPerMor,AntConsEmpPM,ApoConsEmpPM,ActPrinDatGen,IniOpDatGen,CantPerDatGen,NomObSol,ApPatObSol,ApMatObSol,RFCObSol,TelObSol,MovObSol,DirObSol,ColObSol,CdObSol,LugNacObSol,PropObSol,EdoObSol,CPObSol,EmailObSol,SexoObSol,FeNacObSol,EdObSol,CURPObSol,NomObSol2,ApPatObSol2,ApMatObSol2,RFCObSol2,TelObSol2,MovObSol2,DirObSol2,ColObSol2,CdObSol2,LugNacObSol2,PropObSol2,EdoObSol2,CPObSol2,EmailObSol2,SexoObSol2,FeNacObSol2,EdObSol2,CURPObSol2,Fecha,ClavConcesionario,NomConcesionario,NomVendedor,NomGerenteGral,Status) values ('$Folio_Cliente','$TipoCredito','$nomref1','$parenref1','$TelRefPer','$nomref2','$parenref2','$TelRefPer2','$refbanc','$numcuebanc','$sucbanc1','$FecApRefBan','$refbanc2','$tarjrefbanc','$sucbanc2','$FecApRefBan2','$refcomemp1','$antirefcom1','$TelRefCom','$refcomemp2','$antirefcom2','$TelRefCom2','$cargdir','$nocuentcd','$conyunom','$conyuape1','$conyuape2','$compaconyu','$puestconyu','$nomrazsoc','$dirpermor','$colpermor','$cdpermor','$lugnacpermor','$edopermor','$cppremor','$RFCObPerMor','$TelObPerMor','$FaxObPerMor','$antemp','$apodsusc','$actprinc','$IniOpDatGen','$cantperson','$datobnom1','$datobappat1','$datobapmat1','$RFCObSol','$TelObSol','$MovObSol','$datobdir1','$datobcol1','$datobcd1','$datoblugnac1','$PropObSol','$datobedo1','$datobcp1','$datobmail1','$SexoObSol','$FeNacObSol','$datobed1','$datobcurp1','$datobnom2','$datobappat2','$datobapmat2','$RFCObSol2','$TelObSol2','$MovObSol2','$datobdir2','$datobcol2','$datobcd2','$datoblugnac2','$PropObSol2','$datobedo2','$datobcp2','$datobmail2','$SexoObSol2','$FeNacObSol2','$datobed2','$datobcurp2','$fecha','$clavcon','$nomcons','$nomvend','$gerentegral','Pendiente');");
+
+		$id_solicitudpfnaRequest=mysqli_fetch_array(mysqli_query($cnx,"select LAST_INSERT_ID()"));							 
+		$id_solicitudpfna=$id_solicitudpfnaRequest['LAST_INSERT_ID()'];
+		$folio_solrequest=mysqli_fetch_array(mysqli_query($cnx,"select Folio_Sol from solicitudpfna where Id='$id_solicitudpfna'"));
+		$Folio_Sol=$folio_solrequest['Folio_Sol'];
+
 		
 
+		mysqli_query($cnx,"insert into gradoriesgo (Folio_sol,Folio_Cliente,Antiguedad_ObjetoSocial,Antiguedad_Cliente,Naturaleza_Operaciones,Numero_Beneficiarios,Numero_TercerosRelacionados,PEPs_Relacionados,Alerta_Reputacional,Volumen_Esperado,Frecuencia_Esperada,Instrumento_Monetario,Canales_MediosUtilizados,Pais_EstadoOficial,Pais_EstadoResidencia,Pais_EstadoOperacion,Origen_Recursos,Destino_Recursos,Pais_EstadoResidenciaTerceros,GradoRiesgo,INESolicitante,Adjunta_INESolicitante,Pasaporte_o_CedulaProfSolicitante,Adjunta_Pasaporte_o_CedulaProfSolicitante,CartillaMilitarSolicitante,Adjunta_CartillaMilitarSolicitante,LicenciaConducirSolicitante,Adjunta_LicenciaConducirSolicitante,OtraIdentSolicitante,Adjunta_OtraIdentSolicitante,EspIdentSolicitante,CotejoVsOriginal,Adjunta_CURP_RFC_FEA,Adjunta_ComprobanteDom,DomicilioCoincideId,DomBeneficiario,ColBeneficiario,CPBeneficiario,PaisBeneficiario,TelBeneficiario,CURPBeneficiario,RFCBeneficiario,ParentescoBeneficiario,PorcientoBeneficiario,FeNacBeneficiario,MunBeneficiario,EdoBeneficiario,EdoCivilBeneficiario,SoConBeneficiario,OcuProfBeneficiario,PEPSBeneficiario,OrigenRecBeneficiario,PerTrans1,FuentePerTrans1,PerTrans2,FuentePerTrans2,PerTrans3,FuentePerTrans3,PerTrans4,FuentePerTrans4,PerTrans5,FuentePerTrans5,PerTrans6,FuentePerTrans6,PerTrans7,FuentePerTrans7,PerTrans8,FuentePerTrans8,PerTrans9,FuentePerTrans9,PerTrans10,FuentePerTrans10,TotalIngreso,ValorAuto,EngAutomovil,PorEnganche,PorFinanciamiento,MontoFinanciado,Plazo,PagoMensEsp,PEPS,NombrePEPS,ParentescoPEPS,PuestoPEPS) values ('$Folio_Sol','$Folio_Cliente','$select','$select2','$select3','$select4','$select5','$select6','$select7','$select8','$select9','$select10','$select11','$select12','$select13','$select14','$select15','$select16','$select17','$GradoRiesgo','$INESolicitante','$copias','$Pasaporte_o_CedulaProfSolicitante','$copias2','$CartillaMilitarSolicitante','$copias3','$LicenciaConducirSolicitante','$copias4','$OtraIdentSolicitante','$copias5','$EspIdentSolicitante','$cotejo','$adjuntos1','$adjuntos2','$adjuntos3','$DomBeneficiario','$ColBeneficiario','$CPBeneficiario','$PaisBeneficiario','$TelBeneficiario','$CURPBeneficiario','$RFCBeneficiario','$ParentescoBeneficiario','$PorcientoBeneficiario','$FeNacBeneficiario','$MunBeneficiario','$EdoBeneficiario','$EdoCivilBeneficiario','$SoConBeneficiario','$OcuProfBeneficiario','$PEPSBeneficiario','$OrigenRecBeneficiario','$PerTrans1','$FuentePerTrans1','$PerTrans2','$FuentePerTrans2','$PerTrans3','$FuentePerTrans3','$PerTrans4','$FuentePerTrans4','$PerTrans5','$FuentePerTrans5','$PerTrans6','$FuentePerTrans6','$PerTrans7','$FuentePerTrans7','$PerTrans8','$FuentePerTrans8','$PerTrans9','$FuentePerTrans9','$PerTrans10','$FuentePerTrans10','$totalIngreso','$ValorAuto','$EngAutomovil','$PorEnganche','$PorFinanciamiento','$MontoFinanciado','$Plazo','$PagoMensEsp','$PEPS','$NombrePEPS','$ParentescoPEPS','$PuestoPEPS');");
 
-		$result=mysqli_query($cnx,"select MAX(id) AS id FROM clientes");
-		$row=mysqli_fetch_array($result);
-		$Cliente=$row['id'];
-		mysqli_query($cnx,"insert into solicitudes (Cliente,
-	TipoCredito,
-	NomSolicitante,
-	RFCSolicitante,
-	TelSolicitante,
-	MovSolicitante,
-	DirSolicitante,
-	ColSolicitante,
-	CdSolicitante,
-	LugNacSolicitante,
-	EdoSolicitante,
-	CPSolicitante,
-	CURPSolicitante,
-	EmailSolicitante,
-	FaxSolicitante,
-	SexoDatGen,
-	FeNacDatGen,
-	EdDatGen,
-	NaDatGen,
-	NoDepDatGen,
-	AcDomDatGen,
-	VivDatGen,
-	ImpMenDatGen,
-	PropInmuDatGen,
-	ArDomDatGen,
-	AnResDatGen,
-	BenDatGen,
-	EstCivDatGen,
-	AuPropDatGen,
-	MarDatGen,
-	OcupDatEmp,
-	PuestDatEmp,
-	DesAnDatEmp,
-	CompDatEmp,
-	TelDatEmp,
-	NoEmDatEmp,
-	ExtDatEmp,
-	GiroDatEmp,
-	DomDatEmp,
-	NomRefPer,
-	ParenRefPer,
-	TelRefPer,
-	NomRefPer2,
-	ParenRefPer2,
-	TelRefPer2,
-	BancRefBan,
-	NoTarRefBan,
-	BancRefBan2,
-	NoTarRefBan2,
-	SucRefBan,
-	SucRefBan2,
-	FecApRefBan,
-	FecApRefBan2,
-	EmpRefCom,
-	AntRefCom,
-	TelRefCom,
-	EmpRefCom2,
-	AntRefCom2,
-	TelRefCom2,
-	BancCarDir,
-	NoTarCarDir,
-	NomDatCon,
-	CompDatCon,
-	PuestDatCon,
-	NomObPerMor,
-	DirObPerMor,
-	ColObPerMor,
-	CdObPerMor,
-	LugNacObPerMor,
-	EdoObPerMor,
-	CPObPerMor,
-	RFCObPerMor,
-	TelObPerMor,
-	FaxObPerMor,
-	AntConsEmpPM,
-	ApoConsEmpPM,
-	ActPrinDatGen,
-	IniOpDatGen,
-	CantPerDatGen,
-	NomObSol,
-	RFCObSol,
-	TelObSol,
-	MovObSol,
-	DirObSol,
-	ColObSol,
-	CdObSol,
-	LugNacObSol,
-	PropObSol,
-	EdoObSol,
-	CPObSol,
-	EmailObSol,
-	SexoObSol,
-	FeNacObSol,
-	EdObSol,
-	CURPObSol,
-	NomObSol2,
-	RFCObSol2,
-	TelObSol2,
-	MovObSol2,
-	DirObSol2,
-	ColObSol2,
-	CdObSol2,
-	LugNacObSol2,
-	PropObSol2,
-	EdoObSol2,
-	CPObSol2,
-	EmailObSol2,
-	SexoObSol2,
-	FeNacObSol2,
-	EdObSol2,
-	CURPObSol2,
-	Fecha,
-	ClavConcesionario,
-	NomConcesionario,
-	NomVendedor,
-	NomGerenteGral,
-	StatusSolicitud,TipoSolicitud,NumDirSol,MunicipioSolicitante,NumSerieFIEL,DomicilioLaboral,SueldoSolicitante,ActEcoAdicional,IngAdMensualAprox,INESolicitante,Adjunta_INESolicitante,Pasaporte_o_CedulaProfSolicitante,Adjunta_Pasaporte_o_CedulaProfSolicitante,CartillaMilitarSolicitante,Adjunta_CartillaMilitarSolicitante,LicenciaConducirSolicitante,Adjunta_LicenciaConducirSolicitante,OtraIdentSolicitante,Adjunta_OtraIdentSolicitante,EspIdentSolicitante,CotejoVsOriginal,Adjunta_CURP_RFC_FEA,Adjunta_ComprobanteDom,DomicilioCoincideId,DomBeneficiario,ColBeneficiario,CPBeneficiario,PaisBeneficiario,TelBeneficiario,CURPBeneficiario,RFCBeneficiario,ParentescoBeneficiario,PorcientoBeneficiario,FeNacBeneficiario,MunBeneficiario,EdoBeneficiario,EdoCivilBeneficiario,SoConBeneficiario,OcuProfBeneficiario,PEPSBeneficiario,OrigenRecBeneficiario,PerTrans1,FuentePerTrans1,PerTrans2,FuentePerTrans2,PerTrans3,FuentePerTrans3,PerTrans4,FuentePerTrans4,PerTrans5,FuentePerTrans5,PerTrans6,FuentePerTrans6,PerTrans7,FuentePerTrans7,PerTrans8,FuentePerTrans8,PerTrans9,FuentePerTrans9,PerTrans10,FuentePerTrans10,ValorAuto,EngAutomovil,PorEnganche,PorFinanciamiento,MontoFinanciado,Plazo,PagoMensEsp,PEPS,NombrePEPS,ParentescoPEPS,PuestoPEPS,Antiguedad_ObjetoSocial,Antiguedad_Cliente,Naturaleza_Operaciones,Numero_Beneficiarios,Numero_TercerosRelacionados,PEPs_Relacionados,Alerta_Reputacional,Volumen_Esperado,Frecuencia_Esperada,Instrumento_Monetario,Canales_MediosUtilizados,Pais_EstadoOficial,Pais_EstadoResidencia,Pais_EstadoOperacion,Origen_Recursos,Destino_Recursos,Pais_EstadoResidenciaTerceros,GradoRiesgo) 
-	
-	
-	values(
-	'$Cliente',
-	'$TipoCredito',
-	'$NomSolicitante',
-	'$RFCSolicitante',
-	'$TelSolicitante',
-	'$MovSolicitante',
-	'$dirsol',
-	'$colsol',
-	'$cdsol',
-	'$lugnacsol',
-	'$edosol',
-	'$cpsol',
-	'$curpsol',
-	'$mailsol',
-	'$FaxSolicitante',
-	'$SexoDatGen',
-	'$FeNacDatGen',
-	'$edsol',
-	'$nacsol',
-	'$depensol',
-	'$acdomsol',
-	'$VivDatGen',
-	'$impmenpag',
-	'$PropInmuDatGen',
-	'$arraisol',
-	'$anosol2',
-	'$benesol',
-	'$EstCivDatGen',
-	'$AuPropDatGen',
-	'$MarDatGen',
-	'$giroprof',
-	'$depasol',
-	'$DesAnDatEmp',
-	'$compasol',
-	'$TelDatEmp',
-	'$noempleados',
-	'$compatelsolext',
-	'$giroactreal',
-	'$domneg',
-	'$nomref1',
-	'$parenref1',
-	'$TelRefPer',
-	'$nomref2',
-	'$parenref2',
-	'$TelRefPer2',
-	'$refbanc',
-	'$numcuebanc',
-	'$refbanc2',
-	'$tarjrefbanc',
-	'$sucbanc1',
-	'$sucbanc2',
-	'$FecApRefBan',
-	'$FecApRefBan2',
-	'$refcomemp1',
-	'$antirefcom1',
-	'$TelRefCom',
-	'$refcomemp2',
-	'$antirefcom2',
-	'$TelRefCom2',
-	'$cargdir',
-	'$nocuentcd',
-	'$NomDatCon',
-	'$compaconyu',
-	'$puestconyu',
-	'$nomrazsoc',
-	'$dirpermor',
-	'$colpermor',
-	'$cdpermor',
-	'$lugnacpermor',
-	'$edopermor',
-	'$cppremor',
-	'$RFCObPerMor',
-	'$TelObPerMor',
-	'$FaxObPerMor',
-	'$antemp',
-	'$apodsusc',
-	'$actprinc',
-	'$IniOpDatGen',
-	'$cantperson',
-	'$NomObSol',
-	'$RFCObSol',
-	'$TelObSol',
-	'$MovObSol',
-	'$datobdir1',
-	'$datobcol1',
-	'$datobcd1',
-	'$datoblugnac1',
-	'$PropObSol',
-	'$datobedo1',
-	'$datobcp1',
-	'$datobmail1',
-	'$SexoObSol',
-	'$FeNacObSol',
-	'$datobed1',
-	'$datobcurp1',
-	'$NomObSol2',
-	'$RFCObSol2',
-	'$TelObSol2',
-	'$MovObSol2',
-	'$datobdir2',
-	'$datobcol2',
-	'$datobcd2',
-	'$datoblugnac2',
-	'$PropObSol2',
-	'$datobedo2',
-	'$datobcp2',
-	'$datobmail2',
-	'$SexoObSol2',
-	'$FeNacObSol2',
-	'$datobed2',
-	'$datobcurp2',
-	now(),
-	'$clavcon',
-	'$nomcons',
-	'$nomvend',
-	'$gerentegral',
-	'Pendiente','PFNA','$numeroDirSol','$municipioSol','$numSerieFiel','$domicilioLaboral','$SueldoSolicitante','$ActividadAdicional','$IngAdMensualAprox','$INESolicitante','$copias','$Pasaporte_o_CedulaProfSolicitante','$copias2','$CartillaMilitarSolicitante','$copias3','$LicenciaConducirSolicitante','$copias4','$OtraIdentSolicitante','$copias5','$EspIdentSolicitante','$cotejo','$adjuntos1','$adjuntos2','$adjuntos3','$DomBeneficiario','$ColBeneficiario','$CPBeneficiario','$PaisBeneficiario','$TelBeneficiario','$CURPBeneficiario','$RFCBeneficiario','$ParentescoBeneficiario','$PorcientoBeneficiario','$FeNacBeneficiario','$MunBeneficiario','$EdoBeneficiario','$EdoCivilBeneficiario','$SoConBeneficiario','$OcuProfBeneficiario','$PEPSBeneficiario','$OrigenRecBeneficiario','$PerTrans1','$FuentePerTrans1','$PerTrans2','$FuentePerTrans2','$PerTrans3','$FuentePerTrans3','$PerTrans4','$FuentePerTrans4','$PerTrans5','$FuentePerTrans5','$PerTrans6','$FuentePerTrans6','$PerTrans7','$FuentePerTrans7','$PerTrans8','$FuentePerTrans8','$PerTrans9','$FuentePerTrans9','$PerTrans10','$FuentePerTrans10','$ValorAuto','$EngAutomovil','$PorEnganche','$PorFinanciamiento','$MontoFinanciado','$Plazo','$PagoMensEsp','$PEPS','$NombrePEPS','$ParentescoPEPS','$PuestoPEPS','$select','$select2','$select3','$select4','$select5','$select6','$select7','$select8','$select9','$select10','$select11','$select12','$select13','$select14','$select15','$select16','$select17','$GradoRiesgo')");
-	
-	
+
+
 		
-$objPHPExcel->getActiveSheet()->setCellValue('M7', $Cliente);
-$objPHPExcel->getActiveSheet()->setCellValue('AF312', $Cliente);
-$objPHPExcel->getActiveSheet()->setCellValue('I222', $Cliente);
+		
+		
+$objPHPExcel->getActiveSheet()->setCellValue('M7', $Folio_Cliente);
+$objPHPExcel->getActiveSheet()->setCellValue('AF312', $Folio_Cliente);
+$objPHPExcel->getActiveSheet()->setCellValue('I222', $Folio_Cliente);
+$objPHPExcel->getActiveSheet()->setCellValue('At3', $Folio_Sol);
 
 	}else {
 		mysqli_query($cnx,"insert into solicitudes (Cliente,

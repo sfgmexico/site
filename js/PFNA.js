@@ -265,19 +265,75 @@ function validaEmail(email) {
 }
 
 
-function BuscaInfo(){
-     if(document.getElementById("nomsol").value != "" && document.getElementById("segnomsol").value !="" && document.getElementById("apepasol").value !="" && document.getElementById("apemasol").value !="")  {
-        var nombreabuscar = document.getElementById("nomsol").value+' '+document.getElementById("segnomsol").value+' '+document.getElementById("apepasol").value+' '+document.getElementById("apemasol").value;
-        
-        
-        window.location.href='ObtenInfo2.php?dato='+nombreabuscar;
-    } else if(document.getElementById("nomsol").value != "" && document.getElementById("apepasol").value !="" && document.getElementById("apemasol").value !=""){
-        var nombreabuscar = document.getElementById("nomsol").value+' '+document.getElementById("apepasol").value+' '+document.getElementById("apemasol").value;
-        
-        
-        window.location.href='ObtenInfo2.php?dato='+nombreabuscar;
-    }
+function obten() {
+     
+var sub = "ObtenInfo.php?dato="+document.getElementById("cliente").value;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
+     if(xmlhttp.responseText!="cliente no encontrado"){
+            $("#htmlext").load("solicitudPFNA.php?cliente="+xmlhttp.responseText);
+            
+        }else{
+            alert(xmlhttp.responseText);
+            document.getElementById("cliente").value="";
+        }
 
-
+      }
+  }
+xmlhttp.open("GET",sub,true);
+xmlhttp.send(null);
 }
 
+function obten2() {
+var sub = "ObtenInfo.php?nombre="+document.getElementById("nomsol").value+"&segundo="+document.getElementById("segnomsol").value+"&paterno="+document.getElementById("apepasol").value+"&materno="+document.getElementById("apemasol").value;
+//var sub = "ObtenInfo2.php?nombre=adrian&segundo=eduardo&paterno=mata&materno=martinez";
+
+
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
+        
+        if(xmlhttp.responseText!="cliente no encontrado"){
+            $("#htmlext").load("solicitudPFNA.php?cliente="+xmlhttp.responseText);
+            
+        }else{
+            alert(xmlhttp.responseText);
+
+        }
+     
+
+      }
+  }
+xmlhttp.open("GET",sub,true);
+xmlhttp.send(null);
+}
+
+function viewButton(){
+
+  if(document.getElementById("nomsol").value!="" && document.getElementById("apepasol").value!=""){
+  
+    document.getElementById("botonAceptar").style.display="block";
+  }else{
+    
+    document.getElementById("botonAceptar").style.display="none";
+  }
+}
