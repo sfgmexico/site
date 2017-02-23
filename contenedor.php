@@ -6,24 +6,39 @@
 
       
   include('Conexion2.php');
-  $result=mysqli_query($cnx,"select * from solicitudpfa where Folio_Sol='$solicitudNo'");
-  $result1=mysqli_query($cnx,"select * from solicitudpfna where Folio_Sol='$solicitudNo'");
-  $result2=mysqli_query($cnx,"select * from solicitudpm where Folio_Sol='$solicitudNo'");
   if (stristr($solicitudNo, 'SA')== TRUE) {
+  $result=mysqli_query($cnx,"select * from solicitudpfa where Folio_Sol='$solicitudNo'");
   $ob=mysqli_fetch_array($result,MYSQL_NUM);
   $cliente=$ob[2];
     $tab=mysqli_query($cnx,"select * from pfa where Folio_cliente='$cliente'");
     
   }
   elseif (stristr($solicitudNo, 'SN')== TRUE) {
+  $result1=mysqli_query($cnx,"select * from solicitudpfna where Folio_Sol='$solicitudNo'");
      $ob=mysqli_fetch_array($result1,MYSQL_NUM);
      $cliente=$ob[2];
        $tab=mysqli_query($cnx,"select * from pfna where Folio_cliente='$cliente'");
   }
     elseif (stristr($solicitudNo, 'SM')== TRUE) {
+  $result2=mysqli_query($cnx,"select * from solicitudpm where Folio_Sol='$solicitudNo'");
      $ob=mysqli_fetch_array($result2,MYSQL_NUM);
 $cliente=$ob[2];
        $tab=mysqli_query($cnx,"select * from pm where Folio_cliente='$cliente'");
+  }
+  elseif (stristr($solicitudNo, 'PFA')== TRUE) {
+   
+      $result=mysqli_query($cnx,"select NomSolicitante,Folio_Sol,Status from solicitudpfa inner join pfa on pfa.Folio_cliente=solicitudpfa.Folio_Cliente where pfa.Folio_Cliente='$solicitudNo' order by solicitudpfa.Id desc");
+echo "<table>
+  <tr><td>Folio de la solicitud</td> <td>Nombre</td> <td>Estatus</td> </tr>
+
+";
+while ($row=mysqli_fetch_array($result,MYSQL_ASSOC)) {
+?>
+   <tr onclick="$('#htmlext').load('contenedor.php?textfield='+this.id);" id="<?php echo $row['Folio_Sol']; ?>" ><td> <?php echo $row['Folio_Sol']; ?> </td> 
+ <td> <?php echo $row['NomSolicitante']; ?> </td>
+ <td class="<?php if($row['Status']=='Aceptada') {echo 'callout success'; } elseif($row['Status']=='Rechazada') {echo 'callout alert'; } elseif($row['Status']=='Pendiente') {echo 'callout warning'; }  ?>" > <?php echo $row['Status']; ?> </td> <?php
+}
+echo "</table>";
   }
   $gra=mysqli_query($cnx,"select * from gradoriesgo where Folio_Sol='$solicitudNo'");
 
@@ -33,7 +48,7 @@ $cliente=$ob[2];
 
   
 if (stristr($solicitudNo, 'SA')== TRUE || stristr($solicitudNo, 'SM')== TRUE || stristr($solicitudNo, 'SN')== TRUE) {
-  # code...
+  
   if(mysqli_num_rows($tab) == 0){
   echo "<h4>No Se Encontro El Registro</h4>";
   }else{
@@ -646,7 +661,7 @@ if ($row1[$j]=="") {
 }
 else{
 
-echo "fallo";
+echo "";
 
 }
 echo "";

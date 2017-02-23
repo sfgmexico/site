@@ -31,10 +31,11 @@ input::-moz-placeholder {
 }
 	  </style>
        
-	   <div class="callout">
+	   <div class="callout"  style="opacity: .50;">
 	   <h4>Buscador de solicitudes</h4>
 	   
 	   <p>Buscar por: 
+	</div>
 	     <select name="select" id="select" size="1" onChange="capturar()">
 	       <option value="---" selected >---</option>
 	       <option value="1" >Número de solicitud</option>
@@ -43,19 +44,18 @@ input::-moz-placeholder {
 	       <option value="4" >Solicitudes Rechazadas</option>
           </select>
 	   </p>
-	</div>
 	   
 	   <div id="contenido1" style="display:none">
-	     <table width="100%" border="0">
+	     <table width="100%" >
            <tr>
              <td>Ingresa el elemento a buscar: </td>
-             <td><input name="textfield" id="textfield" size="100%"></td>
+             <td><input name="textfield" id="textfield" ></td>
            </tr>
           
          </table>
 	     <p>
-	       <input name="aceptar" type="button" id="aceptar" value="Aceptar">
-	       <input name="cancelar" type="submit" id="cancelar" value="Cancelar">
+	       <input name="aceptar" class="success button"  type="button" id="aceptar" value="Aceptar">
+	       <input name="cancelar"  class="alert button" type="submit" id="cancelar" value="Cancelar">
 	      
 	     </p>
 	     <p>  
