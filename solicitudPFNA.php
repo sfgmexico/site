@@ -424,14 +424,18 @@ input::-moz-placeholder {
 
       <!-- empieza seccion del solicitante-->
       <div id="secSolicitante" class="row">
-    
+      <div id="exampleModal22"></div>
   
       <p align="left">
-          <div class="small-3 columns"> <input name="nomsol" type="text" id="nomsol"  value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['NomSolicitante']; } ?>" placeholder="Primer Nombre"   pattern="alpha"> </div>
+          <div class="small-3 columns"> <input name="nomsol" type="text" id="nomsol" onkeyup="viewButton()" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['NomSolicitante']; } ?>" placeholder="Primer Nombre"   pattern="alpha"> </div>
            <div class="small-3 columns"> <input name="segnomsol" type="text" id="segnomsol" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['SegNomSolicitante']; } ?>"  placeholder="Segundo Nombre"    pattern="alpha"></div> 
-           <div class="small-3 columns"> <input name="apepasol" type="text" id="apepasol" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['ApPatSolicitante']; } ?>" placeholder="Apellido Parteno"  pattern="alpha"></div> 
+           <div class="small-3 columns"> <input name="apepasol" type="text" id="apepasol" onkeyup="viewButton()" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['ApPatSolicitante']; } ?>" placeholder="Apellido Parteno"  pattern="alpha"></div> 
             <div class="small-3 columns"> <input name="apemasol" type="text" id="apemasol" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['ApMatSolicitante']; } ?>" placeholder="Apellido Materno"  pattern="alpha"></div>
+            <input name="botonAceptar" type="button" id="botonAceptar"  value="Buscar" onClick="obten2()" style="display:none;">
+            <p style="display:none"><a data-open="exampleModal2" id="modal">Click me for a modal</a></p>
+            <div class="reveal" id="exampleModal2" data-reveal></div>
 </p>
+
       
       <div class="column small-10 ">       
       <p align="left">RFC con homoclave:
@@ -734,15 +738,14 @@ input::-moz-placeholder {
     </div>
 
       <div id="secRefComerciales2" class="row">
+     <p align="left">
+          <div class="small-5 columns"><input name="refcomemp2" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['EmpRefCom']; } ?>" type="text" id="refcomemp2"  placeholder="Empresa"></div>
      
+      </p>
       <p align="left">
-        <div class="small-5 columns"><input name="refcomemp2" type="text" id="refcomemp2" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['EmpRefCom2']; } ?>" size="50px" placeholder="Empresa"></div>
-          
-   </p>
-
           <div class="small-12 columns">
             <p aling="left">Telefono(Con lada - 10 dígitos):
-          <div class="small-1 columns"><input name="telrefcom21" type="text" id="telrefcom21" size="1px" maxlength="1" value="<?php if(isset($row['Folio_Cliente']) && $row['TelRefCom2']) {  echo $row['TelRefCom2'][0]; } ?>"onKeyUp="myFunction(this,this.value,telrefcom22)"pattern="integer"></div>
+          <div class="small-1 columns"><input name="telrefcom21" type="text" id="telrefcom22" size="1px" maxlength="1" value="<?php if(isset($row['Folio_Cliente']) && $row['TelRefCom2']) {  echo $row['TelRefCom2'][0]; } ?>"onKeyUp="myFunction(this,this.value,telrefcom23)"pattern="integer"></div>
           <div class="small-1 columns"><input name="telrefcom22" type="text" id="telrefcom22" size="1px" maxlength="1" value="<?php if(isset($row['Folio_Cliente']) && $row['TelRefCom2']) {  echo $row['TelRefCom2'][1]; } ?>"onKeyUp="myFunction(this,this.value,telrefcom23)"pattern="integer"></div>
           <div class="small-1 columns"><input name="telrefcom23" type="text" id="telrefcom23" size="1px" maxlength="1" value="<?php if(isset($row['Folio_Cliente']) && $row['TelRefCom2']) {  echo $row['TelRefCom2'][2]; } ?>"onKeyUp="myFunction(this,this.value,telrefcom24)"pattern="integer"></div>
           <div class="small-1 columns"><input name="telrefcom24" type="text" id="telrefcom24" size="1px" maxlength="1" value="<?php if(isset($row['Folio_Cliente']) && $row['TelRefCom2']) {  echo $row['TelRefCom2'][3]; } ?>"onKeyUp="myFunction(this,this.value,telrefcom25)"pattern="integer"></div>
@@ -820,7 +823,7 @@ input::-moz-placeholder {
         </p>
         </div>
       <p align="left">
-         <div class="small-5 columns"> <input name="dirpermor" type="text" id="dirpermor" size="50px" placeholder="Dirección / Calle y número"></div>
+         <div class="small-5 columns"> <input name="dirpermor" type="text" id="dirpermor" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['DirObPerMor']; } ?>" size="50px" placeholder="Dirección / Calle y número"></div>
         <div class="small-12 columns">
        <p align="left"> Fax(Con lada - 10 dígitos):
   <div class="small-1 columns"><input name="faxpermor1" type="text" id="faxpermor1" size="1px" maxlength="1" value="<?php if(isset($row['Folio_Cliente']) && $row['FaxObPerMor']) {  echo $row['FaxObPerMor'][0]; } ?>" onKeyUp="myFunction(this,this.value,faxpermor2)" pattern="integer"></div>
@@ -868,9 +871,9 @@ input::-moz-placeholder {
       <div id="secDatObligadoSolidarioPF1" class="row">
       <p align="left"><strong>DATOS DEL OBLIGADO SOLIDARIO PERSONA FÍSICA, PROPIETARIO DE BIEN INMUEBLE </strong></p>
       <p align="left">
-          <div class="small-5 columns"><input name="datobnom1" type="text" id="datobnom1" size="30px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['']; } ?>" placeholder="Nombre(s)"onkeypress="return validaTexto(event)"></div>
-          <div class="small-5 columns"><input name="datobappat1" type="text" id="datobappat1" size="30px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['']; } ?>" placeholder="Apellido Paterno" pattern="alpha"></div>
-          <div class="small-5 columns"><input name="datobapmat1" type="text" id="datobapmat1" size="30px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['']; } ?>" placeholder="Apellido Materno"pattern="alpha"></div>
+          <div class="small-5 columns"><input name="datobnom1" type="text" id="datobnom1" size="30px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NomObSol']; } ?>" placeholder="Nombre(s)"onkeypress="return validaTexto(event)"></div>
+          <div class="small-5 columns"><input name="datobappat1" type="text" id="datobappat1" size="30px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ApPatObSol']; } ?>" placeholder="Apellido Paterno" pattern="alpha"></div>
+          <div class="small-5 columns"><input name="datobapmat1" type="text" id="datobapmat1" size="30px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ApMatObSol']; } ?>" placeholder="Apellido Materno"pattern="alpha"></div>
       </p>
       <p align="left">
         <div class="small-5 columns"><input name="datobdir1" type="text" id="datobdir1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['DirObSol']; } ?>" size="48px" placeholder="Dirección / Calle y número"></div>
@@ -956,9 +959,9 @@ input::-moz-placeholder {
       <div id="secDatObligadoSolidarioPF2" class="row">
       <p align="left"><strong>DATOS DEL OBLIGADO SOLIDARIO (2) PERSONA FÍSICA, PROPIETARIO DE BIEN INMUEBLE </strong></p>
       <p align="left">
-          <div class="small-5 columns"><input name="datobnom2" type="text" id="datobnom2" size="30px" placeholder="Nombre(s)"onkeypress="return validaTexto(event)"></div>
-          <div class="small-5 columns"><input name="datobappat2" type="text" id="datobappat2" size="30px" placeholder="Apellido Paterno"onkeypress="return validaTexto(event)"></div>
-          <div class="small-5 columns"><input name="datobapmat2" type="text" id="datobapmat2" size="30px" placeholder="Apellido Materno"onkeypress="return validaTexto(event)"></div>
+          <div class="small-5 columns"><input name="datobnom2" type="text" id="datobnom2" size="30px" placeholder="Nombre(s)" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NomObSol2']; } ?>" onkeypress="return validaTexto(event)"></div>
+          <div class="small-5 columns"><input name="datobappat2" type="text" id="datobappat2" size="30px" placeholder="Apellido Paterno" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ApPatObSol2']; } ?>" onkeypress="return validaTexto(event)"></div>
+          <div class="small-5 columns"><input name="datobapmat2" type="text" id="datobapmat2" size="30px" placeholder="Apellido Materno" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ApMatObSol2']; } ?>" onkeypress="return validaTexto(event)"></div>
 </p>
       <p align="left">
           <div class="small-5 columns"><input name="datobdir2" type="text" id="datobdir2" size="48px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['DirObSol2']; } ?>"placeholder="Dirección / Calle y número"></div>
@@ -1072,6 +1075,7 @@ input::-moz-placeholder {
       </ul>
     </nav>
   </div>
+
 </div>
 		<h4 align="left">Datos generales del cliente</h4> 
 		<p align="left">Tipo de Cliente: <input id="escliente1" name="escliente" type="radio" value="1" required><label for="escliente1">Nuevo</label>
@@ -1096,7 +1100,7 @@ input::-moz-placeholder {
             </tr>
             <tr>
               <td>Delegación o municipio </td>
-              <td><input name="textfield5" type="text" id="textfield5" size="100%" required pattern="number" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row['MunicipioSolicitante']; } ?>" ></td>
+              <td><input name="textfield5" type="text" id="textfield5" size="100%" required pattern="number" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['MunicipioSolicitante']; } ?>" ></td>
             </tr>
             <tr>
               <td>Estado o provincia </td>
@@ -1231,7 +1235,7 @@ input::-moz-placeholder {
             </tr>
             <tr>
               <td>País | Estado Oficial </td>
-              <td><select id="select12" name="select12" size="1" style="width:60%;" required>
+              <td><select id="select12" name="select12" size="1" style="width:60%;" req uired>
                 <option value="" selected></option>
                 <option value="1"<?php if(isset($row['Folio_Cliente'])) { if($row3['Pais_EstadoOficial']=="México"){echo "selected";} } ?>>México</option>
                 <option value="2"<?php if(isset($row['Folio_Cliente'])) { if($row3['Pais_EstadoOficial']=="Otros"){echo "selected";} } ?>>Otros</option>
@@ -1579,7 +1583,7 @@ input::-moz-placeholder {
             </tr>
             <tr>
               <td>Fecha de Nacimiento </td>
-              <td><input name="textfield57" type="text" id="textfield57" value="<?php if(isset($row['Folio_Cliente'])){ echo $row3['FeNacBeneficiario'];}?>" size="50%" ></td>
+              <td><input name="textfield57" type="date" id="textfield57" value="<?php if(isset($row['Folio_Cliente'])){ echo $row3['FeNacBeneficiario'];}?>" size="50%" ></td>
             </tr>
             <tr>
               <td>Municipio</td>

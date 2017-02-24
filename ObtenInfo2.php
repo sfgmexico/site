@@ -26,28 +26,28 @@ $result=mysqli_query($cnx,"select * from pfa where Folio_Cliente='$valor'");
 if(mysqli_num_rows($result)>0){
  echo $valor; 
 }elseif (mysqli_num_rows($result_cliente=mysqli_query($cnx,"select * from pfa where NomSolicitante='$nombre' and SegNomSolicitante='$segundonom' and ApPatSolicitante='$paterno' and ApMatSolicitante='$materno'"))>0) {
-    $folio_cliente=mysqli_fetch_array($result_cliente);
-    echo $folio_cliente['Folio_Cliente'];
-    
+     ?>  <table>
+   <tr><td>Folio del Cliente</td><td>RFC</td></tr>
+   <?php
+    while($folio_cliente=mysqli_fetch_array($result_cliente)){
+        ?>
   
+        <tr id="<?php echo $folio_cliente['Folio_Cliente'];?>" onClick="$('#htmlext').load('solicitudPFA.php?cliente='+this.id);"  data-close aria-label="Close reveal"><td><?php echo $folio_cliente['Folio_Cliente'];?></td><td><?php echo $folio_cliente['RFCSolicitante'];?></td></tr>
+        <?php 
+    }
+    ?>  </table>
+    <a class="button" data-close aria-label="Close reveal" onClick="document.getElementById('cliente').readOnly = true;">Cliente Nuevo</a>
+    <button class="close-button" data-close aria-label="Close reveal" type="button" onClick="$('#htmlext').load('solicitudPFA.php');">
+    <span aria-hidden="true">&times;</span>
+  </button>
+   <?php
     
 } else {
-    $nombre=explode(" ",$valor);
-    $decoder=count($nombre);
-    
 
-    if($decoder>1){
-        if ($decoder==4) {
-            echo $nombre[0].'&SgNombre='.$nombre[1].'&PrApellido='.$nombre[2].'&SgApellido='.$nombre[3];
-        } elseif($decoder==3) {
-           echo $nombre[0].'&PrApellido='.$nombre[1].'&SgApellido='.$nombre[2];
-        }
-        
-        
-    }else {
+    
         
         echo "cliente no encontrado";
-    }
+   
         
 }
 

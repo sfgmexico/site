@@ -313,7 +313,11 @@ xmlhttp.onreadystatechange=function()
       {
         
         if(xmlhttp.responseText!="cliente no encontrado"){
-            $("#htmlext").load("solicitudPFNA.php?cliente="+xmlhttp.responseText);
+           
+            document.getElementById("exampleModal2").innerHTML=xmlhttp.responseText;
+            $( '#modal' ).click ();
+            //$("#htmlext").load("solicitudPFNA.php?cliente="+xmlhttp.responseText);
+
             
         }else{
             alert(xmlhttp.responseText);

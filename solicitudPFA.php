@@ -400,6 +400,8 @@ input::-moz-placeholder {
           
           </p>
           <input name="botonAceptar" type="button" id="botonAceptar" value="Buscar" onClick="obten2()" style="display:none;">
+          <p style="display:none"><a data-open="exampleModal2" id="modal">Click me for a modal</a></p>
+            <div class="reveal" id="exampleModal2" data-reveal></div>
           </div>
 <div class="row">
           <p align="left">RFC con homoclave:
@@ -1540,7 +1542,8 @@ xmlhttp.onreadystatechange=function()
       {
         
         if(xmlhttp.responseText!="cliente no encontrado"){
-            $("#htmlext").load("solicitudPFA.php?cliente="+xmlhttp.responseText);
+           document.getElementById("exampleModal2").innerHTML=xmlhttp.responseText;
+            $( '#modal' ).click ();
             
         }else{
             alert(xmlhttp.responseText);
