@@ -1721,10 +1721,10 @@ input::-moz-placeholder {
 		  
 		  <br>
 	    <p align="left">¿ Usted o algún familiar suyo de hasta segundo grado de consanguinidad o afinidad (cónyuge,padre,madre,hijos,hermanos, abuelos, tios, primos, cuñados, suegros, yernos, etc), desempeña o a desempeñado funciones públicas destacadas en el territorio nacional o en el Extranjero (incluyendo puestos de Gobierno Federales, Estatales ,Municipales, funciones gubernamentales o judiciales, en partidos politicos, militares de alta jerarquía, altos ejecutivos de empresas paraestatales, etc.?<br>
-          Si:
-                <input id="PEPS" name="PEPS" type="radio" value="1" <?php if(isset($row2['Folio_Cliente'])) { if($row3['PEPS']=='Si'){echo "checked";} } ?>>
-No:
-<input id="PEPS" name="PEPS" type="radio" value="2" <?php if(isset($row2['Folio_Cliente'])) { if($row3['PEPS']=='No'){echo "checked";} } ?>>
+       
+                <input id="PEPS1" name="PEPS" type="radio" value="1" required <?php if(isset($row2['Folio_Cliente'])) { if($row3['PEPS']=='Si'){echo "checked";} } ?>><label for="PEPS1"> Si</label>
+
+<input id="PEPS2" name="PEPS" type="radio" value="2" required <?php if(isset($row2['Folio_Cliente'])) { if($row3['PEPS']=='No'){echo "checked";} } ?>><label for="PEPS2"> No</label>
         </p>
 	      <p align="left">En caso de si:</p>
         <div id="secPEPS">
