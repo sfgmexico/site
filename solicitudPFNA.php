@@ -1235,7 +1235,7 @@ input::-moz-placeholder {
             </tr>
             <tr>
               <td>País | Estado Oficial </td>
-              <td><select id="select12" name="select12" size="1" style="width:60%;" req uired>
+              <td><select id="select12" name="select12" size="1" style="width:60%;" required>
                 <option value="" selected></option>
                 <option value="1"<?php if(isset($row['Folio_Cliente'])) { if($row3['Pais_EstadoOficial']=="México"){echo "selected";} } ?>>México</option>
                 <option value="2"<?php if(isset($row['Folio_Cliente'])) { if($row3['Pais_EstadoOficial']=="Otros"){echo "selected";} } ?>>Otros</option>
