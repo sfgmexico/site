@@ -1508,7 +1508,13 @@ xmlhttp.onreadystatechange=function()
   {
     if (xmlhttp.readyState==4 && xmlhttp.status==200)
       {
-     $("#htmlext").load("solicitudPFA.php?cliente="+xmlhttp.responseText);
+     if(xmlhttp.responseText!="cliente no encontrado"){
+            $("#htmlext").load("solicitudPFA.php?cliente="+xmlhttp.responseText);
+            
+        }else{
+            alert(xmlhttp.responseText);
+            document.getElementById("cliente").value="";
+        }
 
       }
   }
