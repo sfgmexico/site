@@ -374,7 +374,6 @@ input::-moz-placeholder {
     <div class="accordion-content" data-tab-content>
 
 
-        <div id="solicitud">
           
           <p align="left"><strong>DATOS DEL SOLICITANTE:</strong>
             <div class="row">

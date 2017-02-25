@@ -1,3 +1,4 @@
+
   <?php
 	
 		 
@@ -12,7 +13,12 @@
   $tab1=mysqli_query($cnx,"select * from pfna where Folio_cliente='$ob[1]'");
 
   $tab2=mysqli_query($cnx,"select * from pm where Folio_cliente='$ob[1]'");
-
+ 	echo "  <ul class='tabs' data-tabs id='example-tabs'>
+  <li class='tabs-title is-active'><a href='#panel1' aria-selected='true'>Datos generales</a></li>
+  <li class='tabs-title'><a href='#panel2'>Referencias Personales</a></li>
+  <li class='tabs-title'><a href='#panel3'>Referencias Bancarias</a></li>
+  <li class='tabs-title'><a href='#panel4'>Obligado Solidario</a></li>
+</ul>";
  	
 if (stristr($solicitudNo, 'SA')== TRUE) {
 	# code...
@@ -124,12 +130,11 @@ if (stristr($solicitudNo, 'SA')== TRUE) {
 	"	Nombre gerente grl.	"	);
 
    echo'Encontrado';		
-  ?> <div class='tabs-content' data-tabs-content='example-tabs'>
+   echo "<div class='tabs-content' data-tabs-content='example-tabs'>";
 		
-	<table width='20%' border='0' class='table table-sm table-inverse'>
+		echo	"<table width='20%' border='0' class='table table-sm table-inverse'>";
 
-<div class='tabs-panel is-active' id='panel1'>
-   <?php
+echo "<div class='tabs-panel is-active' id='panel1'>";
    while($row=mysqli_fetch_array($tab,MYSQL_NUM)){
 
 for ($i=0; $i < count($row); $i++) { 
@@ -151,10 +156,8 @@ if ($row[$j]=="") {
 		}
 	}
 }
-?>
- </div>
-<div class='tabs-panel' id='panel2'>
-	<?php
+ echo "</div>"; 
+ echo "<div class='tabs-panel' id='panel2'>";
    while($row=mysqli_fetch_array($result,MYSQL_NUM)){
 
 for ($i=0; $i < count($row); $i++) { 
@@ -176,11 +179,9 @@ if ($row[$j]=="") {
 		}
 	}
 }
-?>
-</div>
+echo "</div>";
 
-</table> </div> 
-<?php
+echo "</table> </div>";
 
 
  		  }
