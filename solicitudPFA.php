@@ -374,11 +374,9 @@ input::-moz-placeholder {
     <div class="accordion-content" data-tab-content>
 
 
-<<<<<<< HEAD
 
         <div id="solicitud">
-=======
->>>>>>> parent of f3e0d58... Revert "pm prueba vaida"
+
           
           <p align="left"><strong>DATOS DEL SOLICITANTE:</strong>
             <div class="row">
