@@ -1747,8 +1747,8 @@ input::-moz-placeholder {
 		  <br>
           
           <p align="justify">
-            <input name="cancelar" type="button" id="cancelar" value="Cancelar" onClick="window.location.href='indexmenu.php'">
-            <input name="aceptar" type="submit" id="aceptar" value="Aceptar" >
+            <input class="alert button " name="cancelar" type="button" id="cancelar" value="Cancelar" onClick="window.location.href='indexmenu.php'">
+            <input class="success button" name="aceptar" type="submit" id="aceptar" value="Aceptar" >
           
           </p>
         </div>
