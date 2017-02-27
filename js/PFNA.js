@@ -281,7 +281,9 @@ xmlhttp.onreadystatechange=function()
     if (xmlhttp.readyState==4 && xmlhttp.status==200)
       {
      if(xmlhttp.responseText!="cliente no encontrado"){
+        
             $("#htmlext").load("solicitudPFNA.php?cliente="+xmlhttp.responseText);
+            
             
         }else{
             alert(xmlhttp.responseText);
