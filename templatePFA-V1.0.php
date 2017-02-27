@@ -1654,12 +1654,7 @@ header ('Pragma: public'); // HTTP/1.0
 $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
 
 $objWriter->save('php://output');
-?>
-<script>
-alert("REalizado");
 
-</script>
-<?php
 //elementos para descargar excel
 
 
