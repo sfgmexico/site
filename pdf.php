@@ -13,8 +13,7 @@ $pdf->Cell(40,10,'¡Hola, Mundo!');
 $pdf->Output();
 
 
-
-
+    
 
 
 
