@@ -45,12 +45,12 @@ include 'PHPExcel/IOFactory.php';
 
 //	Change these values to select the Rendering library that you wish to use
 //		for PDF files, and its directory location on your server
-//$rendererName = PHPExcel_Settings::PDF_RENDERER_TCPDF;
+$rendererName = PHPExcel_Settings::PDF_RENDERER_TCPDF;
 //$rendererName = PHPExcel_Settings::PDF_RENDERER_MPDF;
-$rendererName = PHPExcel_Settings::PDF_RENDERER_DOMPDF;
-//$rendererLibrary = 'tcPDF5.9';
+//$rendererName = PHPExcel_Settings::PDF_RENDERER_DOMPDF;
+$rendererLibrary = 'tcpdf';
 //$rendererLibrary = 'mPDF5.4';
-$rendererLibrary = 'dompdf';
+//$rendererLibrary = 'dompdf';
 $rendererLibraryPath = dirname(__FILE__).'/' . $rendererLibrary;
 
 
@@ -86,7 +86,7 @@ if (!PHPExcel_Settings::setChartRenderer(
 */
 
 $inputFileType = 'Excel2007';
-$inputFileNames = 'templates/SolicituddeCredito*.xlsx';
+$inputFileNames = 'templates/Solicitud_PFA_VWL_septi 2016-2.xlsx';
 
 if ((isset($argc)) && ($argc > 1)) {
 	$inputFileNames = array();
