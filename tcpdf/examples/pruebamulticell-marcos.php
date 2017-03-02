@@ -148,15 +148,22 @@ $pdf->MultiCell(50,0, 'Puesto que desempeña
 $pdf->MultiCell(30,0, 'Datos generales de la empresa' , 0, 'J', 0, 1, '', '', true,1,false,true);
 $pdf->MultiCell(60,0, 'Actividad principal
 	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(5,0, '
+	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(50,0, 'Fecha de inicio de operaciones
 	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(5,0, '
+	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(20,0, 'Cantidad de personal
 	' , 1, 'L', 0, 1, '', '', true,1,false,true); 
 $pdf->Ln(1);
 
 $pdf->MultiCell(30,0, 'Constitucion empresa' , 0, 'L', 0, 1, '', '', true,1,false,true);
+
 $pdf->MultiCell(60,0, 'Antiguedad
 	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(5,0, '
+	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(50,0, 'Apoderado para suscribir titulos de credito
 	' , 1, 'J', 0, 1, '', '', true,1,false,true);
 $pdf->Ln(1);
@@ -187,7 +194,50 @@ $pdf->MultiCell(00,0, 'CARGO DIRECTO CUENTA DE CHEQUES (para contratos en M.N. B
 (para contratos en USD únicamente BBVA Bancomer y HSBC)' , 0, 'L', 0, 1, '', '', true,1,false,true);
 $pdf->MultiCell(50,0, 'Banco
 	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(5,0, '
+	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(50,0, 'Numero de cuenta
+	' , 1, 'J', 0, 1, '', '', true,1,false,true);
+
+$pdf->Ln(1);
+$pdf->MultiCell(30,0, 'Referencias comerciales' , 0, 'L', 0, 1, '', '', true,1,false,true);
+$pdf->MultiCell(70,0, 'Empresa
+	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(5,0, '
+	' , 0, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(50,0, 'Antiguedad
+desde el año:	' , 1, 'L', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(5,0, '
+	' , 0, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(40,0, 'Telefono
+	' , 1, 'J', 0, 1, '', '', true,1,false,true);
+
+$pdf->Ln(1);
+
+
+$pdf->MultiCell(70,0, 'Empresa
+	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(5,0, '
+	' , 0, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(50,0, 'Antiguedad
+desde el año:	' , 1, 'L', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(5,0, '
+	' , 0, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(40,0, 'Telefono
+	' , 1, 'J', 0, 1, '', '', true,1,false,true);
+
+$pdf->Ln(1);
+
+$pdf->MultiCell(30,0, 'Datos obligado solidario' , 0, 'L', 0, 1, '', '', true,1,false,true);
+$pdf->MultiCell(70,0, 'Nombre/Razon social
+	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(5,0, '
+	' , 0, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(50,0, 'RFC
+desde el año:	' , 1, 'L', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(5,0, '
+	' , 0, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(40,0, 'Telefono
 	' , 1, 'J', 0, 1, '', '', true,1,false,true);
 
 $pdf->Ln(1);
