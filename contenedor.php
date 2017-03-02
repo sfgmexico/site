@@ -6,26 +6,26 @@
 
       
   include('Conexion2.php');
-  if (stristr($solicitudNo, 'SA')== TRUE) {
+  if (stristr($solicitudNo, 'SA-')== TRUE) {
   $result=mysqli_query($cnx,"select * from solicitudpfa where Folio_Sol='$solicitudNo'");
   $ob=mysqli_fetch_array($result,MYSQL_NUM);
   $cliente=$ob[2];
     $tab=mysqli_query($cnx,"select * from pfa where Folio_cliente='$cliente'");
     
   }
-  elseif (stristr($solicitudNo, 'SN')== TRUE) {
+  elseif (stristr($solicitudNo, 'SN-')== TRUE) {
   $result1=mysqli_query($cnx,"select * from solicitudpfna where Folio_Sol='$solicitudNo'");
      $ob=mysqli_fetch_array($result1,MYSQL_NUM);
      $cliente=$ob[2];
        $tab=mysqli_query($cnx,"select * from pfna where Folio_cliente='$cliente'");
   }
-    elseif (stristr($solicitudNo, 'SM')== TRUE) {
+    elseif (stristr($solicitudNo, 'SM-')== TRUE) {
   $result2=mysqli_query($cnx,"select * from solicitudpm where Folio_Sol='$solicitudNo'");
      $ob=mysqli_fetch_array($result2,MYSQL_NUM);
 $cliente=$ob[2];
        $tab=mysqli_query($cnx,"select * from pm where Folio_cliente='$cliente'");
   }
-  elseif (stristr($solicitudNo, 'PFA')== TRUE) {
+  elseif (stristr($solicitudNo, 'PFA-')== TRUE) {
    
       $result=mysqli_query($cnx,"select NomSolicitante,Folio_Sol,Status from solicitudpfa inner join pfa on pfa.Folio_cliente=solicitudpfa.Folio_Cliente where pfa.Folio_Cliente='$solicitudNo' order by solicitudpfa.Id desc");
 echo "<table>
@@ -47,7 +47,7 @@ echo "</table>";
 
 
   
-if (stristr($solicitudNo, 'SA')== TRUE || stristr($solicitudNo, 'SM')== TRUE || stristr($solicitudNo, 'SN')== TRUE) {
+if (stristr($solicitudNo, 'SA-')== TRUE || stristr($solicitudNo, 'SM-')== TRUE || stristr($solicitudNo, 'SN-')== TRUE) {
   
   if(mysqli_num_rows($tab) == 0){
   echo "<h4>No Se Encontro El Registro</h4>";

@@ -77,22 +77,120 @@ $pdf->AddPage();
 // test Cell stretching
 $txt = "Nomre / Razon social
 Codigo PHP";
+$s = " ";
+//
+$pdf->MultiCell(30,0, "Datos del solicitante
+td", 0, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(30,0,'Folio del cliente
+	hola', 1, 'J', 0, 0, '', '', true,1,false,true);
+//$pdf->MultiCell(30,0, '' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(30,0, 'Leasing' , 0, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(30,0, 'Credit' , 0, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(0,0, 'Premium
+	' , 0, 'J', 0, 1, '', '', true,1,false,true);
+$pdf->Ln(1);
 
-$pdf->MultiCell(30,0, "Prueba de 
-espacio", 1, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(30,0, $txt, 1, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(30,0, $txt, 1, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(0,0, $txt, 1, 'J', 0, 1, '', '', true,1,false,true);
+//
+$pdf->MultiCell(60,0, 'Nombre Razon social
+	' , 1, 'L', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(50,0, 'R.F.C
+	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(0,0, 'Telefono
+	' , 1, 'J', 0, 1, '', '', true,1,false,true);
+$pdf->Ln(1);
 
-$pdf->MultiCell(30,0, $txt, 1, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(30,0, $txt, 1, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(30,0, $txt, 1, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(0,0, $txt, 1, 'J', 0, 1, '', '', true,1,false,true); 
+$pdf->MultiCell(60,0, 'Direccion/calle y numero
+	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(50,0, 'E-mail
+	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(0,0, 'Fax
+	' , 1, 'J', 0, 1, '', '', true,1,false,true);
+
+$pdf->Ln(1);
+//
+$pdf->MultiCell(30,0, 'Colonia
+	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(50,0, 'Ciudad
+	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(60,0, 'Estado
+	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(0,0, 'Codigo Postal
+	' , 1, 'L', 0, 1, '', '', true,1,false,true); 
+$pdf->Ln(1);
+
+$pdf->MultiCell(50,0, 'Datos del contacto de la empresa' , 0, 'L', 0, 1, '', '', true,1,false,true);
+$pdf->MultiCell(40,0, 'Primer nombre
+	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(50,0, 'Segundo nombre
+	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(40,0, 'Apellido paterno
+	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(0,0, 'Apellido materno
+	' , 1, 'L', 0, 1, '', '', true,1,false,true); 
+$pdf->Ln(1);
 
 
+$pdf->MultiCell(30,0, 'Telefono
+	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(60,0, 'E-mail
+	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(50,0, 'RFC
+	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(0,0, 'Fax
+	' , 1, 'L', 0, 1, '', '', true,1,false,true); 
+$pdf->Ln(1);
 
 
+$pdf->MultiCell(50,0, 'Puesto que desempeña
+	' , 1, 'L', 0, 1, '', '', true,1,false,true);
+	$pdf->Ln(1);
 
+$pdf->MultiCell(30,0, 'Datos generales de la empresa' , 0, 'J', 0, 1, '', '', true,1,false,true);
+$pdf->MultiCell(60,0, 'Actividad principal
+	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(50,0, 'Fecha de inicio de operaciones
+	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(20,0, 'Cantidad de personal
+	' , 1, 'L', 0, 1, '', '', true,1,false,true); 
+$pdf->Ln(1);
+
+$pdf->MultiCell(30,0, 'Constitucion empresa' , 0, 'L', 0, 1, '', '', true,1,false,true);
+$pdf->MultiCell(60,0, 'Antiguedad
+	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(50,0, 'Apoderado para suscribir titulos de credito
+	' , 1, 'J', 0, 1, '', '', true,1,false,true);
+$pdf->Ln(1);
+
+$pdf->MultiCell(30,0, 'Referencias bancarias' , 0, 'L', 0, 1, '', '', true,1,false,true);
+$pdf->MultiCell(40,0, 'Banco
+	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(40,0, 'Sucursal
+	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(30,0, 'Numero de cuenta
+	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(0,0, 'Feach de apertura
+	' , 1, 'J', 0, 1, '', '', true,1,false,true);
+$pdf->Ln(1);
+
+$pdf->MultiCell(40,0, 'Banco
+	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(40,0, 'Sucursal
+	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(30,0, 'Numero de cuenta
+	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(00,0, 'Feach de apertura
+	' , 1, 'J', 0, 1, '', '', true,1,false,true);
+$pdf->Ln(1);
+
+
+$pdf->MultiCell(00,0, 'CARGO DIRECTO CUENTA DE CHEQUES (para contratos en M.N. BBVA Bancomer, HSBC, Banamex, BANORTE, Scotiabank Inverlat, Santander o Inbursa)
+(para contratos en USD únicamente BBVA Bancomer y HSBC)' , 0, 'L', 0, 1, '', '', true,1,false,true);
+$pdf->MultiCell(50,0, 'Banco
+	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(50,0, 'Numero de cuenta
+	' , 1, 'J', 0, 1, '', '', true,1,false,true);
+
+$pdf->Ln(1);
 
 // ---------------------------------------------------------
 
