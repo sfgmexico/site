@@ -1,38 +1,31 @@
--- phpMyAdmin SQL Dump
--- version 4.5.2
--- http://www.phpmyadmin.net
---
--- Servidor: localhost
--- Tiempo de generación: 02-03-2017 a las 23:21:58
--- Versión del servidor: 10.1.19-MariaDB
--- Versión de PHP: 5.6.28
+/*
+Navicat MySQL Data Transfer
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+Source Server         : localhost
+Source Server Version : 50505
+Source Host           : localhost:3306
+Source Database       : controlcreditos
 
+Target Server Type    : MYSQL
+Target Server Version : 50505
+File Encoding         : 65001
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+Date: 2017-03-03 17:04:14
+*/
 
---
--- Base de datos: `controlcreditos`
---
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `pm`
---
-
+SET FOREIGN_KEY_CHECKS=0;
+-- ----------------------------
+-- Table structure for `pm`
+-- ----------------------------
+DROP TABLE IF EXISTS `pm`;
 CREATE TABLE `pm` (
-  `Id` int(10) NOT NULL,
+  `Id` int(10) NOT NULL AUTO_INCREMENT,
   `Folio_Cliente` varchar(20) NOT NULL,
-  `NomSolicitante` varchar(30) NOT NULL,
+  `NomSolicitante` varchar(60) NOT NULL,
   `RFCSolicitante` varchar(30) NOT NULL,
   `TelSolicitante` varchar(20) NOT NULL,
   `DirSolicitante` varchar(20) NOT NULL,
+  `NumDirSol` varchar(20) NOT NULL,
   `ColSolicitante` varchar(20) NOT NULL,
   `CdSolicitante` varchar(20) NOT NULL,
   `EdoSolicitante` varchar(20) NOT NULL,
@@ -40,6 +33,9 @@ CREATE TABLE `pm` (
   `EmailSolicitante` varchar(20) NOT NULL,
   `FaxSolicitante` varchar(20) NOT NULL,
   `NomDatContEmp` varchar(30) NOT NULL,
+  `SegNomDatContEmp` varchar(20) NOT NULL,
+  `ApPatDatContEmp` varchar(20) NOT NULL,
+  `ApMatDatContEmp` varchar(20) NOT NULL,
   `TelDatConEmp` varchar(20) NOT NULL,
   `EmailDatConEmp` varchar(20) NOT NULL,
   `RFCDatConEmp` varchar(20) NOT NULL,
@@ -48,50 +44,22 @@ CREATE TABLE `pm` (
   `ActPrinDatGenPM` varchar(20) NOT NULL,
   `IniOpDatGenPM` varchar(20) NOT NULL,
   `CantPerDatGenPM` int(10) NOT NULL,
+  `FechaConsEmp` date NOT NULL,
   `AntConsEmp` varchar(20) NOT NULL,
-  `ApoConsEmp` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `ApoConsEmp` varchar(20) NOT NULL,
+  PRIMARY KEY (`Id`,`Folio_Cliente`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
---
--- Volcado de datos para la tabla `pm`
---
-
-INSERT INTO `pm` (`Id`, `Folio_Cliente`, `NomSolicitante`, `RFCSolicitante`, `TelSolicitante`, `DirSolicitante`, `ColSolicitante`, `CdSolicitante`, `EdoSolicitante`, `CPSolicitante`, `EmailSolicitante`, `FaxSolicitante`, `NomDatContEmp`, `TelDatConEmp`, `EmailDatConEmp`, `RFCDatConEmp`, `FaxDatConEmp`, `PuestDatConEmp`, `ActPrinDatGenPM`, `IniOpDatGenPM`, `CantPerDatGenPM`, `AntConsEmp`, `ApoConsEmp`) VALUES
-(4, 'PM-001', 'kevin mazatan', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', '', 0, '', '');
-
---
--- Disparadores `pm`
---
-DELIMITER $$
+-- ----------------------------
+-- Records of pm
+-- ----------------------------
+INSERT INTO `pm` VALUES ('4', 'PM-001', 'Servicios Financieros Del Guadiana', '4552452452452452452', '321654645654654', '351231312313513', '', '32132132132132132', '1312321321321321', '321321321', '321321321', '1321', '12312312312312312', '321', '', '', '', '312', '321', '321', '321', '321', '321', '321', '312', '0000-00-00', '312', '321');
+DELIMITER ;;
 CREATE TRIGGER `pm_id` BEFORE INSERT ON `pm` FOR EACH ROW BEGIN
     if (SELECT COUNT(*) FROM pm)=0   THEN
         SET NEW.Folio_Cliente= 'PM-001';
     else
         SET NEW.Folio_Cliente= CONCAT('PM-', LPAD((select MAX(Id)+1 from pm), 3, '0'));
   END IF;
-END
-$$
+END;;;
 DELIMITER ;
-
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `pm`
---
-ALTER TABLE `pm`
-  ADD PRIMARY KEY (`Id`,`Folio_Cliente`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `pm`
---
-ALTER TABLE `pm`
-  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
