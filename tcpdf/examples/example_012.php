@@ -151,6 +151,7 @@ $pdf->Text(5, 249, 'Rounded rectangle examples');
 $pdf->SetLineStyle(array('width' => 0.5, 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(0, 0, 0)));
 $pdf->RoundedRect(5, 255, 40, 30, 3.50, '1111', 'DF');
 $pdf->RoundedRect(50, 255, 40, 30, 6.50, '1000');
+$pdf->Text(5, 249, 'Rounded rectangle examples');
 $pdf->RoundedRect(95, 255, 40, 30, 10.0, '1111', null, $style6);
 $pdf->RoundedRect(140, 255, 40, 30, 8.0, '0101', 'DF', $style6, array(200, 200, 200));
 
