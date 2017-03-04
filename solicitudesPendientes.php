@@ -49,7 +49,7 @@ input::-moz-placeholder {
 	     <table width="100%" >
            <tr>
              <td>Ingresa el elemento a buscar: </td>
-             <td><input name="textfield" id="textfield" ></td>
+             <td><span data-tooltip aria-haspopup="true" class="has-tip left" data-disable-hover="false" tabindex="4" title="Para Realizar la Prueba Ingresa el Folio: SA-011 y Aceptar"><input name="textfield" id="textfield" ></span></td>
            </tr>
           
          </table>

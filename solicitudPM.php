@@ -370,7 +370,7 @@ input::-moz-placeholder {
       <p align="left"><strong>DATOS DEL SOLICITANTE:</strong>       
 
         <div class="small-3 columns">
-        <input name="cliente" type="text" onChange="obten()" id="cliente"  value="<?php if(isset($row['Folio_Cliente'])) { echo $row['Folio_Cliente']; } ?>" placeholder="Si es Cliente, número de cliente/contrato"> 
+        <span data-tooltip aria-haspopup="true" class="has-tip" data-disable-hover="false" tabindex="1" title="Para Realizar la Prueba Ingresa Folio: PM-001 y Tabulador"><input name="cliente" type="text" onChange="obten()" id="cliente"  value="<?php if(isset($row['Folio_Cliente'])) { echo $row['Folio_Cliente']; } ?>" placeholder="Si es Cliente, número de cliente/contrato"> </span>
          </div>
        
           <input id="tipocredito1" name="tipocredito" type="radio" value="1" required <?php if(isset($row['Folio_Cliente'])) { if($row['TipoCredito']=='Leasing'){echo "checked";} } ?>><label for="tipocredito1">Leasing</label>
