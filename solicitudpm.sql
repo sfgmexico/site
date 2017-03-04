@@ -1,33 +1,25 @@
--- phpMyAdmin SQL Dump
--- version 4.5.2
--- http://www.phpmyadmin.net
---
--- Servidor: localhost
--- Tiempo de generación: 02-03-2017 a las 23:22:12
--- Versión del servidor: 10.1.19-MariaDB
--- Versión de PHP: 5.6.28
+/*
+Navicat MySQL Data Transfer
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+Source Server         : localhost
+Source Server Version : 50505
+Source Host           : localhost:3306
+Source Database       : controlcreditos
 
+Target Server Type    : MYSQL
+Target Server Version : 50505
+File Encoding         : 65001
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+Date: 2017-03-04 13:32:05
+*/
 
---
--- Base de datos: `controlcreditos`
---
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `solicitudpm`
---
-
+SET FOREIGN_KEY_CHECKS=0;
+-- ----------------------------
+-- Table structure for `solicitudpm`
+-- ----------------------------
+DROP TABLE IF EXISTS `solicitudpm`;
 CREATE TABLE `solicitudpm` (
-  `Id` int(10) NOT NULL,
+  `Id` int(10) NOT NULL AUTO_INCREMENT,
   `Folio_Sol` varchar(20) NOT NULL,
   `Folio_Cliente` varchar(20) NOT NULL,
   `TipoCredito` varchar(20) NOT NULL,
@@ -132,51 +124,22 @@ CREATE TABLE `solicitudpm` (
   `ClavConcesionario` varchar(20) NOT NULL,
   `NomConcesionario` varchar(20) NOT NULL,
   `NomVendedor` varchar(20) NOT NULL,
-  `NomGerenteGral` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `NomGerenteGral` varchar(20) NOT NULL,
+  PRIMARY KEY (`Id`),
+  KEY `Id` (`Id`),
+  KEY `Folio_Sol` (`Folio_Sol`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
---
--- Volcado de datos para la tabla `solicitudpm`
---
-
-INSERT INTO `solicitudpm` (`Id`, `Folio_Sol`, `Folio_Cliente`, `TipoCredito`, `BancRefBan`, `NoTarRefBan`, `SucRefBan`, `FecApRefBan`, `BancRefBan2`, `NoTarRefBan2`, `SucRefBan2`, `FecApRefBan2`, `EmpRefCom`, `AntRefCom`, `TelRefCom`, `EmpRefCom2`, `AntRefCom2`, `TelRefCom2`, `BancCarDir`, `NoTarCarDir`, `NomObPerMor`, `DirObPerMor`, `ColObPerMor`, `CdObPerMor`, `LugNacObPerMor`, `EdoObPerMor`, `CPObPerMor`, `RFCObPerMor`, `TelObPerMor`, `FaxObPerMor`, `AntConsEmpPM`, `ApoConsEmpPM`, `ActPrinDatGen`, `IniOpDatGen`, `CantPerDatGen`, `NomAccionista1`, `RFCAccionista1`, `PorcentAccionista1`, `NomAccionista2`, `RFCAccionista2`, `PorcentAccionista2`, `NomAccionista3`, `RFCAccionista3`, `PorcentAccionista3`, `NomAccionista4`, `RFCAccionista4`, `PorcentAccionista4`, `NomAccionistaPM1`, `RFCAccionistaPM1`, `PorcentAccionistaPM1`, `NomAccionistaPM2`, `RFCAccionistaPM2`, `PorcentAccionistaPM2`, `NomObSol`, `ApPatObSol`, `ApMatObSol`, `RFCObSol`, `TelObSol`, `MovObSol`, `DirObSol`, `ColObSol`, `CdObSol`, `LugNacObSol`, `PropObSol`, `EdoObSol`, `CPObSol`, `EmailObSol`, `SexoObSol`, `FeNacObSol`, `EdObSol`, `CURPObSol`, `NomObSolPF`, `SexoObSolPF`, `FeNacObSolPF`, `RFCObSolPF`, `CURPObSolPF`, `EdObSolPF`, `NomObSol2`, `ApPatObSol2`, `ApMatObSol2`, `RFCObSol2`, `TelObSol2`, `MovObSol2`, `DirObSol2`, `ColObSol2`, `CdObSol2`, `LugNacObSol2`, `PropObSol2`, `EdoObSol2`, `CPObSol2`, `EmailObSol2`, `SexoObSol2`, `FeNacObSol2`, `EdObSol2`, `CURPObSol2`, `NomObSolPF2`, `SexoObSolPF2`, `FeNacObSolPF2`, `RFCObSolPF2`, `CURPObSolPF2`, `EdObSolPF2`, `Fecha`, `ClavConcesionario`, `NomConcesionario`, `NomVendedor`, `NomGerenteGral`) VALUES
-(1, 'SM-001', 'PM-001', 'Credit', '', '', '', '0000-00-00', '', '', '', '0000-00-00', '', 0, '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '', '', '0000-00-00', 0, '', '', 0, '', '', 0, '', '', 0, '', '', 0, '', '', 0, '', '', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', 0, '', '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', 0, '', '', '', '0000-00-00', '', '', 0, '0000-00-00', '', '', '', '');
-
---
--- Disparadores `solicitudpm`
---
-DELIMITER $$
+-- ----------------------------
+-- Records of solicitudpm
+-- ----------------------------
+INSERT INTO `solicitudpm` VALUES ('1', 'SM-001', 'PM-001', 'Credit', '321', '321', '32', '1989-09-07', '132', '132', '1321', '1989-09-07', '321', '32', '132132132132131', '32', '1321', '3216456546546', '32', '132', '132', '132', '132', '132', '132', '132', '132', '1326546465463213', '13654654621321', '21331321321321', '2132', '132', '132', '0000-00-00', '132', '13', '213', '213', '21', '321', '321', '321', '321', '32', '132', '132', '1321', '32', '132', '13213', '213', '213', '21', '321', '321', '321', '32', '132', '132', '13', '213', '21', '321', '321', '32', '132', '132', '132', '0000-00-00', '213', '213', '21', '321', '0000-00-00', '32', '1321', '32', '132', '132', '132', '132', '1321', '32', '1321', '321', '321', '231', '231', '231', '231', '321', '123', '0000-00-00', '321', '231', '321', '321', '0000-00-00', '321', '231', '231', '0000-00-00', '231', '321', '321', '23');
+DELIMITER ;;
 CREATE TRIGGER `solicitudpm_id` BEFORE INSERT ON `solicitudpm` FOR EACH ROW BEGIN
     if (SELECT COUNT(*) FROM solicitudpm)=0   THEN
         SET NEW.Folio_Sol= 'SM-001';
     else
         SET NEW.Folio_Sol= CONCAT('SM-', LPAD((select MAX(Id)+1 from solicitudpm), 3, '0'));
   END IF;
-END
-$$
+END;;;
 DELIMITER ;
-
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `solicitudpm`
---
-ALTER TABLE `solicitudpm`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `Id` (`Id`),
-  ADD KEY `Folio_Sol` (`Folio_Sol`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `solicitudpm`
---
-ALTER TABLE `solicitudpm`
-  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
