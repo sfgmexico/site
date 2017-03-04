@@ -606,17 +606,21 @@ $pdf->MultiCell(60,0, 'Colonia
 	' , 1, 'L', 0, 1, '', '', true,1,false,true);
 $pdf->Ln(1);
 
-$pdf->MultiCell(70,0, 'Nombre del representante legal
+$pdf->MultiCell(30,0, 'Nombre del representante legal
 	' , 1, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(60,0, 'RFC del representante legal
+$pdf->MultiCell(40,0, 'RFC del representante legal
+	' , 1, 'L', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(5,0, '
+	' , 0, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(40,0, 'RFC del representante legal
 	' , 1, 'L', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(0,0, 'Firma del representante legal
 	' , 1, 'J', 0, 1, '', '', true,1,false,true);
-$pdf->Ln(1);
+$pdf->Ln(2);
 
 $pdf->MultiCell(0,0, 'CONSENTIMIENTO PARA EL TRATAMIENTO DE LOS DATOS PERSONALES (APLICABLE A PERSONAS FISICAS)																																															
 El (Los) apoderado (s) legal (es) y en su caso el(los) obligado(s) solidario(s), (titulares de los datos) expresamente reconocen y aceptan mediante su firma que SERVICIOS FINANCIEROS DEL GUADIANA S.A. DE C.V. SOFOM E.N.R (“SFG”) con domicilio en Autopista México-Puebla Km. 116 más 900, San Lorenzo Almecatla, Cuautlancingo, Puebla, les facilitó en el momento de llenar esta solicitud el “Aviso de Privacidad”. En tal virtud, los titulares de los datos otorgan su consentimiento de forma expresa para que SFG:																																															
