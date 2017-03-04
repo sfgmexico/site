@@ -440,15 +440,15 @@ Telefono(Con lada - 10 dígitos):
 	    <p align="left">
 	      <input name="dirsol" type="text" id="dirsol" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['DirSolicitante']; } ?>" placeholder="Dirección / Calle" >
           <input name="dirnumsol" type="text" id="dirnumsol" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['NumDirSol']; } ?>"   placeholder="Número">
-          <input name="mailsol2" type="text" id="mailsol2"   placeholder="Email">
+          <input name="mailsol2" type="text" id="mailsol2"  value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['EmailSolicitante']; } ?>" placeholder="Email">
        </p>
    </div>
 	 <div class="small-6 columns">
 	   <p align="left">
-	      <input name="colsol" type="text" id="colsol"   placeholder="Colonia">
-          <input name="cdsol" type="text" id="cdsol"   placeholder="Ciudad">
-          <input name="edosol" type="text" id="edosol"    placeholder="Estado">
-          <input name="cpsol" type="text" id="cpsol"    placeholder="C.P.">
+	      <input name="colsol" type="text" id="colsol"  value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['ColSolicitante']; } ?>" placeholder="Colonia">
+          <input name="cdsol" type="text" id="cdsol"  value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['CdSolicitante']; } ?>" placeholder="Ciudad">
+          <input name="edosol" type="text" id="edosol"  value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['EdoSolicitante']; } ?>"  placeholder="Estado">
+          <input name="cpsol" type="text" id="cpsol"  value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['CPSolicitante']; } ?>"  placeholder="C.P.">
 	    </p>
 </div>
   </div>
@@ -461,68 +461,68 @@ Telefono(Con lada - 10 dígitos):
      <div class="row">
       <div class="small-6 columns">
       <p align="left">
-        <input name="nomconemp" type="text" id="nomconemp" placeholder="Primer Nombre">
-        <input name="segnomconemp" type="text" id="segnomconemp" placeholder="Segundo Nombre">
+        <input name="nomconemp" type="text" id="nomconemp" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['NomDatContEmp']; } ?>" placeholder="Primer Nombre">
+        <input name="segnomconemp" type="text" id="segnomconemp" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['SegNomDatContEmp']; } ?>" placeholder="Segundo Nombre">
     </div>
         <div class="small-6 columns">
-        <input name="apepaconemp" type="text" id="apepaconemp" placeholder="Apellido Parteno">
-        <input name="apemaconemp" type="text" id="apemaconemp" placeholder="Apellido Materno">
+        <input name="apepaconemp" type="text" id="apepaconemp" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['ApPatDatContEmp']; } ?>" placeholder="Apellido Parteno">
+        <input name="apemaconemp" type="text" id="apemaconemp" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['ApMatDatContEmp']; } ?>" placeholder="Apellido Materno">
 </p></div>
 </div>
 <div class="row">
       <p align="left">RFC con homoclave:
         <div class="small-10 columns">  
-        <div class="small-1 columns">  <input name="rfcconemp1" type="text" id="rfcconemp1"  maxlength="1" onKeyUp="myFunction(this,this.value,rfcconemp2)"></div>
-        <div class="small-1 columns">  <input name="rfcconemp2" type="text" id="rfcconemp2"  maxlength="1" onKeyUp="myFunction(this,this.value,rfcconemp3)"></div>
-        <div class="small-1 columns">  <input name="rfcconemp3" type="text" id="rfcconemp3"  maxlength="1" onKeyUp="myFunction(this,this.value,rfcconemp4)"></div>
-        <div class="small-1 columns">  <input name="rfcconemp4" type="text" id="rfcconemp4"  maxlength="1" onKeyUp="myFunction(this,this.value,rfcconemp5)"></div>
-        <div class="small-1 columns">  <input name="rfcconemp5" type="text" id="rfcconemp5"  maxlength="1" onKeyUp="myFunction(this,this.value,rfcconemp6)"></div>
-        <div class="small-1 columns">  <input name="rfcconemp6" type="text" id="rfcconemp6"  maxlength="1" onKeyUp="myFunction(this,this.value,rfcconemp7)"></div>
-        <div class="small-1 columns">  <input name="rfcconemp7" type="text" id="rfcconemp7"  maxlength="1" onKeyUp="myFunction(this,this.value,rfcconemp8)"></div>
-        <div class="small-1 columns">  <input name="rfcconemp8" type="text" id="rfcconemp8"  maxlength="1" onKeyUp="myFunction(this,this.value,rfcconemp9)"></div>
-        <div class="small-1 columns">  <input name="rfcconemp9" type="text" id="rfcconemp9"  maxlength="1" onKeyUp="myFunction(this,this.value,rfcconemp10)"></div>
-        <div class="small-1 columns">  <input name="rfcconemp10" type="text" id="rfcconemp10"  maxlength="1" onKeyUp="myFunction(this,this.value,rfcconemp11)"></div>
-        <div class="small-1 columns">  <input name="rfcconemp11" type="text" id="rfcconemp11"  maxlength="1" onKeyUp="myFunction(this,this.value,rfcconemp12)"></div>
-        <div class="small-1 columns">  <input name="rfcconemp12" type="text" id="rfcconemp12"  maxlength="1" onKeyUp="myFunction(this,this.value,rfcconemp13)"></div></div>
-        <div class="small-1 columns">  <input name="rfcconemp13" type="text" id="rfcconemp13"  maxlength="1" onKeyUp="myFunction(this,this.value,telconemp1)"></div>
+        <div class="small-1 columns">  <input name="rfcconemp1" type="text" id="rfcconemp1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCDatConEmp'][0]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,rfcconemp2)"></div>
+        <div class="small-1 columns">  <input name="rfcconemp2" type="text" id="rfcconemp2" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCDatConEmp'][1]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,rfcconemp3)"></div>
+        <div class="small-1 columns">  <input name="rfcconemp3" type="text" id="rfcconemp3" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCDatConEmp'][2]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,rfcconemp4)"></div>
+        <div class="small-1 columns">  <input name="rfcconemp4" type="text" id="rfcconemp4" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCDatConEmp'][3]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,rfcconemp5)"></div>
+        <div class="small-1 columns">  <input name="rfcconemp5" type="text" id="rfcconemp5" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCDatConEmp'][4]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,rfcconemp6)"></div>
+        <div class="small-1 columns">  <input name="rfcconemp6" type="text" id="rfcconemp6" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCDatConEmp'][5]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,rfcconemp7)"></div>
+        <div class="small-1 columns">  <input name="rfcconemp7" type="text" id="rfcconemp7" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCDatConEmp'][6]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,rfcconemp8)"></div>
+        <div class="small-1 columns">  <input name="rfcconemp8" type="text" id="rfcconemp8" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCDatConEmp'][7]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,rfcconemp9)"></div>
+        <div class="small-1 columns">  <input name="rfcconemp9" type="text" id="rfcconemp9" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCDatConEmp'][8]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,rfcconemp10)"></div>
+        <div class="small-1 columns">  <input name="rfcconemp10" type="text" id="rfcconemp10" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCDatConEmp'][9]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,rfcconemp11)"></div>
+        <div class="small-1 columns">  <input name="rfcconemp11" type="text" id="rfcconemp11" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCDatConEmp'][10]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,rfcconemp12)"></div>
+        <div class="small-1 columns">  <input name="rfcconemp12" type="text" id="rfcconemp12" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCDatConEmp'][11]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,rfcconemp13)"></div></div>
+        <div class="small-1 columns">  <input name="rfcconemp13" type="text" id="rfcconemp13" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCDatConEmp'][12]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,telconemp1)"></div>
       </p>
 </div>
 <div class="row">
       <p align="left">Telefono partiular (Con lada - 10 dígitos) : 
-        <div class="small-1 columns">  <input name="telconemp1" type="text" id="telconemp1"  maxlength="1" onKeyUp="myFunction(this,this.value,telconemp2)"></div>
-        <div class="small-1 columns">  <input name="telconemp2" type="text" id="telconemp2"  maxlength="1" onKeyUp="myFunction(this,this.value,telconemp3)"></div>
-        <div class="small-1 columns">  <input name="telconemp3" type="text" id="telconemp3"  maxlength="1" onKeyUp="myFunction(this,this.value,telconemp4)"></div>
-        <div class="small-1 columns">  <input name="telconemp4" type="text" id="telconemp4"  maxlength="1" onKeyUp="myFunction(this,this.value,telconemp5)"></div>
-        <div class="small-1 columns">  <input name="telconemp5" type="text" id="telconemp5"  maxlength="1" onKeyUp="myFunction(this,this.value,telconemp6)"></div>
-        <div class="small-1 columns">  <input name="telconemp6" type="text" id="telconemp6"  maxlength="1" onKeyUp="myFunction(this,this.value,telconemp7)"></div>
-        <div class="small-1 columns">  <input name="telconemp7" type="text" id="telconemp7"  maxlength="1" onKeyUp="myFunction(this,this.value,telconemp8)"></div>
-        <div class="small-1 columns">  <input name="telconemp8" type="text" id="telconemp8"  maxlength="1" onKeyUp="myFunction(this,this.value,telconemp9)"></div>
-        <div class="small-1 columns">  <input name="telconemp9" type="text" id="telconemp9"  maxlength="1" onKeyUp="myFunction(this,this.value,telconemp10)"></div>
-        <div class="small-1 columns">  <input name="telconemp10" type="text" id="telconemp10"  maxlength="1" onKeyUp="myFunction(this,this.value,faxconemp1)"></div>
+        <div class="small-1 columns">  <input name="telconemp1" type="text" id="telconemp1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['TelDatConEmp'][0]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,telconemp2)"></div>
+        <div class="small-1 columns">  <input name="telconemp2" type="text" id="telconemp2" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['TelDatConEmp'][1]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,telconemp3)"></div>
+        <div class="small-1 columns">  <input name="telconemp3" type="text" id="telconemp3" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['TelDatConEmp'][2]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,telconemp4)"></div>
+        <div class="small-1 columns">  <input name="telconemp4" type="text" id="telconemp4" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['TelDatConEmp'][3]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,telconemp5)"></div>
+        <div class="small-1 columns">  <input name="telconemp5" type="text" id="telconemp5" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['TelDatConEmp'][4]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,telconemp6)"></div>
+        <div class="small-1 columns">  <input name="telconemp6" type="text" id="telconemp6" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['TelDatConEmp'][5]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,telconemp7)"></div>
+        <div class="small-1 columns">  <input name="telconemp7" type="text" id="telconemp7" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['TelDatConEmp'][6]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,telconemp8)"></div>
+        <div class="small-1 columns">  <input name="telconemp8" type="text" id="telconemp8" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['TelDatConEmp'][7]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,telconemp9)"></div>
+        <div class="small-1 columns">  <input name="telconemp9" type="text" id="telconemp9" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['TelDatConEmp'][8]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,telconemp10)"></div>
+        <div class="small-1 columns"> <input name="telconemp10" type="text" id="telconemp10"value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['TelDatConEmp'][9]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,faxconemp1)"></div>
         </p>
 </div>
 
 <div class="row">
       <p align="left">Fax (Con Lada) : 
-        <div class="small-1 columns">  <input name="faxconemp1" type="text" id="faxconemp1"  maxlength="1" onKeyUp="myFunction(this,this.value,faxconemp2)"></div>
-        <div class="small-1 columns">  <input name="faxconemp2" type="text" id="faxconemp2"  maxlength="1" onKeyUp="myFunction(this,this.value,faxconemp3)"></div>
-        <div class="small-1 columns">  <input name="faxconemp3" type="text" id="faxconemp3"  maxlength="1" onKeyUp="myFunction(this,this.value,faxconemp4)"></div>
-        <div class="small-1 columns">  <input name="faxconemp4" type="text" id="faxconemp4"  maxlength="1" onKeyUp="myFunction(this,this.value,faxconemp5)"></div>
-        <div class="small-1 columns">  <input name="faxconemp5" type="text" id="faxconemp5"  maxlength="1" onKeyUp="myFunction(this,this.value,faxconemp6)"></div>
-        <div class="small-1 columns">  <input name="faxconemp6" type="text" id="faxconemp6"  maxlength="1" onKeyUp="myFunction(this,this.value,faxconemp7)"></div>
-        <div class="small-1 columns">  <input name="faxconemp7" type="text" id="faxconemp7"  maxlength="1" onKeyUp="myFunction(this,this.value,faxconemp8)"></div>
-        <div class="small-1 columns">  <input name="faxconemp8" type="text" id="faxconemp8"  maxlength="1" onKeyUp="myFunction(this,this.value,faxconemp9)"></div>
-        <div class="small-1 columns">  <input name="faxconemp9" type="text" id="faxconemp9"  maxlength="1" onKeyUp="myFunction(this,this.value,faxconemp10)"></div>
-        <div class="small-1 columns">  <input name="faxconemp10" type="text" id="faxconemp10"  maxlength="1" onKeyUp="myFunction(this,this.value,mailconemp)"></div>
+        <div class="small-1 columns">  <input name="faxconemp1" type="text" id="faxconemp1" value="<?php if(isset($row2['Folio_Cliente']) && $row2['FaxDatConEmp']!= '' ) { echo $row2['FaxDatConEmp'][0];     }?>" maxlength="1" onKeyUp="myFunction(this,this.value,faxconemp2)"></div>
+        <div class="small-1 columns">  <input name="faxconemp2" type="text" id="faxconemp2" value="<?php if(isset($row2['Folio_Cliente']) && $row2['FaxDatConEmp']!= '' ) { echo $row2['FaxDatConEmp'][1];     }?>" maxlength="1" onKeyUp="myFunction(this,this.value,faxconemp3)"></div>
+        <div class="small-1 columns">  <input name="faxconemp3" type="text" id="faxconemp3" value="<?php if(isset($row2['Folio_Cliente']) && $row2['FaxDatConEmp']!= '' ) { echo $row2['FaxDatConEmp'][2];     }?>" maxlength="1" onKeyUp="myFunction(this,this.value,faxconemp4)"></div>
+        <div class="small-1 columns">  <input name="faxconemp4" type="text" id="faxconemp4" value="<?php if(isset($row2['Folio_Cliente']) && $row2['FaxDatConEmp']!= '' ) { echo $row2['FaxDatConEmp'][3];     }?>" maxlength="1" onKeyUp="myFunction(this,this.value,faxconemp5)"></div>
+        <div class="small-1 columns">  <input name="faxconemp5" type="text" id="faxconemp5" value="<?php if(isset($row2['Folio_Cliente']) && $row2['FaxDatConEmp']!= '' ) { echo $row2['FaxDatConEmp'][4];     }?>" maxlength="1" onKeyUp="myFunction(this,this.value,faxconemp6)"></div>
+        <div class="small-1 columns">  <input name="faxconemp6" type="text" id="faxconemp6" value="<?php if(isset($row2['Folio_Cliente']) && $row2['FaxDatConEmp']!= '' ) { echo $row2['FaxDatConEmp'][5];     }?>" maxlength="1" onKeyUp="myFunction(this,this.value,faxconemp7)"></div>
+        <div class="small-1 columns">  <input name="faxconemp7" type="text" id="faxconemp7" value="<?php if(isset($row2['Folio_Cliente']) && $row2['FaxDatConEmp']!= '' ) { echo $row2['FaxDatConEmp'][6];     }?>" maxlength="1" onKeyUp="myFunction(this,this.value,faxconemp8)"></div>
+        <div class="small-1 columns">  <input name="faxconemp8" type="text" id="faxconemp8" value="<?php if(isset($row2['Folio_Cliente']) && $row2['FaxDatConEmp']!= '' ) { echo $row2['FaxDatConEmp'][7];     }?>" maxlength="1" onKeyUp="myFunction(this,this.value,faxconemp9)"></div>
+        <div class="small-1 columns">  <input name="faxconemp9" type="text" id="faxconemp9" value="<?php if(isset($row2['Folio_Cliente']) && $row2['FaxDatConEmp']!= '' ) { echo $row2['FaxDatConEmp'][8];     }?>" maxlength="1" onKeyUp="myFunction(this,this.value,faxconemp10)"></div>
+        <div class="small-1 columns"><input name="faxconemp10" type="text" id="faxconemp10" value="<?php if(isset($row2['Folio_Cliente']) && $row2['FaxDatConEmp']!= '' ) { echo $row2['FaxDatConEmp'][9];     }?>" maxlength="1" onKeyUp="myFunction(this,this.value,mailconemp)"></div>
       </p>
 </div>
 <div class="row">
       <p align="left">
   <div class="small-5 columns">  
-        <input name="mailconemp" type="text" id="mailconemp"  placeholder="Email">
+        <input name="mailconemp" type="text" id="mailconemp" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['EmailDatConEmp']; } ?>" placeholder="Email">
         </div>
      <div class="small-5 columns">  
-        <input name="puesconemp" type="text" id="puesconemp"  placeholder="Puesto que desempeña en la empresa">
+        <input name="puesconemp" type="text" id="puesconemp" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PuestDatConEmp']; } ?>" placeholder="Puesto que desempeña en la empresa">
     </div>
       </p>
   
@@ -533,17 +533,17 @@ Telefono(Con lada - 10 dígitos):
       <div class="row">
         <p align="left">
         <div class="small-5 columns">  
-              <input name="actprinc" type="text" id="actprinc"  placeholder="Actividad Principal/según alta o último cambio ante SHCP">
+              <input name="actprinc" type="text" id="actprinc" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['ActPrinDatGenPM']; } ?>" placeholder="Actividad Principal/según alta o último cambio ante SHCP">
           </div>
           <div class="small-5 columns">  
-              <input name="cantperson" type="text" id="cantperson"  placeholder="Cantidad de personal">
+              <input name="cantperson" type="text" id="cantperson" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['CantPerDatGenPM']; } ?>" placeholder="Cantidad de personal">
           </div>
           </p>
       </div>
 
 <div class="row">
       <p align="left">Fecha inicio de operaciones:
-          <div class="small-2 columns"><input name="inicoper1" type="text" id="inicoper1"  maxlength="2" placeholder="dd" onKeyUp="myFunction(this,this.value,inicoper2)"></div>
+          <div class="small-2 columns"><input name="inicoper1" type="date" id="inicoper1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['IniOpDatGenPM']; } ?>" maxlength="2" placeholder="dd" onKeyUp="myFunction(this,this.value,inicoper2)"></div>
        </p>
 </div>
       <hr>
@@ -551,7 +551,7 @@ Telefono(Con lada - 10 dígitos):
       <div class="row">
       <p align="left">
           Fecha de contitución de la empresa:
-           <div class="small-2 columns"><input name="inicoper13" type="text" id="inicoper13"  maxlength="2" placeholder="dd" onKeyUp="myFunction(this,this.value,inicoper23)"></div>
+           <div class="small-2 columns"><input name="inicoper13" type="date" id="inicoper13" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['FechaConsEmp']; } ?>" maxlength="2" placeholder="dd" onKeyUp="myFunction(this,this.value,inicoper23)"></div>
         </p>
       </div>
       <div class="row">
