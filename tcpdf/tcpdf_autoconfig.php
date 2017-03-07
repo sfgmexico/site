@@ -165,7 +165,7 @@ if (!defined('PDF_MARGIN_FOOTER')) {
 }
 
 if (!defined('PDF_MARGIN_TOP')) {
-	define ('PDF_MARGIN_TOP', 27);
+	define ('PDF_MARGIN_TOP', 20);
 }
 
 if (!defined('PDF_MARGIN_BOTTOM')) {
@@ -185,7 +185,7 @@ if (!defined('PDF_FONT_NAME_MAIN')) {
 }
 
 if (!defined('PDF_FONT_SIZE_MAIN')) {
-	define ('PDF_FONT_SIZE_MAIN', 10);
+	define ('PDF_FONT_SIZE_MAIN', 9);
 }
 
 if (!defined('PDF_FONT_NAME_DATA')) {
