@@ -460,7 +460,7 @@ $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(0,0, 'Edad
 	' , 1, 'J', 0, 1, '', '', true,1,false,true);
-$pdf->Ln(1);
+
 
 
 $pdf->SetAlpha(0.2);
@@ -468,7 +468,7 @@ $pdf->RoundedRect(15, 177, 186, 33, 6.5, '0000','DF',null ,array(255, 255, 200) 
 				
 			$pdf->AddPage();
 
-
+$pdf->SetFontSize(5,true);	
 $pdf->MultiCell(40,0, 'Datos obligado solidario(2) persona fisica' , 0, 'L', 0, 1, '', '', true,1,false,true);
 $pdf->MultiCell(40,0, 'Nombre
 	' , 1, 'J', 0, 0, '', '', true,1,false,true);
@@ -531,7 +531,7 @@ $pdf->MultiCell(20,0, 'C.P.
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(30,0, 'Sexo
-Si    No	' , 1, 'A', 0, 0, '', '', true,1,false,true);
+   	' , 1, 'A', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(30,0, 'E-mail 
@@ -550,11 +550,8 @@ $pdf->Ln(1);
 
 
 
-$pdf->MultiCell(0,0, 'Para el caso de que SERVICIOS FINANCIEROS DEL GUADIANA S.A. DE C.V. SOFOM E.N.R. (SFG) ofrezca el servicio de consulta e impresión de estados de cuenta a través de su página de Internet (www.sfgmexico.mx), el apoderado: (i) instruye a SFG para que los estados de cuenta sólo se pongan a disposición a través de dicho medio, (ii) se obliga a consultarlos periódicamente y con toda oportunidad y (iii) releva a SFG de enviar estados de cuenta al domicilio de su representada. En el caso de que el apoderado no esté conforme con lo anterior, deberá marcar cualquiera de los siguientes recuadros:																																															
-	' , 0, 'L', 0, 1, '', '', true,1,false,true);
+$pdf->MultiCell(0,0, 'Para el caso de que SERVICIOS FINANCIEROS DEL GUADIANA S.A. DE C.V. SOFOM E.N.R. (SFG) ofrezca el servicio de consulta e impresión de estados de cuenta a través de su página de Internet (www.sfgmexico.mx), el apoderado: (i) instruye a SFG para que los estados de cuenta sólo se pongan a disposición a través de dicho medio, (ii) se obliga a consultarlos periódicamente y con toda oportunidad y (iii) releva a SFG de enviar estados de cuenta al domicilio de su representada. En el caso de que el apoderado no esté conforme con lo anterior, deberá marcar cualquiera de los siguientes recuadros:' , 0, 'L', 0, 1, '', '', true,1,false,true);
 $pdf->MultiCell(130,0, 'No estoy de acuerdo con esta instrucción y solicito el envío del estado de cuenta al correo electrónico de mi representada' , 0, 'L', 0, 0, '', '', true,1,false,true);
-
-
 $pdf->MultiCell(5,0, '  ' , 1, 'L', 0, 1, '', '', true,1,false,true);
 				$pdf->Ln(1);																																											
 $pdf->MultiCell(130,0, 'No estoy de acuerdo con esta instrucción y solicito el envío del estado de cuenta al domicilio de mi representada' , 0, 'L', 0, 0, '', '', true,1,false,true);
@@ -606,21 +603,40 @@ $pdf->MultiCell(60,0, 'Colonia
 	' , 1, 'L', 0, 1, '', '', true,1,false,true);
 $pdf->Ln(1);
 
-$pdf->MultiCell(30,0, 'Nombre del representante legal
+$pdf->MultiCell(60,0, 'Nombre y firma  del obligado solidario  persona fisica
 	' , 1, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(40,0, 'RFC del representante legal
+$pdf->MultiCell(40,0, 'RFC del obligado solidario persona fisica
 	' , 1, 'L', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(40,0, 'RFC del representante legal
-	' , 1, 'L', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(5,0, '
-	' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(0,0, 'Firma del representante legal
+$pdf->MultiCell(0,0, 'Firma del obligado solidario
 	' , 1, 'J', 0, 1, '', '', true,1,false,true);
-$pdf->Ln(2);
+$pdf->Ln(1);
+
+$pdf->MultiCell(60,0, 'Calle y No.
+	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(5,0, '
+	' , 0, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(0,0, 'Colonia
+	' , 1, 'J', 0, 1, '', '', true,1,false,true);
+$pdf->Ln(1);
+$pdf->MultiCell(60,0, 'Ciudad
+	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(5,0, '
+	' , 0, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(40,0, 'Estado
+	' , 1, 'L', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(5,0, '
+	' , 0, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(40,0, 'Codigo Postal
+	' , 1, 'L', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(5,0, '
+	' , 0, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(0,0, 'Telefono(s)
+	' , 1, 'J', 0, 1, '', '', true,1,false,true);
+$pdf->Ln(1);
 
 $pdf->MultiCell(0,0, 'CONSENTIMIENTO PARA EL TRATAMIENTO DE LOS DATOS PERSONALES (APLICABLE A PERSONAS FISICAS)																																															
 El (Los) apoderado (s) legal (es) y en su caso el(los) obligado(s) solidario(s), (titulares de los datos) expresamente reconocen y aceptan mediante su firma que SERVICIOS FINANCIEROS DEL GUADIANA S.A. DE C.V. SOFOM E.N.R (“SFG”) con domicilio en Autopista México-Puebla Km. 116 más 900, San Lorenzo Almecatla, Cuautlancingo, Puebla, les facilitó en el momento de llenar esta solicitud el “Aviso de Privacidad”. En tal virtud, los titulares de los datos otorgan su consentimiento de forma expresa para que SFG:																																															
@@ -638,10 +654,6 @@ $pdf->MultiCell(30,0, 'apellido paterno
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(30,0, 'Apellido materno
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(5,0, '
-	' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(30,0, 'RFC
 	' , 1, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
@@ -670,18 +682,17 @@ $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(0,0, 'Telefono
 	' , 1, 'J', 0, 1, '', '', true,1,false,true);
-$pdf->Ln(2);
+$pdf->Ln(1);
 
-$pdf->MultiCell(0,0, 'En calidad de apoderado de la empresa que represento, acepto que en caso de que sea autorizado el arrendamiento puro o financiamiento de los vehículos, autorizaré a SERVICIOS FINANCIEROS DEL GUADIANA S.A. DE C.V. SOFOM E.N.R, a cargar directamente en la cuenta bancaria de la compañía que represento, las cantidades que resulten a cargo de mi representada por el contrato de arrendamiento puro o financiamiento que SERVICIOS FINANCIEROS DEL GUADIANA S.A. DE C.V. SOFOM E.N.R otorgue a mi representada.																																															
-																																															
+$pdf->MultiCell(0,0, 'En calidad de apoderado de la empresa que represento, acepto que en caso de que sea autorizado el arrendamiento puro o financiamiento de los vehículos, autorizaré a SERVICIOS FINANCIEROS DEL GUADIANA S.A. DE C.V. SOFOM E.N.R, a cargar directamente en la cuenta bancaria de la compañía que represento, las cantidades que resulten a cargo de mi representada por el contrato de arrendamiento puro o financiamiento que SERVICIOS FINANCIEROS DEL GUADIANA S.A. DE C.V. SOFOM E.N.R otorgue a mi representada.																																																																																													
 "Bajo protesta de decir verdad, los firmantes manifiestan que los datos son verídicos y que sus firmas son las que usan en todos sus documentos públicos y privados y que fueron estampadas en presencia del concesionario.
-Manifiesta el obligado solidario bajo protesta de decir verdad, que el bien inmueble que ofrece en garantía se encuentra libre de gravamen y al corriente en el pago de sus contribuciones, obligándose a no gravarlo, enajenarlo, cederlo o transmitirlo total o parcialmente, durante la vigencia del presente contrato, hasta la fecha en que se le restituyan a SFG los vehículos materia del presente contrato (sólo en caso de arrendamiento puro) y le sea pagada íntegramente cualquier cantidad que llegase a adeudar el solicitante. Asímismo manifiesta su consentimiento expreso para ser obligado solidario en dicho contrato."																																															
-																																															
+Manifiesta el obligado solidario bajo protesta de decir verdad, que el bien inmueble que ofrece en garantía se encuentra libre de gravamen y al corriente en el pago de sus contribuciones, obligándose a no gravarlo, enajenarlo, cederlo o transmitirlo total o parcialmente, durante la vigencia del presente contrato, hasta la fecha en que se le restituyan a SFG los vehículos materia del presente contrato (sólo en caso de arrendamiento puro) y le sea pagada íntegramente cualquier cantidad que llegase a adeudar el solicitante. Asímismo manifiesta su consentimiento expreso para ser obligado solidario en dicho contrato."
 Adicionalmente la concesionaria manifiesta que se cotejaron y revisaron, a través del Gerente de Servicios Financieros, los documentos originales de la solicitante, no quedando ninguna duda en cuanto a su veracidad y que los documentos enviados a SERVICIOS FINANCIEROS DEL GUADIANA S.A. DE C.V. SOFOM E.N.R  son copias fieles de dichos originales.																																															
-' , 0, 'L', 0, 1, '', '', true,1,false,true);
+' , 1, 'L', 0, 1, '', '', true,1,false,true);
+
 $pdf->SetLineStyle(array('width' => 0.5, 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(0, 0, 0)));
 $pdf->SetAlpha(0.2);
-$pdf->RoundedRect(15, 55, 186, 180, 6.5, '0000','DF',null ,array(255, 255, 200) );
+$pdf->RoundedRect(15, 55, 186, 171, 6.5, '0000','DF',null ,array(255, 255, 200) );
 																																															
 // ---------------------------------------------------------
 
