@@ -1083,7 +1083,7 @@ Fecha de nacimiento:
   </li>
   <!-- ... -->
   <li class="accordion-item " data-accordion-item>
-    <a href="#" onClick="window.scrollTo(0,0)" class="accordion-title"><h5 align="center" >FORMATO DE IDENTIFICACIÓN DEL CLIENTE POR CLASIFICACIÓN DE RIESGO</h5></a>
+    <a href="#" onClick="cambio()" class="accordion-title"><h5 align="center" >FORMATO DE IDENTIFICACIÓN DEL CLIENTE POR CLASIFICACIÓN DE RIESGO</h5></a>
     <div class="accordion-content" data-tab-content>
   
    
@@ -1092,7 +1092,7 @@ Fecha de nacimiento:
     
     <h4 align="left">Datos generales del cliente</h4> 
     <p align="left">Tipo de Cliente: Nuevo <input name="escliente" type="radio" value="1">
-     Actualización <input name="escliente" type="radio" value="2">
+     Actualización <input name="escliente" type="radio" value="2" <?php if(isset($row['Folio_Cliente'])){echo "checked";}?>>
     </p>
     <table width="100%" border="0">
             <tr>
@@ -1133,7 +1133,7 @@ Fecha de nacimiento:
             </tr>
             <tr>
               <td>País</td>
-              <td><input name="textfield10" type="text" id="textfield10" ></td>
+              <td><input name="textfield10" type="text" id="textfield10" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['PaisSolicitante']; } ?>"></td>
             </tr>
             <tr>
               <td>RFC</td>
@@ -1309,7 +1309,7 @@ Fecha de nacimiento:
     <!--formato de riesgo termina aqui-->
    <li class="accordion-item" data-accordion-item>
    
-    <a href="#" onClick="window.scrollTo(0,0)" class="accordion-title">  <h5 align="center">FORMATO DE IDENTIFICACION, CONOCIMIENTO DEL CLIENTE Y CONSTANCIA DE ENTREVISTA</h5></a>
+    <a href="#" onClick="cambio2()" class="accordion-title">  <h5 align="center">FORMATO DE IDENTIFICACION, CONOCIMIENTO DEL CLIENTE Y CONSTANCIA DE ENTREVISTA</h5></a>
     <div class="accordion-content" data-tab-content>
    <div id="fid">
 
@@ -1802,5 +1802,6 @@ xmlhttp.send(null);
     <script src="js/vendor/foundation.js"></script>
     <script src="js/jquery-ui/jquery-ui.js"></script>
     <script src="js/vendor/app.js"></script>
+    <script src="js/PM.js"></script>
 </body>
 </html>
