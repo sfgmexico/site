@@ -964,7 +964,7 @@ input::-moz-placeholder {
           <div class="small-5 columns"><input name="datobapmat2" type="text" id="datobapmat2" size="30px" placeholder="Apellido Materno" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ApMatObSol2']; } ?>" onkeypress="return validaTexto(event)"></div>
 </p>
       <p align="left">
-          <div class="small-5 columns"><input name="datobdir2" type="text" id="datobdir2" size="48px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['DirObSol2']; } ?>"placeholder="Dirección / Calle y número"></div>
+          <div class="small-5 columns"><input name="datobdir2" type="text" id="datobdir2" size="48px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['DirObSol2']; } ?>" placeholder="Dirección / Calle y número"></div>
           <div class="small-5 columns"><input name="datobcol2" type="text" id="datobcol2" size="48px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ColObSol2']; } ?>"placeholder="Colonia"></div>
         </p>
       <p align="left">
