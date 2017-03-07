@@ -645,43 +645,38 @@ El (Los) apoderado (s) legal (es) y en su caso el(los) obligado(s) solidario(s),
 Para los casos en los que: (i) no se hubiese celebrado contrato de crédito alguno o (ii) una vez celebrado, el mismo hubiese terminado, el tratamiento a que hace referencia el presente numeral tendrá una vigencia de hasta 5 años contados a partir de la fecha del otorgamiento de este consentimiento.																																															
 En caso de no aceptar el tratamiento de sus datos para las finalidades indicadas en este numeral 2 marcar la casilla, de lo contrario se entenderá que ha otorgado su consentimiento.																																															
 ' , 0, 'L', 0, 1, '', '', true,1,false,true);
-$pdf->MultiCell(40,0, 'Nombre
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(40,0, '    Representante legal 1' , 0, 'L', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(5,0, '
-	' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(30,0, 'apellido paterno
+	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(30,0, '    Representante legal 2' , 0, 'L', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(5,0, '
 	' , 1, 'L', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(30,0, '    Obligado solidario 1' , 0, 'L', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(5,0, '
-	' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(30,0, 'Apellido materno
 	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(30,0, '    Obligado solidario 2' , 0, 'L', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(5,0, '
-	' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(0,0, 'Telefono
 	' , 1, 'J', 0, 1, '', '', true,1,false,true);
 
 $pdf->MultiCell(0,0, 'Los titulares de los datos recabados podrán en cualquier momento limitar el uso o divulgación, así como a tener acceso, rectificar, cancelar u oponerse al uso, tratamiento o transferencia de sus datos personales financieros y/o patrimoniales y/o sensibles, salvo en los casos en que SFG no esté obligado y conforme al procedimiento establecido en el Aviso de Privacidad. Cualquier cambio a lo previsto en el Aviso de Privacidad podrá consultarse en la página www.sfgmexico.mx.. Este consentimiento se otorga de conformidad con lo señalado por la Ley Federal de Protección de Datos Personales en Posesión de los Particulares, su Reglamento y cualquier otra normatividad aplicable.																																															
 ' , 0, 'L', 0, 1, '', '', true,1,false,true);
 
 
-$pdf->MultiCell(40,0, 'Nombre
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(40,0, '
+	Firma representante legal 1' , 1, 'C', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(30,0, 'apellido paterno
-	' , 1, 'L', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(30,0, '
+	Firma representante legal 2' , 1, 'C', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(30,0, 'Apellido materno
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(30,0, '
+	Firma obligado solidario 1' , 1, 'C', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(30,0, 'RFC
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(5,0, '
-	' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(0,0, 'Telefono
-	' , 1, 'J', 0, 1, '', '', true,1,false,true);
+$pdf->MultiCell(30,0, '
+	Firma obligado solidario 2' , 1, 'C', 0, 1, '', '', true,1,false,true);
+
 $pdf->Ln(1);
 
 $pdf->MultiCell(0,0, 'En calidad de apoderado de la empresa que represento, acepto que en caso de que sea autorizado el arrendamiento puro o financiamiento de los vehículos, autorizaré a SERVICIOS FINANCIEROS DEL GUADIANA S.A. DE C.V. SOFOM E.N.R, a cargar directamente en la cuenta bancaria de la compañía que represento, las cantidades que resulten a cargo de mi representada por el contrato de arrendamiento puro o financiamiento que SERVICIOS FINANCIEROS DEL GUADIANA S.A. DE C.V. SOFOM E.N.R otorgue a mi representada.																																																																																													
@@ -689,10 +684,30 @@ $pdf->MultiCell(0,0, 'En calidad de apoderado de la empresa que represento, acep
 Manifiesta el obligado solidario bajo protesta de decir verdad, que el bien inmueble que ofrece en garantía se encuentra libre de gravamen y al corriente en el pago de sus contribuciones, obligándose a no gravarlo, enajenarlo, cederlo o transmitirlo total o parcialmente, durante la vigencia del presente contrato, hasta la fecha en que se le restituyan a SFG los vehículos materia del presente contrato (sólo en caso de arrendamiento puro) y le sea pagada íntegramente cualquier cantidad que llegase a adeudar el solicitante. Asímismo manifiesta su consentimiento expreso para ser obligado solidario en dicho contrato."
 Adicionalmente la concesionaria manifiesta que se cotejaron y revisaron, a través del Gerente de Servicios Financieros, los documentos originales de la solicitante, no quedando ninguna duda en cuanto a su veracidad y que los documentos enviados a SERVICIOS FINANCIEROS DEL GUADIANA S.A. DE C.V. SOFOM E.N.R  son copias fieles de dichos originales.																																															
 ' , 1, 'L', 0, 1, '', '', true,1,false,true);
+$pdf->MultiCell(40,0, 'Datos obligado solidario(2) persona fisica' , 0, 'L', 0, 1, '', '', true,1,false,true);
+$pdf->MultiCell(40,0, 'Nombre
+	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(5,0, '
+	' , 0, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(30,0, 'apellido paterno
+	' , 1, 'L', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(5,0, '
+	' , 0, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(30,0, 'Apellido materno
+	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(5,0, '
+	' , 0, 'J', 0, 1, '', '', true,1,false,true);
+$pdf->Ln(1);
+$pdf->MultiCell(30,0, 'RFC
+	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(5,0, '
+	' , 0, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(0,0, 'Telefono
+	' , 1, 'J', 0, 1, '', '', true,1,false,true);
 
 $pdf->SetLineStyle(array('width' => 0.5, 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(0, 0, 0)));
 $pdf->SetAlpha(0.2);
-$pdf->RoundedRect(15, 55, 186, 171, 6.5, '0000','DF',null ,array(255, 255, 200) );
+$pdf->RoundedRect(15, 51, 186, 134, 6.5, '0000','DF',null ,array(255, 255, 200) );
 																																															
 // ---------------------------------------------------------
 
