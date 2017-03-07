@@ -470,7 +470,23 @@ Telefono(Con lada - 10 dígitos):
 </p></div>
 </div>
 <div class="row">
-      <p align="left">RFC con homoclave:
+      <div class="small-6 columns">
+      <p align="left">
+        <input name="datobdir22" type="text" id="datobdir22"  placeholder="Calle y No.:">
+          <input name="datobcol23" type="text" id="datobcol23"  placeholder="Colonia:"></p>
+    </div>
+      <div class="small-6 columns">
+      <p align="left">
+        <input name="colsol22" type="text" id="colsol22"  placeholder="Ciudad:">
+          <input name="cdsol22" type="text" id="cdsol22"  placeholder="Estado:">
+    </p></div>
+    <p align="left">
+    <div class="small-6 columns">
+          <input name="lugnacsol22" type="text" id="lugnacsol22"  placeholder="Código Postal:">
+  </div>
+  
+<div class="row">
+      <div class="small-12 columns"><p align="left">RFC con homoclave:</div>
         <div class="small-10 columns">  
         <div class="small-1 columns">  <input name="rfcconemp1" type="text" id="rfcconemp1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCDatConEmp'][0]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,rfcconemp2)"></div>
         <div class="small-1 columns">  <input name="rfcconemp2" type="text" id="rfcconemp2" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCDatConEmp'][1]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,rfcconemp3)"></div>
@@ -1034,60 +1050,9 @@ Fecha de nacimiento:
 </div>
       </div>
       <hr>
-      <div id="au">
-
-      <p align="left"><strong>AUTORIZACIÓN RELATIVA A LA INVESTIGACION DEL HISTORIAL CREDITICIO DEL REPRESENTANTE LEGAL Y/U OBLIGADO SOLIDARIO Y/O PRINCIPAL INVERSIONISTA, PERSONA FISICA </strong></p>
-<div class="row">
-         <div class="small-5 columns">
-      <p align="left">
-        <input name="datobnom2222" type="text" id="datobnom2222"  placeholder="Nombre del Representante Legal:">
-         <input name="datobappat2222" type="text" id="datobappat2222"  placeholder="RFC del Representante Legal:">
-      </p></div>
-      <div class="small-5 columns">
-      <p align="left">
-        <input name="datobdir22" type="text" id="datobdir22"  placeholder="Calle y No.:">
-          <input name="datobcol23" type="text" id="datobcol23"  placeholder="Colonia:"></p>
-    </div>
-      <div class="small-5 columns">
-      <p align="left">
-        <input name="colsol22" type="text" id="colsol22"  placeholder="Ciudad:">
-          <input name="cdsol22" type="text" id="cdsol22"  placeholder="Estado:">
-    </p></div>
-    <p align="left">
-    <div class="small-5 columns">
-          <input name="lugnacsol22" type="text" id="lugnacsol22"  placeholder="Código Postal:">
-          <input name="cpsol22" type="text" id="cpsol22"  placeholder="Teléfono(s):">
-  </div>
-      </p>
-</div>
+      <div id="au"></div>
 
 <hr>
-<div class="row">
- <div class="small-5 columns">
-      <p align="left">
-        <input name="datobnom22222" type="text" id="datobnom22222"  placeholder="Nombre y firma del Obligado Solidario Persona Física:">
-          <input name="datobappat22222" type="text" id="datobappat22222"  placeholder="RFC del Obligado Solidario Persona Física:">
-      </p>
-  </div>
-   <div class="small-5 columns">
-      <p align="left">
-        <input name="datobdir222" type="text" id="datobdir222"  placeholder="Calle y No.:">
-          <input name="datobcol232" type="text" id="datobcol232"  placeholder="Colonia">
-</p></div>
- <div class="small-5 columns">
-      <p align="left">
-        <input name="colsol222" type="text" id="colsol222"  placeholder="Ciudad:">
-          <input name="cdsol222" type="text" id="cdsol222"  placeholder="Estado:">
-
-</p>
-</div>
-  <p align="left">
- <div class="small-5 columns">
-          <input name="lugnacsol222" type="text" id="lugnacsol222"  placeholder="Código Postal:">
-          <input name="cpsol222" type="text" id="cpsol222"  placeholder="Teléfono(s):">
-</div>
-  </p>
- </div>
 
       <hr>
       <div class="row">
