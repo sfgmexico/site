@@ -686,7 +686,7 @@ Manifiesta el obligado solidario bajo protesta de decir verdad, que el bien inmu
 Adicionalmente la concesionaria manifiesta que se cotejaron y revisaron, a través del Gerente de Servicios Financieros, los documentos originales de la solicitante, no quedando ninguna duda en cuanto a su veracidad y que los documentos enviados a SERVICIOS FINANCIEROS DEL GUADIANA S.A. DE C.V. SOFOM E.N.R  son copias fieles de dichos originales.																																															
 ' , 1, 'L', 0, 1, '', '', true,1,false,true);
 $pdf->Ln(1);
-
+$pdf->SetFontSize(6,true);	
 $pdf->MultiCell(60,0, 'Clave consecionario o distribuidor
 	' , 1, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(5,0, '
@@ -700,6 +700,7 @@ $pdf->MultiCell(0,0, 'Fecha
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 1, '', '', true,1,false,true);
 $pdf->Ln(1);
+
 $pdf->MultiCell(70,0, 'Nombre del vendedor
 	' , 1, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(5,0, '
@@ -737,51 +738,51 @@ $pdf->MultiCell(70,0, 'Datos generales del cliente
 $pdf->MultiCell(0,0, 'Nombre o razon social
 	' , 0, 'J', 0, 1, '', '', true,1,false,true);
 
-$pdf->Line(15, 49, 200, 49, $style2);
+$pdf->Line(15, 53, 200, 53, $style2);
 $pdf->MultiCell(0,0, 'Numero de cliente
 	' , 0, 'J', 0, 1, '', '', true,1,false,true);
 
-$pdf->Line(15, 53, 200, 53, $style2);
+$pdf->Line(15, 58, 200, 58, $style2);
 $pdf->MultiCell(0,0, 'Domicilio particular
 	' , 0, 'J', 0, 1, '', '', true,1,false,true);
 
-$pdf->Line(15, 58, 200, 58, $style2);
+$pdf->Line(15, 63, 200, 63, $style2);
 //------------------------------------
 $pdf->MultiCell(100,0, 'Colonia
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->Line(15, 62, 100, 62, $style2);
+$pdf->Line(15, 68, 100, 68, $style2);
 $pdf->MultiCell(0,0, 'Codigo postal:
 	' , 0, 'J', 0, 1, '', '', true,1,false,true);
-$pdf->Line(115, 62, 200, 62, $style2);
+$pdf->Line(115, 68, 200, 68, $style2);
 //---------------------------------------
 $pdf->MultiCell(100,0, 'Delegacion o municipio
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->Line(15, 67, 100, 67, $style2);
+$pdf->Line(15, 74, 100, 74, $style2);
 $pdf->MultiCell(0,0, 'Ciudad o poblacion:
 	' , 0, 'J', 0, 1, '', '', true,1,false,true);
-$pdf->Line(115, 67, 200, 67, $style2);
+$pdf->Line(115, 74, 200, 74, $style2);
 //--------------------------------------
 $pdf->MultiCell(100,0, 'Estado o provincia
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 
-$pdf->Line(15, 71, 100, 71, $style2);
+$pdf->Line(15, 79, 100, 79, $style2);
 $pdf->MultiCell(0,0, 'Pais:
 	' , 0, 'J', 0, 1, '', '', true,1,false,true);
 
-$pdf->Line(115, 71, 200, 71, $style2);
+$pdf->Line(115, 79, 200, 79, $style2);
 //--------------------------------------
 $pdf->MultiCell(100,0, 'Fecha de nacimiento
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 
-$pdf->Line(15, 75, 100, 75, $style2);
+$pdf->Line(15, 84, 100, 84, $style2);
 $pdf->MultiCell(0,0, 'RFC:
 	' , 0, 'J', 0, 1, '', '', true,1,false,true);
-$pdf->Line(115, 75, 200, 75, $style2);
+$pdf->Line(115, 84, 200, 84, $style2);
 
 $pdf->MultiCell(70,0, 'Calificacion de grado de riesgo
 	' , 0, 'J', 0, 1, '', '', true,1,false,true);
 
-$pdf->Cell(15, 0, 'Segmento del cliente', 'B', 1, 'C', 0, '', 0, false, 'T', 'C');
+$pdf->Cell(25, 0, 'Segmento del cliente', 'B', 1, 'C', 0, '', 0, false, 'T', 'C');
 $pdf->Ln(3);
 $pdf->MultiCell(60,0, 'Resultado de la calificacion de grado de riesgo*:
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
@@ -892,7 +893,7 @@ $tbl = <<<EOD
 </table>
 EOD;
 
-$pdf->writeHTMLCell(160,0,15,90,$tbl,0,0,false, false, '');
+$pdf->writeHTMLCell(160,0,15,110,$tbl,0,0,false, false, '');
 $pdf->MultiCell(0,0, 'Grado de riesgo' , 0, 'C', 0, 1, '', '', true,1,false,true);
 
 $pdf->MultiCell(0,0, 'Alto mas de 45 ' , 0, 'R', 0, 1, '', '', true,1,false,true);
@@ -900,6 +901,9 @@ $pdf->MultiCell(0,0, 'Medio  30-45  ' , 0, 'R', 0, 1, '', '', true,1,false,true)
 $pdf->MultiCell(0,0, 'Bajo 21-29  ' , 0, 'R', 0, 1, '', '', true,1,false,true);
 $pdf->Ln(90);
 $pdf->MultiCell(0,0, 'Resultado de calificacion de grado de riesgo*:' , 0, 'L', 0, 1, '', '', true,1,false,true);
+
+
+
 	$pdf->SetAlpha(0.2);																																														
 // ---------------------------------------------------------
 
