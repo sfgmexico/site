@@ -33,12 +33,13 @@ $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, 'LETTER', true, 'UTF-8', false)
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
 $pdf->SetAuthor('Nicola Asuni');
-$pdf->SetTitle('TCPDF Example 004');
+$pdf->SetTitle('Solicitud 004');
 $pdf->SetSubject('TCPDF Tutorial');
 $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
 
 // set default header data
-$pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE.' 004', PDF_HEADER_STRING);
+$pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, '', 'Personas Morales 
+Declaraciones / Solicitud');
 
 // set header and footer fonts
 $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
@@ -468,7 +469,7 @@ $pdf->RoundedRect(15, 177, 186, 33, 6.5, '0000','DF',null ,array(255, 255, 200) 
 				
 			$pdf->AddPage();
 
-$pdf->SetFontSize(5,true);	
+
 $pdf->MultiCell(40,0, 'Datos obligado solidario(2) persona fisica' , 0, 'L', 0, 1, '', '', true,1,false,true);
 $pdf->MultiCell(40,0, 'Nombre
 	' , 1, 'J', 0, 0, '', '', true,1,false,true);
@@ -547,7 +548,7 @@ $pdf->MultiCell(0,0, 'Edad
 $pdf->Ln(1);
 
 
-
+$pdf->SetFontSize(5,true);	
 
 
 $pdf->MultiCell(0,0, 'Para el caso de que SERVICIOS FINANCIEROS DEL GUADIANA S.A. DE C.V. SOFOM E.N.R. (SFG) ofrezca el servicio de consulta e impresión de estados de cuenta a través de su página de Internet (www.sfgmexico.mx), el apoderado: (i) instruye a SFG para que los estados de cuenta sólo se pongan a disposición a través de dicho medio, (ii) se obliga a consultarlos periódicamente y con toda oportunidad y (iii) releva a SFG de enviar estados de cuenta al domicilio de su representada. En el caso de que el apoderado no esté conforme con lo anterior, deberá marcar cualquiera de los siguientes recuadros:' , 0, 'L', 0, 1, '', '', true,1,false,true);
@@ -684,31 +685,222 @@ $pdf->MultiCell(0,0, 'En calidad de apoderado de la empresa que represento, acep
 Manifiesta el obligado solidario bajo protesta de decir verdad, que el bien inmueble que ofrece en garantía se encuentra libre de gravamen y al corriente en el pago de sus contribuciones, obligándose a no gravarlo, enajenarlo, cederlo o transmitirlo total o parcialmente, durante la vigencia del presente contrato, hasta la fecha en que se le restituyan a SFG los vehículos materia del presente contrato (sólo en caso de arrendamiento puro) y le sea pagada íntegramente cualquier cantidad que llegase a adeudar el solicitante. Asímismo manifiesta su consentimiento expreso para ser obligado solidario en dicho contrato."
 Adicionalmente la concesionaria manifiesta que se cotejaron y revisaron, a través del Gerente de Servicios Financieros, los documentos originales de la solicitante, no quedando ninguna duda en cuanto a su veracidad y que los documentos enviados a SERVICIOS FINANCIEROS DEL GUADIANA S.A. DE C.V. SOFOM E.N.R  son copias fieles de dichos originales.																																															
 ' , 1, 'L', 0, 1, '', '', true,1,false,true);
-$pdf->MultiCell(40,0, 'Datos obligado solidario(2) persona fisica' , 0, 'L', 0, 1, '', '', true,1,false,true);
-$pdf->MultiCell(40,0, 'Nombre
+$pdf->Ln(1);
+
+$pdf->MultiCell(60,0, 'Clave consecionario o distribuidor
 	' , 1, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(30,0, 'apellido paterno
+$pdf->MultiCell(60,0, 'Nombre consecionario o distribuidor
 	' , 1, 'L', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(30,0, 'Apellido materno
+$pdf->MultiCell(0,0, 'Fecha
 	' , 1, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 1, '', '', true,1,false,true);
 $pdf->Ln(1);
-$pdf->MultiCell(30,0, 'RFC
+$pdf->MultiCell(70,0, 'Nombre del vendedor
 	' , 1, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(0,0, 'Telefono
+$pdf->MultiCell(0,0, 'Nombre y firma del gerente general
 	' , 1, 'J', 0, 1, '', '', true,1,false,true);
+$pdf->MultiCell(0,0, 'Datos de inscripcion en el registro publico de contratos de adhesion de la procuradoria federal del consumidor:2999-2012 del 30 de abril del 2012
+	' , 0, 'J', 0, 1, '', '', true,1,false,true);
 
-$pdf->SetLineStyle(array('width' => 0.5, 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(0, 0, 0)));
+
 $pdf->SetAlpha(0.2);
-$pdf->RoundedRect(15, 51, 186, 134, 6.5, '0000','DF',null ,array(255, 255, 200) );
-																																															
+$pdf->RoundedRect(15, 55, 186, 134, 6.5, '0000','DF',null ,array(255, 255, 200) );
+
+$pdf->AddPage();
+
+$pdf->MultiCell(70,0, 'SERVICIOS FINANCIEROS DEL GUADIANA S.A DE C.V SOFOM E.N.R
+	' , 0, 'J', 0, 1, '', '', true,1,false,true);
+$pdf->MultiCell(5,0, '
+	' , 0, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(0,0, 'FORMATO DE IDENTIFICACION DEL CLIENTE POR CLASIFICACION DE RIESGO
+	' , 0, 'J', 0, 1, '', '', true,1,false,true);
+$pdf->MultiCell(80,0, 'Fecha:' , 0, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(20,0, 'Tipo de cliente:' , 0, 'L', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(10,0, 'Nuevo' , 0, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(5,0, ' ' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(20,0, '   Actualizacion cliente' , 0, 'L', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(5,0, ' ' , 1, 'J', 0, 1, '', '', true,1,false,true);
+$pdf->Ln(4);
+$style2 = array('width' => 0.2, 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(0, 0, 0));
+
+
+$pdf->MultiCell(70,0, 'Datos generales del cliente
+	' , 0, 'J', 0, 1, '', '', true,1,false,true);
+//-------------------------------------------------
+$pdf->MultiCell(0,0, 'Nombre o razon social
+	' , 0, 'J', 0, 1, '', '', true,1,false,true);
+
+$pdf->Line(15, 49, 200, 49, $style2);
+$pdf->MultiCell(0,0, 'Numero de cliente
+	' , 0, 'J', 0, 1, '', '', true,1,false,true);
+
+$pdf->Line(15, 53, 200, 53, $style2);
+$pdf->MultiCell(0,0, 'Domicilio particular
+	' , 0, 'J', 0, 1, '', '', true,1,false,true);
+
+$pdf->Line(15, 58, 200, 58, $style2);
+//------------------------------------
+$pdf->MultiCell(100,0, 'Colonia
+	' , 0, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->Line(15, 62, 100, 62, $style2);
+$pdf->MultiCell(0,0, 'Codigo postal:
+	' , 0, 'J', 0, 1, '', '', true,1,false,true);
+$pdf->Line(115, 62, 200, 62, $style2);
+//---------------------------------------
+$pdf->MultiCell(100,0, 'Delegacion o municipio
+	' , 0, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->Line(15, 67, 100, 67, $style2);
+$pdf->MultiCell(0,0, 'Ciudad o poblacion:
+	' , 0, 'J', 0, 1, '', '', true,1,false,true);
+$pdf->Line(115, 67, 200, 67, $style2);
+//--------------------------------------
+$pdf->MultiCell(100,0, 'Estado o provincia
+	' , 0, 'J', 0, 0, '', '', true,1,false,true);
+
+$pdf->Line(15, 71, 100, 71, $style2);
+$pdf->MultiCell(0,0, 'Pais:
+	' , 0, 'J', 0, 1, '', '', true,1,false,true);
+
+$pdf->Line(115, 71, 200, 71, $style2);
+//--------------------------------------
+$pdf->MultiCell(100,0, 'Fecha de nacimiento
+	' , 0, 'J', 0, 0, '', '', true,1,false,true);
+
+$pdf->Line(15, 75, 100, 75, $style2);
+$pdf->MultiCell(0,0, 'RFC:
+	' , 0, 'J', 0, 1, '', '', true,1,false,true);
+$pdf->Line(115, 75, 200, 75, $style2);
+
+$pdf->MultiCell(70,0, 'Calificacion de grado de riesgo
+	' , 0, 'J', 0, 1, '', '', true,1,false,true);
+
+$pdf->Cell(15, 0, 'Segmento del cliente', 'B', 1, 'C', 0, '', 0, false, 'T', 'C');
+$pdf->Ln(3);
+$pdf->MultiCell(60,0, 'Resultado de la calificacion de grado de riesgo*:
+	' , 0, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(40,0, 'Bajo' , 0, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(40,0, 'Medio' , 0, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(0,0, 'Alto(Requisitar el formato de reporte y aprobacion)' , 0, 'J', 0, 1, '', '', true,1,false,true);
+
+
+$pdf->Ln(4);
+
+
+$tbl = <<<EOD
+<table border="1" cellpadding="2" cellspacing="2" nobr="true">
+ <tr>
+  <th width="360" colspan="3" align="center">Variables de riesgo</th>
+ </tr>
+ <tr>
+  <td>Actividad objeto social</td>
+  <td >  </td>
+  <td >  </td>
+ </tr>
+ <tr>
+  <td>Antiguedad del cliente</td>
+  <td></td>
+  <td></td>
+ </tr>
+ <tr>
+  <td> Naturaleza de las operaciones</td>
+  <td> </td>
+  <td> </td>
+ </tr>
+ <tr>
+  <td> Q de beneficios</td>
+  <td> </td>
+  <td> </td>
+ </tr>
+  <tr>
+  <td> Q de terceros relacionados (apoderados y cotitulares)</td>
+  <td> </td>
+  <td> </td>
+ </tr>
+  <tr>
+  <td> Peps relacionados</td>
+  <td> </td>
+  <td> </td>
+ </tr>
+  <tr>
+  <td> Alerta reputacional</td>
+  <td> </td>
+  <td> </td>
+ </tr>
+  <tr>
+  <td> Volumen esperado(Monto)</td>
+  <td> </td>
+  <td> </td>
+ </tr>
+  <tr>
+  <td> Frecuencia esperada (No. de veces)</td>
+  <td> </td>
+  <td> </td>
+ </tr>
+  <tr>
+  <td> Instrumento monetario utilizado</td>
+  <td> </td>
+  <td> </td>
+ </tr>
+  <tr>
+  <td> Canales o medios utilizados</td>
+  <td> </td>
+  <td> </td>
+ </tr>
+  <tr>
+  <td> Pais| estado oficial</td>
+  <td> </td>
+  <td> </td>
+ </tr>
+  <tr>
+  <td> Pais|Estado de residencia</td>
+  <td> </td>
+  <td> </td>
+ </tr>
+  <tr>
+  <td> Pais|Estado de operacion frecuencia</td>
+  <td> </td>
+  <td> </td>
+ </tr>
+  <tr>
+  <td> Origen de los recursos</td>
+  <td> </td>
+  <td> </td>
+ </tr>
+  <tr>
+  <td> Destino de recursos</td>
+  <td> </td>
+  <td> </td>
+ </tr>
+  <tr>
+  <td> Pais|Estado residencia de terceros relacionados</td>
+  <td> </td>
+  <td> </td>
+ </tr>
+   <tr>
+  <td>Suma total</td>
+  <td> </td>
+  <td>0 </td>
+ </tr>
+
+</table>
+EOD;
+
+$pdf->writeHTMLCell(160,0,15,90,$tbl,0,0,false, false, '');
+$pdf->MultiCell(0,0, 'Grado de riesgo' , 0, 'C', 0, 1, '', '', true,1,false,true);
+
+$pdf->MultiCell(0,0, 'Alto mas de 45 ' , 0, 'R', 0, 1, '', '', true,1,false,true);
+$pdf->MultiCell(0,0, 'Medio  30-45  ' , 0, 'R', 0, 1, '', '', true,1,false,true);
+$pdf->MultiCell(0,0, 'Bajo 21-29  ' , 0, 'R', 0, 1, '', '', true,1,false,true);
+$pdf->Ln(90);
+$pdf->MultiCell(0,0, 'Resultado de calificacion de grado de riesgo*:' , 0, 'L', 0, 1, '', '', true,1,false,true);
+	$pdf->SetAlpha(0.2);																																														
 // ---------------------------------------------------------
 
 //Close and output PDF document
