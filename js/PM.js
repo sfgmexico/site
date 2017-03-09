@@ -138,8 +138,6 @@ function solicitudRealizada() {
     document.getElementById("identificacion").style.display = 'none';
     document.getElementById("layerFinal").style.display = 'block';
 }
-
-
 function ingresosPagina3() {
     var suma = parseFloat(0);
     if (document.getElementById("textfield65").value!="") { suma = parseFloat(document.getElementById("textfield65").value); }
@@ -154,6 +152,8 @@ function ingresosPagina3() {
     if (document.getElementById("textfield83").value != "") { suma += parseFloat(document.getElementById("textfield83").value); }
     document.getElementById("textfield85").value = parseFloat(suma.toFixed(2));
 }
+
+
 
 function datosAuto() {
     ///PORCENTAJE
