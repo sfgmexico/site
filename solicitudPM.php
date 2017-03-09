@@ -1329,23 +1329,21 @@ Fecha de nacimiento:
             </tr>
             <tr>
               <td>Género</td>
-              <td><input name="textfield15" type="text" id="textfield15"  ></td>
+              <td><input id="sexsol1" name="sexsol" type="radio"  <?php if (isset($row2['Folio_Cliente'])) { if($row2['SexoContEmp']=='Masculino'){echo "checked";} } ?> value="M"><label for="sexsol1"  > <i class="step fi-male size-72"></i> M</label> 
+         
+        <input id="sexsol2" name="sexsol" type="radio"  <?php if (isset($row2['Folio_Cliente'])) { if($row2['SexoContEmp']=='Femenino'){echo "checked";} } ?>  value="F"><label for="sexsol2" > <i class="step fi-female size-72"></i> F</label></td>
             </tr>
             <tr>
               <td>Lugar de Nacimiento (Estado y País) </td>
-              <td><input name="textfield16" type="text" id="textfield16" ></td>
+              <td><input name="textfield16" type="text" id="textfield16" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row2['LugNacContEmp']; } ?>"></td>
             </tr>
             <tr>
               <td>Fecha de Nacimiento </td>
-              <td><input name="textfield17" type="text" id="textfield17"  ></td>
+              <td><input name="textfield17" type="date" id="textfield17" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row2['FechNacContEmp']; } ?>" ></td>
             </tr>
             <tr>
               <td>Domicilio (calle y número) </td>
               <td><input name="textfield18" type="text" id="textfield18" ></td>
-            </tr>
-            <tr>
-              <td>&nbsp;</td>
-              <td><input name="textfield19" type="text" id="textfield19" readonly="" ></td>
             </tr>
             <tr>
               <td>Código Postal </td>
@@ -1373,15 +1371,19 @@ Fecha de nacimiento:
             </tr>
             <tr>
               <td>Estado Civil </td>
-              <td><input name="textfield26" type="text" id="textfield26" ></td>
+              <td><input id="civilsol1" name="civilsol" type="radio" <?php if (isset($row2['Folio_Cliente'])) { if($row2['EstCivContEmp']=='Casado Bienes Mancomunados'){echo "checked";} } ?> value="1"><label for="civilsol1">Casado Bienes Mancomunados</label>
+          <input id="civilsol2" name="civilsol" type="radio" <?php if (isset($row2['Folio_Cliente'])) { if($row2['EstCivContEmp']=='Casado Bienes Separados'){echo "checked";} } ?> value="2"><label for="civilsol2">Casado Bienes Separados</label>
+          <input id="civilsol3" name="civilsol" type="radio" <?php if (isset($row2['Folio_Cliente'])) { if($row2['EstCivContEmp']=='Viudo'){echo "checked";} } ?> value="3"><label for="civilsol3">Viudo</label>
+          <input id="civilsol4" name="civilsol" type="radio" <?php if (isset($row2['Folio_Cliente'])) { if($row2['EstCivContEmp']=='Divorciado'){echo "checked";} } ?> value="4"><label for="civilsol4">Divorciado</label>
+          <input id="civilsol5" name="civilsol" type="radio" <?php if (isset($row2['Folio_Cliente'])) { if($row2['EstCivContEmp']=='Soltero'){echo "checked";} } ?> value="5"><label for="civilsol5">Soltero</label></td>
             </tr>
             <tr>
               <td>Correo Electrónico </td>
-              <td><input name="textfield27" type="text" id="textfield27"  ></td>
+              <td><input name="textfield27" type="text" id="textfield27" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row2['EmailDatConEmp']; } ?>" ></td>
             </tr>
             <tr>
               <td>CURP</td>
-              <td><input name="textfield28" type="text" id="textfield28"  ></td>
+              <td><input name="textfield28" type="text" id="textfield28" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row2['CURPDatConEmp']; } ?>" ></td>
             </tr>
             <tr>
               <td>RFC</td>
@@ -1393,11 +1395,11 @@ Fecha de nacimiento:
             </tr>
             <tr>
               <td>Nacionalidad</td>
-              <td><input name="textfield31" type="text" id="textfield31"  ></td>
+              <td><input name="textfield31" type="text" id="textfield31" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row2['NacionalidadContEmp']; } ?>" ></td>
             </tr>
             <tr>
               <td>Ocupación o Profesión </td>
-              <td><input name="textfield32" type="text" id="textfield32"  ></td>
+              <td><input name="textfield32" type="text" id="textfield32" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row2['OcupacionContEmp']; } ?>" ></td>
             </tr>
             <tr>
               <td>Nombre de la Empresa y Giro (donde labora) </td>
@@ -1405,7 +1407,7 @@ Fecha de nacimiento:
             </tr>
             <tr>
               <td>Domicilio donde labora </td>
-              <td><input name="textfield34" type="text" id="textfield34" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row2['DomicilioLaboral']; } ?>"></td>
+              <td><input name="textfield34" type="text" id="textfield34" ></td>
             </tr>
             <tr>
               <td>Sueldo o ingreso mensual </td>
