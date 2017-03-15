@@ -276,15 +276,15 @@ var pagina=1;
 ///ciclo de seleccion de pagina
 $('form#form1').find('input').each(function(){
   
-alert("pagina 1");
+
       
       if(this.id=="escliente1"){
         pagina=2;
-        alert("pagina 2");
+        
       }
       if(this.id=="textfield12"){
         pagina=3;
-        alert("pagina 3");
+      
       }
 
 
@@ -344,7 +344,7 @@ if(($(this).prop('required') && this.value=="") || ($(this).prop('required') && 
 <!-- content -->
 <section>
 	
-	  <form name="form1" id="form1" action="temPM.php"  method="post" data-abide novalidate onsubmit="Validacioncampos()">
+	  <form name="form1" id="form1" action="PDFpm.php"  method="post" data-abide novalidate onsubmit="Validacioncampos()" ><!--  -->
 	  
 	  <style>
 	 
@@ -1532,6 +1532,7 @@ Fecha de nacimiento:
       <p align
       <hr>
       <br>
+     
           <H6 align="left">BENEFICIARIO</H6>
           <table width="100%" border="0">
             <tr>
@@ -1617,7 +1618,8 @@ Fecha de nacimiento:
           </table>
       <br>
       <hr>
-      <br>
+      <br> 
+    
           <H6 align="left">PERFIL TRANSACCIONAL INICIAL</H6>
           <table width="100%" border="0">
             <tr>
