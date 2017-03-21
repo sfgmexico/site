@@ -1,7 +1,7 @@
 <p>Tipo de Crédito: <select name="seleccion" size="1" id="seleccion" onchange="capturar()">
 <option value="---" onclick="capturar()">---</option>
-<option value="15" onclick="capturar()">Auto nuevo</option>
-<option value="18" onclick="capturar()">Semi nuevo</option>
+<option value="14.40" onclick="capturar()">Auto nuevo</option>
+<option value="15.40" onclick="capturar()">Semi nuevo</option>
 <option value="0" onclick="capturar()">Crédito Simple</option>
 <option value="0" onclick="capturar()">Crédito c/Garantía Hipotecaria</option>
 <option value="0" onclick="capturar()">Crédito Cuenta Corriente</option>
@@ -52,7 +52,27 @@ function clicked_valor(){
         var cont=0;
         var valor=document.getElementById("valor").value;
 
-        document.getElementById("valor2").max = valor;
+        //if(document.getElementById('seleccion')[0].checked){
+         //  document.getElementById("valor2").min = valor*0.10; 
+        //}
+
+        var combo = document.getElementById('seleccion');
+            if(combo.selectedIndex<0){
+                alert('No hay opción seleccionada');
+            }                 
+            else if(combo.options[combo.selectedIndex].text=="Auto nuevo") {
+                document.getElementById("valor2").min = valor*0.10;
+            }if(combo.options[combo.selectedIndex].text=="Semi nuevo") {
+                document.getElementById("valor2").min = valor*0.30;
+            }else{
+                //document.getElementById("valor2").min = valor*0.01;
+            }
+                 
+
+
+
+
+        document.getElementById("valor2").max = valor*0.90;
         for(var i=valor.length-1;i>=0;i--){
                 
                 if (valor.charAt(i)==".") {cont=-1;}
@@ -116,7 +136,22 @@ function clicked_text1(){
                 document.getElementById("price").value="$1,000,000";
         }else{
                 document.getElementById("valor").value=valor;
-                document.getElementById("valor2").max = valor;
+
+            var combo = document.getElementById('seleccion');
+            if(combo.selectedIndex<0){
+                alert('No hay opción seleccionada');
+            }                 
+            else if(combo.options[combo.selectedIndex].text=="Auto nuevo") {
+                document.getElementById("valor2").min = valor*0.10;
+            }if(combo.options[combo.selectedIndex].text=="Semi nuevo") {
+                document.getElementById("valor2").min = valor*0.30;
+            }else{
+                //document.getElementById("valor2").min = valor*0.01;
+            }
+                 
+
+
+                document.getElementById("valor2").max = valor*0.90;
         for(var i=valor.length-1;i>=0;i--){
                 
              if (valor.charAt(i)==".") {cont=-1;}   
@@ -162,7 +197,7 @@ function clicked_text2(){
                         document.getElementById("valor2").value=valor2;
         
         for(var i=valor2.length-1;i>=0;i--){
-                alert (cont);
+                
                 if (valor2.charAt(i)==".") {cont=-1;}
                 if(cont==3){
 
