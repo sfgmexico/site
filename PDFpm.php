@@ -5,7 +5,77 @@ if($_REQUEST['cliente']==""){
 
 
     $entro="Si";
+	
 		/*
+
+			mysqli_query($cnx,"insert into solicitudpm (
+			NomSolicitante,
+RFCSolicitante,
+TelSolicitante,
+DirSolicitante,
+NumDirSol,
+ColSolicitante,
+CdSolicitante,
+EdoSolicitante,
+MunicipioSolicitante,
+CPSolicitante,
+EmailSolicitante,
+FaxSolicitante,
+PaisSolicitante,
+NomDatContEmp,
+SegNomDatContEmp,
+ApPatDatContEmp,
+ApMatDatContEmp,
+DirConEmp,
+ColConEmp,
+CPConEmp,
+CdConEmp,
+EdoConEmp,
+SexoContEmp,
+LugNacContEmp,
+FechNacContEmp,
+EstCivContEmp,
+TelDatConEmp,
+EmailDatConEmp,
+CURPDatConEmp
+RFCDatConEmp,
+NumSerieFIELContEmp,
+NacionalidadContEmp,
+OcupacionContEmp,
+SueldoContEmp,
+FaxDatConEmp,
+PuestDatConEmp,
+ActEcoAdicionalContEmp,
+IngAdMensualAproxContEmp,
+ActPrinDatGenPM,
+IniOpDatGenPM,
+CantPerDatGenPM,
+FechaConsEmp,
+AntConsEmp,
+ApoConsEmp,
+NomAcc1,
+RFCAcc1,
+PorAcc1,
+NomAcc2,
+RFCAcc2,
+PorAcc2,
+NomAcc3,
+RFCAcc3,
+PorAcc3,
+NomAcc4,
+RFCAcc4,
+PorAcc4,
+NomAccPM1,
+RFCAccPM1,
+PorAccPM1,
+NomAccPM2,
+RFCAccPM2,
+PorAccPM2
+
+		) values ();");
+
+
+
 		mysqli_query($cnx,"insert into pfna (NomSolicitante,SegNomSolicitante,ApPatSolicitante,ApMatSolicitante,RFCSolicitante,TelSolicitante,MovSolicitante,DirSolicitante,NumDirSol,ColSolicitante,CdSolicitante,LugNacSolicitante,EdoSolicitante,MunicipioSolicitante,CPSolicitante,CURPSolicitante,EmailSolicitante,SexoDatGen,FeNacDatGen,EdDatGen,NaDatGen,NoDepDatGen,AcDomDatGen,VivDatGen,ImpMenDatGen,PropInmuDatGen,ArDomDatGen,AnResDatGen,NomBenDatGen,ApPatBenDatGen,ApMatBenDatGen,EstCivDatGen,AuPropDatGen,MarDatGen,PuestDatEmp,DesAnDatEmp,CompDatEmp,TelDatEmp,ExtDatEmp,DomicilioLaboral,NumSerieFIEL,SueldoSolicitante,ActEcoAdicional,IngAdMensualAprox,Ocupacion_Profesion,FaxSolicitante,GiroDatEmp) values('$nomsol','$segnomsol','$apepasol','$apemasol','$RFCSolicitante','$TelSolicitante','$MovSolicitante','$dirsol','$numeroDirSol','$colsol','$cdsol','$lugnacsol','$edosol','$municipioSol','$cpsol','$curpsol','$mailsol','$SexoDatGen','$FeNacDatGen','$edsol','$nacsol','$depensol','$acdomsol','$VivDatGen','$impmenpag','$PropInmuDatGen','$arraisol','$anosol2','$benesol3','$benesol1','$benesol2','$EstCivDatGen','$AuPropDatGen','$MarDatGen','$depasol','$DesAnDatEmp','$compasol','$TelDatEmp','$compatelsolext','$domicilioLaboral','$numSerieFiel','$SueldoSolicitante','$ActividadAdicional','$IngAdMensualAprox','$giroprof','$MovSolicitante','$giroactreal');");
 		
 		$id_pfnaRequest=mysqli_fetch_array(mysqli_query($cnx,"select LAST_INSERT_ID()"));							 
@@ -30,11 +100,123 @@ if($_REQUEST['cliente']==""){
 		
 
 	}else {
-        /*
-		mysqli_query($cnx,"insert into solicitudpfna (Folio_Cliente,TipoCredito,NomRefPer,ParenRefPer,TelRefPer,NomRefPer2,ParenRefPer2,TelRefPer2,BancRefBan,NoTarRefBan,SucRefBan,FecApRefBan,BancRefBan2,NoTarRefBan2,SucRefBan2,FecApRefBan2,EmpRefCom,AntRefCom,TelRefCom,EmpRefCom2,AntRefCom2,TelRefCom2,BancCarDir,NoTarCarDir,NomDatCon,ApPatDatCon,ApMatDatCon,CompDatCon,PuestDatCon,NomObPerMor,DirObPerMor,ColObPerMor,CdObPerMor,LugNacObPerMor,EdoObPerMor,CPObPerMor,RFCObPerMor,TelObPerMor,FaxObPerMor,AntConsEmpPM,ApoConsEmpPM,ActPrinDatGen,IniOpDatGen,CantPerDatGen,NomObSol,ApPatObSol,ApMatObSol,RFCObSol,TelObSol,MovObSol,DirObSol,ColObSol,CdObSol,LugNacObSol,PropObSol,EdoObSol,CPObSol,EmailObSol,SexoObSol,FeNacObSol,EdObSol,CURPObSol,NomObSol2,ApPatObSol2,ApMatObSol2,RFCObSol2,TelObSol2,MovObSol2,DirObSol2,ColObSol2,CdObSol2,LugNacObSol2,PropObSol2,EdoObSol2,CPObSol2,EmailObSol2,SexoObSol2,FeNacObSol2,EdObSol2,CURPObSol2,Fecha,ClavConcesionario,NomConcesionario,NomVendedor,NomGerenteGral,Status) values ('$cliente','$TipoCredito','$nomref1','$parenref1','$TelRefPer','$nomref2','$parenref2','$TelRefPer2','$refbanc','$numcuebanc','$sucbanc1','$FecApRefBan','$refbanc2','$tarjrefbanc','$sucbanc2','$FecApRefBan2','$refcomemp1','$antirefcom1','$TelRefCom','$refcomemp2','$antirefcom2','$TelRefCom2','$cargdir','$nocuentcd','$conyunom','$conyuape1','$conyuape2','$compaconyu','$puestconyu','$nomrazsoc','$dirpermor','$colpermor','$cdpermor','$lugnacpermor','$edopermor','$cppremor','$RFCObPerMor','$TelObPerMor','$FaxObPerMor','$antemp','$apodsusc','$actprinc','$IniOpDatGen','$cantperson','$datobnom1','$datobappat1','$datobapmat1','$RFCObSol','$TelObSol','$MovObSol','$datobdir1','$datobcol1','$datobcd1','$datoblugnac1','$PropObSol','$datobedo1','$datobcp1','$datobmail1','$SexoObSol','$FeNacObSol','$datobed1','$datobcurp1','$datobnom2','$datobappat2','$datobapmat2','$RFCObSol2','$TelObSol2','$MovObSol2','$datobdir2','$datobcol2','$datobcd2','$datoblugnac2','$PropObSol2','$datobedo2','$datobcp2','$datobmail2','$SexoObSol2','$FeNacObSol2','$datobed2','$datobcurp2','$fecha','$clavcon','$nomcons','$nomvend','$gerentegral','Pendiente');");
 
-		$id_solicitudpfnaRequest=mysqli_fetch_array(mysqli_query($cnx,"select LAST_INSERT_ID()"));							 
-		$id_solicitudpfna=$id_solicitudpfnaRequest['LAST_INSERT_ID()'];
+		$tipocredito="";
+if($_REQUEST['tipocredito']=="1"){
+$tipocredito="Leasing";
+}elseif($_REQUEST['tipocredito']=="2"){
+$tipocredito="Credit";
+}elseif($_REQUEST['tipocredito']=="3"){
+$tipocredito="Premium Credit";
+}else{
+$tipocredito="";
+}
+
+
+        mysqli_query($cnx,"insert into solicitudpm (Folio_Cliente,TipoCredito,BancRefBan,NoTarRefBan,SucRefBan,FecApRefBan,BancRefBan2,NoTarRefBan2,SucRefBan2,FecApRefBan2
+"/*
+		,EmpRefCom,
+		AntRefCom,
+		TelRefCom
+EmpRefCom2
+AntRefCom2
+TelRefCom2
+BancCarDir
+NoTarCarDir
+NomObPerMor
+DirObPerMor
+ColObPerMor
+CdObPerMor
+LugNacObPerMor
+EdoObPerMor
+CPObPerMor
+RFCObPerMor
+TelObPerMor
+FaxObPerMor
+AntConsEmpPM
+ApoConsEmpPM
+ActPrinDatGen
+IniOpDatGen
+CantPerDatGen
+NomAccionista1
+RFCAccionista1
+PorcentAccionista1
+NomAccionista2
+RFCAccionista2
+PorcentAccionista2
+NomAccionista3
+RFCAccionista3
+PorcentAccionista3
+NomAccionista4
+RFCAccionista4
+PorcentAccionista4
+NomAccionistaPM1
+RFCAccionistaPM1
+PorcentAccionistaPM1
+NomAccionistaPM2
+RFCAccionistaPM2
+PorcentAccionistaPM2
+NomObSol
+ApPatObSol
+ApMatObSol
+RFCObSol
+TelObSol
+MovObSol
+DirObSol
+ColObSol
+CdObSol
+LugNacObSol
+PropObSol
+EdoObSol
+CPObSol
+EmailObSol
+SexoObSol
+FeNacObSol
+EdObSol
+CURPObSol
+NomObSolPF
+SexoObSolPF
+FeNacObSolPF
+RFCObSolPF
+CURPObSolPF
+EdObSolPF
+NomObSol2
+ApPatObSol2
+ApMatObSol2
+RFCObSol2
+TelObSol2
+MovObSol2
+DirObSol2
+ColObSol2
+CdObSol2
+LugNacObSol2
+PropObSol2
+EdoObSol2
+CPObSol2
+EmailObSol2
+SexoObSol2
+FeNacObSol2
+EdObSol2
+CURPObSol2
+NomObSolPF2
+SexoObSolPF2
+FeNacObSolPF2
+RFCObSolPF2
+CURPObSolPF2
+EdObSolPF2
+Fecha
+ClavConcesionario
+NomConcesionario
+NomVendedor
+NomGerenteGral
+".*/."
+		) values ('".$_REQUEST['cliente']."','$tipocredito','".$_REQUEST['refbanc']."','".$_REQUEST['numcuebanc']."','".$_REQUEST['sucbanc1']."','".$_REQUEST['aperbanc1d']."','".$_REQUEST['refbanc2']."','".$_REQUEST['tarjrefbanc']."','".$_REQUEST['sucbanc2']."','".$_REQUEST['aperbanc1d2']."');");
+	
+
+		/*
+		$id_solicitudpmRequest=mysqli_fetch_array(mysqli_query($cnx,"select LAST_INSERT_ID()"));							 
+		$id_solicitudpm=$id_solicitudpmRequest['LAST_INSERT_ID()'];
+		
 		$folio_solrequest=mysqli_fetch_array(mysqli_query($cnx,"select Folio_Sol from solicitudpfna where Id='$id_solicitudpfna'"));
 		$Folio_Sol=$folio_solrequest['Folio_Sol'];
 
@@ -150,383 +332,419 @@ $s = " ";
 
 
 $pdf->MultiCell(30,0, "Datos del solicitante
-td", 0, 'J', 0, 0, '', '', true,1,false,true);
+ ", 0, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(30,0,'Folio del cliente
-	hola', 1, 'J', 0, 0, '', '', true,1,false,true);
+ '.$_REQUEST['cliente'], 1, 'J', 0, 0, '', '', true,0,false,true);
 //$pdf->MultiCell(30,0, '' , 1, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(30,0, 'Leasing' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(30,0, 'Credit' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(0,0, 'Premium
-	' , 0, 'J', 0, 1, '', '', true,1,false,true);
+$tipocredito1="";$tipocredito2="";$tipocredito3="";
+if($_REQUEST['tipocredito']=="1"){
+$tipocredito1="X";
+}elseif($_REQUEST['tipocredito']=="2"){
+$tipocredito2="X";
+}elseif($_REQUEST['tipocredito']=="3"){
+$tipocredito3="X";
+}else{
+$tipocredito1="";$tipocredito2="";$tipocredito3="";
+}
+$pdf->MultiCell(30,0, 'Leasing  ('.$tipocredito1.')' , 0, 'L', 0, 0, '', '', true,0,false,true);
+$pdf->MultiCell(30,0, 'Credit  ('.$tipocredito2.')' , 0, 'L', 0, 0, '', '', true,0,false,true);
+$pdf->MultiCell(0,0, 'Premium ('.$tipocredito3.')
+	' , 0, 'L', 0, 1, '', '', true,0,false,true);
 $pdf->Ln(1);
 
 //
 $pdf->MultiCell(60,0, 'Nombre Razon social
-	' , 1, 'L', 0, 0, '', '', true,1,false,true);
+ '.$_REQUEST['nomrazsoc2'] , 1, 'L', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(50,0, 'R.F.C
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+ '.$_REQUEST['rfcsol1'].$_REQUEST['rfcsol2'].$_REQUEST['rfcsol3'].$_REQUEST['rfcsol4'].$_REQUEST['rfcsol5'].$_REQUEST['rfcsol6'].$_REQUEST['rfcsol7'].$_REQUEST['rfcsol8'].$_REQUEST['rfcsol9'].$_REQUEST['rfcsol10'].$_REQUEST['rfcsol11'].$_REQUEST['rfcsol12'].$_REQUEST['rfcsol13'] , 1, 'L', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(0,0, 'Telefono
-	' , 1, 'J', 0, 1, '', '', true,1,false,true);
+ '.$_REQUEST['telsol1'].$_REQUEST['telsol2'].$_REQUEST['telsol3'].$_REQUEST['telsol4'].$_REQUEST['telsol5'].$_REQUEST['telsol6'].$_REQUEST['telsol7'].$_REQUEST['telsol8'].$_REQUEST['telsol9'].$_REQUEST['telsol10'], 1, 'L', 0, 1, '', '', true,0,false,true);
 $pdf->Ln(1);
 
 $pdf->MultiCell(60,0, 'Direccion/calle y numero
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+ '.$_REQUEST['dirsol'].'   #'.$_REQUEST['dirnumsol'] , 1, 'L', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(50,0, 'E-mail
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+ '.$_REQUEST['mailsol2'], 1, 'L', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(0,0, 'Fax
-	' , 1, 'J', 0, 1, '', '', true,1,false,true);
+ '.$_REQUEST['faxsol1'].$_REQUEST['faxsol2'].$_REQUEST['faxsol3'].$_REQUEST['faxsol4'].$_REQUEST['faxsol5'].$_REQUEST['faxsol6'].$_REQUEST['faxsol7'].$_REQUEST['faxsol8'].$_REQUEST['faxsol9'].$_REQUEST['faxsol10'] , 1, 'L', 0, 1, '', '', true,0,false,true);
 
 $pdf->Ln(1);
 //
 $pdf->MultiCell(30,0, 'Colonia
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+ '.$_REQUEST['colsol'] , 1, 'L', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(50,0, 'Ciudad
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+ '.$_REQUEST['cdsol'] , 1, 'L', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(60,0, 'Estado
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+ '.$_REQUEST['edosol'] , 1, 'L', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(0,0, 'Codigo Postal
-	' , 1, 'L', 0, 1, '', '', true,1,false,true); 
+ '.$_REQUEST['cpsol'] , 1, 'L', 0, 1, '', '', true,0,false,true); 
 $pdf->Ln(1);
 
-$pdf->MultiCell(50,0, 'Datos del contacto de la empresa' , 0, 'L', 0, 1, '', '', true,1,false,true);
-$pdf->MultiCell(40,0, 'Primer nombre
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(50,0, 'Datos del contacto de la empresa' , 0, 'L', 0, 1, '', '', true,0,false,true);
+$pdf->MultiCell(40,0, 'Primer nombre 
+ '.$_REQUEST['nomconemp'] , 1, 'L', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(50,0, 'Segundo nombre
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+ '.$_REQUEST['segnomconemp'] , 1, 'L', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(40,0, 'Apellido paterno
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+ '.$_REQUEST['apepaconemp'] , 1, 'L', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(0,0, 'Apellido materno
-	' , 1, 'L', 0, 1, '', '', true,1,false,true); 
+ '.$_REQUEST['apemaconemp'] , 1, 'L', 0, 1, '', '', true,0,false,true); 
 $pdf->Ln(1);
 
 
 $pdf->MultiCell(30,0, 'Telefono
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+ '.$_REQUEST['telconemp1'].$_REQUEST['telconemp2'].$_REQUEST['telconemp3'].$_REQUEST['telconemp4'].$_REQUEST['telconemp5'].$_REQUEST['telconemp6'].$_REQUEST['telconemp7'].$_REQUEST['telconemp8'].$_REQUEST['telconemp9'].$_REQUEST['telconemp10'] , 1, 'l', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(60,0, 'E-mail
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+ '.$_REQUEST['mailconemp'] , 1, 'l', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(50,0, 'RFC
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+ '.$_REQUEST['rfcconemp1'].$_REQUEST['rfcconemp2'].$_REQUEST['rfcconemp3'].$_REQUEST['rfcconemp4'].$_REQUEST['rfcconemp5'].$_REQUEST['rfcconemp6'].$_REQUEST['rfcconemp7'].$_REQUEST['rfcconemp8'].$_REQUEST['rfcconemp9'].$_REQUEST['rfcconemp10'].$_REQUEST['rfcconemp11'].$_REQUEST['rfcconemp12'].$_REQUEST['rfcconemp13'] , 1, 'l', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(0,0, 'Fax
-	' , 1, 'L', 0, 1, '', '', true,1,false,true); 
+ '.$_REQUEST['faxconemp1'].$_REQUEST['faxconemp2'].$_REQUEST['faxconemp3'].$_REQUEST['faxconemp4'].$_REQUEST['faxconemp5'].$_REQUEST['faxconemp6'].$_REQUEST['faxconemp7'].$_REQUEST['faxconemp8'].$_REQUEST['faxconemp9'].$_REQUEST['faxconemp10'] , 1, 'L', 0, 1, '', '', true,0,false,true); 
 $pdf->Ln(1);
 
 
 $pdf->MultiCell(70,0, 'Puesto que desempeña
-	' , 1, 'L', 0, 1, '', '', true,1,false,true);
+ '.$_REQUEST['puesconemp'] , 1, 'L', 0, 1, '', '', true,0,false,true);
 	$pdf->Ln(1);
 
-$pdf->MultiCell(30,0, 'Datos generales de la empresa' , 0, 'J', 0, 1, '', '', true,1,false,true);
+$pdf->MultiCell(30,0, 'Datos generales de la empresa' , 0, 'J', 0, 1, '', '', true,0,false,true);
 $pdf->MultiCell(70,0, 'Actividad principal
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+ '.$_REQUEST['actprinc'] , 1, 'l', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
-	' , 0, 'J', 0, 0, '', '', true,1,false,true);
+ ' , 0, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(60,0, 'Fecha de inicio de operaciones
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+ '.$_REQUEST['inicoper1'] , 1, 'l', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
-	' , 0, 'J', 0, 0, '', '', true,1,false,true);
+ ' , 0, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(0,0, 'Cantidad de personal
-	' , 1, 'L', 0, 1, '', '', true,1,false,true); 
+ '.$_REQUEST['cantperson'] , 1, 'L', 0, 1, '', '', true,0,false,true); 
 $pdf->Ln(1);
 
-$pdf->MultiCell(30,0, 'Constitucion empresa' , 0, 'L', 0, 1, '', '', true,1,false,true);
+$pdf->MultiCell(30,0, 'Constitucion empresa' , 0, 'L', 0, 1, '', '', true,0,false,true);
 
 $pdf->MultiCell(60,0, 'Antiguedad
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['inicoper13'] , 1, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
-	' , 0, 'J', 0, 0, '', '', true,1,false,true);
+	' , 0, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(0,0, 'Apoderado para suscribir titulos de credito
-	' , 1, 'J', 0, 1, '', '', true,1,false,true);
+	'.$_REQUEST['apodsusc'] , 1, 'J', 0, 1, '', '', true,0,false,true);                                                                                                                                                                                                                                                                   
 $pdf->Ln(1);
 
-$pdf->MultiCell(30,0, 'Referencias bancarias' , 0, 'L', 0, 1, '', '', true,1,false,true);
+$pdf->MultiCell(30,0, 'Referencias bancarias' , 0, 'L', 0, 1, '', '', true,0,false,true);
 $pdf->MultiCell(40,0, 'Banco
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['refbanc'] , 1, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(40,0, 'Sucursal
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['sucbanc1'] , 1, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(30,0, 'Numero de cuenta
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['numcuebanc'] , 1, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(0,0, 'Feach de apertura
-	' , 1, 'J', 0, 1, '', '', true,1,false,true);
+	'.$_REQUEST['aperbanc1d'] , 1, 'J', 0, 1, '', '', true,0,false,true);
 $pdf->Ln(1);
 
 $pdf->MultiCell(40,0, 'Banco
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['refbanc2'] , 1, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(40,0, 'Sucursal
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['sucbanc2'] , 1, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(30,0, 'Numero de cuenta
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['tarjrefbanc'] , 1, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(00,0, 'Feach de apertura
-	' , 1, 'J', 0, 1, '', '', true,1,false,true);
+	'.$_REQUEST['aperbanc1d2'] , 1, 'J', 0, 1, '', '', true,0,false,true);
 $pdf->Ln(1);
 
 
 $pdf->MultiCell(00,0, 'CARGO DIRECTO CUENTA DE CHEQUES (para contratos en M.N. BBVA Bancomer, HSBC, Banamex, BANORTE, Scotiabank Inverlat, Santander o Inbursa)
-(para contratos en USD únicamente BBVA Bancomer y HSBC)' , 0, 'L', 0, 1, '', '', true,1,false,true);
+(para contratos en USD únicamente BBVA Bancomer y HSBC)' , 0, 'L', 0, 1, '', '', true,0,false,true);
 $pdf->MultiCell(50,0, 'Banco
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['cargdir'] , 1, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(0,0, 'Numero de cuenta (CLABE)
-	' , 1, 'J', 0, 1, '', '', true,1,false,true);
+	'.$_REQUEST['nocuentcd'] , 1, 'J', 0, 1, '', '', true,0,false,true);
 
 $pdf->Ln(1);
-$pdf->MultiCell(30,0, 'Referencias comerciales' , 0, 'L', 0, 1, '', '', true,1,false,true);
+$pdf->MultiCell(30,0, 'Referencias comerciales' , 0, 'L', 0, 1, '', '', true,0,false,true);
 $pdf->MultiCell(70,0, 'Empresa
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['refcomemp1'] , 1, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(50,0, 'Antiguedad
-desde el año:	' , 1, 'L', 0, 0, '', '', true,1,false,true);
+desde el año:	'.$_REQUEST['antirefcom1'] , 1, 'L', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(0,0, 'Telefono
-	' , 1, 'J', 0, 1, '', '', true,1,false,true);
+	'.$_REQUEST['telrefcom11'].$_REQUEST['telrefcom12'] .$_REQUEST['telrefcom13'].$_REQUEST['telrefcom14'].$_REQUEST['telrefcom15'].$_REQUEST['telrefcom16'].$_REQUEST['telrefcom17'].$_REQUEST['telrefcom18'].$_REQUEST['telrefcom19'].$_REQUEST['telrefcom110'], 1, 'J', 0, 1, '', '', true,0,false,true);
 
 $pdf->Ln(1);
 
 
 $pdf->MultiCell(70,0, 'Empresa
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['refcomemp2'] , 1, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(50,0, 'Antiguedad
-desde el año:	' , 1, 'L', 0, 0, '', '', true,1,false,true);
+desde el año:	'.$_REQUEST['antirefcom2'] , 1, 'L', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(0,0, 'Telefono
-	' , 1, 'J', 0, 1, '', '', true,1,false,true);
+	'.$_REQUEST['telrefcom21'].$_REQUEST['telrefcom22'].$_REQUEST['telrefcom23'].$_REQUEST['telrefcom24'].$_REQUEST['telrefcom25'].$_REQUEST['telrefcom26'].$_REQUEST['telrefcom27'].$_REQUEST['telrefcom28'].$_REQUEST['telrefcom29'].$_REQUEST['telrefcom210'] , 1, 'J', 0, 1, '', '', true,0,false,true);
 
 $pdf->Ln(1);
 
-$pdf->MultiCell(30,0, 'Datos obligado solidario' , 0, 'L', 0, 1, '', '', true,1,false,true);
+$pdf->MultiCell(30,0, 'Datos obligado solidario' , 0, 'L', 0, 1, '', '', true,0,false,true);
 $pdf->MultiCell(70,0, 'Nombre/Razon social
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['nomrazsoc'] , 1, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(50,0, 'RFC
-	' , 1, 'L', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['permorrfc1'].$_REQUEST['permorrfc2'].$_REQUEST['permorrfc3'].$_REQUEST['permorrfc4'].$_REQUEST['permorrfc5'].$_REQUEST['permorrfc6'].$_REQUEST['permorrfc7'].$_REQUEST['permorrfc8'].$_REQUEST['permorrfc9'].$_REQUEST['permorrfc10'].$_REQUEST['permorrfc11'].$_REQUEST['permorrfc12'].$_REQUEST['permorrfc13'] , 1, 'L', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(0,0, 'Telefono
-	' , 1, 'J', 0, 1, '', '', true,1,false,true);
+	'.$_REQUEST['telpermor1'].$_REQUEST['telpermor2'].$_REQUEST['telpermor3'].$_REQUEST['telpermor4'].$_REQUEST['telpermor5'].$_REQUEST['telpermor6'].$_REQUEST['telpermor7'].$_REQUEST['telpermor8'].$_REQUEST['telpermor9'].$_REQUEST['telpermor10'] , 1, 'J', 0, 1, '', '', true,0,false,true);
 
 $pdf->Ln(1);
 
 
 $pdf->MultiCell(70,0, 'Direccion
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['dirpermor'] , 1, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(50,0, 'Fax
-	' , 1, 'L', 0, 1, '', '', true,1,false,true);
+	'.$_REQUEST['faxpermor1'].$_REQUEST['faxpermor2'].$_REQUEST['faxpermor3'].$_REQUEST['faxpermor4'].$_REQUEST['faxpermor5'].$_REQUEST['faxpermor6'].$_REQUEST['faxpermor7'].$_REQUEST['faxpermor8'].$_REQUEST['faxpermor9'].$_REQUEST['faxpermor10'] , 1, 'L', 0, 1, '', '', true,0,false,true);
 $pdf->Ln(1);
 
 
 $pdf->MultiCell(50,0, 'Colonia
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['colpermor'] , 1, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
-	' , 0, 'J', 0, 0, '', '', true,1,false,true);
+	' , 0, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(40,0, 'Ciudad
-desde el año:	' , 1, 'L', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['cdpermor'] , 1, 'L', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(30,0, 'Estado
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['edopermor'] , 1, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(0,0, 'Codigo Postal
-	' , 1, 'J', 0, 1, '', '', true,1,false,true);
+	'.$_REQUEST['cppremor'] , 1, 'J', 0, 1, '', '', true,0,false,true);
 
 $pdf->Ln(1);
 
-$pdf->MultiCell(30,0, 'Constitucion de la empresa' , 0, 'L', 0, 1, '', '', true,1,false,true);
+$pdf->MultiCell(30,0, 'Constitucion de la empresa' , 0, 'L', 0, 1, '', '', true,0,false,true);
 $pdf->MultiCell(70,0, 'Antiguedad
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['antemp2'] , 1, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(0,0, 'Apoderado para suscribir titulos de credito
-	' , 1, 'L', 0, 1, '', '', true,1,false,true);
+	'.$_REQUEST['apodsusc2'] , 1, 'L', 0, 1, '', '', true,0,false,true);
 $pdf->Ln(1);
 
 
-$pdf->MultiCell(30,0, 'Datos generales' , 0, 'L', 0, 1, '', '', true,1,false,true);
+$pdf->MultiCell(30,0, 'Datos generales' , 0, 'L', 0, 1, '', '', true,0,false,true);
 
 $pdf->MultiCell(70,0, 'Actividad principal
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['actprinc2'] , 1, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(50,0, 'Fecha de inicio operaciones
-	' , 1, 'L', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['inicoper12'] , 1, 'L', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(0,0, 'Cantidad de personal
-	' , 1, 'J', 0, 1, '', '', true,1,false,true);
+	'.$_REQUEST['cantperson2'] , 1, 'J', 0, 1, '', '', true,0,false,true);
 	$pdf->Ln(1);
 
 $pdf->MultiCell(0,0, 'De acuerdo al articulo 20 de la Ley para Regular Sociedades de Información Crediticia, en caso de que la información proporcionada por el Cliente sea relativa a una persona moral, deberá incluir a los accionistas o titulares de las partes sociales, según corresponda, que sean propietarios del 10% o más del capital social. *' , 0, 'A', 0, 1, '', '', true,1,false,true);
 
-$pdf->MultiCell(70,0, 'Nombre' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(70,0, 'Nombre '.$_REQUEST['accionista1'] , 1, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(7,0, 'RFC' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(50,0, ' ' , 1, 'L', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(7,0, 'RFC' , 0, 'J', 0, 0, '', '', true,0,false,true);
+$pdf->MultiCell(50,0, $_REQUEST['rfcaccion1'], 1, 'L', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(7,0, ' ' , 0, 'L', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(5,0, '%' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(30,0, ' ' , 1, 'J', 0, 1, '', '', true,1,false,true);
+$pdf->MultiCell(30,0, $_REQUEST['%1'] , 1, 'J', 0, 1, '', '', true,0,false,true);
 	$pdf->Ln(1);
 
-$pdf->MultiCell(70,0, 'Nombre' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(70,0, 'Nombre '.$_REQUEST['accionista2'] , 1, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(7,0, 'RFC' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(50,0, ' ' , 1, 'L', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(50,0, $_REQUEST['rfcaccion2'] , 1, 'L', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(7,0, ' ' , 0, 'L', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(5,0, '%' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(30,0, ' ' , 1, 'J', 0, 1, '', '', true,1,false,true);
+$pdf->MultiCell(30,0, $_REQUEST['%2'] , 1, 'J', 0, 1, '', '', true,0,false,true);
 	$pdf->Ln(1);
 
-	$pdf->MultiCell(70,0, 'Nombre' , 1, 'J', 0, 0, '', '', true,1,false,true);
+	$pdf->MultiCell(70,0, 'Nombre '.$_REQUEST['accionista3'] , 1, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(7,0, 'RFC' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(50,0, ' ' , 1, 'L', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(50,0, $_REQUEST['rfcaccion3'] , 1, 'L', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(7,0, ' ' , 0, 'L', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(5,0, '%' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(30,0, ' ' , 1, 'J', 0, 1, '', '', true,1,false,true);
+$pdf->MultiCell(30,0, $_REQUEST['%3'] , 1, 'J', 0, 1, '', '', true,0,false,true);
 	$pdf->Ln(1);
 
-	$pdf->MultiCell(70,0, 'Nombre' , 1, 'J', 0, 0, '', '', true,1,false,true);
+	$pdf->MultiCell(70,0, 'Nombre '.$_REQUEST['accionista4'] , 1, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(7,0, 'RFC' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(50,0, ' ' , 1, 'L', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(50,0, $_REQUEST['rfcaccion4'] , 1, 'L', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(7,0, ' ' , 0, 'L', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(5,0, '%' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(30,0, ' ' , 1, 'J', 0, 1, '', '', true,1,false,true);
+$pdf->MultiCell(30,0, $_REQUEST['%4'] , 1, 'J', 0, 1, '', '', true,0,false,true);
 	$pdf->Ln(1);	
 
 	$pdf->MultiCell(0,0, '* En el caso de que alguno(s) de los accionistas del cliente (persona moral) sea(n) otra(s) persona(s) moral(es), se deberan identificar a los accionistas de ésta(s) última(s) que sean propietarios del 25% o más del capital social:' , 0, 'A', 0, 1, '', '', true,1,false,true);
 	
-	$pdf->MultiCell(70,0, 'Nombre' , 1, 'J', 0, 0, '', '', true,1,false,true);
+	$pdf->MultiCell(70,0, 'Nombre '.$_REQUEST['accpermor1'] , 1, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(7,0, 'RFC' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(50,0, ' ' , 1, 'L', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(50,0, $_REQUEST['rfcaccpermor1'] , 1, 'L', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(7,0, ' ' , 0, 'L', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(5,0, '%' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(30,0, ' ' , 1, 'J', 0, 1, '', '', true,1,false,true);
+$pdf->MultiCell(30,0, $_REQUEST['%permoracc1'] , 1, 'J', 0, 1, '', '', true,1,false,true);
 	$pdf->Ln(1);
-		$pdf->MultiCell(70,0, 'Nombre' , 1, 'J', 0, 0, '', '', true,1,false,true);
+		$pdf->MultiCell(70,0, 'Nombre '.$_REQUEST['accpermor2'] , 1, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(7,0, 'RFC' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(50,0, ' ' , 1, 'L', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(50,0, $_REQUEST['rfcaccpermor2'] , 1, 'L', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(7,0, ' ' , 0, 'L', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(5,0, '%' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(30,0, ' ' , 1, 'J', 0, 1, '', '', true,1,false,true);
+$pdf->MultiCell(30,0, $_REQUEST['%permoracc2'] , 1, 'J', 0, 1, '', '', true,0,false,true);
 	$pdf->Ln(1);
 
 $pdf->MultiCell(40,0, 'Datos obligado solidario persona fisica' , 0, 'L', 0, 1, '', '', true,1,false,true);
 $pdf->MultiCell(40,0, 'Nombre
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['datobnom1'] , 1, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(30,0, 'apellido paterno
-	' , 1, 'L', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['datobappat1'] , 1, 'L', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(30,0, 'Apellido materno
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['datobapmat1'] , 1, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(30,0, 'RFC
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['datobrfc11'].$_REQUEST['datobrfc12'].$_REQUEST['datobrfc13'].$_REQUEST['datobrfc14'].$_REQUEST['datobrfc15'].$_REQUEST['datobrfc16'].$_REQUEST['datobrfc17'].$_REQUEST['datobrfc18'].$_REQUEST['datobrfc19'].$_REQUEST['datobrfc110'].$_REQUEST['datobrfc111'].$_REQUEST['datobrfc112'].$_REQUEST['datobrfc113'] , 1, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(0,0, 'Telefono
-	' , 1, 'J', 0, 1, '', '', true,1,false,true);
+$pdf->MultiCell(0,0, 'Telefono Particular
+	'.$_REQUEST['datobtel11'].$_REQUEST['datobtel12'].$_REQUEST['datobtel13'].$_REQUEST['datobtel14'].$_REQUEST['datobtel15'].$_REQUEST['datobtel16'].$_REQUEST['datobtel17'].$_REQUEST['datobtel18'].$_REQUEST['datobtel19'].$_REQUEST['datobtel110'] , 1, 'J', 0, 1, '', '', true,0,false,true);
 
 $pdf->Ln(1);
-$pdf->MultiCell(40,0, 'Direccion / calle
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(75,0, 'Direccion / calle
+	'.$_REQUEST['datobdir1'] , 1, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(30,0, 'Curp
-	' , 1, 'L', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(65,0, 'Curp
+	'.$_REQUEST['datobcurp1'] , 1, 'L', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(30,0, 'Apellido materno
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(5,0, '
-	' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(0,0, 'Telefono
-	' , 1, 'J', 0, 1, '', '', true,1,false,true);
+
+
+$pdf->MultiCell(0,0, 'Telefono Movil
+	'.$_REQUEST['datobtel112'].$_REQUEST['datobtel122'].$_REQUEST['datobtel132'].$_REQUEST['datobtel142'].$_REQUEST['datobtel152'].$_REQUEST['datobtel162'].$_REQUEST['datobtel172'].$_REQUEST['datobtel182'].$_REQUEST['datobtel192'].$_REQUEST['datobtel1102'] , 1, 'J', 0, 1, '', '', true,0,false,true);
 $pdf->Ln(1);
 
 $pdf->MultiCell(60,0, 'Colonia
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['datobcol1'] , 1, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(40,0, 'Ciudad
-	' , 1, 'L', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['datobcd1'] , 1, 'L', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(40,0, 'Lugar de nacimiento
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['datoblugnac1'] , 1, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
+
+$datobprop1a="";$datobprop1b="";
+if($_REQUEST['datobprop1']=="1"){
+$datobprop1a="X";
+}elseif($_REQUEST['datobprop1']=="2"){
+$datobprop1b="X";
+}else{
+$datobprop1a="";$datobprop1b="";
+}
 $pdf->MultiCell(0,0, 'Tiene propiedad a su nombre
-Si    No	' , 1, 'A', 0, 1, '', '', true,1,false,true);
+Si  ('.$datobprop1a.')   No	('.$datobprop1b.')' , 1, 'A', 0, 1, '', '', true,0,false,true);
 $pdf->Ln(1);
 
 $pdf->MultiCell(40,0, 'Estado
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['datobedo1'] , 1, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(20,0, 'C.P.
-	' , 1, 'L', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['datobcp1'] , 1, 'L', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
+
+$datobsex1a="";$datobsex1b="";
+if($_REQUEST['datobprop1']=="1"){
+$datobsex1a="X";
+}elseif($_REQUEST['datobprop1']=="2"){
+$datobsex1b="X";
+}else{
+$datobsex1a="";$datobsex1b="";
+}
 $pdf->MultiCell(30,0, 'Sexo
-Si    No	' , 1, 'A', 0, 0, '', '', true,1,false,true);
+M  ('.$datobsex1a.')  F  ('.$datobsex1b.')' , 1, 'A', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(30,0, 'E-mail 
- ' , 1, 'A', 0, 0, '', '', true,1,false,true);
+ '.$_REQUEST['datobmail1'] , 1, 'A', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(25,0, 'Fecha nacimiento
-	' , 1, 'L', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['datobfechnac1d'], 1, 'L', 0, 0, '', '', true,0,false,true);
 	$pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(0,0, 'Edad
-	' , 1, 'L', 0, 1, '', '', true,1,false,true);
+	'.$_REQUEST['datobed1'] , 1, 'L', 0, 1, '', '', true,0,false,true);
 $pdf->Ln(1);
 
 
 
 $pdf->MultiCell(90,0, 'Obligado solidario (Nombre(s). apellido paterno. apellido materno)
-	' , 1, 'L', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['obsol1'] , 1, 'L', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(30,0, 'Tiene propiedad a su nombre
-Si    No	' , 1, 'A', 0, 0, '', '', true,1,false,true);
+
+
+$datobsex11a="";$datobsex11b="";
+if($_REQUEST['datobsex11']=="M"){
+$datobsex11a="X";
+}elseif($_REQUEST['datobsex11']=="F"){
+$datobsex11b="X";
+}else{
+$datobsex11a="";$datobsex11b="";
+}
+$pdf->MultiCell(30,0, 'Sexo
+F  ('.$datobsex11a.')   M   ('.$datobsex11b.')' , 1, 'A', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(0,0, 'Lugar de nacimiento
-	' , 1, 'J', 0, 1, '', '', true,1,false,true);
+$pdf->MultiCell(0,0, 'Fecha de Nacimiento
+	'.$_REQUEST['datobfechnac1d2'] , 1, 'J', 0, 1, '', '', true,0,false,true);
 $pdf->Ln(1);
 
 $pdf->MultiCell(90,0, 'RFC con homoclave
-	' , 1, 'L', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['datobnom22'] , 1, 'L', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(30,0, 'CURP
-	' , 1, 'A', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['CURPObSolPF'] , 1, 'A', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(0,0, 'Edad
-	' , 1, 'J', 0, 1, '', '', true,1,false,true);
+	'.$_REQUEST['EdObSolPF'] , 1, 'J', 0, 1, '', '', true,0,false,true);
 
 
 
@@ -538,80 +756,136 @@ $pdf->RoundedRect(15, 177, 186, 33, 6.5, '0000','DF',null ,array(255, 255, 200) 
 
 $pdf->MultiCell(40,0, 'Datos obligado solidario(2) persona fisica' , 0, 'L', 0, 1, '', '', true,1,false,true);
 $pdf->MultiCell(40,0, 'Nombre
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['datobnom2'] , 1, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(30,0, 'apellido paterno
-	' , 1, 'L', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['datobappat2'] , 1, 'L', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(30,0, 'Apellido materno
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['datobapmat2'] , 1, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(30,0, 'RFC
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['datobrfc21'].$_REQUEST['datobrfc22'].$_REQUEST['datobrfc23'].$_REQUEST['datobrfc24'].$_REQUEST['datobrfc25'].$_REQUEST['datobrfc26'].$_REQUEST['datobrfc27'].$_REQUEST['datobrfc28'].$_REQUEST['datobrfc29'].$_REQUEST['datobrfc210'].$_REQUEST['datobrfc211'].$_REQUEST['datobrfc212'].$_REQUEST['datobrfc213'] , 1, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(0,0, 'Telefono
-	' , 1, 'J', 0, 1, '', '', true,1,false,true);
+	'.$_REQUEST['datobtel21'].$_REQUEST['datobtel22'].$_REQUEST['datobtel23'].$_REQUEST['datobtel24'].$_REQUEST['datobtel25'].$_REQUEST['datobtel26'].$_REQUEST['datobtel27'].$_REQUEST['datobtel28'].$_REQUEST['datobtel29'].$_REQUEST['datobtel210'] , 1, 'J', 0, 1, '', '', true,0,false,true);
 
 $pdf->Ln(1);
-$pdf->MultiCell(40,0, 'Direccion / calle
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(75,0, 'Direccion / calle
+	'.$_REQUEST['datobdir2'] , 1, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(30,0, 'Curp
-	' , 1, 'L', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(65,0, 'Curp
+	'.$_REQUEST['datobcurp2'] , 1, 'L', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(30,0, 'Apellido materno
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(5,0, '
-	' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(0,0, 'Telefono
-	' , 1, 'J', 0, 1, '', '', true,1,false,true);
+
+
+$pdf->MultiCell(0,0, 'Telefono Movil
+	'.$_REQUEST['EdObSolPF'] , 1, 'J', 0, 1, '', '', true,0,false,true);
 $pdf->Ln(1);
 
 $pdf->MultiCell(60,0, 'Colonia
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['datobcol2'] , 1, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(40,0, 'Ciudad
-	' , 1, 'L', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['datobcd2'] , 1, 'L', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(40,0, 'Lugar de nacimiento
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['datoblugnac2'] , 1, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
+
+$datobprop2a="";$datobprop2b="";
+if($_REQUEST['datobprop2']=="Si"){
+$datobprop2a="X";
+}elseif($_REQUEST['datobprop2']=="No"){
+$datobprop2b="X";
+}else{
+$datobprop2a="";$datobprop2b="";
+}
 $pdf->MultiCell(0,0, 'Tiene propiedad a su nombre
-Si    No	' , 1, 'A', 0, 1, '', '', true,1,false,true);
+Si ('.$datobprop2a.')   No	('.$datobprop2b.')' , 1, 'A', 0, 1, '', '', true,0,false,true);
 $pdf->Ln(1);
 
 $pdf->MultiCell(40,0, 'Estado
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['datobedo2'] , 1, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(20,0, 'C.P.
-	' , 1, 'L', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['datobcp2'] , 1, 'L', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
+
+$datobsex2a="";$datobsex2b="";
+if($_REQUEST['datobsex11']=="M"){
+$datobsex2a="X";
+}elseif($_REQUEST['datobsex11']=="F"){
+$datobsex2b="X";
+}else{
+$datobsex2a="";$datobsex2b="";
+}	
 $pdf->MultiCell(30,0, 'Sexo
-   	' , 1, 'A', 0, 0, '', '', true,1,false,true);
+M  ('.$datobsex2a.')  F  ('.$datobsex2b.')   	' , 1, 'A', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(30,0, 'E-mail 
- ' , 1, 'A', 0, 0, '', '', true,1,false,true);
+ '.$_REQUEST['datobmail2'] , 1, 'A', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(25,0, 'Fecha nacimiento
-	' , 1, 'L', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['datobfechnac2d'] , 1, 'L', 0, 0, '', '', true,0,false,true);
 	$pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(0,0, 'Edad
-	' , 1, 'L', 0, 1, '', '', true,1,false,true);
+	'.$_REQUEST['datobed2'] , 1, 'L', 0, 1, '', '', true,0,false,true);
 $pdf->Ln(1);
+
+
+
+$pdf->MultiCell(90,0, 'Obligado solidario (Nombre(s). apellido paterno. apellido materno)
+	'.$_REQUEST['obsol2'] , 1, 'L', 0, 0, '', '', true,0,false,true);
+$pdf->MultiCell(5,0, '
+	' , 0, 'J', 0, 0, '', '', true,1,false,true);
+
+
+$datobsex22a="";$datobsex22b="";
+if($_REQUEST['datobsex22']=="M"){
+$datobsex22a="X";
+}elseif($_REQUEST['datobsex22']=="F"){
+$datobsex22b="X";
+}else{
+$datobsex22a="";$datobsex22b="";
+}
+$pdf->MultiCell(30,0, 'Sexo
+F  ('.$datobsex22a.')   M   ('.$datobsex22b.')' , 1, 'A', 0, 0, '', '', true,0,false,true);
+$pdf->MultiCell(5,0, '
+	' , 0, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(0,0, 'Fecha de Nacimiento
+	'.$_REQUEST['datobfechnac1d22'] , 1, 'J', 0, 1, '', '', true,0,false,true);
+$pdf->Ln(1);
+
+$pdf->MultiCell(90,0, 'RFC con homoclave
+	'.$_REQUEST['datobnom222'] , 1, 'L', 0, 0, '', '', true,0,false,true);
+$pdf->MultiCell(5,0, '
+	' , 0, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(30,0, 'CURP
+	'.$_REQUEST['datobappat222'] , 1, 'A', 0, 0, '', '', true,0,false,true);
+$pdf->MultiCell(5,0, '
+	' , 0, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(0,0, 'Edad
+	'.$_REQUEST['datobapmat222'] , 1, 'J', 0, 1, '', '', true,0,false,true);
+
+
+
+
+
 
 
 $pdf->SetFontSize(5,true);	
@@ -629,15 +903,15 @@ $pdf->MultiCell(0,0, 'AUTORIZACIÓN RELATIVA A LA INVESTIGACION DEL HISTORIAL CR
 Por este conducto solicito(amos) y autorizo(amos) expresamente a SERVICIOS FINANCIEROS DEL GUADIANA S.A. DE C.V. SOFOM E.N.R para que por conducto de sus funcionarios facultados lleven a cabo investigaciones sobre el comportamiento crediticio de mi representada en las sociedades de información crediticia que estimen convenientes.  Asimismo, declaro(amos) que conozco(emos) la naturaleza y alcance de la información que se solicitará, del uso que SERVICIOS FINANCIEROS DEL GUADIANA S.A. DE C.V. SOFOM E.N.R hará de tal información y de que ésta podrá realizar consultas periódicas del historial crediticio de mi representada, consintiendo que esta autorización se encuentre vigente por un período de 3 años contados a partir de la fecha de su expedición y en todo caso durante el tiempo que mantengamos una relación jurídica. Estoy(amos) consciente(s) y acepto(amos) que este documento quede bajo propiedad de SERVICIOS FINANCIEROS DEL GUADIANA S.A. DE C.V. SOFOM E.N.R y/o de la sociedad de información crediticia consultada, para efectos de control y cumplimiento del artículo 28 de la Ley para Regular a las Sociedades de Información Crediticia.																																															
 ' , 0, 'J', 0, 1, '', '', true,1,false,true);
 $pdf->MultiCell(100,0, '1)Razon social de la persona moral solicitante
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['nomrazsoc2'] , 1, 'L', 0, 0, '', '', true,0,false,true);
 $pdf->Ln(1);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 1, '', '', true,1,false,true);
 $pdf->MultiCell(100,0, '1)Nombre y firma del(los) representante(s) legal(es) de la persona moral solicitante:
-	' , 1, 'L', 0, 1, '', '', true,1,false,true);
+	'.$_REQUEST['nomconemp'].' '.$_REQUEST['segnomconemp'].' '.$_REQUEST['apepaconemp'].' '.$_REQUEST['apemaconemp'] , 1, 'L', 0, 1, '', '', true,0,false,true);
 $pdf->Ln(1);
 $pdf->MultiCell(100,0, '2)Nombre o razon social de la persona fisica o moral que actua comoobligado solidario:
-	' , 1, 'J', 0, 1, '', '', true,1,false,true);
+	'.$_REQUEST['datobnom1'].' '.$_REQUEST['datobappat1'].' '.$_REQUEST['datobapmat1'] , 1, 'l', 0, 1, '', '', true,0,false,true);
 $pdf->Ln(1);
 $pdf->MultiCell(0,0, '2) Firma de la persona física que actúa como obligado solidario o nombre y firma del(los) representante(s) legal(es) de la(s) persona(s) moral(es) que actua(n) como obligado(s) solidario(s):																																													
 		' , 1, 'J', 0, 1, '', '', true,1,false,true);
@@ -651,11 +925,11 @@ Por este conducto solicito(amos) y autorizo(amos) expresamente a SERVICIOS FINAN
 ' , 0, 'L', 0, 1, '', '', true,1,false,true);
 $pdf->Ln(1);
 $pdf->MultiCell(70,0, 'Nombre del representante legal
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['nomconemp'].' '.$_REQUEST['segnomconemp'].' '.$_REQUEST['apepaconemp'].' '.$_REQUEST['apemaconemp'] , 1, 'l', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(60,0, 'RFC del representante legal
-	' , 1, 'L', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['rfcconemp1'].$_REQUEST['rfcconemp2'].$_REQUEST['rfcconemp3'].$_REQUEST['rfcconemp4'].$_REQUEST['rfcconemp5'].$_REQUEST['rfcconemp6'].$_REQUEST['rfcconemp7'].$_REQUEST['rfcconemp8'].$_REQUEST['rfcconemp9'].$_REQUEST['rfcconemp10'].$_REQUEST['rfcconemp11'].$_REQUEST['rfcconemp12'].$_REQUEST['rfcconemp13'] , 1, 'L', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(0,0, 'Firma del representante legal
@@ -663,46 +937,46 @@ $pdf->MultiCell(0,0, 'Firma del representante legal
 $pdf->Ln(1);
 
 $pdf->MultiCell(70,0, 'Calle y No.
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['datobdir22'] , 1, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(60,0, 'Colonia
-	' , 1, 'L', 0, 1, '', '', true,1,false,true);
+	'.$_REQUEST['colsol22'] , 1, 'L', 0, 1, '', '', true,0,false,true);
 $pdf->Ln(1);
 
-$pdf->MultiCell(60,0, 'Nombre y firma  del obligado solidario  persona fisica
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(70,0, 'Nombre del obligado solidario  persona fisica
+	'.$_REQUEST['datobnom1'].' '.$_REQUEST['datobappat1'].' '.$_REQUEST['datobapmat1'] , 1, 'l', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(40,0, 'RFC del obligado solidario persona fisica
-	' , 1, 'L', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(60,0, 'RFC del obligado solidario persona fisica
+	'.$_REQUEST['datobrfc11'].$_REQUEST['datobrfc12'].$_REQUEST['datobrfc13'].$_REQUEST['datobrfc14'].$_REQUEST['datobrfc15'].$_REQUEST['datobrfc16'].$_REQUEST['datobrfc17'].$_REQUEST['datobrfc18'].$_REQUEST['datobrfc19'].$_REQUEST['datobrfc110'].$_REQUEST['datobrfc111'].$_REQUEST['datobrfc112'].$_REQUEST['datobrfc113'] , 1, 'L', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(0,0, 'Firma del obligado solidario
 	' , 1, 'J', 0, 1, '', '', true,1,false,true);
 $pdf->Ln(1);
 
-$pdf->MultiCell(60,0, 'Calle y No.
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(70,0, 'Calle y No.
+	'.$_REQUEST['datobdir1'] , 1, 'J', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(0,0, 'Colonia
-	' , 1, 'J', 0, 1, '', '', true,1,false,true);
+	'.$_REQUEST['datobcol1'] , 1, 'l', 0, 1, '', '', true,0,false,true);
 $pdf->Ln(1);
 $pdf->MultiCell(60,0, 'Ciudad
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['datobcd1'] , 1, 'l', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(40,0, 'Estado
-	' , 1, 'L', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['datobedo1'] , 1, 'L', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(40,0, 'Codigo Postal
-	' , 1, 'L', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['datobcp1'] , 1, 'L', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(0,0, 'Telefono(s)
-	' , 1, 'J', 0, 1, '', '', true,1,false,true);
+	'.$_REQUEST['datobtel11'].$_REQUEST['datobtel12'].$_REQUEST['datobtel13'].$_REQUEST['datobtel14'].$_REQUEST['datobtel15'].$_REQUEST['datobtel16'].$_REQUEST['datobtel17'].$_REQUEST['datobtel18'].$_REQUEST['datobtel19'].$_REQUEST['datobtel110'] , 1, 'l', 0, 1, '', '', true,0,false,true);
 $pdf->Ln(1);
 
 $pdf->MultiCell(0,0, 'CONSENTIMIENTO PARA EL TRATAMIENTO DE LOS DATOS PERSONALES (APLICABLE A PERSONAS FISICAS)																																															
@@ -754,31 +1028,31 @@ Adicionalmente la concesionaria manifiesta que se cotejaron y revisaron, a trav�
 $pdf->Ln(1);
 $pdf->SetFontSize(6,true);	
 $pdf->MultiCell(60,0, 'Clave consecionario o distribuidor
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['clavcon'] , 1, 'l', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(60,0, 'Nombre consecionario o distribuidor
-	' , 1, 'L', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['nomcons'] , 1, 'L', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(0,0, 'Fecha
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['fecha'] , 1, 'l', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 1, '', '', true,1,false,true);
 $pdf->Ln(1);
 
 $pdf->MultiCell(70,0, 'Nombre del vendedor
-	' , 1, 'J', 0, 0, '', '', true,1,false,true);
+	'.$_REQUEST['nomvend'] , 1, 'l', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(0,0, 'Nombre y firma del gerente general
-	' , 1, 'J', 0, 1, '', '', true,1,false,true);
+	'.$_REQUEST['gerentegral'] , 1, 'l', 0, 1, '', '', true,0,false,true);
 $pdf->MultiCell(0,0, 'Datos de inscripcion en el registro publico de contratos de adhesion de la procuradoria federal del consumidor:2999-2012 del 30 de abril del 2012
 	' , 0, 'J', 0, 1, '', '', true,1,false,true);
 
 
 $pdf->SetAlpha(0.2);
-$pdf->RoundedRect(15, 55, 186, 134, 6.5, '0000','DF',null ,array(255, 255, 200) );
+$pdf->RoundedRect(15, 68, 186, 134, 6.5, '0000','DF',null ,array(255, 255, 200) );
 
 $pdf->AddPage();
 

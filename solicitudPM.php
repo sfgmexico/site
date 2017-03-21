@@ -70,7 +70,7 @@ $('#secSolicitante').find('input').each(function(){
   if(document.getElementById("nomrazsoc2").value!=""  ){
 //alert("entre a validar");
 
-  if(this.id=="nocuentcd" || this.id=="cargdir" || this.id=="faxsol1" || this.id=="faxsol2" || this.id=="faxsol3" || this.id=="faxsol4" || this.id=="faxsol5" || this.id=="faxsol6" || this.id=="faxsol7" || this.id=="faxsol8" || this.id=="faxsol9" || this.id=="faxsol10" || this.id=="segnomsol" || this.id=="apemasol" || this.id=="vivsolesp" || this.id=="compatelsolext"||this.id=="movsol22"||this.id=="movsol32"||this.id=="movsol42"||this.id=="movsol52"||this.id=="movsol62"||this.id=="movsol72"||this.id=="movsol82"||this.id=="movsol92"||this.id=="movsol102"){
+  if(this.id=="nocuentcd" || this.id=="cargdir" || this.id=="faxsol1" || this.id=="faxsol2" || this.id=="faxsol3" || this.id=="faxsol4" || this.id=="faxsol5" || this.id=="faxsol6" || this.id=="faxsol7" || this.id=="faxsol8" || this.id=="faxsol9" || this.id=="faxsol10" || this.id=="segnomsol" || this.id=="apemasol" || this.id=="vivsolesp" || this.id=="compatelsolext"||this.id=="movsol22"||this.id=="movsol32"||this.id=="movsol42"||this.id=="movsol52"||this.id=="movsol62"||this.id=="movsol72"||this.id=="movsol82"||this.id=="movsol92"||this.id=="movsol102" || this.id=="faxconemp1" || this.id=="faxconemp2" || this.id=="faxconemp3" || this.id=="faxconemp4" || this.id=="faxconemp5" || this.id=="faxconemp6" || this.id=="faxconemp7" || this.id=="faxconemp8" || this.id=="faxconemp9" || this.id=="faxconemp10"){
     //alert("encontre campos no requeridos");
     $(this).prop('required',false);
 
@@ -189,6 +189,13 @@ $('#au').find('input').each(function(){
     $('#fid').find('input').each(function(){
  $(this).prop('required',true);
 
+if (document.getElementById("textfield45").value=="" || document.getElementById("textfield46").value=="" || document.getElementById("textfield47").value=="") {
+
+if (this.id=="textfield45" || this.id=="textfield46" || this.id=="textfield47" || this.id=="textfield48" || this.id=="textfield49" || this.id=="textfield50" || this.id=="textfield51" || this.id=="textfield52" || this.id=="textfield53" || this.id=="textfield54" || this.id=="textfield55" || this.id=="textfield56" || this.id=="textfield57" || this.id=="textfield58" || this.id=="textfield59" || this.id=="textfield60" || this.id=="textfield61" || this.id=="textfield62" || this.id=="textfield63" || this.id=="textfield64") { $(this).prop('required',false);}
+
+
+}
+
 if (document.getElementById("textfield65").value=="") {
 
 if (this.id=="textfield66" || this.id=="textfield65") { $(this).prop('required',false);}
@@ -273,6 +280,7 @@ if($('input:radio[name=PEPS]:checked').val()=="2" || !$('input:radio[name=PEPS]:
 
   
 var pagina=1;
+var val=true;
 ///ciclo de seleccion de pagina
 $('form#form1').find('input').each(function(){
   
@@ -295,7 +303,7 @@ if(($(this).prop('required') && this.value=="") || ($(this).prop('required') && 
 
       alert("¡¡Por Favor, Verifica Que Todos Los Datos Esten Correctos!!");
     
-      
+     
       
       
       
@@ -308,6 +316,7 @@ if(($(this).prop('required') && this.value=="") || ($(this).prop('required') && 
         window.scrollTo(0,0);
         this.focus();
         this.select();
+        val=false;
         return false;
       }
       if(pagina=="2"){
@@ -315,24 +324,35 @@ if(($(this).prop('required') && this.value=="") || ($(this).prop('required') && 
         window.scrollTo(0,0);
         this.focus();
         this.select();
+        val=false;
         return false;
       }
       if(pagina=="3"){
        
         this.focus();
         this.select();
+        val=false;
         return false;
       }
         
-        
+        alert("Brinca el return");
     } else {
       console.log("NR");
     }
     
-    return true;
+    
+    
 });
-  
 
+
+if(!val){
+return val;
+}else{
+  //$( '#modal' ).click ();
+  return val;
+}
+
+ 
 
 }
 
@@ -341,10 +361,15 @@ if(($(this).prop('required') && this.value=="") || ($(this).prop('required') && 
 <header>
 </header>
 
-<!-- content -->
+<!-- content
+
+PDFpm.php
+onsubmit="return Validacioncampos()" 
+data-abide novalidate
+ -->
 <section>
 	
-	  <form name="form1" id="form1" action="PDFpm.php"  method="post" data-abide novalidate onsubmit="Validacioncampos()" ><!--  -->
+	  <form name="form1" id="form1" action="PDFpm.php"  method="post" target="_blank"  data-abide novalidate onsubmit="return Validacioncampos()"   ><!--  -->
 	  
 	  <style>
 	 
@@ -472,17 +497,17 @@ Telefono(Con lada - 10 dígitos):
 <div class="row">
       <div class="small-6 columns">
       <p align="left">
-        <input name="datobdir22" type="text" id="datobdir22"  placeholder="Calle y No.:">
-          <input name="datobcol23" type="text" id="datobcol23"  placeholder="Colonia:"></p>
+        <input name="datobdir22" type="text" id="datobdir22" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['DirConEmp']; } ?>" placeholder="Calle y No.:">
+          <input name="datobcol23" type="text" id="datobcol23" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['ColConEmp']; } ?>" placeholder="Colonia:"></p>
     </div>
       <div class="small-6 columns">
       <p align="left">
-        <input name="colsol22" type="text" id="colsol22"  placeholder="Ciudad:">
-          <input name="cdsol22" type="text" id="cdsol22"  placeholder="Estado:">
+        <input name="colsol22" type="text" id="colsol22" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['CdConEmp']; } ?>" placeholder="Ciudad:">
+          <input name="cdsol22" type="text" id="cdsol22" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['EdoConEmp']; } ?>" placeholder="Estado:">
     </p></div>
     <p align="left">
     <div class="small-6 columns">
-          <input name="lugnacsol22" type="text" id="lugnacsol22"  placeholder="Código Postal:">
+          <input name="lugnacsol22" type="text" id="lugnacsol22" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['CPConEmp']; } ?>" placeholder="Código Postal:">
   </div>
   
 <div class="row">
@@ -1083,7 +1108,7 @@ Fecha de nacimiento:
   </li>
   <!-- ... -->
   <li class="accordion-item " data-accordion-item>
-    <a href="#" onClick="cambio()" class="accordion-title"><h5 align="center" >FORMATO DE IDENTIFICACIÓN DEL CLIENTE POR CLASIFICACIÓN DE RIESGO</h5></a>
+    <a href="#" onClick="cambio()" class="accordion-title"><h5 id="dos" align="center" >FORMATO DE IDENTIFICACIÓN DEL CLIENTE POR CLASIFICACIÓN DE RIESGO</h5></a>
     <div class="accordion-content" data-tab-content>
   
    
@@ -1091,8 +1116,8 @@ Fecha de nacimiento:
     <div id="ident">
     
     <h4 align="left">Datos generales del cliente</h4> 
-    <p align="left">Tipo de Cliente: Nuevo <input name="escliente" type="radio" value="1">
-     Actualización <input name="escliente" type="radio" value="2" <?php if(isset($row['Folio_Cliente'])){echo "checked";}?>>
+    <p align="left">Tipo de Cliente: Nuevo <input id="escliente1" name="escliente" type="radio" value="1">
+     Actualización <input id="escliente2" name="escliente" type="radio" value="2" <?php if(isset($row['Folio_Cliente'])){echo "checked";}?>>
     </p>
     <table width="100%" border="0">
             <tr>
@@ -1750,6 +1775,14 @@ Fecha de nacimiento:
           <p align="justify">
          <input class="alert button " name="cancelar" type="button" id="cancelar" value="Cancelar" onClick="window.location.href='indexmenu.php'">
             <input class="success button" name="aceptar" type="submit" id="aceptar" value="Aceptar">
+
+              <p style="display:none"><a data-open="exampleModal2" id="modal">Click me for a modal</a></p>
+            <div class="reveal" id="exampleModal2" data-reveal data-close-on-click="false" data-close-on-esc="false">
+                <p>El PDF Se Ha Generado Correctamente.. ¿Deseas Continuar?</p>
+                <a class="button" onClick="window.location.href='indexmenu.php'">Aceptar</a>
+            
+            </div>
+
 
           </p>
       </div>
