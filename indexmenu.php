@@ -8,7 +8,7 @@
     <script src="js/vendor/jquery-3.1.1.min.js"></script>
     
     <link rel="stylesheet" href="js/js/css/foundation.css">
-    <link rel="stylesheet" href="js/js/css/foundation.min.css">
+   
     <link rel="stylesheet" href="js/js/css/app.css">
     <link rel="stylesheet" href="js/js/css/foundation-icons/foundation-icons.css">
      <link rel="stylesheet" href="js/jquery-ui/jquery-ui.css">
@@ -24,8 +24,8 @@
     
 
 
-	<div class="title-bar" id="example-menu">
-  <div class="title-bar-left">
+	<div class="title-bar" id="example-menu" titlebar-background="$white" >
+  <div class="title-bar-left" >
 	<ul class="dropdown menu" data-dropdown-menu >
   <li>
     <a href="indexmenu.php"><i class="fi-home"></i><span>Inicio</span></a>
