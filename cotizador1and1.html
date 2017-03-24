@@ -226,9 +226,32 @@ function clicked_text2(){
         
 }
 
+function pagototal2(tiempo){
+var montofin=document.getElementById("valor").value+(document.getElementById("valor2").value)*1.16;
+var tasa=document.getElementById("seleccion").value;
+
+intRate=(tasa/100)/12;
+months=tiempo;
+cuota=Math.floor((montofin*intRate)/(1-Math.pow(1+intRate,(-1*months)))*100)/100;
+falta=montofin; 
+interestotal=0;
+tasa=tasa/100;
+for(a=1;a<=months;a++){
+capital=cuota-(falta*(tasa/12));
+interes=falta*(tasa/12);
+falta=falta-capital;
+interestotal+=interes;
+
+}
+ivaintereses=(interestotal*16)/100;
+ivaint=ivaintereses/months;
+var pagtotal=0;
+pagtotal=cuota+ivaint;
+return pagtotal.toFixed(2);
+}
 
 function pagototal(tiempo){
-var montofin=document.getElementById("valor").value-document.getElementById("valor2").value
+var montofin=document.getElementById("valor").value-document.getElementById("valor2").value;
 var tasa=document.getElementById("seleccion").value;
 
 intRate=(tasa/100)/12;
@@ -514,23 +537,28 @@ window.CAT = (function(){
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 -->
 <div id="contenidoNomina" style="display:none">
-<table  border="1">
+<table>
         <tr>
-                <td width="30"><h3 class="card-title">Ingresos Mensuales</h3></td>
-                <td width="10"></td>
-                <td width="30"><h3 class="card-title">Ingresos Mensuales</h3></td>
-                <td width="10"></td>
-                <td width="30"><h3 class="card-title">Ingresos Mensuales</h3></td>
+                <td>Ingresos mensuales  <input> </td>
+                 <td>Tasa de interes <input></td>
+                  <td>Seguro de vida  <input> <select name="seleccion"><option value="noaplica">no aplica</option> <option>unico pago al inicio</option>  </select></td>
         </tr>
+
+         <tr>
+                <td> Monto a solicitar  <input></td>
+                 <td>Frecuencia de pago <select><option>Mensual</option> <option>Quincenal</option> <option>Semanal</option></select> </td>
+                  <td>Seguro de desempleo <input> <select><option>No aplica</option> <option>unico pago al inicio</option> <option>Gratuito</option></select> </td>
+        </tr>
+
+
         <tr>
-               <td> <p class="card-text"><input size="12" style="border-width: 2px; border-style: solid; font-size:24pt; color: #009900; letter-spacing : 3px;" onfocus="this.select()" name="price" type="text" value="$0"
-data-previousvalue="0" id="price" data-val-min="0" data-val-max="1000000" data-val-regex="^[0-9]*$" onkeyup="if(event.keyCode == 13) clicked_text1()" onkeydown=
-"if(event.keyCode == 9 || event.keyCode == 13) clicked_text1()" /></p></td>
+                <td>Plazo <input> <select><option>3</option> <option>6</option> <option>12</option><option>24</option><option>48</option><option>60</option></select>  </td>
+                 <td> Comision por apertura <input> <select><option>unico pago al inicio</option> <option>Se integra al monto</option> <option>Gratuita</option><option>No aplica</option></select> </td>
+                  <td>  <input type="button" value="Calcula"></td>
         </tr>
+
+
 </table>
-
-
-
 
 </div>
 
