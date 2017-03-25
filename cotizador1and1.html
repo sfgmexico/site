@@ -21,6 +21,7 @@ seleccion="";
 
 function inicio(){
             document.getElementById("contenido").style.display='none';
+            
       }
       
       function capturar()
@@ -30,7 +31,8 @@ function inicio(){
             alert("¡¡Selecciona un tipo de crédito!!");
             document.getElementById("contenido").style.display='none';
         }else if(combo.options[combo.selectedIndex].text=="Crédito Simple de Nomina"){
-           
+
+           document.getElementById("tasanomina").value=document.getElementById("seleccion").value;
             document.getElementById("contenidoNomina").style.display = 'block';
             document.getElementById("contenido").style.display='none';
         }else {
@@ -227,7 +229,7 @@ function clicked_text2(){
 }
 
 function pagototal2(tiempo){
-var montofin=document.getElementById("valor").value+(document.getElementById("valor2").value)*1.16;
+var montofin=document.getElementById("valor").value-(document.getElementById("valor2").value)*1.16;
 var tasa=document.getElementById("seleccion").value;
 
 intRate=(tasa/100)/12;
@@ -524,6 +526,88 @@ window.CAT = (function(){
 }());
 
 
+function CalculaNomina(){
+
+document.getElementById('comisionnomina').value=(document.getElementById("montonomina").value*0.20*1.16).toFixed(2);
+var tasa=document.getElementById("seleccion").value;
+var tiempo=document.getElementById('plazonomina').value;
+alert(document.getElementById('plazonomina').value);
+
+var montofin=document.getElementById("montonomina").value-document.getElementById("comisionnomina").value;
+
+var totalafinanciar=document.getElementById("montonomina").value-document.getElementById('comisionnomina').value;
+
+
+intRate=(tasa/100)/12;
+months=tiempo;
+pago=Math.floor((totalafinanciar*intRate)/(1-Math.pow(1+intRate,(-1*months)))*100)/100;
+falta=totalafinanciar; 
+interestotal=0;
+tasa=tasa/100;
+for(a=1;a<=months;a++){
+capital=pago-(falta*(tasa/12));
+interes=falta*(tasa/12);
+falta=falta-capital;
+interestotal+=interes;
+
+}
+ivaintereses=(interestotal*16)/100;
+ivaint=ivaintereses/months;
+var pagtotal=0;
+pagtotal=pago+ivaint;
+codigo="";
+codigo="<h2>Tabla de amortizacion<\/h2>"
+codigo+="<table class='table table-hover' width='100%' border='0' id='f'>"; 
+codigo+="<tr class='table-info'>"; 
+codigo+="<th>Balance inicial<\/th>"; 
+codigo+="<th>Pago programado<\/th>"; 
+codigo+="<th>Capital<\/th>"; 
+codigo+="<th>Interés<\/th>"; 
+codigo+="<th>Balance final<\/th>"; 
+codigo+="<th>Iva de los intereses<\/th>"; 
+codigo+="<th>Pago Total Programado<\/th>"; 
+codigo+="<\/tr>";
+
+
+falta=totalafinanciar;
+
+
+
+for(a=1;a<=months;a++){ 
+
+codigo+="<tr  class='table-warning'>"; 
+codigo+="<td>"+falta.toFixed(2);+"<\/td>"; 
+codigo+="<td>"+pago+"<\/td>";
+capital=pago-(falta*(tasa/12));
+codigo+="<td>"+capital.toFixed(2);+"<\/td>";
+interes=falta*(tasa/12);
+codigo+="<td>"; 
+codigo+=interes.toFixed(2);; 
+codigo+="<\/td>"; 
+falta=falta-capital;
+codigo+="<td>"; 
+codigo+=falta.toFixed(2); 
+codigo+="<\/td>"; 
+
+codigo+="<td>"; 
+codigo+=ivaint.toFixed(2); 
+codigo+="<\/td>"; 
+
+codigo+="<td>"; 
+codigo+=pagtotal.toFixed(2); 
+codigo+="<\/td>"; 
+
+codigo+="<\/tr>"; 
+} 
+codigo+="<\/table>"; 
+
+var cat = CAT.get(totalafinanciar, 0, pagtotal, document.getElementById("plazonomina").value, 12);
+
+
+document.getElementById('resultadoNomina').innerHTML = '<br><br><br>Plazo:'+ document.getElementById("plazonomina").value +' Meses<br>Monto solicitado: $' + document.getElementById("montonomina").value + '<br>Comision por Apertura: $' + document.getElementById('comisionnomina').value + '<br>Total a Financiar: $' + totalafinanciar + '<br>CAT: ' +cat['formatted']+'%<br>' + codigo; 
+}
+
+
 //]]>
 </script>
 <!--
@@ -537,29 +621,30 @@ window.CAT = (function(){
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 -->
 <div id="contenidoNomina" style="display:none">
+      
 <table>
         <tr>
-                <td>Ingresos mensuales  <input> </td>
-                 <td>Tasa de interes <input></td>
+                <td>Ingresos mensuales  <input type="number" name="ingmen" id="ingmen"> </td>
+                 <td>Tasa de interes <input type="text" name="tasanomina" id="tasanomina" readonly></td>
                   <td>Seguro de vida  <input> <select name="seleccion"><option value="noaplica">no aplica</option> <option>unico pago al inicio</option>  </select></td>
         </tr>
 
          <tr>
-                <td> Monto a solicitar  <input></td>
-                 <td>Frecuencia de pago <select><option>Mensual</option> <option>Quincenal</option> <option>Semanal</option></select> </td>
+                <td> Monto a solicitar  <input type="number" name="montonomina" id="montonomina" ></td>
+                 <td>Frecuencia de pago <select name="frecpagonomina" id="frecpagonomina"><option value="12">Mensual</option> <option value="24">Quincenal</option> <option value="48">Semanal</option></select> </td>
                   <td>Seguro de desempleo <input> <select><option>No aplica</option> <option>unico pago al inicio</option> <option>Gratuito</option></select> </td>
         </tr>
 
 
         <tr>
-                <td>Plazo <input> <select><option>3</option> <option>6</option> <option>12</option><option>24</option><option>48</option><option>60</option></select>  </td>
-                 <td> Comision por apertura <input> <select><option>unico pago al inicio</option> <option>Se integra al monto</option> <option>Gratuita</option><option>No aplica</option></select> </td>
-                  <td>  <input type="button" value="Calcula"></td>
+                <td>Plazo <select name="plazonomina" id="plazonomina"><option value="3">3</option> <option value="6">6</option> <option value="12">12</option><option value="24">24</option><option value="48">48</option><optionvalue="60">60</option></select>  </td>
+                 <td> Comision por apertura <input name="comisionnomina" id="comisionnomina"> <select><option>unico pago al inicio</option> <option>Se integra al monto</option> <option>Gratuita</option><option>No aplica</option></select> </td>
+                  <td>  <input type="button" value="Calcula" onClick="CalculaNomina()"></td>
         </tr>
 
 
 </table>
-
+<div id="resultadoNomina" ></div>
 </div>
 
 
