@@ -1,3 +1,4 @@
+<h1>En construcción</h1>
 <p>Tipo de Crédito: <select name="seleccion" size="1" id="seleccion" onchange="capturar()">
 <option value="---" onclick="capturar()">---</option>
 <option value="14.40" onclick="capturar()">Auto nuevo</option>
@@ -13,6 +14,126 @@
 <option value="0" onclick="capturar()">Factoraje</option>
 <option value="0" onclick="capturar()">Préstamo Quirografario</option>
 </select></p>
+<style type="text/css">
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.42em;
+  color:#A7A1AE;
+background: rgba(241,231,103,1);
+background: -moz-linear-gradient(top, rgba(241,231,103,1) 0%, rgba(254,182,69,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(241,231,103,1)), color-stop(100%, rgba(254,182,69,1)));
+background: -webkit-linear-gradient(top, rgba(241,231,103,1) 0%, rgba(254,182,69,1) 100%);
+background: -o-linear-gradient(top, rgba(241,231,103,1) 0%, rgba(254,182,69,1) 100%);
+background: -ms-linear-gradient(top, rgba(241,231,103,1) 0%, rgba(254,182,69,1) 100%);
+background: linear-gradient(to bottom, rgba(241,231,103,1) 0%, rgba(254,182,69,1) 100%);
+
+}
+
+h1 {
+  font-size:3em; 
+  font-weight: 300;
+  line-height:1em;
+  text-align: center;
+  color: #4DC3FA;
+}
+
+h2 {
+  font-size:1em; 
+  font-weight: 300;
+  text-align: center;
+  display: block;
+  line-height:1em;
+  padding-bottom: 2em;
+  color: #FB667A;
+}
+
+h2 a {
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #FB667A;
+  text-decoration: none;
+}
+
+.blue { color: #185875; }
+.yellow { color: #FFF842; }
+
+.container th h1 {
+    font-weight: bold;
+    font-size: 1em;
+  text-align: left;
+  color: #185875;
+}
+
+.container td {
+    font-weight: normal;
+    font-size: 1em;
+  -webkit-box-shadow: 0 2px 2px -2px #0E1119;
+     -moz-box-shadow: 0 2px 2px -2px #0E1119;
+          box-shadow: 0 2px 2px -2px #0E1119;
+}
+
+.container {
+    text-align: left;
+    overflow: hidden;
+    width: 80%;
+    margin: 0 auto;
+  display: table;
+  padding: 0 0 8em 0;
+}
+
+.container td, .container th {
+    padding-bottom: 2%;
+    padding-top: 2%;
+  padding-left:2%;  
+}
+
+/* Background-color of the odd rows */
+.container tr:nth-child(odd) {
+    background-color: #323C50;
+}
+
+/* Background-color of the even rows */
+.container tr:nth-child(even) {
+    background-color: #2C3446;
+}
+
+.container th {
+    background-color: #1F2739;
+}
+
+.container td:first-child { color: #FB667A; }
+
+.container tr:hover {
+   background-color: #464A52;
+-webkit-box-shadow: 0 6px 6px -6px #0E1119;
+     -moz-box-shadow: 0 6px 6px -6px #0E1119;
+          box-shadow: 0 6px 6px -6px #0E1119;
+}
+
+.container td:hover {
+  background-color: #FFF842;
+  color: #403E10;
+  font-weight: bold;
+  
+  box-shadow: #B79400 -1px 1px, #B79400 -2px 2px, #B79400 -3px 3px, #B79400 -4px 4px, #B79400 -5px 5px, #B79400 -6px 6px;
+  transform: translate3d(6px, -6px, 0);
+  
+  transition-delay: 0s;
+    transition-duration: 0.4s;
+    transition-property: all;
+  transition-timing-function: line;
+}
+
+@media (max-width: 800px) {
+.container td:nth-child(4),
+.container th:nth-child(4) { display: none; }
+}
+
+</style>
+
+
+
 <script type="text/javascript">
 //<![CDATA[
 
@@ -557,7 +678,7 @@ var pagtotal=0;
 pagtotal=pago+ivaint;
 codigo="";
 codigo="<h2>Tabla de amortizacion<\/h2>"
-codigo+="<table class='table table-hover' width='100%' border='0' id='f'>"; 
+codigo+="<table class='table table-hover' width='100%' border='0' >"; 
 codigo+="<tr class='table-info'>"; 
 codigo+="<th>Balance inicial<\/th>"; 
 codigo+="<th>Pago programado<\/th>"; 
@@ -612,6 +733,7 @@ sumpatoprog+=pagtotal;
 
 codigo+="<\/tr>"; 
 }
+codigo+="<th> Total </th>";
 codigo+="<tr><td>"+sumbalance.toFixed(2)+"</td><td>"+sumpaprog.toFixed(2)+"</td><td>"+sumcap.toFixed(2)+"</td><td>"+sumint.toFixed(2)+"</td><td>"+sumbalncefin.toFixed(2)+"</td><td>"+sumivaint.toFixed(2)+"</td><td>"+sumpatoprog.toFixed(2)+"</td></tr>"; 
 codigo+="<\/table>"; 
 
@@ -634,9 +756,9 @@ document.getElementById('resultadoNomina').innerHTML = '<br><br><br>Plazo:'+ doc
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 -->
-<div id="contenidoNomina" style="display:none">
+<div id="contenidoNomina" class="container" style="display:none">
       
-<table>
+<table >
         <tr>
                 <td>Ingresos mensuales  <input type="number" name="ingmen" id="ingmen"> </td>
                  <td>Tasa de interes <input type="text" name="tasanomina" id="tasanomina" readonly></td>
