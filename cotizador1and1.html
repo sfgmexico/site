@@ -528,10 +528,10 @@ window.CAT = (function(){
 
 function CalculaNomina(){
 
-document.getElementById('comisionnomina').value=(document.getElementById("montonomina").value*0.20*1.16).toFixed(2);
+document.getElementById('comisionnomina').value=(document.getElementById("montonomina").value*0.02).toFixed(2);
 var tasa=document.getElementById("seleccion").value;
 var tiempo=document.getElementById('plazonomina').value;
-alert(document.getElementById('plazonomina').value);
+
 
 var montofin=document.getElementById("montonomina").value-document.getElementById("comisionnomina").value;
 
@@ -570,35 +570,49 @@ codigo+="<\/tr>";
 
 
 falta=totalafinanciar;
-
+var sumbalance=0;
+var sumpaprog=0;
+var sumcap=0;
+var sumint=0;
+var sumbalncefin=0;
+var sumivaint=0;
+var sumpatoprog=0;
 
 
 for(a=1;a<=months;a++){ 
 
 codigo+="<tr  class='table-warning'>"; 
 codigo+="<td>"+falta.toFixed(2);+"<\/td>"; 
+sumbalance+=falta;
 codigo+="<td>"+pago+"<\/td>";
+sumpaprog+=pago;
 capital=pago-(falta*(tasa/12));
 codigo+="<td>"+capital.toFixed(2);+"<\/td>";
+sumcap+=capital;
 interes=falta*(tasa/12);
 codigo+="<td>"; 
 codigo+=interes.toFixed(2);; 
 codigo+="<\/td>"; 
+sumint+=interes;
 falta=falta-capital;
 codigo+="<td>"; 
 codigo+=falta.toFixed(2); 
 codigo+="<\/td>"; 
+sumbalncefin+=falta; 
 
 codigo+="<td>"; 
 codigo+=ivaint.toFixed(2); 
 codigo+="<\/td>"; 
+sumivaint+=ivaint;
 
 codigo+="<td>"; 
 codigo+=pagtotal.toFixed(2); 
 codigo+="<\/td>"; 
+sumpatoprog+=pagtotal; 
 
 codigo+="<\/tr>"; 
-} 
+}
+codigo+="<tr><td>"+sumbalance.toFixed(2)+"</td><td>"+sumpaprog.toFixed(2)+"</td><td>"+sumcap.toFixed(2)+"</td><td>"+sumint.toFixed(2)+"</td><td>"+sumbalncefin.toFixed(2)+"</td><td>"+sumivaint.toFixed(2)+"</td><td>"+sumpatoprog.toFixed(2)+"</td></tr>"; 
 codigo+="<\/table>"; 
 
 var cat = CAT.get(totalafinanciar, 0, pagtotal, document.getElementById("plazonomina").value, 12);
