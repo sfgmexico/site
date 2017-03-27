@@ -153,7 +153,7 @@ function inicio(){
             document.getElementById("contenido").style.display='none';
         }else if(combo.options[combo.selectedIndex].text=="Crédito Simple de Nomina"){
 
-           document.getElementById("tasanomina").value=document.getElementById("seleccion").value;
+           document.getElementById("tasanomina").value=document.getElementById("seleccion").value+"%";
             document.getElementById("contenidoNomina").style.display = 'block';
             document.getElementById("contenido").style.display='none';
         }else {
@@ -649,19 +649,42 @@ window.CAT = (function(){
 
 function CalculaNomina(){
 
-document.getElementById('comisionnomina').value=(document.getElementById("montonomina").value*0.02).toFixed(2);
+//document.getElementById('comisionnomina').value=(document.getElementById("montonomina").value*0.02).toFixed(2);
 var tasa=document.getElementById("seleccion").value;
 var tiempo=document.getElementById('plazonomina').value;
+var comisionapertura=document.getElementById("montonomina").value*0.02;
 
+var montofin=document.getElementById("montonomina").value;
 
-var montofin=document.getElementById("montonomina").value-document.getElementById("comisionnomina").value;
+var totalafinanciar=document.getElementById("montonomina").value-comisionapertura;
 
-var totalafinanciar=document.getElementById("montonomina").value-document.getElementById('comisionnomina').value;
-
+//tasa mensual es intRate
+intRate=(tasa/12)/100;
+months=tiempo;
+//pago=Math.floor((totalafinanciar*intRate)/(1-Math.pow(1+intRate,(-1*months)))*100)/100;
 
 intRate=(tasa/100)/12;
 months=tiempo;
-pago=Math.floor((totalafinanciar*intRate)/(1-Math.pow(1+intRate,(-1*months)))*100)/100;
+cuota=Math.floor((totalafinanciar*intRate)/(1-Math.pow(1+intRate,(-1*months)))*100)/100;
+falta=montofin; 
+interestotal=0;
+tasa=tasa/100;
+for(a=1;a<=months;a++){
+capital=cuota-(falta*(tasa/12));
+interes=falta*(tasa/12);
+falta=falta-capital;
+interestotal+=interes;
+
+}
+ivaintereses=(interestotal*16)/100;
+ivaint=ivaintereses/months;
+var pagtotal=0;
+pagtotal=cuota+ivaint;
+
+pago=pagtotal;
+
+//pago=((intRate*Math.pow(1+intRate, months))*montofin)/((Math.pow(1+intRate, months))-1);
+/*
 falta=totalafinanciar; 
 interestotal=0;
 tasa=tasa/100;
@@ -676,12 +699,15 @@ ivaintereses=(interestotal*16)/100;
 ivaint=ivaintereses/months;
 var pagtotal=0;
 pagtotal=pago+ivaint;
+*/
+
+
 codigo="";
 codigo="<h2>Tabla de amortizacion<\/h2>"
-codigo+="<table class='table table-hover' width='100%' border='0' >"; 
+codigo+="<table class='table table-hover' width='100%' border='0' id='f'>"; 
 codigo+="<tr class='table-info'>"; 
 codigo+="<th>Balance inicial<\/th>"; 
-codigo+="<th>Pago programado<\/th>"; 
+//codigo+="<th>Pago programado<\/th>"; 
 codigo+="<th>Capital<\/th>"; 
 codigo+="<th>Interés<\/th>"; 
 codigo+="<th>Balance final<\/th>"; 
@@ -705,12 +731,14 @@ for(a=1;a<=months;a++){
 codigo+="<tr  class='table-warning'>"; 
 codigo+="<td>"+falta.toFixed(2);+"<\/td>"; 
 sumbalance+=falta;
-codigo+="<td>"+pago+"<\/td>";
-sumpaprog+=pago;
-capital=pago-(falta*(tasa/12));
+//codigo+="<td>"+pago+"<\/td>";
+//sumpaprog+=pago;
+intereses=(falta*intRate);
+ivaintereses=(falta*intRate*0.16);
+capital=pago-(intereses+ivaintereses);
 codigo+="<td>"+capital.toFixed(2);+"<\/td>";
 sumcap+=capital;
-interes=falta*(tasa/12);
+interes=falta*intRate;
 codigo+="<td>"; 
 codigo+=interes.toFixed(2);; 
 codigo+="<\/td>"; 
@@ -722,25 +750,32 @@ codigo+="<\/td>";
 sumbalncefin+=falta; 
 
 codigo+="<td>"; 
-codigo+=ivaint.toFixed(2); 
+codigo+=ivaintereses.toFixed(2); 
 codigo+="<\/td>"; 
-sumivaint+=ivaint;
+sumivaint+=ivaintereses;
 
 codigo+="<td>"; 
-codigo+=pagtotal.toFixed(2); 
+codigo+=pago.toFixed(2); 
 codigo+="<\/td>"; 
-sumpatoprog+=pagtotal; 
+sumpatoprog+=pago; 
 
 codigo+="<\/tr>"; 
 }
 codigo+="<th> Total </th>";
-codigo+="<tr><td>"+sumbalance.toFixed(2)+"</td><td>"+sumpaprog.toFixed(2)+"</td><td>"+sumcap.toFixed(2)+"</td><td>"+sumint.toFixed(2)+"</td><td>"+sumbalncefin.toFixed(2)+"</td><td>"+sumivaint.toFixed(2)+"</td><td>"+sumpatoprog.toFixed(2)+"</td></tr>"; 
+codigo+="<tr><td></td><td>"+sumcap.toFixed(2)+"</td><td>"+sumint.toFixed(2)+"</td><td></td><td>"+sumivaint.toFixed(2)+"</td><td>"+sumpatoprog.toFixed(2)+"</td></tr>"; 
 codigo+="<\/table>"; 
 
-var cat = CAT.get(totalafinanciar, 0, pagtotal, document.getElementById("plazonomina").value, 12);
+CAT=(Math.pow(1+intRate,12)-1)*100;
+
+//var cat = CAT.get(totalafinanciar, 0, pagtotal, document.getElementById("plazonomina").value, 12);
 
 
-document.getElementById('resultadoNomina').innerHTML = '<br><br><br>Plazo:'+ document.getElementById("plazonomina").value +' Meses<br>Monto solicitado: $' + document.getElementById("montonomina").value + '<br>Comision por Apertura: $' + document.getElementById('comisionnomina').value + '<br>Total a Financiar: $' + totalafinanciar + '<br>CAT: ' +cat['formatted']+'%<br>' + codigo; 
+document.getElementById('resultadoNomina').innerHTML = '<br><br><br>Plazo:'+ document.getElementById("plazonomina").value +' Meses<br>Monto solicitado: $' + document.getElementById("montonomina").value + '<br>Comision por Apertura: $' + comisionapertura + '<br>Total a Financiar: $' + totalafinanciar + '<br>CAT: ' +CAT.toFixed(2)+'%<br>' + codigo; 
+
+
+
+
+
 }
 
 
@@ -760,21 +795,21 @@ document.getElementById('resultadoNomina').innerHTML = '<br><br><br>Plazo:'+ doc
       
 <table >
         <tr>
-                <td>Ingresos mensuales  <input type="number" name="ingmen" id="ingmen"> </td>
-                 <td>Tasa de interes <input type="text" name="tasanomina" id="tasanomina" readonly></td>
-                  <td>Seguro de vida  <input> <select name="seleccion"><option value="noaplica">no aplica</option> <option>unico pago al inicio</option>  </select></td>
+                <td style="display:none">Ingresos mensuales  <input type="number" name="ingmen" id="ingmen"> </td>
+                 <td>Tasa de interes (Anual)<input type="text" name="tasanomina" id="tasanomina" readonly></td>
+                  <td style="display:none">Seguro de vida  <input> <select name="seleccion"><option value="noaplica">no aplica</option> <option>unico pago al inicio</option>  </select></td>
         </tr>
 
          <tr>
                 <td> Monto a solicitar  <input type="number" name="montonomina" id="montonomina" ></td>
-                 <td>Frecuencia de pago <select name="frecpagonomina" id="frecpagonomina"><option value="12">Mensual</option> <option value="24">Quincenal</option> <option value="48">Semanal</option></select> </td>
-                  <td>Seguro de desempleo <input> <select><option>No aplica</option> <option>unico pago al inicio</option> <option>Gratuito</option></select> </td>
+                 <td>Frecuencia de pago <select name="frecpagonomina" id="frecpagonomina"><option value="12">Mensual</option></select> </td>
+                  <td style="display:none">Seguro de desempleo <input> <select><option>No aplica</option> <option>unico pago al inicio</option> <option>Gratuito</option></select> </td>
         </tr>
 
 
         <tr>
-                <td>Plazo <select name="plazonomina" id="plazonomina"><option value="3">3</option> <option value="6">6</option> <option value="12">12</option><option value="24">24</option><option value="48">48</option><optionvalue="60">60</option></select>  </td>
-                 <td> Comision por apertura <input name="comisionnomina" id="comisionnomina"> <select><option>unico pago al inicio</option> <option>Se integra al monto</option> <option>Gratuita</option><option>No aplica</option></select> </td>
+                <td>Plazo <select name="plazonomina" id="plazonomina"><option value="3">3</option> <option value="6">6</option> <option value="12">12</option><option value="24">24</option><option value="36">36</option><option value="48">48</option><option value="60">60</option></select>  </td>
+                 <td> Comision por apertura <input name="comisionnomina" id="comisionnomina" value="2%"readonly> <select><option>unico pago al inicio</option> <option>Se integra al monto</option> <option>Gratuita</option><option>No aplica</option></select> </td>
                   <td>  <input type="button" value="Calcula" onClick="CalculaNomina()"></td>
         </tr>
 
@@ -916,5 +951,5 @@ data-previousvalue="0" id="price" data-val-min="0" data-val-max="1000000" data-v
 </div>
 </div>
 </div>
-</div>
 <div id="pepe" class="container"></div>
+</div>
