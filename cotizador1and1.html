@@ -397,10 +397,10 @@ pagtotal=cuota+ivaint;
 return pagtotal.toFixed(2);
 }
 
-function CalcularPago6(){
+function CalcularPago6(pag){
 
 document.getElementById("monto").innerHTML = document.getElementById("price").value;
-document.getElementById("pagos").innerHTML = "$"+pagototal(6);
+document.getElementById("pagos").innerHTML = "$"+pagototal(pag);
  
 document.getElementById("12meses").innerHTML = "$"+pagototal(6);
 
@@ -415,118 +415,11 @@ document.getElementById("48meses").innerHTML = "$"+pagototal(36);
 
 document.getElementById("60meses").innerHTML = "$"+pagototal(48);
 document.getElementById("pepe").style.display = 'none';
-seleccion=6;
+seleccion=pag;
 calculaTabla(seleccion);
 }
 
-function CalcularPago12(){
 
-
-document.getElementById("monto").innerHTML = document.getElementById("price").value;
-
-document.getElementById("12meses").innerHTML = "$"+pagototal(6); 
-
-document.getElementById("18meses").innerHTML = "$"+pagototal(12); 
-document.getElementById("pagos").innerHTML = "$"+pagototal(12); 
-
-document.getElementById("24meses").innerHTML = "$"+pagototal(18); 
-
-document.getElementById("36meses").innerHTML = "$"+pagototal(24); 
-
-document.getElementById("48meses").innerHTML = "$"+pagototal(36); 
-
-document.getElementById("60meses").innerHTML = "$"+pagototal(48); 
-document.getElementById("pepe").style.display = 'none';
-seleccion=12;
-calculaTabla(seleccion);
-}
-
-function CalcularPago18(){
-
-document.getElementById("monto").innerHTML = document.getElementById("price").value;
-
-document.getElementById("12meses").innerHTML = "$"+pagototal(6); 
-
-document.getElementById("18meses").innerHTML = "$"+pagototal(12); 
-
-document.getElementById("24meses").innerHTML = "$"+pagototal(18); 
-document.getElementById("pagos").innerHTML = "$"+pagototal(18); 
-
-document.getElementById("36meses").innerHTML = "$"+pagototal(24); 
-
-document.getElementById("48meses").innerHTML = "$"+pagototal(36); 
-
-document.getElementById("60meses").innerHTML = "$"+pagototal(48); 
-document.getElementById("pepe").style.display = 'none';
-seleccion=18;
-calculaTabla(seleccion);
-}
-
-function CalcularPago24(){
-
-document.getElementById("monto").innerHTML = document.getElementById("price").value;
-
-document.getElementById("12meses").innerHTML = "$"+pagototal(6); 
-
-document.getElementById("18meses").innerHTML = "$"+pagototal(12); 
-
-document.getElementById("24meses").innerHTML = "$"+pagototal(18); 
-
-document.getElementById("36meses").innerHTML = "$"+pagototal(24); 
-document.getElementById("pagos").innerHTML = "$"+pagototal(24); 
-
-document.getElementById("48meses").innerHTML = "$"+pagototal(36); 
-
-document.getElementById("60meses").innerHTML = "$"+pagototal(48); 
-document.getElementById("pepe").style.display = 'none';
-seleccion=24;
-calculaTabla(seleccion);
-}
-
-function CalcularPago36(){
-
-
-document.getElementById("monto").innerHTML = document.getElementById("price").value;
-
-document.getElementById("12meses").innerHTML = "$"+pagototal(6); 
-
-document.getElementById("18meses").innerHTML = "$"+pagototal(12); 
-
-document.getElementById("24meses").innerHTML = "$"+pagototal(18); 
-
-document.getElementById("36meses").innerHTML = "$"+pagototal(24); 
-
-document.getElementById("48meses").innerHTML = "$"+pagototal(36); 
-document.getElementById("pagos").innerHTML = "$"+pagototal(36); 
-
-document.getElementById("60meses").innerHTML = "$"+pagototal(48); 
-document.getElementById("pepe").style.display = 'none';
-seleccion=36;
-calculaTabla(seleccion);
-}
-
-function CalcularPago48(){
-
-
-document.getElementById("monto").innerHTML = document.getElementById("price").value;
-
-document.getElementById("12meses").innerHTML = "$"+pagototal(6); 
-
-document.getElementById("18meses").innerHTML = "$"+pagototal(12); 
-
-document.getElementById("24meses").innerHTML = "$"+pagototal(18); 
-
-document.getElementById("36meses").innerHTML = "$"+pagototal(24); 
-
-document.getElementById("48meses").innerHTML = "$"+pagototal(36); 
-
-document.getElementById("60meses").innerHTML = "$"+pagototal(48); 
-document.getElementById("pagos").innerHTML = "$"+pagototal(48); 
-document.getElementById("pepe").style.display = 'none';
-seleccion=48;
-calculaTabla(seleccion);
-
-}
 
 
 function calculaTabla(meses){ 
@@ -879,7 +772,7 @@ data-previousvalue="0" id="price" data-val-min="0" data-val-max="1000000" data-v
 <table class="hover" width="100%" border="0">
 <tr>
 <td width="25%">
-<div align="center"><input class="btn btn-default" type="submit" name="Submit" value=" 6 meses" onclick="CalcularPago6()" /></div>
+<div align="center"><input class="btn btn-default" type="submit" name="Submit" value=" 6 meses" onclick="CalcularPago6(6)" /></div>
 </td>
 <td width="25%">
 <div align="center">
@@ -887,7 +780,7 @@ data-previousvalue="0" id="price" data-val-min="0" data-val-max="1000000" data-v
 </div>
 </td>
 <td width="25%">
-<div align="center"><input class="btn btn-default" type="submit" name="Submit4" value="24 meses" onclick="CalcularPago24()" /></div>
+<div align="center"><input class="btn btn-default" type="submit" name="Submit4" value="24 meses" onclick="CalcularPago6(24)" /></div>
 </td>
 <td width="25%">
 <div align="center">
@@ -897,7 +790,7 @@ data-previousvalue="0" id="price" data-val-min="0" data-val-max="1000000" data-v
 </tr>
 <tr>
 <td width="25%">
-<div align="center"><input class="btn btn-default" type="submit" name="Submit2" value="12 meses" onclick="CalcularPago12()" /></div>
+<div align="center"><input class="btn btn-default" type="submit" name="Submit2" value="12 meses" onclick="CalcularPago6(12)" /></div>
 </td>
 <td width="25%">
 <div align="center">
@@ -905,7 +798,7 @@ data-previousvalue="0" id="price" data-val-min="0" data-val-max="1000000" data-v
 </div>
 </td>
 <td width="25%">
-<div align="center"><input class="btn btn-default" type="submit" name="Submit5" value="36 meses" onclick="CalcularPago36()" /></div>
+<div align="center"><input class="btn btn-default" type="submit" name="Submit5" value="36 meses" onclick="CalcularPago6(36)" /></div>
 </td>
 <td width="25%">
 <div align="center">
@@ -915,7 +808,7 @@ data-previousvalue="0" id="price" data-val-min="0" data-val-max="1000000" data-v
 </tr>
 <tr>
 <td width="25%">
-<div align="center"><input class="btn btn-default" type="submit" name="Submit3" value="18 meses" onclick="CalcularPago18()" /></div>
+<div align="center"><input class="btn btn-default" type="submit" name="Submit3" value="18 meses" onclick="CalcularPago6(18)" /></div>
 </td>
 <td width="25%">
 <div align="center">
@@ -923,7 +816,7 @@ data-previousvalue="0" id="price" data-val-min="0" data-val-max="1000000" data-v
 </div>
 </td>
 <td width="25%">
-<div align="center"><input class="btn btn-default" type="submit" name="Submit6" value="48 meses" onclick="CalcularPago48()" /></div>
+<div align="center"><input class="btn btn-default" type="submit" name="Submit6" value="48 meses" onclick="CalcularPago6(48)" /></div>
 </td>
 <td width="25%">
 <div align="center">

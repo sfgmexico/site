@@ -17,7 +17,7 @@
 
     </style>
   </head>
-  <body style="background: url(images/iu-6.jpeg)">
+  <body>
 <!-- header -->
 <head>
 			<img src="images/logosfg 2.png" >
