@@ -194,10 +194,10 @@ pagtotal=cuota+ivaint;
 return pagtotal.toFixed(2);
 }
 
-function CalcularPago6(){
+function CalcularPago6(pag){
 
 document.getElementById("monto").innerHTML = document.getElementById("price").value;
-document.getElementById("pagos").innerHTML = "$"+pagototal(6);
+document.getElementById("pagos").innerHTML = "$"+pagototal(pag);
  
 document.getElementById("12meses").innerHTML = "$"+pagototal(6);
 
@@ -212,118 +212,11 @@ document.getElementById("48meses").innerHTML = "$"+pagototal(36);
 
 document.getElementById("60meses").innerHTML = "$"+pagototal(48);
 document.getElementById("pepe").style.display = 'none';
-seleccion=6;
+seleccion=pag;
 calculaTabla(seleccion);
 }
 
-function CalcularPago12(){
 
-
-document.getElementById("monto").innerHTML = document.getElementById("price").value;
-
-document.getElementById("12meses").innerHTML = "$"+pagototal(6); 
-
-document.getElementById("18meses").innerHTML = "$"+pagototal(12); 
-document.getElementById("pagos").innerHTML = "$"+pagototal(12); 
-
-document.getElementById("24meses").innerHTML = "$"+pagototal(18); 
-
-document.getElementById("36meses").innerHTML = "$"+pagototal(24); 
-
-document.getElementById("48meses").innerHTML = "$"+pagototal(36); 
-
-document.getElementById("60meses").innerHTML = "$"+pagototal(48); 
-document.getElementById("pepe").style.display = 'none';
-seleccion=12;
-calculaTabla(seleccion);
-}
-
-function CalcularPago18(){
-
-document.getElementById("monto").innerHTML = document.getElementById("price").value;
-
-document.getElementById("12meses").innerHTML = "$"+pagototal(6); 
-
-document.getElementById("18meses").innerHTML = "$"+pagototal(12); 
-
-document.getElementById("24meses").innerHTML = "$"+pagototal(18); 
-document.getElementById("pagos").innerHTML = "$"+pagototal(18); 
-
-document.getElementById("36meses").innerHTML = "$"+pagototal(24); 
-
-document.getElementById("48meses").innerHTML = "$"+pagototal(36); 
-
-document.getElementById("60meses").innerHTML = "$"+pagototal(48); 
-document.getElementById("pepe").style.display = 'none';
-seleccion=18;
-calculaTabla(seleccion);
-}
-
-function CalcularPago24(){
-
-document.getElementById("monto").innerHTML = document.getElementById("price").value;
-
-document.getElementById("12meses").innerHTML = "$"+pagototal(6); 
-
-document.getElementById("18meses").innerHTML = "$"+pagototal(12); 
-
-document.getElementById("24meses").innerHTML = "$"+pagototal(18); 
-
-document.getElementById("36meses").innerHTML = "$"+pagototal(24); 
-document.getElementById("pagos").innerHTML = "$"+pagototal(24); 
-
-document.getElementById("48meses").innerHTML = "$"+pagototal(36); 
-
-document.getElementById("60meses").innerHTML = "$"+pagototal(48); 
-document.getElementById("pepe").style.display = 'none';
-seleccion=24;
-calculaTabla(seleccion);
-}
-
-function CalcularPago36(){
-
-
-document.getElementById("monto").innerHTML = document.getElementById("price").value;
-
-document.getElementById("12meses").innerHTML = "$"+pagototal(6); 
-
-document.getElementById("18meses").innerHTML = "$"+pagototal(12); 
-
-document.getElementById("24meses").innerHTML = "$"+pagototal(18); 
-
-document.getElementById("36meses").innerHTML = "$"+pagototal(24); 
-
-document.getElementById("48meses").innerHTML = "$"+pagototal(36); 
-document.getElementById("pagos").innerHTML = "$"+pagototal(36); 
-
-document.getElementById("60meses").innerHTML = "$"+pagototal(48); 
-document.getElementById("pepe").style.display = 'none';
-seleccion=36;
-calculaTabla(seleccion);
-}
-
-function CalcularPago48(){
-
-
-document.getElementById("monto").innerHTML = document.getElementById("price").value;
-
-document.getElementById("12meses").innerHTML = "$"+pagototal(6); 
-
-document.getElementById("18meses").innerHTML = "$"+pagototal(12); 
-
-document.getElementById("24meses").innerHTML = "$"+pagototal(18); 
-
-document.getElementById("36meses").innerHTML = "$"+pagototal(24); 
-
-document.getElementById("48meses").innerHTML = "$"+pagototal(36); 
-
-document.getElementById("60meses").innerHTML = "$"+pagototal(48); 
-document.getElementById("pagos").innerHTML = "$"+pagototal(48); 
-document.getElementById("pepe").style.display = 'none';
-seleccion=48;
-calculaTabla(seleccion);
-
-}
 
 
 function calculaTabla(meses){ 

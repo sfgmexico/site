@@ -61,7 +61,7 @@ data-previousvalue="0" id="price2" data-val-min="0" data-val-max="1000000" data-
                         <table class="hover"width="100%" border="0">
                         <tr>
                         <td width="25%">
-                        <div align="center"><input class="btn btn-default"  type="submit" name="Submit" value=" 6 meses" onClick="CalcularPago6()" /></div>
+                        <div align="center"><input class="btn btn-default"  type="submit" name="Submit" value=" 6 meses" onClick="CalcularPago6(6)" /></div>
                         </td>
                         <td width="25%">
                         <div align="center">
@@ -69,7 +69,7 @@ data-previousvalue="0" id="price2" data-val-min="0" data-val-max="1000000" data-
                         </div>
                         </td>
                         <td width="25%">
-                        <div align="center"><input class="btn btn-default" type="submit" name="Submit4" value="24 meses" onClick="CalcularPago24()" />
+                        <div align="center"><input class="btn btn-default" type="submit" name="Submit4" value="24 meses" onClick="CalcularPago6(24)" />
                         </div>
                         </td>
                         <td width="25%">
@@ -80,7 +80,7 @@ data-previousvalue="0" id="price2" data-val-min="0" data-val-max="1000000" data-
                         </tr>
                         <tr>
                         <td width="25%">
-                        <div align="center"><input class="btn btn-default" type="submit" name="Submit2" value="12 meses" onClick="CalcularPago12()" /></div>
+                        <div align="center"><input class="btn btn-default" type="submit" name="Submit2" value="12 meses" onClick="CalcularPago6(12)" /></div>
                         </td>
                         <td width="25%">
                         <div align="center">
@@ -88,7 +88,7 @@ data-previousvalue="0" id="price2" data-val-min="0" data-val-max="1000000" data-
                         </div>
                         </td>
                         <td width="25%">
-                        <div align="center"><input class="btn btn-default" type="submit" name="Submit5" value="36 meses" onClick="CalcularPago36()" />
+                        <div align="center"><input class="btn btn-default" type="submit" name="Submit5" value="36 meses" onClick="CalcularPago6(36)" />
                         </div>
                         </td>
                         <td width="25%">
@@ -99,7 +99,7 @@ data-previousvalue="0" id="price2" data-val-min="0" data-val-max="1000000" data-
                         </tr>
                         <tr>
                         <td width="25%">
-                        <div align="center"><input class="btn btn-default" type="submit" name="Submit3" value="18 meses" onClick="CalcularPago18()" />
+                        <div align="center"><input class="btn btn-default" type="submit" name="Submit3" value="18 meses" onClick="CalcularPago6(18)" />
                         </div>
                         </td>
                         <td width="25%">
@@ -108,7 +108,7 @@ data-previousvalue="0" id="price2" data-val-min="0" data-val-max="1000000" data-
                         </div>
                         </td>
                         <td width="25%">
-                        <div align="center"><input class="btn btn-default" type="submit" name="Submit6" value="48 meses" onClick="CalcularPago48()" />
+                        <div align="center"><input class="btn btn-default" type="submit" name="Submit6" value="48 meses" onClick="CalcularPago6(48)" />
                         </div>
                         </td>
                         <td width="25%">
