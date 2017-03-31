@@ -6,7 +6,7 @@
 <option value="0" onclick="capturar()">Crédito Simple</option>
 <option value="0" onclick="capturar()">Crédito c/Garantía Hipotecaria</option>
 <option value="0" onclick="capturar()">Crédito Cuenta Corriente</option>
-<option value="0" onclick="capturar()">Fideicomiso</option>
+<!--<option value="0" onclick="capturar()">Fideicomiso</option>-->
 <option value="0" onclick="capturar()">Crédito Hipotecario</option>
 <option value="25" onclick="capturar()">Crédito Simple de Nomina</option>
 <option value="0" onclick="capturar()">Crédito Refaccionario</option>
@@ -155,10 +155,29 @@ function inicio(){
 
            document.getElementById("tasanomina").value=document.getElementById("seleccion").value+"%";
             document.getElementById("contenidoNomina").style.display = 'block';
+            document.getElementById("contenidocreditosimple").style.display = 'none';
+            document.getElementById("contenidocreditoghipotecaria").style.display = 'none';
+            document.getElementById("contenido").style.display='none';
+        }else if(combo.options[combo.selectedIndex].text=="Crédito Simple"){
+
+           document.getElementById("tasacreditosimple").value=document.getElementById("seleccion").value+"%";
+            document.getElementById("contenidocreditosimple").style.display = 'block';
+            document.getElementById("contenidoNomina").style.display = 'none';
+            document.getElementById("contenidocreditoghipotecaria").style.display = 'none';
+            document.getElementById("contenido").style.display='none';
+        }else if(combo.options[combo.selectedIndex].text=="Crédito c/Garantía Hipotecaria"){
+
+           document.getElementById("tasacreditosimple").value=document.getElementById("seleccion").value+"%";
+           document.getElementById("contenidocreditoghipotecaria").style.display = 'block';
+            document.getElementById("contenidocreditosimple").style.display = 'none';
+            document.getElementById("contenidoNomina").style.display = 'none';
             document.getElementById("contenido").style.display='none';
         }else {
             document.getElementById("contenido").style.display = 'block';
             document.getElementById("contenidoNomina").style.display='none';
+            document.getElementById("contenidocreditosimple").style.display = 'none';
+            document.getElementById("contenidocreditoghipotecaria").style.display = 'none';
+            
             document.getElementById("12meses").innerHTML = "$0";
             document.getElementById("18meses").innerHTML = "$0";
             document.getElementById("24meses").innerHTML = "$0";
@@ -542,138 +561,478 @@ window.CAT = (function(){
 
 function CalculaNomina(){
 
-//document.getElementById('comisionnomina').value=(document.getElementById("montonomina").value*0.02).toFixed(2);
-var tasa=document.getElementById("seleccion").value;
-var tiempo=document.getElementById('plazonomina').value;
-var comisionapertura=document.getElementById("montonomina").value*0.02;
+  //document.getElementById('comisionnomina').value=(document.getElementById("montonomina").value*0.02).toFixed(2);
+  var tasa=document.getElementById("seleccion").value;
+  var tiempo=document.getElementById('plazonomina').value;
+  var comisionapertura=document.getElementById("montonomina").value*0.02;
 
-var montofin=document.getElementById("montonomina").value;
+  var montofin=document.getElementById("montonomina").value;
 
-var totalafinanciar=document.getElementById("montonomina").value-comisionapertura;
+  var totalafinanciar=document.getElementById("montonomina").value-comisionapertura;
 
-//tasa mensual es intRate
-intRate=(tasa/12)/100;
-months=tiempo;
-//pago=Math.floor((totalafinanciar*intRate)/(1-Math.pow(1+intRate,(-1*months)))*100)/100;
+  //tasa mensual es intRate
+  intRate=(tasa/12)/100;
+  months=tiempo;
+  //pago=Math.floor((totalafinanciar*intRate)/(1-Math.pow(1+intRate,(-1*months)))*100)/100;
 
-intRate=(tasa/100)/12;
-months=tiempo;
-cuota=Math.floor((totalafinanciar*intRate)/(1-Math.pow(1+intRate,(-1*months)))*100)/100;
-falta=montofin; 
-interestotal=0;
-tasa=tasa/100;
-for(a=1;a<=months;a++){
-capital=cuota-(falta*(tasa/12));
-interes=falta*(tasa/12);
-falta=falta-capital;
-interestotal+=interes;
+  intRate=(tasa/100)/12;
+  months=tiempo;
+  cuota=Math.floor((totalafinanciar*intRate)/(1-Math.pow(1+intRate,(-1*months)))*100)/100;
+  falta=montofin; 
+  interestotal=0;
+  tasa=tasa/100;
+  for(a=1;a<=months;a++){
+  capital=cuota-(falta*(tasa/12));
+  interes=falta*(tasa/12);
+  falta=falta-capital;
+  interestotal+=interes;
+
+  }
+  ivaintereses=(interestotal*16)/100;
+  ivaint=ivaintereses/months;
+  var pagtotal=0;
+  pagtotal=cuota+ivaint;
+
+  pago=pagtotal;
+
+  //pago=((intRate*Math.pow(1+intRate, months))*montofin)/((Math.pow(1+intRate, months))-1);
+  /*
+  falta=totalafinanciar; 
+  interestotal=0;
+  tasa=tasa/100;
+  for(a=1;a<=months;a++){
+  capital=pago-(falta*(tasa/12));
+  interes=falta*(tasa/12);
+  falta=falta-capital;
+  interestotal+=interes;
+
+  }
+  ivaintereses=(interestotal*16)/100;
+  ivaint=ivaintereses/months;
+  var pagtotal=0;
+  pagtotal=pago+ivaint;
+  */
+
+
+  codigo="";
+  codigo="<h2>Tabla de amortizacion<\/h2>"
+  codigo+="<table class='table table-hover' width='100%' border='0' id='f'>"; 
+  codigo+="<tr class='table-info'>"; 
+  codigo+="<th>Balance inicial<\/th>"; 
+  //codigo+="<th>Pago programado<\/th>"; 
+  codigo+="<th>Capital<\/th>"; 
+  codigo+="<th>Interés<\/th>"; 
+  codigo+="<th>Balance final<\/th>"; 
+  codigo+="<th>Iva de los intereses<\/th>"; 
+  codigo+="<th>Pago Total Programado<\/th>"; 
+  codigo+="<\/tr>";
+
+
+  falta=totalafinanciar;
+  var sumbalance=0;
+  var sumpaprog=0;
+  var sumcap=0;
+  var sumint=0;
+  var sumbalncefin=0;
+  var sumivaint=0;
+  var sumpatoprog=0;
+
+
+  for(a=1;a<=months;a++){ 
+
+  codigo+="<tr  class='table-warning'>"; 
+  codigo+="<td>"+falta.toFixed(2);+"<\/td>"; 
+  sumbalance+=falta;
+  //codigo+="<td>"+pago+"<\/td>";
+  //sumpaprog+=pago;
+  intereses=(falta*intRate);
+  ivaintereses=(falta*intRate*0.16);
+  capital=pago-(intereses+ivaintereses);
+  codigo+="<td>"+capital.toFixed(2);+"<\/td>";
+  sumcap+=capital;
+  interes=falta*intRate;
+  codigo+="<td>"; 
+  codigo+=interes.toFixed(2);; 
+  codigo+="<\/td>"; 
+  sumint+=interes;
+  falta=falta-capital;
+  codigo+="<td>"; 
+  codigo+=falta.toFixed(2); 
+  codigo+="<\/td>"; 
+  sumbalncefin+=falta; 
+
+  codigo+="<td>"; 
+  codigo+=ivaintereses.toFixed(2); 
+  codigo+="<\/td>"; 
+  sumivaint+=ivaintereses;
+
+  codigo+="<td>"; 
+  codigo+=pago.toFixed(2); 
+  codigo+="<\/td>"; 
+  sumpatoprog+=pago; 
+
+  codigo+="<\/tr>"; 
+  }
+  codigo+="<th> Total </th>";
+  codigo+="<tr><td></td><td>"+sumcap.toFixed(2)+"</td><td>"+sumint.toFixed(2)+"</td><td></td><td>"+sumivaint.toFixed(2)+"</td><td>"+sumpatoprog.toFixed(2)+"</td></tr>"; 
+  codigo+="<\/table>"; 
+
+  CAT=(Math.pow(1+intRate,12)-1)*100;
+
+  //var cat = CAT.get(totalafinanciar, 0, pagtotal, document.getElementById("plazonomina").value, 12);
+
+
+  document.getElementById('resultadoNomina').innerHTML = '<br><br><br>Plazo:'+ document.getElementById("plazonomina").value +' Meses<br>Monto solicitado: $' + document.getElementById("montonomina").value + '<br>Comision por Apertura: $' + comisionapertura + '<br>Total a Financiar: $' + totalafinanciar + '<br>CAT: ' +CAT.toFixed(2)+'%<br>' + codigo; 
+
+
+
+
 
 }
-ivaintereses=(interestotal*16)/100;
-ivaint=ivaintereses/months;
-var pagtotal=0;
-pagtotal=cuota+ivaint;
 
-pago=pagtotal;
+function Calculacreditosimple(){
 
-//pago=((intRate*Math.pow(1+intRate, months))*montofin)/((Math.pow(1+intRate, months))-1);
-/*
-falta=totalafinanciar; 
-interestotal=0;
-tasa=tasa/100;
-for(a=1;a<=months;a++){
-capital=pago-(falta*(tasa/12));
-interes=falta*(tasa/12);
-falta=falta-capital;
-interestotal+=interes;
+  //document.getElementById('comisionnomina').value=(document.getElementById("montonomina").value*0.02).toFixed(2);
+  var tasa=document.getElementById("seleccion").value;
+  var tiempo=document.getElementById('plazocreditosimple').value;
+  var comisionapertura=document.getElementById("montocreditosimple").value*0.03;
+
+  var montofin=document.getElementById("montocreditosimple").value;
+
+  var totalafinanciar=document.getElementById("montocreditosimple").value-comisionapertura;
+
+  //tasa mensual es intRate
+  intRate=(tasa/12)/100;
+  months=tiempo;
+  //pago=Math.floor((totalafinanciar*intRate)/(1-Math.pow(1+intRate,(-1*months)))*100)/100;
+
+  intRate=(tasa/100)/12;
+  months=tiempo;
+  cuota=Math.floor((totalafinanciar*intRate)/(1-Math.pow(1+intRate,(-1*months)))*100)/100;
+  falta=montofin; 
+  interestotal=0;
+  tasa=tasa/100;
+  for(a=1;a<=months;a++){
+  capital=cuota-(falta*(tasa/12));
+  interes=falta*(tasa/12);
+  falta=falta-capital;
+  interestotal+=interes;
+
+  }
+  ivaintereses=(interestotal*16)/100;
+  ivaint=ivaintereses/months;
+  var pagtotal=0;
+  pagtotal=cuota+ivaint;
+
+  pago=pagtotal;
+
+  //pago=((intRate*Math.pow(1+intRate, months))*montofin)/((Math.pow(1+intRate, months))-1);
+  /*
+  falta=totalafinanciar; 
+  interestotal=0;
+  tasa=tasa/100;
+  for(a=1;a<=months;a++){
+  capital=pago-(falta*(tasa/12));
+  interes=falta*(tasa/12);
+  falta=falta-capital;
+  interestotal+=interes;
+
+  }
+  ivaintereses=(interestotal*16)/100;
+  ivaint=ivaintereses/months;
+  var pagtotal=0;
+  pagtotal=pago+ivaint;
+  */
+
+
+  codigo="";
+  codigo="<h2>Tabla de amortizacion<\/h2>"
+  codigo+="<table class='table table-hover' width='100%' border='0' id='f'>"; 
+  codigo+="<tr class='table-info'>"; 
+  codigo+="<th>Balance inicial<\/th>"; 
+  //codigo+="<th>Pago programado<\/th>"; 
+  codigo+="<th>Capital<\/th>"; 
+  codigo+="<th>Interés<\/th>"; 
+  codigo+="<th>Balance final<\/th>"; 
+  codigo+="<th>Iva de los intereses<\/th>"; 
+  codigo+="<th>Pago Total Programado<\/th>"; 
+  codigo+="<\/tr>";
+
+
+  falta=totalafinanciar;
+  var sumbalance=0;
+  var sumpaprog=0;
+  var sumcap=0;
+  var sumint=0;
+  var sumbalncefin=0;
+  var sumivaint=0;
+  var sumpatoprog=0;
+
+
+  for(a=1;a<=months;a++){ 
+
+  codigo+="<tr  class='table-warning'>"; 
+  codigo+="<td>"+falta.toFixed(2);+"<\/td>"; 
+  sumbalance+=falta;
+  //codigo+="<td>"+pago+"<\/td>";
+  //sumpaprog+=pago;
+  intereses=(falta*intRate);
+  ivaintereses=(falta*intRate*0.16);
+  capital=pago-(intereses+ivaintereses);
+  codigo+="<td>"+capital.toFixed(2);+"<\/td>";
+  sumcap+=capital;
+  interes=falta*intRate;
+  codigo+="<td>"; 
+  codigo+=interes.toFixed(2);; 
+  codigo+="<\/td>"; 
+  sumint+=interes;
+  falta=falta-capital;
+  codigo+="<td>"; 
+  codigo+=falta.toFixed(2); 
+  codigo+="<\/td>"; 
+  sumbalncefin+=falta; 
+
+  codigo+="<td>"; 
+  codigo+=ivaintereses.toFixed(2); 
+  codigo+="<\/td>"; 
+  sumivaint+=ivaintereses;
+
+  codigo+="<td>"; 
+  codigo+=pago.toFixed(2); 
+  codigo+="<\/td>"; 
+  sumpatoprog+=pago; 
+
+  codigo+="<\/tr>"; 
+  }
+  codigo+="<th> Total </th>";
+  codigo+="<tr><td></td><td>"+sumcap.toFixed(2)+"</td><td>"+sumint.toFixed(2)+"</td><td></td><td>"+sumivaint.toFixed(2)+"</td><td>"+sumpatoprog.toFixed(2)+"</td></tr>"; 
+  codigo+="<\/table>"; 
+
+  CAT=(Math.pow(1+intRate,12)-1)*100;
+
+  //var cat = CAT.get(totalafinanciar, 0, pagtotal, document.getElementById("plazonomina").value, 12);
+
+
+  document.getElementById('resultadoNomina').innerHTML = '<br><br><br>Plazo:'+ document.getElementById("plazonomina").value +' Meses<br>Monto solicitado: $' + document.getElementById("montonomina").value + '<br>Comision por Apertura: $' + comisionapertura + '<br>Total a Financiar: $' + totalafinanciar + '<br>CAT: ' +CAT.toFixed(2)+'%<br>' + codigo; 
+
+
+
+
 
 }
-ivaintereses=(interestotal*16)/100;
-ivaint=ivaintereses/months;
-var pagtotal=0;
-pagtotal=pago+ivaint;
-*/
+
+function Calculacreditoghipotecaria(){
+
+  //document.getElementById('comisionnomina').value=(document.getElementById("montonomina").value*0.02).toFixed(2);
+  var tasa=document.getElementById("seleccion").value;
+  var tiempo=document.getElementById('plazonomina').value;
+  var comisionapertura=document.getElementById("montonomina").value*0.02;
+
+  var montofin=document.getElementById("montonomina").value;
+
+  var totalafinanciar=document.getElementById("montonomina").value-comisionapertura;
+
+  //tasa mensual es intRate
+  intRate=(tasa/12)/100;
+  months=tiempo;
+  //pago=Math.floor((totalafinanciar*intRate)/(1-Math.pow(1+intRate,(-1*months)))*100)/100;
+
+  intRate=(tasa/100)/12;
+  months=tiempo;
+  cuota=Math.floor((totalafinanciar*intRate)/(1-Math.pow(1+intRate,(-1*months)))*100)/100;
+  falta=montofin; 
+  interestotal=0;
+  tasa=tasa/100;
+  for(a=1;a<=months;a++){
+  capital=cuota-(falta*(tasa/12));
+  interes=falta*(tasa/12);
+  falta=falta-capital;
+  interestotal+=interes;
+
+  }
+  ivaintereses=(interestotal*16)/100;
+  ivaint=ivaintereses/months;
+  var pagtotal=0;
+  pagtotal=cuota+ivaint;
+
+  pago=pagtotal;
+
+  //pago=((intRate*Math.pow(1+intRate, months))*montofin)/((Math.pow(1+intRate, months))-1);
+  /*
+  falta=totalafinanciar; 
+  interestotal=0;
+  tasa=tasa/100;
+  for(a=1;a<=months;a++){
+  capital=pago-(falta*(tasa/12));
+  interes=falta*(tasa/12);
+  falta=falta-capital;
+  interestotal+=interes;
+
+  }
+  ivaintereses=(interestotal*16)/100;
+  ivaint=ivaintereses/months;
+  var pagtotal=0;
+  pagtotal=pago+ivaint;
+  */
 
 
-codigo="";
-codigo="<h2>Tabla de amortizacion<\/h2>"
-codigo+="<table class='table table-hover' width='100%' border='0' id='f'>"; 
-codigo+="<tr class='table-info'>"; 
-codigo+="<th>Balance inicial<\/th>"; 
-//codigo+="<th>Pago programado<\/th>"; 
-codigo+="<th>Capital<\/th>"; 
-codigo+="<th>Interés<\/th>"; 
-codigo+="<th>Balance final<\/th>"; 
-codigo+="<th>Iva de los intereses<\/th>"; 
-codigo+="<th>Pago Total Programado<\/th>"; 
-codigo+="<\/tr>";
+  codigo="";
+  codigo="<h2>Tabla de amortizacion<\/h2>"
+  codigo+="<table class='table table-hover' width='100%' border='0' id='f'>"; 
+  codigo+="<tr class='table-info'>"; 
+  codigo+="<th>Balance inicial<\/th>"; 
+  //codigo+="<th>Pago programado<\/th>"; 
+  codigo+="<th>Capital<\/th>"; 
+  codigo+="<th>Interés<\/th>"; 
+  codigo+="<th>Balance final<\/th>"; 
+  codigo+="<th>Iva de los intereses<\/th>"; 
+  codigo+="<th>Pago Total Programado<\/th>"; 
+  codigo+="<\/tr>";
 
 
-falta=totalafinanciar;
-var sumbalance=0;
-var sumpaprog=0;
-var sumcap=0;
-var sumint=0;
-var sumbalncefin=0;
-var sumivaint=0;
-var sumpatoprog=0;
+  falta=totalafinanciar;
+  var sumbalance=0;
+  var sumpaprog=0;
+  var sumcap=0;
+  var sumint=0;
+  var sumbalncefin=0;
+  var sumivaint=0;
+  var sumpatoprog=0;
 
 
-for(a=1;a<=months;a++){ 
+  for(a=1;a<=months;a++){ 
 
-codigo+="<tr  class='table-warning'>"; 
-codigo+="<td>"+falta.toFixed(2);+"<\/td>"; 
-sumbalance+=falta;
-//codigo+="<td>"+pago+"<\/td>";
-//sumpaprog+=pago;
-intereses=(falta*intRate);
-ivaintereses=(falta*intRate*0.16);
-capital=pago-(intereses+ivaintereses);
-codigo+="<td>"+capital.toFixed(2);+"<\/td>";
-sumcap+=capital;
-interes=falta*intRate;
-codigo+="<td>"; 
-codigo+=interes.toFixed(2);; 
-codigo+="<\/td>"; 
-sumint+=interes;
-falta=falta-capital;
-codigo+="<td>"; 
-codigo+=falta.toFixed(2); 
-codigo+="<\/td>"; 
-sumbalncefin+=falta; 
+  codigo+="<tr  class='table-warning'>"; 
+  codigo+="<td>"+falta.toFixed(2);+"<\/td>"; 
+  sumbalance+=falta;
+  //codigo+="<td>"+pago+"<\/td>";
+  //sumpaprog+=pago;
+  intereses=(falta*intRate);
+  ivaintereses=(falta*intRate*0.16);
+  capital=pago-(intereses+ivaintereses);
+  codigo+="<td>"+capital.toFixed(2);+"<\/td>";
+  sumcap+=capital;
+  interes=falta*intRate;
+  codigo+="<td>"; 
+  codigo+=interes.toFixed(2);; 
+  codigo+="<\/td>"; 
+  sumint+=interes;
+  falta=falta-capital;
+  codigo+="<td>"; 
+  codigo+=falta.toFixed(2); 
+  codigo+="<\/td>"; 
+  sumbalncefin+=falta; 
 
-codigo+="<td>"; 
-codigo+=ivaintereses.toFixed(2); 
-codigo+="<\/td>"; 
-sumivaint+=ivaintereses;
+  codigo+="<td>"; 
+  codigo+=ivaintereses.toFixed(2); 
+  codigo+="<\/td>"; 
+  sumivaint+=ivaintereses;
 
-codigo+="<td>"; 
-codigo+=pago.toFixed(2); 
-codigo+="<\/td>"; 
-sumpatoprog+=pago; 
+  codigo+="<td>"; 
+  codigo+=pago.toFixed(2); 
+  codigo+="<\/td>"; 
+  sumpatoprog+=pago; 
 
-codigo+="<\/tr>"; 
+  codigo+="<\/tr>"; 
+  }
+  codigo+="<th> Total </th>";
+  codigo+="<tr><td></td><td>"+sumcap.toFixed(2)+"</td><td>"+sumint.toFixed(2)+"</td><td></td><td>"+sumivaint.toFixed(2)+"</td><td>"+sumpatoprog.toFixed(2)+"</td></tr>"; 
+  codigo+="<\/table>"; 
+
+  CAT=(Math.pow(1+intRate,12)-1)*100;
+
+  //var cat = CAT.get(totalafinanciar, 0, pagtotal, document.getElementById("plazonomina").value, 12);
+
+
+  document.getElementById('resultadoNomina').innerHTML = '<br><br><br>Plazo:'+ document.getElementById("plazonomina").value +' Meses<br>Monto solicitado: $' + document.getElementById("montonomina").value + '<br>Comision por Apertura: $' + comisionapertura + '<br>Total a Financiar: $' + totalafinanciar + '<br>CAT: ' +CAT.toFixed(2)+'%<br>' + codigo; 
+
+
+
+
+
 }
-codigo+="<th> Total </th>";
-codigo+="<tr><td></td><td>"+sumcap.toFixed(2)+"</td><td>"+sumint.toFixed(2)+"</td><td></td><td>"+sumivaint.toFixed(2)+"</td><td>"+sumpatoprog.toFixed(2)+"</td></tr>"; 
-codigo+="<\/table>"; 
-
-CAT=(Math.pow(1+intRate,12)-1)*100;
-
-//var cat = CAT.get(totalafinanciar, 0, pagtotal, document.getElementById("plazonomina").value, 12);
-
-
-document.getElementById('resultadoNomina').innerHTML = '<br><br><br>Plazo:'+ document.getElementById("plazonomina").value +' Meses<br>Monto solicitado: $' + document.getElementById("montonomina").value + '<br>Comision por Apertura: $' + comisionapertura + '<br>Total a Financiar: $' + totalafinanciar + '<br>CAT: ' +CAT.toFixed(2)+'%<br>' + codigo; 
-
-
-
-
-
-}
-
-
 //]]>
 </script>
+
+<!--
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////// SIMULADOR CREDITO C/GARANTIA HIPOTECARIA /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+
+<div id="contenidocreditoghipotecaria" class="container" style="display:none">
+    
+  <table >
+        <tr>
+                <td style="display:none">Ingresos mensuales  <input type="number" name="ingmen" id="ingmen"> </td>
+                 <td>Tasa de interes (Anual)<input type="text" name="tasacreditoghipotecaria" id="tasacreditoghipotecaria" readonly></td>
+                  <td style="display:none">Seguro de vida  <input> <select name="seleccion"><option value="noaplica">no aplica</option> <option>unico pago al inicio</option>  </select></td>
+        </tr>
+
+         <tr>
+                <td> Monto a solicitar  <input type="number" name="montocreditoghipotecaria" id="montocreditoghipotecaria" ></td>
+                 <td>Frecuencia de pago <select name="frecpagocreditoghipotecaria" id="frecpagocreditoghipotecaria"><option value="12">Mensual</option></select> </td>
+                  <td style="display:none">Seguro de desempleo <input> <select><option>No aplica</option> <option>unico pago al inicio</option> <option>Gratuito</option></select> </td>
+        </tr>
+
+
+        <tr>
+                <td>Plazo <select name="plazocreditoghipotecaria" id="plazocreditoghipotecaria"><option value="3">3</option> <option value="6">6</option> <option value="12">12</option><option value="24">24</option><option value="36">36</option><option value="48">48</option><option value="60">60</option></select>  </td>
+                 <td> Comision por apertura <input name="comisioncreditoghipotecaria" id="comisioncreditoghipotecaria" value="3%"readonly> <select><option>unico pago al inicio</option> <option>Se integra al monto</option> <option>Gratuita</option><option>No aplica</option></select> </td>
+                  <td>  <input type="button" value="Calcula" onClick="Calculacreditoghipotecaria()"></td>
+        </tr>
+
+
+  </table>
+  <div id="resultadocreditoghipotecaria" ></div>
+</div>
+
+
+
+
+<!--
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////// SIMULADOR CREDITO SIMPLE /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+
+<div id="contenidocreditosimple" class="container" style="display:none">
+    
+  <table >
+        <tr>
+                <td style="display:none">Ingresos mensuales  <input type="number" name="ingmen" id="ingmen"> </td>
+                 <td>Tasa de interes (Anual)<input type="text" name="tasacreditosimple" id="tasacreditosimple" readonly></td>
+                  <td style="display:none">Seguro de vida  <input> <select name="seleccion"><option value="noaplica">no aplica</option> <option>unico pago al inicio</option>  </select></td>
+        </tr>
+
+         <tr>
+                <td> Monto a solicitar  <input type="number" name="montocreditosimple" id="montocreditosimple" ></td>
+                 <td>Frecuencia de pago <select name="frecpagocreditosimple" id="frecpagocreditosimple"><option value="12">Mensual</option></select> </td>
+                  <td style="display:none">Seguro de desempleo <input> <select><option>No aplica</option> <option>unico pago al inicio</option> <option>Gratuito</option></select> </td>
+        </tr>
+
+
+        <tr>
+                <td>Plazo <select name="plazocreditosimple" id="plazocreditosimple"><option value="3">3</option> <option value="6">6</option> <option value="12">12</option><option value="24">24</option><option value="36">36</option><option value="48">48</option><option value="60">60</option></select>  </td>
+                 <td> Comision por apertura <input name="comisioncreditosimple" id="comisioncreditosimple" value="?%"readonly> <select><option>unico pago al inicio</option> <option>Se integra al monto</option> <option>Gratuita</option><option>No aplica</option></select> </td>
+                  <td>  <input type="button" value="Calcula" onClick="Calculacreditosimple()"></td>
+        </tr>
+
+
+  </table>
+  <div id="resultadocreditosimple" ></div>
+</div>
+
 <!--
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -685,8 +1044,8 @@ document.getElementById('resultadoNomina').innerHTML = '<br><br><br>Plazo:'+ doc
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 -->
 <div id="contenidoNomina" class="container" style="display:none">
-      
-<table >
+    
+  <table >
         <tr>
                 <td style="display:none">Ingresos mensuales  <input type="number" name="ingmen" id="ingmen"> </td>
                  <td>Tasa de interes (Anual)<input type="text" name="tasanomina" id="tasanomina" readonly></td>
@@ -707,8 +1066,8 @@ document.getElementById('resultadoNomina').innerHTML = '<br><br><br>Plazo:'+ doc
         </tr>
 
 
-</table>
-<div id="resultadoNomina" ></div>
+  </table>
+  <div id="resultadoNomina" ></div>
 </div>
 
 
