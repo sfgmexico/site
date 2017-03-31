@@ -4,7 +4,7 @@
 <option value="14.40" onclick="capturar()">Auto nuevo</option>
 <option value="15.40" onclick="capturar()">Semi nuevo</option>
 <option value="0" onclick="capturar()">Crédito Simple</option>
-<option value="0" onclick="capturar()">Crédito c/Garantía Hipotecaria</option>
+<option value="19" onclick="capturar()">Crédito c/Garantía Hipotecaria</option>
 <option value="0" onclick="capturar()">Crédito Cuenta Corriente</option>
 <!--<option value="0" onclick="capturar()">Fideicomiso</option>-->
 <option value="0" onclick="capturar()">Crédito Hipotecario</option>
@@ -167,7 +167,7 @@ function inicio(){
             document.getElementById("contenido").style.display='none';
         }else if(combo.options[combo.selectedIndex].text=="Crédito c/Garantía Hipotecaria"){
 
-           document.getElementById("tasacreditosimple").value=document.getElementById("seleccion").value+"%";
+           document.getElementById("tasacreditoghipotecaria").value=document.getElementById("seleccion").value+"%";
            document.getElementById("contenidocreditoghipotecaria").style.display = 'block';
             document.getElementById("contenidocreditosimple").style.display = 'none';
             document.getElementById("contenidoNomina").style.display = 'none';
@@ -825,12 +825,12 @@ function Calculacreditoghipotecaria(){
 
   //document.getElementById('comisionnomina').value=(document.getElementById("montonomina").value*0.02).toFixed(2);
   var tasa=document.getElementById("seleccion").value;
-  var tiempo=document.getElementById('plazonomina').value;
-  var comisionapertura=document.getElementById("montonomina").value*0.02;
+  var tiempo=document.getElementById('plazocreditoghipotecaria').value;
+  var comisionapertura=document.getElementById("montocreditoghipotecaria").value*0.03;
 
-  var montofin=document.getElementById("montonomina").value;
+  var montofin=document.getElementById("montocreditoghipotecaria").value;
 
-  var totalafinanciar=document.getElementById("montonomina").value-comisionapertura;
+  var totalafinanciar=document.getElementById("montocreditoghipotecaria").value-comisionapertura;
 
   //tasa mensual es intRate
   intRate=(tasa/12)/100;
@@ -944,7 +944,7 @@ function Calculacreditoghipotecaria(){
   //var cat = CAT.get(totalafinanciar, 0, pagtotal, document.getElementById("plazonomina").value, 12);
 
 
-  document.getElementById('resultadoNomina').innerHTML = '<br><br><br>Plazo:'+ document.getElementById("plazonomina").value +' Meses<br>Monto solicitado: $' + document.getElementById("montonomina").value + '<br>Comision por Apertura: $' + comisionapertura + '<br>Total a Financiar: $' + totalafinanciar + '<br>CAT: ' +CAT.toFixed(2)+'%<br>' + codigo; 
+  document.getElementById('resultadocreditoghipotecaria').innerHTML = '<br><br><br>Plazo:'+ document.getElementById("plazocreditoghipotecaria").value +' Meses<br>Monto solicitado: $' + document.getElementById("montocreditoghipotecaria").value + '<br>Comision por Apertura: $' + comisionapertura + '<br>Total a Financiar: $' + totalafinanciar + '<br>CAT: ' +CAT.toFixed(2)+'%<br>' + codigo; 
 
 
 
