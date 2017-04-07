@@ -66,6 +66,7 @@ function Validacioncampos(){
 var requerido=0;
 //seccion del solicitante
 $('#secSolicitante').find('input').each(function(){  
+  console.log(('#secSolicitante').find('input'));
    //alert("seccion");
   if(document.getElementById("nomrazsoc2").value!=""  ){
 //alert("entre a validar");
@@ -1463,9 +1464,9 @@ Fecha de nacimiento:
               <td width="35%"><input name="textfield39" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['INESolicitante']; } ?>" type="text" id="textfield39" size="50%" ></td>
               <td width="15%">Se adjunta copia: </td>
               <td id="secINE"> 
-              <input id="copiasA" name="copias" type="radio" value="1" <?php  if(isset($row['Folio_Cliente'])){if($row3['Adjunta_INESolicitante']=='Si'){echo "checked";}}?> ><label for="copiasA">Si</label>
+              <input id="copiasA" name="copias" type="radio" value="Si" <?php  if(isset($row['Folio_Cliente'])){if($row3['Adjunta_INESolicitante']=='Si'){echo "checked";}}?> ><label for="copiasA">Si</label>
              
-              <input id="copiasB" name="copias" type="radio" value="2" <?php  if(isset($row['Folio_Cliente'])){if($row3['Adjunta_INESolicitante']=='No'){echo "checked";}}?> ><label for="copiasB">No</label></td>
+              <input id="copiasB" name="copias" type="radio" value="No" <?php  if(isset($row['Folio_Cliente'])){if($row3['Adjunta_INESolicitante']=='No'){echo "checked";}}?> ><label for="copiasB">No</label></td>
              
             </tr>
             
@@ -1748,9 +1749,9 @@ Fecha de nacimiento:
          
         <p align="left">¿ Usted o algún familiar suyo de hasta segundo grado de consanguinidad o afinidad (cónyuge,padre,madre,hijos,hermanos, abuelos, tios, primos, cuñados, suegros, yernos, etc), desempeña o a desempeñado funciones públicas destacadas en el territorio nacional o en el Extranjero (incluyendo puestos de Gobierno Federales, Estatales ,Municipales, funciones gubernamentales o judiciales, en partidos politicos, militares de alta jerarquía, altos ejecutivos de empresas paraestatales, etc.?<br>
        
-                <input id="PEPS1" name="PEPS" type="radio" value="1" required <?php if(isset($row2['Folio_Cliente'])) { if($row3['PEPS']=='Si'){echo "checked";} } ?>><label for="PEPS1"> Si</label>
+                <input id="PEPS1" name="PEPS" type="radio" value="Si" required <?php if(isset($row2['Folio_Cliente'])) { if($row3['PEPS']=='Si'){echo "checked";} } ?>><label for="PEPS1"> Si</label>
 
-<input id="PEPS2" name="PEPS" type="radio" value="2" required <?php if(isset($row2['Folio_Cliente'])) { if($row3['PEPS']=='No'){echo "checked";} } ?>><label for="PEPS2"> No</label>
+<input id="PEPS2" name="PEPS" type="radio" value="No" required <?php if(isset($row2['Folio_Cliente'])) { if($row3['PEPS']=='No'){echo "checked";} } ?>><label for="PEPS2"> No</label>
         </p>
 	      <p align="left">En caso de si:</p>
         <div id="secPEPS">
