@@ -1,4 +1,5 @@
 <h1>En construcción</h1>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <p>Tipo de Crédito: <select name="seleccion" size="1" id="seleccion" onchange="capturar()">
 <option value="---" onclick="capturar()">---</option>
 <option value="14.40" onclick="capturar()">Auto nuevo</option>
@@ -510,23 +511,23 @@ return pago.toFixed(2);
 
 function CalcularPago6(pag){
 var segurovida=document.getElementById("segurovida").value;
-document.getElementById("monto").innerHTML = document.getElementById("valor").value*0.97-document.getElementById("valor2").value-segurovida;
-document.getElementById("pagos").innerHTML = "$"+pagototal(pag);
- document.getElementById("comisionaperturaautos").innerHTML = document.getElementById("valor").value*0.03;
+document.getElementById("monto").innerHTML = formatNumber.new((document.getElementById("valor").value*0.97-document.getElementById("valor2").value-segurovida).toFixed(2), "$");
+document.getElementById("pagos").innerHTML = formatNumber.new(pagototal(pag),"$");
+ document.getElementById("comisionaperturaautos").innerHTML = formatNumber.new(document.getElementById("valor").value*0.03,"$");
 
  
-document.getElementById("6meses").innerHTML = "$"+pagototal(6);
+document.getElementById("6meses").innerHTML = formatNumber.new(pagototal(6),"$");
 
 
-document.getElementById("12meses").innerHTML = "$"+pagototal(12);
+document.getElementById("12meses").innerHTML = formatNumber.new(pagototal(12),"$");
 
-document.getElementById("18meses").innerHTML = "$"+pagototal(18);
+document.getElementById("18meses").innerHTML = formatNumber.new(pagototal(18),"$");
 
-document.getElementById("24meses").innerHTML = "$"+pagototal(24);
+document.getElementById("24meses").innerHTML = formatNumber.new(pagototal(24),"$");
 
-document.getElementById("36meses").innerHTML = "$"+pagototal(36);
+document.getElementById("36meses").innerHTML = formatNumber.new(pagototal(36),"$");
 
-document.getElementById("48meses").innerHTML = "$"+pagototal(48);
+document.getElementById("48meses").innerHTML = formatNumber.new(pagototal(48),"$");
 document.getElementById("pepe").style.display = 'none';
 
 calculaTabla(pag);
@@ -582,40 +583,40 @@ var monT=document.getElementById("valor").value;
   for(a=1;a<=months;a++){ 
 
   codigo+="<tr  class='table-warning'>"; 
-  codigo+="<td>"+falta.toFixed(2);+"<\/td>"; 
+  codigo+="<td>"+formatNumber.new(falta.toFixed(2),"$");+"<\/td>"; 
   sumbalance+=falta;
   //codigo+="<td>"+pago+"<\/td>";
   //sumpaprog+=pago;
   intereses=(falta*intRate);
   ivaintereses=(falta*intRate*0.16);
   capital=pago-(intereses+ivaintereses);
-  codigo+="<td>"+capital.toFixed(2);+"<\/td>";
+  codigo+="<td>"+formatNumber.new(capital.toFixed(2),"$");+"<\/td>";
   sumcap+=capital;
   interes=falta*intRate;
   codigo+="<td>"; 
-  codigo+=interes.toFixed(2);; 
+  codigo+=formatNumber.new(interes.toFixed(2),"$"); 
   codigo+="<\/td>"; 
   sumint+=interes;
   falta=falta-capital;
   codigo+="<td>"; 
-  codigo+=falta.toFixed(2); 
+  codigo+=formatNumber.new(falta.toFixed(2),"$"); 
   codigo+="<\/td>"; 
   sumbalncefin+=falta; 
 
   codigo+="<td>"; 
-  codigo+=ivaintereses.toFixed(2); 
+  codigo+=formatNumber.new(ivaintereses.toFixed(2),"$"); 
   codigo+="<\/td>"; 
   sumivaint+=ivaintereses;
 
   codigo+="<td>"; 
-  codigo+=pago.toFixed(2); 
+  codigo+=formatNumber.new(pago.toFixed(2),"$"); 
   codigo+="<\/td>"; 
   sumpatoprog+=pago; 
 
   codigo+="<\/tr>"; 
   }
   codigo+="<th> Total </th>";
-  codigo+="<tr><td></td><td>"+sumcap.toFixed(2)+"</td><td>"+sumint.toFixed(2)+"</td><td></td><td>"+sumivaint.toFixed(2)+"</td><td>"+sumpatoprog.toFixed(2)+"</td></tr>"; 
+  codigo+="<tr><td></td><td>"+formatNumber.new(sumcap.toFixed(2),"$")+"</td><td>"+formatNumber.new(sumint.toFixed(2),"$")+"</td><td></td><td>"+formatNumber.new(sumivaint.toFixed(2),"$")+"</td><td>"+formatNumber.new(sumpatoprog.toFixed(2),"$")+"</td></tr>"; 
   codigo+="<\/table>"; 
 
 /*
@@ -782,28 +783,28 @@ function CalculaNomina(){
   for(a=1;a<=months;a++){ 
 
   codigo+="<tr  class='table-warning'>"; 
-  codigo+="<td>"+falta.toFixed(2);+"<\/td>"; 
+  codigo+="<td>"+formatNumber.new(falta.toFixed(2),"$");+"<\/td>"; 
   sumbalance+=falta;
   //codigo+="<td>"+pago+"<\/td>";
   //sumpaprog+=pago;
   intereses=(falta*intRate);
   ivaintereses=(falta*intRate*0.16);
   capital=pago-(intereses+ivaintereses);
-  codigo+="<td>"+capital.toFixed(2);+"<\/td>";
+  codigo+="<td>"+formatNumber.new(capital.toFixed(2),"$");+"<\/td>";
   sumcap+=capital;
   interes=falta*intRate;
   codigo+="<td>"; 
-  codigo+=interes.toFixed(2);; 
+  codigo+=formatNumber.new(interes.toFixed(2),"$"); 
   codigo+="<\/td>"; 
   sumint+=interes;
   falta=falta-capital;
   codigo+="<td>"; 
-  codigo+=falta.toFixed(2); 
+  codigo+=formatNumber.new(falta.toFixed(2),"$"); 
   codigo+="<\/td>"; 
   sumbalncefin+=falta; 
 
   codigo+="<td>"; 
-  codigo+=ivaintereses.toFixed(2); 
+  codigo+=formatNumber.new(ivaintereses.toFixed(2),"$"); 
   codigo+="<\/td>"; 
   sumivaint+=ivaintereses;
 
@@ -813,14 +814,14 @@ function CalculaNomina(){
  */
   codigo+="<td>"; 
   //if(a==1){codigo+=(parseFloat(pago)+parseFloat(segurovida)).toFixed(2);}else{codigo+=pago.toFixed(2); }
-  codigo+=pago.toFixed(2);
+  codigo+=formatNumber.new(pago.toFixed(2),"$");
   codigo+="<\/td>"; 
   sumpatoprog+=pago; 
 
   codigo+="<\/tr>"; 
   }
   codigo+="<th> Total </th>";
-  codigo+="<tr><td></td><td>"+sumcap.toFixed(2)+"</td><td>"+sumint.toFixed(2)+"</td><td></td><td>"+sumivaint.toFixed(2)+"</td><td>"+sumpatoprog.toFixed(2)+"</td></tr>"; 
+  codigo+="<tr><td></td><td>"+formatNumber.new(sumcap.toFixed(2),"$")+"</td><td>"+formatNumber.new(sumint.toFixed(2),"$")+"</td><td></td><td>"+formatNumber.new(sumivaint.toFixed(2),"$")+"</td><td>"+formatNumber.new(sumpatoprog.toFixed(2),"$")+"</td></tr>"; 
   codigo+="<\/table>"; 
 
   CAT=(Math.pow(1+intRate,12)-1)*100+3+(segurovida/montofin)*100;
@@ -828,7 +829,7 @@ function CalculaNomina(){
   //var cat = CAT.get(totalafinanciar, 0, pagtotal, document.getElementById("plazonomina").value, 12);
 
 
-  document.getElementById('resultadoNomina').innerHTML = '<br><br><br>Plazo:'+ document.getElementById("plazonomina").value +' Meses<br>Monto solicitado: $' + document.getElementById("montonomina").value + '<br>Comision por Apertura: $' + comisionapertura + '<br>Total a Financiar: $' + totalafinanciar + '<br>CAT: ' +CAT.toFixed(2)+'%<br>' + codigo; 
+  document.getElementById('resultadoNomina').innerHTML = '<br><br><br>Plazo:'+ document.getElementById("plazonomina").value +' Meses<br>Monto solicitado: ' + formatNumber.new(document.getElementById("montonomina").value,"$") + '<br>Comision por Apertura: ' + formatNumber.new(comisionapertura,"$") + '<br>Total a Financiar: ' + formatNumber.new(totalafinanciar,"$") + '<br>CAT: ' +CAT.toFixed(2)+'%<br>' + codigo; 
 
 
 
@@ -1562,6 +1563,32 @@ function Calculacreditoquirografario(){
 
 }
 
+var formatNumber = {
+ separador: ",", // separador para los miles
+ sepDecimal: '.', // separador para los decimales
+ formatear:function (num){
+ num +='';
+ var splitStr = num.split(',');
+ var splitLeft = splitStr[0];
+ var splitRight = splitStr.length >1 ? this.sepDecimal + splitStr[1] : '';
+ var regx = /(\d+)(\d{3})/;
+ while (regx.test(splitLeft)) {
+ splitLeft = splitLeft.replace(regx, '$1' + this.separador + '$2');
+ }
+ return this.simbol + splitLeft +splitRight;
+ },
+ new:function(num, simbol){
+ this.simbol = simbol ||'';
+ return this.formatear(num);
+ }
+}
+
+function formatodenumero(){
+  alert("entra");
+  //var numFinal = formatNumber.new(value,"$");
+  //document.getElementById(element).value=numFinal;
+  //return numFinal;
+}
 
 //]]>
 </script>
@@ -1589,7 +1616,7 @@ function Calculacreditoquirografario(){
         </tr>
 
          <tr>
-                <td> Monto a solicitar  <input type="number" name="montocreditoquirografario" id="montocreditoquirografario" ></td>
+                <td> Monto a solicitar sfdsfsfs  <input type="text" name="montocreditoquirografario" id="montocreditoquirografario" onChange="formatodenumero()" onkeyup="if(event.keyCode == 9 || event.keyCode == 13) formatodenumero()"></td>
                  <td>Frecuencia de pago <select name="frecpagocreditoquirografario" id="frecpagocreditoquirografario"><option value="12">Mensual</option></select> </td>
                   <td style="display:none">Seguro de desempleo <input> <select><option>No aplica</option> <option>unico pago al inicio</option> <option>Gratuito</option></select> </td>
         </tr>
@@ -1884,7 +1911,7 @@ function Calculacreditoquirografario(){
         </tr>
 
          <tr>
-                <td> Monto a solicitar  <input type="number" name="montonomina" id="montonomina" ></td>
+                <td> Monto a solicitar <input type="text" name="montonomina" id="montonomina" ></td>
                  <td>Frecuencia de pago <select name="frecpagonomina" id="frecpagonomina"><option value="12">Mensual</option></select> </td>
                   <!--<td style="display:none">Seguro de desempleo <input> <select><option>No aplica</option> <option>unico pago al inicio</option> <option>Gratuito</option></select> </td>-->
                   <td >Seguro de vida  <input type="number" name="segurovidanomina" id="segurovidanomina"> <select name="seleccion"><!--<option value="noaplica">no aplica</option>--> <option>unico pago al inicio</option>  </select></td>
@@ -1944,7 +1971,7 @@ data-previousvalue="0" id="price" data-val-min="0" data-val-max="1000000" data-v
 "0" id="price2" data-val-min="0" data-val-max="1000000" data-val-regex="^[0-9]*$" onkeyup="if(event.keyCode == 13) clicked_text2()" onkeydown=
 "if(event.keyCode == 9 || event.keyCode == 13) clicked_text2()" /><br />
 <a><input name="valor2" type="range" id="valor2" value="0" min="0" max="0" step="1" onclick="clicked_valor2()" onchange="clicked_valor2()" /></a>
-<h5>Seguro de Vida</h5><input size="12" style="border-width: 2px; border-style: solid; font-size:24pt; color: #009900; letter-spacing : 3px;" onfocus="this.select()" value="$0" type="number" name="segurovida" id="segurovida">
+<h5>Seguro de Vida</h5><input size="12" style="border-width: 2px; border-style: solid; font-size:24pt; color: #009900; letter-spacing : 3px;" onfocus="this.select()" value="$0" type="text" name="segurovida" id="segurovida">
 
 </div>
 </div>

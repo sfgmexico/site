@@ -375,7 +375,7 @@ if(($(this).prop('required') && this.value=="") || ($(this).prop('required') && 
 
 	<div class="bg" >
 	  <div class="container_24" >
-	  <form name="form1" id="form1" action="templatePFNA.php" method="post"  data-abide novalidate onsubmit="Validacioncampos()">
+	  <form name="form1" id="form1" action="PDFpfna.php" method="post" target="_blank" data-abide novalidate onsubmit="Validacioncampos()">
 	  
 	  <style>
 	 
@@ -415,9 +415,9 @@ input::-moz-placeholder {
             <div class="row" >
 
     <div class="small-4 columns">   <input  name="cliente" type="text" id="cliente" size="30px" onChange="obten()" value="<?php if(isset($row['Folio_Cliente'])) { echo $row['Folio_Cliente']; } ?>"  placeholder="Si es Cliente, número de cliente/contrato"> </div> 
-          <input id="tipocredito1" name="tipocredito" type="radio" value="1" required <?php if(isset($row['Folio_Cliente'])) { if($row['TipoCredito']=='Leasing'){echo "checked";} } ?>><label for="tipocredito1">Leasing</label>
-          <input id="tipocredito2" name="tipocredito" type="radio" value="2" required <?php if(isset($row['Folio_Cliente'])) { if($row['TipoCredito']=='Credit'){echo "checked";} } ?>><label for="tipocredito2">Credit</label>
-          <input id="tipocredito3"  name="tipocredito" type="radio" value="3" required <?php if(isset($row['Folio_Cliente'])) { if($row['TipoCredito']=='Premium Credit'){echo "checked";} } ?>><label for="tipocredito3">Premium Credit</label>
+          <input id="tipocredito1" name="tipocredito" type="radio" value="Leasing" required <?php if(isset($row['Folio_Cliente'])) { if($row['TipoCredito']=='Leasing'){echo "checked";} } ?>><label for="tipocredito1">Leasing</label>
+          <input id="tipocredito2" name="tipocredito" type="radio" value="Credit" required <?php if(isset($row['Folio_Cliente'])) { if($row['TipoCredito']=='Credit'){echo "checked";} } ?>><label for="tipocredito2">Credit</label>
+          <input id="tipocredito3"  name="tipocredito" type="radio" value="Premium Credit" required <?php if(isset($row['Folio_Cliente'])) { if($row['TipoCredito']=='Premium Credit'){echo "checked";} } ?>><label for="tipocredito3">Premium Credit</label>
 
 	    </p></div>
 <div class="tabs-content" data-tabs-content="example-tabs">

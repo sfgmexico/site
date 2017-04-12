@@ -1,81 +1,477 @@
 <?php
 
+
+$cliente=$_REQUEST['cliente'];
+$nomsol=ucwords($_REQUEST['nomsol']);
+$segnomsol=ucwords($_REQUEST['segnomsol']);
+$apepasol=ucwords($_REQUEST['apepasol']);
+$apemasol=ucwords($_REQUEST['apemasol']);
+$rfc1=strtoupper($_REQUEST['rfc1']);
+$rfc2=strtoupper($_REQUEST['rfc2']);
+$rfc3=strtoupper($_REQUEST['rfc3']);
+$rfc4=strtoupper($_REQUEST['rfc4']);
+$rfc5=strtoupper($_REQUEST['rfc5']);
+$rfc6=strtoupper($_REQUEST['rfc6']);
+$rfc7=strtoupper($_REQUEST['rfc7']);
+$rfc8=strtoupper($_REQUEST['rfc8']);
+$rfc9=strtoupper($_REQUEST['rfc9']);
+$rfc10=strtoupper($_REQUEST['rfc10']);
+$rfc11=strtoupper($_REQUEST['rfc11']);
+$rfc12=strtoupper($_REQUEST['rfc12']);
+$rfc13=strtoupper($_REQUEST['rfc13']);
+
+$telsol1=$_REQUEST['telsol1'];
+$telsol2=$_REQUEST['telsol2'];
+$telsol3=$_REQUEST['telsol3'];
+$telsol4=$_REQUEST['telsol4'];
+$telsol5=$_REQUEST['telsol5'];
+$telsol6=$_REQUEST['telsol6'];
+$telsol7=$_REQUEST['telsol7'];
+$telsol8=$_REQUEST['telsol8'];
+$telsol9=$_REQUEST['telsol9'];
+$telsol10=$_REQUEST['telsol10'];
+
+$movsol12=$_REQUEST['movsol12'];
+$movsol22=$_REQUEST['movsol22'];
+$movsol32=$_REQUEST['movsol32'];
+$movsol42=$_REQUEST['movsol42'];
+$movsol52=$_REQUEST['movsol52'];
+$movsol62=$_REQUEST['movsol62'];
+$movsol72=$_REQUEST['movsol72'];
+$movsol82=$_REQUEST['movsol82'];
+$movsol92=$_REQUEST['movsol92'];
+$movsol102=$_REQUEST['movsol102'];
+
+$movsol1=$_REQUEST['movsol1'];
+$movsol2=$_REQUEST['movsol2'];
+$movsol3=$_REQUEST['movsol3'];
+$movsol4=$_REQUEST['movsol4'];
+$movsol5=$_REQUEST['movsol5'];
+$movsol6=$_REQUEST['movsol6'];
+$movsol7=$_REQUEST['movsol7'];
+$movsol8=$_REQUEST['movsol8'];
+$movsol9=$_REQUEST['movsol9'];
+$movsol10=$_REQUEST['movsol10'];
+
+$dirsol=$_REQUEST['dirsol'];
+
+$mailsol=$_REQUEST['mailsol'];
+
+$colsol=$_REQUEST['colsol'];
+
+$cdsol=$_REQUEST['cdsol'];
+
+$lugnacsol=$_REQUEST['lugnacsol'];
+
+$edosol=$_REQUEST['edosol'];
+
+$cpsol=$_REQUEST['cpsol'];
+
+$curpsol=strtoupper($_REQUEST['curpsol']);
+
+$sexsol=$_REQUEST['sexsol'];
+
+$fechnacsol3=substr($_REQUEST['fechnacsol'], 0,4);
+
+$fechnacsol2=substr($_REQUEST['fechnacsol'], 5,2);
+
+$fechnacsol1=substr($_REQUEST['fechnacsol'], 8,2);
+
+$edsol=$_REQUEST['edsol'];
+
+$nacsol=$_REQUEST['nacsol'];
+
+$depensol=$_REQUEST['depensol'];
+
+$acdomsol=$_REQUEST['acdomsol'];
+
+$vivsol=$_REQUEST['vivsol'];
+
+
+
+$inmusol=$_REQUEST['inmusol'];
+
+
+$arraisol=$_REQUEST['arraisol'];
+
+
+
+$anosol2=$_REQUEST['anosol2'];
+
+$benesol1=ucwords($_REQUEST['benesol1']);
+$benesol2=ucwords($_REQUEST['benesol2']);
+$benesol3=ucwords($_REQUEST['benesol3']);
+
+$civilsol=$_REQUEST['civilsol'];
+
+$autosol=$_REQUEST['autosol'];
+
+$marcasol=$_REQUEST['marcasol'];
+
+
+
+$depasol=$_REQUEST['depasol'];
+
+
+
+$compasol=$_REQUEST['compasol'];
+
+$compatelsol1=$_REQUEST['compatelsol1'];
+$compatelsol2=$_REQUEST['compatelsol2'];
+$compatelsol3=$_REQUEST['compatelsol3'];
+$compatelsol4=$_REQUEST['compatelsol4'];
+$compatelsol5=$_REQUEST['compatelsol5'];
+$compatelsol6=$_REQUEST['compatelsol6'];
+$compatelsol7=$_REQUEST['compatelsol7'];
+$compatelsol8=$_REQUEST['compatelsol8'];
+$compatelsol9=$_REQUEST['compatelsol9'];
+$compatelsol10=$_REQUEST['compatelsol10'];
+
+$compatelsolext=$_REQUEST['compatelsolext'];
+
+$nomref1=ucwords($_REQUEST['nomref1']);
+
+$parenref1=$_REQUEST['parenref1'];
+
+$telref11=$_REQUEST['telref11'];
+$telref12=$_REQUEST['telref12'];
+$telref13=$_REQUEST['telref13'];
+$telref14=$_REQUEST['telref14'];
+$telref15=$_REQUEST['telref15'];
+$telref16=$_REQUEST['telref16'];
+$telref17=$_REQUEST['telref17'];
+$telref18=$_REQUEST['telref18'];
+$telref19=$_REQUEST['telref19'];
+$telref110=$_REQUEST['telref110'];
+
+$nomref2=ucwords($_REQUEST['nomref2']);
+
+$parenref2=$_REQUEST['parenref2'];
+
+$telref21=$_REQUEST['telref21'];
+$telref22=$_REQUEST['telref22'];
+$telref23=$_REQUEST['telref23'];
+$telref24=$_REQUEST['telref24'];
+$telref25=$_REQUEST['telref25'];
+$telref26=$_REQUEST['telref26'];
+$telref27=$_REQUEST['telref27'];
+$telref28=$_REQUEST['telref28'];
+$telref29=$_REQUEST['telref29'];
+$telref210=$_REQUEST['telref210'];
+
+$refbanc=$_REQUEST['refbanc'];
+
+$tarjrefbanc=$_REQUEST['tarjrefbanc'];
+
+$cargdir=$_REQUEST['cargdir'];
+
+$nocuentcd=$_REQUEST['nocuentcd'];
+
+$conyunom=ucwords($_REQUEST['conyunom']);
+
+$compaconyu=$_REQUEST['compaconyu'];
+
+$puestconyu=$_REQUEST['puestconyu'];
+
+$datobnom1=ucwords($_REQUEST['datobnom1']);
+
+$datobappat1=ucwords($_REQUEST['datobappat1']);
+
+$datobapmat1=ucwords($_REQUEST['datobapmat1']);
+
+$datobdir1=$_REQUEST['datobdir1'];
+
+$datobcol1=$_REQUEST['datobcol1'];
+
+$datobcd1=$_REQUEST['datobcd1'];
+
+$datoblugnac1=$_REQUEST['datoblugnac1'];
+
+if ($datobnom1 != "" && $datobappat1 !="" && $datobapmat1!="") {
+	$datobprop1=$_REQUEST['datobprop1'];
+}else{
+	$datobprop1="";
+}
+
+
+$datobedo1=$_REQUEST['datobedo1'];
+
+$datobcp1=$_REQUEST['datobcp1'];
+
+$datobmail1=$_REQUEST['datobmail1'];
+
+if ($datobnom1 != "" && $datobappat1 !="" && $datobapmat1!="") {
+	$datobsex1=$_REQUEST['datobsex1'];
+}else{
+	$datobsex1="";
+}
+
+$datobfechnac1a=substr($_REQUEST['datobfechnac1d'], 0,4);
+
+$datobfechnac1m=substr($_REQUEST['datobfechnac1d'], 5,2);
+
+$datobfechnac1d=substr($_REQUEST['datobfechnac1d'], 8,2);
+
+
+
+$datobed1=$_REQUEST['datobed1'];
+
+$datobcurp1=strtoupper($_REQUEST['datobcurp1']);
+
+$datobrfc11=strtoupper($_REQUEST['datobrfc11']);
+$datobrfc12=strtoupper($_REQUEST['datobrfc12']);
+$datobrfc13=strtoupper($_REQUEST['datobrfc13']);
+$datobrfc14=strtoupper($_REQUEST['datobrfc14']);
+$datobrfc15=strtoupper($_REQUEST['datobrfc15']);
+$datobrfc16=strtoupper($_REQUEST['datobrfc16']);
+$datobrfc17=strtoupper($_REQUEST['datobrfc17']);
+$datobrfc18=strtoupper($_REQUEST['datobrfc18']);
+$datobrfc19=strtoupper($_REQUEST['datobrfc19']);
+$datobrfc110=strtoupper($_REQUEST['datobrfc110']);
+$datobrfc111=strtoupper($_REQUEST['datobrfc111']);
+$datobrfc112=strtoupper($_REQUEST['datobrfc112']);
+$datobrfc113=strtoupper($_REQUEST['datobrfc113']);
+
+
+$datobtel11=$_REQUEST['datobtel11'];
+$datobtel12=$_REQUEST['datobtel12'];
+$datobtel13=$_REQUEST['datobtel13'];
+$datobtel14=$_REQUEST['datobtel14'];
+$datobtel15=$_REQUEST['datobtel15'];
+$datobtel16=$_REQUEST['datobtel16'];
+$datobtel17=$_REQUEST['datobtel17'];
+$datobtel18=$_REQUEST['datobtel18'];
+$datobtel19=$_REQUEST['datobtel19'];
+$datobtel110=$_REQUEST['datobtel110'];
+
+////
+$datobnom2=ucwords($_REQUEST['datobnom2']);
+
+$datobappat2=ucwords($_REQUEST['datobappat2']);
+
+$datobapmat2=ucwords($_REQUEST['datobapmat2']);
+
+$datobdir2=$_REQUEST['datobdir2'];
+
+$datobcol2=$_REQUEST['datobcol2'];
+
+$datobcd2=$_REQUEST['datobcd2'];
+
+$datoblugnac2=$_REQUEST['datoblugnac2'];
+
+if ($datobnom2 != "" && $datobappat2 !="" && $datobapmat2!="") {
+	$datobprop2=$_REQUEST['datobprop2'];
+}else{
+	$datobprop2="";
+}
+
+
+$datobedo2=$_REQUEST['datobedo2'];
+
+$datobcp2=$_REQUEST['datobcp2'];
+
+$datobmail2=$_REQUEST['datobmail2'];
+
+if ($datobnom2 != "" && $datobappat2 !="" && $datobapmat2!="") {
+	$datobsex2=$_REQUEST['datobsex2'];
+}else{
+	$datobsex2="";
+}
+
+
+$datobfechnac2a=substr($_REQUEST['datobfechnac2d'], 0,4);
+
+$datobfechnac2m=substr($_REQUEST['datobfechnac2d'], 5,2);
+
+$datobfechnac2d=substr($_REQUEST['datobfechnac2d'], 8,2);
+
+
+
+
+$datobed2=$_REQUEST['datobed2'];
+
+$datobcurp2=strtoupper($_REQUEST['datobcurp2']);
+
+$datobrfc21=strtoupper($_REQUEST['datobrfc21']);
+$datobrfc22=strtoupper($_REQUEST['datobrfc22']);
+$datobrfc23=strtoupper($_REQUEST['datobrfc23']);
+$datobrfc24=strtoupper($_REQUEST['datobrfc24']);
+$datobrfc25=strtoupper($_REQUEST['datobrfc25']);
+$datobrfc26=strtoupper($_REQUEST['datobrfc26']);
+$datobrfc27=strtoupper($_REQUEST['datobrfc27']);
+$datobrfc28=strtoupper($_REQUEST['datobrfc28']);
+$datobrfc29=strtoupper($_REQUEST['datobrfc29']);
+$datobrfc210=strtoupper($_REQUEST['datobrfc210']);
+$datobrfc211=strtoupper($_REQUEST['datobrfc211']);
+$datobrfc212=strtoupper($_REQUEST['datobrfc212']);
+$datobrfc213=strtoupper($_REQUEST['datobrfc213']);
+
+
+$datobtel21=$_REQUEST['datobtel21'];
+$datobtel22=$_REQUEST['datobtel22'];
+$datobtel23=$_REQUEST['datobtel23'];
+$datobtel24=$_REQUEST['datobtel24'];
+$datobtel25=$_REQUEST['datobtel25'];
+$datobtel26=$_REQUEST['datobtel26'];
+$datobtel27=$_REQUEST['datobtel27'];
+$datobtel28=$_REQUEST['datobtel28'];
+$datobtel29=$_REQUEST['datobtel29'];
+$datobtel210=$_REQUEST['datobtel210'];
+
+
+
+$clavcon=$_REQUEST['clavcon'];
+
+$nomcons=$_REQUEST['nomcons'];
+
+$fecha=$_REQUEST['fecha'];
+
+$nomvend=$_REQUEST['nomvend'];
+
+$gerentegral=$_REQUEST['gerentegral'];
+
+$tipocredito=$_REQUEST['tipocredito'];
+
+
+$impmenpag=$_REQUEST['impmenpag'];
+
+$giroprof=$_REQUEST['giroprof'];
+
+
+
+$desdesol3=substr($_REQUEST['desdesol'], 0,4);
+
+$desdesol2=substr($_REQUEST['desdesol'], 5,2);
+
+$desdesol1=substr($_REQUEST['desdesol'], 8,2);
+
+
+
+$noempleados=$_REQUEST['noempleados'];
+
+
+$giroactreal=$_REQUEST['giroactreal'];
+
+$domneg=$_REQUEST['domneg'];
+
+$refbanc=$_REQUEST['refbanc'];
+
+$numcuebanc=$_REQUEST['numcuebanc'];
+
+$sucbanc1=$_REQUEST['sucbanc1'];
+
+$refbanc2=$_REQUEST['refbanc2'];
+
+$sucbanc2=$_REQUEST['sucbanc2'];
+
+$aperbanc1a=substr($_REQUEST['aperbanc1d'], 0,4);
+
+$aperbanc1m=substr($_REQUEST['aperbanc1d'], 5,2);
+
+$aperbanc1d=substr($_REQUEST['aperbanc1d'], 8,2);
+
+
+$aperbanc1a2=substr($_REQUEST['aperbanc1d2'], 0,4);
+
+$aperbanc1m2=substr($_REQUEST['aperbanc1d2'], 5,2);
+
+$aperbanc1d2=substr($_REQUEST['aperbanc1d2'], 8,2);
+
+
+
+$refcomemp1=$_REQUEST['refcomemp1'];
+$antirefcom1=$_REQUEST['antirefcom1'];
+$telrefcom11=$_REQUEST['telrefcom11'];
+$telrefcom12=$_REQUEST['telrefcom12'];
+$telrefcom13=$_REQUEST['telrefcom13'];
+$telrefcom14=$_REQUEST['telrefcom14'];
+$telrefcom15=$_REQUEST['telrefcom15'];
+$telrefcom16=$_REQUEST['telrefcom16'];
+$telrefcom17=$_REQUEST['telrefcom17'];
+$telrefcom18=$_REQUEST['telrefcom18'];
+$telrefcom19=$_REQUEST['telrefcom19'];
+$telrefcom110=$_REQUEST['telrefcom110'];
+
+
+
+
+$refcomemp2=$_REQUEST['refcomemp2'];
+$antirefcom2=$_REQUEST['antirefcom2'];
+
+$telrefcom21=$_REQUEST['telrefcom21'];
+$telrefcom22=$_REQUEST['telrefcom22'];
+$telrefcom23=$_REQUEST['telrefcom23'];
+$telrefcom24=$_REQUEST['telrefcom24'];
+$telrefcom25=$_REQUEST['telrefcom25'];
+$telrefcom26=$_REQUEST['telrefcom26'];
+$telrefcom27=$_REQUEST['telrefcom27'];
+$telrefcom28=$_REQUEST['telrefcom28'];
+$telrefcom29=$_REQUEST['telrefcom29'];
+$telrefcom210=$_REQUEST['telrefcom210'];
+
+$conyuape1=ucwords($_REQUEST['conyuape1']);
+$conyuape2=ucwords($_REQUEST['conyuape2']);
+
+
+
+$nomrazsoc=$_REQUEST['nomrazsoc'];
+
+
+$telpermor1=$_REQUEST['telpermor1'];
+$telpermor2=$_REQUEST['telpermor2'];
+$telpermor3=$_REQUEST['telpermor3'];
+$telpermor4=$_REQUEST['telpermor4'];
+$telpermor5=$_REQUEST['telpermor5'];
+$telpermor6=$_REQUEST['telpermor6'];
+$telpermor7=$_REQUEST['telpermor7'];
+$telpermor8=$_REQUEST['telpermor8'];
+$telpermor9=$_REQUEST['telpermor9'];
+$telpermor10=$_REQUEST['telpermor10'];
+
+
+$permorrfc1=$_REQUEST['permorrfc1'];
+$permorrfc2=$_REQUEST['permorrfc2'];
+$permorrfc3=$_REQUEST['permorrfc3'];
+$permorrfc4=$_REQUEST['permorrfc4'];
+$permorrfc5=$_REQUEST['permorrfc5'];
+$permorrfc6=$_REQUEST['permorrfc6'];
+$permorrfc7=$_REQUEST['permorrfc7'];
+$permorrfc8=$_REQUEST['permorrfc8'];
+$permorrfc9=$_REQUEST['permorrfc9'];
+$permorrfc10=$_REQUEST['permorrfc10'];
+$permorrfc11=$_REQUEST['permorrfc11'];
+$permorrfc12=$_REQUEST['permorrfc12'];
+$permorrfc13=$_REQUEST['permorrfc13'];
+
+$dirpermor=$_REQUEST['dirpermor'];
+$colpermor=$_REQUEST['colpermor'];
+$cdpermor=$_REQUEST['cdpermor'];
+$lugnacpermor=$_REQUEST['lugnacpermor'];
+$edopermor=$_REQUEST['edopermor'];
+$cppremor=$_REQUEST['cppremor'];
+
+$antemp=$_REQUEST['antemp'];
+
+$apodsusc=$_REQUEST['apodsusc'];
+
+
+$actprinc=$_REQUEST['actprinc'];
+$cantperson=$_REQUEST['cantperson'];
+
+$inicoper3=substr($_REQUEST['inicoper1'], 0,4);
+
+$inicoper2=substr($_REQUEST['inicoper1'], 5,2);
+
+$inicoper1=substr($_REQUEST['inicoper1'], 8,2);
+
+
+
+
 include("Conexion2.php");
 $entro="";
-if($_REQUEST['cliente']==""){
 
-
-    $entro="Si";
-	
-		/*
-
-			mysqli_query($cnx,"insert into solicitudpm (
-			NomSolicitante,
-RFCSolicitante,
-TelSolicitante,
-DirSolicitante,
-NumDirSol,
-ColSolicitante,
-CdSolicitante,
-EdoSolicitante,
-MunicipioSolicitante,
-CPSolicitante,
-EmailSolicitante,
-FaxSolicitante,
-PaisSolicitante,
-NomDatContEmp,
-SegNomDatContEmp,
-ApPatDatContEmp,
-ApMatDatContEmp,
-DirConEmp,
-ColConEmp,
-CPConEmp,
-CdConEmp,
-EdoConEmp,
-SexoContEmp,
-LugNacContEmp,
-FechNacContEmp,
-EstCivContEmp,
-TelDatConEmp,
-EmailDatConEmp,
-CURPDatConEmp
-RFCDatConEmp,
-NumSerieFIELContEmp,
-NacionalidadContEmp,
-OcupacionContEmp,
-SueldoContEmp,
-FaxDatConEmp,
-PuestDatConEmp,
-ActEcoAdicionalContEmp,
-IngAdMensualAproxContEmp,
-ActPrinDatGenPM,
-IniOpDatGenPM,
-CantPerDatGenPM,
-FechaConsEmp,
-AntConsEmp,
-ApoConsEmp,
-NomAcc1,
-RFCAcc1,
-PorAcc1,
-NomAcc2,
-RFCAcc2,
-PorAcc2,
-NomAcc3,
-RFCAcc3,
-PorAcc3,
-NomAcc4,
-RFCAcc4,
-PorAcc4,
-NomAccPM1,
-RFCAccPM1,
-PorAccPM1,
-NomAccPM2,
-RFCAccPM2,
-PorAccPM2
-
-		) values ();");
-
-
+	if($_REQUEST['cliente']==""){
+		//mysqli_query($cnx,"insert into clientes (id,Nombre,RFC,Tel,Cel,Direccion,Numero,Email,Colonia,Ciudad,LugNacimiento,Estado,CP,CURP,Sexo,Nacimiento,Edad,Nacionalidad,Dependientes,AcreDom,Vivienda,Inmueble,AnResidirCD,ArraigoDomicilio,Beneficiario,EstadoCivil,AutoPropio,PuestoEmpleo,DepartamentoEmpleo,Desdean,Empresa,TelEmpleo,ExtensionEmpleo,TipoCliente) values ('null','$NomSolicitante','$RFCSolicitante','$TelSolicitante','$MovSolicitante','$dirsol','$numeroDirSol','$mailsol','$colsol','$cdsol','$lugnacsol','$edosol','$cpsol','$curpsol','$SexoDatGen','$FeNacDatGen','$edsol','$nacsol','$depensol','$acdomsol','$VivDatGen','$PropInmuDatGen','$anosol2','$arraisol','$benesol','$EstCivDatGen','$AuPropDatGen','$depasol','','$desdesol3','$compasol','$TelDatEmp','$compatelsolext','PFNA')");
 
 		mysqli_query($cnx,"insert into pfna (NomSolicitante,SegNomSolicitante,ApPatSolicitante,ApMatSolicitante,RFCSolicitante,TelSolicitante,MovSolicitante,DirSolicitante,NumDirSol,ColSolicitante,CdSolicitante,LugNacSolicitante,EdoSolicitante,MunicipioSolicitante,CPSolicitante,CURPSolicitante,EmailSolicitante,SexoDatGen,FeNacDatGen,EdDatGen,NaDatGen,NoDepDatGen,AcDomDatGen,VivDatGen,ImpMenDatGen,PropInmuDatGen,ArDomDatGen,AnResDatGen,NomBenDatGen,ApPatBenDatGen,ApMatBenDatGen,EstCivDatGen,AuPropDatGen,MarDatGen,PuestDatEmp,DesAnDatEmp,CompDatEmp,TelDatEmp,ExtDatEmp,DomicilioLaboral,NumSerieFIEL,SueldoSolicitante,ActEcoAdicional,IngAdMensualAprox,Ocupacion_Profesion,FaxSolicitante,GiroDatEmp) values('$nomsol','$segnomsol','$apepasol','$apemasol','$RFCSolicitante','$TelSolicitante','$MovSolicitante','$dirsol','$numeroDirSol','$colsol','$cdsol','$lugnacsol','$edosol','$municipioSol','$cpsol','$curpsol','$mailsol','$SexoDatGen','$FeNacDatGen','$edsol','$nacsol','$depensol','$acdomsol','$VivDatGen','$impmenpag','$PropInmuDatGen','$arraisol','$anosol2','$benesol3','$benesol1','$benesol2','$EstCivDatGen','$AuPropDatGen','$MarDatGen','$depasol','$DesAnDatEmp','$compasol','$TelDatEmp','$compatelsolext','$domicilioLaboral','$numSerieFiel','$SueldoSolicitante','$ActividadAdicional','$IngAdMensualAprox','$giroprof','$MovSolicitante','$giroactreal');");
 		
@@ -84,7 +480,7 @@ PorAccPM2
 		$folio_request=mysqli_fetch_array(mysqli_query($cnx,"select Folio_Cliente from pfna where Id='$id_pfna'"));
 		$Folio_Cliente=$folio_request['Folio_Cliente'];
 		mysqli_query($cnx,"insert into registro (Folio_Cliente,Fecha_apertura) values('$Folio_Cliente',CURDATE());");
-		mysqli_query($cnx,"insert into solicitudpfna (Folio_Cliente,TipoCredito,NomRefPer,ParenRefPer,TelRefPer,NomRefPer2,ParenRefPer2,TelRefPer2,BancRefBan,NoTarRefBan,SucRefBan,FecApRefBan,BancRefBan2,NoTarRefBan2,SucRefBan2,FecApRefBan2,EmpRefCom,AntRefCom,TelRefCom,EmpRefCom2,AntRefCom2,TelRefCom2,BancCarDir,NoTarCarDir,NomDatCon,ApPatDatCon,ApMatDatCon,CompDatCon,PuestDatCon,NomObPerMor,DirObPerMor,ColObPerMor,CdObPerMor,LugNacObPerMor,EdoObPerMor,CPObPerMor,RFCObPerMor,TelObPerMor,FaxObPerMor,AntConsEmpPM,ApoConsEmpPM,ActPrinDatGen,IniOpDatGen,CantPerDatGen,NomObSol,ApPatObSol,ApMatObSol,RFCObSol,TelObSol,MovObSol,DirObSol,ColObSol,CdObSol,LugNacObSol,PropObSol,EdoObSol,CPObSol,EmailObSol,SexoObSol,FeNacObSol,EdObSol,CURPObSol,NomObSol2,ApPatObSol2,ApMatObSol2,RFCObSol2,TelObSol2,MovObSol2,DirObSol2,ColObSol2,CdObSol2,LugNacObSol2,PropObSol2,EdoObSol2,CPObSol2,EmailObSol2,SexoObSol2,FeNacObSol2,EdObSol2,CURPObSol2,Fecha,ClavConcesionario,NomConcesionario,NomVendedor,NomGerenteGral,Status) values ('$Folio_Cliente','$TipoCredito','$nomref1','$parenref1','$TelRefPer','$nomref2','$parenref2','$TelRefPer2','$refbanc','$numcuebanc','$sucbanc1','$FecApRefBan','$refbanc2','$tarjrefbanc','$sucbanc2','$FecApRefBan2','$refcomemp1','$antirefcom1','$TelRefCom','$refcomemp2','$antirefcom2','$TelRefCom2','$cargdir','$nocuentcd','$conyunom','$conyuape1','$conyuape2','$compaconyu','$puestconyu','$nomrazsoc','$dirpermor','$colpermor','$cdpermor','$lugnacpermor','$edopermor','$cppremor','$RFCObPerMor','$TelObPerMor','$FaxObPerMor','$antemp','$apodsusc','$actprinc','$IniOpDatGen','$cantperson','$datobnom1','$datobappat1','$datobapmat1','$RFCObSol','$TelObSol','$MovObSol','$datobdir1','$datobcol1','$datobcd1','$datoblugnac1','$PropObSol','$datobedo1','$datobcp1','$datobmail1','$SexoObSol','$FeNacObSol','$datobed1','$datobcurp1','$datobnom2','$datobappat2','$datobapmat2','$RFCObSol2','$TelObSol2','$MovObSol2','$datobdir2','$datobcol2','$datobcd2','$datoblugnac2','$PropObSol2','$datobedo2','$datobcp2','$datobmail2','$SexoObSol2','$FeNacObSol2','$datobed2','$datobcurp2','$fecha','$clavcon','$nomcons','$nomvend','$gerentegral','Pendiente');");
+		mysqli_query($cnx,"insert into solicitudpfna (Folio_Cliente,TipoCredito,NomRefPer,ParenRefPer,TelRefPer,NomRefPer2,ParenRefPer2,TelRefPer2,BancRefBan,NoTarRefBan,SucRefBan,FecApRefBan,BancRefBan2,NoTarRefBan2,SucRefBan2,FecApRefBan2,EmpRefCom,AntRefCom,TelRefCom,EmpRefCom2,AntRefCom2,TelRefCom2,BancCarDir,NoTarCarDir,NomDatCon,ApPatDatCon,ApMatDatCon,CompDatCon,PuestDatCon,NomObPerMor,DirObPerMor,ColObPerMor,CdObPerMor,LugNacObPerMor,EdoObPerMor,CPObPerMor,RFCObPerMor,TelObPerMor,FaxObPerMor,AntConsEmpPM,ApoConsEmpPM,ActPrinDatGen,IniOpDatGen,CantPerDatGen,NomObSol,ApPatObSol,ApMatObSol,RFCObSol,TelObSol,MovObSol,DirObSol,ColObSol,CdObSol,LugNacObSol,PropObSol,EdoObSol,CPObSol,EmailObSol,SexoObSol,FeNacObSol,EdObSol,CURPObSol,NomObSol2,ApPatObSol2,ApMatObSol2,RFCObSol2,TelObSol2,MovObSol2,DirObSol2,ColObSol2,CdObSol2,LugNacObSol2,PropObSol2,EdoObSol2,CPObSol2,EmailObSol2,SexoObSol2,FeNacObSol2,EdObSol2,CURPObSol2,Fecha,ClavConcesionario,NomConcesionario,NomVendedor,NomGerenteGral,Status) values ('$Folio_Cliente','$tipocredito','$nomref1','$parenref1','$TelRefPer','$nomref2','$parenref2','$TelRefPer2','$refbanc','$numcuebanc','$sucbanc1','$FecApRefBan','$refbanc2','$tarjrefbanc','$sucbanc2','$FecApRefBan2','$refcomemp1','$antirefcom1','$TelRefCom','$refcomemp2','$antirefcom2','$TelRefCom2','$cargdir','$nocuentcd','$conyunom','$conyuape1','$conyuape2','$compaconyu','$puestconyu','$nomrazsoc','$dirpermor','$colpermor','$cdpermor','$lugnacpermor','$edopermor','$cppremor','$RFCObPerMor','$TelObPerMor','$FaxObPerMor','$antemp','$apodsusc','$actprinc','$IniOpDatGen','$cantperson','$datobnom1','$datobappat1','$datobapmat1','$RFCObSol','$TelObSol','$MovObSol','$datobdir1','$datobcol1','$datobcd1','$datoblugnac1','$PropObSol','$datobedo1','$datobcp1','$datobmail1','$SexoObSol','$FeNacObSol','$datobed1','$datobcurp1','$datobnom2','$datobappat2','$datobapmat2','$RFCObSol2','$TelObSol2','$MovObSol2','$datobdir2','$datobcol2','$datobcd2','$datoblugnac2','$PropObSol2','$datobedo2','$datobcp2','$datobmail2','$SexoObSol2','$FeNacObSol2','$datobed2','$datobcurp2','$fecha','$clavcon','$nomcons','$nomvend','$gerentegral','Pendiente');");
 
 		$id_solicitudpfnaRequest=mysqli_fetch_array(mysqli_query($cnx,"select LAST_INSERT_ID()"));							 
 		$id_solicitudpfna=$id_solicitudpfnaRequest['LAST_INSERT_ID()'];
@@ -95,129 +491,19 @@ PorAccPM2
 
 		mysqli_query($cnx,"insert into gradoriesgo (Folio_sol,Folio_Cliente,Antiguedad_ObjetoSocial,Antiguedad_Cliente,Naturaleza_Operaciones,Numero_Beneficiarios,Numero_TercerosRelacionados,PEPs_Relacionados,Alerta_Reputacional,Volumen_Esperado,Frecuencia_Esperada,Instrumento_Monetario,Canales_MediosUtilizados,Pais_EstadoOficial,Pais_EstadoResidencia,Pais_EstadoOperacion,Origen_Recursos,Destino_Recursos,Pais_EstadoResidenciaTerceros,GradoRiesgo,INESolicitante,Adjunta_INESolicitante,Pasaporte_o_CedulaProfSolicitante,Adjunta_Pasaporte_o_CedulaProfSolicitante,CartillaMilitarSolicitante,Adjunta_CartillaMilitarSolicitante,LicenciaConducirSolicitante,Adjunta_LicenciaConducirSolicitante,OtraIdentSolicitante,Adjunta_OtraIdentSolicitante,EspIdentSolicitante,CotejoVsOriginal,Adjunta_CURP_RFC_FEA,Adjunta_ComprobanteDom,DomicilioCoincideId,DomBeneficiario,ColBeneficiario,CPBeneficiario,PaisBeneficiario,TelBeneficiario,CURPBeneficiario,RFCBeneficiario,ParentescoBeneficiario,PorcientoBeneficiario,FeNacBeneficiario,MunBeneficiario,EdoBeneficiario,EdoCivilBeneficiario,SoConBeneficiario,OcuProfBeneficiario,PEPSBeneficiario,OrigenRecBeneficiario,PerTrans1,FuentePerTrans1,PerTrans2,FuentePerTrans2,PerTrans3,FuentePerTrans3,PerTrans4,FuentePerTrans4,PerTrans5,FuentePerTrans5,PerTrans6,FuentePerTrans6,PerTrans7,FuentePerTrans7,PerTrans8,FuentePerTrans8,PerTrans9,FuentePerTrans9,PerTrans10,FuentePerTrans10,TotalIngreso,ValorAuto,EngAutomovil,PorEnganche,PorFinanciamiento,MontoFinanciado,Plazo,PagoMensEsp,PEPS,NombrePEPS,ParentescoPEPS,PuestoPEPS,FechaComprobanteDom) values ('$Folio_Sol','$Folio_Cliente','$select','$select2','$select3','$select4','$select5','$select6','$select7','$select8','$select9','$select10','$select11','$select12','$select13','$select14','$select15','$select16','$select17','$GradoRiesgo','$INESolicitante','$copias','$Pasaporte_o_CedulaProfSolicitante','$copias2','$CartillaMilitarSolicitante','$copias3','$LicenciaConducirSolicitante','$copias4','$OtraIdentSolicitante','$copias5','$EspIdentSolicitante','$cotejo','$adjuntos1','$adjuntos2','$adjuntos3','$DomBeneficiario','$ColBeneficiario','$CPBeneficiario','$PaisBeneficiario','$TelBeneficiario','$CURPBeneficiario','$RFCBeneficiario','$ParentescoBeneficiario','$PorcientoBeneficiario','$FeNacBeneficiario','$MunBeneficiario','$EdoBeneficiario','$EdoCivilBeneficiario','$SoConBeneficiario','$OcuProfBeneficiario','$PEPSBeneficiario','$OrigenRecBeneficiario','$PerTrans1','$FuentePerTrans1','$PerTrans2','$FuentePerTrans2','$PerTrans3','$FuentePerTrans3','$PerTrans4','$FuentePerTrans4','$PerTrans5','$FuentePerTrans5','$PerTrans6','$FuentePerTrans6','$PerTrans7','$FuentePerTrans7','$PerTrans8','$FuentePerTrans8','$PerTrans9','$FuentePerTrans9','$PerTrans10','$FuentePerTrans10','$totalIngreso','$ValorAuto','$EngAutomovil','$PorEnganche','$PorFinanciamiento','$MontoFinanciado','$Plazo','$PagoMensEsp','$PEPS','$NombrePEPS','$ParentescoPEPS','$PuestoPEPS','$fechaComprobante');");
 
-                    */
+
 
 		
 		
+		
+
 
 	}else {
 
-		$tipocredito="";
-if($_REQUEST['tipocredito']=="1"){
-$tipocredito="Leasing";
-}elseif($_REQUEST['tipocredito']=="2"){
-$tipocredito="Credit";
-}elseif($_REQUEST['tipocredito']=="3"){
-$tipocredito="Premium Credit";
-}else{
-$tipocredito="";
-}
+		mysqli_query($cnx,"insert into solicitudpfna (Folio_Cliente,TipoCredito,NomRefPer,ParenRefPer,TelRefPer,NomRefPer2,ParenRefPer2,TelRefPer2,BancRefBan,NoTarRefBan,SucRefBan,FecApRefBan,BancRefBan2,NoTarRefBan2,SucRefBan2,FecApRefBan2,EmpRefCom,AntRefCom,TelRefCom,EmpRefCom2,AntRefCom2,TelRefCom2,BancCarDir,NoTarCarDir,NomDatCon,ApPatDatCon,ApMatDatCon,CompDatCon,PuestDatCon,NomObPerMor,DirObPerMor,ColObPerMor,CdObPerMor,LugNacObPerMor,EdoObPerMor,CPObPerMor,RFCObPerMor,TelObPerMor,FaxObPerMor,AntConsEmpPM,ApoConsEmpPM,ActPrinDatGen,IniOpDatGen,CantPerDatGen,NomObSol,ApPatObSol,ApMatObSol,RFCObSol,TelObSol,MovObSol,DirObSol,ColObSol,CdObSol,LugNacObSol,PropObSol,EdoObSol,CPObSol,EmailObSol,SexoObSol,FeNacObSol,EdObSol,CURPObSol,NomObSol2,ApPatObSol2,ApMatObSol2,RFCObSol2,TelObSol2,MovObSol2,DirObSol2,ColObSol2,CdObSol2,LugNacObSol2,PropObSol2,EdoObSol2,CPObSol2,EmailObSol2,SexoObSol2,FeNacObSol2,EdObSol2,CURPObSol2,Fecha,ClavConcesionario,NomConcesionario,NomVendedor,NomGerenteGral,Status) values ('$cliente','$tipocredito','$nomref1','$parenref1','$TelRefPer','$nomref2','$parenref2','$TelRefPer2','$refbanc','$numcuebanc','$sucbanc1','$FecApRefBan','$refbanc2','$tarjrefbanc','$sucbanc2','$FecApRefBan2','$refcomemp1','$antirefcom1','$TelRefCom','$refcomemp2','$antirefcom2','$TelRefCom2','$cargdir','$nocuentcd','$conyunom','$conyuape1','$conyuape2','$compaconyu','$puestconyu','$nomrazsoc','$dirpermor','$colpermor','$cdpermor','$lugnacpermor','$edopermor','$cppremor','$RFCObPerMor','$TelObPerMor','$FaxObPerMor','$antemp','$apodsusc','$actprinc','$IniOpDatGen','$cantperson','$datobnom1','$datobappat1','$datobapmat1','$RFCObSol','$TelObSol','$MovObSol','$datobdir1','$datobcol1','$datobcd1','$datoblugnac1','$PropObSol','$datobedo1','$datobcp1','$datobmail1','$SexoObSol','$FeNacObSol','$datobed1','$datobcurp1','$datobnom2','$datobappat2','$datobapmat2','$RFCObSol2','$TelObSol2','$MovObSol2','$datobdir2','$datobcol2','$datobcd2','$datoblugnac2','$PropObSol2','$datobedo2','$datobcp2','$datobmail2','$SexoObSol2','$FeNacObSol2','$datobed2','$datobcurp2','$fecha','$clavcon','$nomcons','$nomvend','$gerentegral','Pendiente');");
 
-
-        mysqli_query($cnx,"insert into solicitudpm (Folio_Cliente,TipoCredito,BancRefBan,NoTarRefBan,SucRefBan,FecApRefBan,BancRefBan2,NoTarRefBan2,SucRefBan2,FecApRefBan2
-"/*
-		,EmpRefCom,
-		AntRefCom,
-		TelRefCom
-EmpRefCom2
-AntRefCom2
-TelRefCom2
-BancCarDir
-NoTarCarDir
-NomObPerMor
-DirObPerMor
-ColObPerMor
-CdObPerMor
-LugNacObPerMor
-EdoObPerMor
-CPObPerMor
-RFCObPerMor
-TelObPerMor
-FaxObPerMor
-AntConsEmpPM
-ApoConsEmpPM
-ActPrinDatGen
-IniOpDatGen
-CantPerDatGen
-NomAccionista1
-RFCAccionista1
-PorcentAccionista1
-NomAccionista2
-RFCAccionista2
-PorcentAccionista2
-NomAccionista3
-RFCAccionista3
-PorcentAccionista3
-NomAccionista4
-RFCAccionista4
-PorcentAccionista4
-NomAccionistaPM1
-RFCAccionistaPM1
-PorcentAccionistaPM1
-NomAccionistaPM2
-RFCAccionistaPM2
-PorcentAccionistaPM2
-NomObSol
-ApPatObSol
-ApMatObSol
-RFCObSol
-TelObSol
-MovObSol
-DirObSol
-ColObSol
-CdObSol
-LugNacObSol
-PropObSol
-EdoObSol
-CPObSol
-EmailObSol
-SexoObSol
-FeNacObSol
-EdObSol
-CURPObSol
-NomObSolPF
-SexoObSolPF
-FeNacObSolPF
-RFCObSolPF
-CURPObSolPF
-EdObSolPF
-NomObSol2
-ApPatObSol2
-ApMatObSol2
-RFCObSol2
-TelObSol2
-MovObSol2
-DirObSol2
-ColObSol2
-CdObSol2
-LugNacObSol2
-PropObSol2
-EdoObSol2
-CPObSol2
-EmailObSol2
-SexoObSol2
-FeNacObSol2
-EdObSol2
-CURPObSol2
-NomObSolPF2
-SexoObSolPF2
-FeNacObSolPF2
-RFCObSolPF2
-CURPObSolPF2
-EdObSolPF2
-Fecha
-ClavConcesionario
-NomConcesionario
-NomVendedor
-NomGerenteGral
-".*/."
-		) values ('".$_REQUEST['cliente']."','$tipocredito','".$_REQUEST['refbanc']."','".$_REQUEST['numcuebanc']."','".$_REQUEST['sucbanc1']."','".$_REQUEST['aperbanc1d']."','".$_REQUEST['refbanc2']."','".$_REQUEST['tarjrefbanc']."','".$_REQUEST['sucbanc2']."','".$_REQUEST['aperbanc1d2']."');");
-	
-
-		/*
-		$id_solicitudpmRequest=mysqli_fetch_array(mysqli_query($cnx,"select LAST_INSERT_ID()"));							 
-		$id_solicitudpm=$id_solicitudpmRequest['LAST_INSERT_ID()'];
-		
+		$id_solicitudpfnaRequest=mysqli_fetch_array(mysqli_query($cnx,"select LAST_INSERT_ID()"));							 
+		$id_solicitudpfna=$id_solicitudpfnaRequest['LAST_INSERT_ID()'];
 		$folio_solrequest=mysqli_fetch_array(mysqli_query($cnx,"select Folio_Sol from solicitudpfna where Id='$id_solicitudpfna'"));
 		$Folio_Sol=$folio_solrequest['Folio_Sol'];
 
@@ -226,9 +512,16 @@ NomGerenteGral
 		mysqli_query($cnx,"insert into gradoriesgo (Folio_sol,Folio_Cliente,Antiguedad_ObjetoSocial,Antiguedad_Cliente,Naturaleza_Operaciones,Numero_Beneficiarios,Numero_TercerosRelacionados,PEPs_Relacionados,Alerta_Reputacional,Volumen_Esperado,Frecuencia_Esperada,Instrumento_Monetario,Canales_MediosUtilizados,Pais_EstadoOficial,Pais_EstadoResidencia,Pais_EstadoOperacion,Origen_Recursos,Destino_Recursos,Pais_EstadoResidenciaTerceros,GradoRiesgo,INESolicitante,Adjunta_INESolicitante,Pasaporte_o_CedulaProfSolicitante,Adjunta_Pasaporte_o_CedulaProfSolicitante,CartillaMilitarSolicitante,Adjunta_CartillaMilitarSolicitante,LicenciaConducirSolicitante,Adjunta_LicenciaConducirSolicitante,OtraIdentSolicitante,Adjunta_OtraIdentSolicitante,EspIdentSolicitante,CotejoVsOriginal,Adjunta_CURP_RFC_FEA,Adjunta_ComprobanteDom,DomicilioCoincideId,DomBeneficiario,ColBeneficiario,CPBeneficiario,PaisBeneficiario,TelBeneficiario,CURPBeneficiario,RFCBeneficiario,ParentescoBeneficiario,PorcientoBeneficiario,FeNacBeneficiario,MunBeneficiario,EdoBeneficiario,EdoCivilBeneficiario,SoConBeneficiario,OcuProfBeneficiario,PEPSBeneficiario,OrigenRecBeneficiario,PerTrans1,FuentePerTrans1,PerTrans2,FuentePerTrans2,PerTrans3,FuentePerTrans3,PerTrans4,FuentePerTrans4,PerTrans5,FuentePerTrans5,PerTrans6,FuentePerTrans6,PerTrans7,FuentePerTrans7,PerTrans8,FuentePerTrans8,PerTrans9,FuentePerTrans9,PerTrans10,FuentePerTrans10,TotalIngreso,ValorAuto,EngAutomovil,PorEnganche,PorFinanciamiento,MontoFinanciado,Plazo,PagoMensEsp,PEPS,NombrePEPS,ParentescoPEPS,PuestoPEPS,FechaComprobanteDom) values ('$Folio_Sol','$cliente','$select','$select2','$select3','$select4','$select5','$select6','$select7','$select8','$select9','$select10','$select11','$select12','$select13','$select14','$select15','$select16','$select17','$GradoRiesgo','$INESolicitante','$copias','$Pasaporte_o_CedulaProfSolicitante','$copias2','$CartillaMilitarSolicitante','$copias3','$LicenciaConducirSolicitante','$copias4','$OtraIdentSolicitante','$copias5','$EspIdentSolicitante','$cotejo','$adjuntos1','$adjuntos2','$adjuntos3','$DomBeneficiario','$ColBeneficiario','$CPBeneficiario','$PaisBeneficiario','$TelBeneficiario','$CURPBeneficiario','$RFCBeneficiario','$ParentescoBeneficiario','$PorcientoBeneficiario','$FeNacBeneficiario','$MunBeneficiario','$EdoBeneficiario','$EdoCivilBeneficiario','$SoConBeneficiario','$OcuProfBeneficiario','$PEPSBeneficiario','$OrigenRecBeneficiario','$PerTrans1','$FuentePerTrans1','$PerTrans2','$FuentePerTrans2','$PerTrans3','$FuentePerTrans3','$PerTrans4','$FuentePerTrans4','$PerTrans5','$FuentePerTrans5','$PerTrans6','$FuentePerTrans6','$PerTrans7','$FuentePerTrans7','$PerTrans8','$FuentePerTrans8','$PerTrans9','$FuentePerTrans9','$PerTrans10','$FuentePerTrans10','$totalIngreso','$ValorAuto','$EngAutomovil','$PorEnganche','$PorFinanciamiento','$MontoFinanciado','$Plazo','$PagoMensEsp','$PEPS','$NombrePEPS','$ParentescoPEPS','$PuestoPEPS','$fechaComprobante');");
 
 
-		$objPHPExcel->getActiveSheet()->setCellValue('At3', $Folio_Sol);
-*/
+	
+
+
+
+		
+	
+	
+
 	}
+
 
 
 
@@ -259,7 +552,7 @@ NomGerenteGral
  */
 
 // Include the main TCPDF library (search for installation path).
-require_once('tcpdf_include.php');
+require_once('tcpdf/tcpdf.php');
 
 // create new PDF document
 $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, 'LETTER', true, 'UTF-8', false);
