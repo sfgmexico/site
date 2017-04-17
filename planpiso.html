@@ -4,20 +4,141 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Financiera| Bienvenido</title>
-
+  <link rel="stylesheet" href="js/jquery-ui/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   </head>
   <body>
+<style type="text/css">
+.mifecha2 {
+   border: 1px solid #ddd;
+   padding: 3px;
+   text-align: center;
+   font-family:verdana, arial;
+   font-size: 10pt;
+   overflow: hidden;
+   width: 100%
+}
+.mifecha2 .mesano{
+   float: left;
+   padding: 3px;
+   font-weight: bold;
+}
+.mifecha2 .dia, .mifecha2 .diaactual{
+   width: 20px;
+   padding: 3px;
+   margin-left: 3px;
+   background-color: #ddd;
+   float: left;
+}
+.mifecha2 .diaactual{
+   background-color: #999;
+   font-weight: bold;
+}
+
+</style>
+<script>
+var f=new Date();
+var ano = f.getFullYear();
+var mes = f.getMonth();
+var dia = f.getDate();
+var estiloDia;
+var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+var diasSemana = new Array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
+var diasMes = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+var diaMaximo = diasMes[mes];
+if (mes == 1 && (((ano % 4 == 0) && (ano % 100 != 0)) || (ano % 400 == 0)))
+   diaMaximo = 29;
+document.write('<div class="mifecha2">');
+document.write('<div class="mesano">' + meses[mes] + ' ' + ano + ':</div>');
+
+for (i=1; i<=diaMaximo; i++){
+   if(i == dia)
+      estiloDia = "diaactual";
+   else
+      estiloDia = "dia";
+   document.write('<div class="' + estiloDia + '">' + i + '</div>');
+}   
+document.write('</div>');
+</script>
+
+<script type="text/javascript">
+  $( function() {
+    var dateFormat = "mm/dd/yy",
+      from = $( "#from" )
+        .datepicker({
+          defaultDate: "+1w",
+          changeMonth: true,
+          numberOfMonths: 3
+        })
+        .on( "change", function() {
+          to.datepicker( "option", "minDate", getDate( this ) );
+        }),
+      to = $( "#to" ).datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 3
+      })
+      .on( "change", function() {
+        from.datepicker( "option", "maxDate", getDate( this ) );
+      });
+ 
+    function getDate( element ) {
+      var date;
+      try {
+        date = $.datepicker.parseDate( dateFormat, element.value );
+      } catch( error ) {
+        date = null;
+      }
+ 
+      return date;
+    }
+  } );
+
+
+ function restaFechas()
+ {
+   var f1 = document.getElementById("from").value;
+var f2=document.getElementById("to").value;
+ var aFecha1 = f1.split('/'); 
+ var aFecha2 = f2.split('/'); 
+ var fFecha1 = Date.UTC(aFecha1[2],aFecha1[0],aFecha1[1]-1); 
+ var fFecha2 = Date.UTC(aFecha2[2],aFecha2[0],aFecha2[1]-1); 
+ var dif = fFecha2 - fFecha1;
+ var dias = Math.floor(dif / (1000 * 60 * 60 * 24)); 
+ //return dias;
+ alert (dias);
+
+ }
+
+function tasaR(){
+
+  var tas=document.getElementById("tasa").value;
+  var Importe=document.getElementById("importe").value;
+  var tasaM=(tas/12)/100;
+  var tasaD=(tas/365)/100;
+  var intdiario=0;
+  intdiario=(Importe*tasaD);
+//document.getElementById("int").value=intdiario;
+alert(intdiario.toFixed(2));
+//alert(tasaM);
+//alert(tasaD);
+
+}
+  </script>
+
+<br>
 Automovil
 <input name="auto" >
 <br>
 No. de chasis
 <input name="auto" >
 <br>
-Tasa
-<input name="auto" >
+Tasa anual
+<input name="tasa" type="number" id="tasa">
 <br>
 Importe
-<input name="auto" >
+<input name="importe" type="number" id="importe" >
 <br>
 Fecha de prestamo
 <input name="auto" >
@@ -25,11 +146,15 @@ Fecha de prestamo
 Dias de gracia
 <input name="auto" >
 <br>
+<label for="from">From</label>
+<input type="text" id="from" name="from" >
+<label for="to">to</label>
+<input type="text" id="to" name="to" >
 Interes diario 
+<br>
+<label name="int" id="int">hola</label>
 
-
-       
-      
+      <input type="button" onclick="restaFechas()" id="dia" name="dia" value="Calcular"> 
       
 </body>
 
