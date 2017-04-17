@@ -1275,7 +1275,7 @@ $tbl = <<<EOD
  <tr>
   <th width="360" colspan="3" align="center">Variables de riesgo</th>
  </tr>
- <tr>
+ <tr style="background-color: #f2f2f2">
   <td>Actividad objeto social</td>
   <td >  </td>
   <td >  </td>
