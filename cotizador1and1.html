@@ -258,11 +258,11 @@ function inicio(){
             
         }else if(combo.options[combo.selectedIndex].text=="Préstamo Quirografario"){
 
-           document.getElementById("tasacreditofactoraje").value=document.getElementById("seleccion").value+"%";
+           document.getElementById("tasacreditoquirografario").value=document.getElementById("seleccion").value+"%";
            document.getElementById("contenidocreditoghipotecaria").style.display = 'none';
-           document.getElementById("contenidocreditoquirografario").style.display = 'none';
+           document.getElementById("contenidocreditoquirografario").style.display = 'block';
            document.getElementById("contenidocreditorefaccionario").style.display = 'none';
-           document.getElementById("contenidocreditofactoraje").style.display = 'block';
+           document.getElementById("contenidocreditofactoraje").style.display = 'none';
            document.getElementById("contenidocreditoarrendamiento").style.display = 'none';
            document.getElementById("contenidocreditohipotecario").style.display = 'none';
             document.getElementById("contenidocreditosimple").style.display = 'none';
@@ -738,11 +738,12 @@ function CalculaNomina(){
   //document.getElementById('comisionnomina').value=(document.getElementById("montonomina").value*0.02).toFixed(2);
   var tasa=document.getElementById("seleccion").value;
   var tiempo=document.getElementById('plazonomina').value;
-  var comisionapertura=document.getElementById("montonomina").value*0.03;
+  
+  var comisionapertura=document.getElementById("montonomina").value.replace("$","").replace(/,/gi,"")*0.03;
 
-  var montofin=document.getElementById("montonomina").value;
-  var segurovida=document.getElementById("segurovidanomina").value;
-  var totalafinanciar=document.getElementById("montonomina").value-comisionapertura-segurovida;
+  var montofin=document.getElementById("montonomina").value.replace("$","").replace(/,/gi,"");
+  var segurovida=document.getElementById("segurovidanomina").value.replace("$","").replace(/,/gi,"");
+  var totalafinanciar=montofin-comisionapertura-segurovida;
   //tasa mensual es intRate
 
   //pago=Math.floor((totalafinanciar*intRate)/(1-Math.pow(1+intRate,(-1*months)))*100)/100;
@@ -829,7 +830,7 @@ function CalculaNomina(){
   //var cat = CAT.get(totalafinanciar, 0, pagtotal, document.getElementById("plazonomina").value, 12);
 
 
-  document.getElementById('resultadoNomina').innerHTML = '<br><br><br>Plazo:'+ document.getElementById("plazonomina").value +' Meses<br>Monto solicitado: ' + formatNumber.new(document.getElementById("montonomina").value,"$") + '<br>Comision por Apertura: ' + formatNumber.new(comisionapertura,"$") + '<br>Total a Financiar: ' + formatNumber.new(totalafinanciar,"$") + '<br>CAT: ' +CAT.toFixed(2)+'%<br>' + codigo; 
+  document.getElementById('resultadoNomina').innerHTML = '<br><br><br>Plazo:'+ document.getElementById("plazonomina").value +' Meses<br>Monto solicitado: ' + document.getElementById("montonomina").value + '<br>Comision por Apertura: ' + formatNumber.new(comisionapertura.toFixed(2),"$") + '<br>Total a Financiar: ' + formatNumber.new(totalafinanciar.toFixed(2),"$") + '<br>CAT: ' +CAT.toFixed(2)+'%<br>' + codigo; 
 
 
 
@@ -842,11 +843,11 @@ function Calculacreditosimple(){
   //document.getElementById('comisionnomina').value=(document.getElementById("montonomina").value*0.02).toFixed(2);
   var tasa=document.getElementById("seleccion").value;
   var tiempo=document.getElementById('plazocreditosimple').value;
-  var comisionapertura=document.getElementById("montocreditosimple").value*0.03;
+  var comisionapertura=document.getElementById("montocreditosimple").value.replace("$","").replace(/,/gi,"")*0.03;
 
-  var montofin=document.getElementById("montocreditosimple").value;
+  var montofin=document.getElementById("montocreditosimple").value.replace("$","").replace(/,/gi,"");
 
-  var totalafinanciar=document.getElementById("montocreditosimple").value-comisionapertura;
+  var totalafinanciar=montofin-comisionapertura;
 
   //tasa mensual es intRate
   intRate=(tasa/12)/100;
@@ -973,11 +974,11 @@ function Calculacreditoghipotecaria(){
   //document.getElementById('comisionnomina').value=(document.getElementById("montonomina").value*0.02).toFixed(2);
   var tasa=document.getElementById("seleccion").value;
   var tiempo=document.getElementById('plazocreditoghipotecaria').value;
-  var comisionapertura=document.getElementById("montocreditoghipotecaria").value*0.03;
+  var comisionapertura=document.getElementById("montocreditoghipotecaria").value.replace("$","").replace(/,/gi,"")*0.03;
 
-  var montofin=document.getElementById("montocreditoghipotecaria").value;
+  var montofin=document.getElementById("montocreditoghipotecaria").value.replace("$","").replace(/,/gi,"");
 
-  var totalafinanciar=document.getElementById("montocreditoghipotecaria").value-comisionapertura;
+  var totalafinanciar=montofin-comisionapertura;
 
   //tasa mensual es intRate
 
@@ -1018,40 +1019,45 @@ function Calculacreditoghipotecaria(){
   for(a=1;a<=months;a++){ 
 
   codigo+="<tr  class='table-warning'>"; 
-  codigo+="<td>"+falta.toFixed(2);+"<\/td>"; 
+  codigo+="<td>"+formatNumber.new(falta.toFixed(2),"$");+"<\/td>"; 
   sumbalance+=falta;
   //codigo+="<td>"+pago+"<\/td>";
   //sumpaprog+=pago;
   intereses=(falta*intRate);
   ivaintereses=(falta*intRate*0.16);
   capital=pago-(intereses+ivaintereses);
-  codigo+="<td>"+capital.toFixed(2);+"<\/td>";
+  codigo+="<td>"+formatNumber.new(capital.toFixed(2),"$");+"<\/td>";
   sumcap+=capital;
   interes=falta*intRate;
   codigo+="<td>"; 
-  codigo+=interes.toFixed(2);; 
+  codigo+=formatNumber.new(interes.toFixed(2),"$"); 
   codigo+="<\/td>"; 
   sumint+=interes;
   falta=falta-capital;
   codigo+="<td>"; 
-  codigo+=falta.toFixed(2); 
+  codigo+=formatNumber.new(falta.toFixed(2),"$"); 
   codigo+="<\/td>"; 
   sumbalncefin+=falta; 
 
   codigo+="<td>"; 
-  codigo+=ivaintereses.toFixed(2); 
+  codigo+=formatNumber.new(ivaintereses.toFixed(2),"$"); 
   codigo+="<\/td>"; 
   sumivaint+=ivaintereses;
 
+  /*codigo+="<td>";
+  if(a==1){codigo+=segurovida;}else{codigo+='0';}
+  codigo+="<\/td>";
+ */
   codigo+="<td>"; 
-  codigo+=pago.toFixed(2); 
+  //if(a==1){codigo+=(parseFloat(pago)+parseFloat(segurovida)).toFixed(2);}else{codigo+=pago.toFixed(2); }
+  codigo+=formatNumber.new(pago.toFixed(2),"$");
   codigo+="<\/td>"; 
   sumpatoprog+=pago; 
 
   codigo+="<\/tr>"; 
   }
   codigo+="<th> Total </th>";
-  codigo+="<tr><td></td><td>"+sumcap.toFixed(2)+"</td><td>"+sumint.toFixed(2)+"</td><td></td><td>"+sumivaint.toFixed(2)+"</td><td>"+sumpatoprog.toFixed(2)+"</td></tr>"; 
+  codigo+="<tr><td></td><td>"+formatNumber.new(sumcap.toFixed(2),"$")+"</td><td>"+formatNumber.new(sumint.toFixed(2),"$")+"</td><td></td><td>"+formatNumber.new(sumivaint.toFixed(2),"$")+"</td><td>"+formatNumber.new(sumpatoprog.toFixed(2),"$")+"</td></tr>"; 
   codigo+="<\/table>"; 
 
   CAT=(Math.pow(1+intRate,12)-1)*100+3;
@@ -1059,7 +1065,7 @@ function Calculacreditoghipotecaria(){
   //var cat = CAT.get(totalafinanciar, 0, pagtotal, document.getElementById("plazonomina").value, 12);
 
 
-  document.getElementById('resultadocreditoghipotecaria').innerHTML = '<br><br><br>Plazo:'+ document.getElementById("plazocreditoghipotecaria").value +' Meses<br>Monto solicitado: $' + document.getElementById("montocreditoghipotecaria").value + '<br>Comision por Apertura: $' + comisionapertura + '<br>Total a Financiar: $' + totalafinanciar + '<br>CAT: ' +CAT.toFixed(2)+'%<br>' + codigo; 
+  document.getElementById('resultadocreditoghipotecaria').innerHTML = '<br><br><br>Plazo:'+ document.getElementById("plazocreditoghipotecaria").value +' Meses<br>Monto solicitado: ' + document.getElementById("montocreditoghipotecaria").value + '<br>Comision por Apertura: ' + formatNumber.new(comisionapertura.toFixed(2),"$") + '<br>Total a Financiar: ' + formatNumber.new(totalafinanciar.toFixed(2),"$") + '<br>CAT: ' +CAT.toFixed(2)+'%<br>' + codigo; 
 
 
 
@@ -1072,11 +1078,11 @@ function Calculacreditohipotecario(){
   //document.getElementById('comisionnomina').value=(document.getElementById("montonomina").value*0.02).toFixed(2);
   var tasa=document.getElementById("seleccion").value;
   var tiempo=document.getElementById('plazocreditohipotecario').value;
-  var comisionapertura=document.getElementById("montocreditohipotecario").value*0.03;
+  var comisionapertura=document.getElementById("montocreditohipotecario").value.replace("$","").replace(/,/gi,"")*0.03;
 
-  var montofin=document.getElementById("montocreditohipotecario").value;
+  var montofin=document.getElementById("montocreditohipotecario").value.replace("$","").replace(/,/gi,"");
 
-  var totalafinanciar=document.getElementById("montocreditohipotecario").value-comisionapertura;
+  var totalafinanciar=montofin-comisionapertura;
 
   //tasa mensual es intRate
 
@@ -1117,40 +1123,45 @@ function Calculacreditohipotecario(){
   for(a=1;a<=months;a++){ 
 
   codigo+="<tr  class='table-warning'>"; 
-  codigo+="<td>"+falta.toFixed(2);+"<\/td>"; 
+  codigo+="<td>"+formatNumber.new(falta.toFixed(2),"$");+"<\/td>"; 
   sumbalance+=falta;
   //codigo+="<td>"+pago+"<\/td>";
   //sumpaprog+=pago;
   intereses=(falta*intRate);
   ivaintereses=(falta*intRate*0.16);
   capital=pago-(intereses+ivaintereses);
-  codigo+="<td>"+capital.toFixed(2);+"<\/td>";
+  codigo+="<td>"+formatNumber.new(capital.toFixed(2),"$");+"<\/td>";
   sumcap+=capital;
   interes=falta*intRate;
   codigo+="<td>"; 
-  codigo+=interes.toFixed(2);; 
+  codigo+=formatNumber.new(interes.toFixed(2),"$"); 
   codigo+="<\/td>"; 
   sumint+=interes;
   falta=falta-capital;
   codigo+="<td>"; 
-  codigo+=falta.toFixed(2); 
+  codigo+=formatNumber.new(falta.toFixed(2),"$"); 
   codigo+="<\/td>"; 
   sumbalncefin+=falta; 
 
   codigo+="<td>"; 
-  codigo+=ivaintereses.toFixed(2); 
+  codigo+=formatNumber.new(ivaintereses.toFixed(2),"$"); 
   codigo+="<\/td>"; 
   sumivaint+=ivaintereses;
 
+  /*codigo+="<td>";
+  if(a==1){codigo+=segurovida;}else{codigo+='0';}
+  codigo+="<\/td>";
+ */
   codigo+="<td>"; 
-  codigo+=pago.toFixed(2); 
+  //if(a==1){codigo+=(parseFloat(pago)+parseFloat(segurovida)).toFixed(2);}else{codigo+=pago.toFixed(2); }
+  codigo+=formatNumber.new(pago.toFixed(2),"$");
   codigo+="<\/td>"; 
   sumpatoprog+=pago; 
 
   codigo+="<\/tr>"; 
   }
   codigo+="<th> Total </th>";
-  codigo+="<tr><td></td><td>"+sumcap.toFixed(2)+"</td><td>"+sumint.toFixed(2)+"</td><td></td><td>"+sumivaint.toFixed(2)+"</td><td>"+sumpatoprog.toFixed(2)+"</td></tr>"; 
+  codigo+="<tr><td></td><td>"+formatNumber.new(sumcap.toFixed(2),"$")+"</td><td>"+formatNumber.new(sumint.toFixed(2),"$")+"</td><td></td><td>"+formatNumber.new(sumivaint.toFixed(2),"$")+"</td><td>"+formatNumber.new(sumpatoprog.toFixed(2),"$")+"</td></tr>"; 
   codigo+="<\/table>"; 
 
   CAT=(Math.pow(1+intRate,12)-1)*100+3;
@@ -1158,7 +1169,7 @@ function Calculacreditohipotecario(){
   //var cat = CAT.get(totalafinanciar, 0, pagtotal, document.getElementById("plazonomina").value, 12);
 
 
-  document.getElementById('resultadocreditohipotecario').innerHTML = '<br><br><br>Plazo:'+ document.getElementById("plazocreditohipotecario").value +' Meses<br>Monto solicitado: $' + document.getElementById("montocreditohipotecario").value + '<br>Comision por Apertura: $' + comisionapertura + '<br>Total a Financiar: $' + totalafinanciar + '<br>CAT: ' +CAT.toFixed(2)+'%<br>' + codigo; 
+  document.getElementById('resultadocreditohipotecario').innerHTML = '<br><br><br>Plazo:'+ document.getElementById("plazocreditohipotecario").value +' Meses<br>Monto solicitado: ' + document.getElementById("montocreditohipotecario").value + '<br>Comision por Apertura: $' + formatNumber.new(comisionapertura.toFixed(2),"$") + '<br>Total a Financiar: $' + formatNumber.new(totalafinanciar.toFixed(2),"$") + '<br>CAT: ' +CAT.toFixed(2)+'%<br>' + codigo; 
 
 
 
@@ -1172,11 +1183,11 @@ function Calculacreditorefaccionario(){
   //document.getElementById('comisionnomina').value=(document.getElementById("montonomina").value*0.02).toFixed(2);
   var tasa=document.getElementById("seleccion").value;
   var tiempo=document.getElementById('plazocreditorefaccionario').value;
-  var comisionapertura=document.getElementById("montocreditorefaccionario").value*0.03;
+  var comisionapertura=document.getElementById("montocreditorefaccionario").value.replace("$","").replace(/,/gi,"")*0.03;
 
-  var montofin=document.getElementById("montocreditorefaccionario").value;
+  var montofin=document.getElementById("montocreditorefaccionario").value.replace("$","").replace(/,/gi,"");
 
-  var totalafinanciar=document.getElementById("montocreditorefaccionario").value-comisionapertura;
+  var totalafinanciar=montofin-comisionapertura;
 
   //tasa mensual es intRate
 
@@ -1217,40 +1228,45 @@ function Calculacreditorefaccionario(){
   for(a=1;a<=months;a++){ 
 
   codigo+="<tr  class='table-warning'>"; 
-  codigo+="<td>"+falta.toFixed(2);+"<\/td>"; 
+  codigo+="<td>"+formatNumber.new(falta.toFixed(2),"$");+"<\/td>"; 
   sumbalance+=falta;
   //codigo+="<td>"+pago+"<\/td>";
   //sumpaprog+=pago;
   intereses=(falta*intRate);
   ivaintereses=(falta*intRate*0.16);
   capital=pago-(intereses+ivaintereses);
-  codigo+="<td>"+capital.toFixed(2);+"<\/td>";
+  codigo+="<td>"+formatNumber.new(capital.toFixed(2),"$");+"<\/td>";
   sumcap+=capital;
   interes=falta*intRate;
   codigo+="<td>"; 
-  codigo+=interes.toFixed(2);; 
+  codigo+=formatNumber.new(interes.toFixed(2),"$"); 
   codigo+="<\/td>"; 
   sumint+=interes;
   falta=falta-capital;
   codigo+="<td>"; 
-  codigo+=falta.toFixed(2); 
+  codigo+=formatNumber.new(falta.toFixed(2),"$"); 
   codigo+="<\/td>"; 
   sumbalncefin+=falta; 
 
   codigo+="<td>"; 
-  codigo+=ivaintereses.toFixed(2); 
+  codigo+=formatNumber.new(ivaintereses.toFixed(2),"$"); 
   codigo+="<\/td>"; 
   sumivaint+=ivaintereses;
 
+  /*codigo+="<td>";
+  if(a==1){codigo+=segurovida;}else{codigo+='0';}
+  codigo+="<\/td>";
+ */
   codigo+="<td>"; 
-  codigo+=pago.toFixed(2); 
+  //if(a==1){codigo+=(parseFloat(pago)+parseFloat(segurovida)).toFixed(2);}else{codigo+=pago.toFixed(2); }
+  codigo+=formatNumber.new(pago.toFixed(2),"$");
   codigo+="<\/td>"; 
   sumpatoprog+=pago; 
 
   codigo+="<\/tr>"; 
   }
   codigo+="<th> Total </th>";
-  codigo+="<tr><td></td><td>"+sumcap.toFixed(2)+"</td><td>"+sumint.toFixed(2)+"</td><td></td><td>"+sumivaint.toFixed(2)+"</td><td>"+sumpatoprog.toFixed(2)+"</td></tr>"; 
+  codigo+="<tr><td></td><td>"+formatNumber.new(sumcap.toFixed(2),"$")+"</td><td>"+formatNumber.new(sumint.toFixed(2),"$")+"</td><td></td><td>"+formatNumber.new(sumivaint.toFixed(2),"$")+"</td><td>"+formatNumber.new(sumpatoprog.toFixed(2),"$")+"</td></tr>"; 
   codigo+="<\/table>"; 
 
   CAT=(Math.pow(1+intRate,12)-1)*100+3;
@@ -1258,7 +1274,7 @@ function Calculacreditorefaccionario(){
   //var cat = CAT.get(totalafinanciar, 0, pagtotal, document.getElementById("plazonomina").value, 12);
 
 
-  document.getElementById('resultadocreditorefaccionario').innerHTML = '<br><br><br>Plazo:'+ document.getElementById("plazocreditorefaccionario").value +' Meses<br>Monto solicitado: $' + document.getElementById("montocreditorefaccionario").value + '<br>Comision por Apertura: $' + comisionapertura + '<br>Total a Financiar: $' + totalafinanciar + '<br>CAT: ' +CAT.toFixed(2)+'%<br>' + codigo; 
+  document.getElementById('resultadocreditorefaccionario').innerHTML = '<br><br><br>Plazo:'+ document.getElementById("plazocreditorefaccionario").value +' Meses<br>Monto solicitado: ' + document.getElementById("montocreditorefaccionario").value + '<br>Comision por Apertura: ' + formatNumber.new(comisionapertura.toFixed(2),"$") + '<br>Total a Financiar: ' + formatNumber.new(totalafinanciar.toFixed(2),"$") + '<br>CAT: ' +CAT.toFixed(2)+'%<br>' + codigo; 
 
 
 
@@ -1271,11 +1287,11 @@ function Calculacreditoarrendamiento(){
   //document.getElementById('comisionnomina').value=(document.getElementById("montonomina").value*0.02).toFixed(2);
   var tasa=document.getElementById("seleccion").value;
   var tiempo=document.getElementById('plazocreditoarrendamiento').value;
-  var comisionapertura=document.getElementById("montocreditoarrendamiento").value*0.03;
+  var comisionapertura=document.getElementById("montocreditoarrendamiento").value.replace("$","").replace(/,/gi,"")*0.03;
 
-  var montofin=document.getElementById("montocreditoarrendamiento").value;
+  var montofin=document.getElementById("montocreditoarrendamiento").value.replace("$","").replace(/,/gi,"");
 
-  var totalafinanciar=document.getElementById("montocreditoarrendamiento").value-comisionapertura;
+  var totalafinanciar=montofin-comisionapertura;
 
   //tasa mensual es intRate
 
@@ -1316,40 +1332,45 @@ function Calculacreditoarrendamiento(){
   for(a=1;a<=months;a++){ 
 
   codigo+="<tr  class='table-warning'>"; 
-  codigo+="<td>"+falta.toFixed(2);+"<\/td>"; 
+  codigo+="<td>"+formatNumber.new(falta.toFixed(2),"$");+"<\/td>"; 
   sumbalance+=falta;
   //codigo+="<td>"+pago+"<\/td>";
   //sumpaprog+=pago;
   intereses=(falta*intRate);
   ivaintereses=(falta*intRate*0.16);
   capital=pago-(intereses+ivaintereses);
-  codigo+="<td>"+capital.toFixed(2);+"<\/td>";
+  codigo+="<td>"+formatNumber.new(capital.toFixed(2),"$");+"<\/td>";
   sumcap+=capital;
   interes=falta*intRate;
   codigo+="<td>"; 
-  codigo+=interes.toFixed(2);; 
+  codigo+=formatNumber.new(interes.toFixed(2),"$"); 
   codigo+="<\/td>"; 
   sumint+=interes;
   falta=falta-capital;
   codigo+="<td>"; 
-  codigo+=falta.toFixed(2); 
+  codigo+=formatNumber.new(falta.toFixed(2),"$"); 
   codigo+="<\/td>"; 
   sumbalncefin+=falta; 
 
   codigo+="<td>"; 
-  codigo+=ivaintereses.toFixed(2); 
+  codigo+=formatNumber.new(ivaintereses.toFixed(2),"$"); 
   codigo+="<\/td>"; 
   sumivaint+=ivaintereses;
 
+  /*codigo+="<td>";
+  if(a==1){codigo+=segurovida;}else{codigo+='0';}
+  codigo+="<\/td>";
+ */
   codigo+="<td>"; 
-  codigo+=pago.toFixed(2); 
+  //if(a==1){codigo+=(parseFloat(pago)+parseFloat(segurovida)).toFixed(2);}else{codigo+=pago.toFixed(2); }
+  codigo+=formatNumber.new(pago.toFixed(2),"$");
   codigo+="<\/td>"; 
   sumpatoprog+=pago; 
 
   codigo+="<\/tr>"; 
   }
   codigo+="<th> Total </th>";
-  codigo+="<tr><td></td><td>"+sumcap.toFixed(2)+"</td><td>"+sumint.toFixed(2)+"</td><td></td><td>"+sumivaint.toFixed(2)+"</td><td>"+sumpatoprog.toFixed(2)+"</td></tr>"; 
+  codigo+="<tr><td></td><td>"+formatNumber.new(sumcap.toFixed(2),"$")+"</td><td>"+formatNumber.new(sumint.toFixed(2),"$")+"</td><td></td><td>"+formatNumber.new(sumivaint.toFixed(2),"$")+"</td><td>"+formatNumber.new(sumpatoprog.toFixed(2),"$")+"</td></tr>"; 
   codigo+="<\/table>"; 
 
   CAT=(Math.pow(1+intRate,12)-1)*100+3;
@@ -1357,7 +1378,7 @@ function Calculacreditoarrendamiento(){
   //var cat = CAT.get(totalafinanciar, 0, pagtotal, document.getElementById("plazonomina").value, 12);
 
 
-  document.getElementById('resultadocreditoarrendamiento').innerHTML = '<br><br><br>Plazo:'+ document.getElementById("plazocreditoarrendamiento").value +' Meses<br>Monto solicitado: $' + document.getElementById("montocreditoarrendamiento").value + '<br>Comision por Apertura: $' + comisionapertura + '<br>Total a Financiar: $' + totalafinanciar + '<br>CAT: ' +CAT.toFixed(2)+'%<br>' + codigo; 
+  document.getElementById('resultadocreditoarrendamiento').innerHTML = '<br><br><br>Plazo:'+ document.getElementById("plazocreditoarrendamiento").value +' Meses<br>Monto solicitado: ' + document.getElementById("montocreditoarrendamiento").value + '<br>Comision por Apertura: ' + formatNumber.new(comisionapertura.toFixed(2),"$") + '<br>Total a Financiar: $' + formatNumber.new(totalafinanciar.toFixed(2),"$") + '<br>CAT: ' +CAT.toFixed(2)+'%<br>' + codigo; 
 
 
 
@@ -1370,11 +1391,11 @@ function Calculacreditofactoraje(){
   //document.getElementById('comisionnomina').value=(document.getElementById("montonomina").value*0.02).toFixed(2);
   var tasa=document.getElementById("seleccion").value;
   var tiempo=document.getElementById('plazocreditofactoraje').value;
-  var comisionapertura=document.getElementById("montocreditofactoraje").value*0.03;
+  var comisionapertura=document.getElementById("montocreditofactoraje").value.replace("$","").replace(/,/gi,"")*0.03;
 
-  var montofin=document.getElementById("montocreditofactoraje").value;
+  var montofin=document.getElementById("montocreditofactoraje").value.replace("$","").replace(/,/gi,"");
 
-  var totalafinanciar=document.getElementById("montocreditofactoraje").value-comisionapertura;
+  var totalafinanciar=montofin-comisionapertura;
 
   //tasa mensual es intRate
 
@@ -1415,40 +1436,45 @@ function Calculacreditofactoraje(){
   for(a=1;a<=months;a++){ 
 
   codigo+="<tr  class='table-warning'>"; 
-  codigo+="<td>"+falta.toFixed(2);+"<\/td>"; 
+  codigo+="<td>"+formatNumber.new(falta.toFixed(2),"$");+"<\/td>"; 
   sumbalance+=falta;
   //codigo+="<td>"+pago+"<\/td>";
   //sumpaprog+=pago;
   intereses=(falta*intRate);
   ivaintereses=(falta*intRate*0.16);
   capital=pago-(intereses+ivaintereses);
-  codigo+="<td>"+capital.toFixed(2);+"<\/td>";
+  codigo+="<td>"+formatNumber.new(capital.toFixed(2),"$");+"<\/td>";
   sumcap+=capital;
   interes=falta*intRate;
   codigo+="<td>"; 
-  codigo+=interes.toFixed(2);; 
+  codigo+=formatNumber.new(interes.toFixed(2),"$"); 
   codigo+="<\/td>"; 
   sumint+=interes;
   falta=falta-capital;
   codigo+="<td>"; 
-  codigo+=falta.toFixed(2); 
+  codigo+=formatNumber.new(falta.toFixed(2),"$"); 
   codigo+="<\/td>"; 
   sumbalncefin+=falta; 
 
   codigo+="<td>"; 
-  codigo+=ivaintereses.toFixed(2); 
+  codigo+=formatNumber.new(ivaintereses.toFixed(2),"$"); 
   codigo+="<\/td>"; 
   sumivaint+=ivaintereses;
 
+  /*codigo+="<td>";
+  if(a==1){codigo+=segurovida;}else{codigo+='0';}
+  codigo+="<\/td>";
+ */
   codigo+="<td>"; 
-  codigo+=pago.toFixed(2); 
+  //if(a==1){codigo+=(parseFloat(pago)+parseFloat(segurovida)).toFixed(2);}else{codigo+=pago.toFixed(2); }
+  codigo+=formatNumber.new(pago.toFixed(2),"$");
   codigo+="<\/td>"; 
   sumpatoprog+=pago; 
 
   codigo+="<\/tr>"; 
   }
   codigo+="<th> Total </th>";
-  codigo+="<tr><td></td><td>"+sumcap.toFixed(2)+"</td><td>"+sumint.toFixed(2)+"</td><td></td><td>"+sumivaint.toFixed(2)+"</td><td>"+sumpatoprog.toFixed(2)+"</td></tr>"; 
+  codigo+="<tr><td></td><td>"+formatNumber.new(sumcap.toFixed(2),"$")+"</td><td>"+formatNumber.new(sumint.toFixed(2),"$")+"</td><td></td><td>"+formatNumber.new(sumivaint.toFixed(2),"$")+"</td><td>"+formatNumber.new(sumpatoprog.toFixed(2),"$")+"</td></tr>"; 
   codigo+="<\/table>"; 
 
   CAT=(Math.pow(1+intRate,12)-1)*100+3;
@@ -1456,7 +1482,7 @@ function Calculacreditofactoraje(){
   //var cat = CAT.get(totalafinanciar, 0, pagtotal, document.getElementById("plazonomina").value, 12);
 
 
-  document.getElementById('resultadocreditofactoraje').innerHTML = '<br><br><br>Plazo:'+ document.getElementById("plazocreditofactoraje").value +' Meses<br>Monto solicitado: $' + document.getElementById("montocreditofactoraje").value + '<br>Comision por Apertura: $' + comisionapertura + '<br>Total a Financiar: $' + totalafinanciar + '<br>CAT: ' +CAT.toFixed(2)+'%<br>' + codigo; 
+  document.getElementById('resultadocreditofactoraje').innerHTML = '<br><br><br>Plazo:'+ document.getElementById("plazocreditofactoraje").value +' Meses<br>Monto solicitado: ' + document.getElementById("montocreditofactoraje").value + '<br>Comision por Apertura: ' + formatNumber.new(comisionapertura.toFixed(2),"$") + '<br>Total a Financiar: ' + formatNumber.new(totalafinanciar.toFixed(2),"$") + '<br>CAT: ' +CAT.toFixed(2)+'%<br>' + codigo; 
 
 
 
@@ -1469,11 +1495,11 @@ function Calculacreditoquirografario(){
   //document.getElementById('comisionnomina').value=(document.getElementById("montonomina").value*0.02).toFixed(2);
   var tasa=document.getElementById("seleccion").value;
   var tiempo=document.getElementById('plazocreditoquirografario').value;
-  var comisionapertura=document.getElementById("montocreditoquirografario").value*0.03;
+  var comisionapertura=document.getElementById("montocreditoquirografario").value.replace("$","").replace(/,/gi,"")*0.03;
 
-  var montofin=document.getElementById("montocreditoquirografario").value;
+  var montofin=document.getElementById("montocreditoquirografario").value.replace("$","").replace(/,/gi,"");
 
-  var totalafinanciar=document.getElementById("montocreditoquirografario").value-comisionapertura;
+  var totalafinanciar=montofin-comisionapertura;
 
   //tasa mensual es intRate
 
@@ -1514,40 +1540,45 @@ function Calculacreditoquirografario(){
   for(a=1;a<=months;a++){ 
 
   codigo+="<tr  class='table-warning'>"; 
-  codigo+="<td>"+falta.toFixed(2);+"<\/td>"; 
+  codigo+="<td>"+formatNumber.new(falta.toFixed(2),"$");+"<\/td>"; 
   sumbalance+=falta;
   //codigo+="<td>"+pago+"<\/td>";
   //sumpaprog+=pago;
   intereses=(falta*intRate);
   ivaintereses=(falta*intRate*0.16);
   capital=pago-(intereses+ivaintereses);
-  codigo+="<td>"+capital.toFixed(2);+"<\/td>";
+  codigo+="<td>"+formatNumber.new(capital.toFixed(2),"$");+"<\/td>";
   sumcap+=capital;
   interes=falta*intRate;
   codigo+="<td>"; 
-  codigo+=interes.toFixed(2);; 
+  codigo+=formatNumber.new(interes.toFixed(2),"$"); 
   codigo+="<\/td>"; 
   sumint+=interes;
   falta=falta-capital;
   codigo+="<td>"; 
-  codigo+=falta.toFixed(2); 
+  codigo+=formatNumber.new(falta.toFixed(2),"$"); 
   codigo+="<\/td>"; 
   sumbalncefin+=falta; 
 
   codigo+="<td>"; 
-  codigo+=ivaintereses.toFixed(2); 
+  codigo+=formatNumber.new(ivaintereses.toFixed(2),"$"); 
   codigo+="<\/td>"; 
   sumivaint+=ivaintereses;
 
+  /*codigo+="<td>";
+  if(a==1){codigo+=segurovida;}else{codigo+='0';}
+  codigo+="<\/td>";
+ */
   codigo+="<td>"; 
-  codigo+=pago.toFixed(2); 
+  //if(a==1){codigo+=(parseFloat(pago)+parseFloat(segurovida)).toFixed(2);}else{codigo+=pago.toFixed(2); }
+  codigo+=formatNumber.new(pago.toFixed(2),"$");
   codigo+="<\/td>"; 
   sumpatoprog+=pago; 
 
   codigo+="<\/tr>"; 
   }
   codigo+="<th> Total </th>";
-  codigo+="<tr><td></td><td>"+sumcap.toFixed(2)+"</td><td>"+sumint.toFixed(2)+"</td><td></td><td>"+sumivaint.toFixed(2)+"</td><td>"+sumpatoprog.toFixed(2)+"</td></tr>"; 
+  codigo+="<tr><td></td><td>"+formatNumber.new(sumcap.toFixed(2),"$")+"</td><td>"+formatNumber.new(sumint.toFixed(2),"$")+"</td><td></td><td>"+formatNumber.new(sumivaint.toFixed(2),"$")+"</td><td>"+formatNumber.new(sumpatoprog.toFixed(2),"$")+"</td></tr>"; 
   codigo+="<\/table>"; 
 
   CAT=(Math.pow(1+intRate,12)-1)*100+3;
@@ -1555,7 +1586,7 @@ function Calculacreditoquirografario(){
   //var cat = CAT.get(totalafinanciar, 0, pagtotal, document.getElementById("plazonomina").value, 12);
 
 
-  document.getElementById('resultadocreditoquirografario').innerHTML = '<br><br><br>Plazo:'+ document.getElementById("plazocreditoquirografario").value +' Meses<br>Monto solicitado: $' + document.getElementById("montocreditoquirografario").value + '<br>Comision por Apertura: $' + comisionapertura + '<br>Total a Financiar: $' + totalafinanciar + '<br>CAT: ' +CAT.toFixed(2)+'%<br>' + codigo; 
+  document.getElementById('resultadocreditoquirografario').innerHTML = '<br><br><br>Plazo:'+ document.getElementById("plazocreditoquirografario").value +' Meses<br>Monto solicitado: ' + document.getElementById("montocreditoquirografario").value + '<br>Comision por Apertura: ' + formatNumber.new(comisionapertura.toFixed(2),"$") + '<br>Total a Financiar: ' + formatNumber.new(totalafinanciar.toFixed(2),"$") + '<br>CAT: ' +CAT.toFixed(2)+'%<br>' + codigo; 
 
 
 
@@ -1583,10 +1614,10 @@ var formatNumber = {
  }
 }
 
-function formatodenumero(){
-  alert("entra");
-  //var numFinal = formatNumber.new(value,"$");
-  //document.getElementById(element).value=numFinal;
+function formatodenumero(id,valor){
+  //alert(valor);
+  var numFinal = formatNumber.new(valor,"$");
+  document.getElementById(id).value=numFinal;
   //return numFinal;
 }
 
@@ -1616,7 +1647,7 @@ function formatodenumero(){
         </tr>
 
          <tr>
-                <td> Monto a solicitar sfdsfsfs  <input type="text" name="montocreditoquirografario" id="montocreditoquirografario" onChange="formatodenumero()" onkeyup="if(event.keyCode == 9 || event.keyCode == 13) formatodenumero()"></td>
+                <td> Monto a solicitar  <input type="text" name="montocreditoquirografario" id="montocreditoquirografario" onChange="formatodenumero(this.id,this.value)" onfocus="this.select()"></td>
                  <td>Frecuencia de pago <select name="frecpagocreditoquirografario" id="frecpagocreditoquirografario"><option value="12">Mensual</option></select> </td>
                   <td style="display:none">Seguro de desempleo <input> <select><option>No aplica</option> <option>unico pago al inicio</option> <option>Gratuito</option></select> </td>
         </tr>
@@ -1659,7 +1690,7 @@ function formatodenumero(){
         </tr>
 
          <tr>
-                <td> Monto a solicitar  <input type="number" name="montocreditofactoraje" id="montocreditofactoraje" ></td>
+                <td> Monto a solicitar  <input type="text" name="montocreditofactoraje" id="montocreditofactoraje" onChange="formatodenumero(this.id,this.value)" onfocus="this.select()"></td>
                  <td>Frecuencia de pago <select name="frecpagocreditofactoraje" id="frecpagocreditofactoraje"><option value="12">Mensual</option></select> </td>
                   <td style="display:none">Seguro de desempleo <input> <select><option>No aplica</option> <option>unico pago al inicio</option> <option>Gratuito</option></select> </td>
         </tr>
@@ -1701,7 +1732,7 @@ function formatodenumero(){
         </tr>
 
          <tr>
-                <td> Monto a solicitar  <input type="number" name="montocreditoarrendamiento" id="montocreditoarrendamiento" ></td>
+                <td> Monto a solicitar  <input type="text" name="montocreditoarrendamiento" id="montocreditoarrendamiento" onChange="formatodenumero(this.id,this.value)" onfocus="this.select()" ></td>
                  <td>Frecuencia de pago <select name="frecpagocreditoarrendamiento" id="frecpagocreditoarrendamiento"><option value="12">Mensual</option></select> </td>
                   <td style="display:none">Seguro de desempleo <input> <select><option>No aplica</option> <option>unico pago al inicio</option> <option>Gratuito</option></select> </td>
         </tr>
@@ -1746,7 +1777,7 @@ function formatodenumero(){
         </tr>
 
          <tr>
-                <td> Monto a solicitar  <input type="number" name="montocreditorefaccionario" id="montocreditorefaccionario" ></td>
+                <td> Monto a solicitar  <input type="text" name="montocreditorefaccionario" id="montocreditorefaccionario" onChange="formatodenumero(this.id,this.value)" onfocus="this.select()"></td>
                  <td>Frecuencia de pago <select name="frecpagocreditorefaccionario" id="frecpagocreditorefaccionario"><option value="12">Mensual</option></select> </td>
                   <td style="display:none">Seguro de desempleo <input> <select><option>No aplica</option> <option>unico pago al inicio</option> <option>Gratuito</option></select> </td>
         </tr>
@@ -1789,7 +1820,7 @@ function formatodenumero(){
         </tr>
 
          <tr>
-                <td> Monto a solicitar  <input type="number" name="montocreditohipotecario" id="montocreditohipotecario" ></td>
+                <td> Monto a solicitar  <input type="text" name="montocreditohipotecario" id="montocreditohipotecario" onChange="formatodenumero(this.id,this.value)" onfocus="this.select()"></td>
                  <td>Frecuencia de pago <select name="frecpagocreditohipotecario" id="frecpagocreditohipotecario"><option value="12">Mensual</option></select> </td>
                   <td style="display:none">Seguro de desempleo <input> <select><option>No aplica</option> <option>unico pago al inicio</option> <option>Gratuito</option></select> </td>
         </tr>
@@ -1833,7 +1864,7 @@ function formatodenumero(){
         </tr>
 
          <tr>
-                <td> Monto a solicitar  <input type="number" name="montocreditoghipotecaria" id="montocreditoghipotecaria" ></td>
+                <td> Monto a solicitar  <input type="text" name="montocreditoghipotecaria" id="montocreditoghipotecaria" onChange="formatodenumero(this.id,this.value)" onfocus="this.select()" ></td>
                  <td>Frecuencia de pago <select name="frecpagocreditoghipotecaria" id="frecpagocreditoghipotecaria"><option value="12">Mensual</option></select> </td>
                   <td style="display:none">Seguro de desempleo <input> <select><option>No aplica</option> <option>unico pago al inicio</option> <option>Gratuito</option></select> </td>
         </tr>
@@ -1874,7 +1905,7 @@ function formatodenumero(){
         </tr>
 
          <tr>
-                <td> Monto a solicitar  <input type="number" name="montocreditosimple" id="montocreditosimple" ></td>
+                <td> Monto a solicitar  <input type="text" name="montocreditosimple" id="montocreditosimple" onChange="formatodenumero(this.id,this.value)" onfocus="this.select()"></td>
                  <td>Frecuencia de pago <select name="frecpagocreditosimple" id="frecpagocreditosimple"><option value="12">Mensual</option></select> </td>
                   <td style="display:none">Seguro de desempleo <input> <select><option>No aplica</option> <option>unico pago al inicio</option> <option>Gratuito</option></select> </td>
         </tr>
@@ -1911,10 +1942,10 @@ function formatodenumero(){
         </tr>
 
          <tr>
-                <td> Monto a solicitar <input type="text" name="montonomina" id="montonomina" ></td>
+                <td> Monto a solicitar <input type="text" name="montonomina" id="montonomina" onChange="formatodenumero(this.id,this.value)" onfocus="this.select()"></td>
                  <td>Frecuencia de pago <select name="frecpagonomina" id="frecpagonomina"><option value="12">Mensual</option></select> </td>
                   <!--<td style="display:none">Seguro de desempleo <input> <select><option>No aplica</option> <option>unico pago al inicio</option> <option>Gratuito</option></select> </td>-->
-                  <td >Seguro de vida  <input type="number" name="segurovidanomina" id="segurovidanomina"> <select name="seleccion"><!--<option value="noaplica">no aplica</option>--> <option>unico pago al inicio</option>  </select></td>
+                  <td >Seguro de vida  <input type="text" name="segurovidanomina" id="segurovidanomina" onChange="formatodenumero(this.id,this.value)" onfocus="this.select()"> <select name="seleccion"><!--<option value="noaplica">no aplica</option>--> <option>unico pago al inicio</option>  </select></td>
         </tr>
 
 
