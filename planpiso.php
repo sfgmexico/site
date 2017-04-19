@@ -176,7 +176,7 @@ Interes diario
           <th>Interes a la fecha</th>
 
 
-
+</tr>
 <? 
 function hbz_day_counter($fecha) {
 
