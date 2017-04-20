@@ -177,6 +177,7 @@ Interes diario
 
 
 </tr>
+<br>
 <? 
 function hbz_day_counter($fecha) {
 
@@ -196,9 +197,10 @@ return round(($today - $start_ts)/(60*60*24))+1 ;
 }
 
   $result=mysqli_query($cnx,"select * from ficha");
-
+$sum=0;
 while($row=mysqli_fetch_array($result)){
   $inter=$row['Interes']*(hbz_day_counter($row['Fecha_prestamo'])-$row['Dias_gracia']);
+  $sum +=$inter;
 if( $inter <= 0){ $inter=0; }
  echo 
  " <tr>
@@ -215,15 +217,28 @@ if( $inter <= 0){ $inter=0; }
       }
     
       echo "</table>";
+echo "    <br>
+     <br>
+<table>
+  <tr>
+    <td> Subtotal</td>
+        <td>". $sum . "</td>
+  </tr>
+ <tr>
+   <td>IVA </td>
+       <td>". $sum * 0.16 . " </td>
+ </tr>
+  <tr>
+    <td> Total </td>
+        <td>".  $sum*1.16 ." </td>
+  </tr>
+</table>";
       
       
-     
-
-
-     
-     
-     
      ?>
+ 
+
+
 </body>
 
 </html>
