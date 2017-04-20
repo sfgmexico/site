@@ -177,7 +177,7 @@ Interes diario
 
 
 </tr>
-<? 
+<?php  
 function hbz_day_counter($fecha) {
 
 $today = strtotime(date("Y-m-d")); //Today
