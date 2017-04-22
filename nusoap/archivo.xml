@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Consulta xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ConsultaBC.xsd">
+  <libros>
+    <item>texto dentro del item</item>
+  </libros>
+</Consulta>
