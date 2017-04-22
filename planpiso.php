@@ -128,7 +128,12 @@ function tasaR(){
 //alert(tasaD);
 
 }
+function comprueba(){
+
+  alert("prueba");
+}
   </script>
+}
 <form name="form" id="form" action=""  method="post" >
   
 <br>
@@ -155,12 +160,13 @@ Dias de gracia
 <label for="to">to</label>
 <input type="text" id="to" name="to" > -->
 Interes diario 
+  <input name="int" id="int" readonly>
 <br>
 
 
       <input type="submit"  id="dia" name="dia" value="Guardar"> 
       <br>
-      <input name="int" id="int" readonly>
+    
 </form>
 
 
@@ -173,11 +179,8 @@ Interes diario
       <th>Fecha de prestamo</th>
        <th>Dias de gracia </th>
          <th>Interes diario</th>
-          <th>Interes a la fecha</th>
-
-
+          <th>Interes al dia de hoy </th>
 </tr>
-<<<<<<< HEAD
 <br>
 <?php  
 
@@ -199,6 +202,7 @@ return round(($today - $start_ts)/(60*60*24))+1 ;
 }
 
   $result=mysqli_query($cnx,"select * from ficha");
+
 $sum=0;
 while($row=mysqli_fetch_array($result)){
   $inter=$row['Interes']*(hbz_day_counter($row['Fecha_prestamo'])-$row['Dias_gracia']);
@@ -206,6 +210,7 @@ while($row=mysqli_fetch_array($result)){
 if( $inter <= 0){ $inter=0; }
  echo 
  " <tr>
+
     <td>" .$row['Automovil']."</td>
     <td>".$row['No_chasis']."</td>
     <td>".$row['Tasa']."</td>
@@ -238,9 +243,188 @@ echo "    <br>
       
       
      ?>
+ <input type="button" name="pagar"  value="Pagar Automovil">
+<input type="button" name="reporte" value="Pagar Intereses">
+
+
+
+
+<style>
+    label, input { display:block; }
+    input.text { margin-bottom:12px; width:95%; padding: .4em; }
+    fieldset { padding:0; border:0; margin-top:25px; }
+    h1 { font-size: 1.2em; margin: .6em 0; }
+    div#users-contain { width: 350px; margin: 20px 0; }
+    div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
+    div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
+    .ui-dialog .ui-state-error { padding: .3em; }
+    .validateTips { border: 1px solid transparent; padding: 0.3em; }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    var dialog, form,
  
+      // From http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state-%28type=email%29
+      emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
+      name = $( "#name" ),
+      email = $( "#email" ),
+      password = $( "#password" ),
+      allFields = $( [] ).add( name ).add( email ).add( password ),
+      tips = $( ".validateTips" );
+ 
+    function updateTips( t ) {
+      tips
+        .text( t )
+        .addClass( "ui-state-highlight" );
+      setTimeout(function() {
+        tips.removeClass( "ui-state-highlight", 1500 );
+      }, 500 );
+    }
+ 
+    function checkLength( o, n, min, max ) {
+      if ( o.val().length > max || o.val().length < min ) {
+        o.addClass( "ui-state-error" );
+        updateTips( "Length of " + n + " must be between " +
+          min + " and " + max + "." );
+        return false;
+      } else {
+        return true;
+      }
+    }
+ 
+    function checkRegexp( o, regexp, n ) {
+      if ( !( regexp.test( o.val() ) ) ) {
+        o.addClass( "ui-state-error" );
+        updateTips( n );
+        return false;
+      } else {
+        return true;
+      }
+    }
+ 
+    function addUser() {
+      var valid = true;
+      allFields.removeClass( "ui-state-error" );
+ 
+      valid = valid && checkLength( name, "username", 3, 16 );
+      valid = valid && checkLength( email, "email", 6, 80 );
+      valid = valid && checkLength( password, "password", 5, 16 );
+ 
+      valid = valid && checkRegexp( name, /^[a-z]([0-9a-z_\s])+$/i, "Username may consist of a-z, 0-9, underscores, spaces and must begin with a letter." );
+      valid = valid && checkRegexp( email, emailRegex, "eg. ui@jquery.com" );
+      valid = valid && checkRegexp( password, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
+ 
+      if ( valid ) {
+        $( "#users tbody" ).append( "<tr>" +
+          "<td>" + name.val() + "</td>" +
+          "<td>" + email.val() + "</td>" +
+          "<td>" + password.val() + "</td>" +
+        "</tr>" );
+        dialog.dialog( "close" );
+      }
+      return valid;
+    }
+ 
+    dialog = $( "#dialog-form" ).dialog({
+      autoOpen: false,
+      height: 400,
+      width: 350,
+      modal: true,
+      buttons: {
+        "Create an account": addUser,
+        Cancel: function() {
+          dialog.dialog( "close" );
+        }
+      },
+      close: function() {
+        form[ 0 ].reset();
+        allFields.removeClass( "ui-state-error" );
+      }
+    });
+ 
+    form = dialog.find( "form" ).on( "submit", function( event ) {
+      event.preventDefault();
+      addUser();
+    });
+ 
+    $( "#create-user" ).button().on( "click", function() {
+      dialog.dialog( "open" );
+    });
+  } );
+  </script>
+</head>
+<body>
+ 
+<div id="dialog-form" >
+  
+ 
+  <form>
+    <fieldset>
+    <div id="users-contain" class="ui-widget">
+    <table id="users" class="ui-widget ui-widget-content">
+<tr class="ui-widget-header">
+  <th>Automovil</th>
+   <th>No de chasis</th>
+  
+</tr>
+<br>
+ <?php
+ $result1=mysqli_query($cnx,"select * from ficha");
+ $sum1=0;
 
+      while($row1=mysqli_fetch_array($result1)){
+  $inter1=$row1['Interes']*(hbz_day_counter($row1['Fecha_prestamo'])-$row1['Dias_gracia']);
+  $sum1 +=$inter1;
+if( $inter1 <= 0){ $inter1=0; }
+ echo 
+ " 
+    <tbody> 
+ <tr >
 
+    <td type='button' onclick='comprueba()'>" .$row1['Automovil']."</td>
+    <td type='button' onclick='comprueba()'>".$row1['No_chasis']."</td>
+  
+  </tr>
+   </tbody>
+   </div>
+  ";
+
+      }
+    
+      echo "</table>";
+
+      
+      
+     ?>
+      <!-- Allow form submission with keyboard without duplicating the dialog button -->
+
+    </fieldset>
+  </form>
+</div>
+ 
+ 
+<div id="users-contain" class="ui-widget">
+  <h1>Existing Users:</h1>
+  <table id="users" class="ui-widget ui-widget-content">
+    <thead>
+      <tr class="ui-widget-header ">
+        <th>Name</th>
+        <th>Email</th>
+        <th>Password</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John Doe</td>
+        <td>john.doe@example.com</td>
+        <td>johndoe1</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<button id="create-user">Create new user</button>
 </body>
 
 </html>
