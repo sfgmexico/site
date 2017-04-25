@@ -639,7 +639,12 @@ if ($row1[$j]=="") {
   }
 }
 ?>
+<tr>
+<td>Consulta Buró de Crédito</td>
+<td class="callout warning">Pendiente <input type="button" value="Consultar" id="consultaburo" name="consultaburo" <input type="button" value="Nueva ventana" onclick="javascript:window.open('ejemploxml.php?folio_request=<?php echo $solicitudNo ?>','','width=600,height=400,left=50,top=50,toolbar=No');"></td>
+</tr>
   </table> 
+
   <h3>Comentarios</h3>
 <input id="comentario" name="comentario"class="form-control"  >
 <div class="container">
