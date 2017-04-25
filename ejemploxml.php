@@ -1,11 +1,6 @@
 <?php 
 if (isset($_REQUEST['folio_request'])){
-echo "entra isset";
-}else{
-    echo "<h1 ALIGN=center>Error - Violación de seguridad</h1><div ALIGN='center'><IMG  SRC='http://files.viewranger.com/image/c7f1e57127751d593f9619526ea2d0b1.jpg'></div>";
-    exit();
-}
-$folio_solicitud=$_REQUEST['folio_request'];
+    $folio_solicitud=$_REQUEST['folio_request'];
 
 
 $xml = new DomDocument('1.0', 'ISO-8859-1');
@@ -287,5 +282,10 @@ $xml->formatOutput = true;
 $el_xml = $xml->saveXML();
 $xml->save('archivo.xml');
 echo htmlentities($el_xml);
+}else{
+    echo "<h1 ALIGN=center>Error - Violación de seguridad</h1><div ALIGN='center'><IMG  SRC='http://files.viewranger.com/image/c7f1e57127751d593f9619526ea2d0b1.jpg'></div>";
+    exit();
+}
+
 
 ?>
