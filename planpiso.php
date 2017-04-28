@@ -31,9 +31,10 @@ else{mysqli_query($cnx,"insert into ficha(Automovil,No_chasis,Tasa,Importe,Fecha
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Financiera| Bienvenido</title>
   <link rel="stylesheet" href="js/jquery-ui/jquery-ui.css">
-
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+ <script src="js/jquery-ui/jquery-ui.js"></script>
+<script src="js/vendor/jquery.js"></script>
+<script src="planfunciones.js"></script>
+ 
   </head>
   <body>
 <style type="text/css">
@@ -63,77 +64,25 @@ else{mysqli_query($cnx,"insert into ficha(Automovil,No_chasis,Tasa,Importe,Fecha
    font-weight: bold;
 }
 
-</style>
-<script>
-var f=new Date();
-var ano = f.getFullYear();
-var mes = f.getMonth();
-var dia = f.getDate();
-var estiloDia;
-var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
-var diasSemana = new Array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
-var diasMes = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
-var diaMaximo = diasMes[mes];
-if (mes == 1 && (((ano % 4 == 0) && (ano % 100 != 0)) || (ano % 400 == 0)))
-   diaMaximo = 29;
-document.write('<div class="mifecha2">');
-document.write('<div class="mesano">' + meses[mes] + ' ' + ano + ':</div>');
 
-for (i=1; i<=diaMaximo; i++){
-   if(i == dia)
-      estiloDia = "diaactual";
-   else
-      estiloDia = "dia";
-   document.write('<div class="' + estiloDia + '">' + i + '</div>');
-}   
-document.write('</div>');
+    label, input { display:block; }
+    input.text { margin-bottom:12px; width:95%; padding: .4em; }
+    fieldset { padding:0; border:0; margin-top:25px; }
+    h1 { font-size: 1.2em; margin: .6em 0; }
+    div#users-contain { width: 450px; margin: 20px 0; }
+    div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
+    div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .3em 20px; text-align: left; }
+    .ui-dialog .ui-state-error { padding: .3em; }
+    .validateTips { border: 1px solid transparent; padding: 0.3em; }
+  </style>
+<script>
+
 </script>
 
 <script type="text/javascript">
-   $( function() {
-  
-      $( "#from" ).datepicker({ dateFormat:'yy-mm-dd',changeMonth: true,changeYear: true});
    
-  } );
-
- function restaFechas()
- {
-   var f1 = document.getElementById("from").value;
-var f2=document.getElementById("to").value;
- var aFecha1 = f1.split('/'); 
- var aFecha2 = f2.split('/'); 
- var fFecha1 = Date.UTC(aFecha1[2],aFecha1[0],aFecha1[1]-1); 
- var fFecha2 = Date.UTC(aFecha2[2],aFecha2[0],aFecha2[1]-1); 
- var dif = fFecha2 - fFecha1;
- var dias = Math.floor(dif / (1000 * 60 * 60 * 24)); 
- return dias;
- //alert (dias);
-
- }
-
-function tasaR(){
-
-  var tas=document.getElementById("tasa").value;
-  var Importe=document.getElementById("importe").value;
-  var tasaM=(tas/12)/100;
-  var tasaD=(tas/365)/100;
-  var intdiario=0;
-  intdiario=(Importe*tasaD);
-  var a=document.getElementById("auto").value;
-    var c=document.getElementById("chasis").value;
-
-  document.getElementById("int").value= intdiario.toFixed(2);
-  //alert(intdiario.toFixed(2));
-//alert(tasaM);
-//alert(tasaD);
-
-}
-function comprueba(){
-
-  alert("prueba");
-}
   </script>
-}
+
 <form name="form" id="form" action=""  method="post" >
   
 <br>
@@ -144,16 +93,16 @@ No. de chasis
 <input name="chasis" id="chasis" >
 <br>
 Tasa anual
-<input name="tasa" type="text" id="tasa">
+<input name="tasa" type="text" id="tasa" >
 <br>
 Importe
-<input name="importe" onchange="tasaR()" type="text" id="importe" >
+<input name="importe" onChange="formatodenumero(this.id,this.value)" type="text" id="importe" >
 <br>
 <label for="from">Fecha de prestamo</label>
 <input type="text" id="from" name="from" >
 <br>
 Dias de gracia
-<input name="gracia" >
+<input name="gracia" onchange="tasaR()">
 <br>
 <!-- <label for="from">From</label>
 <input type="text" id="from" name="from" >
@@ -169,9 +118,9 @@ Interes diario
     
 </form>
 
-
-<table border="2" >
-<tr>
+<div id="users-contain" class="ui-widget">
+<table class="ui-widget ui-widget-content">
+<tr class="ui-widget-header ">
   <th>Automovil</th>
    <th>No de chasis</th>
     <th>Tasa</th>
@@ -197,162 +146,346 @@ $extra_days = (((date('Y')-$year)/4));
 }
 $extra_days = round($extra_days);
 */
-return round(($today - $start_ts)/(60*60*24))+1 ;
+return round(($today - $start_ts)/(60*60*24)) ;
 
 }
 
   $result=mysqli_query($cnx,"select * from ficha");
 
 $sum=0;
+
 while($row=mysqli_fetch_array($result)){
   $inter=$row['Interes']*(hbz_day_counter($row['Fecha_prestamo'])-$row['Dias_gracia']);
   $sum +=$inter;
 if( $inter <= 0){ $inter=0; }
  echo 
- " <tr>
+ "
+   <tbody> 
+ <tr>
 
     <td>" .$row['Automovil']."</td>
     <td>".$row['No_chasis']."</td>
     <td>".$row['Tasa']."</td>
-    <td>".$row['Importe']."</td>
+    <td>$".number_format($row['Importe'],2,'.',',')."</td>
     <td>".$row['Fecha_prestamo']."</td>
     <td>".$row['Dias_gracia']."</td>
-    <td>".$row['Interes']."</td>
-    <td>".$inter."</td>
-  </tr>";
+    <td>$".number_format($row['Interes'],2,'.',',')."</td>
+    <td>$".number_format($inter,2,'.',',')."</td>
+  </tr>
+  </tbody>
+  ";
 
       }
     
-      echo "</table>";
-echo "    <br>
+      echo "</table> </div>"; ?>
+
+ <script>
+  $( function() {
+    $( "#tabs" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
+    $( "#tabs li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
+  } );
+  </script>
+  <style>
+  .ui-tabs-vertical { width: 75em; }
+  .ui-tabs-vertical .ui-tabs-nav { padding: .2em .1em .2em .2em; float: left; width: 12em; }
+  .ui-tabs-vertical .ui-tabs-nav li { clear: left; width: 100%; border-bottom-width: 5px !important; border-right-width: 0 !important; margin: 0 -1px .2em 0; }
+  .ui-tabs-vertical .ui-tabs-nav li a { display:block; }
+  .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0; padding-right: .1em; border-right-width: 1px; }
+  .ui-tabs-vertical .ui-tabs-panel { padding: .1em; float: right; width: 60em;}
+  </style>
+</head>
+
+ 
+<div id="tabs">
+  <ul>
+    <li><a href="#tabs-1">Primer Cuatrimestre</a></li>
+    <li><a href="#tabs-2">Segundor Cuatrimestre</a></li>
+    <li><a href="#tabs-3">Tercero Cuatrimestre</a></li>
+  </ul>
+  <div id="tabs-1">
+ <?php
+echo "
+<div id='users-contain' class='ui-widget'>
+<h1>Intereses ".date('Y')."</h1>
+<table class='ui-widget ui-widget-content'>
+<tr class='ui-widget-header'>
+
+        <th>Automovil</th>
+        <th>Chasis</th>
+        <th>Enero</th>
+        <th>Febrero</th>
+        <th>Marzo</th>
+        <th>Abril</th>
+        <th>Total</th>
+    
+        </tr>
+        <tr>"
+        ;
+  $result2=mysqli_query($cnx,"select * from ficha");
+$mes=01;
+while($row2=mysqli_fetch_array($result2)){
+echo "<tr>
+ <td>". $row2['Automovil'] ." </td>
+        <td>". $row2['No_chasis'] ." </td>
+
+";
+$suma=0;
+for ($i=1; $i<=4 ; $i++) { 
+
+if (date('m')>= $i) {
+ echo "  
+        <td>".fechaspro($i,date('Y'),$row2['Interes'],$row2['Fecha_prestamo'],$row2['fecha_pago'],$row2['Dias_gracia'])."</td>
+
+    ";
+    $suma+=fechaspro($i,date('Y'),$row2['Interes'],$row2['Fecha_prestamo'],$row2['fecha_pago'],$row2['Dias_gracia']);
+          } 
+        }
+        echo "<td>". $suma  ." </td>"; 
+
+    }
+echo "
+</tr>
+      </table>
+      </div>
+<br><br><br><br><br><br><br><br>";
+ ?>
+  </div>
+  <div id="tabs-2">
+   <?php
+echo "
+<div id='users-contain' class='ui-widget'>
+<h1>Intereses ".date('Y')."</h1>
+<table class='ui-widget ui-widget-content'>
+<tr class='ui-widget-header'>
+            <th>Automovil</th>
+        <th>Chasis</th>
+        <th>Mayo</th>
+        <th>Junio</th>
+        <th>Julio</th>
+        <th>Agosto</th>
+           <th>Total</th>
+        </tr>
+        <tr>"
+        ;
+  $result2=mysqli_query($cnx,"select * from ficha");
+
+while($row2=mysqli_fetch_array($result2)){
+echo "<tr>";
+$suma=0;
+echo "<td>". $row2['Automovil'] ." </td>
+        <td>". $row2['No_chasis'] ." </td>";
+for ($i=5; $i<=8 ; $i++) { 
+  # code...
+if (date('m')>= $i) {
+ echo "  
+        <td>".fechaspro($i,date('Y'),$row2['Interes'],$row2['Fecha_prestamo'],$row2['fecha_pago'],$row2['Dias_gracia'])."</td>
+
+    ";
+          $suma+=fechaspro($i,date('Y'),$row2['Interes'],$row2['Fecha_prestamo'],$row2['fecha_pago'],$row2['Dias_gracia']);
+          } 
+        }
+        echo "<td>". $suma  ." </td>"; 
+
+    }
+echo "
+</tr>
+      </table>
+      </div>
+<br><br><br><br><br><br><br><br>";
+ ?>
+
+  </div>
+  <div id="tabs-3">
+  <?php
+echo "
+<div id='users-contain' class='ui-widget'>
+<h1>Intereses ".date('Y')."</h1>
+<table class='ui-widget ui-widget-content'>
+<tr class='ui-widget-header'>
+    <th>Automovil</th>
+        <th>Chasis</th>
+        <th>Septiembre</th>
+        <th>Octubre</th>
+        <th>Noviembre</th>
+        <th>Diciembre</th>
+           <th>Total</th>
+        </tr>
+        <tr>"
+        ;
+  $result2=mysqli_query($cnx,"select * from ficha");
+
+while($row2=mysqli_fetch_array($result2)){
+echo "<tr>";
+$suma=0;
+echo " <td>". $row2['Automovil'] ." </td>
+        <td>". $row2['No_chasis'] ." </td>";
+for ($i=9; $i<=12 ; $i++) { 
+  # code...
+if (date('m')>= $i) {
+ echo "   
+        <td>".fechaspro($i,date('Y'),$row2['Interes'],$row2['Fecha_prestamo'],$row2['fecha_pago'],$row2['Dias_gracia'])."</td>
+
+    ";
+       $suma+=fechaspro($i,date('Y'),$row2['Interes'],$row2['Fecha_prestamo'],$row2['fecha_pago'],$row2['Dias_gracia']);
+          } 
+        }
+        echo "<td>". $suma  ." </td>"; 
+
+    }
+echo "
+</tr>
+      </table>
+      </div>
+<br><br><br><br><br><br><br><br>";
+ ?>
+
+  </div>
+</div>
+<?php
+function fechaspro($month,$year,$int,$fini,$fend,$gracia){
+    $compaño=date_create($fini);
+     $fecha=date_create($fini);
+    $fecha2=date_add($fecha, date_interval_create_from_date_string($gracia.' days'));
+  
+  
+        if ($year == (date_format(date_create($fend),'Y'))) {
+          if ($month > date_format(date_create($fend),'m')   ) { 
+   
+           return "fin de calculo de interes";
+      
+        }
+  if($month==date_format(date_create($fend),'m')){
+     if(date_format($fecha2,'Y-m-d') > date_format(date_create($fend),'Y-m-d') ){
+
+            goto fun;
+          }
+           $comparacion=date("d",(mktime(0,0,0,$month+1,1,$year)-1))-date_format($fecha, 'd')  ;
+               $entre= date("d",(mktime(0,0,0,$month+1,1,$year)-1))- date_format(date_create($fend),'d');
+            echo   $day=($comparacion-$entre)*$int;
+             return $day; }
+
+      }
+
+ elseif ($year > (date_format(date_create($fend),'Y'))) {
+  if ($fend == "0000-00-00") {
+  goto fun;
+  }
+     return "fin calculo interes ";
+     }
+     
+fun:
+    if($year ==date_format($compaño, 'Y')){
+        
+    $month2=date_format($fecha, 'm');
+ 
+
+
+    if($month == $month2){
+     
+
+            $comparacion=date("d",(mktime(0,0,0,$month+1,1,$year)-1))-date_format($fecha, 'd')  ;
+             $entre= date("d",(mktime(0,0,0,$month+1,1,$year)-1))- date('d');
+        if($comparacion==0){
+            return "Dias de gracia";
+        }else{
+          if(date_format($fecha2,'Y-m-d') > date('Y-m-d') ){
+
+    goto fall;
+          }else{
+            if (date_format($fecha2,'Y-m-d') > date_format(date_create($fend),'Y-m-d') && $fend != "0000-00-00") {
+              goto gr;
+            }
+            else{
+            return ($comparacion-$entre)*$int;}
+          }
+        }
+        
+    }else if($month > $month2){
+        d:
+        if($month == date('m')){
+            return date('d')*$int;
+        }else{  
+
+
+            if($month < date('m')){
+                 return date("d",(mktime(0,0,0,$month+1,1,$year)-1))*$int;
+            }
+            fall:
+            return "Aun a Procesar";
+
+        }
+        
+    } else{
+        if(date_format(date_create($fini),'m') > $month){
+            return "$0";
+        }else{
+          gr:
+            return "Dias de gracia";
+        }
+        
+    }
+
+
+    }else{
+        if(date_format($fecha2, 'Y') == $year){
+           
+            $comparacion=date("d",(mktime(0,0,0,$month+1,1,$year)-1))-date_format($fecha, 'd')  ;
+
+            return $comparacion*$int;
+        }else if(date_format($fecha2, 'Y') < $year){
+          goto d;
+        }else{
+            return "fecha de inicio sobrepasa el año solicitado";
+        }
+        
+    }
+  
+
+
+
+    
+
+
+date("d",(mktime(0,0,0,$month+1,1,$year)-1));
+
+    return date_format($fecha2, 'd');
+}
+
+
+echo "   
+
+
+ <br>
      <br>
 <table>
   <tr>
     <td> Subtotal</td>
-        <td>". $sum . "</td>
+        <td>$". number_format($sum,2,'.',',') . "</td>
   </tr>
  <tr>
    <td>IVA </td>
-       <td>". $sum * 0.16 . " </td>
+       <td>$". number_format($sum * 0.16,2,'.',',') . " </td>
  </tr>
   <tr>
     <td> Total </td>
-        <td>".  $sum*1.16 ." </td>
+        <td> $". number_format($sum*1.16,2,'.',',' ) ." </td>
   </tr>
 </table>";
       
       
      ?>
- <input type="button" name="pagar"  value="Pagar Automovil">
-<input type="button" name="reporte" value="Pagar Intereses">
+     <button id="automovil">Pagar automovil</button>
+     <button id="interes">Pagar interes</button>
 
 
 
 
-<style>
-    label, input { display:block; }
-    input.text { margin-bottom:12px; width:95%; padding: .4em; }
-    fieldset { padding:0; border:0; margin-top:25px; }
-    h1 { font-size: 1.2em; margin: .6em 0; }
-    div#users-contain { width: 350px; margin: 20px 0; }
-    div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
-    div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
-    .ui-dialog .ui-state-error { padding: .3em; }
-    .validateTips { border: 1px solid transparent; padding: 0.3em; }
-  </style>
+
+
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
-  $( function() {
-    var dialog, form,
- 
-      // From http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state-%28type=email%29
-      emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
-      name = $( "#name" ),
-      email = $( "#email" ),
-      password = $( "#password" ),
-      allFields = $( [] ).add( name ).add( email ).add( password ),
-      tips = $( ".validateTips" );
- 
-    function updateTips( t ) {
-      tips
-        .text( t )
-        .addClass( "ui-state-highlight" );
-      setTimeout(function() {
-        tips.removeClass( "ui-state-highlight", 1500 );
-      }, 500 );
-    }
- 
-    function checkLength( o, n, min, max ) {
-      if ( o.val().length > max || o.val().length < min ) {
-        o.addClass( "ui-state-error" );
-        updateTips( "Length of " + n + " must be between " +
-          min + " and " + max + "." );
-        return false;
-      } else {
-        return true;
-      }
-    }
- 
-    function checkRegexp( o, regexp, n ) {
-      if ( !( regexp.test( o.val() ) ) ) {
-        o.addClass( "ui-state-error" );
-        updateTips( n );
-        return false;
-      } else {
-        return true;
-      }
-    }
- 
-    function addUser() {
-      var valid = true;
-      allFields.removeClass( "ui-state-error" );
- 
-      valid = valid && checkLength( name, "username", 3, 16 );
-      valid = valid && checkLength( email, "email", 6, 80 );
-      valid = valid && checkLength( password, "password", 5, 16 );
- 
-      valid = valid && checkRegexp( name, /^[a-z]([0-9a-z_\s])+$/i, "Username may consist of a-z, 0-9, underscores, spaces and must begin with a letter." );
-      valid = valid && checkRegexp( email, emailRegex, "eg. ui@jquery.com" );
-      valid = valid && checkRegexp( password, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
- 
-      if ( valid ) {
-        $( "#users tbody" ).append( "<tr>" +
-          "<td>" + name.val() + "</td>" +
-          "<td>" + email.val() + "</td>" +
-          "<td>" + password.val() + "</td>" +
-        "</tr>" );
-        dialog.dialog( "close" );
-      }
-      return valid;
-    }
- 
-    dialog = $( "#dialog-form" ).dialog({
-      autoOpen: false,
-      height: 400,
-      width: 350,
-      modal: true,
-      buttons: {
-        "Create an account": addUser,
-        Cancel: function() {
-          dialog.dialog( "close" );
-        }
-      },
-      close: function() {
-        form[ 0 ].reset();
-        allFields.removeClass( "ui-state-error" );
-      }
-    });
- 
-    form = dialog.find( "form" ).on( "submit", function( event ) {
-      event.preventDefault();
-      addUser();
-    });
- 
-    $( "#create-user" ).button().on( "click", function() {
-      dialog.dialog( "open" );
-    });
-  } );
+  
   </script>
 </head>
 <body>
@@ -367,24 +500,25 @@ echo "    <br>
 <tr class="ui-widget-header">
   <th>Automovil</th>
    <th>No de chasis</th>
+    <th>Importe</th>
   
 </tr>
 <br>
  <?php
- $result1=mysqli_query($cnx,"select * from ficha");
- $sum1=0;
+ $result1=mysqli_query($cnx,"select * from ficha where fecha_pago = '0000-00-00' ");
+
 
       while($row1=mysqli_fetch_array($result1)){
-  $inter1=$row1['Interes']*(hbz_day_counter($row1['Fecha_prestamo'])-$row1['Dias_gracia']);
-  $sum1 +=$inter1;
-if( $inter1 <= 0){ $inter1=0; }
+  
+
  echo 
  " 
     <tbody> 
  <tr >
 
-    <td type='button' onclick='comprueba()'>" .$row1['Automovil']."</td>
-    <td type='button' onclick='comprueba()'>".$row1['No_chasis']."</td>
+    <td type='button' onclick='comprueba(".$row1['Importe'].",this.id)' id=".$row1['No_chasis']." >" .$row1['Automovil']."</td>
+    <td type='button' onclick='comprueba(".$row1['Importe'].",this.id)' id=".$row1['No_chasis']." >".$row1['No_chasis']."</td>
+     <td type='button' onclick='comprueba(".$row1['Importe'].",this.id)' id=".$row1['No_chasis']." >$".number_format($row1['Importe'],2,'.',',' ) ."</td>
   
   </tr>
    </tbody>
@@ -394,37 +528,19 @@ if( $inter1 <= 0){ $inter1=0; }
       }
     
       echo "</table>";
-
-      
-      
      ?>
-      <!-- Allow form submission with keyboard without duplicating the dialog button -->
 
+     <p>Monto a pagar</p><input type="text" name="monto" id="monto">
+     chasis <input type="text" name="chas" id="chas">
+
+      <!-- Allow form submission with keyboard without duplicating the dialog button -->
+<input type="button"  tabindex="-1" id="pagar" name="pagar" style="position:absolute; top:-1000px">
     </fieldset>
   </form>
 </div>
  
  
-<div id="users-contain" class="ui-widget">
-  <h1>Existing Users:</h1>
-  <table id="users" class="ui-widget ui-widget-content">
-    <thead>
-      <tr class="ui-widget-header ">
-        <th>Name</th>
-        <th>Email</th>
-        <th>Password</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>John Doe</td>
-        <td>john.doe@example.com</td>
-        <td>johndoe1</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<button id="create-user">Create new user</button>
+
 </body>
 
 </html>
