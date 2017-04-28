@@ -1,6 +1,41 @@
 <?php 
 if (isset($_REQUEST['folio_request'])){
     $folio_solicitud=$_REQUEST['folio_request'];
+    
+    if(strpos($folio_solicitud, 'SA')!==false && strpos($folio_solicitud, 'SA')==0){
+        include('Conexion2.php');
+        $result=mysqli_query($cnx,"select * from solicitudpfa inner join pfa on solicitudpfa.Folio_Cliente=pfa.Folio_Cliente where solicitudpfa.Folio_Sol='$folio_solicitud'");
+        $row=mysqli_fetch_array($result);
+        echo "<h1>Proceso de seleccion de datos para solicitud PFA</h1><h3>XML Solicitante</h3>";
+        xmlCreator($row['ApPatSolicitante'],$row['ApMatSolicitante'],'',$row['NomSolicitante'],$row['SegNomSolicitante'],$row['FeNacDatGen'],$row['RFCSolicitante'],'','',$row['NaDatGen']);
+        echo "<h3>XML Conyuge</h3>";
+        //xmlCreator();
+        echo "<h3>XML Obligado Solidario(1)</h3>";
+        //xmlCreator();
+        echo "<h3>XML Obligado Solidario(2)</h3>";
+        //xmlCreator();
+    }else if(strpos($folio_solicitud, 'SN')===true){
+        echo "error";
+    }else if(strpos($folio_solicitud, 'SM')===true){
+        echo "error";
+    }else{
+        echo "<h1 ALIGN=center>Error - Violación de seguridad</h1><div ALIGN='center'><IMG  SRC='http://files.viewranger.com/image/c7f1e57127751d593f9619526ea2d0b1.jpg'></div>";
+        exit();
+    }
+
+
+
+
+}else{
+    echo "<h1 ALIGN=center>Error - Violación de seguridad</h1><div ALIGN='center'><IMG  SRC='http://files.viewranger.com/image/c7f1e57127751d593f9619526ea2d0b1.jpg'></div>";
+    exit();
+}
+
+
+
+
+
+function xmlCreator($apellidopaterno,$apellidomaterno,$apellidoadicional,$primernombre,$segundonombre,$fechanacimiento,$rfc,$prefijo,$sufijo,$nacionalidad){
 
 
 $xml = new DomDocument('1.0', 'ISO-8859-1');
@@ -61,34 +96,34 @@ $subnodo3 = $subnodo2->appendChild($subnodo3);
 $subnodo2 = $xml->createElement('Nombre');
 $subnodo2 = $subnodo->appendChild($subnodo2);
 
-$subnodo3 = $xml->createElement('ApellidoPaterno');
+$subnodo3 = $xml->createElement('ApellidoPaterno',$apellidopaterno);
 $subnodo3 = $subnodo2->appendChild($subnodo3);
 
-$subnodo3 = $xml->createElement('ApellidoMaterno');
+$subnodo3 = $xml->createElement('ApellidoMaterno',$apellidomaterno);
 $subnodo3 = $subnodo2->appendChild($subnodo3);
 
-$subnodo3 = $xml->createElement('ApellidoAdicional');
+$subnodo3 = $xml->createElement('ApellidoAdicional',$apellidoadicional);
 $subnodo3 = $subnodo2->appendChild($subnodo3);
 
-$subnodo3 = $xml->createElement('PrimerNombre');
+$subnodo3 = $xml->createElement('PrimerNombre',$primernombre);
 $subnodo3 = $subnodo2->appendChild($subnodo3);
 
-$subnodo3 = $xml->createElement('SegundoNombre');
+$subnodo3 = $xml->createElement('SegundoNombre',$segundonombre);
 $subnodo3 = $subnodo2->appendChild($subnodo3);
 
-$subnodo3 = $xml->createElement('FechaNacimiento');
+$subnodo3 = $xml->createElement('FechaNacimiento',$fechanacimiento);
 $subnodo3 = $subnodo2->appendChild($subnodo3);
 
-$subnodo3 = $xml->createElement('RFC');
+$subnodo3 = $xml->createElement('RFC',$rfc);
 $subnodo3 = $subnodo2->appendChild($subnodo3);
 
-$subnodo3 = $xml->createElement('Prefijo');
+$subnodo3 = $xml->createElement('Prefijo',$prefijo);
 $subnodo3 = $subnodo2->appendChild($subnodo3);
 
-$subnodo3 = $xml->createElement('Sufijo');
+$subnodo3 = $xml->createElement('Sufijo',$sufijo);
 $subnodo3 = $subnodo2->appendChild($subnodo3);
 
-$subnodo3 = $xml->createElement('Nacionalidad');
+$subnodo3 = $xml->createElement('Nacionalidad',$nacionalidad);
 $subnodo3 = $subnodo2->appendChild($subnodo3);
 
 $subnodo3 = $xml->createElement('Residencia');
@@ -282,10 +317,10 @@ $xml->formatOutput = true;
 $el_xml = $xml->saveXML();
 $xml->save('archivo.xml');
 echo htmlentities($el_xml);
-}else{
-    echo "<h1 ALIGN=center>Error - Violación de seguridad</h1><div ALIGN='center'><IMG  SRC='http://files.viewranger.com/image/c7f1e57127751d593f9619526ea2d0b1.jpg'></div>";
-    exit();
+
 }
+
+
 
 
 ?>

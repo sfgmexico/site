@@ -17,16 +17,16 @@
         <TipoSalida/>
       </Encabezado>
       <Nombre>
-        <ApellidoPaterno/>
-        <ApellidoMaterno/>
+        <ApellidoPaterno>Mata</ApellidoPaterno>
+        <ApellidoMaterno>Martinez</ApellidoMaterno>
         <ApellidoAdicional/>
-        <PrimerNombre/>
-        <SegundoNombre/>
-        <FechaNacimiento/>
-        <RFC/>
+        <PrimerNombre>Adrian</PrimerNombre>
+        <SegundoNombre>Eduardo</SegundoNombre>
+        <FechaNacimiento>1989-09-07</FechaNacimiento>
+        <RFC>3132131321313</RFC>
         <Prefijo/>
         <Sufijo/>
-        <Nacionalidad/>
+        <Nacionalidad>ASD</Nacionalidad>
         <Residencia/>
         <NumeroLicenciaConducir/>
         <EstadoCivil/>
