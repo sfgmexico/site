@@ -7,7 +7,7 @@ if (isset($_REQUEST['folio_request'])){
         $result=mysqli_query($cnx,"select * from solicitudpfa inner join pfa on solicitudpfa.Folio_Cliente=pfa.Folio_Cliente where solicitudpfa.Folio_Sol='$folio_solicitud'");
         $row=mysqli_fetch_array($result);
         echo "<h1>Proceso de seleccion de datos para solicitud PFA</h1><h3>XML Solicitante</h3>";
-        xmlCreator($row['ApPatSolicitante'],$row['ApMatSolicitante'],'',$row['NomSolicitante'],$row['SegNomSolicitante'],$row['FeNacDatGen'],$row['RFCSolicitante'],'','',$row['NaDatGen']);
+        xmlCreator($row['ApPatSolicitante'],$row['ApMatSolicitante'],'',$row['NomSolicitante'],$row['SegNomSolicitante'],$row['FeNacDatGen'],$row['RFCSolicitante'],'','',$row['NaDatGen'],'');
         echo "<h3>XML Conyuge</h3>";
         //xmlCreator();
         echo "<h3>XML Obligado Solidario(1)</h3>";
@@ -35,7 +35,7 @@ if (isset($_REQUEST['folio_request'])){
 
 
 
-function xmlCreator($apellidopaterno,$apellidomaterno,$apellidoadicional,$primernombre,$segundonombre,$fechanacimiento,$rfc,$prefijo,$sufijo,$nacionalidad){
+function xmlCreator($apellidopaterno,$apellidomaterno,$apellidoadicional,$primernombre,$segundonombre,$fechanacimiento,$rfc,$prefijo,$sufijo,$nacionalidad,$residencia){
 
 
 $xml = new DomDocument('1.0', 'ISO-8859-1');
@@ -126,7 +126,7 @@ $subnodo3 = $subnodo2->appendChild($subnodo3);
 $subnodo3 = $xml->createElement('Nacionalidad',$nacionalidad);
 $subnodo3 = $subnodo2->appendChild($subnodo3);
 
-$subnodo3 = $xml->createElement('Residencia');
+$subnodo3 = $xml->createElement('Residencia',$residencia);
 $subnodo3 = $subnodo2->appendChild($subnodo3);
 
 $subnodo3 = $xml->createElement('NumeroLicenciaConducir');
