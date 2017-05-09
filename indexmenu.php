@@ -19,14 +19,22 @@
   </head>
   <body>
 <!-- header -->
-<head>
-			<img src="images/logosfg 2.png" >
+
+
+
+<!-- content -->
+<section>
+	
+    <div class="medium-9 large-10 medium-push-3 large-push-2 columns" >
+      <div class="medium-9 columns">
+      <head>
+      <img src="images/logosfg.png" >
     
 
 
-	<div class="title-bar" id="example-menu" titlebar-background="$white" >
+  <div class="title-bar" id="example-menu" titlebar-background="$white" >
   <div class="title-bar-left" >
-	<ul class="dropdown menu" data-dropdown-menu >
+  <ul class="dropdown menu" data-dropdown-menu >
   <li>
     <a href="indexmenu.php"><i class="fi-home"></i><span>Inicio</span></a>
   </li>
@@ -50,15 +58,8 @@
 
 </head>
 
-
-<!-- content -->
-<section>
-	
-    <div class="medium-9 large-10 medium-push-3 large-push-2 columns" >
-      <div class="medium-9 columns">
-
 	  <div class="container" id="htmlext" >
-
+<img src="images/sfg.jpg" width="100%">
          <div>
  
 
