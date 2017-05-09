@@ -3,18 +3,18 @@
   <Personas>
     <Persona>
       <Encabezado>
-        <Version/>
+        <Version>11</Version>
         <NumeroReferenciaOperador/>
         <ProductoRequerido>507</ProductoRequerido>
-        <ClavePais/>
-        <ClaveUsuario/>
-        <Password/>
-        <TipoConsulta/>
-        <TipoContrato/>
-        <ClaveUnidadMonetaria/>
-        <ImporteContrato/>
-        <Idioma/>
-        <TipoSalida/>
+        <ClavePais>MX</ClavePais>
+        <ClaveUsuario>XXXXXXXXXX</ClaveUsuario>
+        <Password>XXXXXXXX</Password>
+        <TipoConsulta>I</TipoConsulta>
+        <TipoContrato>PQ</TipoContrato>
+        <ClaveUnidadMonetaria>MX</ClaveUnidadMonetaria>
+        <ImporteContrato>100000.00</ImporteContrato>
+        <Idioma>SP</Idioma>
+        <TipoSalida>03</TipoSalida>
       </Encabezado>
       <Nombre>
         <ApellidoPaterno>Mata</ApellidoPaterno>
@@ -22,15 +22,15 @@
         <ApellidoAdicional/>
         <PrimerNombre>Adrian</PrimerNombre>
         <SegundoNombre>Eduardo</SegundoNombre>
-        <FechaNacimiento>1989-09-07</FechaNacimiento>
+        <FechaNacimiento>19890907</FechaNacimiento>
         <RFC>3132131321313</RFC>
         <Prefijo/>
         <Sufijo/>
-        <Nacionalidad>ASD</Nacionalidad>
-        <Residencia/>
-        <NumeroLicenciaConducir/>
-        <EstadoCivil/>
-        <Sexo/>
+        <Nacionalidad>MX</Nacionalidad>
+        <Residencia>1</Residencia>
+        <NumeroLicenciaConducir>321</NumeroLicenciaConducir>
+        <EstadoCivil>M</EstadoCivil>
+        <Sexo>M</Sexo>
         <NumeroCedulaProfesional/>
         <NumeroRegistroElectoral/>
         <ClaveImpuestosOtroPais/>

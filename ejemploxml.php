@@ -4,10 +4,79 @@ if (isset($_REQUEST['folio_request'])){
     
     if(strpos($folio_solicitud, 'SA')!==false && strpos($folio_solicitud, 'SA')==0){
         include('Conexion2.php');
-        $result=mysqli_query($cnx,"select * from solicitudpfa inner join pfa on solicitudpfa.Folio_Cliente=pfa.Folio_Cliente where solicitudpfa.Folio_Sol='$folio_solicitud'");
+        $result=mysqli_query($cnx,"select * from solicitudpfa inner join pfa on solicitudpfa.Folio_Cliente=pfa.Folio_Cliente inner join gradoriesgo on gradoriesgo.Folio_sol=solicitudpfa.Folio_Sol where solicitudpfa.Folio_Sol='$folio_solicitud'");
         $row=mysqli_fetch_array($result);
         echo "<h1>Proceso de seleccion de datos para solicitud PFA</h1><h3>XML Solicitante</h3>";
-        xmlCreator($row['ApPatSolicitante'],$row['ApMatSolicitante'],'',$row['NomSolicitante'],$row['SegNomSolicitante'],$row['FeNacDatGen'],$row['RFCSolicitante'],'','',$row['NaDatGen'],'');
+
+
+            $arraytipocontrato= array(
+                'Aparatos/Muebles'=>'AF',
+                'Agropecuario'=>'AG',
+                'Arrendamiento Automotriz'=>'AL',
+                'Aviación'=>'AP',
+                'Compra de Automovil'=>'AU',
+                'Fianza'=>'BD',
+                'Bote/Lancha'=>'BT',
+                'Tarjeta de Crédito'=>'CC',
+                'Cartas de Crédito'=>'CE',
+                'Crédito Fiscal'=>'CF',
+                'Línea de Crédito'=>'CL',
+                'Consolidación'=>'CO',
+                'Crédito Simple'=>'CS',
+                'Con Colateral'=>'CT',
+                'Descuentos'=>'DE',
+                'Equipo'=>'EQ',
+                'Fideicomiso'=>'FI',
+                'Factoraje'=>'FT',
+                'Habilitación o Avio'=>'HA',
+                'Prestamo tipo Home Equity'=>'HE',
+                'Mejoras a la casa'=>'HI',
+                'Arrendamiento'=>'LS',
+                'Línea de Crédito Reinstalable'=>'LR',
+                'Otros'=>'MI',
+                'Otros adeudos vencidos'=>'OA',
+                'Préstamo para personas Físicas con Actividad Empresarial'=>'PA',
+                'Editorial'=>'PB',
+                'PGUE - Préstamo como garantía de unidades industriales para PFAE'=>'PG',
+                'Préstamo Personal'=>'PL',
+                'Préstamo de Nómina'=>'PN',
+                'Quirografario'=>'PQ',
+                'Prendario'=>'PR',
+                'Pago de Servicios'=>'PS',
+                'Reestructurado'=>'RC',
+                'Redescuento'=>'RD',
+                'Bienes Raíces'=>'RE',
+                'Refaccionario'=>'RF',
+                'Renovado'=>'RN',
+                'Vehículo Recreativo'=>'RV',
+                'Tarjeta Garantizada'=>'SC',
+                'Préstamo Garantizado'=>'SE',
+                'Seguros'=>'SG',
+                'Segunda Hipoteca'=>'SM',
+                'Préstamo para Estudiante'=>'ST',
+                'Tarjeta de Crédito Empresarial'=>'',
+                'Desconocido'=>'UK',
+                'Préstamo no Garantizado'=>'US');
+
+                $arraynacionalidad=array('Mexicana'=>'MX',
+                ''=>'');
+                $arrayresidencia=array('Casa Propia'=>'1',
+                'Rentada'=>'2',
+                'Hipotecada'=>'',
+                'Casa propiedad de sus familiares'=>'3',
+                'Otros'=>'');
+
+                $arrayestadocivil=array('Casado Bienes Mancomunados'=>'M',
+                'Casado Bienes Separados'=>'M',
+                'Viudo'=>'W',
+                'Divorciado'=>'D',
+                'Soltero'=>'S');
+
+                $arraysexo=array('Masculino'=>'M','Femenino'=>'F');
+
+
+
+        xmlCreator($arraytipocontrato['Quirografario'],$row['MontoFinanciado'],$row['ApPatSolicitante'],$row['ApMatSolicitante'],'',$row['NomSolicitante'],$row['SegNomSolicitante'],str_replace('-','',$row['FeNacDatGen']),$row['RFCSolicitante'],'','',$arraynacionalidad[$row['NaDatGen']],$arrayresidencia[$row['VivDatGen']],$row['LicenciaConducirSolicitante'],$arrayestadocivil[$row['EstCivDatGen']],$arraysexo[$row['SexoDatGen']],'','');
         echo "<h3>XML Conyuge</h3>";
         //xmlCreator();
         echo "<h3>XML Obligado Solidario(1)</h3>";
@@ -35,7 +104,7 @@ if (isset($_REQUEST['folio_request'])){
 
 
 
-function xmlCreator($apellidopaterno,$apellidomaterno,$apellidoadicional,$primernombre,$segundonombre,$fechanacimiento,$rfc,$prefijo,$sufijo,$nacionalidad,$residencia){
+function xmlCreator($tipocontrato,$importecontrato,$apellidopaterno,$apellidomaterno,$apellidoadicional,$primernombre,$segundonombre,$fechanacimiento,$rfc,$prefijo,$sufijo,$nacionalidad,$residencia,$numerolicenciaconducir,$estadocivil,$sexo,$NumeroCedulaProfesional,$NumeroRegistroElectoral){
 
 
 $xml = new DomDocument('1.0', 'ISO-8859-1');
@@ -57,7 +126,7 @@ $subnodo = $nodo->appendChild($subnodo);
 $subnodo2 = $xml->createElement('Encabezado');
 $subnodo2 = $subnodo->appendChild($subnodo2);
 
-$subnodo3 = $xml->createElement('Version');
+$subnodo3 = $xml->createElement('Version',11);
 $subnodo3 = $subnodo2->appendChild($subnodo3);
 
 $subnodo3 = $xml->createElement('NumeroReferenciaOperador');
@@ -66,31 +135,31 @@ $subnodo3 = $subnodo2->appendChild($subnodo3);
 $subnodo3 = $xml->createElement('ProductoRequerido','507');
 $subnodo3 = $subnodo2->appendChild($subnodo3);
 
-$subnodo3 = $xml->createElement('ClavePais');
+$subnodo3 = $xml->createElement('ClavePais','MX');
 $subnodo3 = $subnodo2->appendChild($subnodo3);
 
-$subnodo3 = $xml->createElement('ClaveUsuario');
+$subnodo3 = $xml->createElement('ClaveUsuario','XXXXXXXXXX');
 $subnodo3 = $subnodo2->appendChild($subnodo3);
 
-$subnodo3 = $xml->createElement('Password');
+$subnodo3 = $xml->createElement('Password','XXXXXXXX');
 $subnodo3 = $subnodo2->appendChild($subnodo3);
 
-$subnodo3 = $xml->createElement('TipoConsulta');
+$subnodo3 = $xml->createElement('TipoConsulta','I');
 $subnodo3 = $subnodo2->appendChild($subnodo3);
 
-$subnodo3 = $xml->createElement('TipoContrato');
+$subnodo3 = $xml->createElement('TipoContrato',$tipocontrato);
 $subnodo3 = $subnodo2->appendChild($subnodo3);
 
-$subnodo3 = $xml->createElement('ClaveUnidadMonetaria');
+$subnodo3 = $xml->createElement('ClaveUnidadMonetaria','MX');
 $subnodo3 = $subnodo2->appendChild($subnodo3);
 
-$subnodo3 = $xml->createElement('ImporteContrato');
+$subnodo3 = $xml->createElement('ImporteContrato',$importecontrato);
 $subnodo3 = $subnodo2->appendChild($subnodo3);
 
-$subnodo3 = $xml->createElement('Idioma');
+$subnodo3 = $xml->createElement('Idioma','SP');
 $subnodo3 = $subnodo2->appendChild($subnodo3);
 
-$subnodo3 = $xml->createElement('TipoSalida');
+$subnodo3 = $xml->createElement('TipoSalida','03');
 $subnodo3 = $subnodo2->appendChild($subnodo3);
 
 $subnodo2 = $xml->createElement('Nombre');
@@ -129,19 +198,19 @@ $subnodo3 = $subnodo2->appendChild($subnodo3);
 $subnodo3 = $xml->createElement('Residencia',$residencia);
 $subnodo3 = $subnodo2->appendChild($subnodo3);
 
-$subnodo3 = $xml->createElement('NumeroLicenciaConducir');
+$subnodo3 = $xml->createElement('NumeroLicenciaConducir',$numerolicenciaconducir);
 $subnodo3 = $subnodo2->appendChild($subnodo3);
 
-$subnodo3 = $xml->createElement('EstadoCivil');
+$subnodo3 = $xml->createElement('EstadoCivil',$estadocivil);
 $subnodo3 = $subnodo2->appendChild($subnodo3);
 
-$subnodo3 = $xml->createElement('Sexo');
+$subnodo3 = $xml->createElement('Sexo',$sexo);
 $subnodo3 = $subnodo2->appendChild($subnodo3);
 
-$subnodo3 = $xml->createElement('NumeroCedulaProfesional');
+$subnodo3 = $xml->createElement('NumeroCedulaProfesional',$NumeroCedulaProfesional);
 $subnodo3 = $subnodo2->appendChild($subnodo3);
 
-$subnodo3 = $xml->createElement('NumeroRegistroElectoral');
+$subnodo3 = $xml->createElement('NumeroRegistroElectoral',$NumeroRegistroElectoral);
 $subnodo3 = $subnodo2->appendChild($subnodo3);
 
 $subnodo3 = $xml->createElement('ClaveImpuestosOtroPais');
