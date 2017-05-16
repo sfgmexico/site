@@ -56,11 +56,6 @@ $el_xml = $xml->saveXML();
 $json = json_encode($xml);
 //$array = json_decode($json,TRUE);
 echo htmlentities($el_xml);
-if($_REQUEST['pep']=="1"){
-   $xml->save('xml/'.$nombre.''.$paterno.''.$materno.''.date('Y-m-d').'.xml');
-}else{
-  $xml->save('xml/'.$razonsoc.''.date('Y-m-d').'.xml');
-}
 
 
 //echo ($json);
