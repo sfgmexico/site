@@ -1,6 +1,6 @@
 <?php
 
-if($_REQUEST['pep']=="1"){
+if(isset($_REQUEST['perF'])){
     $nombre=$_REQUEST['nombre'];
     $paterno=$_REQUEST['paterno'];
     $materno=$_REQUEST['materno'];
@@ -16,7 +16,8 @@ if($_REQUEST['pep']=="1"){
     }
     
     $url="https://qeq.mx/datos/qws/pepsp?nombre=".$nombre."&paterno=".$paterno." &materno=".$materno."&curp=".$curp."&rfc=".$rfc;
-}else{
+}
+if(isset($_REQUEST['perM'])){
     $razonsoc=$_REQUEST['razonsoc'];
     $rfc=$_REQUEST['rfc'];
     $url="https://qeq.mx/datos/qws/pepse?razonsoc=".$razonsoc."&rfc=".$rfc;
@@ -55,6 +56,12 @@ $el_xml = $xml->saveXML();
 $json = json_encode($xml);
 //$array = json_decode($json,TRUE);
 echo htmlentities($el_xml);
+if($_REQUEST['pep']=="1"){
+   $xml->save('xml/'.$nombre.''.$paterno.''.$materno.''.date('Y-m-d').'.xml');
+}else{
+  $xml->save('xml/'.$razonsoc.''.date('Y-m-d').'.xml');
+}
+
 
 //echo ($json);
 
