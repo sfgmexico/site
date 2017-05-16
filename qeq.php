@@ -27,7 +27,7 @@ if(isset($_REQUEST['perM'])){
 
 
 
-
+$count2=0;
 // First, include Requests
 include('Requests-1.7.0/library/Requests.php');
 
@@ -49,7 +49,7 @@ $request = Requests::get('https://qeq.mx/datos/qws/access?var1=silvia@vwdgo.com&
 } catch (Exception $e) {
     goto renew;
 }
-
+renewQuest2:
 $count=0;
 
 renewQuest:
@@ -94,7 +94,15 @@ $pos = strpos($el_xml, 'No se pudo autenticar');
 if ($pos === false) {
     echo "ok!!!!";
     } else {
-            echo "Error";
+        if($count2<2){
+        $count2++;
+        echo "no se puedo 1";
+        goto renewQuest2;
+    }else{
+        echo "Error Tiempo Excedido";
+        exit();
+    }
+            
             }
 echo htmlentities($el_xml);
 
