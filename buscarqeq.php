@@ -38,7 +38,8 @@
  <head>
  	<title>Financiera</title>
  </head>
- <body onLoad="inicio()">
+ <body >
+  <form action="qeq.php" method="post" >
  <select name="pep" id="pep" size="1" onChange="capturar()">
 	       <option value="1" >Persona fisica</option>
 	       <option value="2">Persona Moral</option>
@@ -52,7 +53,7 @@
 <div class="column small-6">
  <div id="pf" >
 	<div class="callout">
- <form action="qeq.php" method="post" >
+
  	<label>Nombre
  <input type="text" name="nombre" id="nombre">
  	</label>
@@ -87,8 +88,7 @@
 <div class="column small-6">
   <div id="pm" style="display:none">
   <div class="callout">
-  	
-  <form action="qeq.php" method="post" >
+ 
   <label>
   	Razon social
  <input type="text" name="razonsoc" id="razonsoc">
