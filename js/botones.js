@@ -14,3 +14,7 @@ $("#boton1").click(function(event) {
 						$("#bot3").click(function(event){
         				$("#htmlext").load('solicitudPFNA.php');
     														});
+                        $("#qeq").click(function(event){
+                        $("#htmlext").load('buscarqeq.php');
+                                                            });
+
