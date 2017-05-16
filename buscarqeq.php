@@ -15,37 +15,34 @@
  	 function capturar()
     {
 	
-		
+		if (document.getElementById('nombre')!= "") {
+				document.getElementById('razonsoc').value="";
+			document.getElementById('rfc1').value="";
+			document.getElementById('rfc1').readOnly=true;
+			document.getElementById('razonsoc').readOnly=true;
+			document.getElementById('perM').disabled=true;
+		}
 
-			
-			
- if (document.getElementById("pep").value=="1"){
-			
-			document.getElementById("pf").style.display='block';
-			document.getElementById("pm").style.display = 'none';
-	
 
-			
-			
-		}else if(document.getElementById("pep").value=="2"){
-			
-		document.getElementById("pf").style.display = 'none';
-		document.getElementById("pm").style.display='block';
-	
+
 }
+
+function cap(){
+
+	if (document.getElementById('razonsoc')!= "") {
+
+			document.getElementById('nombre').value="";
+			document.getElementById('nombre').readOnly=true;
+			document.getElementById('perF').disabled=true;
+		}
+
 }
  </script>
  <head>
  	<title>Financiera</title>
  </head>
  <body >
-  <form action="qeq.php" method="post" >
- <select name="pep" id="pep" size="1" onChange="capturar()">
-	       <option value="1" >Persona fisica</option>
-	       <option value="2">Persona Moral</option>
-	    
-          </select>
-
+  <form action="qeq.php" method="post" target="_blank">
 
  <p align="left">
 
@@ -53,9 +50,9 @@
 <div class="column small-6">
  <div id="pf" >
 	<div class="callout">
-
+<h4>Persona Fisca</h4>
  	<label>Nombre
- <input type="text" name="nombre" id="nombre">
+ <input type="text" name="nombre" id="nombre" onChange="capturar()">
  	</label>
  <label>
  	Paterno
@@ -73,8 +70,8 @@
  	RFC
      <input type="text" name="rfc" id="rfc">
  </label>
-      <input type="submit" class="primary button" name="buscar"  value="Buscar">
- </form>
+      <input type="submit" class="primary button" name="perF" id="perF" value="Buscar">
+
 
 </div>
  </div>
@@ -86,18 +83,18 @@
 <p align="left">
 	
 <div class="column small-6">
-  <div id="pm" style="display:none">
+  <div id="pm" >
   <div class="callout">
- 
+ <h4>Persona moral</h4>
   <label>
   	Razon social
- <input type="text" name="razonsoc" id="razonsoc">
+ <input type="text" name="razonsoc" id="razonsoc" onChange="cap()">
   </label>
   <label>
   	RFC
      <input type="text" name="rfc1" id="rfc1">
   </label>
-      <input type="submit" class="primary button" name="buscar"  value="Buscar">
+      <input type="submit" class="primary button" name="perM" id="perM" value="Buscar">
   </form>
   </div>
 
