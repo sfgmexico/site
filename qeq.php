@@ -37,15 +37,44 @@ Requests::register_autoloader();
 // Say you need to fake a login cookie
 $c = new Requests_Cookie_Jar(['login_uid' =>  'something']);
 
-// Now let's make a request!
+renew:
+try {
+   // Now let's make a request!
 $request = Requests::get('https://qeq.mx/datos/qws/access?var1=silvia@vwdgo.com&var2=qeq939', // Url
 	[],  // No need to set the headers the Jar does this for us
 	['cookies' => $c] // Pass in the Jar as an option
 );
+
+
+} catch (Exception $e) {
+    goto renew;
+}
+
+$count=0;
+
+renewQuest:
+try {
+   // Now let's make a request!
 $request2 = Requests::get($url, // Url
 	[],  // No need to set the headers the Jar does this for us
 	['cookies' => $c] // Pass in the Jar as an option
 );
+
+
+} catch (Exception $e) {
+    if($count<2){
+        $count++;
+        goto renewQuest;
+    }else{
+        echo "Error Tiempo Excedido";
+        exit();
+    }
+    
+}
+
+
+
+
 
 // Check what we received
 //var_dump($request2->body);
@@ -55,6 +84,11 @@ $xml->formatOutput = true;
 $el_xml = $xml->saveXML();
 $json = json_encode($xml);
 //$array = json_decode($json,TRUE);
+$pos = strpos($el_xml, 'Fatal error');
+
+// Nótese el uso de ===. Puesto que == simple no funcionará como se espera
+// porque la posición de 'a' está en el 1° (primer) caracter.
+
 echo htmlentities($el_xml);
 
 
