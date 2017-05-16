@@ -28,7 +28,7 @@ if($_REQUEST['pep']=="1"){
 
 
 // First, include Requests
-include('/Requests-1.7.0/library/Requests.php');
+include('Requests-1.7.0/library/Requests.php');
 
 // Next, make sure Requests can load internal classes
 Requests::register_autoloader();
