@@ -84,11 +84,18 @@ $xml->formatOutput = true;
 $el_xml = $xml->saveXML();
 $json = json_encode($xml);
 //$array = json_decode($json,TRUE);
-$pos = strpos($el_xml, 'Fatal error');
+$pos = strpos($el_xml, 'No se pudo autenticar');
 
 // Nótese el uso de ===. Puesto que == simple no funcionará como se espera
 // porque la posición de 'a' está en el 1° (primer) caracter.
 
+ 
+//se puede hacer la comparacion con 'false' o 'true' y los comparadores '===' o '!=='
+if ($pos === false) {
+    echo "ok!!!!";
+    } else {
+            echo "Error";
+            }
 echo htmlentities($el_xml);
 
 
