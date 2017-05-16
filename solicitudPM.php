@@ -665,7 +665,7 @@ Telefono(Con lada - 10 dígitos):
      <div class="row">
       <p align="left">
        <div class="small-5 columns"> <input name="antirefcom1" type="text" id="antirefcom1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['AntRefCom']; } ?>" placeholder="Antigüedad Desde del Año"></div>
-       <div class="small-5 columns"> <input name="refcomemp2" type="text" id="refcomemp2" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['EmpRefCom']; } ?>" placeholder="Empresa"></div>
+       <div class="small-5 columns"> <input name="refcomemp2" type="text" id="refcomemp2" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['EmpRefCom2']; } ?>" placeholder="Empresa"></div>
       </p>
      </div>
      
