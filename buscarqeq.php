@@ -46,28 +46,64 @@
           </select>
 
 
+ <p align="left">
+
+		
+<div class="column small-6">
  <div id="pf" >
- <form>
- 	
+	<div class="callout">
+ <form action="qeq.php" method="post" >
+ 	<label>Nombre
  <input type="text" name="nombre" id="nombre">
+ 	</label>
+ <label>
+ 	Paterno
   <input type="text" name="paterno" id="paterno">
+ </label>
+ <label>
+ 	Materno
    <input type="text" name="materno" id="materno">
+ </label>
+ <label>
+ 	CURP
     <input type="text" name="curp" id="curp">
+ </label>
+ <label>
+ 	RFC
      <input type="text" name="rfc" id="rfc">
-      <input type="submit" name="buscar"  value="Buscar">
+ </label>
+      <input type="submit" class="primary button" name="buscar"  value="Buscar">
  </form>
 
+</div>
  </div>
+</div>
+</p>
 
 
+
+<p align="left">
+	
+<div class="column small-6">
   <div id="pm" style="display:none">
-  <form>
+  <div class="callout">
+  	
+  <form action="qeq.php" method="post" >
+  <label>
+  	Razon social
  <input type="text" name="razonsoc" id="razonsoc">
+  </label>
+  <label>
+  	RFC
      <input type="text" name="rfc1" id="rfc1">
-      <input type="submit" name="buscar"  value="Buscar">
+  </label>
+      <input type="submit" class="primary button" name="buscar"  value="Buscar">
   </form>
+  </div>
 
  </div>
+</div>
+</p>
 
 
 
