@@ -49,7 +49,7 @@ $request = Requests::get('https://qeq.mx/datos/qws/access?var1=silvia@vwdgo.com&
 } catch (Exception $e) {
     goto renew;
 }
-renewQuest2:
+
 $count=0;
 
 renewQuest:
@@ -92,12 +92,12 @@ $pos = strpos($el_xml, 'No se pudo autenticar');
  
 //se puede hacer la comparacion con 'false' o 'true' y los comparadores '===' o '!=='
 if ($pos === false) {
-    echo "ok!!!!";
+    
     } else {
         if($count2<2){
         $count2++;
-        echo "no se puedo 1";
-        goto renewQuest2;
+        sleep(10);
+        goto renew;
     }else{
         echo "Error Tiempo Excedido";
         exit();
