@@ -78,8 +78,8 @@ $request2 = Requests::get($url, // Url
 
 // Check what we received
 //var_dump($request2->body);
-
-$xml = simplexml_load_string($request2->body);
+$xml = new DOMDocument();
+$xml-> loadXML($request2->body);
 $xml->formatOutput = true;
 $el_xml = $xml->saveXML();
 $json = json_encode($xml);
@@ -104,8 +104,47 @@ if ($pos === false) {
     }
             
             }
-echo htmlentities($el_xml);
 
+if(isset($_REQUEST['perF'])){
+   $xml->save('xml/'.$nombre.' '. $paterno.' '. $materno.' '.date('Y-m-d').'.xml');
+}
+if(isset($_REQUEST['perM'])){
+    $xml->save('xml/'.$razonsoc.' '.$rfc.' '.date('Y-m-d').'.xml');
+}
+
+
+
+            
+//echo htmlentities($el_xml);
+
+echo "<br>";
+
+leer();
+
+//Para leerlo
+  function leer(){
+    
+    $xml = simplexml_load_file('xml/miguel osorio chong 2017-05-18.xml');
+    $salida ="";
+    
+    foreach($xml->persona as $item){
+      $salida .=
+        "<b>Lista: </b> " . $item->lista ."<br>".
+        "<b>Estatus: </b>".$item->estatus."<br>".
+        "<b>Dependencia: </b>".$item->dependencia. "<br>".
+        "<b>Puesto: </b>".$item->puesto."<br>".
+        "<b>Area: </b>".$item->area."<br>".
+        "<b>Entidad: </b>".$item->entidad."<br/><hr/>";
+        
+    }
+    if($salida==""){
+        echo "No es un PEP";
+    }else{
+        echo $salida;
+    }
+    
+    
+  }
 
 //echo ($json);
 
