@@ -66,7 +66,7 @@ function Validacioncampos(){
 var requerido=0;
 //seccion del solicitante
 $('#secSolicitante').find('input').each(function(){  
-  console.log(('#secSolicitante').find('input'));
+  
    //alert("seccion");
   if(document.getElementById("nomrazsoc2").value!=""  ){
 //alert("entre a validar");
@@ -466,7 +466,7 @@ Telefono(Con lada - 10 dígitos):
 	    <p align="left">
 	      <input name="dirsol" type="text" id="dirsol" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['DirSolicitante']; } ?>" placeholder="Dirección / Calle" >
           <input name="dirnumsol" type="text" id="dirnumsol" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['NumDirSol']; } ?>"   placeholder="Número">
-          <input name="mailsol2" type="text" id="mailsol2"  value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['EmailSolicitante']; } ?>" placeholder="Email">
+          <input name="mailsol2" type="text" id="mailsol2"  value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['EmailSolicitante']; } ?>" placeholder="Email" pattern="email">
        </p>
    </div>
 	 <div class="small-6 columns">
