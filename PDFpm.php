@@ -1,11 +1,15 @@
 <?php
 include("Conexion2.php");
 $entro="";
-if($_REQUEST['cliente']==""){
+if($_REQUEST['cliente']=="PM-001"){
 
     $entro="Si";
 mysqli_query($cnx,"insert into pm(NomSolicitante,RFCSolicitante,TelSolicitante,DirSolicitante,NumDirSol,ColSolicitante,CdSolicitante,EdoSolicitante,MunicipioSolicitante,CPSolicitante,EmailSolicitante,FaxSolicitante,PaisSolicitante,NomDatContEmp,SegNomDatContEmp,ApPatDatContEmp,ApMatDatContEmp,DirConEmp,ColConEmp,CPConEmp,CdConEmp,EdoConEmp,SexoContEmp,LugNacContEmp,FechNacContEmp,EstCivContEmp,TelDatConEmp,EmailDatConEmp,CURPDatConEmp,RFCDatConEmp,NumSerieFIELContEmp,NacionalidadContEmp,OcupacionContEmp,SueldoContEmp,FaxDatConEmp,PuestDatConEmp,ActEcoAdicionalContEmp,IngAdMensualAproxContEmp,ActPrinDatGenPM,IniOpDatGenPM,CantPerDatGenPM,FechaConsEmp,AntConsEmp,ApoConsEmp,NomAcc1,RFCAcc1,PorAcc1,NomAcc2,RFCAcc2,PorAcc2,NomAcc3,RFCAcc3,PorAcc3,NomAcc4,RFCAcc4,PorAcc4,NomAccPM1,RFCAccPM1,PorAccPM1,NomAccPM2,RFCAccPM2,PorAccPM2) values('".$_REQUEST['nomrazsoc2'] ."','".$_REQUEST['rfcsol1'].$_REQUEST['rfcsol2'].$_REQUEST['rfcsol3'].$_REQUEST['rfcsol4'].$_REQUEST['rfcsol5'].$_REQUEST['rfcsol6'].$_REQUEST['rfcsol7'].$_REQUEST['rfcsol8'].$_REQUEST['rfcsol9'].$_REQUEST['rfcsol10'].$_REQUEST['rfcsol11'].$_REQUEST['rfcsol12'].$_REQUEST['rfcsol13'] ."','". $_REQUEST['telsol1'].$_REQUEST['telsol2'].$_REQUEST['telsol3'].$_REQUEST['telsol4'].$_REQUEST['telsol5'].$_REQUEST['telsol6'].$_REQUEST['telsol7'].$_REQUEST['telsol8'].$_REQUEST['telsol9'].$_REQUEST['telsol10']."','". $_REQUEST['dirsol']."','". $_REQUEST['dirnumsol']."','". $_REQUEST['colsol']."','".$_REQUEST['edosol']."','".$_REQUEST['textfield5']."','".$_REQUEST['cpsol']."','".$_REQUEST['mailsol2']."','".$_REQUEST['faxsol1'].$_REQUEST['faxsol2'].$_REQUEST['faxsol3'].$_REQUEST['faxsol4'].$_REQUEST['faxsol5'].$_REQUEST['faxsol6'].$_REQUEST['faxsol7'].$_REQUEST['faxsol8'].$_REQUEST['faxsol9'].$_REQUEST['faxsol10']."','".$_REQUEST['textfield10']."','".$_REQUEST['nomconemp']."','".$_REQUEST['segnomconemp']."','".$_REQUEST['apepaconemp']."','".$_REQUEST['apemaconemp']."','".$_REQUEST['apemaconemp']."','".$_REQUEST['datobdir22']."','".$_REQUEST['datobcol23']."','".$_REQUEST['lugnacsol22']."','".$_REQUEST['colsol22']."','".$_REQUEST['cdsol22']."','".$_REQUEST['sexsol']."','".$_REQUEST['textfield16']."','".$_REQUEST['textfield17']."','".$_REQUEST['civilsol']."','".$_REQUEST['telconemp1'].$_REQUEST['telconemp2'].$_REQUEST['telconemp3'].$_REQUEST['telconemp4'].$_REQUEST['telconemp5'].$_REQUEST['telconemp6'].$_REQUEST['telconemp7'].$_REQUEST['telconemp8'].$_REQUEST['telconemp9'].$_REQUEST['telconemp10']."','".$_REQUEST['textfield27']."','".$_REQUEST['textfield28']."','".$_REQUEST['rfcconemp1'].$_REQUEST['rfcconemp2'].$_REQUEST['rfcconemp3'].$_REQUEST['rfcconemp4'].$_REQUEST['rfcconemp5'].$_REQUEST['rfcconemp6'].$_REQUEST['rfcconemp7'].$_REQUEST['rfcconemp8'].$_REQUEST['rfcconemp9'].$_REQUEST['rfcconemp10'].$_REQUEST['rfcconemp11'].$_REQUEST['rfcconemp12'].$_REQUEST['rfcconemp13'] ."','".$_REQUEST['textfield30']."','".$_REQUEST['textfield31']."','".$_REQUEST['textfield32']."','".$_REQUEST['textfield35']."','".$_REQUEST['faxconemp1'].$_REQUEST['faxconemp2'].$_REQUEST['faxconemp3'].$_REQUEST['faxconemp4'].$_REQUEST['faxconemp5'].$_REQUEST['faxconemp6'].$_REQUEST['faxconemp7'].$_REQUEST['faxconemp8'].$_REQUEST['faxconemp9'].$_REQUEST['faxconemp10']."','".$_REQUEST['puesconemp']."','".$_REQUEST['textfield37']."','".$_REQUEST['textfield38']."','".$_REQUEST['actprinc']."','".$_REQUEST['inicoper1']."','".$_REQUEST['cantperson']."','".$_REQUEST['inicoper13']."','".$_REQUEST['antemp']."','".$_REQUEST['apodsusc']."','".$_REQUEST['accionista1']."','".$_REQUEST['rfcaccion1']."','".$_REQUEST['%1']."','".$_REQUEST['accionista2']."','".$_REQUEST['rfcaccion2']."','".$_REQUEST['%2']."','".$_REQUEST['accionista3']."','".$_REQUEST['rfcaccion3']."','".$_REQUEST['%3']."','".$_REQUEST['accionista4']."','".$_REQUEST['rfcaccion4']."','".$_REQUEST['%4']."','".$_REQUEST['accpermor1']."','".$_REQUEST['rfcaccpermor1']."','".$_REQUEST['%permoracc1']."','".$_REQUEST['accpermor2']."','".$_REQUEST['rfcaccpermor2']."','".$_REQUEST['%permoracc2']."');");
-		
+$id_pmRequest=mysqli_fetch_array(mysqli_query($cnx,"select LAST_INSERT_ID()"));							 
+$id_pm=$id_pmRequest['LAST_INSERT_ID()'];
+$folio_request=mysqli_fetch_array(mysqli_query($cnx,"select Folio_Cliente from pm where Id='$id_pm'"));
+$Folio_Cliente=$folio_request['Folio_Cliente'];
+
 $tipo = array(1 => array(1 =>"Leasing",2=>"Credit",3=>"Premium credit" ) );
 $sel = array(1 => array(1=>"Si",2=>"No"),
 				2=> array("M"=>"Masculino","F"=>"Femenino"),
@@ -13,7 +17,7 @@ $sel = array(1 => array(1=>"Si",2=>"No"),
 				4=> array("Si"=>"Si", "No"=>"No" ),
 				5=> array("M"=>"Masculino","F"=>"Femenino"),
 				6=> array("M"=>"Masculino","F"=>"Femenino")	 );
-			mysqli_query($cnx,"insert into solicitudpm (
+			mysqli_query($cnx,"insert into solicitudpm (Folio_Cliente,
 TipoCredito,
 BancRefBan,
 NoTarRefBan,
@@ -116,9 +120,9 @@ Fecha,
 ClavConcesionario,
 NomConcesionario,
 NomVendedor,
-NomGerenteGra
-		) values (
+NomGerenteGral) values (
 
+'".$Folio_Cliente."',
  '".$tipo[1][$_REQUEST['tipocredito']]."',
  '".$_REQUEST['refbanc']."',
  '".$_REQUEST['numcuebanc']."',
@@ -148,16 +152,21 @@ NomGerenteGra
  '".$_REQUEST['faxpermor1'].$_REQUEST['faxpermor2'].$_REQUEST['faxpermor3'].$_REQUEST['faxpermor4'].$_REQUEST['faxpermor5'].$_REQUEST['faxpermor6'].$_REQUEST['faxpermor7'].$_REQUEST['faxpermor8'].$_REQUEST['faxpermor9'].$_REQUEST['faxpermor10']."',
  '".$_REQUEST['apodsusc2']."',
  '".$_REQUEST['actprinc2']."',
+ '".$_REQUEST['actprinc2']."',
  '".$_REQUEST['inicoper12']."',
  '".$_REQUEST['cantperson2']."',
  '".$_REQUEST['accionista1']."',
  '".$_REQUEST['rfcaccion1']."',
+ '".$_REQUEST['%1']."',
  '".$_REQUEST['accionista2']."',
   '".$_REQUEST['rfcaccion2']."',
+  '".$_REQUEST['%2']."',
    '".$_REQUEST['accionista3']."',
     '".$_REQUEST['rfcaccion3']."',
+	'".$_REQUEST['%3']."',
     '".$_REQUEST['accionista4']."',
     '".$_REQUEST['rfcaccion4']."',
+	'".$_REQUEST['%4']."',
      '".$_REQUEST['accpermor1']."',
     '".$_REQUEST['rfcaccpermor1']."',
      '".$_REQUEST['%permoracc1']."',
@@ -214,9 +223,9 @@ NomGerenteGra
 	'".$_REQUEST['datobapmat222']."',
 	'".$_REQUEST['fecha']."',
 	'".$_REQUEST['clavcon']."',
+	'".$_REQUEST['nomcons']."',
 	'".$_REQUEST['nomvend']."',
-	'".$_REQUEST['gerentegral']."'
-		);");
+	'".$_REQUEST['gerentegral']."');");
 
 
 /*
