@@ -90,39 +90,39 @@ $('#secSolicitante').find('input').each(function(){
 });
 
 $('#accionistas').find('input').each(function(){ 
-if (document.getElementById("accionista1").value!="") {
-  if (this.id=="rfcaccion1" || this.id=="%1" ) {
-    $(this).prop('required',true);
+if (document.getElementById("accionista1").value=="") {
+  if (this.id=="accionista1"||this.id=="rfcaccion1" || this.id=="%1" ) {
+    $(this).prop('required',false);
   }
 
 }
-if (document.getElementById("accionista2").value!="") {
-  if (this.id=="rfcaccion2" || this.id=="%2" ) {
-    $(this).prop('required',true);
+if (document.getElementById("accionista2").value=="") {
+  if (this.id=="accionista2"||this.id=="rfcaccion2" || this.id=="%2" ) {
+    $(this).prop('required',false);
   }
 
 }
-if (document.getElementById("accionista3").value!="") {
-  if (this.id=="rfcaccion3" || this.id=="%3" ) {
-    $(this).prop('required',true);
+if (document.getElementById("accionista3").value=="") {
+  if (this.id=="accionista3"||this.id=="rfcaccion3" || this.id=="%3" ) {
+    $(this).prop('required',false);
   }
 
 }
-if (document.getElementById("accionista4").value!="") {
-  if (this.id=="rfcaccion4" || this.id=="%4" ) {
-    $(this).prop('required',true);
+if (document.getElementById("accionista4").value=="") {
+  if (this.id=="accionista4"||this.id=="rfcaccion4" || this.id=="%4" ) {
+    $(this).prop('required',false);
   }
   
 }
-if (document.getElementById("accpermor1").value!="") {
-  if (this.id=="rfcaccpermor1" || this.id=="%permoracc1" ) {
-    $(this).prop('required',true);
+if (document.getElementById("accpermor1").value=="") {
+  if (this.id=="accpermor1"||this.id=="rfcaccpermor1" || this.id=="%permoracc1" ) {
+    $(this).prop('required',false);
   }
   
 }
-if (document.getElementById("accpermor2").value!="") {
-  if (this.id=="rfcaccpermor2" || this.id=="%permoracc2" ) {
-    $(this).prop('required',true);
+if (document.getElementById("accpermor2").value=="") {
+  if (this.id=="accpermor2"||this.id=="rfcaccpermor2" || this.id=="%permoracc2" ) {
+    $(this).prop('required',false);
   }
   
 }
@@ -180,9 +180,11 @@ $('#au').find('input').each(function(){
 });
 
   $('#ident').find('input').each(function(){
-
+if (this.id=="textfield2") {
+  $(this).prop('required',false);
+}else{
     $(this).prop('required',true);
-
+}
 
 
 
@@ -266,7 +268,7 @@ if (this.id=="textfield83" || this.id=="textfield84") { $(this).prop('required',
 
 }
 
-if($('input:radio[name=PEPS]:checked').val()=="2" || !$('input:radio[name=PEPS]:radio').is(':checked') ){ 
+if($('input:radio[name=PEPS]:checked').val()=="No" || !$('input:radio[name=PEPS]:radio').is(':checked') ){ 
   if (this.id=="textfield93"|| this.id=="textfield94" || this.id=="textfield95") {
 
       $(this).prop('required',false);
@@ -1343,15 +1345,15 @@ Fecha de nacimiento:
           <table width="100%" border="0">
             <tr>
               <td width="28%">Apellido Paterno </td>
-              <td width="72%"><input name="textfield12" type="text" id="textfield12" ></td>
+              <td width="72%"><input name="textfield12" type="text" id="textfield12" readonly></td>
             </tr>
             <tr>
               <td>Apellido Materno </td>
-              <td><input name="textfield13" type="text" id="textfield13"  ></td>
+              <td><input name="textfield13" type="text" id="textfield13"  readonly></td>
             </tr>
             <tr>
               <td>Nombre</td>
-              <td><input name="textfield14" type="text" id="textfield14" ></td>
+              <td><input name="textfield14" type="text" id="textfield14" readonly></td>
             </tr>
             <tr>
               <td>Género</td>
@@ -1361,39 +1363,39 @@ Fecha de nacimiento:
             </tr>
             <tr>
               <td>Lugar de Nacimiento (Estado y País) </td>
-              <td><input name="textfield16" type="text" id="textfield16" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row2['LugNacContEmp']; } ?>"></td>
+              <td><input name="textfield16" type="text" id="textfield16" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row2['LugNacContEmp']; } ?>" readonly ></td>
             </tr>
             <tr>
               <td>Fecha de Nacimiento </td>
-              <td><input name="textfield17" type="date" id="textfield17" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row2['FechNacContEmp']; } ?>" ></td>
+              <td><input name="textfield17" type="date" id="textfield17" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row2['FechNacContEmp']; } ?>" readonly="true" ></td>
             </tr>
             <tr>
               <td>Domicilio (calle y número) </td>
-              <td><input name="textfield18" type="text" id="textfield18" ></td>
+              <td><input name="textfield18" type="text" id="textfield18" readonly></td>
             </tr>
             <tr>
               <td>Código Postal </td>
-              <td><input name="textfield20" type="text" id="textfield20" ></td>
+              <td><input name="textfield20" type="text" id="textfield20" readonly></td>
             </tr>
             <tr>
               <td>Colonia</td>
-              <td><input name="textfield21" type="text" id="textfield21"  ></td>
+              <td><input name="textfield21" type="text" id="textfield21" readonly ></td>
             </tr>
             <tr>
               <td>Municipio</td>
-              <td><input name="textfield22" type="text" id="textfield22"  ></td>
+              <td><input name="textfield22" type="text" id="textfield22" readonly ></td>
             </tr>
             <tr>
               <td>Estado</td>
-              <td><input name="textfield23" type="text" id="textfield23" ></td>
+              <td><input name="textfield23" type="text" id="textfield23" readonly></td>
             </tr>
             <tr>
               <td>Ciudad</td>
-              <td><input name="textfield24" type="text" id="textfield24"  ></td>
+              <td><input name="textfield24" type="text" id="textfield24" readonly ></td>
             </tr>
             <tr>
               <td>Teléfono</td>
-              <td><input name="textfield25" type="text" id="textfield25"  ></td>
+              <td><input name="textfield25" type="text" id="textfield25" readonly ></td>
             </tr>
             <tr>
               <td>Estado Civil </td>
@@ -1405,51 +1407,51 @@ Fecha de nacimiento:
             </tr>
             <tr>
               <td>Correo Electrónico </td>
-              <td><input name="textfield27" type="text" id="textfield27" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row2['EmailDatConEmp']; } ?>" ></td>
+              <td><input name="textfield27" type="text" id="textfield27" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row2['EmailDatConEmp']; } ?>" readonly></td>
             </tr>
             <tr>
               <td>CURP</td>
-              <td><input name="textfield28" type="text" id="textfield28" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row2['CURPDatConEmp']; } ?>" ></td>
+              <td><input name="textfield28" type="text" id="textfield28" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row2['CURPDatConEmp']; } ?>" readonly></td>
             </tr>
             <tr>
               <td>RFC</td>
-              <td><input name="textfield29" type="text" id="textfield29"  ></td>
+              <td><input name="textfield29" type="text" id="textfield29" readonly ></td>
             </tr>
             <tr>
               <td>Numero de serie de la FIEL*</td>
-              <td><input name="textfield30" type="text" id="textfield30" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row2['NumSerieFIELContEmp']; } ?>" ></td>
+              <td><input name="textfield30" type="text" id="textfield30" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row2['NumSerieFIELContEmp']; } ?>" readonly ></td>
             </tr>
             <tr>
               <td>Nacionalidad</td>
-              <td><input name="textfield31" type="text" id="textfield31" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row2['NacionalidadContEmp']; } ?>" ></td>
+              <td><input name="textfield31" type="text" id="textfield31" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row2['NacionalidadContEmp']; } ?>" readonly></td>
             </tr>
             <tr>
               <td>Ocupación o Profesión </td>
-              <td><input name="textfield32" type="text" id="textfield32" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row2['OcupacionContEmp']; } ?>" ></td>
+              <td><input name="textfield32" type="text" id="textfield32" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row2['OcupacionContEmp']; } ?>" readonly></td>
             </tr>
             <tr>
               <td>Nombre de la Empresa y Giro (donde labora) </td>
-              <td><input name="textfield33" type="text" id="textfield33"  ></td>
+              <td><input name="textfield33" type="text" id="textfield33"  readonly></td>
             </tr>
             <tr>
               <td>Domicilio donde labora </td>
-              <td><input name="textfield34" type="text" id="textfield34" ></td>
+              <td><input name="textfield34" type="text" id="textfield34" readonly></td>
             </tr>
             <tr>
               <td>Sueldo o ingreso mensual </td>
-              <td><input name="textfield35" type="text" id="textfield35" value="<?php  if(isset($row['Folio_Cliente'])) {  echo $row2['SueldoContEmp']; } ?>" ></td>
+              <td><input name="textfield35" type="text" id="textfield35" value="<?php  if(isset($row['Folio_Cliente'])) {  echo $row2['SueldoContEmp']; } ?>" readonly></td>
             </tr>
             <tr>
               <td>Puesto</td>
-              <td><input name="textfield36" type="text" id="textfield36"  ></td>
+              <td><input name="textfield36" type="text" id="textfield36" readonly ></td>
             </tr>
             <tr>
               <td>Actividad Económica Adicional </td>
-              <td><input name="textfield37" type="text" id="textfield37" value="<?php  if(isset($row['Folio_Cliente'])) {  echo $row2['ActEcoAdicionalContEmp']; } ?>"></td>
+              <td><input name="textfield37" type="text" id="textfield37" value="<?php  if(isset($row['Folio_Cliente'])) {  echo $row2['ActEcoAdicionalContEmp']; } ?>" readonly></td>
             </tr>
             <tr>
               <td>Ingresos Adicionales Mensuales Apox </td>
-              <td><input name="textfield38" type="text" id="textfield38" value="<?php  if(isset($row['Folio_Cliente'])) {  echo $row2['IngAdMensualAproxContEmp']; } ?>" ></td>
+              <td><input name="textfield38" type="text" id="textfield38" value="<?php  if(isset($row['Folio_Cliente'])) {  echo $row2['IngAdMensualAproxContEmp']; } ?>" readonly ></td>
             </tr>
           </table>
       <br>

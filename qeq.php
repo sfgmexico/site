@@ -106,10 +106,10 @@ if ($pos === false) {
             }
 
 if(isset($_REQUEST['perF'])){
-   $xml->save('xml/'.$nombre.' '. $paterno.' '. $materno.' '.date('Y-m-d').'.xml');
+   $xml->save('xml/consulta.xml');
 }
 if(isset($_REQUEST['perM'])){
-    $xml->save('xml/'.$razonsoc.' '.$rfc.' '.date('Y-m-d').'.xml');
+    $xml->save('xml/consulta.xml');
 }
 
 
@@ -124,7 +124,7 @@ leer();
 //Para leerlo
   function leer(){
     
-    $xml = simplexml_load_file('xml/miguel osorio chong 2017-05-18.xml');
+    $xml = simplexml_load_file('xml/consulta.xml');
     $salida ="";
     
     foreach($xml->persona as $item){
