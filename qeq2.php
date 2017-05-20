@@ -17,7 +17,7 @@ if(stristr($solicitudNo, 'SA-')== TRUE){
     echo 'Caught exception: ',  $e->getMessage(), "\n";
 }
 
-    
+    /*
     
     if($ob['NomRefPer']!=""){
         $per2=explode(" ", $ob['NomRefPer']);
@@ -41,6 +41,7 @@ if(stristr($solicitudNo, 'SA-')== TRUE){
 }
        
     }
+    */
     //conyuge
     $per3="";
     $per3=$ob['NomDatCon'].' '.$ob['ApPatDatCon'].' '.$ob['ApMatDatCon'];
