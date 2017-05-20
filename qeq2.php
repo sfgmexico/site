@@ -196,7 +196,7 @@ if($tipo=="pepse"){
 
 
 }
-
+ 
 
 echo "<br>";
 

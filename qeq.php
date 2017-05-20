@@ -142,7 +142,7 @@ leer();
     }else{
         echo $salida;
     }
-    
+     
     
   }
 
