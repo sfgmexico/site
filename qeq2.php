@@ -184,10 +184,10 @@ if ($pos === false) {
             }
 
 if($tipo=="pepsp"){
-   $xml->save('/Applications/XAMPP/xamppfiles/htdocs/site/xml/'.$persona.' '.date('Y-m-d').'.xml');
+   $xml->save('xml/'.$persona.' '.date('Y-m-d').'.xml');
 }
 if($tipo=="pepse"){
-    $xml->save('/Applications/XAMPP/xamppfiles/htdocs/site/xml/'.$razonsoc.' '.$rfc.' '.date('Y-m-d').'.xml');
+    $xml->save('xml/'.$razonsoc.' '.$rfc.' '.date('Y-m-d').'.xml');
 }
 
 
