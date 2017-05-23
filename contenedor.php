@@ -796,9 +796,14 @@ xmlhttp.onreadystatechange=function()
   {
     if (xmlhttp.readyState==4 && xmlhttp.status==200)
       {
-        document.getElementById("loadingqeq").style.display='none';
-        //document.getElementById("consultaqeq").style.display='none';
-      alert(xmlhttp.responseText);
+        if(xmlhttp.responseText.indexOf("Fatal error") !== -1){
+               alert('¡¡¡Error De Servidor Intente De Nuevo!!!');
+        }else{
+               document.getElementById("loadingqeq").style.display='none';
+               //document.getElementById("consultaqeq").style.display='none';
+               alert(xmlhttp.responseText);
+        }
+        
       }
   }
 xmlhttp.open("GET",sub,true);

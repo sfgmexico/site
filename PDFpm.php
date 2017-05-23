@@ -3,7 +3,7 @@ include("Conexion2.php");
 $entro="";
 if($_REQUEST['cliente']=="PM-001"){
 
-    $entro="Si";
+   
 mysqli_query($cnx,"insert into pm(NomSolicitante,RFCSolicitante,TelSolicitante,DirSolicitante,NumDirSol,ColSolicitante,CdSolicitante,EdoSolicitante,MunicipioSolicitante,CPSolicitante,EmailSolicitante,FaxSolicitante,PaisSolicitante,NomDatContEmp,SegNomDatContEmp,ApPatDatContEmp,ApMatDatContEmp,DirConEmp,ColConEmp,CPConEmp,CdConEmp,EdoConEmp,SexoContEmp,LugNacContEmp,FechNacContEmp,EstCivContEmp,TelDatConEmp,EmailDatConEmp,CURPDatConEmp,RFCDatConEmp,NumSerieFIELContEmp,NacionalidadContEmp,OcupacionContEmp,SueldoContEmp,FaxDatConEmp,PuestDatConEmp,ActEcoAdicionalContEmp,IngAdMensualAproxContEmp,ActPrinDatGenPM,IniOpDatGenPM,CantPerDatGenPM,FechaConsEmp,AntConsEmp,ApoConsEmp,NomAcc1,RFCAcc1,PorAcc1,NomAcc2,RFCAcc2,PorAcc2,NomAcc3,RFCAcc3,PorAcc3,NomAcc4,RFCAcc4,PorAcc4,NomAccPM1,RFCAccPM1,PorAccPM1,NomAccPM2,RFCAccPM2,PorAccPM2) values('".$_REQUEST['nomrazsoc2'] ."','".$_REQUEST['rfcsol1'].$_REQUEST['rfcsol2'].$_REQUEST['rfcsol3'].$_REQUEST['rfcsol4'].$_REQUEST['rfcsol5'].$_REQUEST['rfcsol6'].$_REQUEST['rfcsol7'].$_REQUEST['rfcsol8'].$_REQUEST['rfcsol9'].$_REQUEST['rfcsol10'].$_REQUEST['rfcsol11'].$_REQUEST['rfcsol12'].$_REQUEST['rfcsol13'] ."','". $_REQUEST['telsol1'].$_REQUEST['telsol2'].$_REQUEST['telsol3'].$_REQUEST['telsol4'].$_REQUEST['telsol5'].$_REQUEST['telsol6'].$_REQUEST['telsol7'].$_REQUEST['telsol8'].$_REQUEST['telsol9'].$_REQUEST['telsol10']."','". $_REQUEST['dirsol']."','". $_REQUEST['dirnumsol']."','". $_REQUEST['colsol']."','".$_REQUEST['edosol']."','".$_REQUEST['textfield5']."','".$_REQUEST['cpsol']."','".$_REQUEST['mailsol2']."','".$_REQUEST['faxsol1'].$_REQUEST['faxsol2'].$_REQUEST['faxsol3'].$_REQUEST['faxsol4'].$_REQUEST['faxsol5'].$_REQUEST['faxsol6'].$_REQUEST['faxsol7'].$_REQUEST['faxsol8'].$_REQUEST['faxsol9'].$_REQUEST['faxsol10']."','".$_REQUEST['textfield10']."','".$_REQUEST['nomconemp']."','".$_REQUEST['segnomconemp']."','".$_REQUEST['apepaconemp']."','".$_REQUEST['apemaconemp']."','".$_REQUEST['apemaconemp']."','".$_REQUEST['datobdir22']."','".$_REQUEST['datobcol23']."','".$_REQUEST['lugnacsol22']."','".$_REQUEST['colsol22']."','".$_REQUEST['cdsol22']."','".$_REQUEST['sexsol']."','".$_REQUEST['textfield16']."','".$_REQUEST['textfield17']."','".$_REQUEST['civilsol']."','".$_REQUEST['telconemp1'].$_REQUEST['telconemp2'].$_REQUEST['telconemp3'].$_REQUEST['telconemp4'].$_REQUEST['telconemp5'].$_REQUEST['telconemp6'].$_REQUEST['telconemp7'].$_REQUEST['telconemp8'].$_REQUEST['telconemp9'].$_REQUEST['telconemp10']."','".$_REQUEST['textfield27']."','".$_REQUEST['textfield28']."','".$_REQUEST['rfcconemp1'].$_REQUEST['rfcconemp2'].$_REQUEST['rfcconemp3'].$_REQUEST['rfcconemp4'].$_REQUEST['rfcconemp5'].$_REQUEST['rfcconemp6'].$_REQUEST['rfcconemp7'].$_REQUEST['rfcconemp8'].$_REQUEST['rfcconemp9'].$_REQUEST['rfcconemp10'].$_REQUEST['rfcconemp11'].$_REQUEST['rfcconemp12'].$_REQUEST['rfcconemp13'] ."','".$_REQUEST['textfield30']."','".$_REQUEST['textfield31']."','".$_REQUEST['textfield32']."','".$_REQUEST['textfield35']."','".$_REQUEST['faxconemp1'].$_REQUEST['faxconemp2'].$_REQUEST['faxconemp3'].$_REQUEST['faxconemp4'].$_REQUEST['faxconemp5'].$_REQUEST['faxconemp6'].$_REQUEST['faxconemp7'].$_REQUEST['faxconemp8'].$_REQUEST['faxconemp9'].$_REQUEST['faxconemp10']."','".$_REQUEST['puesconemp']."','".$_REQUEST['textfield37']."','".$_REQUEST['textfield38']."','".$_REQUEST['actprinc']."','".$_REQUEST['inicoper1']."','".$_REQUEST['cantperson']."','".$_REQUEST['inicoper13']."','".$_REQUEST['antemp']."','".$_REQUEST['apodsusc']."','".$_REQUEST['accionista1']."','".$_REQUEST['rfcaccion1']."','".$_REQUEST['%1']."','".$_REQUEST['accionista2']."','".$_REQUEST['rfcaccion2']."','".$_REQUEST['%2']."','".$_REQUEST['accionista3']."','".$_REQUEST['rfcaccion3']."','".$_REQUEST['%3']."','".$_REQUEST['accionista4']."','".$_REQUEST['rfcaccion4']."','".$_REQUEST['%4']."','".$_REQUEST['accpermor1']."','".$_REQUEST['rfcaccpermor1']."','".$_REQUEST['%permoracc1']."','".$_REQUEST['accpermor2']."','".$_REQUEST['rfcaccpermor2']."','".$_REQUEST['%permoracc2']."');");
 $id_pmRequest=mysqli_fetch_array(mysqli_query($cnx,"select LAST_INSERT_ID()"));							 
 $id_pm=$id_pmRequest['LAST_INSERT_ID()'];
@@ -17,6 +17,7 @@ $sel = array(1 => array(1=>"Si",2=>"No"),
 				4=> array("Si"=>"Si", "No"=>"No" ),
 				5=> array("M"=>"Masculino","F"=>"Femenino"),
 				6=> array("M"=>"Masculino","F"=>"Femenino")	 );
+			
 			mysqli_query($cnx,"insert into solicitudpm (Folio_Cliente,
 TipoCredito,
 BancRefBan,
@@ -294,7 +295,14 @@ $select14=$Mg1[14][$_REQUEST['select14']];
 $select15=$Mg1[15][$_REQUEST['select15']];
 $select16=$Mg1[16][$_REQUEST['select16']];
 $select17=$Mg1[17][$_REQUEST['select17']];
-$GradoRiesgo=$total;
+if($total>=21 && $total<=29){
+	$GradoRiesgo="Bajo";
+}elseif($total>=30 && $total<=45){
+	$GradoRiesgo="Medio";
+}else{
+	$GradoRiesgo="Alto";
+}
+
 $DomBeneficiario=$_REQUEST['textfield48'];
 	$ColBeneficiario=$_REQUEST['textfield49'];
 	$CPBeneficiario=$_REQUEST['textfield50'];
@@ -341,14 +349,9 @@ $DomBeneficiario=$_REQUEST['textfield48'];
 	$Plazo=$_REQUEST['textfield91'];
 	$PagoMensEsp=$_REQUEST['textfield92'];
 	$PEPS="";
-	if($_REQUEST['PEPS']=="1"){
-			$PEPS="Si";
-		}
-	if($_REQUEST['PEPS']=="2"){
-			$PEPS="No";
-		}
 	
-	if ($PEPS=="Si") {
+	
+	if ($_REQUEST['PEPS']=="Si") {
 		$NombrePEPS=$_REQUEST['textfield93'];
 		$ParentescoPEPS=$_REQUEST['textfield94'];
 		$PuestoPEPS=$_REQUEST['textfield95'];
@@ -358,29 +361,22 @@ $DomBeneficiario=$_REQUEST['textfield48'];
 		$PuestoPEPS="";
 	}
 		$INESolicitante=$_REQUEST['textfield39'];
-		 $copias="";
-	$copias2="";
-	$copias3="";
-	$copias4="";
-	$copias5="";
+		
+		 
 	$Pasaporte_o_CedulaProfSolicitante=$_REQUEST['textfield40'];
 	$CartillaMilitarSolicitante=$_REQUEST['textfield41'];
 	$LicenciaConducirSolicitante=$_REQUEST['textfield42'];
 		$OtraIdentSolicitante=$_REQUEST['textfield43'];
 		$EspIdentSolicitante=$_REQUEST['textfield44'];
-		$cotejo="Si";
-		$adjuntos1="Si";
-			$adjuntos2="Si";
-				$adjuntos3="Si";
+		
 $fechaComprobante=$_REQUEST['fechaComprobante'];
 		$id_solicitudpmRequest=mysqli_fetch_array(mysqli_query($cnx,"select LAST_INSERT_ID()"));							 
 		$id_pm=$id_solicitudpmRequest['LAST_INSERT_ID()'];
 		$folio_solrequest=mysqli_fetch_array(mysqli_query($cnx,"select Folio_Sol from solicitudpm where Id='$id_pm'"));
-		$folio_request=mysqli_fetch_array(mysqli_query($cnx,"select Folio_Cliente from pm where Id='$id_pm'"));
 		$Folio_Sol=$folio_solrequest['Folio_Sol'];
-		$Folio_Cliente=$folio_request['Folio_Cliente'];
 
-		mysqli_query($cnx,"insert into gradoriesgo (Antiguedad_ObjetoSocial,Antiguedad_Cliente,Naturaleza_Operaciones,Numero_Beneficiarios,Numero_TercerosRelacionados,PEPs_Relacionados,Alerta_Reputacional,Volumen_Esperado,Frecuencia_Esperada,Instrumento_Monetario,Canales_MediosUtilizados,Pais_EstadoOficial,Pais_EstadoResidencia,Pais_EstadoOperacion,Origen_Recursos,Destino_Recursos,Pais_EstadoResidenciaTerceros,GradoRiesgo,INESolicitante,Adjunta_INESolicitante,Pasaporte_o_CedulaProfSolicitante,Adjunta_Pasaporte_o_CedulaProfSolicitante,CartillaMilitarSolicitante,Adjunta_CartillaMilitarSolicitante,LicenciaConducirSolicitante,Adjunta_LicenciaConducirSolicitante,OtraIdentSolicitante,Adjunta_OtraIdentSolicitante,EspIdentSolicitante,CotejoVsOriginal,Adjunta_CURP_RFC_FEA,Adjunta_ComprobanteDom,DomicilioCoincideId,DomBeneficiario,ColBeneficiario,CPBeneficiario,PaisBeneficiario,TelBeneficiario,CURPBeneficiario,RFCBeneficiario,ParentescoBeneficiario,PorcientoBeneficiario,FeNacBeneficiario,MunBeneficiario,EdoBeneficiario,EdoCivilBeneficiario,SoConBeneficiario,OcuProfBeneficiario,PEPSBeneficiario,OrigenRecBeneficiario,PerTrans1,FuentePerTrans1,PerTrans2,FuentePerTrans2,PerTrans3,FuentePerTrans3,PerTrans4,FuentePerTrans4,PerTrans5,FuentePerTrans5,PerTrans6,FuentePerTrans6,PerTrans7,FuentePerTrans7,PerTrans8,FuentePerTrans8,PerTrans9,FuentePerTrans9,PerTrans10,FuentePerTrans10,TotalIngreso,ValorAuto,EngAutomovil,PorEnganche,PorFinanciamiento,MontoFinanciado,Plazo,PagoMensEsp,PEPS,NombrePEPS,ParentescoPEPS,PuestoPEPS,FechaComprobanteDom) values ('$select','$select2','$select3','$select4','$select5','$select6','$select7','$select8','$select9','$select10','$select11','$select12','$select13','$select14','$select15','$select16','$select17','$GradoRiesgo','$INESolicitante','$copias','$Pasaporte_o_CedulaProfSolicitante','$copias2','$CartillaMilitarSolicitante','$copias3','$LicenciaConducirSolicitante','$copias4','$OtraIdentSolicitante','$copias5','$EspIdentSolicitante','$cotejo','$adjuntos1','$adjuntos2','$adjuntos3','$DomBeneficiario','$ColBeneficiario','$CPBeneficiario','$PaisBeneficiario','$TelBeneficiario','$CURPBeneficiario','$RFCBeneficiario','$ParentescoBeneficiario','$PorcientoBeneficiario','$FeNacBeneficiario','$MunBeneficiario','$EdoBeneficiario','$EdoCivilBeneficiario','$SoConBeneficiario','$OcuProfBeneficiario','$PEPSBeneficiario','$OrigenRecBeneficiario','$PerTrans1','$FuentePerTrans1','$PerTrans2','$FuentePerTrans2','$PerTrans3','$FuentePerTrans3','$PerTrans4','$FuentePerTrans4','$PerTrans5','$FuentePerTrans5','$PerTrans6','$FuentePerTrans6','$PerTrans7','$FuentePerTrans7','$PerTrans8','$FuentePerTrans8','$PerTrans9','$FuentePerTrans9','$PerTrans10','$FuentePerTrans10','$totalIngreso','$ValorAuto','$EngAutomovil','$PorEnganche','$PorFinanciamiento','$MontoFinanciado','$Plazo','$PagoMensEsp','$PEPS','$NombrePEPS','$ParentescoPEPS','$PuestoPEPS','$fechaComprobante');");
+		mysqli_query($cnx,"insert into gradoriesgo (Folio_sol,Folio_Cliente,Antiguedad_ObjetoSocial,Antiguedad_Cliente,Naturaleza_Operaciones,Numero_Beneficiarios,Numero_TercerosRelacionados,PEPs_Relacionados,Alerta_Reputacional,Volumen_Esperado,Frecuencia_Esperada,Instrumento_Monetario,Canales_MediosUtilizados,Pais_EstadoOficial,Pais_EstadoResidencia,Pais_EstadoOperacion,Origen_Recursos,Destino_Recursos,Pais_EstadoResidenciaTerceros,GradoRiesgo,INESolicitante,Adjunta_INESolicitante,Pasaporte_o_CedulaProfSolicitante,Adjunta_Pasaporte_o_CedulaProfSolicitante,CartillaMilitarSolicitante,Adjunta_CartillaMilitarSolicitante,LicenciaConducirSolicitante,Adjunta_LicenciaConducirSolicitante,OtraIdentSolicitante,Adjunta_OtraIdentSolicitante,EspIdentSolicitante,CotejoVsOriginal,Adjunta_CURP_RFC_FEA,Adjunta_ComprobanteDom,DomicilioCoincideId,DomBeneficiario,ColBeneficiario,CPBeneficiario,PaisBeneficiario,TelBeneficiario,CURPBeneficiario,RFCBeneficiario,ParentescoBeneficiario,PorcientoBeneficiario,FeNacBeneficiario,MunBeneficiario,EdoBeneficiario,EdoCivilBeneficiario,SoConBeneficiario,OcuProfBeneficiario,PEPSBeneficiario,OrigenRecBeneficiario,PerTrans1,FuentePerTrans1,PerTrans2,FuentePerTrans2,PerTrans3,FuentePerTrans3,PerTrans4,FuentePerTrans4,PerTrans5,FuentePerTrans5,PerTrans6,FuentePerTrans6,PerTrans7,FuentePerTrans7,PerTrans8,FuentePerTrans8,PerTrans9,FuentePerTrans9,PerTrans10,FuentePerTrans10,TotalIngreso,ValorAuto,EngAutomovil,PorEnganche,PorFinanciamiento,MontoFinanciado,Plazo,PagoMensEsp,PEPS,NombrePEPS,ParentescoPEPS,PuestoPEPS,FechaComprobanteDom)
+		        values ('$Folio_Sol','$Folio_Cliente','$select','$select2','$select3','$select4','$select5','$select6','$select7','$select8','$select9','$select10','$select11','$select12','$select13','$select14','$select15','$select16','$select17','$GradoRiesgo','$INESolicitante','".$_REQUEST['copias']."','$Pasaporte_o_CedulaProfSolicitante','".$_REQUEST['copias2']."','$CartillaMilitarSolicitante','".$_REQUEST['copias3']."','$LicenciaConducirSolicitante','".$_REQUEST['copias4']."','$OtraIdentSolicitante','".$_REQUEST['copias5']."','$EspIdentSolicitante','".$_REQUEST['cotejo']."','".$_REQUEST['adjuntos1']."','".$_REQUEST['adjuntos2']."','".$_REQUEST['adjuntos3']."','$DomBeneficiario','$ColBeneficiario','$CPBeneficiario','$PaisBeneficiario','$TelBeneficiario','$CURPBeneficiario','$RFCBeneficiario','$ParentescoBeneficiario','$PorcientoBeneficiario','$FeNacBeneficiario','$MunBeneficiario','$EdoBeneficiario','$EdoCivilBeneficiario','$SoConBeneficiario','$OcuProfBeneficiario','$PEPSBeneficiario','$OrigenRecBeneficiario','$PerTrans1','$FuentePerTrans1','$PerTrans2','$FuentePerTrans2','$PerTrans3','$FuentePerTrans3','$PerTrans4','$FuentePerTrans4','$PerTrans5','$FuentePerTrans5','$PerTrans6','$FuentePerTrans6','$PerTrans7','$FuentePerTrans7','$PerTrans8','$FuentePerTrans8','$PerTrans9','$FuentePerTrans9','$PerTrans10','$FuentePerTrans10','$totalIngreso','$ValorAuto','$EngAutomovil','$PorEnganche','$PorFinanciamiento','$MontoFinanciado','$Plazo','$PagoMensEsp','".$_REQUEST['PEPS']."','$NombrePEPS','$ParentescoPEPS','$PuestoPEPS','$fechaComprobante');");
 
                   
 

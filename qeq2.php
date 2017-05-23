@@ -12,7 +12,7 @@ if(stristr($solicitudNo, 'SA-')== TRUE){
     $per1=$ob2['NomSolicitante'].' '.$ob2['SegNomSolicitante'].' '.$ob2['ApPatSolicitante'].' '.$ob2['ApMatSolicitante'];
     $con1="https://qeq.mx/datos/qws/pepsp?nombre=".$ob2['NomSolicitante'].' '.$ob2['SegNomSolicitante']."&paterno=".$ob2['ApPatSolicitante']." &materno=".$ob2['ApMatSolicitante']."&curp=".$ob2['CURPSolicitante']."&rfc=".$ob2['RFCSolicitante'];
     try {
-    consulta('pepsp',$con1,$per1);
+    consulta('pepsp',$con1,$per1,$solicitudNo);
 } catch (Exception $e) {
     echo 'Caught exception: ',  $e->getMessage(), "\n";
 }
@@ -49,7 +49,7 @@ if(stristr($solicitudNo, 'SA-')== TRUE){
         
         $con3="https://qeq.mx/datos/qws/pepsp?nombre=".$ob['NomDatCon']."&paterno=".$ob['ApPatDatCon']."&materno=".$ob['ApMatDatCon'];
         try {
-     consulta('pepsp',$con3,$per3);
+     consulta('pepsp',$con3,$per3,$solicitudNo);
 } catch (Exception $e) {
     echo 'Caught exception: ',  $e->getMessage(), "\n";
     goto renewSA;
@@ -63,7 +63,7 @@ if(stristr($solicitudNo, 'SA-')== TRUE){
         
         $con4="https://qeq.mx/datos/qws/pepsp?nombre=".$ob['NomObSol']."&paterno=".$ob['ApPatObSol']."&materno=".$ob['ApMatObSol']."&curp=".$ob['CURPObSol']."&rfc=".$ob['RFCObSol'];
         try {
-    consulta('pepsp',$con4,$per4);
+    consulta('pepsp',$con4,$per4,$solicitudNo);
 } catch (Exception $e) {
     echo 'Caught exception: ',  $e->getMessage(), "\n";
     goto renewSA;
@@ -77,7 +77,7 @@ if(stristr($solicitudNo, 'SA-')== TRUE){
         
         $con5="https://qeq.mx/datos/qws/pepsp?nombre=".$ob['NomObSol2']."&paterno=".$ob['ApPatObSol2']."&materno=".$ob['ApMatObSol2']."&curp=".$ob['CURPObSol2']."&rfc=".$ob['RFCObSol2'];
         try {
-    consulta('pepsp',$con5,$per5);
+    consulta('pepsp',$con5,$per5,$solicitudNo);
 } catch (Exception $e) {
     echo 'Caught exception: ',  $e->getMessage(), "\n";
     goto renewSA;
@@ -88,9 +88,9 @@ if(stristr($solicitudNo, 'SA-')== TRUE){
 echo "¡¡¡Consulta Realizada!!!";
 exit();
 }elseif (stristr($solicitudNo, 'SN-')== TRUE) {
-
+    echo "¡¡En Construcción!!";
 }elseif (stristr($solicitudNo, 'SM-')== TRUE){
-
+    echo "¡¡En Construcción!!";
 }else{
     exit();
 }
@@ -100,10 +100,10 @@ exit();
 
     
 
-    $url="https://qeq.mx/datos/qws/pepse?razonsoc=".$razonsoc."&rfc=".$rfc;
+    //$url="https://qeq.mx/datos/qws/pepse?razonsoc=".$razonsoc."&rfc=".$rfc;
 
 
-function consulta($tipo,$url,$persona){
+function consulta($tipo,$url,$persona,$foli){
 
 $count2=0;
 // First, include Requests
@@ -184,7 +184,10 @@ if ($pos === false) {
             }
 
 if($tipo=="pepsp"){
-   $xml->save('xml/'.$persona.' '.date('Y-m-d').'.xml');
+    $DirXML='xml/'.$persona.' '.date('Y-m-d').'.xml';
+   $xml->save($DirXML);
+   include('Conexion2.php');
+   mysqli_query($cnx,"insert into registroxml (Folio_Sol,PersonaRazonsoc,DirXML) values('$foli','$persona','$DirXML') ON DUPLICATE KEY UPDATE Folio_Sol = '$foli', PersonaRazonsoc = '$persona', DirXML='$DirXML';");
 }
 if($tipo=="pepse"){
     $xml->save('xml/'.$razonsoc.' '.$rfc.' '.date('Y-m-d').'.xml');
@@ -199,9 +202,9 @@ if($tipo=="pepse"){
 }
  
 
-echo "<br>";
 
-leer();
+
+//leer();
 
 //Para leerlo
   function leer(){
