@@ -730,7 +730,7 @@ if ($row1[$j]=="") {
 <tr>
 <td>Consulta Quién es Quién </td>
 <?php ?>
-<td class="callout warning">Pendiente  <input type="button" value="Consultar" id="consultaqeq" name="consultaqeq" > <div style="display:none"  id="loadingqeq" class="loader"></div></td>
+<td class="callout warning">Pendiente  <input type="button" value="Consultar" id="consultaqeq" name="consultaqeq" > <input style="display:none" type="button" value="Ver Información" id="verqeq" name="verqeq" > <div style="display:none"  id="loadingqeq" class="loader"></div></td>
 
 </tr>
   </table> 
@@ -800,7 +800,8 @@ xmlhttp.onreadystatechange=function()
                alert('¡¡¡Error De Servidor Intente De Nuevo!!!');
         }else{
                document.getElementById("loadingqeq").style.display='none';
-               //document.getElementById("consultaqeq").style.display='none';
+               document.getElementById("consultaqeq").style.display='none';
+               document.getElementById("verqeq").style.display='block';
                alert(xmlhttp.responseText);
         }
         
