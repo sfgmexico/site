@@ -15,7 +15,7 @@
   transform: translateZ(0);
   -webkit-animation: load6 1.7s infinite ease, round 1.7s infinite ease;
   animation: load6 1.7s infinite ease, round 1.7s infinite ease;
-}
+  }
 @-webkit-keyframes load6 {
   0% {
     box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
@@ -37,7 +37,7 @@
   100% {
     box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
   }
-}
+  }
 @keyframes load6 {
   0% {
     box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
@@ -59,7 +59,7 @@
   100% {
     box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
   }
-}
+  }
 @-webkit-keyframes round {
   0% {
     -webkit-transform: rotate(0deg);
@@ -69,7 +69,7 @@
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
-}
+  }
 @keyframes round {
   0% {
     -webkit-transform: rotate(0deg);
@@ -79,10 +79,10 @@
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
-}
+  }
   </style>
   
-  <?php
+<?php
   
      
       $solicitudNo=strtoupper($_GET['textfield']);
@@ -94,6 +94,13 @@
   $ob=mysqli_fetch_array($result,MYSQL_NUM);
   $cliente=$ob[2];
     $tab=mysqli_query($cnx,"select * from pfa where Folio_cliente='$cliente'");
+    $rw=mysqli_num_rows(mysqli_query($cnx,"select * from registroxml where Folio_Sol='$solicitudNo'"));
+    if($rw>0){
+        $resqeq=true;
+    }else{
+        $resqeq=false;
+    }
+    
     
   }
   elseif (stristr($solicitudNo, 'SN-')== TRUE) {
@@ -107,10 +114,32 @@
      $ob=mysqli_fetch_array($result2,MYSQL_NUM);
 $cliente=$ob[2];
        $tab=mysqli_query($cnx,"select * from pm where Folio_cliente='$cliente'");
+       $rw=mysqli_num_rows(mysqli_query($cnx,"select * from registroxml where Folio_Sol='$solicitudNo'"));
+    if($rw>0){
+        $resqeq=true;
+    }else{
+        $resqeq=false;
+    }
   }
   elseif (stristr($solicitudNo, 'PFA-')== TRUE) {
    
       $result=mysqli_query($cnx,"select NomSolicitante,Folio_Sol,Status from solicitudpfa inner join pfa on pfa.Folio_cliente=solicitudpfa.Folio_Cliente where pfa.Folio_Cliente='$solicitudNo' order by solicitudpfa.Id desc");
+echo "<table>
+  <tr><td>Folio de la solicitud</td> <td>Nombre</td> <td>Estatus</td> </tr>
+
+";
+while ($row=mysqli_fetch_array($result,MYSQL_ASSOC)) {
+?>
+   <tr onclick="$('#htmlext').load('contenedor.php?textfield='+this.id);" id="<?php echo $row['Folio_Sol']; ?>" ><td> <?php echo $row['Folio_Sol']; ?> </td> 
+ <td> <?php echo $row['NomSolicitante']; ?> </td>
+ <td class="<?php if($row['Status']=='Aceptada') {echo 'callout success'; } elseif($row['Status']=='Rechazada') {echo 'callout alert'; } elseif($row['Status']=='Pendiente') {echo 'callout warning'; }  ?>" > <?php echo $row['Status']; ?> </td> <?php
+}
+echo "</table>";
+  }elseif(stristr($solicitudNo, 'PFNA-')== TRUE){
+
+  }elseif(stristr($solicitudNo, 'PM-')== TRUE){
+    
+    $result=mysqli_query($cnx,"select NomSolicitante,Folio_Sol,Status from solicitudpm inner join pm on pm.Folio_cliente=solicitudpm.Folio_Cliente where pm.Folio_Cliente='$solicitudNo' order by solicitudpm.Id desc");
 echo "<table>
   <tr><td>Folio de la solicitud</td> <td>Nombre</td> <td>Estatus</td> </tr>
 
@@ -730,7 +759,7 @@ if ($row1[$j]=="") {
 <tr>
 <td>Consulta Quién es Quién </td>
 <?php ?>
-<td class="callout warning">Pendiente  <input type="button" value="Consultar" id="consultaqeq" name="consultaqeq" > <input style="display:none" type="button" value="Ver Información" id="verqeq" name="verqeq" > <div style="display:none"  id="loadingqeq" class="loader"></div></td>
+<td id="tdqeq" <?php if($resqeq==true){ echo "class='callout success'";}else{echo "class='callout warning'";} ?> > <?php if($resqeq==true){ echo 'Consultado';}else{echo 'Pendiente  <input type="button" value="Consultar" id="consultaqeq" name="consultaqeq" >';} ?> <input  <?php if($resqeq==true){echo 'style="display:block"';}else{echo 'style="display:none"';}?>type="button" value="Ver Información" id="verqeq" name="verqeq"  >  <div style="display:none"  id="loadingqeq" class="loader"></div></td>
 
 </tr>
   </table> 
@@ -781,6 +810,15 @@ echo "";
     <script>
       $(document).foundation();
 
+$("#verqeq").click(function(event) {
+ 
+ window.open("qeq3.php?solicitud="+document.getElementById("res").value,'_blank', "toolbar=no,scrollbars=No,resizable=yes,top=0,left=0,width=500,height=500");
+   
+                                });
+
+
+
+
 $("#consultaqeq").click(function(event) {
   document.getElementById("loadingqeq").style.display='block';
  var sub="qeq2.php?foliosol="+document.getElementById("res").value;
@@ -797,11 +835,15 @@ xmlhttp.onreadystatechange=function()
     if (xmlhttp.readyState==4 && xmlhttp.status==200)
       {
         if(xmlhttp.responseText.indexOf("Fatal error") !== -1){
+               document.getElementById("loadingqeq").style.display='none';
                alert('¡¡¡Error De Servidor Intente De Nuevo!!!');
+               
         }else{
                document.getElementById("loadingqeq").style.display='none';
                document.getElementById("consultaqeq").style.display='none';
                document.getElementById("verqeq").style.display='block';
+              $( "#tdqeq" ).removeClass( "warning" )
+               $('#tdqeq').addClass('success');
                alert(xmlhttp.responseText);
         }
         
