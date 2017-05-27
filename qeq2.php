@@ -4,6 +4,8 @@
  include('Conexion2.php');
 if(stristr($solicitudNo, 'SA-')== TRUE){
      renewSA:
+     $cooc=conexion();
+
       $arra= array();
     $result=mysqli_query($cnx,"select * from solicitudpfa where Folio_Sol='$solicitudNo'");
   $ob=mysqli_fetch_array($result);
@@ -13,7 +15,7 @@ if(stristr($solicitudNo, 'SA-')== TRUE){
     $per1=$ob2['NomSolicitante'].' '.$ob2['SegNomSolicitante'].' '.$ob2['ApPatSolicitante'].' '.$ob2['ApMatSolicitante'];
     $con1="https://qeq.mx/datos/qws/pepsp?nombre=".$ob2['NomSolicitante'].' '.$ob2['SegNomSolicitante']."&paterno=".$ob2['ApPatSolicitante']." &materno=".$ob2['ApMatSolicitante']."&curp=".$ob2['CURPSolicitante']."&rfc=".$ob2['RFCSolicitante'];
     try {
-    $dir=consulta($con1,$per1);
+    $dir=consulta($con1,$per1,$cooc);
     array_push($arra, array($per1,$dir));
     } catch (Exception $e) {
       echo 'Caught exception: ',  $e->getMessage(), "\n";
@@ -53,7 +55,7 @@ if(stristr($solicitudNo, 'SA-')== TRUE){
         
         $con3="https://qeq.mx/datos/qws/pepsp?nombre=".$ob['NomDatCon']."&paterno=".$ob['ApPatDatCon']."&materno=".$ob['ApMatDatCon'];
         try {
-     $dir=consulta($con3,$per3);
+     $dir=consulta($con3,$per3,$cooc);
      array_push($arra, array($per3,$dir));
     } catch (Exception $e) {
         echo 'Caught exception: ',  $e->getMessage(), "\n";
@@ -69,7 +71,7 @@ if(stristr($solicitudNo, 'SA-')== TRUE){
         
         $con4="https://qeq.mx/datos/qws/pepsp?nombre=".$ob['NomObSol']."&paterno=".$ob['ApPatObSol']."&materno=".$ob['ApMatObSol']."&curp=".$ob['CURPObSol']."&rfc=".$ob['RFCObSol'];
         try {
-    $dir=consulta($con4,$per4);
+    $dir=consulta($con4,$per4,$cooc);
      array_push($arra, array($per4,$dir));
     } catch (Exception $e) {
         echo 'Caught exception: ',  $e->getMessage(), "\n";
@@ -85,7 +87,7 @@ if(stristr($solicitudNo, 'SA-')== TRUE){
         
         $con5="https://qeq.mx/datos/qws/pepsp?nombre=".$ob['NomObSol2']."&paterno=".$ob['ApPatObSol2']."&materno=".$ob['ApMatObSol2']."&curp=".$ob['CURPObSol2']."&rfc=".$ob['RFCObSol2'];
         try {
-    $dir=consulta($con5,$per5);
+    $dir=consulta($con5,$per5,$cooc);
     array_push($arra, array($per5,$dir));
     } catch (Exception $e) {
         echo 'Caught exception: ',  $e->getMessage(), "\n";
@@ -107,6 +109,8 @@ if(stristr($solicitudNo, 'SA-')== TRUE){
     echo "¡¡En Construcción!!";
 }elseif (stristr($solicitudNo, 'SM-')== TRUE){
     try {
+
+        $cooc=conexion();
         renewSM:
     $arra= array();
 
@@ -120,7 +124,7 @@ if(stristr($solicitudNo, 'SA-')== TRUE){
     $per1=$ob2['NomSolicitante'].' '.$ob2['RFCSolicitante'];
     $con1="https://qeq.mx/datos/qws/pepse?razonsoc=".$ob2['NomSolicitante']."&rfc=".$ob2['RFCSolicitante'];
     try {
-    $dir=consulta($con1,$per1);
+    $dir=consulta($con1,$per1,$cooc);
     array_push($arra, array($per1,$dir));
     } catch (Exception $e) {
       echo 'Caught exception: ',  $e->getMessage(), "\n";
@@ -131,7 +135,7 @@ if(stristr($solicitudNo, 'SA-')== TRUE){
     $per2=$ob2['NomDatContEmp'].' '.$ob2['SegNomDatContEmp'].' '.$ob2['ApPatDatContEmp'].' '.$ob2['ApMatDatContEmp'];
     $con2="https://qeq.mx/datos/qws/pepsp?nombre=".$ob2['NomDatContEmp'].' '.$ob2['SegNomDatContEmp']."&paterno=".$ob2['ApPatDatContEmp']." &materno=".$ob2['ApMatDatContEmp']."&curp=".$ob2['CURPDatConEmp']."&rfc=".$ob2['RFCDatConEmp'];
     try {
-    $dir=consulta($con2,$per2);
+    $dir=consulta($con2,$per2,$cooc);
     array_push($arra, array($per2,$dir));
     } catch (Exception $e) {
       echo 'Caught exception: ',  $e->getMessage(), "\n";
@@ -142,18 +146,153 @@ if(stristr($solicitudNo, 'SA-')== TRUE){
     $per3=$ob['NomObPerMor'].' '.$ob['RFCObPerMor'];
     $con3="https://qeq.mx/datos/qws/pepse?razonsoc=".$ob['NomObPerMor']."&rfc=".$ob['RFCObPerMor'];
     try {
-    $dir=consulta($con3,$per3);
+    $dir=consulta($con3,$per3,$cooc);
     array_push($arra, array($per3,$dir));
     } catch (Exception $e) {
       echo 'Caught exception: ',  $e->getMessage(), "\n";
          goto renewSM;
     }
 
+
+    ///ACCIONISTA 1
+    $acc1="";
+    $acc1=$ob['NomAccionista1'];
+    if($acc1!=""){
+        try{
+            $con4="https://qeq.mx/datos/qws/pepsp?nombre=".$ob['NomAccionista1']."&rfc=".$ob['RFCAccionista1'];
+            $dir=consulta($con4,$acc1,$cooc);
+            array_push($arra, array($acc1,$dir));
+        }catch(Exception $e){
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
+         goto renewSM;
+        }
+    }
+
+    ////ACCIONISTA 2
+     $acc2="";
+    $acc2=$ob['NomAccionista2'];
+    if($acc2!=""){
+        try{
+            $con5="https://qeq.mx/datos/qws/pepsp?nombre=".$ob['NomAccionista2']."&rfc=".$ob['RFCAccionista2'];
+            $dir=consulta($con5,$acc2,$cooc);
+            array_push($arra, array($acc2,$dir));
+        }catch(Exception $e){
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
+         goto renewSM;
+        }
+    }
+
+    ////ACCIONISTA 3
+    $acc3="";
+    $acc3=$ob['NomAccionista3'];
+    if($acc3!=""){
+        try{
+            $con5="https://qeq.mx/datos/qws/pepsp?nombre=".$ob['NomAccionista3']."&rfc=".$ob['RFCAccionista3'];
+            $dir=consulta($con5,$acc3,$cooc);
+            array_push($arra, array($acc3,$dir));
+        }catch(Exception $e){
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
+         goto renewSM;
+        }
+    }
+
+    //////  ACCIONISTA 4
+     $acc4="";
+    $acc4=$ob['NomAccionista4'];
+    if($acc4!=""){
+        try{
+            $con5="https://qeq.mx/datos/qws/pepsp?nombre=".$ob['NomAccionista4']."&rfc=".$ob['RFCAccionista4'];
+            $dir=consulta($con5,$acc4,$cooc);
+            array_push($arra, array($acc4,$dir));
+        }catch(Exception $e){
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
+         goto renewSM;
+        }
+    }
+
+    ////ACCIONISA MORAL 1
+    $acc5="";
+    $acc5=$ob['NomAccionistaPM1'];
+    if($acc5!=""){
+        try{
+            $con5="https://qeq.mx/datos/qws/pepsp?nombre=".$ob['NomAccionistaPM1']."&rfc=".$ob['RFCAccionistaPM1'];
+            $dir=consulta($con5,$acc5,$cooc);
+            array_push($arra, array($acc5,$dir));
+        }catch(Exception $e){
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
+         goto renewSM;
+        }
+    }
+
+    ///ACCIONISTA MORAL 2
+    $acc6="";
+    $acc6=$ob['NomAccionistaPM2'];
+    if($acc6!=""){
+        try{
+            $con5="https://qeq.mx/datos/qws/pepsp?nombre=".$ob['NomAccionistaPM2']."&rfc=".$ob['RFCAccionistaPM2'];
+            $dir=consulta($con5,$acc6,$cooc);
+            array_push($arra, array($acc6,$dir));
+        }catch(Exception $e){
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
+         goto renewSM;
+        }
+    }
+
+    ////////SOLIDARIO PERSONA FISICA 1
+    $per4="";
+    $per4=$ob['NomObSol'].' '.$ob['ApPatObSol'].' '.$ob['ApMatObSol'];
+    if($per4!=""){
+        $con2="https://qeq.mx/datos/qws/pepsp?nombre=".$per4."&curp=".$ob['CURPObSol']."&rfc=".$ob['RFCObSol'];
+    try {
+    $dir=consulta($con2,$per4,$cooc);
+    array_push($arra, array($per4,$dir));
+    } catch (Exception $e) {
+      echo 'Caught exception: ',  $e->getMessage(), "\n";
+         goto renewSM;
+    }
+    }
+
+    ////// SOLIDARIO DEL SOLIDARIO 1
+    $per5="";
+    $per5=$ob['NomObSolPF'];
+    if($per5!=""){
+        $con2="https://qeq.mx/datos/qws/pepsp?nombre=".$per5."&curp=".$ob['CURPObSolPF']."&rfc=".$ob['RFCObSolPF'];
+    try {
+    $dir=consulta($con2,$per5,$cooc);
+    array_push($arra, array($per5,$dir));
+    } catch (Exception $e) {
+      echo 'Caught exception: ',  $e->getMessage(), "\n";
+         goto renewSM;
+    }
+    }
+
+    ///// SOLIDARIO PERSONA FISICA 2
+    $per6="";
+    $per6=$ob['NomObSol2'].' '.$ob['ApPatObSol2'].' '.$ob['ApMatObSol2'];
+    if($per6!=""){
+        $con2="https://qeq.mx/datos/qws/pepsp?nombre=".$per6."&curp=".$ob['CURPObSol2']."&rfc=".$ob['RFCObSol2'];
+    try {
+    $dir=consulta($con2,$per6,$cooc);
+    array_push($arra, array($per6,$dir));
+    } catch (Exception $e) {
+      echo 'Caught exception: ',  $e->getMessage(), "\n";
+         goto renewSM;
+    }
+    }
     
-
-
-
-
+    /////SOLIDARIO DEL SOLIDARIO 2
+    $per7="";
+    $per7=$ob['NomObSolPF2'];
+    if($per7!=""){
+        $con2="https://qeq.mx/datos/qws/pepsp?nombre=".$per7."&curp=".$ob['CURPObSolPF2']."&rfc=".$ob['RFCObSolPF2'];
+    try {
+    $dir=consulta($con2,$per7,$cooc);
+    array_push($arra, array($per7,$dir));
+    } catch (Exception $e) {
+      echo 'Caught exception: ',  $e->getMessage(), "\n";
+         goto renewSM;
+    }
+    }
 
 
 
@@ -178,11 +317,7 @@ if(stristr($solicitudNo, 'SA-')== TRUE){
     
 
     //$url="https://qeq.mx/datos/qws/pepse?razonsoc=".$razonsoc."&rfc=".$rfc;
-
-
-function consulta($url,$persona){
-
-    $count2=0;
+function conexion(){
     // First, include Requests
 
 
@@ -205,6 +340,13 @@ function consulta($url,$persona){
     goto renew;
     }
 
+    return $c;
+}
+
+function consulta($url,$persona,$coc){
+     
+    $count2=0;
+    
     $count=0;
 
     renewQuest:
@@ -212,7 +354,7 @@ function consulta($url,$persona){
    // Now let's make a request!
     $request2 = Requests::get($url, // Url
 	[],  // No need to set the headers the Jar does this for us
-	['cookies' => $c] // Pass in the Jar as an option
+	['cookies' => $coc] // Pass in the Jar as an option
     );
 
 
@@ -252,7 +394,8 @@ function consulta($url,$persona){
         if($count2<2){
         $count2++;
         sleep(10);
-        goto renew;
+        //goto renew;
+        goto renewQuest;
     }else{
         echo "Error Tiempo Excedido";
         exit();
@@ -277,7 +420,7 @@ function consulta($url,$persona){
  
 
 
-leer($dir);
+//leer($dir);
 
 //Para leerlo
 function leer($urli){

@@ -836,6 +836,7 @@ xmlhttp.onreadystatechange=function()
       {
         if(xmlhttp.responseText.indexOf("Fatal error") !== -1){
                document.getElementById("loadingqeq").style.display='none';
+               //alert(xmlhttp.responseText);
                alert('¡¡¡Error De Servidor Intente De Nuevo!!!');
                
         }else{
