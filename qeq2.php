@@ -16,7 +16,7 @@ if(stristr($solicitudNo, 'SA-')== TRUE){
     $con1="https://qeq.mx/datos/qws/pepsp?nombre=".$ob2['NomSolicitante'].' '.$ob2['SegNomSolicitante']."&paterno=".$ob2['ApPatSolicitante']." &materno=".$ob2['ApMatSolicitante']."&curp=".$ob2['CURPSolicitante']."&rfc=".$ob2['RFCSolicitante'];
     try {
     $dir=consulta($con1,$per1,$cooc);
-    array_push($arra, array($per1,$dir));
+    array_push($arra, array($per1.' '.$ob2['CURPSolicitante'],$dir));
     } catch (Exception $e) {
       echo 'Caught exception: ',  $e->getMessage(), "\n";
          goto renewSA;
@@ -72,7 +72,7 @@ if(stristr($solicitudNo, 'SA-')== TRUE){
         $con4="https://qeq.mx/datos/qws/pepsp?nombre=".$ob['NomObSol']."&paterno=".$ob['ApPatObSol']."&materno=".$ob['ApMatObSol']."&curp=".$ob['CURPObSol']."&rfc=".$ob['RFCObSol'];
         try {
     $dir=consulta($con4,$per4,$cooc);
-     array_push($arra, array($per4,$dir));
+     array_push($arra, array($per4.' '.$ob['CURPObSol'],$dir));
     } catch (Exception $e) {
         echo 'Caught exception: ',  $e->getMessage(), "\n";
         goto renewSA3;
@@ -88,7 +88,7 @@ if(stristr($solicitudNo, 'SA-')== TRUE){
         $con5="https://qeq.mx/datos/qws/pepsp?nombre=".$ob['NomObSol2']."&paterno=".$ob['ApPatObSol2']."&materno=".$ob['ApMatObSol2']."&curp=".$ob['CURPObSol2']."&rfc=".$ob['RFCObSol2'];
         try {
     $dir=consulta($con5,$per5,$cooc);
-    array_push($arra, array($per5,$dir));
+    array_push($arra, array($per5.' '.$ob['CURPObSol2'],$dir));
     } catch (Exception $e) {
         echo 'Caught exception: ',  $e->getMessage(), "\n";
         goto renewSA4;
@@ -302,6 +302,14 @@ if(stristr($solicitudNo, 'SA-')== TRUE){
         exit();
     }
     
+     echo "¡¡¡Consulta Realizada!!!";
+
+    foreach ($arra as $valor){
+        mysqli_query($cnx,"insert into registroxml (Folio_Sol,PersonaRazonsoc,DirXML) values('$solicitudNo','".$valor[0]."','".$valor[1]."') ON DUPLICATE KEY UPDATE Folio_Sol = '$solicitudNo', PersonaRazonsoc = '".$valor[0]."', DirXML='".$valor[1]."';");
+    }
+
+
+    exit();
 
 
 
