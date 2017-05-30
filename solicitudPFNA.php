@@ -431,7 +431,7 @@ input::-moz-placeholder {
            <div class="small-3 columns"> <input name="segnomsol" type="text" id="segnomsol" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['SegNomSolicitante']; } ?>"  placeholder="Segundo Nombre"    pattern="alpha"></div> 
            <div class="small-3 columns"> <input name="apepasol" type="text" id="apepasol" onkeyup="viewButton()" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['ApPatSolicitante']; } ?>" placeholder="Apellido Parteno"  pattern="alpha"></div> 
             <div class="small-3 columns"> <input name="apemasol" type="text" id="apemasol" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['ApMatSolicitante']; } ?>" placeholder="Apellido Materno"  pattern="alpha"></div>
-            <input name="botonAceptar" type="button" id="botonAceptar"  value="Buscar" onClick="obten2()" style="display:none;">
+            <input class="button" name="botonAceptar" type="button" id="botonAceptar"  value="Buscar" onClick="obten2()" style="display:none;">
             <p style="display:none"><a data-open="exampleModal2" id="modal">Click me for a modal</a></p>
             <div class="reveal" id="exampleModal2" data-reveal></div>
 </p>

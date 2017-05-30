@@ -353,7 +353,7 @@ if(($(this).prop('required') && this.value=="") || ($(this).prop('required') && 
 <section>
   <div class="bg" align="center">
     <div class="container_24" align="center">
-      <form name="form1" id="form1" action="templatePFA-V1.0.php" method="post" data-abide novalidate onsubmit="Validacioncampos()">
+      <form name="form1" id="form1" action="pdfpfa.php" target="_blank" method="post" data-abide novalidate onsubmit="Validacioncampos()">
         <style>
 	 
 	  input::-webkit-input-placeholder {
