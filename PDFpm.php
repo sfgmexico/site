@@ -242,7 +242,7 @@ NomGerenteGral) values (
 
 
   */
-		$varT=$_REQUEST['select2'];
+		$varT=$_REQUEST['select'];
 $varT2=$_REQUEST['select2'];
 $varT3=$_REQUEST['select3'];
 $varT4=$_REQUEST['select4'];

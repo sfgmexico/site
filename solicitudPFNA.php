@@ -528,9 +528,9 @@ input::-moz-placeholder {
       <p align="left"><strong>DATOS GENERALES</strong> </p>
       <p align="left">Sexo:
         
-        <input id="sexsol1" name="sexsol" type="radio"  <?php if (isset($row2['Folio_Cliente'])) { if($row2['SexoDatGen']=='Masculino'){echo "checked";} } ?> value="M"><label for="sexsol1"  > <i class="step fi-male size-72"></i> M</label> 
+        <input id="sexsol1" name="sexsol" type="radio"  <?php if (isset($row2['Folio_Cliente'])) { if($row2['SexoDatGen']=='Masculino'){echo "checked";} } ?> value="Masculino"><label for="sexsol1"  > <i class="step fi-male size-72"></i> M</label> 
          
-        <input id="sexsol2" name="sexsol" type="radio"  <?php if (isset($row2['Folio_Cliente'])) { if($row2['SexoDatGen']=='Femenino'){echo "checked";} } ?>  value="F"><label for="sexsol2" > <i class="step fi-female size-72"></i> F</label>
+        <input id="sexsol2" name="sexsol" type="radio"  <?php if (isset($row2['Folio_Cliente'])) { if($row2['SexoDatGen']=='Femenino'){echo "checked";} } ?>  value="Femenino"><label for="sexsol2" > <i class="step fi-female size-72"></i> F</label>
         <div class="small-6">
         Fecha de nacimiento: <input name="fechnacsol" type="date" id="fechnacsol" size="1px" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['FeNacDatGen']; } ?>" maxlength="2" placeholder="dd" pattern="date"></div>
       </p>
@@ -544,10 +544,10 @@ input::-moz-placeholder {
     
 <div class="small-12 columns">
       <p align="left">vive en: <br>
-        <input id="vivsol1" name="vivsol" type="radio" value="1" <?php if (isset($row2['Folio_Cliente'])) { if($row2['VivDatGen']=='Casa Propia'){echo "checked";} }?> > <label for="vivsol1">Casa Propia</label>
-        <input id="vivsol2" name="vivsol" type="radio" value="2" <?php if (isset($row2['Folio_Cliente'])) { if($row2['VivDatGen']=='Rentada'){echo "checked";} } ?> > <label for="vivsol2">Rentada</label>
-        <input id="vivsol3" name="vivsol" type="radio" value="3" <?php if (isset($row2['Folio_Cliente'])) { if($row2['VivDatGen']=='Hipotecada'){echo "checked";} } ?> > <label for="vivsol3">Hipotecada</label>
-        <input id="vivsol4" name="vivsol" type="radio" value="4" <?php if (isset($row2['Folio_Cliente'])) { if($row2['VivDatGen']=='Casa propiedad de sus familiares'){echo "checked";} } ?> > <label for="vivsol4">Con familiares</label>
+        <input id="vivsol1" name="vivsol" type="radio" value="Casa Propia" <?php if (isset($row2['Folio_Cliente'])) { if($row2['VivDatGen']=='Casa Propia'){echo "checked";} }?> > <label for="vivsol1">Casa Propia</label>
+        <input id="vivsol2" name="vivsol" type="radio" value="Rentada" <?php if (isset($row2['Folio_Cliente'])) { if($row2['VivDatGen']=='Rentada'){echo "checked";} } ?> > <label for="vivsol2">Rentada</label>
+        <input id="vivsol3" name="vivsol" type="radio" value="Hipotecada" <?php if (isset($row2['Folio_Cliente'])) { if($row2['VivDatGen']=='Hipotecada'){echo "checked";} } ?> > <label for="vivsol3">Hipotecada</label>
+        <input id="vivsol4" name="vivsol" type="radio" value="Con familiares" <?php if (isset($row2['Folio_Cliente'])) { if($row2['VivDatGen']=='Con familiares'){echo "checked";} } ?> > <label for="vivsol4">Con familiares</label>
 
 
 </div>
@@ -557,8 +557,8 @@ input::-moz-placeholder {
        <div class="small-5 columns"> <input name="impmenpag" type="text" id="impmenpag" value="<?php if (isset($row2['Folio_Cliente'])) {  echo $row2['ImpMenDatGen']; } ?>" placeholder="Importe mensual del pago" pattern="number"></div>
         <div class="small-10 columns">
         Tiene una Propiedad a su nombre?: 
-        <input id="inmusol1" name="inmusol" type="radio" value="1" <?php if (isset($row2['Folio_Cliente'])) { if($row2['PropInmuDatGen']=='Si'){echo "checked";} } ?>><label for="inmusol1">Si</label>
-        <input id="inmusol2" name="inmusol" type="radio" value="2" <?php if (isset($row2['Folio_Cliente'])) { if($row2['PropInmuDatGen']=='No'){echo "checked";} } ?>><label for="inmusol2">No</label>
+        <input id="inmusol1" name="inmusol" type="radio" value="Si" <?php if (isset($row2['Folio_Cliente'])) { if($row2['PropInmuDatGen']=='Si'){echo "checked";} } ?>><label for="inmusol1">Si</label>
+        <input id="inmusol2" name="inmusol" type="radio" value="No" <?php if (isset($row2['Folio_Cliente'])) { if($row2['PropInmuDatGen']=='No'){echo "checked";} } ?>><label for="inmusol2">No</label>
         </div>
 
         <div class="small-5 columns"> <input name="arraisol" type="text" id="arraisol" value="<?php if (isset($row2['Folio_Cliente'])) {  echo $row2['ArDomDatGen']; } ?>" placeholder="Arraigo en el domicilio desde el año" pattern="integer"></div>
@@ -576,17 +576,17 @@ input::-moz-placeholder {
           </div>
      <div class="small-12 columns">
           <p align="left">Estado civil:<br> 
-          <input id="civilsol1" name="civilsol" type="radio" <?php if (isset($row2['Folio_Cliente'])) { if($row2['EstCivDatGen']=='Casado Bienes Mancomunados'){echo "checked";} } ?> value="1"><label for="civilsol1">Casado Bienes Mancomunados</label>
-          <input id="civilsol2" name="civilsol" type="radio" <?php if (isset($row2['Folio_Cliente'])) { if($row2['EstCivDatGen']=='Casado Bienes Separados'){echo "checked";} } ?> value="2"><label for="civilsol2">Casado Bienes Separados</label>
-          <input id="civilsol3" name="civilsol" type="radio" <?php if (isset($row2['Folio_Cliente'])) { if($row2['EstCivDatGen']=='Viudo'){echo "checked";} } ?> value="3"><label for="civilsol3">Viudo</label>
-          <input id="civilsol4" name="civilsol" type="radio" <?php if (isset($row2['Folio_Cliente'])) { if($row2['EstCivDatGen']=='Divorciado'){echo "checked";} } ?> value="4"><label for="civilsol4">Divorciado</label>
-          <input id="civilsol5" name="civilsol" type="radio" <?php if (isset($row2['Folio_Cliente'])) { if($row2['EstCivDatGen']=='Soltero'){echo "checked";} } ?> value="5"><label for="civilsol5">Soltero</label>
+          <input id="civilsol1" name="civilsol" type="radio" <?php if (isset($row2['Folio_Cliente'])) { if($row2['EstCivDatGen']=='Casado Bienes Mancomunados'){echo "checked";} } ?> value="Casado Bienes Mancomunados"><label for="civilsol1">Casado Bienes Mancomunados</label>
+          <input id="civilsol2" name="civilsol" type="radio" <?php if (isset($row2['Folio_Cliente'])) { if($row2['EstCivDatGen']=='Casado Bienes Separados'){echo "checked";} } ?> value="Casado Bienes Separados"><label for="civilsol2">Casado Bienes Separados</label>
+          <input id="civilsol3" name="civilsol" type="radio" <?php if (isset($row2['Folio_Cliente'])) { if($row2['EstCivDatGen']=='Viudo'){echo "checked";} } ?> value="Viudo"><label for="civilsol3">Viudo</label>
+          <input id="civilsol4" name="civilsol" type="radio" <?php if (isset($row2['Folio_Cliente'])) { if($row2['EstCivDatGen']=='Divorciado'){echo "checked";} } ?> value="Divorciado"><label for="civilsol4">Divorciado</label>
+          <input id="civilsol5" name="civilsol" type="radio" <?php if (isset($row2['Folio_Cliente'])) { if($row2['EstCivDatGen']=='Soltero'){echo "checked";} } ?> value="Soltero"><label for="civilsol5">Soltero</label>
       </p>
      </div>
      <div class="small-12 columns">
       <p align="left">Tiene Auto Propio: 
-        <input id="autosol1" name="autosol" type="radio" <?php if (isset($row2['Folio_Cliente'])) { if($row2['AuPropDatGen']=='Si'){echo "checked";} } ?> value="1"><label for="autosol1">Si</label>
-        <input id="autosol2" name="autosol" type="radio" <?php if (isset($row2['Folio_Cliente'])) { if($row2['AuPropDatGen']=='No'){echo "checked";} } ?> value="2"><label for="autosol2"> No</label>
+        <input id="autosol1" name="autosol" type="radio" <?php if (isset($row2['Folio_Cliente'])) { if($row2['AuPropDatGen']=='Si'){echo "checked";} } ?> value="Si"><label for="autosol1">Si</label>
+        <input id="autosol2" name="autosol" type="radio" <?php if (isset($row2['Folio_Cliente'])) { if($row2['AuPropDatGen']=='No'){echo "checked";} } ?> value="No"><label for="autosol2"> No</label>
         <div class="small-5 columns"><input name="marcasol" value="<?php if (isset($row2['Folio_Cliente'])) {  echo $row2['MarDatGen']; } ?>" type="text" id="marcasol" size="70px" placeholder="Especifique Marca y Tipo"></div>
       </p>
      </div>
@@ -884,9 +884,9 @@ input::-moz-placeholder {
         <div class="small-5 columns"><input name="datoblugnac1" type="text" id="datoblugnac1" size="30px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['LugNacObSol']; } ?>" placeholder="Lugar nacimiento (País y Edo.)"></div>
      <div class="small-9 columns">
       Tiene propiedad a su nombre? 
-      <input id="datobprop1A" name="datobprop1" type="radio" value="1" <?php if(isset($row['Folio_Cliente'])) {if($row['PropObSol']=='Si') {echo "checked";} }?>><label for="datobprop1A">Si</label>
+      <input id="datobprop1A" name="datobprop1" type="radio" value="Si" <?php if(isset($row['Folio_Cliente'])) {if($row['PropObSol']=='Si') {echo "checked";} }?>><label for="datobprop1A">Si</label>
       
-      <input id="datobprop1B" name="datobprop1" type="radio" value="2" <?php if(isset($row['Folio_Cliente'])) {if($row['PropObSol']=='No') {echo "checked";} }?>><label for="datobprop1B">No</label>
+      <input id="datobprop1B" name="datobprop1" type="radio" value="No" <?php if(isset($row['Folio_Cliente'])) {if($row['PropObSol']=='No') {echo "checked";} }?>><label for="datobprop1B">No</label>
      </div>
 </p>
       <p align="left">
@@ -896,9 +896,9 @@ input::-moz-placeholder {
       </p>
       <div class="small-9 columns">
       <p align="left">sexo:
-        <input id="datobsex1A" name="datobsex1"  type="radio" value="M" <?php if(isset($row['Folio_Cliente'])){if ($row['SexoObSol']=='Masculino') {echo "checked"; } } ?> > <label for="datobsex1A">M</label>
+        <input id="datobsex1A" name="datobsex1"  type="radio" value="Masculino" <?php if(isset($row['Folio_Cliente'])){if ($row['SexoObSol']=='Masculino') {echo "checked"; } } ?> > <label for="datobsex1A">M</label>
         
-        <input id="datobsex1B" name="datobsex1"  type="radio" value="F" <?php if(isset($row['Folio_Cliente'])){ if ($row['SexoObSol']=='Femenino') {echo "checked"; } } ?> ><label for="datobsex1B">F</label>
+        <input id="datobsex1B" name="datobsex1"  type="radio" value="Femenino" <?php if(isset($row['Folio_Cliente'])){ if ($row['SexoObSol']=='Femenino') {echo "checked"; } } ?> ><label for="datobsex1B">F</label>
       </div>
 
 
@@ -985,9 +985,9 @@ input::-moz-placeholder {
         </p>
       <div class="small-12 columns">
       <p align="left">sexo: M
-        <input id="datobsex2" name="datobsex2" type="radio" value="M"<?php if(isset($row['Folio_Cliente'])){ if($row['SexoObSol2']=='Masculino'){echo "checked";} }?>>
+        <input id="datobsex2" name="datobsex2" type="radio" value="Masculino"<?php if(isset($row['Folio_Cliente'])){ if($row['SexoObSol2']=='Masculino'){echo "checked";} }?>>
         F
-  <input id="datobsex2"name="datobsex2" type="radio" value="F"<?php if(isset($row['Folio_Cliente'])){ if($row['SexoObSol2']=='Femenino'){echo "checked";} } ?>>
+  <input id="datobsex2"name="datobsex2" type="radio" value="Femenino"<?php if(isset($row['Folio_Cliente'])){ if($row['SexoObSol2']=='Femenino'){echo "checked";} } ?>>
       </div>
       
       <div class="small-5 columns">  Fecha de nacimiento:<input name="datobfechnac2d" type="date" id="datobfechnac2d" size="1px" maxlength="2" placeholder="dd" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['FeNacObSol2']; } ?>" ></div>
@@ -1435,9 +1435,9 @@ input::-moz-placeholder {
               <td width="35%"><input name="textfield39" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['INESolicitante']; } ?>" type="text" id="textfield39" size="50%" ></td>
               <td width="15%">Se adjunta copia: </td>
               <td id="secINE"> 
-              <input id="copiasA" name="copias" type="radio" value="1" <?php  if(isset($row['Folio_Cliente'])){if($row3['Adjunta_INESolicitante']=='Si'){echo "checked";}}?> ><label for="copiasA">Si</label>
+              <input id="copiasA" name="copias" type="radio" value="Si" <?php  if(isset($row['Folio_Cliente'])){if($row3['Adjunta_INESolicitante']=='Si'){echo "checked";}}?> ><label for="copiasA">Si</label>
              
-              <input id="copiasB" name="copias" type="radio" value="2" <?php  if(isset($row['Folio_Cliente'])){if($row3['Adjunta_INESolicitante']=='No'){echo "checked";}}?> ><label for="copiasB">No</label></td>
+              <input id="copiasB" name="copias" type="radio" value="No" <?php  if(isset($row['Folio_Cliente'])){if($row3['Adjunta_INESolicitante']=='No'){echo "checked";}}?> ><label for="copiasB">No</label></td>
              
             </tr>
             
@@ -1447,9 +1447,9 @@ input::-moz-placeholder {
               <td><input name="textfield40" type="text" id="textfield40" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['Pasaporte_o_CedulaProfSolicitante']; } ?>" ></td>
               <td>Se adjunta copia: </td>
               <td id="secCedProfesional">
-              <input id="copias2A" name="copias2" type="radio" value="1"<?php  if(isset($row['Folio_Cliente'])){if($row3['Adjunta_Pasaporte_o_CedulaProfSolicitante']=='Si'){echo "checked";}}?> ><label for="copias2A">Si</label>
+              <input id="copias2A" name="copias2" type="radio" value="Si"<?php  if(isset($row['Folio_Cliente'])){if($row3['Adjunta_Pasaporte_o_CedulaProfSolicitante']=='Si'){echo "checked";}}?> ><label for="copias2A">Si</label>
               
-              <input id="copias2B" name="copias2" type="radio" value="2"<?php  if(isset($row['Folio_Cliente'])){if($row3['Adjunta_Pasaporte_o_CedulaProfSolicitante']=='No'){echo "checked";}}?> ><label for="copias2B">No</label></td>
+              <input id="copias2B" name="copias2" type="radio" value="No"<?php  if(isset($row['Folio_Cliente'])){if($row3['Adjunta_Pasaporte_o_CedulaProfSolicitante']=='No'){echo "checked";}}?> ><label for="copias2B">No</label></td>
             </tr>
             
             
@@ -1458,9 +1458,9 @@ input::-moz-placeholder {
               <td><input name="textfield41" type="text" id="textfield41" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['CartillaMilitarSolicitante']; } ?>" size="50%" ></td>
               <td>Se adjunta copia: </td>
               <td id="secCarMilitar">
-              <input id="copias3A" name="copias3" type="radio" value="1" <?php  if(isset($row['Folio_Cliente'])){if($row3['Adjunta_CartillaMilitarSolicitante']=='Si'){echo "checked";}}?> ><label for="copias3A">Si</label>
+              <input id="copias3A" name="copias3" type="radio" value="Si" <?php  if(isset($row['Folio_Cliente'])){if($row3['Adjunta_CartillaMilitarSolicitante']=='Si'){echo "checked";}}?> ><label for="copias3A">Si</label>
               
-              <input id="copias3B" name="copias3" type="radio" value="2" <?php  if(isset($row['Folio_Cliente'])){if($row3['Adjunta_CartillaMilitarSolicitante']=='No'){echo "checked";}}?> ><label for="copias3B">No</label></td>
+              <input id="copias3B" name="copias3" type="radio" value="No" <?php  if(isset($row['Folio_Cliente'])){if($row3['Adjunta_CartillaMilitarSolicitante']=='No'){echo "checked";}}?> ><label for="copias3B">No</label></td>
             </tr>
             
             
@@ -1469,9 +1469,9 @@ input::-moz-placeholder {
               <td><input name="textfield42" type="text" id="textfield42" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['LicenciaConducirSolicitante']; } ?>" size="50%"  ></td>
               <td>Se adjunta copia: </td>
               <td id="secLicConducir">
-              <input id="copias4A" name="copias4" type="radio" value="1" <?php  if(isset($row['Folio_Cliente'])){if($row3['Adjunta_LicenciaConducirSolicitante']=='Si'){echo "checked";}}?> ><label for="copias4A">Si</label>
+              <input id="copias4A" name="copias4" type="radio" value="Si" <?php  if(isset($row['Folio_Cliente'])){if($row3['Adjunta_LicenciaConducirSolicitante']=='Si'){echo "checked";}}?> ><label for="copias4A">Si</label>
               
-              <input id="copias4B" name="copias4" type="radio" value="2" <?php  if(isset($row['Folio_Cliente'])){if($row3['Adjunta_LicenciaConducirSolicitante']=='No'){echo "checked";}}?> ><label for="copias4B">No</label></td>
+              <input id="copias4B" name="copias4" type="radio" value="No" <?php  if(isset($row['Folio_Cliente'])){if($row3['Adjunta_LicenciaConducirSolicitante']=='No'){echo "checked";}}?> ><label for="copias4B">No</label></td>
             </tr>
             
            
@@ -1480,9 +1480,9 @@ input::-moz-placeholder {
               <td><input name="textfield43" type="text" id="textfield43" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['OtraIdentSolicitante']; } ?>" size="50%"  ></td>
               <td>Se adjunta copia: </td>
               <td id="secOtrIdentificacion">
-              <input id="copias5A" name="copias5" type="radio" value="1"<?php  if(isset($row['Folio_Cliente'])){if($row3['Adjunta_OtraIdentSolicitante']=='Si'){echo "checked";}}?>><label for="copias5A">Si</label>
+              <input id="copias5A" name="copias5" type="radio" value="Si"<?php  if(isset($row['Folio_Cliente'])){if($row3['Adjunta_OtraIdentSolicitante']=='Si'){echo "checked";}}?>><label for="copias5A">Si</label>
               
-              <input id="copias5B" name="copias5" type="radio" value="2"<?php  if(isset($row['Folio_Cliente'])){if($row3['Adjunta_OtraIdentSolicitante']=='No'){echo "checked";}}?>><label for="copias5B">No</label></td>
+              <input id="copias5B" name="copias5" type="radio" value="No"<?php  if(isset($row['Folio_Cliente'])){if($row3['Adjunta_OtraIdentSolicitante']=='No'){echo "checked";}}?>><label for="copias5B">No</label></td>
             </tr>
            
             <tr>
@@ -1490,9 +1490,9 @@ input::-moz-placeholder {
               <td id="secOtrIdentificacion2"><input name="textfield44" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['EspIdentSolicitante']; } ?>" type="text" id="textfield44" size="50%"  ></td>
               <td>Se cotejo vs original: </td>
               <td>
-                <input id="cotejo1" name="cotejo" type="radio" value="1" <?php  if(isset($row['Folio_Cliente'])){if($row3['CotejoVsOriginal']=='Si'){echo "checked";}}?> required><label for="cotejo1">Si</label>
+                <input id="cotejo1" name="cotejo" type="radio" value="Si" <?php  if(isset($row['Folio_Cliente'])){if($row3['CotejoVsOriginal']=='Si'){echo "checked";}}?> required><label for="cotejo1">Si</label>
 
-                <input id="cotejo2" name="cotejo" type="radio" value="2" <?php  if(isset($row['Folio_Cliente'])){if($row3['CotejoVsOriginal']=='No'){echo "checked";}}?> required><label for="cotejo2">No</label></td>
+                <input id="cotejo2" name="cotejo" type="radio" value="No" <?php  if(isset($row['Folio_Cliente'])){if($row3['CotejoVsOriginal']=='No'){echo "checked";}}?> required><label for="cotejo2">No</label></td>
             </tr>
              </div>
           </table>
@@ -1502,16 +1502,16 @@ input::-moz-placeholder {
             <tr>
               <td width="30%">Se adjunta CURP y/o cédula RFC, FEA* </td>
               <td width="70%">
-                <input id="adjuntos1A" name="adjuntos1" type="radio" value="1" <?php if(isset($row2['Folio_Cliente'])) {if($row3['Adjunta_CURP_RFC_FEA']=='Si'){echo "checked";} } ?> required><label for="adjuntos1A" >Si</label>
+                <input id="adjuntos1A" name="adjuntos1" type="radio" value="Si" <?php if(isset($row2['Folio_Cliente'])) {if($row3['Adjunta_CURP_RFC_FEA']=='Si'){echo "checked";} } ?> required><label for="adjuntos1A" >Si</label>
 
-                <input id="adjuntos1B" name="adjuntos1" type="radio" value="2" <?php if(isset($row2['Folio_Cliente'])) {if($row3['Adjunta_CURP_RFC_FEA']=='No'){echo "checked";} } ?> required><label for="adjuntos1B" >No</label></td>
+                <input id="adjuntos1B" name="adjuntos1" type="radio" value="No" <?php if(isset($row2['Folio_Cliente'])) {if($row3['Adjunta_CURP_RFC_FEA']=='No'){echo "checked";} } ?> required><label for="adjuntos1B" >No</label></td>
             </tr>
             <tr>
               <td>Se adjunta comprobante de domicilio </td>
               <td>
-                <input id="adjuntos2A" name="adjuntos2" type="radio" value="1" <?php if(isset($row2['Folio_Cliente'])) {if($row3['Adjunta_ComprobanteDom']=='Si'){echo "checked";} } ?> required><label for="adjuntos2A"  >Si</label>
+                <input id="adjuntos2A" name="adjuntos2" type="radio" value="Si" <?php if(isset($row2['Folio_Cliente'])) {if($row3['Adjunta_ComprobanteDom']=='Si'){echo "checked";} } ?> required><label for="adjuntos2A"  >Si</label>
 
-                <input id="adjuntos2B" name="adjuntos2" type="radio" value="2" <?php if(isset($row2['Folio_Cliente'])) {if($row3['Adjunta_ComprobanteDom']=='No'){echo "checked";} } ?> required><label for="adjuntos2B"  >No</label></td>
+                <input id="adjuntos2B" name="adjuntos2" type="radio" value="No" <?php if(isset($row2['Folio_Cliente'])) {if($row3['Adjunta_ComprobanteDom']=='No'){echo "checked";} } ?> required><label for="adjuntos2B"  >No</label></td>
             </tr>
             <tr>
               <td>Fecha del comprobante de domicilio </td>
@@ -1520,9 +1520,9 @@ input::-moz-placeholder {
             <tr>
               <td>Domicilio manifestado coincide con la ID</td>
               <td>
-                <input id="adjuntos3A" name="adjuntos3" type="radio" value="1" <?php if(isset($row2['Folio_Cliente'])) {if($row3['DomicilioCoincideId']=='Si'){echo "checked";} } ?> required><label for="adjuntos3A" >Si</label>
+                <input id="adjuntos3A" name="adjuntos3" type="radio" value="Si" <?php if(isset($row2['Folio_Cliente'])) {if($row3['DomicilioCoincideId']=='Si'){echo "checked";} } ?> required><label for="adjuntos3A" >Si</label>
 
-                <input id="adjuntos3B" name="adjuntos3" type="radio" value="2" <?php if(isset($row2['Folio_Cliente'])) {if($row3['DomicilioCoincideId']=='No'){echo "checked";} } ?> required><label for="adjuntos3B" >No</label></td>
+                <input id="adjuntos3B" name="adjuntos3" type="radio" value="No" <?php if(isset($row2['Folio_Cliente'])) {if($row3['DomicilioCoincideId']=='No'){echo "checked";} } ?> required><label for="adjuntos3B" >No</label></td>
             </tr>
           </table>
 		  <br>
@@ -1722,9 +1722,9 @@ input::-moz-placeholder {
 		  <br>
 	    <p align="left">¿ Usted o algún familiar suyo de hasta segundo grado de consanguinidad o afinidad (cónyuge,padre,madre,hijos,hermanos, abuelos, tios, primos, cuñados, suegros, yernos, etc), desempeña o a desempeñado funciones públicas destacadas en el territorio nacional o en el Extranjero (incluyendo puestos de Gobierno Federales, Estatales ,Municipales, funciones gubernamentales o judiciales, en partidos politicos, militares de alta jerarquía, altos ejecutivos de empresas paraestatales, etc.?<br>
        
-                <input id="PEPS1" name="PEPS" type="radio" value="1" required <?php if(isset($row2['Folio_Cliente'])) { if($row3['PEPS']=='Si'){echo "checked";} } ?>><label for="PEPS1"> Si</label>
+                <input id="PEPS1" name="PEPS" type="radio" value="Si" required <?php if(isset($row2['Folio_Cliente'])) { if($row3['PEPS']=='Si'){echo "checked";} } ?>><label for="PEPS1"> Si</label>
 
-<input id="PEPS2" name="PEPS" type="radio" value="2" required <?php if(isset($row2['Folio_Cliente'])) { if($row3['PEPS']=='No'){echo "checked";} } ?>><label for="PEPS2"> No</label>
+<input id="PEPS2" name="PEPS" type="radio" value="No" required <?php if(isset($row2['Folio_Cliente'])) { if($row3['PEPS']=='No'){echo "checked";} } ?>><label for="PEPS2"> No</label>
         </p>
 	      <p align="left">En caso de si:</p>
         <div id="secPEPS">
