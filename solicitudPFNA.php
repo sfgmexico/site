@@ -903,7 +903,7 @@ input::-moz-placeholder {
 
 
       <div class="small-4 columns">Fecha de nacimiento:
-                                   <input name="datobfechnac1d" type="date" id="datobfechnac1d" size="1px" maxlength="2" placeholder="dd"  value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['FeNacObSol']; } ?>" ></div>
+         <input name="datobfechnac1d" type="date" id="datobfechnac1d" size="1px" maxlength="2" placeholder="dd"  value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['FeNacObSol']; } ?>" ></div>
       <div class="small-4 columns"><input name="datobed1" type="text" id="datobed1" size="2px" placeholder="Edad"onkeypress="return validaNumero(event)" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['EdObSol']; } ?>" ></div>
       <div class="small-4 columns"><input name="datobcurp1" type="text" id="datobcurp1" size="22px" placeholder="CURP"onkeypress="return validaRFC(event)" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['CURPObSol']; } ?>" ></div>
       </p>
