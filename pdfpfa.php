@@ -1186,7 +1186,7 @@ $Mg = array( 	1 => array( 3 =>"Vulnerable",2 =>"Informal", 1 =>"Otra"),
 	);
 
 
-$var=
+
 $var2=$Mg[2][$varT2];
 
 $tbl = '

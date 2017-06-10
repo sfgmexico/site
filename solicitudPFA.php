@@ -293,6 +293,52 @@ $('form#form1').find('input').each(function(){
       
       if(this.id=="escliente1"){
         pagina=2;
+        $('form#form1').find('select').each(function(){
+
+
+  
+      if(this.id=="select"){
+        pagina=2;
+
+      }
+     
+
+
+if(($(this).prop('required') && this.value=="")  ){
+
+      
+        console.log("IR");
+
+
+
+        if(pagina=="1"){
+        $( '#uno' ).click ();
+        window.scrollTo(0,0);
+        this.focus();
+        this.select();
+        return false;
+      }
+      if(pagina=="2"){
+        $( '#dos' ).click ();
+        window.scrollTo(0,0);
+        this.focus();
+        this.select();
+        return false;
+      }
+      if(pagina=="3"){
+       
+        this.focus();
+        this.select();
+        return false;
+      }
+        
+        
+    } else {
+      console.log("NR");
+    }
+    
+    return true;
+});
 
       }
       if(this.id=="textfield12"){
@@ -343,60 +389,7 @@ if(($(this).prop('required') && this.value=="") || ($(this).prop('required') && 
     
     return true;
 });
-$('form#form1').find('select').each(function(){
 
-
-  
-      if(this.id=="select"){
-        pagina=2;
-
-      }
-     
-
-
-if(($(this).prop('required') && this.value=="")  ){
-      
- 
-
-
-      alert("¡¡Por Favor, Verifica Que Todos Los Datos Esten Correctos!!");
-    
-      
-      
-      
-      
-        console.log("IR");
-
-
-
-        if(pagina=="1"){
-        $( '#uno' ).click ();
-        window.scrollTo(0,0);
-        this.focus();
-        this.select();
-        return false;
-      }
-      if(pagina=="2"){
-        $( '#dos' ).click ();
-        window.scrollTo(0,0);
-        this.focus();
-        this.select();
-        return false;
-      }
-      if(pagina=="3"){
-       
-        this.focus();
-        this.select();
-        return false;
-      }
-        
-        
-    } else {
-      console.log("NR");
-    }
-    
-    return true;
-});
 }
 
 
