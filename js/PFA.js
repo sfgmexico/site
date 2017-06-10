@@ -179,7 +179,7 @@ function validaEspaciosSolos() {
         return false;
     }
 
-    /////PRIMERA SECCION ---- SECCION DEL SOLICITANTE
+    /////PRIMERA SECCION  SECCION DEL SOLICITANTE
     if (document.getElementById("nomsol").value != "" || document.getElementById("apepasol").value != "" || document.getElementById("apemasol").value != "") {///VALIDACION DE NOMBRE Y APRELLIDOS
         ///ELEMENTOS DE LA SECCION DEL SOLICITANTE
         if (document.getElementById("rfc1").value == "") {
@@ -1546,103 +1546,103 @@ function validaEspaciosSolos2() {
         return false;
     }
     ////ACTIVIDAD OBJETO SOCIAL
-    if (document.getElementsByName("select")[0].value == "---") {
+    if (document.getElementsByName("select")[0].value == "") {
         alert("¡¡Ingresa el dato faltante!!");
         document.getElementById("select").focus();
         document.getElementById("select").select();
     }
     ////ANTIGUEDAD DEL CLIENTE
-    if (document.getElementsByName("select2")[0].value == "---") {
+    if (document.getElementsByName("select2")[0].value == "") {
         alert("¡¡Ingresa el dato faltante!!");
         document.getElementById("select2").focus();
         document.getElementById("select2").select();
     }
     ////NATURALEZA DE LAS OPERACIONES
-    if (document.getElementsByName("select3")[0].value == "---") {
+    if (document.getElementsByName("select3")[0].value == "") {
         alert("¡¡Ingresa el dato faltante!!");
         document.getElementById("select3").focus();
         document.getElementById("select3").select();
     }
     ////NUM DE BENEFICIARIOS
-    if (document.getElementsByName("select4")[0].value == "---") {
+    if (document.getElementsByName("select4")[0].value == "") {
         alert("¡¡Ingresa el dato faltante!!");
         document.getElementById("select4").focus();
         document.getElementById("select4").select();
     }
     ///TERCEROS RELACIONADOS
-    if (document.getElementsByName("select5")[0].value == "---") {
+    if (document.getElementsByName("select5")[0].value == "") {
         alert("¡¡Ingresa el dato faltante!!");
         document.getElementById("select5").focus();
         document.getElementById("select5").select();
     }
     ///PEP'S RELACIONADOS
-    if (document.getElementsByName("select6")[0].value == "---") {
+    if (document.getElementsByName("select6")[0].value == "") {
         alert("¡¡Ingresa el dato faltante!!");
         document.getElementById("select6").focus();
         document.getElementById("select6").select();
     }
     ///ALERTA REPUTACIONAL
-    if (document.getElementsByName("select7")[0].value == "---") {
+    if (document.getElementsByName("select7")[0].value == "") {
         alert("¡¡Ingresa el dato faltante!!");
         document.getElementById("select7").focus();
         document.getElementById("select7").select();
     }
     ///VOLUMEN ESPERADO
-    if (document.getElementsByName("select8")[0].value == "---") {
+    if (document.getElementsByName("select8")[0].value == "") {
         alert("¡¡Ingresa el dato faltante!!");
         document.getElementById("select8").focus();
         document.getElementById("select8").select();
     }
     ///FRECUENCIA ESPERADA
-    if (document.getElementsByName("select9")[0].value == "---") {
+    if (document.getElementsByName("select9")[0].value == "") {
         alert("¡¡Ingresa el dato faltante!!");
         document.getElementById("select9").focus();
         document.getElementById("select9").select();
     }
     ///INSTRUMENTO MONETARIO UTILIZADO
-    if (document.getElementsByName("select10")[0].value == "---") {
+    if (document.getElementsByName("select10")[0].value == "") {
         alert("¡¡Ingresa el dato faltante!!");
         document.getElementById("select10").focus();
         document.getElementById("select10").select();
     }
     ///CANALES O MEDIOS UTILIZADOS
-    if (document.getElementsByName("select11")[0].value == "---") {
+    if (document.getElementsByName("select11")[0].value == "") {
         alert("¡¡Ingresa el dato faltante!!");
         document.getElementById("select11").focus();
         document.getElementById("select11").select();
     }
     ///PAIS ESTADO OFICIAL
-    if (document.getElementsByName("select12")[0].value == "---") {
+    if (document.getElementsByName("select12")[0].value == "") {
         alert("¡¡Ingresa el dato faltante!!");
         document.getElementById("select12").focus();
         document.getElementById("select12").select();
     }
     ///PAIS ESTADO RESIDENCIA
-    if (document.getElementsByName("select13")[0].value == "---") {
+    if (document.getElementsByName("select13")[0].value == "") {
         alert("¡¡Ingresa el dato faltante!!");
         document.getElementById("select13").focus();
         document.getElementById("select13").select();
     }
     ///PAIS ESTADO OPERCION
-    if (document.getElementsByName("select14")[0].value == "---") {
+    if (document.getElementsByName("select14")[0].value == "") {
         alert("¡¡Ingresa el dato faltante!!");
         document.getElementById("select14").focus();
         document.getElementById("select14").select();
     }
     ///ORIGEN DE LOS RECURSOS
-    if (document.getElementsByName("select15")[0].value == "---") {
+    if (document.getElementsByName("select15")[0].value == "") {
         alert("¡¡Ingresa el dato faltante!!");
         document.getElementById("select15").focus();
         document.getElementById("select15").select();
     }
     ///DESTINO DE LOS RECURSOS
-    if (document.getElementsByName("select16")[0].value == "---") {
+    if (document.getElementsByName("select16")[0].value == "") {
         alert("¡¡Ingresa el dato faltante!!");
         document.getElementById("select16").focus();
         document.getElementById("select16").select();
     }
     ///PAIS ESTADO RESIDENCIA DE LOS TERCEROS RELACIONADOS
-    if (document.getElementsByName("select17")[0].value == "---") {
+    if (document.getElementsByName("select17")[0].value == "") {
         alert("¡¡Ingresa el dato faltante!!");
         document.getElementById("select17").focus();
         document.getElementById("select17").select();
