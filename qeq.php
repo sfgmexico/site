@@ -112,7 +112,7 @@ if(isset($_REQUEST['perM'])){
     $xml->save('xml/consulta.xml');
 }
 
-
+?> <script>window.print(); </script><?php
 
             
 //echo htmlentities($el_xml);
