@@ -1273,13 +1273,13 @@ input::-moz-placeholder {
               <td width="21%">Credencial para votar </td>
               <td width="35%"><input name="textfield39" type="text" id="textfield39" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['INESolicitante']; } ?>"></td>
               <td width="15%">Se adjunta copia: </td>
-              <td width="29%" id="secINE"><input id="copiasA" name="copias" type="radio" value="1" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_INESolicitante']=='Si'){echo "checked";} } ?>><label for="copiasA"> Si</label>  <input id="copiasB" name="copias" type="radio" value="2" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_INESolicitante']=='No'){echo "checked";} } ?>><label for="copiasB"> No</label></td>
+              <td width="29%" id="secINE"><input id="copiasA" name="copias" type="radio" value="Si" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_INESolicitante']=='Si'){echo "checked";} } ?>><label for="copiasA"> Si</label>  <input id="copiasB" name="copias" type="radio" value="No" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_INESolicitante']=='No'){echo "checked";} } ?>><label for="copiasB"> No</label></td>
             </tr>
             <tr>
               <td>Pasaporte cedula profesional </td>
               <td><input name="textfield40" type="text" id="textfield40" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['Pasaporte_o_CedulaProfSolicitante']; } ?>" ></td>
               <td>Se adjunta copia: </td>
-              <td id="secCedProfesional"><input id="copias2A" name="copias2" type="radio" value="1"<?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_Pasaporte_o_CedulaProfSolicitante']=='Si'){echo "checked";} } ?>><label for="copias2A"> Si</label>  <input id="copias2B" name="copias2" type="radio" value="2"<?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_Pasaporte_o_CedulaProfSolicitante']=='<noscript>
+              <td id="secCedProfesional"><input id="copias2A" name="copias2" type="radio" value="Si"<?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_Pasaporte_o_CedulaProfSolicitante']=='Si'){echo "checked";} } ?>><label for="copias2A"> Si</label>  <input id="copias2B" name="copias2" type="radio" value="No"<?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_Pasaporte_o_CedulaProfSolicitante']=='<noscript>
               
               </noscript>'){echo "checked";} } ?>><label for="copias2B"> No</label></td>
             </tr>
@@ -1287,28 +1287,28 @@ input::-moz-placeholder {
               <td>Cartilla de servicio militar </td>
               <td><input name="textfield41" type="text" id="textfield41" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['CartillaMilitarSolicitante']; } ?>" ></td>
               <td>Se adjunta copia: </td>
-              <td id="secCarMilitar"><input id="copias3A" name="copias3" type="radio" value="1" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_CartillaMilitarSolicitante']=='Si'){echo "checked";} } ?>><label for="copias3A"> Si</label>  <input id="copias3B" name="copias3" type="radio" value="2" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_CartillaMilitarSolicitante']=='No'){echo "checked";} } ?>><label for="copias3B"> No</label></td>
+              <td id="secCarMilitar"><input id="copias3A" name="copias3" type="radio" value="Si" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_CartillaMilitarSolicitante']=='Si'){echo "checked";} } ?>><label for="copias3A"> Si</label>  <input id="copias3B" name="copias3" type="radio" value="No" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_CartillaMilitarSolicitante']=='No'){echo "checked";} } ?>><label for="copias3B"> No</label></td>
             </tr>
             <tr>
               <td>Licencia para conducir </td>
               <td><input name="textfield42" type="text" id="textfield42" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['LicenciaConducirSolicitante']; } ?>" ></td>
               <td>Se adjunta copia: </td>
-              <td id="secLicConducir"><input id="copias4A" name="copias4" type="radio" value="1" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_LicenciaConducirSolicitante']=='Si'){echo "checked";} } ?>><label for="copias4A"> Si</label>
-                                      <input id="copias4B" name="copias4" type="radio" value="2" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_LicenciaConducirSolicitante']=='No'){echo "checked";} } ?>><label for="copias4B"> No</label></td>
+              <td id="secLicConducir"><input id="copias4A" name="copias4" type="radio" value="Si" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_LicenciaConducirSolicitante']=='Si'){echo "checked";} } ?>><label for="copias4A"> Si</label>
+                                      <input id="copias4B" name="copias4" type="radio" value="No" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_LicenciaConducirSolicitante']=='No'){echo "checked";} } ?>><label for="copias4B"> No</label></td>
             </tr>
             <tr>
               <td>Otra</td>
               <td><input name="textfield43" type="text" id="textfield43" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['OtraIdentSolicitante']; } ?>" ></td>
               <td>Se adjunta copia: </td>
-              <td id="secOtrIdentificacion"><input id="copias5A" name="copias5" type="radio" value="1" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_OtraIdentSolicitante']=='Si'){echo "checked";} } ?>><label for="copias5A"> Si</label>
-                                            <input id="copias5B" name="copias5" type="radio" value="2" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_OtraIdentSolicitante']=='No'){echo "checked";} } ?>><label for="copias5B"> No</label></td>
+              <td id="secOtrIdentificacion"><input id="copias5A" name="copias5" type="radio" value="Si" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_OtraIdentSolicitante']=='Si'){echo "checked";} } ?>><label for="copias5A"> Si</label>
+                                            <input id="copias5B" name="copias5" type="radio" value="No" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_OtraIdentSolicitante']=='No'){echo "checked";} } ?>><label for="copias5B"> No</label></td>
             </tr>
             <tr>
               <td>Especificar</td>
               <td id="secOtrIdentificacion2"><input name="textfield44" type="text" id="textfield44" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['EspIdentSolicitante']; } ?>" ></td>
               <td>Se cotejo vs original: </td>
-              <td ><input id="cotejo1" name="cotejo" type="radio" value="1" <?php if(isset($row['Folio_Cliente'])) { if($row3['CotejoVsOriginal']=='Si'){echo "checked";} } ?> required><label for="cotejo1"> Si</label>
-                   <input id="cotejo2" name="cotejo" type="radio" value="2" <?php if(isset($row['Folio_Cliente'])) { if($row3['CotejoVsOriginal']=='No'){echo "checked";} } ?> required><label for="cotejo2"> No</label></td>
+              <td ><input id="cotejo1" name="cotejo" type="radio" value="Si" <?php if(isset($row['Folio_Cliente'])) { if($row3['CotejoVsOriginal']=='Si'){echo "checked";} } ?> required><label for="cotejo1"> Si</label>
+                   <input id="cotejo2" name="cotejo" type="radio" value="No" <?php if(isset($row['Folio_Cliente'])) { if($row3['CotejoVsOriginal']=='No'){echo "checked";} } ?> required><label for="cotejo2"> No</label></td>
             </tr>
           </table>
 		  <BR>
@@ -1316,13 +1316,13 @@ input::-moz-placeholder {
 		  <table width="100%" border="0">
             <tr>
               <td width="30%">Se adjunta CURP y/o cédula RFC, FEA* </td>
-              <td width="70%"><input id="adjuntos1A" name="adjuntos1" type="radio" value="1" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_CURP_RFC_FEA']=='Si'){echo "checked";} } ?> required><label for="adjuntos1A"> Si</label>
-                              <input id="adjuntos1B" name="adjuntos1" type="radio" value="2" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_CURP_RFC_FEA']=='No'){echo "checked";} } ?> required><label for="adjuntos1B"> No</label></td>
+              <td width="70%"><input id="adjuntos1A" name="adjuntos1" type="radio" value="Si" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_CURP_RFC_FEA']=='Si'){echo "checked";} } ?> required><label for="adjuntos1A"> Si</label>
+                              <input id="adjuntos1B" name="adjuntos1" type="radio" value="No" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_CURP_RFC_FEA']=='No'){echo "checked";} } ?> required><label for="adjuntos1B"> No</label></td>
             </tr>
             <tr>
               <td>Se adjunta comprobante de domicilio </td>
-              <td><input id="adjuntos2A" name="adjuntos2" type="radio" value="1" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_ComprobanteDom']=='Si'){echo "checked";} } ?> required><label for="adjuntos2A"> Si</label>
-                  <input id="adjuntos2B" name="adjuntos2" type="radio" value="2" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_ComprobanteDom']=='No'){echo "checked";} } ?> required><label for="adjuntos2B"> No</label></td>
+              <td><input id="adjuntos2A" name="adjuntos2" type="radio" value="Si" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_ComprobanteDom']=='Si'){echo "checked";} } ?> required><label for="adjuntos2A"> Si</label>
+                  <input id="adjuntos2B" name="adjuntos2" type="radio" value="No" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_ComprobanteDom']=='No'){echo "checked";} } ?> required><label for="adjuntos2B"> No</label></td>
             </tr>
             <tr>
               <td>Fecha del comprobante de domicilio </td>
@@ -1330,8 +1330,8 @@ input::-moz-placeholder {
             </tr>
             <tr>
               <td>Domicilio manifestado coincide con la ID</td>
-              <td><input id="adjuntos3A" name="adjuntos3" type="radio" value="1" <?php if(isset($row2['Folio_Cliente'])) { if($row3['DomicilioCoincideId']=='Si'){echo "checked";} } ?> required><label for="adjuntos3A"> Si</label>
-                  <input id="adjuntos3B" name="adjuntos3" type="radio" value="2" <?php if(isset($row2['Folio_Cliente'])) { if($row3['DomicilioCoincideId']=='No'){echo "checked";} } ?> required><label for="adjuntos3B"> No</label></td>
+              <td><input id="adjuntos3A" name="adjuntos3" type="radio" value="Si" <?php if(isset($row2['Folio_Cliente'])) { if($row3['DomicilioCoincideId']=='Si'){echo "checked";} } ?> required><label for="adjuntos3A"> Si</label>
+                  <input id="adjuntos3B" name="adjuntos3" type="radio" value="No" <?php if(isset($row2['Folio_Cliente'])) { if($row3['DomicilioCoincideId']=='No'){echo "checked";} } ?> required><label for="adjuntos3B"> No</label></td>
             </tr>
           </table>
 		  <br>

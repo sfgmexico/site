@@ -480,7 +480,7 @@ data-previousvalue="0" id="price2" data-val-min="0" data-val-max="1000000" data-
 -->
 <div id="contenidoNomina" class="container" style="display:none">
     
-  <table >
+  <table border="1">
         <tr>
                 <td style="display:none">Ingresos mensuales  <input type="number" name="ingmen" id="ingmen"> </td>
                  <td>Tasa de interes (Anual)<input type="text" name="tasanomina" id="tasanomina" readonly></td>
