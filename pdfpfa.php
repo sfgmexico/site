@@ -623,9 +623,9 @@ $pdf->MultiCell(30,0, "Datos del solicitante
 $pdf->MultiCell(30,0,'Folio del cliente 
 	'.$Folio_Cliente, 1, 'J', 0, 0, '', '', true,1,false,true);
 //$pdf->MultiCell(30,0, '' , 1, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(30,0, 'Leasing' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(30,0, 'Credit' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(0,0, 'Premium
+$pdf->MultiCell(30,0, '' , 0, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(30,0, $tipocredito , 0, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(0,0, '
 	' , 0, 'J', 0, 1, '', '', true,1,false,true);
 $pdf->Ln(1);
 
@@ -1531,8 +1531,17 @@ $pdf->Cell(35, 0, 'Total Ingresos', '', 0, 'L', 0, '', 0, false, 'T', 'C');
 $pdf->Cell(45, 0, $_REQUEST['textfield85'], 'B', 1, 'C', 0, '', 0, false, 'T', 'C');
 $pdf->Ln(5);
 
+if($tipocredito=="Auto Nuevo" || $tipocredito=="Auto Usado"){
+	$contieneselec="Valor del automovil";
+	$contieneselec2="Enganche del automovil";
+}else{
+	$contieneselec="Monto a Financiar";
+	$contieneselec2="Enganche ";
+}
+
 $pdf->Cell(45, 0, 'Valor del automovil', '', 0, 'L', 0, '', 0, false, 'T', 'C');
 $pdf->Cell(45, 0, $_REQUEST['textfield86'], 'B', 1, 'C', 0, '', 0, false, 'T', 'C');
+
 
 $pdf->Cell(45, 0, 'Enganche del automovil', '', 0, 'L', 0, '', 0, false, 'T', 'C');
 $pdf->Cell(45, 0, $_REQUEST['textfield87'], 'B', 1, 'C', 0, '', 0, false, 'T', 'C');

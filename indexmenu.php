@@ -51,6 +51,7 @@
   <li id="boton2"><a href="#"><i class="fi-graph-trend"></i><span>Solicitudes</span></a></li>
   <li id="boton1"><a href="#"><i class="fi-dollar"></i><span>Cotizacion</span></a></li>
     <li id="qeq"><a href="#"><i class="fi-dollar"></i><span>QeQ</span></a></li>
+    <li id="Admin"><a href="#"><i class="fi-dollar"></i><span>Configuración</span></a></li>
 </ul>
 
 

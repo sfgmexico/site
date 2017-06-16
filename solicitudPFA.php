@@ -22,6 +22,8 @@
     echo "grado de riesgo".$row3['Folio_sol'];
     ?><script>document.getElementById("cliente").readOnly = true;</script> <?php
  
+    }else{
+      include("Conexion2.php");
     }
 
     
@@ -392,7 +394,22 @@ if(($(this).prop('required') && this.value=="") || ($(this).prop('required') && 
 
 }
 
+function seleccionvalor(){
+  alert("funcion");
+   var x = document.getElementById("tipocredito").value;
+   if(x=="Auto Nuevo" || x=="Auto Usado"){
+     alert("Carro");
+    document.getElementById("valorautochange").innerHTML = "Valor del Automóvil ";
+    document.getElementById("engautochange").innerHTML = "Enganche del Automóvil";
+   }else{
+      alert("prestamo");
+    document.getElementById("valorautochange").innerHTML = "Monto Requerido ";
+    document.getElementById("engautochange").innerHTML = "Enganche ";
+   }
 
+
+    
+}
 </script>
 </header>
 
@@ -413,6 +430,7 @@ input::-moz-placeholder {
 	font-size:8px;
 	font-weight: bold;
 }
+
 	  </style>
 
     <ul class="accordion" data-accordion>
@@ -429,10 +447,23 @@ input::-moz-placeholder {
             <div class="row">
               <div class="small-5 columns"><input name="cliente" type="text" id="cliente" value="<?php if(isset($row['Folio_Cliente'])) { echo $row['Folio_Cliente']; } ?>" size="30px" onChange="obten()" placeholder="Si es Cliente, número de cliente/contrato"></div>
              
-            <input id="tipocredito1" name="tipocredito" type="radio" value="1" required <?php if(isset($row['Folio_Cliente'])) { if($row['TipoCredito']=='Credit'){echo "checked";} } ?>><label for="tipocredito1">Credit</label>
+                <select name="tipocredito" size="1" id="tipocredito" style="width:40%;" onchange="seleccionvalor()" required>
+          <option value="" ></option>
+          <?php
+          $rescreditos=mysqli_query($cnx,"select * from tiposcreditos");
+          while($rowcreditos=mysqli_fetch_array($rescreditos)){?> 
+             <option value="<?php echo $rowcreditos['descripcion'];?>" ><?php echo $rowcreditos['descripcion'];?></option>
+
+         <?php }
+          ?>
+        </select>
+
+
+<!--
+            <input id="tipocredito1" name="tipocredito" type="radio" value="1" required <?php /*if(isset($row['Folio_Cliente'])) { if($row['TipoCredito']=='Credit'){echo "checked";} } ?>><label for="tipocredito1">Credit</label>
             
-            <input id="tipocredito2" name="tipocredito" type="radio" value="2" required <?php if(isset($row['Folio_Cliente'])) { if($row['TipoCredito']=='Premium Credit'){echo "checked";} } ?>><label for="tipocredito2">Premium Credit</label>
-            </div>
+            <input id="tipocredito2" name="tipocredito" type="radio" value="2" required <?php if(isset($row['Folio_Cliente'])) { if($row['TipoCredito']=='Premium Credit'){echo "checked";} }*/ ?>><label for="tipocredito2">Premium Credit</label>
+-->            </div>
           </p>
            <div id="secSolicitante">
           <div class="row">
@@ -1466,12 +1497,13 @@ input::-moz-placeholder {
               <td width="19%">Total de Ingresos </td>
               <td width="81%"><input name="textfield85" type="text" id="textfield85" value="<?php if(isset($row['Folio_Cliente'])) { echo $row3['TotalIngreso']; } ?>" size="50%" readonly></td>
             </tr>
+
             <tr>
-              <td>Valor del Automóvil </td>
+              <td id="valorautochange"></td>
               <td><input name="textfield86" type="text" id="textfield86" size="50%" onkeypress="return validaNumeroDecimal(event)" value="<?php if(isset($row['Folio_Cliente'])) { echo $row3['ValorAuto']; } ?>" required ></td>
             </tr>
             <tr>
-              <td>Enganche del Automóvil </td>
+              <td id="engautochange"> </td>
               <td><input name="textfield87" type="text" id="textfield87" size="50%" onkeypress="return validaNumeroDecimal(event)" value="<?php if(isset($row['Folio_Cliente'])) { echo $row3['EngAutomovil']; } ?>" required onchange="datosAuto()"></td>
             </tr>
             <tr>

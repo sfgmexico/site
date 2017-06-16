@@ -17,4 +17,7 @@ $("#boton1").click(function(event) {
                         $("#qeq").click(function(event){
                         $("#htmlext").load('buscarqeq.php');
                                                             });
+						$("#Admin").click(function(event){
+                        $("#htmlext").load('Config.php');
+                                                            });
 
