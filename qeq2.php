@@ -100,8 +100,10 @@ if(stristr($solicitudNo, 'SA-')== TRUE){
 
     foreach ($arra as $valor){
         mysqli_query($cnx,"insert into registroxml (Folio_Sol,PersonaRazonsoc,DirXML) values('$solicitudNo','".$valor[0]."','".$valor[1]."') ON DUPLICATE KEY UPDATE Folio_Sol = '$solicitudNo', PersonaRazonsoc = '".$valor[0]."', DirXML='".$valor[1]."';");
+        
+        
     }
-
+    mysqli_query($cnx,"insert into xml (Folio_Sol,FechaConsulta) values('$solicitudNo','".date('Y-m-d')."')");
 
     exit();
 

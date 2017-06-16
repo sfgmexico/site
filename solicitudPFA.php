@@ -395,14 +395,14 @@ if(($(this).prop('required') && this.value=="") || ($(this).prop('required') && 
 }
 
 function seleccionvalor(){
-  alert("funcion");
+  
    var x = document.getElementById("tipocredito").value;
    if(x=="Auto Nuevo" || x=="Auto Usado"){
-     alert("Carro");
+    
     document.getElementById("valorautochange").innerHTML = "Valor del Automóvil ";
     document.getElementById("engautochange").innerHTML = "Enganche del Automóvil";
    }else{
-      alert("prestamo");
+     
     document.getElementById("valorautochange").innerHTML = "Monto Requerido ";
     document.getElementById("engautochange").innerHTML = "Enganche ";
    }
