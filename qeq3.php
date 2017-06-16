@@ -11,14 +11,10 @@ if($result === false){
     exit();
 }
 $result2=mysqli_query($cnx,"select * from xml where Folio_Sol='$SolicitudNo'");
-$row2=mysqli_fetch_array($result);
+$row2=mysqli_fetch_array($result2);
 echo "<h2>Personas Involucradas</h2>";
-<<<<<<< HEAD
 echo "<p>Consulta realizada el día ".$row2['Fecha']." al portal de Quien es Quien. Número de la solicitud: ".$SolicitudNo." </p>";
-=======
 
-
->>>>>>> origin/master
 while($row=mysqli_fetch_array($result)){
     
     echo "<h4>".$row['PersonaRazonsoc']."</h4>";
