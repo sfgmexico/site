@@ -435,7 +435,7 @@ function leer($urli){
     
     $xml = simplexml_load_file($urli);
     $salida ="";
-    
+    echo "<h1>Hola<h1>";
     foreach($xml->persona as $item){
       $salida .=
         "<b>Lista: </b> " . $item->lista ."<br>".

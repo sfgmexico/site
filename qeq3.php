@@ -13,6 +13,7 @@ if($result === false){
 
 echo "<h2>Personas Involucradas</h2>";
 
+
 while($row=mysqli_fetch_array($result)){
     
     echo "<h4>".$row['PersonaRazonsoc']."</h4>";

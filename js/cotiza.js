@@ -619,7 +619,7 @@ function CalculaNomina(){
 
   codigo="";
   codigo="<h2>Tabla de amortizacion<\/h2>"
-  codigo+="<table class='table table-hover' width='100%' border='0' id='f'>"; 
+  codigo+="<table class='table table-hover' width='100%' border='1' id='f'>"; 
   codigo+="<tr class='table-info'>"; 
   codigo+="<th>Balance inicial<\/th>"; 
   //codigo+="<th>Pago programado<\/th>"; 
