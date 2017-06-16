@@ -1539,11 +1539,11 @@ if($tipocredito=="Auto Nuevo" || $tipocredito=="Auto Usado"){
 	$contieneselec2="Enganche ";
 }
 
-$pdf->Cell(45, 0, 'Valor del automovil', '', 0, 'L', 0, '', 0, false, 'T', 'C');
+$pdf->Cell(45, 0, $contieneselec, '', 0, 'L', 0, '', 0, false, 'T', 'C');
 $pdf->Cell(45, 0, $_REQUEST['textfield86'], 'B', 1, 'C', 0, '', 0, false, 'T', 'C');
 
 
-$pdf->Cell(45, 0, 'Enganche del automovil', '', 0, 'L', 0, '', 0, false, 'T', 'C');
+$pdf->Cell(45, 0, $contieneselec2, '', 0, 'L', 0, '', 0, false, 'T', 'C');
 $pdf->Cell(45, 0, $_REQUEST['textfield87'], 'B', 1, 'C', 0, '', 0, false, 'T', 'C');
 
 $pdf->Cell(45, 0, 'Porcentaje de enganche', '', 0, 'L', 0, '', 0, false, 'T', 'C');
