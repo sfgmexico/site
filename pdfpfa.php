@@ -1073,6 +1073,9 @@ $pdf->SetAlpha(0.2);
 $pdf->RoundedRect(15, 55, 186, 103, 6.5, '0000','DF',null ,array(255, 255, 200) );
 
 $pdf->AddPage();
+$clienteEst = array( 1 => array( 1 => "X" , 2 => " ","" => " " ),
+				  2 => array( 1 => " " , 2 => "X" ,""=>" ")	 );
+
 
 $pdf->MultiCell(70,0, 'SERVICIOS FINANCIEROS DEL GUADIANA S.A DE C.V SOFOM E.N.R
 	' , 0, 'J', 0, 1, '', '', true,1,false,true);
@@ -1082,10 +1085,10 @@ $pdf->MultiCell(0,0, 'FORMATO DE IDENTIFICACION DEL CLIENTE POR CLASIFICACION DE
 	' , 0, 'J', 0, 1, '', '', true,1,false,true);
 $pdf->MultiCell(80,0, 'Fecha:' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(20,0, 'Tipo de cliente:' , 0, 'L', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(10,0, 'Nuevo' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(5,0, ' ' , 1, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(10,0, 'Nuevo', 0, 'J', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(5,0, ' '.$clienteEst[1][$_REQUEST['escliente']] , 1, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(20,0, '   Actualizacion cliente' , 0, 'L', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(5,0, ' ' , 1, 'J', 0, 1, '', '', true,1,false,true);
+$pdf->MultiCell(5,0, ' '.$clienteEst[2][$_REQUEST['escliente']] , 1, 'J', 0, 1, '', '', true,1,false,true);
 $pdf->Ln(4);
 $style2 = array('width' => 0.2, 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(0, 0, 0));
 
@@ -1291,6 +1294,17 @@ $tbl = '
 
 </table>';
 
+$gradoT="";
+if ($total>=45) {
+	$gradoT="Alto";
+}
+elseif ($total<45 && $total>30) {
+	$gradoT="Medio";
+}
+elseif ($total<=29) {
+	$gradoT="Bajo";
+}
+
 $pdf->writeHTMLCell(160,0,15,110,$tbl,0,0,false, false, '');
 $pdf->MultiCell(0,0, 'Grado de riesgo' , 0, 'C', 0, 1, '', '', true,1,false,true);
 
@@ -1298,7 +1312,7 @@ $pdf->MultiCell(0,0, 'Alto mas de 45 ' , 0, 'R', 0, 1, '', '', true,1,false,true
 $pdf->MultiCell(0,0, 'Medio  30-45  ' , 0, 'R', 0, 1, '', '', true,1,false,true);
 $pdf->MultiCell(0,0, 'Bajo menor a 29  ' , 0, 'R', 0, 1, '', '', true,1,false,true);
 $pdf->Ln(90);
-$pdf->MultiCell(0,0, 'Resultado de calificacion de grado de riesgo:' , 0, 'L', 0, 1, '', '', true,1,false,true);
+$pdf->MultiCell(0,0, 'Resultado de calificacion de grado de riesgo:     '.$gradoT , 0, 'L', 0, 1, '', '', true,1,false,true);
 $pdf->Ln(10);
 $pdf->MultiCell(40,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
