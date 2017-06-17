@@ -606,8 +606,8 @@ $txt = "Nomre / Razon social
 Codigo PHP";
 $s = " ";
 //
-$sexosel = array( 1 => array( "M" => "X" , "F" => " " ,""=> " "),
-				  2 => array( "M" => " " , "F" => "X",""=> " " )	 );
+$sexosel = array( 1 => array( "Masculino" => "X" , "Femenino" => " " ,""=> " "),
+				  2 => array( "Masculino" => " " , "Femenino" => "X",""=> " " )	 );
 
 $viv  = array(1 => array(1 => "X", 2 => " ",3 => " ",4 => " ",5 => " "),
  			  2 => array(1 => " ", 2 => "X",3 => " ",4 => " ",5 => " "),
@@ -719,7 +719,7 @@ $pdf->MultiCell(60,0, 'Departamento o area
 $pdf->MultiCell(5,0, '
 	' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(0,0, 'Antiguedad desde
-	'.$desdesol , 1, 'L', 0, 1, '', '', true,1,false,true); 
+	'.$desdesol , 1, 'J', 0, 1, '', '', true,1,false,true); 
 $pdf->Ln(1);
 
 $pdf->MultiCell(30,0, 'Compañia 
@@ -1087,7 +1087,7 @@ $pdf->MultiCell(80,0, 'Fecha:' , 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(20,0, 'Tipo de cliente:' , 0, 'L', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(10,0, 'Nuevo', 0, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(5,0, ' '.$clienteEst[1][$_REQUEST['escliente']] , 1, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(20,0, '   Actualizacion cliente' , 0, 'L', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(25,0, '   Actualizacion cliente' , 0, 'L', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(5,0, ' '.$clienteEst[2][$_REQUEST['escliente']] , 1, 'J', 0, 1, '', '', true,1,false,true);
 $pdf->Ln(4);
 $style2 = array('width' => 0.2, 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(0, 0, 0));
@@ -1430,7 +1430,7 @@ $pdf->Cell(45, 0, 'Se adjunta copia  :'.$_REQUEST['copias4'], '', 1, 'C', 0, '',
 
 $pdf->Cell(35, 0, 'Especificar', '', 0, 'L', 0, '', 0, false, 'T', 'C');
 $pdf->Cell(45, 0, $_REQUEST['textfield44'], 'B', 0, 'C', 0, '', 0, false, 'T', 'C');
-$pdf->Cell(45, 0, 'Se adjunta copia  :'.$_REQUEST['cotejo'], '', 1, 'C', 0, '', 0, false, 'T', 'C');
+$pdf->Cell(45, 0, 'Se cotejo vs original  :'.$_REQUEST['cotejo'], '', 1, 'C', 0, '', 0, false, 'T', 'C');
 $pdf->Ln(5);
 
 $pdf->Cell(45, 0, 'Otros documentos que se adjuntan:   '.$_REQUEST['cotejo'], '', 1, 'L', 0, '', 0, false, 'T', 'C');
@@ -1549,8 +1549,8 @@ $pdf->Cell(45, 0, $_REQUEST['textfield85'], 'B', 1, 'C', 0, '', 0, false, 'T', '
 $pdf->Ln(5);
 
 if($tipocredito=="Auto Nuevo" || $tipocredito=="Auto Usado"){
-	$contieneselec="Valor del automovil";
-	$contieneselec2="Enganche del automovil";
+	$contieneselec="Valor del credito";
+	$contieneselec2="Enganche";
 }else{
 	$contieneselec="Monto a Financiar";
 	$contieneselec2="Enganche ";
