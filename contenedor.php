@@ -812,7 +812,7 @@ echo "";
 
 $("#verqeq").click(function(event) {
  
- window.open("qeq3.php?solicitud="+document.getElementById("res").value,'_blank', "toolbar=no,scrollbars=No,resizable=yes,top=0,left=0,width=500,height=500");
+ window.open("qeq3.php?solicitud="+document.getElementById("res").value,'_blank');
    
                                 });
 

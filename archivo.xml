@@ -23,14 +23,14 @@
         <PrimerNombre>Adrian</PrimerNombre>
         <SegundoNombre>Eduardo</SegundoNombre>
         <FechaNacimiento>19890907</FechaNacimiento>
-        <RFC>MAMA890907CV4</RFC>
+        <RFC>3131313131313</RFC>
         <Prefijo/>
         <Sufijo/>
-        <Nacionalidad>MX</Nacionalidad>
-        <Residencia>1</Residencia>
-        <NumeroLicenciaConducir>321</NumeroLicenciaConducir>
-        <EstadoCivil>M</EstadoCivil>
-        <Sexo>M</Sexo>
+        <Nacionalidad/>
+        <Residencia/>
+        <NumeroLicenciaConducir/>
+        <EstadoCivil/>
+        <Sexo/>
         <NumeroCedulaProfesional/>
         <NumeroRegistroElectoral/>
         <ClaveImpuestosOtroPais/>

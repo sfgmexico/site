@@ -12,12 +12,18 @@ if($result === false){
 }
 $result2=mysqli_query($cnx,"select * from xml where Folio_Sol='$SolicitudNo'");
 $row2=mysqli_fetch_array($result2);
-echo "<h2>Personas Involucradas</h2>";
-echo "<p>Consulta realizada el día ".$row2['Fecha']." al portal de Quien es Quien. Número de la solicitud: ".$SolicitudNo." </p>";
+echo "<IMG SRC='images/logosfg.png'>";
+echo "<DIV ALIGN=center> <h2>Consulta Quien es Quien</h2></DIV>";
+
+
+echo "<p>Consultado: ".$row2['FechaConsulta']." </p>";
+echo "<p>Solicitud: ".$SolicitudNo."</p>";
+
+echo "<DIV ALIGN=center><h4>Personas Involucradas</h4></DIV>";
 
 while($row=mysqli_fetch_array($result)){
     
-    echo "<h4>".$row['PersonaRazonsoc']."</h4>";
+    echo "<h5>".$row['PersonaRazonsoc']."</h5>";
     echo leer($row['DirXML'])."<hr/>";
 }
 //Para leerlo
