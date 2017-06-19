@@ -14,7 +14,7 @@ include("Conexion2.php");
 <!--<option value="0" onclick="capturar()">Crédito Cuenta Corriente</option>-->
 <!--<option value="0" onclick="capturar()">Fideicomiso</option>-->
 <option value="10" onclick="capturar()">Crédito Hipotecario</option>
-<option value="25" onclick="capturar()">Crédito Simple de Nomina</option>
+<option value="35" onclick="capturar()">Crédito Simple de Nomina</option>
 <option value="12.20" onclick="capturar()">Crédito Refaccionario</option>
 <option value="19.52" onclick="capturar()">Arrendamiento Financiero</option>
 <option value="18" onclick="capturar()">Factoraje</option>
