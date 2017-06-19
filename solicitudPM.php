@@ -22,6 +22,8 @@
     echo "grado de riesgo".$row3['Folio_sol'];
     ?><script>document.getElementById("cliente").readOnly = true;</script> <?php
  
+    }else{
+      include("Conexion2.php");
     }
 
     ?>
@@ -191,6 +193,42 @@ if (this.id=="textfield2") {
 });
     $('#fid').find('input').each(function(){
  $(this).prop('required',true);
+
+if(document.getElementById("textfield39").value=="" && !document.getElementsByName("copias")[0].checked){
+  if(this.id=="textfield39" || this.id=="copiasA" || this.id=="copiasB"){
+    $(this).prop('required',false);
+  }
+   
+}
+
+if(document.getElementById("textfield40").value=="" && !document.getElementsByName("copias2")[0].checked){
+  if(this.id=="textfield40" || this.id=="copias2A" || this.id=="copias2B"){
+    $(this).prop('required',false);
+  }
+   
+}
+
+if(document.getElementById("textfield41").value=="" && !document.getElementsByName("copias3")[0].checked){
+  if(this.id=="textfield41" || this.id=="copias3A" || this.id=="copias3B"){
+    $(this).prop('required',false);
+  }
+   
+}
+
+if(document.getElementById("textfield42").value=="" && !document.getElementsByName("copias4")[0].checked){
+  if(this.id=="textfield42" || this.id=="copias4A" || this.id=="copias4B"){
+    $(this).prop('required',false);
+  }
+   
+}
+
+if(document.getElementById("textfield43").value=="" && !document.getElementsByName("copias5")[0].checked){
+  if(this.id=="textfield43" || this.id=="copias5A" || this.id=="copias5B" || this.id=="textfield44"){
+    $(this).prop('required',false);
+  }
+   
+}
+
 
 if (document.getElementById("textfield45").value=="" || document.getElementById("textfield46").value=="" || document.getElementById("textfield47").value=="") {
 
@@ -446,10 +484,16 @@ input::-moz-placeholder {
         <div class="small-3 columns">
         <span data-tooltip aria-haspopup="true" class="has-tip" data-disable-hover="false" tabindex="1" title="Para Realizar la Prueba Ingresa Folio: PM-001 y Tabulador"><input name="cliente" type="text" onChange="obten()" id="cliente"  value="<?php if(isset($row['Folio_Cliente'])) { echo $row['Folio_Cliente']; } ?>" placeholder="Si es Cliente, número de cliente/contrato"> </span>
          </div>
-       
-          <input id="tipocredito1" name="tipocredito" type="radio" value="1" required <?php if(isset($row['Folio_Cliente'])) { if($row['TipoCredito']=='Leasing'){echo "checked";} } ?>><label for="tipocredito1">Leasing</label>
-          <input id="tipocredito2" name="tipocredito" type="radio" value="2" required <?php if(isset($row['Folio_Cliente'])) { if($row['TipoCredito']=='Credit'){echo "checked";} } ?>><label for="tipocredito2">Credit</label>
-          <input id="tipocredito3"  name="tipocredito" type="radio" value="3" required <?php if(isset($row['Folio_Cliente'])) { if($row['TipoCredito']=='Premium Credit'){echo "checked";} } ?>><label for="tipocredito3">Premium Credit</label></p>
+       <select name="tipocredito" size="1" id="tipocredito" style="width:40%;" onchange="seleccionvalor()" required>
+          <option value="" ></option>
+          <?php
+          $rescreditos=mysqli_query($cnx,"select * from tiposcreditos");
+          while($rowcreditos=mysqli_fetch_array($rescreditos)){?> 
+             <option value="<?php echo $rowcreditos['descripcion'];?>" ><?php echo $rowcreditos['descripcion'];?></option>
+
+         <?php }
+          ?>
+        </select>
 	  	<div id="secSolicitante">
 <div class="row">
 	     <div class="small-6 columns"> <input name="nomrazsoc2" type="text" id="nomrazsoc2" onchange="return valforms(this.form,this)" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['NomSolicitante']; } ?>"  placeholder="Nombre, Razón Social">
@@ -896,9 +940,9 @@ Telefono(Con lada - 10 dígitos):
         <input name="datoblugnac1" type="text" id="datoblugnac1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['LugNacObSol']; } ?>" placeholder="Lugar nacimiento (País y Edo.)">
     </div>
       Tiene propiedad a su nombre? 
-      <input id="prop1" name="datobprop1" required type="radio" value="1" <?php if(isset($row['Folio_Cliente'])) {if($row['PropObSol']=='Si') {echo "checked";} }?>> <label for="prop1">Si</label>
+      <input id="prop1" name="datobprop1" required type="radio" value="Si" <?php if(isset($row['Folio_Cliente'])) {if($row['PropObSol']=='Si') {echo "checked";} }?>> <label for="prop1">Si</label>
      
-      <input id="prop2" name="datobprop1" required type="radio" value="2"><label for="prop2" <?php if(isset($row['Folio_Cliente'])) {if($row['PropObSol']=='No') {echo "checked";} }?>>No</label>
+      <input id="prop2" name="datobprop1" required type="radio" value="No"><label for="prop2" <?php if(isset($row['Folio_Cliente'])) {if($row['PropObSol']=='No') {echo "checked";} }?>>No</label>
 </p>
       
   </div>
@@ -915,9 +959,9 @@ Telefono(Con lada - 10 dígitos):
       <p align="left">
       sexo:
      
-        <input id="se1"  name="datobsex1" required type="radio" value="M"<?php if(isset($row['Folio_Cliente'])){if ($row['SexoObSol']=='Masculino') {echo "checked"; } } ?>>  <label for="se1"><i class="step fi-male size-72"></i> M</label> 
+        <input id="se1"  name="datobsex1" required type="radio" value="Masculino"<?php if(isset($row['Folio_Cliente'])){if ($row['SexoObSol']=='Masculino') {echo "checked"; } } ?>>  <label for="se1"><i class="step fi-male size-72"></i> M</label> 
       
-        <input id="se2" name="datobsex1" required type="radio" value="F" <?php if(isset($row['Folio_Cliente'])){if ($row['SexoObSol']=='Femenino') {echo "checked"; } } ?>>   <label for="se2" ><i class="fi-female size-36"></i>F</label>
+        <input id="se2" name="datobsex1" required type="radio" value="Femenino" <?php if(isset($row['Folio_Cliente'])){if ($row['SexoObSol']=='Femenino') {echo "checked"; } } ?>>   <label for="se2" ><i class="fi-female size-36"></i>F</label>
     </p>
 <div class="row">
 <p align="left">
@@ -987,10 +1031,10 @@ Fecha de nacimiento:
       <p align="left">
     <div class="small-6 columns">
           sexo: 
-            <input id="se3" name="datobsex11" required type="radio" value="M" <?php if(isset($row['Folio_Cliente'])){if ($row['SexoObSolPF']=='Masculino') {echo "checked"; } } ?>> <label for="se3"><i class="step fi-male size-72"></i> M</label>
+            <input id="se3" name="datobsex11" required type="radio" value="Masculino" <?php if(isset($row['Folio_Cliente'])){if ($row['SexoObSolPF']=='Masculino') {echo "checked"; } } ?>> <label for="se3"><i class="step fi-male size-72"></i> M</label>
 
 
-      <input id="se4" name="datobsex11" required type="radio" value="F" <?php if(isset($row['Folio_Cliente'])){if ($row['SexoObSolPF']=='Femenino') {echo "checked"; } } ?>>  <label for="se4"><i class="step fi-female size-72"></i> F</label>
+      <input id="se4" name="datobsex11" required type="radio" value="Femenino" <?php if(isset($row['Folio_Cliente'])){if ($row['SexoObSolPF']=='Femenino') {echo "checked"; } } ?>>  <label for="se4"><i class="step fi-female size-72"></i> F</label>
     </div>
     </p>
     </div>
@@ -1040,9 +1084,9 @@ Fecha de nacimiento:
         </p>
         </div>
       <p align="left">sexo: 
-        <input id="se5" required name="datobsex2" type="radio" value="M" <?php if(isset($row['Folio_Cliente'])){ if($row['SexoObSol2']=='Masculino'){echo "checked";} }?>><label for="se5" ><i class="step fi-male size-72"></i> M</label>
+        <input id="se5" required name="datobsex2" type="radio" value="Masculino" <?php if(isset($row['Folio_Cliente'])){ if($row['SexoObSol2']=='Masculino'){echo "checked";} }?>><label for="se5" ><i class="step fi-male size-72"></i> M</label>
        
-  <input id="se6" required name="datobsex2" type="radio" value="F" <?php if(isset($row['Folio_Cliente'])){ if($row['SexoObSol2']=='Femenino'){echo "checked";} }?>><label for="se6"><i class="step fi-female size-72"></i> F</label>
+  <input id="se6" required name="datobsex2" type="radio" value="Femenino" <?php if(isset($row['Folio_Cliente'])){ if($row['SexoObSol2']=='Femenino'){echo "checked";} }?>><label for="se6"><i class="step fi-female size-72"></i> F</label>
 </p>
 <div class="row">
 <p align="left">
@@ -1105,9 +1149,9 @@ Fecha de nacimiento:
       <p align="left">
         <input name="obsol2" type="text" id="obsol2" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NomObSolPF2']; } ?>" placeholder="Obligado Solidario (Nombre (s), apellido paterno, apellido materno )">
 sexo: 
-<input id="se7"  required name="datobsex22" type="radio" value="M"<?php if(isset($row['Folio_Cliente'])){ if($row['SexoObSolPF2']=='Masculino'){echo "checked";} }?>> <label for="se7"><i class="step fi-male size-72"></i>M</label>
+<input id="se7"  required name="datobsex22" type="radio" value="Masculino"<?php if(isset($row['Folio_Cliente'])){ if($row['SexoObSolPF2']=='Masculino'){echo "checked";} }?>> <label for="se7"><i class="step fi-male size-72"></i>M</label>
 
-<input id="se8" required name="datobsex22" type="radio" value="F"<?php if(isset($row['Folio_Cliente'])){ if($row['SexoObSolPF2']=='Femenino'){echo "checked";} }?>> <label for="se8"><i class="step fi-female size-72"></i>F</label>
+<input id="se8" required name="datobsex22" type="radio" value="Femenino"<?php if(isset($row['Folio_Cliente'])){ if($row['SexoObSolPF2']=='Femenino'){echo "checked";} }?>> <label for="se8"><i class="step fi-female size-72"></i>F</label>
 </p>
 <div class="row">
 <p align="left">
@@ -1409,11 +1453,11 @@ Fecha de nacimiento:
             </tr>
             <tr>
               <td>Lugar de Nacimiento (Estado y País) </td>
-              <td><input name="textfield16" type="text" id="textfield16" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row2['LugNacContEmp']; } ?>" readonly ></td>
+              <td><input name="textfield16" type="text" id="textfield16" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row2['LugNacContEmp']; } ?>"  ></td>
             </tr>
             <tr>
               <td>Fecha de Nacimiento </td>
-              <td><input name="textfield17" type="date" id="textfield17" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row2['FechNacContEmp']; } ?>" readonly="true" ></td>
+              <td><input name="textfield17" type="date" id="textfield17" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row2['FechNacContEmp']; } ?>" ></td>
             </tr>
             <tr>
               <td>Domicilio (calle y número) </td>
@@ -1457,7 +1501,7 @@ Fecha de nacimiento:
             </tr>
             <tr>
               <td>CURP</td>
-              <td><input name="textfield28" type="text" id="textfield28" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row2['CURPDatConEmp']; } ?>" readonly></td>
+              <td><input name="textfield28" type="text" id="textfield28" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row2['CURPDatConEmp']; } ?>" ></td>
             </tr>
             <tr>
               <td>RFC</td>
@@ -1465,15 +1509,15 @@ Fecha de nacimiento:
             </tr>
             <tr>
               <td>Numero de serie de la FIEL*</td>
-              <td><input name="textfield30" type="text" id="textfield30" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row2['NumSerieFIELContEmp']; } ?>" readonly ></td>
+              <td><input name="textfield30" type="text" id="textfield30" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row2['NumSerieFIELContEmp']; } ?>"  ></td>
             </tr>
             <tr>
               <td>Nacionalidad</td>
-              <td><input name="textfield31" type="text" id="textfield31" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row2['NacionalidadContEmp']; } ?>" readonly></td>
+              <td><input name="textfield31" type="text" id="textfield31" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row2['NacionalidadContEmp']; } ?>" ></td>
             </tr>
             <tr>
               <td>Ocupación o Profesión </td>
-              <td><input name="textfield32" type="text" id="textfield32" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row2['OcupacionContEmp']; } ?>" readonly></td>
+              <td><input name="textfield32" type="text" id="textfield32" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row2['OcupacionContEmp']; } ?>" ></td>
             </tr>
             <tr>
               <td>Nombre de la Empresa y Giro (donde labora) </td>
@@ -1485,7 +1529,7 @@ Fecha de nacimiento:
             </tr>
             <tr>
               <td>Sueldo o ingreso mensual </td>
-              <td><input name="textfield35" type="text" id="textfield35" value="<?php  if(isset($row['Folio_Cliente'])) {  echo $row2['SueldoContEmp']; } ?>" readonly></td>
+              <td><input name="textfield35" type="text" id="textfield35" value="<?php  if(isset($row['Folio_Cliente'])) {  echo $row2['SueldoContEmp']; } ?>" ></td>
             </tr>
             <tr>
               <td>Puesto</td>
@@ -1493,11 +1537,11 @@ Fecha de nacimiento:
             </tr>
             <tr>
               <td>Actividad Económica Adicional </td>
-              <td><input name="textfield37" type="text" id="textfield37" value="<?php  if(isset($row['Folio_Cliente'])) {  echo $row2['ActEcoAdicionalContEmp']; } ?>" readonly></td>
+              <td><input name="textfield37" type="text" id="textfield37" value="<?php  if(isset($row['Folio_Cliente'])) {  echo $row2['ActEcoAdicionalContEmp']; } ?>" ></td>
             </tr>
             <tr>
               <td>Ingresos Adicionales Mensuales Apox </td>
-              <td><input name="textfield38" type="text" id="textfield38" value="<?php  if(isset($row['Folio_Cliente'])) {  echo $row2['IngAdMensualAproxContEmp']; } ?>" readonly ></td>
+              <td><input name="textfield38" type="text" id="textfield38" value="<?php  if(isset($row['Folio_Cliente'])) {  echo $row2['IngAdMensualAproxContEmp']; } ?>"  ></td>
             </tr>
           </table>
       <br>

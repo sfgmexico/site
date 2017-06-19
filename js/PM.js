@@ -76,7 +76,7 @@ document.getElementById("textfield24").value=document.getElementById("colsol22")
 document.getElementById("textfield25").value=document.getElementById("telsol1").value+document.getElementById("telsol2").value+document.getElementById("telsol3").value+document.getElementById("telsol4").value+document.getElementById("telsol5").value+document.getElementById("telsol6").value+document.getElementById("telsol7").value+document.getElementById("telsol8").value+document.getElementById("telsol9").value+document.getElementById("telsol10").value;
 
 
-//document.getElementById("textfield27").value=document.getElementById("mailsol").value;
+document.getElementById("textfield27").value=document.getElementById("mailconemp").value;
 //document.getElementById("textfield28").value=document.getElementById("curpsol").value.toUpperCase();
 document.getElementById("textfield29").value=MaysPrimera(document.getElementById("rfcconemp1").value)+MaysPrimera(document.getElementById("rfcconemp2").value)+MaysPrimera(document.getElementById("rfcconemp3").value)+MaysPrimera(document.getElementById("rfcconemp4").value)+MaysPrimera(document.getElementById("rfcconemp5").value)+MaysPrimera(document.getElementById("rfcconemp6").value)+MaysPrimera(document.getElementById("rfcconemp7").value)+MaysPrimera(document.getElementById("rfcconemp8").value)+MaysPrimera(document.getElementById("rfcconemp9").value)+MaysPrimera(document.getElementById("rfcconemp10").value)+MaysPrimera(document.getElementById("rfcconemp11").value)+MaysPrimera(document.getElementById("rfcconemp12").value)+MaysPrimera(document.getElementById("rfcconemp13").value);
 //document.getElementById("textfield31").value=document.getElementById("nacsol").value;
