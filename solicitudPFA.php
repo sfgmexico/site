@@ -768,7 +768,7 @@ input::-moz-placeholder {
           </div>
           <p align="left">sexo:
             <input id="datobsex1" name="datobsex1" type="radio" value="M" <?php if(isset($row['Folio_Cliente'])) { if($row['SexoObSol']=='Masculino'){echo "checked";} } ?>><label for="datobprop1B"><i class="step fi-male size-72"></i>  M</label>
-            holo
+         
             <input id="datobsex1" name="datobsex1" type="radio" value="F" <?php if(isset($row['Folio_Cliente'])) { if($row['SexoObSol']=='Femenino'){echo "checked";} } ?>><label for="datobprop1B"><i class="step fi-female size-72"></i>  F</label>
           </p>
           <div class="row">
