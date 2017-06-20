@@ -528,7 +528,7 @@ input::-moz-placeholder {
             <div class="small-1 columns"><input name="movsol7" type="text" id="movsol7" size="1px" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['MovSolicitante'][6]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,movsol8)" onkeypress="return validaNumero(event)" pattern="integer"></div>
             <div class="small-1 columns"><input name="movsol8" type="text" id="movsol8" size="1px" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['MovSolicitante'][7]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,movsol9)" onkeypress="return validaNumero(event)" pattern="integer"></div>
             <div class="small-1 columns"><input name="movsol9" type="text" id="movsol9" size="1px" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['MovSolicitante'][8]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,movsol10)" onkeypress="return validaNumero(event)" pattern="integer"></div>
-            
+
             <div class="small-1 columns"><input name="movsol10" type="text" id="movsol10" size="1px" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['MovSolicitante'][9]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,dirsol)" onkeypress="return validaNumero(event)" pattern="integer"></div>
           </p>
          </div>
@@ -579,6 +579,7 @@ input::-moz-placeholder {
           </div>
           </p>
            </div>
+           
 
           <p align="left">Es propietario de algún inmueble:
             <input id="inmusol1" name="inmusol" type="radio" <?php if(isset($row2['Folio_Cliente'])) { if($row2['PropInmuDatGen']=='Si'){echo "checked";} } ?> value="1"><label for="inmusol1">Si</label>
