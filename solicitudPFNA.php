@@ -30,9 +30,7 @@
     ?><script>document.getElementById("cliente").readOnly = true;</script> <?php
  
     }
-
- 
- bye
+    
     ?>
 <!DOCTYPE html>
 <html lang="en">
