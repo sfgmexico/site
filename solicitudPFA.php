@@ -192,7 +192,8 @@ $('#secDatObligadoSolidarioPF2').find('input').each(function(){
 ///SECCION CREDENCIALES 
 ///INE
 $('#secINE').find('input').each(function(){
-  if(document.getElementById("textfield39").value!="" ){
+ var varvar=document.getElementsByName("copias");
+  if(document.getElementsByName("copias")[0].checked || document.getElementById("textfield39").value!=""){
     $(this).prop('required',true);
     
   }else{
@@ -202,7 +203,7 @@ $('#secINE').find('input').each(function(){
 });
 ///SECCION PASAPORTE CEDULA PROF
 $('#secCedProfesional').find('input').each(function(){
-  if(document.getElementById("textfield40").value!="" ){
+  if(document.getElementsByName("copias2")[0].checked || document.getElementById("textfield40").value!="" ){
     $(this).prop('required',true);
     
   }else{
@@ -212,7 +213,7 @@ $('#secCedProfesional').find('input').each(function(){
 });
 ///CARTILLA SERV MILITAR    
 $('#secCarMilitar').find('input').each(function(){
-  if(document.getElementById("textfield41").value!="" ){
+  if(document.getElementById("textfield41").value!="" || document.getElementsByName("copias3")[0].checked  ){
     $(this).prop('required',true);
     
   }else{
@@ -222,7 +223,7 @@ $('#secCarMilitar').find('input').each(function(){
 });
 ///LICENCIA PARA CONDUCIR 
 $('#secLicConducir').find('input').each(function(){
-  if(document.getElementById("textfield42").value!="" ){
+  if(document.getElementById("textfield42").value!="" || document.getElementsByName("copias4")[0].checked ){
     $(this).prop('required',true);
     
   }else{
@@ -232,7 +233,7 @@ $('#secLicConducir').find('input').each(function(){
 });
 ///OTRA IDENTIFICACION
 $('#secOtrIdentificacion').find('input').each(function(){
-  if(document.getElementById("textfield43").value!="" ){
+  if(document.getElementById("textfield43").value!="" || document.getElementsByName("copias5")[0].checked ){
     $(this).prop('required',true);
     
   }else{
@@ -241,7 +242,7 @@ $('#secOtrIdentificacion').find('input').each(function(){
   
 });
 $('#secOtrIdentificacion2').find('input').each(function(){
-  if(document.getElementById("textfield43").value!="" ){
+  if(document.getElementById("textfield43").value!="" || document.getElementsByName("copias5")[0].checked  ){
     $(this).prop('required',true);
     
   }else{
@@ -549,7 +550,7 @@ input::-moz-placeholder {
              
             <input id="sexsol1" name="sexsol" type="radio" <?php if (isset($row2['Folio_Cliente'])) { if($row2['SexoDatGen']=='Masculino'){echo "checked";} } ?> value="Masculino"><label for="sexsol1"><i class="step fi-male size-72"></i> M</label>
              
-            <input id="sexsol2" name="sexsol" type="radio" <?php if (isset($row2['Folio_Cliente'])) { if($row2['SexoDatGen']=='Femenino'){echo "checked";} } ?> value="Femenino"><label for="sexsol2"><i class="step fi-female size-72"></i> F</label>
+            <input id="sexsol2" name="sexsol" type="radio" <?php if (isset($row2['Folio_Cliente'])) { if($row2['SexoDatGen']=='F' || $row2['SexoDatGen']=='Femenino' ){echo "checked";} } ?> value="Femenino"><label for="sexsol2"><i class="step fi-female size-72"></i> F</label>
            </p>
            <div class="row">
            <p align="left">
@@ -602,21 +603,21 @@ input::-moz-placeholder {
             <div class="row">
           <p align="left">Estado civil:<br>
             <div class="small-6 columns">
-                <input id="civilsol1" name="civilsol" type="radio" <?php if(isset($row2['Folio_Cliente'])) { if($row2['EstCivDatGen']=='Casado Bienes Mancomunados'){echo "checked";} } ?> value="1"><label for="civilsol1">Casado Bienes Mancomunados</label>
-                <input id="civilsol2" name="civilsol" type="radio" <?php if(isset($row2['Folio_Cliente'])) { if($row2['EstCivDatGen']=='Casado Bienes Separados'){echo "checked";} } ?> value="2"><label for="civilsol2">Casado Bienes Separados</label>
+                <input id="civilsol1" name="civilsol" type="radio" <?php if(isset($row2['Folio_Cliente'])) { if($row2['EstCivDatGen']=='Casado Bienes Mancomunados'){echo "checked";} } ?> value="Casado Bienes Mancomunados"><label for="civilsol1">Casado Bienes Mancomunados</label>
+                <input id="civilsol2" name="civilsol" type="radio" <?php if(isset($row2['Folio_Cliente'])) { if($row2['EstCivDatGen']=='Casado Bienes Separados'){echo "checked";} } ?> value="Casado Bienes Separados"><label for="civilsol2">Casado Bienes Separados</label>
             </div>
             <div class="small-4 columns">
-                <input id="civilsol3" name="civilsol" type="radio" <?php if(isset($row2['Folio_Cliente'])) { if($row2['EstCivDatGen']=='Viudo'){echo "checked";} } ?> value="3"><label for="civilsol3">Viudo</label>
-                <input id="civilsol4" name="civilsol" type="radio" <?php if(isset($row2['Folio_Cliente'])) { if($row2['EstCivDatGen']=='Divorciado'){echo "checked";} } ?> value="4"><label for="civilsol4">Divorciado</label>
-                <input id="civilsol5" name="civilsol" type="radio" <?php if(isset($row2['Folio_Cliente'])) { if($row2['EstCivDatGen']=='Soltero'){echo "checked";} } ?> value="5"><label for="civilsol5">Soltero</label>
+                <input id="civilsol3" name="civilsol" type="radio" <?php if(isset($row2['Folio_Cliente'])) { if($row2['EstCivDatGen']=='Viudo'){echo "checked";} } ?> value="Viudo"><label for="civilsol3">Viudo</label>
+                <input id="civilsol4" name="civilsol" type="radio" <?php if(isset($row2['Folio_Cliente'])) { if($row2['EstCivDatGen']=='Divorciado'){echo "checked";} } ?> value="Divorciado"><label for="civilsol4">Divorciado</label>
+                <input id="civilsol5" name="civilsol" type="radio" <?php if(isset($row2['Folio_Cliente'])) { if($row2['EstCivDatGen']=='Soltero'){echo "checked";} } ?> value="Soltero"><label for="civilsol5">Soltero</label>
             </div>
           </p>
             </div>
 
           <p align="left">Tiene Auto Propio: 
-            <input id="autosol1" name="autosol" type="radio" <?php if(isset($row2['Folio_Cliente'])) { if($row2['AuPropDatGen']=='Si'){echo "checked";} } ?> value="1"><label for="autosol1">Si</label>
+            <input id="autosol1" name="autosol" type="radio" <?php if(isset($row2['Folio_Cliente'])) { if($row2['AuPropDatGen']=='Si'){echo "checked";} } ?> value="Si"><label for="autosol1">Si</label>
             
-            <input id="autosol2" name="autosol" type="radio" <?php if(isset($row2['Folio_Cliente'])) { if($row2['AuPropDatGen']=='No'){echo "checked";} } ?> value="2"><label for="autosol2">No</label>
+            <input id="autosol2" name="autosol" type="radio" <?php if(isset($row2['Folio_Cliente'])) { if($row2['AuPropDatGen']=='No'){echo "checked";} } ?> value="No"><label for="autosol2">No</label>
          <div class="small-5 columns"> <input name="marcasol"value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['MarDatGen']; } ?>"  type="text" id="marcasol" size="70px" placeholder="Especifique Marca y Tipo"></div>
           </p>
             
@@ -1269,38 +1270,38 @@ input::-moz-placeholder {
 		  <br>
           <h6 align="left">DOCUMENTACION DE IDENTIFICACION </h6>
           <table width="100%" border="0">
-            <tr>
+            <tr id="secINE">
               <td width="21%">Credencial para votar </td>
               <td width="35%"><input name="textfield39" type="text" id="textfield39" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['INESolicitante']; } ?>"></td>
               <td width="15%">Se adjunta copia: </td>
-              <td width="29%" id="secINE"><input id="copiasA" name="copias" type="radio" value="Si" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_INESolicitante']=='Si'){echo "checked";} } ?>><label for="copiasA"> Si</label>  <input id="copiasB" name="copias" type="radio" value="No" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_INESolicitante']=='No'){echo "checked";} } ?>><label for="copiasB"> No</label></td>
+              <td width="29%" ><input id="copiasA" name="copias" type="radio" value="Si" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_INESolicitante']=='Si'){echo "checked";} } ?>><label for="copiasA"> Si</label>  <input id="copiasB" name="copias" type="radio" value="No" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_INESolicitante']=='No'){echo "checked";} } ?>><label for="copiasB"> No</label></td>
             </tr>
-            <tr>
+            <tr id="secCedProfesional">
               <td>Pasaporte cedula profesional </td>
               <td><input name="textfield40" type="text" id="textfield40" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['Pasaporte_o_CedulaProfSolicitante']; } ?>" ></td>
               <td>Se adjunta copia: </td>
-              <td id="secCedProfesional"><input id="copias2A" name="copias2" type="radio" value="Si"<?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_Pasaporte_o_CedulaProfSolicitante']=='Si'){echo "checked";} } ?>><label for="copias2A"> Si</label>  <input id="copias2B" name="copias2" type="radio" value="No"<?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_Pasaporte_o_CedulaProfSolicitante']=='<noscript>
+              <td ><input id="copias2A" name="copias2" type="radio" value="Si"<?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_Pasaporte_o_CedulaProfSolicitante']=='Si'){echo "checked";} } ?>><label for="copias2A"> Si</label>  <input id="copias2B" name="copias2" type="radio" value="No"<?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_Pasaporte_o_CedulaProfSolicitante']=='<noscript>
               
               </noscript>'){echo "checked";} } ?>><label for="copias2B"> No</label></td>
             </tr>
-            <tr>
+            <tr id="secCarMilitar">
               <td>Cartilla de servicio militar </td>
               <td><input name="textfield41" type="text" id="textfield41" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['CartillaMilitarSolicitante']; } ?>" ></td>
               <td>Se adjunta copia: </td>
-              <td id="secCarMilitar"><input id="copias3A" name="copias3" type="radio" value="Si" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_CartillaMilitarSolicitante']=='Si'){echo "checked";} } ?>><label for="copias3A"> Si</label>  <input id="copias3B" name="copias3" type="radio" value="No" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_CartillaMilitarSolicitante']=='No'){echo "checked";} } ?>><label for="copias3B"> No</label></td>
+              <td ><input id="copias3A" name="copias3" type="radio" value="Si" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_CartillaMilitarSolicitante']=='Si'){echo "checked";} } ?>><label for="copias3A"> Si</label>  <input id="copias3B" name="copias3" type="radio" value="No" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_CartillaMilitarSolicitante']=='No'){echo "checked";} } ?>><label for="copias3B"> No</label></td>
             </tr>
-            <tr>
+            <tr id="secLicConducir">
               <td>Licencia para conducir </td>
               <td><input name="textfield42" type="text" id="textfield42" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['LicenciaConducirSolicitante']; } ?>" ></td>
               <td>Se adjunta copia: </td>
-              <td id="secLicConducir"><input id="copias4A" name="copias4" type="radio" value="Si" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_LicenciaConducirSolicitante']=='Si'){echo "checked";} } ?>><label for="copias4A"> Si</label>
+              <td ><input id="copias4A" name="copias4" type="radio" value="Si" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_LicenciaConducirSolicitante']=='Si'){echo "checked";} } ?>><label for="copias4A"> Si</label>
                                       <input id="copias4B" name="copias4" type="radio" value="No" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_LicenciaConducirSolicitante']=='No'){echo "checked";} } ?>><label for="copias4B"> No</label></td>
             </tr>
-            <tr>
+            <tr id="secOtrIdentificacion">
               <td>Otra</td>
               <td><input name="textfield43" type="text" id="textfield43" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['OtraIdentSolicitante']; } ?>" ></td>
               <td>Se adjunta copia: </td>
-              <td id="secOtrIdentificacion"><input id="copias5A" name="copias5" type="radio" value="Si" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_OtraIdentSolicitante']=='Si'){echo "checked";} } ?>><label for="copias5A"> Si</label>
+              <td ><input id="copias5A" name="copias5" type="radio" value="Si" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_OtraIdentSolicitante']=='Si'){echo "checked";} } ?>><label for="copias5A"> Si</label>
                                             <input id="copias5B" name="copias5" type="radio" value="No" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_OtraIdentSolicitante']=='No'){echo "checked";} } ?>><label for="copias5B"> No</label></td>
             </tr>
             <tr>

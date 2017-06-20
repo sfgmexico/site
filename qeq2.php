@@ -51,7 +51,7 @@ if(stristr($solicitudNo, 'SA-')== TRUE){
     renewSA2:
     $per3="";
     $per3=$ob['NomDatCon'].' '.$ob['ApPatDatCon'].' '.$ob['ApMatDatCon'];
-    if($per3!=""){
+    if($ob['NomDatCon']!=""){
         
         $con3="https://qeq.mx/datos/qws/pepsp?nombre=".$ob['NomDatCon']."&paterno=".$ob['ApPatDatCon']."&materno=".$ob['ApMatDatCon'];
         try {
@@ -67,7 +67,7 @@ if(stristr($solicitudNo, 'SA-')== TRUE){
     renewSA3:
     $per4="";
     $per4=$ob['NomObSol'].' '.$ob['ApPatObSol'].' '.$ob['ApMatObSol'];
-    if($per4!=""){
+    if($ob['NomObSol']!=""){
         
         $con4="https://qeq.mx/datos/qws/pepsp?nombre=".$ob['NomObSol']."&paterno=".$ob['ApPatObSol']."&materno=".$ob['ApMatObSol']."&curp=".$ob['CURPObSol']."&rfc=".$ob['RFCObSol'];
         try {
@@ -83,7 +83,7 @@ if(stristr($solicitudNo, 'SA-')== TRUE){
     renewSA4:
     $per5="";
     $per5=$ob['NomObSol2'].' '.$ob['ApPatObSol2'].' '.$ob['ApMatObSol2'];
-    if($per5!=""){
+    if($ob['NomObSol2']!=""){
         
         $con5="https://qeq.mx/datos/qws/pepsp?nombre=".$ob['NomObSol2']."&paterno=".$ob['ApPatObSol2']."&materno=".$ob['ApMatObSol2']."&curp=".$ob['CURPObSol2']."&rfc=".$ob['RFCObSol2'];
         try {

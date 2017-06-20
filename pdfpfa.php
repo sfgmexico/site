@@ -43,8 +43,8 @@ $movsol9=$_REQUEST['movsol9'];
 $movsol10=$_REQUEST['movsol10'];
 $MovSolicitante=$movsol1.$movsol2.$movsol3.$movsol4.$movsol5.$movsol6.$movsol7.$movsol8.$movsol9.$movsol10;
 
-$numeroDirSol =$dirsol=$_REQUEST['dirsol'];
-
+$dirsol=$_REQUEST['dirsol'];
+$numeroDirSol =$_REQUEST['dirnumsol']
 $mailsol=$_REQUEST['mailsol'];
 
 $colsol=$_REQUEST['colsol'];
@@ -508,6 +508,7 @@ $EspIdentSolicitante=$_REQUEST['textfield44'];
 		$ParentescoPEPS=$_REQUEST['textfield94'];
 		$PuestoPEPS=$_REQUEST['textfield95'];
 		$fechaComprobante=$_REQUEST['fechaComprobante'];
+
 if($cliente==""){
 		
 		mysqli_query($cnx,"insert into pfa (NomSolicitante,SegNomSolicitante,ApPatSolicitante,ApMatSolicitante,RFCSolicitante,TelSolicitante,MovSolicitante,DirSolicitante,NumDirSol,ColSolicitante,CdSolicitante,LugNacSolicitante,EdoSolicitante,MunicipioSolicitante,CPSolicitante,CURPSolicitante,EmailSolicitante,SexoDatGen,FeNacDatGen,EdDatGen,NaDatGen,NoDepDatGen,AcDomDatGen,VivDatGen,OtrDatGen,PropInmuDatGen,ArDomDatGen,AnResDatGen,NomBenDatGen,ApPatBenDatGen,ApMatBenDatGen,EstCivDatGen,AuPropDatGen,MarDatGen,PuestDatEmp,DepDatEmp,DesAnDatEmp,CompDatEmp,TelDatEmp,ExtDatEmp,DomicilioLaboral,NumSerieFIEL,SueldoSolicitante,ActEcoAdicional,IngAdMensualAprox,Ocupacion_Profesion) values('$nomsol','$segnomsol','$apepasol','$apemasol','$RFCSolicitante','$TelSolicitante','$MovSolicitante','$dirsol','$numeroDirSol','$colsol','$cdsol','$lugnacsol','$edosol','$municipioSol','$cpsol','$curpsol','$mailsol','$SexoDatGen','$FeNacDatGen','$edsol','$nacsol','$depensol','$acdomsol','$VivDatGen','$OtrvivDatGen','$PropInmuDatGen','$arraisol','$anosol','$benesol','$benesol2','$benesol3','$EstCivDatGen','$AuPropDatGen','$MarDatGen','$puestosol','$depasol','$desdesol','$compasol','$TelDatEmp','$compatelsolext','$domicilioLaboral','$numSerieFiel','$SueldoSolicitante','$ActividadAdicional','$IngAdMensualAprox','$Ocupacion_Profesion');");
@@ -565,7 +566,9 @@ $pdf->SetKeywords('Solicitud 004');
 $pdf->SetHeaderData('logosfg.png', PDF_HEADER_LOGO_WIDTH, '', 'Servicios financieros del 
 	guadiana, S.A de C.V 
 	SOFOM, E.N.R 
-');
+	'
+	
+);
 
 // set header and footer fonts
 $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
@@ -617,6 +620,12 @@ $viv  = array(1 => array(1 => "X", 2 => " ",3 => " ",4 => " ",5 => " "),
  			  6 => array(1 => "X", 2 => " "),
  			  7 => array(1 => " ", 2 => "X",));
 
+$civ = array(1 => array("Casado Bienes Mancomunados" => "X", "Casado Bienes Separados" => " ","Viudo" => " ","Divorciado" => " ","Soltero" => " "),
+ 			  2 => array("Casado Bienes Mancomunados" => " ", "Casado Bienes Separados" => "X","Viudo" => " ","Divorciado" => " ","Soltero" => " "),
+ 			  3 => array("Casado Bienes Mancomunados" => " ", "Casado Bienes Separados" => " ","Viudo" => "X","Divorciado" => " ","Soltero" => " "),
+ 			  4 => array("Casado Bienes Mancomunados" => " ", "Casado Bienes Separados" => " ","Viudo" => " ","Divorciado" => "X","Soltero" => " "),
+ 			  5 => array("Casado Bienes Mancomunados" => " ", "Casado Bienes Separados" => " ","Viudo" => " ","Divorciado" => " ","Soltero" => "X"));
+
 $datoviv = array( 1 => array( "Si" => "X" , "No" => " ","" => " " ),
 				  2 => array( "Si" => " " , "No" => "X" ,""=>" ")	 );
 
@@ -627,9 +636,9 @@ $pdf->MultiCell(30,0,'Folio del cliente
 	'.$Folio_Cliente, 1, 'J', 0, 0, '', '', true,1,false,true);
 //$pdf->MultiCell(30,0, '' , 1, 'J', 0, 0, '', '', true,1,false,true);
 $pdf->MultiCell(30,0, '' , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(30,0, $tipocredito , 0, 'J', 0, 0, '', '', true,1,false,true);
-$pdf->MultiCell(0,0, '
-	' , 0, 'J', 0, 1, '', '', true,1,false,true);
+$pdf->MultiCell(30,0, $tipocredito, 0, 'L', 0, 0, '', '', true,1,false,true);
+$pdf->MultiCell(0,0, '    '.$Folio_Sol .'
+	', 0, 'J', 0, 1, '', '', true,1,false,true);
 $pdf->Ln(1);
 
 //
@@ -700,11 +709,11 @@ $pdf->MultiCell(0,0, 'Beneficiario en caso de fallecimiento
 $pdf->Ln(1);
 
 $pdf->MultiCell(150,0, 'Estado civil:
-Casado bienenes mancomunados ('.$viv[1][$civilsol].')   Casado bienes separados ('.$viv[2][$civilsol].')   Viudo('.$viv[3][$civilsol].')     Divorciado('.$viv[4][$civilsol].' )  Soltero( '.$viv[5][$civilsol].' )   ' , 1, 'J', 0, 1, '', '', true,1,false,true);
+Casado bienenes mancomunados ('.$civ[1][$civilsol].')   Casado bienes separados ('.$civ[2][$civilsol].')   Viudo('.$civ[3][$civilsol].')     Divorciado('.$civ[4][$civilsol].' )  Soltero( '.$civ[5][$civilsol].' )   ' , 1, 'J', 0, 1, '', '', true,1,false,true);
 	$pdf->Ln(1);
 	$pdf->MultiCell(150,0, 'Auto propio:            
 					 Especifique Marca y Tipo
-Si ('.$viv[6][$autosol].' )  No('.$viv[7][$autosol].')   ' , 1, 'L', 0, 1, '', '', true,1,false,true);
+Si ('.$datoviv[1][$autosol].' )  No('.$datoviv[2[$autosol].')   ' , 1, 'L', 0, 1, '', '', true,1,false,true);
 	$pdf->Ln(1);
 
 $pdf->MultiCell(60,0, 'DATOS DE SU EMPLEO O PROFESION' , 0, 'L', 0, 1, '', '', true,1,false,true);
@@ -1370,7 +1379,7 @@ $pdf->Ln(10);
 
 $civil = array( 1=> array(1 =>"Casado Bienes Mancomunados" , 2=>"Casado Bienes Separados",3=>"Viudo" ,4=>"Divorciado",5=>"Soltero")  );
 
-$pdf->Cell(75, 0, $civil[1][$_REQUEST['civilsol']], '', 0, 'C', 0, '', 0, false, 'T', 'C'); 
+$pdf->Cell(75, 0, $_REQUEST['civilsol'], '', 0, 'C', 0, '', 0, false, 'T', 'C'); 
 $pdf->Cell(35, 0, $_REQUEST['textfield27'], '', 0, 'C', 0, '', 0, false, 'T', 'C');
 $pdf->Cell(0, 0, $_REQUEST['textfield28'], '', 1, 'C', 0, '', 0, false, 'T', 'C');
 $pdf->Cell(75, 0, 'Estado civil', 'T', 0, 'C', 0, '', 0, false, 'T', 'C'); 
