@@ -44,7 +44,7 @@ $movsol10=$_REQUEST['movsol10'];
 $MovSolicitante=$movsol1.$movsol2.$movsol3.$movsol4.$movsol5.$movsol6.$movsol7.$movsol8.$movsol9.$movsol10;
 
 $dirsol=$_REQUEST['dirsol'];
-$numeroDirSol =$_REQUEST['dirnumsol']
+$numeroDirSol =$_REQUEST['dirnumsol'];
 $mailsol=$_REQUEST['mailsol'];
 
 $colsol=$_REQUEST['colsol'];
@@ -713,7 +713,7 @@ Casado bienenes mancomunados ('.$civ[1][$civilsol].')   Casado bienes separados 
 	$pdf->Ln(1);
 	$pdf->MultiCell(150,0, 'Auto propio:            
 					 Especifique Marca y Tipo
-Si ('.$datoviv[1][$autosol].' )  No('.$datoviv[2[$autosol].')   ' , 1, 'L', 0, 1, '', '', true,1,false,true);
+Si ('.$datoviv[1][$autosol].' )  No('.$datoviv[2][$autosol].')   ' , 1, 'L', 0, 1, '', '', true,1,false,true);
 	$pdf->Ln(1);
 
 $pdf->MultiCell(60,0, 'DATOS DE SU EMPLEO O PROFESION' , 0, 'L', 0, 1, '', '', true,1,false,true);
