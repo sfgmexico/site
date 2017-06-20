@@ -708,6 +708,7 @@ $pdf->MultiCell(0,0, 'Beneficiario en caso de fallecimiento
 	'.$benesolC , 1, 'L', 0, 1, '', '', true,1,false,true); 
 $pdf->Ln(1);
 
+
 $pdf->MultiCell(150,0, 'Estado civil:
 Casado bienenes mancomunados ('.$civ[1][$civilsol].')   Casado bienes separados ('.$civ[2][$civilsol].')   Viudo('.$civ[3][$civilsol].')     Divorciado('.$civ[4][$civilsol].' )  Soltero( '.$civ[5][$civilsol].' )   ' , 1, 'J', 0, 1, '', '', true,1,false,true);
 	$pdf->Ln(1);

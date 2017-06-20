@@ -531,6 +531,7 @@ input::-moz-placeholder {
             <div class="small-1 columns"><input name="movsol10" type="text" id="movsol10" size="1px" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['MovSolicitante'][9]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,dirsol)" onkeypress="return validaNumero(event)" pattern="integer"></div>
           </p>
          </div>
+         
          <div class="row">
           <p align="left">
             <div class="small-5 columns"> <input name="dirsol" type="text" id="dirsol" size="74px" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['DirSolicitante']; } ?>" placeholder="Dirección / Calle" onkeypress="return validaTexto(event)" pattern="alpha"></div>
