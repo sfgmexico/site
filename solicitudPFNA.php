@@ -2,7 +2,10 @@
     if(isset($_GET['cliente'])){
         $cliente=$_GET['cliente'];
         
+<<<<<<< HEAD
         
+=======
+>>>>>>> origin/master
     include("Conexion2.php");
     $result = mysqli_query($cnx,"select * from solicitudpfna where Folio_Cliente='$cliente' order by Id desc");
     if(!mysqli_num_rows($result)>0){
