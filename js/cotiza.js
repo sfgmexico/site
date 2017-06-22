@@ -604,7 +604,20 @@ function CalculaNomina(){
 
   var montofin=document.getElementById("montonomina").value.replace("$","").replace(/,/gi,"");
   var segurovida=document.getElementById("segurovidanomina").value.replace("$","").replace(/,/gi,"");
-  var totalafinanciar=montofin-comisionapertura-segurovida;
+
+  var selector=document.getElementById("selectnomina").value;
+  totalafinanciar=0;
+  if(selector=="1"){
+    var totalafinanciar=montofin;
+  }else if(selector=="2"){
+    var totalafinanciar=parseFloat(montofin)+comisionapertura*1.16;
+  }else{
+    var totalafinanciar=montofin;
+  }
+
+  var selector2=document.getElementById("selectsegdes").value;
+
+  
   //tasa mensual es intRate
 
   //pago=Math.floor((totalafinanciar*intRate)/(1-Math.pow(1+intRate,(-1*months)))*100)/100;
@@ -613,12 +626,12 @@ function CalculaNomina(){
   intRate2=((tasa*1.16)/100)/12
 
   months=tiempo;
-  //cuota=((totalafinanciar*intRate)/(1-Math.pow(1+intRate,(-1*months)))*100)/100;
-  pago=totalafinanciar*((intRate2*Math.pow(1+intRate2,months))/(Math.pow(1+intRate2,months)-1));
+  cuota=((totalafinanciar*intRate)/(1-Math.pow(1+intRate,(-1*months)))*100)/100;
+  //pago=totalafinanciar*((intRate2*Math.pow(1+intRate2,months))/(Math.pow(1+intRate2,months)-1));
   
 
   codigo="";
-  codigo="<h2>Tabla de amortizacion<\/h2>"
+  codigo="<h2>Tabla de amortizacion<\/h2>";
   codigo+="<table class='table table-hover' width='100%' border='1' id='f'>"; 
   codigo+="<tr class='table-info'>"; 
   codigo+="<th>Balance inicial<\/th>"; 
@@ -645,13 +658,13 @@ function CalculaNomina(){
   for(a=1;a<=months;a++){ 
 
   codigo+="<tr  class='table-warning'>"; 
-  codigo+="<td>"+formatNumber.new(falta.toFixed(2),"$");+"<\/td>"; 
+  codigo+="<td>"+formatNumber.new(falta,"$");+"<\/td>"; 
   sumbalance+=falta;
   //codigo+="<td>"+pago+"<\/td>";
   //sumpaprog+=pago;
   intereses=(falta*intRate);
   ivaintereses=(falta*intRate*0.16);
-  capital=pago-(intereses+ivaintereses);
+  capital=cuota-(intereses);
   codigo+="<td>"+formatNumber.new(capital.toFixed(2),"$");+"<\/td>";
   sumcap+=capital;
   interes=falta*intRate;
@@ -676,9 +689,9 @@ function CalculaNomina(){
  */
   codigo+="<td>"; 
   //if(a==1){codigo+=(parseFloat(pago)+parseFloat(segurovida)).toFixed(2);}else{codigo+=pago.toFixed(2); }
-  codigo+=formatNumber.new(pago.toFixed(2),"$");
+  codigo+=formatNumber.new((cuota+ivaintereses).toFixed(2),"$");
   codigo+="<\/td>"; 
-  sumpatoprog+=pago; 
+  sumpatoprog+=cuota+ivaintereses; 
 
   codigo+="<\/tr>"; 
   }
@@ -686,12 +699,22 @@ function CalculaNomina(){
   codigo+="<tr><td></td><td>"+formatNumber.new(sumcap.toFixed(2),"$")+"</td><td>"+formatNumber.new(sumint.toFixed(2),"$")+"</td><td></td><td>"+formatNumber.new(sumivaint.toFixed(2),"$")+"</td><td>"+formatNumber.new(sumpatoprog.toFixed(2),"$")+"</td></tr>"; 
   codigo+="<\/table>"; 
 
-  CAT=(Math.pow(1+intRate,12)-1)*100+3+(segurovida/montofin)*100;
+
 
   //var cat = CAT.get(totalafinanciar, 0, pagtotal, document.getElementById("plazonomina").value, 12);
+ if(selector=="1"){
+    sumpatoprog=sumpatoprog+comisionapertura*1.16;
+    CAT=(Math.pow(1+intRate,12)-1)*100+2.52+(segurovida/montofin)*100;
+  }else if(selector=="2"){
+    sumpatoprog=sumpatoprog;
+    CAT=(Math.pow(1+intRate,12)-1)*100+2.52+(segurovida/montofin)*100;
+  }else{
+     sumpatoprog=sumpatoprog;
+     CAT=(Math.pow(1+intRate,12)-1)*100+(segurovida/montofin)*100;
+  }
 
 
-  document.getElementById('resultadoNomina').innerHTML = '<br><br><br>Plazo:'+ document.getElementById("plazonomina").value +' Meses<br>Monto solicitado: ' + document.getElementById("montonomina").value + '<br>Comision por Apertura: ' + formatNumber.new(comisionapertura.toFixed(2),"$") + '<br>Total a Financiar: ' + formatNumber.new(totalafinanciar.toFixed(2),"$") + '<br>CAT: ' +CAT.toFixed(2)+'%<br>' + codigo; 
+  document.getElementById('resultadoNomina').innerHTML = '<br><br><br>Plazo:'+ document.getElementById("plazonomina").value +' Meses<br>Monto solicitado: ' + document.getElementById("montonomina").value + '<br>Comision por Apertura: ' + formatNumber.new((comisionapertura*1.16).toFixed(2),"$") + '<br>Total a Financiar: ' + formatNumber.new(totalafinanciar,"$") + '<br>CAT: ' +CAT.toFixed(2)+'%<br>Total a Pagar: '+formatNumber.new((sumpatoprog).toFixed(2),"$")+'<br>' + codigo; 
 
 
 

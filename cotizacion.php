@@ -343,14 +343,14 @@ include("Conexion2.php");
          <tr>
                 <td> Monto a solicitar <input type="text" name="montonomina" id="montonomina" onChange="formatodenumero(this.id,this.value)" onfocus="this.select()"></td>
                  <td>Frecuencia de pago <select name="frecpagonomina" id="frecpagonomina"><option value="12">Mensual</option></select> </td>
-                  <td >Seguro de desempleo <input type="text" name="segurodesempleonomina" id="segurodesempleonomina" onChange="formatodenumero(this.id,this.value)" onfocus="this.select()"> <select><option>No aplica</option> <option>unico pago al inicio</option>  <option>Se integra al monto</option> <option>Se reduce al monto</option> </select> </td>
+                  <td >Seguro de desempleo <input type="text" name="segurodesempleonomina" id="segurodesempleonomina" onChange="formatodenumero(this.id,this.value)" onfocus="this.select()"> <select id="selectsegdes"><option>No aplica</option> <option value="1">unico pago al inicio</option>  <option value="2">Se integra al monto</option>  </select> </td>
                   <td >Seguro de vida  <input type="text" name="segurovidanomina" id="segurovidanomina" onChange="formatodenumero(this.id,this.value)" onfocus="this.select()"> <select name="seleccion"><option>No aplica</option> <option>unico pago al inicio</option> <option>Se integra al monto</option> <option>Se reduce al monto</option> </select></td>
         </tr>
 
 
         <tr>
                 <td>Plazo <select name="plazonomina" id="plazonomina"><option value="3">3</option> <option value="6">6</option> <option value="12">12</option><option value="24">24</option><option value="36">36</option><option value="48">48</option><option value="60">60</option></select>  </td>
-                 <td> Comision por apertura <input name="comisionnomina" id="comisionnomina" value="3%"readonly> <select><option>unico pago al inicio</option> <!--<option>Se integra al monto</option> <option>Gratuita</option><option>No aplica</option>--></select> </td>
+                 <td> Comision por apertura <input name="comisionnomina" id="comisionnomina" value="3%"readonly> <select id="selectnomina"><option value="1">unico pago al inicio</option> <option value="2">Se integra al monto</option> <option>Gratuita</option><option>No aplica</option></select> </td>
                   <td>  <input type="button" value="Calcula" onClick="CalculaNomina()"></td>
         </tr>
 
