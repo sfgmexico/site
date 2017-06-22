@@ -25,8 +25,8 @@
 <!-- content -->
 <section>
 	
-    <div class="medium-9 large-10 medium-push-3 large-push-2 columns" >
-      <div class="medium-9 columns">
+    <div class="medium-10 large-11 medium-push-4 large-push-2 columns" >
+      <div class="medium-8 columns">
       <head>
       <img src="images/logosfg.png" >
     

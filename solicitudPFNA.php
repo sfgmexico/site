@@ -3,13 +3,6 @@
         $cliente=$_GET['cliente'];
         
         
-
-
-
-
-
-
-        
     include("Conexion2.php");
     $result = mysqli_query($cnx,"select * from solicitudpfna where Folio_Cliente='$cliente' order by Id desc");
     if(!mysqli_num_rows($result)>0){
@@ -1132,8 +1125,8 @@ input::-moz-placeholder {
 
 </div>
 		<h4 align="left">Datos generales del cliente</h4> 
-		<p align="left">Tipo de Cliente: <input id="escliente1" name="escliente" type="radio" value="1" required><label for="escliente1">Nuevo</label>
-		<input id="escliente2" name="escliente" type="radio" value="2" <?php if(isset($row['Folio_Cliente'])){echo "checked";}?> required><label for="escliente2"> Actualización </label>
+		<p align="left">Tipo de Cliente: <input id="escliente1" name="escliente" type="radio" value="Nuevo" required><label for="escliente1">Nuevo</label>
+		<input id="escliente2" name="escliente" type="radio" value="Actualizacion" <?php if(isset($row['Folio_Cliente'])){echo "checked";}?> required><label for="escliente2"> Actualización </label>
 		</p>
 		<table width="100%" border="0">
             <tr>

@@ -755,9 +755,9 @@ input::-moz-placeholder {
           </div>
           <p align="left">
             Tiene propiedad a su nombre? 
-            <input id="datobprop1A" name="datobprop1" type="radio" <?php if(isset($row['Folio_Cliente'])) { if($row['PropObSol']=='Si'){echo "checked";} } ?> value="1"><label for="datobprop1A">Si</label>
+            <input id="datobprop1A" name="datobprop1" type="radio" <?php if(isset($row['Folio_Cliente'])) { if($row['PropObSol']=='Si'){echo "checked";} } ?> value="Si"><label for="datobprop1A">Si</label>
             
-            <input id="datobprop1B" name="datobprop1" type="radio" <?php if(isset($row['Folio_Cliente'])) { if($row['PropObSol']=='No'){echo "checked";} } ?> value="2"><label for="datobprop1B">No</label>
+            <input id="datobprop1B" name="datobprop1" type="radio" <?php if(isset($row['Folio_Cliente'])) { if($row['PropObSol']=='No'){echo "checked";} } ?> value="No"><label for="datobprop1B">No</label>
           </p>
           <div class="row"> 
           <p align="left">
@@ -767,9 +767,9 @@ input::-moz-placeholder {
           </p>
           </div>
           <p align="left">sexo:
-            <input id="datobsex1" name="datobsex1" type="radio" value="M" <?php if(isset($row['Folio_Cliente'])) { if($row['SexoObSol']=='Masculino'){echo "checked";} } ?>><label for="datobprop1B"><i class="step fi-male size-72"></i>  M</label>
+            <input id="datobsex1" name="datobsex1" type="radio" value="Masculino" <?php if(isset($row['Folio_Cliente'])) { if($row['SexoObSol']=='Masculino'){echo "checked";} } ?>><label for="datobprop1B"><i class="step fi-male size-72"></i>  M</label>
          
-            <input id="datobsex1" name="datobsex1" type="radio" value="F" <?php if(isset($row['Folio_Cliente'])) { if($row['SexoObSol']=='Femenino'){echo "checked";} } ?>><label for="datobprop1B"><i class="step fi-female size-72"></i>  F</label>
+            <input id="datobsex1" name="datobsex1" type="radio" value="Femenino" <?php if(isset($row['Folio_Cliente'])) { if($row['SexoObSol']=='Femenino'){echo "checked";} } ?>><label for="datobprop1B"><i class="step fi-female size-72"></i>  F</label>
           </p>
           <div class="row">
           <p align="left">
@@ -851,8 +851,8 @@ input::-moz-placeholder {
             <div class="small-4 columns"><input  name="datobmail2" type="text" id="datobmail2" size="30px" placeholder="Email" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['EmailObSol2']; } ?>" pattern="email"></div>
           </p>
           </div>
-          <p align="left">sexo:<input id="datobsex2" name="datobsex2" type="radio" value="M" <?php if(isset($row['Folio_Cliente'])) { if($row['SexoObSol2']=='Masculino'){echo "checked";} } ?>><i class="step fi-male size-72"></i>  M</label>
-                               <input id="datobsex2" name="datobsex2" type="radio" value="F" <?php if(isset($row['Folio_Cliente'])) { if($row['SexoObSol2']=='Femenino'){echo "checked";} } ?>><i class="step fi-male size-72"></i>  F</label>
+          <p align="left">sexo:<input id="datobsex2" name="datobsex2" type="radio" value="Masculino" <?php if(isset($row['Folio_Cliente'])) { if($row['SexoObSol2']=='Masculino'){echo "checked";} } ?>><i class="step fi-male size-72"></i>  M</label>
+                               <input id="datobsex2" name="datobsex2" type="radio" value="Femenino" <?php if(isset($row['Folio_Cliente'])) { if($row['SexoObSol2']=='Femenino'){echo "checked";} } ?>><i class="step fi-male size-72"></i>  F</label>
             </p>
             <div class="row"> 
             <p align="left">
