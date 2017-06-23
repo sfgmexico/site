@@ -62,29 +62,52 @@ function formatodenumero(id,valor){
 }
 
 
-function CalculaNomina(){
+function CalculaNomina(){ 
 
   //document.getElementById('comisionnomina').value=(document.getElementById("montonomina").value*0.02).toFixed(2);
   var tasa=document.getElementById("seleccion").value;
   var tiempo=document.getElementById('plazonomina').value;
   
-  var comisionapertura=document.getElementById("montonomina").value.replace("$","").replace(/,/gi,"")*0.03;
+
+
+  
 
   var montofin=document.getElementById("montonomina").value.replace("$","").replace(/,/gi,"");
   var segurovida=document.getElementById("segurovidanomina").value.replace("$","").replace(/,/gi,"");
-
+  var segurpdes=document.getElementById("segurodesempleonomina").value.replace("$","").replace(/,/gi,"");
   var selector=document.getElementById("selectnomina").value;
+  var selector2=document.getElementById("selectsegdes").value;
   totalafinanciar=0;
   if(selector=="1"){
+     var comisionapertura=document.getElementById("montonomina").value.replace("$","").replace(/,/gi,"")*(document.getElementById("comisionnomina").value.replace("%","")/100);
     var totalafinanciar=montofin;
+    
+  
+   
   }else if(selector=="2"){
+    var comisionapertura=document.getElementById("montonomina").value.replace("$","").replace(/,/gi,"")*(document.getElementById("comisionnomina").value.replace("%","")/100);
     var totalafinanciar=parseFloat(montofin)+comisionapertura*1.16;
+    
+  
+    
   }else{
+
+  
     var totalafinanciar=montofin;
+    var comisionapertura=document.getElementById("montonomina").value.replace("$","").replace(/,/gi,"")*0;
+    document.getElementById("comisionnomina").value="0%";
   }
+
 
   var selector2=document.getElementById("selectsegdes").value;
 
+  if(selector2=="2"){
+    pagosegdes=parseFloat(segurpdes/tiempo).toFixed(2);
+    alert(pagosegdes);
+
+  }
+
+  
   
   //tasa mensual es intRate
 
@@ -171,12 +194,21 @@ function CalculaNomina(){
 
   //var cat = CAT.get(totalafinanciar, 0, pagtotal, document.getElementById("plazonomina").value, 12);
  if(selector=="1"){
+    if(selector2=="1"){
+      sumpatoprog=sumpatoprog+parseFloat(segurpdes);
+    }
     sumpatoprog=sumpatoprog+comisionapertura*1.16;
-    CAT=(Math.pow(1+intRate,12)-1)*100+2.52+(segurovida/montofin)*100;
+    CAT=(Math.pow(1+intRate,12)-1)*100+(document.getElementById("comisionnomina").value.replace("%","")*84/100)+(segurovida/montofin)*100;
   }else if(selector=="2"){
+    if(selector2=="1"){
+      sumpatoprog=sumpatoprog+parseFloat(segurpdes);
+    }
     sumpatoprog=sumpatoprog;
-    CAT=(Math.pow(1+intRate,12)-1)*100+2.52+(segurovida/montofin)*100;
+    CAT=(Math.pow(1+intRate,12)-1)*100+(document.getElementById("comisionnomina").value.replace("%","")*84/100)+(segurovida/montofin)*100;
   }else{
+    if(selector2=="1"){
+      sumpatoprog=sumpatoprog+parseFloat(segurpdes);
+    }
      sumpatoprog=sumpatoprog;
      CAT=(Math.pow(1+intRate,12)-1)*100+(segurovida/montofin)*100;
   }

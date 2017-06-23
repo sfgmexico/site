@@ -37,7 +37,7 @@ include("Conexion2.php");
 
         <tr>
                 <td>Plazo <select name="plazonomina" id="plazonomina"><option value="3">3</option> <option value="6">6</option> <option value="12">12</option><option value="24">24</option><option value="36">36</option><option value="48">48</option><option value="60">60</option></select>  </td>
-                 <td> Comision por apertura <input name="comisionnomina" id="comisionnomina" value="3%"readonly> <select id="selectnomina"><option value="1">unico pago al inicio</option> <option value="2">Se integra al monto</option> <option>Gratuita</option><option>No aplica</option></select> </td>
+                 <td> Comision por apertura <input name="comisionnomina" id="comisionnomina" value="3%"> <select id="selectnomina"><option value="1">unico pago al inicio</option> <option value="2">Se integra al monto</option> <option>Gratuita</option><option>No aplica</option></select> </td>
                   <td>  <input type="button" value="Calcula" onClick="CalculaNomina()"></td>
         </tr>
 
