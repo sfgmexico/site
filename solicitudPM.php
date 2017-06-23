@@ -39,7 +39,6 @@
     <link rel="stylesheet" href="js/js/css/app.css">
     <link rel="stylesheet" href="js/jquery-ui/jquery-ui.css">
 
-si jala
 
 
 </head> 
@@ -444,7 +443,22 @@ return val;
 
 }
 
+function seleccionvalor(){
+  
+   var x = document.getElementById("tipocredito").value;
+   if(x=="Auto Nuevo" || x=="Auto Usado"){
+    
+    document.getElementById("valorautochange").innerHTML = "Valor del Automóvil ";
+    document.getElementById("engautochange").innerHTML = "Enganche del Automóvil";
+   }else{
+     
+    document.getElementById("valorautochange").innerHTML = "Monto Requerido ";
+    document.getElementById("engautochange").innerHTML = "Enganche ";
+   }
 
+
+    
+}
 </script>
 <header>
 </header>
@@ -1803,38 +1817,39 @@ Fecha de nacimiento:
             </tr>
           </table>
       <br>
-          <table width="100%" border="0">
-         <tr>
+         <table width="100%" border="0">
+            <tr>
               <td width="19%">Total de Ingresos </td>
               <td width="81%"><input name="textfield85" type="text" id="textfield85" value="<?php if(isset($row['Folio_Cliente'])) { echo $row3['TotalIngreso']; } ?>" size="50%" readonly></td>
             </tr>
+
             <tr>
-              <td>Valor del Automóvil </td>
-              <td><input name="textfield86" type="text" id="textfield86" value="<?php if(isset($row['Folio_Cliente'])) { echo $row3['ValorAuto']; } ?>" size="50%" onkeypress="return validaNumeroDecimal(event)"></td>
+              <td id="valorautochange"></td>
+              <td><input name="textfield86" type="text" id="textfield86" size="50%" onkeypress="return validaNumeroDecimal(event)" value="<?php if(isset($row['Folio_Cliente'])) { echo $row3['ValorAuto']; } ?>" required ></td>
             </tr>
             <tr>
-              <td>Enganche del Automóvil </td>
-              <td><input name="textfield87" type="text" id="textfield87" value="<?php if(isset($row['Folio_Cliente'])) { echo $row3['EngAutomovil']; } ?>" size="50%" onkeypress="return validaNumeroDecimal(event)" onchange="datosAuto()"></td>
+              <td id="engautochange"> </td>
+              <td><input name="textfield87" type="text" id="textfield87" size="50%" onkeypress="return validaNumeroDecimal(event)" value="<?php if(isset($row['Folio_Cliente'])) { echo $row3['EngAutomovil']; } ?>" required onchange="datosAuto()"></td>
             </tr>
             <tr>
               <td>Porcentaje de Enganche </td>
-              <td><input name="textfield88" type="text" id="textfield88" value="<?php if(isset($row['Folio_Cliente'])) { echo $row3['PorEnganche']; } ?>" size="50%" readonly></td>
+              <td><input name="textfield88" type="text" id="textfield88" size="50%" value="<?php if(isset($row['Folio_Cliente'])) { echo $row3['PorEnganche']; } ?>" readonly></td>
             </tr>
             <tr>
               <td>Porcentaje de Financieamiento </td>
-              <td><input name="textfield89" type="text" id="textfield89" value="<?php if(isset($row['Folio_Cliente'])) { echo $row3['PorFinanciamiento']; } ?>" size="50%" readonly></td>
+              <td><input name="textfield89" type="text" id="textfield89" size="50%" value="<?php if(isset($row['Folio_Cliente'])) { echo $row3['PorFinanciamiento']; } ?>" readonly></td>
             </tr>
             <tr>
               <td>Monto Financiado </td>
-              <td><input name="textfield90" type="text" id="textfield90" value="<?php if(isset($row['Folio_Cliente'])) { echo $row3['MontoFinanciado']; } ?>" size="50%" readonly></td>
+              <td><input name="textfield90" type="text" id="textfield90" size="50%" value="<?php if(isset($row['Folio_Cliente'])) { echo $row3['MontoFinanciado']; } ?>" readonly></td>
             </tr>
             <tr>
               <td>Plazo (meses)</td>
-              <td><input name="textfield91" type="text" id="textfield91" value="<?php if(isset($row['Folio_Cliente'])) { echo $row3['Plazo']; } ?>" size="50%" onkeypress="return validaNumero(event)"></td>
+              <td><input name="textfield91" type="text" id="textfield91" size="50%" value="<?php if(isset($row['Folio_Cliente'])) { echo $row3['Plazo']; } ?>" onkeypress="return validaNumero(event)" required></td>
             </tr>
             <tr>
               <td>Pago Mensual Esperado </td>
-              <td><input name="textfield92" type="text" id="textfield92" value="<?php if(isset($row['Folio_Cliente'])) { echo $row3['PagoMensEsp']; } ?>" size="50%" onkeypress="return validaNumeroDecimal(event)"></td>
+              <td><input name="textfield92" type="text" id="textfield92" size="50%" value="<?php if(isset($row['Folio_Cliente'])) { echo $row3['PagoMensEsp']; } ?>" onkeypress="return validaNumeroDecimal(event)" required></td>
             </tr>
           </table>
       
