@@ -73,10 +73,12 @@ function CalculaNomina(){
   
 
   var montofin=document.getElementById("montonomina").value.replace("$","").replace(/,/gi,"");
-  var segurovida=document.getElementById("segurovidanomina").value.replace("$","").replace(/,/gi,"");
+  
   var segurpdes=document.getElementById("segurodesempleonomina").value.replace("$","").replace(/,/gi,"");
+  var segurpvid=document.getElementById("segurovidanomina").value.replace("$","").replace(/,/gi,"");
   var selector=document.getElementById("selectnomina").value;
   var selector2=document.getElementById("selectsegdes").value;
+  var selector3=document.getElementById("selectsegvid").value;
   totalafinanciar=0;
   if(selector=="1"){
      var comisionapertura=document.getElementById("montonomina").value.replace("$","").replace(/,/gi,"")*(document.getElementById("comisionnomina").value.replace("%","")/100);
@@ -99,12 +101,22 @@ function CalculaNomina(){
   }
 
 
-  var selector2=document.getElementById("selectsegdes").value;
+
 
   if(selector2=="2"){
-    pagosegdes=parseFloat(segurpdes/tiempo).toFixed(2);
-    alert(pagosegdes);
+    pagosegdes=parseFloat(segurpdes/tiempo);
+    
 
+  }else{
+    pagosegdes=0;
+  }
+
+  if(selector3=="2"){
+    pagosegdes2=parseFloat(segurpvid/tiempo);
+    
+
+  }else{
+    pagosegdes2=0;
   }
 
   
@@ -120,6 +132,7 @@ function CalculaNomina(){
   cuota=((totalafinanciar*intRate)/(1-Math.pow(1+intRate,(-1*months)))*100)/100;
   //pago=totalafinanciar*((intRate2*Math.pow(1+intRate2,months))/(Math.pow(1+intRate2,months)-1));
   
+  
 
   codigo="";
   codigo="<h2>Tabla de amortizacion<\/h2>";
@@ -131,6 +144,12 @@ function CalculaNomina(){
   codigo+="<th>Interés<\/th>"; 
   codigo+="<th>Balance final<\/th>"; 
   codigo+="<th>Iva de los intereses<\/th>"; 
+   if(selector2=="2"){
+    codigo+="<th>Seguro de Desempleo<\/th>";
+  }
+  if(selector3=="2"){
+    codigo+="<th>Seguro de Vida<\/th>";
+  }
   //codigo+="<th>Seguro de Vida<\/th>"; 
   codigo+="<th>Pago Total Programado<\/th>"; 
   codigo+="<\/tr>";
@@ -174,45 +193,81 @@ function CalculaNomina(){
   codigo+="<\/td>"; 
   sumivaint+=ivaintereses;
 
+
+if(selector2=="2"){
+    codigo+="<td>"; 
+  codigo+=formatNumber.new(pagosegdes.toFixed(2),"$"); 
+  codigo+="<\/td>"; 
+  }
+
+  if(selector3=="2"){
+    codigo+="<td>"; 
+  codigo+=formatNumber.new(pagosegdes2.toFixed(2),"$"); 
+  codigo+="<\/td>"; 
+  }
+
   /*codigo+="<td>";
   if(a==1){codigo+=segurovida;}else{codigo+='0';}
   codigo+="<\/td>";
  */
   codigo+="<td>"; 
   //if(a==1){codigo+=(parseFloat(pago)+parseFloat(segurovida)).toFixed(2);}else{codigo+=pago.toFixed(2); }
-  codigo+=formatNumber.new((cuota+ivaintereses).toFixed(2),"$");
+  
+
+    codigo+=formatNumber.new(parseFloat(cuota+ivaintereses+pagosegdes+pagosegdes2).toFixed(2),"$");
+ 
+  
   codigo+="<\/td>"; 
-  sumpatoprog+=cuota+ivaintereses; 
+  
+    sumpatoprog+=parseFloat(cuota+ivaintereses+pagosegdes+pagosegdes2); 
+  
+  
 
   codigo+="<\/tr>"; 
   }
   codigo+="<th> Total </th>";
-  codigo+="<tr><td></td><td>"+formatNumber.new(sumcap.toFixed(2),"$")+"</td><td>"+formatNumber.new(sumint.toFixed(2),"$")+"</td><td></td><td>"+formatNumber.new(sumivaint.toFixed(2),"$")+"</td><td>"+formatNumber.new(sumpatoprog.toFixed(2),"$")+"</td></tr>"; 
+  if(selector2=="2"){
+    columna="<td>"+formatNumber.new(segurpdes,"$")+"</td>";
+  }else{
+    columna="";
+  }
+  if(selector3=="2"){
+    columna2="<td>"+formatNumber.new(segurpvid,"$")+"</td>";
+  }else{
+    columna2="";
+  }
+  codigo+="<tr><td></td><td>"+formatNumber.new(sumcap.toFixed(2),"$")+"</td><td>"+formatNumber.new(sumint.toFixed(2),"$")+"</td><td></td><td>"+formatNumber.new(sumivaint.toFixed(2),"$")+"</td>"+columna+columna2+"<td>"+formatNumber.new(parseFloat(sumpatoprog).toFixed(2),"$")+"</td></tr>"; 
   codigo+="<\/table>"; 
 
 
 
   //var cat = CAT.get(totalafinanciar, 0, pagtotal, document.getElementById("plazonomina").value, 12);
- if(selector=="1"){
-    if(selector2=="1"){
-      sumpatoprog=sumpatoprog+parseFloat(segurpdes);
+  CAT=parseFloat((Math.pow(1+intRate,12)-1)*100);
+
+  if(selector=="1" || selector=="2"){
+    CAT+=parseFloat(document.getElementById("comisionnomina").value.replace("%",""));
+   
+    if(selector=="1"){
+      sumpatoprog+=comisionapertura*1.16;
     }
-    sumpatoprog=sumpatoprog+comisionapertura*1.16;
-    CAT=(Math.pow(1+intRate,12)-1)*100+(document.getElementById("comisionnomina").value.replace("%","")*84/100)+(segurovida/montofin)*100;
-  }else if(selector=="2"){
-    if(selector2=="1"){
-      sumpatoprog=sumpatoprog+parseFloat(segurpdes);
-    }
-    sumpatoprog=sumpatoprog;
-    CAT=(Math.pow(1+intRate,12)-1)*100+(document.getElementById("comisionnomina").value.replace("%","")*84/100)+(segurovida/montofin)*100;
-  }else{
-    if(selector2=="1"){
-      sumpatoprog=sumpatoprog+parseFloat(segurpdes);
-    }
-     sumpatoprog=sumpatoprog;
-     CAT=(Math.pow(1+intRate,12)-1)*100+(segurovida/montofin)*100;
   }
 
+  if(selector2=="1" || selector2=="2"){
+    CAT+=((segurpdes/montofin)*100);
+    if(selector2=="1"){
+      sumpatoprog+=segurpdes;
+    }
+  }
+
+  if(selector3=="1" || selector3=="2"){
+    CAT+=((segurpvid/montofin)*100);
+    if(selector3=="1"){
+      sumpatoprog+=segurpvid;
+    }
+  }
+
+
+ 
 
   document.getElementById('resultadoNomina').innerHTML = '<br><br><br>Plazo:'+ document.getElementById("plazonomina").value +' Meses<br>Monto solicitado: ' + document.getElementById("montonomina").value + '<br>Comision por Apertura: ' + formatNumber.new((comisionapertura*1.16).toFixed(2),"$") + '<br>Total a Financiar: ' + formatNumber.new(totalafinanciar,"$") + '<br>CAT: ' +CAT.toFixed(2)+'%<br>Total a Pagar: '+formatNumber.new((sumpatoprog).toFixed(2),"$")+'<br>' + codigo; 
 
