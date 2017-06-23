@@ -417,21 +417,64 @@ $CPM = array( " id  " ,
   " RFC " ,
   " Telefono  " ,
   " Direccion " ,
+  " Numero ",
   " Colonia/Fraccionamiento " ,
   " Ciudad  " ,
   " Estado  " ,
+  " Municipio ",
   " Codigo Postal " ,
   " Email " ,
   " Fax " ,
-  " Nombre de la empresa  " ,
+  " Pais ",
+  " Nombre " ,
+  " Segundo nombre",
+  " Apellido Paterno",
+  " Apellido Materno",
+  " Direccion",
+  " Colonia ",
+  " Codigo Postal",
+  " Ciudad ",
+  " Estado ",
+  " Sexo ",
+  " Lugar de Nacimiento ",
+  " Fecha de Nacimiento",
+  " Estado Civil",
   " Telefono  " ,
   " Email " ,
+  " Curp ",
   " RFC " ,
+  " Numero de serie FIEL",
+  " Nacionalidad ",
+  " Ocupacion ",
+  " Sueldo ",
   " Fax " ,
   " Puesto  " ,
+  " Actividad Economica Adicional",
+  " Ingreso Mensual Adicional ",
   " Actividad Principal   " ,
   " Inicio de operaciones " ,
-  " Cantidad de personal  " );
+  " Cantidad de personal  ",
+  " Fecha de constitucion de la empresa",
+  " Antiguedad ",
+  " Apoderado ",
+  " Nombre Accionista  1",
+  " RFC",
+  " Porcentaje",
+  " Nombre Accionista 2",
+  " RFC ",
+  " Porcentaje ",
+  " Nombre Accionista 3",
+  " RFC ",
+  " Porcentaje ",
+  " Nombre Accionista 4",
+  " RFC ",
+  " Porcentaje ",
+  " Nombre Accionista PM1",
+  " RFC ",
+  " Porcentaje ",
+  " Nombre Accionista PM2",
+  " RFC",
+  " Porcentaje" );
 $SPFNA = array( " Folio Solicitud " ,
   " Folio Cliente " ,
   " Nombre referencia " ,
@@ -670,10 +713,6 @@ if ($row[$j]=="") {
     <td > <?php if (stristr($solicitudNo, 'SA')== TRUE) { echo $con[$i]; }  
                 elseif (stristr($solicitudNo, 'SN')== TRUE) { echo $CPFNA[$i]; }
                   elseif (stristr($solicitudNo, 'SM')== TRUE) { echo $CPM[$i]; }
-
-
-
-    
     ?>
      </td>
 
@@ -708,10 +747,7 @@ if ($ob[$l]=="") {
           if (stristr($solicitudNo, 'SA')== TRUE) { echo $sol[$k]; }  
                 elseif (stristr($solicitudNo, 'SN')== TRUE) { echo $SPFNA[$k]; }
                   elseif (stristr($solicitudNo, 'SM')== TRUE) { echo $SPM[$k]; }
-
     ?> </td>
-  
-   
     <td > <?php echo $ob[$l] ?></td>
   </tr>
   <?php
