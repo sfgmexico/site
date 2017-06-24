@@ -30,8 +30,8 @@ include("Conexion2.php");
          <tr>
                 <td> Monto a solicitar <input type="text" name="montonomina" id="montonomina" onChange="formatodenumero(this.id,this.value)" onfocus="this.select()"></td>
                  <td>Frecuencia de pago <select name="frecpagonomina" id="frecpagonomina"><option value="12">Mensual</option></select> </td>
-                  <td >Seguro de desempleo <input type="text" name="segurodesempleonomina" id="segurodesempleonomina" onChange="formatodenumero(this.id,this.value)" onfocus="this.select()"> <select id="selectsegdes"><option>No aplica</option> <option value="1">unico pago al inicio</option>  <option value="2">Se integra al monto</option>  </select> </td>
-                  <td >Seguro de vida  <input type="text" name="segurovidanomina" id="segurovidanomina" onChange="formatodenumero(this.id,this.value)" onfocus="this.select()"> <select id="selectsegvid"><option >No aplica</option> <option value="1">unico pago al inicio</option> <option value="2">Se integra al monto</option>  </select></td>
+                  <td >Seguro de desempleo <input type="text" name="segurodesempleonomina" id="segurodesempleonomina" onChange="formatodenumero(this.id,this.value)" onfocus="this.select()"> <select id="selectsegdes"><option>No aplica</option> <option value="1">unico pago al inicio</option>  <option value="2">En Pagos Sin Intereses</option>  </select> </td>
+                  <td >Seguro de vida  <input type="text" name="segurovidanomina" id="segurovidanomina" onChange="formatodenumero(this.id,this.value)" onfocus="this.select()"> <select id="selectsegvid"><option >No aplica</option> <option value="1">unico pago al inicio</option> <option value="2">En Pagos Sin Intereses</option>  </select></td>
         </tr>
 
 

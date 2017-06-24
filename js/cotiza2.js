@@ -247,29 +247,31 @@ if(selector2=="2"){
   if(selector=="1" || selector=="2"){
     CAT+=parseFloat(document.getElementById("comisionnomina").value.replace("%",""));
    
-    if(selector=="1"){
-      sumpatoprog+=comisionapertura*1.16;
-    }
+    
   }
 
   if(selector2=="1" || selector2=="2"){
     CAT+=((segurpdes/montofin)*100);
-    if(selector2=="1"){
-      sumpatoprog+=segurpdes;
-    }
+    
   }
 
   if(selector3=="1" || selector3=="2"){
     CAT+=((segurpvid/montofin)*100);
-    if(selector3=="1"){
-      sumpatoprog+=segurpvid;
-    }
+    
   }
 
-
+  if(selector=="1"){
+     sumpatoprog+=parseFloat(comisionapertura*1.16);
+  }
+  if(selector2=="1"){
+     sumpatoprog+=parseFloat(segurpdes);
+  }
+  if(selector3=="1"){
+     sumpatoprog+=parseFloat(segurpvid);
+  }
  
 
-  document.getElementById('resultadoNomina').innerHTML = '<br><br><br>Plazo:'+ document.getElementById("plazonomina").value +' Meses<br>Monto solicitado: ' + document.getElementById("montonomina").value + '<br>Comision por Apertura: ' + formatNumber.new((comisionapertura*1.16).toFixed(2),"$") + '<br>Total a Financiar: ' + formatNumber.new(totalafinanciar,"$") + '<br>CAT: ' +CAT.toFixed(2)+'%<br>Total a Pagar: '+formatNumber.new((sumpatoprog).toFixed(2),"$")+'<br>' + codigo; 
+  document.getElementById('resultadoNomina').innerHTML = '<br><br><br>Plazo:'+ document.getElementById("plazonomina").value +' Meses<br>Monto solicitado: ' + document.getElementById("montonomina").value + '<br>Comision por Apertura: ' + formatNumber.new((comisionapertura*1.16).toFixed(2),"$") + '<br>Total a Financiar: ' + formatNumber.new(totalafinanciar,"$") + '<br>CAT: ' +CAT.toFixed(2)+'%<br>Total a Pagar: '+formatNumber.new(parseFloat(sumpatoprog).toFixed(2),"$")+'<br>' + codigo; 
 
 
 
