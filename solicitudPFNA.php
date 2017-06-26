@@ -484,7 +484,8 @@ input::-moz-placeholder {
 </p>
 
       
-      <div class="column small-10 ">       
+      <div class="column small-11 ">  
+
       <p align="left">RFC con homoclave:
       <div class="small-2 columns"><input name="rfc1" type="text" id="rfc1" size="1px" value="<?php if(isset($row2['Folio_Cliente']))  { echo $row2['RFCSolicitante'][0];}?>" maxlength="1" onKeyUp="myFunction(this,this.value,rfc2)" pattern="alpha_numeric"></div>
       <div class="small-2 columns"><input name="rfc2" type="text" id="rfc2" size="1px" value="<?php if(isset($row2['Folio_Cliente']))  { echo $row2['RFCSolicitante'][1];}?>" maxlength="1"onkeyup="myFunction(this,this.value,rfc3)" pattern="alpha_numeric"></div>
@@ -498,10 +499,10 @@ input::-moz-placeholder {
       <div class="small-2 columns"><input name="rfc10" type="text" id="rfc10" size="1px" value="<?php if(isset($row2['Folio_Cliente']))  { echo $row2['RFCSolicitante'][9];}?>" maxlength="1" onKeyUp="myFunction(this,this.value,rfc11)" pattern="alpha_numeric"></div>
       <div class="small-2 columns"><input name="rfc11" type="text" id="rfc11" size="1px" value="<?php if(isset($row2['Folio_Cliente']))  { echo $row2['RFCSolicitante'][10];}?>" maxlength="1" onKeyUp="myFunction(this,this.value,rfc12)" pattern="alpha_numeric"></div>
       <div class="small-2 columns"><input name="rfc12" type="text" id="rfc12" size="1px" value="<?php if(isset($row2['Folio_Cliente']))  { echo $row2['RFCSolicitante'][11];}?>" maxlength="1" onKeyUp="myFunction(this,this.value,rfc13)" pattern="alpha_numeric"></div></div>
-      <div class="small-2 columns"><input name="rfc13" type="text" id="rfc13" size="1px" value="<?php if(isset($row2['Folio_Cliente']))  { echo $row2['RFCSolicitante'][12];}?>" maxlength="1" onKeyUp="myFunction(this,this.value,telsol1)"pattern="alpha_numeric"></div>
+      <div class="small-2 columns"><input name="rfc13" type="text" id="rfc13" size="1px" value="<?php if(isset($row2['Folio_Cliente']))  { echo $row2['RFCSolicitante'][12];}?>" maxlength="1" onKeyUp="myFunction(this,this.value,telsol1)" pattern="alpha_numeric"></div>
  </p>
 
-             <div class="column small-10">
+             <div class="column small-11">
       <p align="left">Telefono partiular (Con lada - 10 dígitos) : 
       <div class="small-2 columns">  <input name="telsol1" type="text" id="telsol1" size="1px" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['TelSolicitante'][0]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,telsol2)" pattern="integer"></div>
       <div class="small-2 columns"><input name="telsol2" type="text" id="telsol2" size="1px" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['TelSolicitante'][1]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,telsol3)" pattern="integer"></div>
