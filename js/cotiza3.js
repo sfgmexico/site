@@ -129,7 +129,7 @@ function CalculaNomina(){
   intRate2=((tasa*1.16)/100)/12
 
   months=tiempo;
-  cuota=((totalafinanciar*intRate)/(1-Math.pow(1+intRate,(-1*months)))*100)/100;
+  cuota=((totalafinanciar*intRate*1.16)/(1-Math.pow(1+intRate*1.16,(-1*months)))*100)/100;
   //pago=totalafinanciar*((intRate2*Math.pow(1+intRate2,months))/(Math.pow(1+intRate2,months)-1));
   alert(cuota);
   
@@ -175,7 +175,7 @@ function CalculaNomina(){
   //sumpaprog+=pago;
   intereses=(falta*intRate);
   ivaintereses=(falta*intRate*0.16);
-  capital=cuota-(intereses);
+  capital=cuota-(intereses)-(intereses*0.16);
   codigo+="<td>"+formatNumber.new(capital.toFixed(2),"$");+"<\/td>";
   sumcap+=capital;
   interes=falta*intRate;
@@ -215,12 +215,12 @@ if(selector2=="2"){
   //if(a==1){codigo+=(parseFloat(pago)+parseFloat(segurovida)).toFixed(2);}else{codigo+=pago.toFixed(2); }
   
 
-    codigo+=formatNumber.new(parseFloat(cuota+ivaintereses+pagosegdes+pagosegdes2).toFixed(2),"$");
+    codigo+=formatNumber.new(parseFloat(cuota).toFixed(2),"$");
  
   
   codigo+="<\/td>"; 
   
-    sumpatoprog+=parseFloat(cuota+ivaintereses+pagosegdes+pagosegdes2); 
+    sumpatoprog+=parseFloat(cuota); 
   
   
 
