@@ -65,7 +65,7 @@ function formatodenumero(id,valor){
 function CalculaNomina(){ 
 
   //document.getElementById('comisionnomina').value=(document.getElementById("montonomina").value*0.02).toFixed(2);
-  var tasa=document.getElementById("seleccion").value;
+  var tasa=document.getElementById("tasanomina").value.replace("%","");
   var tiempo=document.getElementById('plazonomina').value;
   
 

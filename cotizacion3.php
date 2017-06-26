@@ -23,7 +23,7 @@ include("Conexion2.php");
   <table border="1">
         <tr>
                 <td style="display:none">Ingresos mensuales  <input type="number" name="ingmen" id="ingmen"> </td>
-                 <td>Tasa de interes (Anual)<input type="text" name="tasanomina" id="tasanomina" readonly></td>
+                 <td>Tasa de interes (Anual)<input type="text" name="tasanomina" id="tasanomina" ></td>
                   <!--<td style="display:none">Seguro de vida  <input> <select name="seleccion"><option value="noaplica">no aplica</option> <option>unico pago al inicio</option>  </select></td>-->
         </tr>
 
