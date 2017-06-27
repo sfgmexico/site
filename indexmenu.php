@@ -77,9 +77,10 @@ if(!$_SESSION['usser']) {
    echo '<li id="qeq"><a href="#"><i class="fi-dollar"></i><span>QeQ</span></a></li>';
   }
   if($_SESSION['SetConf']=="1"){
-   echo '<li id="Admin"><a href="#"><i class="fi-dollar"></i><span>Configuración</span></a></li>';
+   echo '<li id="Admin"><a href="#"><i class="fi-wrench"></i><span>Configuración</span></a></li>';
   }
   ?>
+  <li id="sesion"><a href="#"><i class="fi-power"></i><span></span></a></li>
 </ul>
 
 
