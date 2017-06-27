@@ -1,11 +1,11 @@
 <?php
 
 session_start();
-/*
+
 if(!$_SESSION['usser']) {
   ?> <script> window.location.href='index.php';</script>  <?php
 }
-*/
+
 
 
 ?>
@@ -80,7 +80,7 @@ if(!$_SESSION['usser']) {
    echo '<li id="Admin"><a href="#"><i class="fi-wrench"></i><span>Configuración</span></a></li>';
   }
   ?>
-  <li id="sesion"><a href="#"><i class="fi-power"></i><span></span></a></li>
+  <li id="sesion"><a href="cerrarsession.php"><i class="fi-power"></i><span></span></a></li>
 </ul>
 
 
