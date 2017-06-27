@@ -47,6 +47,16 @@
 				  	<script>alert("¡¡Error de Identificación!!");</script>
 				  <?php
 					}else{
+						session_start();
+						$_SESSION['tiempo'] = time();
+						$_SESSION['usser'] = $user;
+						$_SESSION['nombre'] = $row['nombre'];
+						$_SESSION['GSolicitudes'] = $row['GSolicitudes'];
+						$_SESSION['BSolicitudes'] = $row['BSolicitudes'];
+						$_SESSION['GCotizacion'] = $row['GCotizacion'];
+						$_SESSION['BQeQ'] = $row['BQeQ'];
+						$_SESSION['SetConf'] = $row['SetConf'];
+
 						?> <script> window.location='indexmenu.php';</script> <?php
 						//header('Location:/site/indexmenu.php');
 					}

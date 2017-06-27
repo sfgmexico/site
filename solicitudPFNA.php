@@ -1,4 +1,24 @@
 <?php
+/*
+session_start();
+$inactivo = 3600;
+if(isset($_SESSION['tiempo']) ) {
+$vida_session = time()-$_SESSION['tiempo'];
+if($vida_session > $inactivo)
+{
+session_destroy();
+?> <script> window.location.href='indexmenu.php';</script>  <?php
+}
+}
+$_SESSION['tiempo'] = time();
+echo $_SESSION['tiempo'];
+echo $_SESSION['usser'];
+echo $_SESSION['nombre'];
+*/
+
+
+
+
     if(isset($_GET['cliente'])){
         $cliente=$_GET['cliente'];
         
@@ -23,6 +43,8 @@
     echo "grado de riesgo".$row3['Folio_sol'];
     ?><script>document.getElementById("cliente").readOnly = true;</script> <?php
  
+    }else{
+      include('Conexion2.php');
     }
     
     ?>
@@ -462,9 +484,21 @@ input::-moz-placeholder {
             <div class="row" >
 
     <div class="small-4 columns">   <input  name="cliente" type="text" id="cliente" size="30px" onChange="obten()" value="<?php if(isset($row['Folio_Cliente'])) { echo $row['Folio_Cliente']; } ?>"  placeholder="Si es Cliente, número de cliente/contrato"> </div> 
-          <input id="tipocredito1" name="tipocredito" type="radio" value="Leasing" required <?php if(isset($row['Folio_Cliente'])) { if($row['TipoCredito']=='Leasing'){echo "checked";} } ?>><label for="tipocredito1">Leasing</label>
-          <input id="tipocredito2" name="tipocredito" type="radio" value="Credit" required <?php if(isset($row['Folio_Cliente'])) { if($row['TipoCredito']=='Credit'){echo "checked";} } ?>><label for="tipocredito2">Credit</label>
-          <input id="tipocredito3"  name="tipocredito" type="radio" value="Premium Credit" required <?php if(isset($row['Folio_Cliente'])) { if($row['TipoCredito']=='Premium Credit'){echo "checked";} } ?>><label for="tipocredito3">Premium Credit</label>
+
+         <select name="tipocredito" size="1" id="tipocredito" style="width:40%;" onchange="seleccionvalor()" required>
+          <option value="" ></option>
+          <?php
+          $rescreditos=mysqli_query($cnx,"select * from tiposcreditos");
+          while($rowcreditos=mysqli_fetch_array($rescreditos)){?> 
+             <option value="<?php echo $rowcreditos['descripcion'];?>" ><?php echo $rowcreditos['descripcion'];?></option>
+
+         <?php }
+          ?>
+        </select>
+
+
+
+
 
 	    </p></div>
 <div class="tabs-content" data-tabs-content="example-tabs">

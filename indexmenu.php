@@ -1,3 +1,16 @@
+<?php
+
+session_start();
+/*
+if(!$_SESSION['usser']) {
+  ?> <script> window.location.href='index.php';</script>  <?php
+}
+*/
+
+
+?>
+
+
 <!doctype html>
 <html class="no-js" lang="en">
   <head>
@@ -38,7 +51,10 @@
   <li>
     <a href="indexmenu.php"><i class="fi-home"></i><span>Inicio</span></a>
   </li>
-  <li>
+  <?php 
+  if($_SESSION['GSolicitudes']=="1"){
+    echo '<li>
+
     <a href="#"><i class="fi-pencil"></i><span>Solicitudes de credito</span></a>
     <ul class="menu">
       <li id="bot1"><a href="#"><i class="fi-clipboard-notes"></i><span>Solicitud PFA</span></a></li>
@@ -47,11 +63,23 @@
 
 
     </ul>
-  </li>
-  <li id="boton2"><a href="#"><i class="fi-graph-trend"></i><span>Solicitudes</span></a></li>
-  <li id="boton1"><a href="#"><i class="fi-dollar"></i><span>Cotizacion</span></a></li>
-    <li id="qeq"><a href="#"><i class="fi-dollar"></i><span>QeQ</span></a></li>
-    <li id="Admin"><a href="#"><i class="fi-dollar"></i><span>Configuración</span></a></li>
+  </li>';
+  }
+  
+  if($_SESSION['BSolicitudes']=="1"){
+  echo '<li id="boton2"><a href="#"><i class="fi-graph-trend"></i><span>Solicitudes</span></a></li>';
+  }
+  
+  if($_SESSION['GCotizacion']=="1"){
+  echo '<li id="boton1"><a href="#"><i class="fi-dollar"></i><span>Cotizacion</span></a></li>';
+  }
+  if($_SESSION['BQeQ']=="1"){
+   echo '<li id="qeq"><a href="#"><i class="fi-dollar"></i><span>QeQ</span></a></li>';
+  }
+  if($_SESSION['SetConf']=="1"){
+   echo '<li id="Admin"><a href="#"><i class="fi-dollar"></i><span>Configuración</span></a></li>';
+  }
+  ?>
 </ul>
 
 
