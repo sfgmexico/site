@@ -272,7 +272,7 @@ if(selector2=="2"){
   }
  
 
-  document.getElementById('resultadoNomina').innerHTML = '<br><br><br>Plazo:'+ document.getElementById("plazonomina").value +' Meses<br>Monto solicitado: ' + document.getElementById("montonomina").value + '<br>Comision por Apertura: ' + formatNumber.new((comisionapertura*1.16).toFixed(2),"$") + '<br>Total a Financiar: ' + formatNumber.new(totalafinanciar,"$") + '<br>CAT: ' +CAT.toFixed(2)+'%<br>Total a Pagar: '+formatNumber.new(parseFloat(sumpatoprog).toFixed(2),"$")+'<br>' + codigo; 
+  document.getElementById('resultadoNomina').innerHTML = '<a href="#" onclick="mysub()">link text</a><br><br><br>Plazo:'+ document.getElementById("plazonomina").value +' Meses<br>Monto solicitado: ' + document.getElementById("montonomina").value + '<br>Comision por Apertura: ' + formatNumber.new((comisionapertura*1.16).toFixed(2),"$") + '<br>Total a Financiar: ' + formatNumber.new(totalafinanciar,"$") + '<br>CAT: ' +CAT.toFixed(2)+'%<br>Total a Pagar: '+formatNumber.new(parseFloat(sumpatoprog).toFixed(2),"$")+'<br>' + codigo; 
 
 
 
@@ -280,4 +280,8 @@ if(selector2=="2"){
 
 }
 
+
+function mysub() {
+    document.getElementById("form1").submit();
+}
     

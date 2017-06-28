@@ -19,7 +19,7 @@ include("Conexion2.php");
 
 
 <div id="contenidoNomina" class="container" >
-    
+    <form name="form1" id="form1" action="pdfcotiza1.php" target="_blank" method="post" >
   <table border="1">
         <tr>
                 <td style="display:none">Ingresos mensuales  <input type="number" name="ingmen" id="ingmen"> </td>
@@ -43,6 +43,7 @@ include("Conexion2.php");
 
 
   </table>
+  </form>
   <div id="resultadoNomina" ></div>
 </div>
 
