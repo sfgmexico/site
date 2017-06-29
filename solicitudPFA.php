@@ -1567,7 +1567,17 @@ input::-moz-placeholder {
           </label>
           </p>
 
-          <input class="button" type="button" name="" value="Cambiar Valores">
+         <p><input type="button" class="button" data-open="Aut" value="Cambiar Valores"></p>
+
+<!-- This is the first modal -->
+<div class="reveal" id="Aut" data-reveal>
+  <h1>Clave de Autorizacion</h1>
+  <input type="text" name="clave">
+  <button class="button" data-open="exampleModal3">Click me for another modal!</button>
+  <button class="close-button" data-close aria-label="Close reveal" type="button">
+    <span aria-hidden="true">Bye</span>
+  </button>
+</div>
           </div>
           </div>
 		  <br>
