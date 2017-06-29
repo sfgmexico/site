@@ -1,4 +1,7 @@
 <?php
+session_start();
+
+
 function toMoney($val,$symbol='$',$r=2)
 {
 
