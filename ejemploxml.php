@@ -387,6 +387,7 @@ $el_xml = $xml->saveXML();
 $xml->save('archivo.xml');
 echo htmlentities($el_xml);
 
+
 }
 
 

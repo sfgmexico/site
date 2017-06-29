@@ -22,8 +22,8 @@
         <ApellidoAdicional/>
         <PrimerNombre>Adrian</PrimerNombre>
         <SegundoNombre>Eduardo</SegundoNombre>
-        <FechaNacimiento>19890907</FechaNacimiento>
-        <RFC>3131313131313</RFC>
+        <FechaNacimiento>00000000</FechaNacimiento>
+        <RFC/>
         <Prefijo/>
         <Sufijo/>
         <Nacionalidad/>

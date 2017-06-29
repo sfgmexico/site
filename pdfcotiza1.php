@@ -235,8 +235,13 @@ $pdf->Ln(1);
 
 $pdf->writeHTML($tbl, true, false, false, false, '');
 
+$pdf->AddPage();
 
+$pdf->writeHTML($tbl, true, false, false, false, '');
 
+$pdf->AddPage();
+
+$pdf->writeHTML($tbl, true, false, false, false, '');
 // -----------------------------------------------------------------------------
 
 // NON-BREAKING TABLE (nobr="true")
@@ -253,6 +258,9 @@ $pdf->writeHTML($tbl, true, false, false, false, '');
 //$pdf->IncludeJS('print(true);');
 
 //Close and output PDF document
+
+
+$pdf->IncludeJS('print(true);');
 $pdf->Output('example_048.pdf', 'I');
 
 
