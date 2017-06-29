@@ -53,7 +53,8 @@ $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
 
 // set default header data
 $pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE.' 048', PDF_HEADER_STRING);
-
+$pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, '', 'Servicios Financieros del Guadiana, S.A de C.V  SOFOM, E.N.R 
+');
 // set header and footer fonts
 $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
 $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
@@ -87,6 +88,7 @@ $pdf->SetFont('helvetica', 'B', 14);
 $pdf->AddPage();
 
 $pdf->Write(0, 'Tabla de Amortización', '', 0, 'L', true, 0, false, false, 0);
+$pdf -> Ln(3);
 
 $pdf->SetFont('helvetica', '', 8);
 
@@ -151,7 +153,7 @@ $pdf->Ln(1);
 $tbl = 
 '<table border="1" cellpadding="2" cellspacing="2">
 <thead>
- <tr style="background-color:#95DDDF;color:#0000FF;">
+ <tr style="background-color:#F4BF30;color:#FEFFFE;">
   <td width="20"align="center"><b>A</b></td>
   <td align="center"><b>Balance Inicial</b></td>
   <td align="center"><b>Capital</b></td>
@@ -215,9 +217,9 @@ $tbl.='
 $pdf->MultiCell(40,0, 'Total a Financiar
   '.$_REQUEST['montonomina'] , 0, 'L', 0, 0, '', '', true,0,false,true);
 $pdf->MultiCell(40,0, 'Total a Pagar
-  '.toMoney($sumpatoprog) , 0, 'L', 0, 0, '', '', true,0,false,true);
+  '.toMoney($sumpatoprog) , 0, 'L', 0, 1, '', '', true,0,false,true);
 
-$pdf->MultiCell(0,0, 'CAT 20.4% sin IVA Calculado al 28/06/2017 "Para fines informativos y de comparación exclusivamente' , 0, 'L', 0, 1, '', '', true,0,false,true);
+//$pdf->MultiCell(0,0, 'CAT 20.4% sin IVA Calculado al 28/06/2017 "Para fines informativos y de comparación exclusivamente' , 0, 'L', 0, 1, '', '', true,0,false,true);
 
 
 
@@ -232,7 +234,6 @@ $pdf->Ln(1);
 // -----------------------------------------------------------------------------
 
 // Table with rowspans and THEAD
-
 $pdf->writeHTML($tbl, true, false, false, false, '');
 
 
@@ -253,6 +254,7 @@ $pdf->writeHTML($tbl, true, false, false, false, '');
 //$pdf->IncludeJS('print(true);');
 
 //Close and output PDF document
+$pdf->IncludeJS('print(true);');
 $pdf->Output('example_048.pdf', 'I');
 
 

@@ -1538,6 +1538,38 @@ input::-moz-placeholder {
             </tr>
           </table>
           <div>
+
+          <div class="row">
+          <div class="small-5 columns">
+            
+          <p align="left">
+            
+          <label>
+          Comision por apertura
+            <input type="text" name="comision">
+          </label>
+
+
+          <label>
+            Seguro de Auto
+            <input type="text" name="SeguroA">
+          </label>
+
+          <label>
+          Seguro de vida
+            <input type="text" name="SeguroV">
+
+          </label>
+
+          <label>
+            Interes Anual
+            <input type="text" name="Interes">
+          </label>
+          </p>
+
+          <input class="button" type="button" name="" value="Cambiar Valores">
+          </div>
+          </div>
 		  <br>
 	      <p align="left">¿ Usted o algún familiar suyo de hasta segundo grado de consanguinidad o afinidad (cónyuge,padre,madre,hijos,hermanos, abuelos, tios, primos, cuñados, suegros, yernos, etc), desempeña o a desempeñado funciones públicas destacadas en el territorio nacional o en el Extranjero (incluyendo puestos de Gobierno Federales, Estatales ,Municipales, funciones gubernamentales o judiciales, en partidos politicos, militares de alta jerarquía, altos ejecutivos de empresas paraestatales, etc.?<br>
 	        
