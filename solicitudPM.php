@@ -1853,6 +1853,47 @@ Fecha de nacimiento:
             </tr>
           </table>
       
+          <div class="row">
+          <div class="small-5 columns">
+            
+          <p align="left">
+            
+          <label>
+          Comision por apertura
+            <input type="text" name="comision">
+          </label>
+
+
+          <label>
+            Seguro de Auto
+            <input type="text" name="SeguroA">
+          </label>
+
+          <label>
+          Seguro de vida
+            <input type="text" name="SeguroV">
+
+          </label>
+
+          <label>
+            Interes Anual
+            <input type="text" name="Interes">
+          </label>
+          </p>
+
+         <p><input type="button" class="button" data-open="Aut" value="Cambiar Valores"></p>
+
+<!-- This is the first modal -->
+<div class="reveal" id="Aut" data-reveal>
+  <h1>Clave de Autorizacion</h1>
+  <input type="text" name="clave">
+  <button class="button" data-open="exampleModal3">Click me for another modal!</button>
+  <button class="close-button" data-close aria-label="Close reveal" type="button">
+    <span aria-hidden="true">Bye</span>
+  </button>
+</div>
+          </div>
+          </div>
       <br>
          
         <p align="left">¿ Usted o algún familiar suyo de hasta segundo grado de consanguinidad o afinidad (cónyuge,padre,madre,hijos,hermanos, abuelos, tios, primos, cuñados, suegros, yernos, etc), desempeña o a desempeñado funciones públicas destacadas en el territorio nacional o en el Extranjero (incluyendo puestos de Gobierno Federales, Estatales ,Municipales, funciones gubernamentales o judiciales, en partidos politicos, militares de alta jerarquía, altos ejecutivos de empresas paraestatales, etc.?<br>

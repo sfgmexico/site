@@ -36,7 +36,7 @@ if(!$_SESSION['usser']) {
 
 
 <!-- content -->
-<section>☺á«
+<section>
 	
 		<div class="medium-10 large-11 medium-push-4 large-push-2 columns" >
 			<div class="medium-8 columns">

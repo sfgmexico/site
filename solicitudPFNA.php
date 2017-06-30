@@ -1148,17 +1148,7 @@ input::-moz-placeholder {
             <a href="#" class="accordion-title" onClick="cambio()"><h4 id="dos" >FORMATO DE IDENTIFICACIÓN DEL CLIENTE POR CLASIFICACIÓN DE RIESGO&nbsp;</h4></a>
                 <div class="accordion-content" data-tab-content>
                       <div id="riesgo" >
-                 <div data-sticky-container="" class="sticky-container" style="height: 40.375px;">
-  <div class="sticky is-at-top is-stuck" id="sticky-magellan" style="width: 100%; max-width: 555px; margin-top: 0em; bottom: auto; top: 0px;" data-sticky="a2lq9k-sticky" data-margin-top="0" data-margin-bottom="3" data-top-anchor="setup" data-btm-anchor="destroy:bottom" data-sticky-on="small" data-resize="sticky-magellan" data-events="resize">
-    <nav data-magellan="8odbqt-magellan" class="sticky-mag stuck-mag" data-bar-offset="25" data-resize="cq4a0b-magellan" data-scroll="cq4a0b-magellan" id="cq4a0b-magellan" data-events="scroll">
-      <ul class="horizontal menu expanded">
-        <li><a href="#uno" class="">PFNA</a></li>
-        <li><a href="#tres" class="active">Constancia de entrevista</a></li>
-      </ul>
-    </nav>
-  </div>
-
-</div>
+     
 		<h4 align="left">Datos generales del cliente</h4> 
 		<p align="left">Tipo de Cliente: <input id="escliente1" name="escliente" type="radio" value="Nuevo" required><label for="escliente1">Nuevo</label>
 		<input id="escliente2" name="escliente" type="radio" value="Actualizacion" <?php if(isset($row['Folio_Cliente'])){echo "checked";}?> required><label for="escliente2"> Actualización </label>
@@ -1384,16 +1374,7 @@ input::-moz-placeholder {
             <a href="#" class="accordion-title" onClick="cambio2()"><h4 id="tres">FORMATO DE IDENTIFICACION, CONOCIMIENTO DEL CLIENTE Y CONSTANCIA DE ENTREVISTA</h4></a>
                 <div class="accordion-content" data-tab-content>
                      <div id="identificacion" >
-          <div data-sticky-container="" class="sticky-container" style="height: 40.375px;">
-  <div class="sticky is-at-top is-stuck" id="sticky-magellan" style="width: 100%; max-width: 555px; margin-top: 0em; bottom: auto; top: 0px;" data-sticky="a2lq9k-sticky" data-margin-top="0" data-margin-bottom="0" data-top-anchor="setup" data-btm-anchor="destroy:bottom" data-sticky-on="small" data-resize="sticky-magellan" data-events="resize">
-    <nav data-magellan="8odbqt-magellan" class="sticky-mag stuck-mag" data-bar-offset="25" data-resize="cq4a0b-magellan" data-scroll="cq4a0b-magellan" id="cq4a0b-magellan" data-events="scroll">
-      <ul class="horizontal menu expanded">
-        <li><a href="#uno" class="active">PFNA</a></li>
-        <li><a href="#dos" class="">Clasificacion de riesgo</a></li>
-      </ul>
-    </nav>
-  </div>
-</div>
+      
           <h6 align="left">PERSONA FÍSICA Y RELACIONADOS </h6>
           <table width="100%" border="0">
             <tr>
@@ -1800,7 +1781,52 @@ input::-moz-placeholder {
               <td><input name="textfield92" type="text" id="textfield92" value="<?php if(isset($row['Folio_Cliente'])) { echo $row3['PagoMensEsp']; } ?>" size="50%" onkeypress="return validaNumeroDecimal(event)"></td>
             </tr>
           </table>
-		  
+		       <div class="row">
+          <div class="small-5 columns">
+            
+          <p align="left">
+            
+          <label>
+          Comision por apertura
+            <input type="text" name="comision">
+          </label>
+
+
+          <label>
+            Seguro de Auto
+            <input type="text" name="SeguroA">
+          </label>
+
+          <label>
+          Seguro de vida
+            <input type="text" name="SeguroV">
+
+          </label>
+
+          <label>
+            Interes Anual
+            <input type="text" name="Interes">
+          </label>
+          </p>
+
+         <p><input type="button" class="button" data-open="Aut" value="Cambiar Valores"></p>
+
+<!-- This is the first modal -->
+<div class="reveal" id="Aut" data-reveal>
+  <h3>Clave de Autorizacion</h3>
+<div class="row">
+<div class="small-5 columns">
+  
+  <input type="text" name="clave">
+  <button class="button" data-open="exampleModal3">Aceptar!</button>
+</div>
+  </div>
+  <button class="close-button" data-close aria-label="Close reveal" type="button">
+    <span aria-hidden="true">X</span>
+  </button>
+</div>
+          </div>
+          </div>
 		  <br>
 	    <p align="left">¿ Usted o algún familiar suyo de hasta segundo grado de consanguinidad o afinidad (cónyuge,padre,madre,hijos,hermanos, abuelos, tios, primos, cuñados, suegros, yernos, etc), desempeña o a desempeñado funciones públicas destacadas en el territorio nacional o en el Extranjero (incluyendo puestos de Gobierno Federales, Estatales ,Municipales, funciones gubernamentales o judiciales, en partidos politicos, militares de alta jerarquía, altos ejecutivos de empresas paraestatales, etc.?<br>
        
