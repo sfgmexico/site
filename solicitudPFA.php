@@ -1546,7 +1546,7 @@ input::-moz-placeholder {
             
           <label>
           Comision por apertura
-            <input type="text" name="comision">
+            <input type="text" id="comision" name="comision" readonly="">
           </label>
 
 
@@ -1563,7 +1563,7 @@ input::-moz-placeholder {
 
           <label>
             Interes Anual
-            <input type="text" name="Interes">
+            <input type="text" id="Interes" name="Interes" readonly="">
           </label>
           </p>
 
@@ -1572,8 +1572,8 @@ input::-moz-placeholder {
 <!-- This is the first modal -->
 <div class="reveal" id="Aut" data-reveal>
   <h1>Clave de Autorizacion</h1>
-  <input type="text" name="clave">
-  <button class="button" data-open="exampleModal3">Click me for another modal!</button>
+  <input type="text" id="clave" name="clave">
+  <button class="button" data-close aria-label="Close reveal" id="keycheck" data-open="exampleModal3">Click me for another modal!</button>
   <button class="close-button" data-close aria-label="Close reveal" type="button">
     <span aria-hidden="true">Bye</span>
   </button>
@@ -1700,6 +1700,40 @@ function viewButton(){
     document.getElementById("botonAceptar").style.display="none";
   }
 }
+
+ $("#keycheck").click(function(event) {
+ 
+   var data = new FormData();
+
+   data.append('key', document.getElementById("clave").value);
+    if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
+
+        if(xmlhttp.responseText=="404"){
+          alert("!!Llave de Verificación Incorrecta¡¡");
+        }
+
+        if(xmlhttp.responseText=="200"){
+          document.getElementById("comision").readOnly = false;
+          document.getElementById("Interes").readOnly = false;
+        }
+      
+      }
+  }
+xmlhttp.open("POST","keycheck.php",true);
+xmlhttp.send(data);
+                
+                                });
 
 
 </script>
