@@ -1853,6 +1853,8 @@ Fecha de nacimiento:
             </tr>
           </table>
       
+     <div>
+
           <div class="row">
           <div class="small-5 columns">
             
@@ -1860,7 +1862,7 @@ Fecha de nacimiento:
             
           <label>
           Comision por apertura
-            <input type="text" name="comision">
+            <input type="text" id="comision" name="comision" readonly="">
           </label>
 
 
@@ -1877,7 +1879,7 @@ Fecha de nacimiento:
 
           <label>
             Interes Anual
-            <input type="text" name="Interes">
+            <input type="text" id="Interes" name="Interes" readonly="">
           </label>
           </p>
 
@@ -1885,11 +1887,16 @@ Fecha de nacimiento:
 
 <!-- This is the first modal -->
 <div class="reveal" id="Aut" data-reveal>
-  <h1>Clave de Autorizacion</h1>
-  <input type="text" name="clave">
-  <button class="button" data-open="exampleModal3">Click me for another modal!</button>
+  <h3>Clave de Autorizacion</h3>
+  <div class="row">
+    <div class="small-5 columns">
+      
+  <input type="text" id="clave" name="clave">
+  <button class="button" data-close aria-label="Close reveal" id="keycheck" data-open="exampleModal3">Aceptar!</button>
+    </div>
+  </div>
   <button class="close-button" data-close aria-label="Close reveal" type="button">
-    <span aria-hidden="true">Bye</span>
+    <span aria-hidden="true">X</span>
   </button>
 </div>
           </div>

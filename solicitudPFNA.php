@@ -1781,14 +1781,16 @@ input::-moz-placeholder {
               <td><input name="textfield92" type="text" id="textfield92" value="<?php if(isset($row['Folio_Cliente'])) { echo $row3['PagoMensEsp']; } ?>" size="50%" onkeypress="return validaNumeroDecimal(event)"></td>
             </tr>
           </table>
-		       <div class="row">
+		           <div>
+
+          <div class="row">
           <div class="small-5 columns">
             
           <p align="left">
             
           <label>
           Comision por apertura
-            <input type="text" name="comision">
+            <input type="text" id="comision" name="comision" readonly="">
           </label>
 
 
@@ -1805,7 +1807,7 @@ input::-moz-placeholder {
 
           <label>
             Interes Anual
-            <input type="text" name="Interes">
+            <input type="text" id="Interes" name="Interes" readonly="">
           </label>
           </p>
 
@@ -1814,12 +1816,12 @@ input::-moz-placeholder {
 <!-- This is the first modal -->
 <div class="reveal" id="Aut" data-reveal>
   <h3>Clave de Autorizacion</h3>
-<div class="row">
-<div class="small-5 columns">
-  
-  <input type="text" name="clave">
-  <button class="button" data-open="exampleModal3">Aceptar!</button>
-</div>
+  <div class="row">
+    <div class="small-5 columns">
+      
+  <input type="text" id="clave" name="clave">
+  <button class="button" data-close aria-label="Close reveal" id="keycheck" data-open="exampleModal3">Aceptar!</button>
+    </div>
   </div>
   <button class="close-button" data-close aria-label="Close reveal" type="button">
     <span aria-hidden="true">X</span>

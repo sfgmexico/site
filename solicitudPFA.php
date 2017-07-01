@@ -1571,11 +1571,16 @@ input::-moz-placeholder {
 
 <!-- This is the first modal -->
 <div class="reveal" id="Aut" data-reveal>
-  <h1>Clave de Autorizacion</h1>
+  <h3>Clave de Autorizacion</h3>
+  <div class="row">
+    <div class="small-5 columns">
+      
   <input type="text" id="clave" name="clave">
-  <button class="button" data-close aria-label="Close reveal" id="keycheck" data-open="exampleModal3">Click me for another modal!</button>
+  <button class="button" data-close aria-label="Close reveal" id="keycheck" data-open="exampleModal3">Aceptar!</button>
+    </div>
+  </div>
   <button class="close-button" data-close aria-label="Close reveal" type="button">
-    <span aria-hidden="true">Bye</span>
+    <span aria-hidden="true">X</span>
   </button>
 </div>
           </div>

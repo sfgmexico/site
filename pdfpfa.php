@@ -1502,7 +1502,7 @@ $pdf->Cell(0, 0, 'Origen de los recursos', 'T', 1, 'C', 0, '', 0, false, 'T', 'C
 $pdf->AddPage();
 
 
-$pdf->Cell(195, 0, 'PERFIL TRANSSACCIONAL INICIAL', '', 1, 'C', 0, '', 0, false, 'T', 'C');
+$pdf->Cell(195, 0, 'PERFIL TRANSACCIONAL INICIAL', '', 1, 'C', 0, '', 0, false, 'T', 'C');
 $pdf->Ln(5);
 $pdf->Cell(35, 0, 'Ingresos comprobables(1)', '', 0, 'L', 0, '', 0, false, 'T', 'C');
 $pdf->Cell(45, 0, $_REQUEST['textfield65'], 'B', 0, 'C', 0, '', 0, false, 'T', 'C');
