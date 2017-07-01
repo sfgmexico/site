@@ -259,11 +259,7 @@ $pdf->writeHTML($tbl, true, false, false, false, '');
 //$pdf->IncludeJS('print(true);');
 
 //Close and output PDF document
-<<<<<<< HEAD
 
-
-=======
->>>>>>> 69d7674ea03708afbb69b98b7a424a88bdb24b07
 $pdf->IncludeJS('print(true);');
 $pdf->Output('example_048.pdf', 'I');
 
