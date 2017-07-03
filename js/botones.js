@@ -1,5 +1,5 @@
-$("#boton1").click(function(event) {
-        				$("#htmlext").load('cotizacion.php');
+                        $("#boton1").click(function(event) {
+        				$("#htmlext").load('cotizacion3.php');
     														});
 
 						$("#boton2").click(function(event) {

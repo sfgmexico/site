@@ -117,7 +117,7 @@ document.getElementById("textfield47").value = ucWords(document.getElementById("
 
 
 
-
+seleccionvalor();
 
 
 

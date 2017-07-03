@@ -395,17 +395,81 @@ if(($(this).prop('required') && this.value=="") || ($(this).prop('required') && 
 
 }
 
+
+
 function seleccionvalor(){
   
    var x = document.getElementById("tipocredito").value;
+   var tasadeinteres=0;
+   var data = new FormData();
+
+   data.append('credito', x);
+    
+   if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
+        
+        obj = JSON.parse(xmlhttp.responseText);
+        
+        document.getElementById("textfield96").value = obj.Comision_Apertura+'%';
+        
+        document.getElementById("textfield100").value = obj.tasa+'%';
+        
+
+        
+      }
+  }
+xmlhttp.open("POST","veririfatasa.php",true);
+xmlhttp.send(data);
+
+
+
+
+
+
+
    if(x=="Auto Nuevo" || x=="Auto Usado"){
+
+
     
     document.getElementById("valorautochange").innerHTML = "Valor del Automóvil ";
-    document.getElementById("engautochange").innerHTML = "Enganche del Automóvil";
+    document.getElementById("textfield93").value = tasadeinteres+'%';
+    document.getElementById("engautochange").style.display = "block";
+    document.getElementById("porengautochange").style.display = "block";
+    document.getElementById("porfinautochange").style.display = "block";
+    document.getElementById("monfinautochange").style.display = "block";
+    document.getElementById("segautochange").style.display = "block";
+    document.getElementById("comisionapchange").style.display = "block";
+    document.getElementById("segdeschange").style.display = "none";
+    
+
+
+
+
+
    }else{
      
     document.getElementById("valorautochange").innerHTML = "Monto Requerido ";
-    document.getElementById("engautochange").innerHTML = "Enganche ";
+    document.getElementById("engautochange").style.display = "none";
+    document.getElementById("porengautochange").style.display = "none";
+    document.getElementById("porfinautochange").style.display = "none";
+    document.getElementById("monfinautochange").style.display = "none";
+    document.getElementById("segautochange").style.display = "none";
+    document.getElementById("comisionapchange").style.display = "block";
+    document.getElementById("segdeschange").style.display = "block";
+
+
+
+
    }
 
 
@@ -1500,72 +1564,66 @@ input::-moz-placeholder {
               <td>Fuente</td>
               <td><input name="textfield84" type="text" id="textfield84" size="50%" value="<?php if(isset($row['Folio_Cliente'])) { echo $row3['FuentePerTrans10']; } ?>" ></td>
             </tr>
+            <tr>
+              <td >Total de Ingresos </td>
+              <td ><input name="textfield85" type="text" id="textfield85" value="<?php if(isset($row['Folio_Cliente'])) { echo $row3['TotalIngreso']; } ?>" size="50%" readonly></td>
+            </tr>
           </table>
 		  <br>
-          <table width="100%" border="0">
-            <tr>
-              <td width="19%">Total de Ingresos </td>
-              <td width="81%"><input name="textfield85" type="text" id="textfield85" value="<?php if(isset($row['Folio_Cliente'])) { echo $row3['TotalIngreso']; } ?>" size="50%" readonly></td>
-            </tr>
-
-            <tr>
-              <td id="valorautochange"></td>
-              <td><input name="textfield86" type="text" id="textfield86" size="50%" onkeypress="return validaNumeroDecimal(event)" value="<?php if(isset($row['Folio_Cliente'])) { echo $row3['ValorAuto']; } ?>" required ></td>
-            </tr>
-            <tr>
-              <td id="engautochange"> </td>
-              <td><input name="textfield87" type="text" id="textfield87" size="50%" onkeypress="return validaNumeroDecimal(event)" value="<?php if(isset($row['Folio_Cliente'])) { echo $row3['EngAutomovil']; } ?>" required onchange="datosAuto()"></td>
-            </tr>
-            <tr>
-              <td>Porcentaje de Enganche </td>
-              <td><input name="textfield88" type="text" id="textfield88" size="50%" value="<?php if(isset($row['Folio_Cliente'])) { echo $row3['PorEnganche']; } ?>" readonly></td>
-            </tr>
-            <tr>
-              <td>Porcentaje de Financieamiento </td>
-              <td><input name="textfield89" type="text" id="textfield89" size="50%" value="<?php if(isset($row['Folio_Cliente'])) { echo $row3['PorFinanciamiento']; } ?>" readonly></td>
-            </tr>
-            <tr>
-              <td>Monto Financiado </td>
-              <td><input name="textfield90" type="text" id="textfield90" size="50%" value="<?php if(isset($row['Folio_Cliente'])) { echo $row3['MontoFinanciado']; } ?>" readonly></td>
-            </tr>
-            <tr>
-              <td>Plazo (meses)</td>
-              <td><input name="textfield91" type="text" id="textfield91" size="50%" value="<?php if(isset($row['Folio_Cliente'])) { echo $row3['Plazo']; } ?>" onkeypress="return validaNumero(event)" required></td>
-            </tr>
-            <tr>
-              <td>Pago Mensual Esperado </td>
-              <td><input name="textfield92" type="text" id="textfield92" size="50%" value="<?php if(isset($row['Folio_Cliente'])) { echo $row3['PagoMensEsp']; } ?>" onkeypress="return validaNumeroDecimal(event)" required></td>
-            </tr>
-          </table>
+          
           <div>
 
           <div class="row">
           <div class="small-5 columns">
-            
-          <p align="left">
-            
-          <label>
-          Comision por apertura
-            <input type="text" id="comision" name="comision" readonly="">
-          </label>
 
-
-          <label>
-            Seguro de Auto
-            <input type="text" name="SeguroA">
-          </label>
-
-          <label>
-          Seguro de vida
-            <input type="text" name="SeguroV">
-
-          </label>
-
-          <label>
-            Interes Anual
-            <input type="text" id="Interes" name="Interes" readonly="">
-          </label>
-          </p>
+          <div>
+              <p id="valorautochange"></p>
+              <p><input name="textfield86" type="text" id="textfield86" size="50%" onkeypress="return validaNumeroDecimal(event)"  required ></p>
+            </div>
+            <div id="engautochange">
+              <p >Enganche  </p>
+              <p><input name="textfield87" type="text" id="textfield87" size="50%" onkeypress="return validaNumeroDecimal(event)"  required onchange="datosAuto()"></p>
+            </div>
+            <div id="porengautochange">
+              <p>Porcentaje de Enganche </p>
+              <p><input name="textfield88" type="text" id="textfield88" size="50%"  readonly></p>
+            </div>
+            <div id="porfinautochange">
+              <p>Porcentaje de Financieamiento </p>
+              <p><input name="textfield89" type="text" id="textfield89" size="50%"  readonly></p>
+            </div>
+            <div id="monfinautochange">
+              <p>Monto Financiado </p>
+              <p><input name="textfield90" type="text" id="textfield90" size="50%"  readonly></p>
+            </div>
+            <div>
+              <p>Interes Anual</p>
+              <p><input name="textfield100" type="text" id="textfield100" size="50%"  readonly onkeypress="return validaNumero(event)" required></p>
+            </div>
+            <div id="comisionapchange">
+              <p>Comisión por Apertura</p>
+              <p><input name="textfield96" type="text" id="textfield96" size="50%"  readonly onkeypress="return validaNumero(event)" required></p>
+            </div>
+            <div id="segautochange">
+              <p>Seguro de Auto</p>
+              <p><input name="textfield97" type="text" id="textfield97" size="50%"  onkeypress="return validaNumero(event)" required></p>
+            </div>
+            <div>
+              <p>Seguro de Vida</p>
+              <p><input name="textfield98" type="text" id="textfield98" size="50%"  onkeypress="return validaNumero(event)" required></p>
+            </div>
+            <div id="segdeschange">
+              <p>Seguro de Desempleo</p>
+              <p><input name="textfield99" type="text" id="textfield99" size="50%"  onkeypress="return validaNumero(event)" required></p>
+            </div>
+            <div>
+              <p>Plazo (meses)</p>
+              <p><input name="textfield91" type="text" id="textfield91" size="50%"  onkeypress="return validaNumero(event)" required></p>
+            </div>
+            <div>
+              <p>Pago Mensual Esperado </p>
+              <p><input name="textfield92" type="text" id="textfield92" size="50%"  onkeypress="return validaNumeroDecimal(event)" required></p>
+            </div>
 
          <p><input type="button" class="button" data-open="Aut" value="Cambiar Valores"></p>
 
@@ -1729,8 +1787,8 @@ xmlhttp.onreadystatechange=function()
         }
 
         if(xmlhttp.responseText=="200"){
-          document.getElementById("comision").readOnly = false;
-          document.getElementById("Interes").readOnly = false;
+          document.getElementById("textfield100").readOnly = false;
+          document.getElementById("textfield96").readOnly = false;
         }
       
       }
