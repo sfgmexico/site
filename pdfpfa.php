@@ -1620,31 +1620,46 @@ $pdf->Cell(45, 0, $_REQUEST['textfield85'], 'B', 1, 'C', 0, '', 0, false, 'T', '
 $pdf->Ln(5);
 
 if($tipocredito=="Auto Nuevo" || $tipocredito=="Auto Usado"){
-	$contieneselec="Valor del credito";
+	$contieneselec="Valor del Auto";
 	$contieneselec2="Enganche";
+	$pdf->Cell(45, 0, $contieneselec2, '', 0, 'L', 0, '', 0, false, 'T', 'C');
+$pdf->Cell(45, 0, $_REQUEST['textfield87'], 'B', 1, 'C', 0, '', 0, false, 'T', 'C');
+
+$pdf->Cell(45, 0, 'Porcentaje de enganche', '', 0, 'L', 0, '', 0, false, 'T', 'C');
+$pdf->Cell(45, 0,$_REQUEST['textfield88'], 'B', 1, 'C', 0, '', 0, false, 'T', 'C');
+
+$pdf->Cell(45, 0, 'Porcentaje de financiamineto', '', 0, 'L', 0, '', 0, false, 'T', 'C');
+$pdf->Cell(45, 0,$_REQUEST['textfield89'], 'B', 1, 'C', 0, '', 0, false, 'T', 'C');
+
+$pdf->Cell(45, 0, 'Seguro de auto', '', 0, 'L', 0, '', 0, false, 'T', 'C');
+$pdf->Cell(45, 0, $_REQUEST['textfield97'], 'B', 1, 'C', 0, '', 0, false, 'T', 'C');
+
+$pdf->Cell(45, 0, 'Monto financiado', '', 0, 'L', 0, '', 0, false, 'T', 'C');
+$pdf->Cell(45, 0, $_REQUEST['textfield90'], 'B', 1, 'C', 0, '', 0, false, 'T', 'C');
 }else{
 	$contieneselec="Monto a Financiar";
-	$contieneselec2="Enganche ";
+	
 }
 
 $pdf->Cell(45, 0, $contieneselec, '', 0, 'L', 0, '', 0, false, 'T', 'C');
 $pdf->Cell(45, 0, $_REQUEST['textfield86'], 'B', 1, 'C', 0, '', 0, false, 'T', 'C');
 
 
-$pdf->Cell(45, 0, $contieneselec2, '', 0, 'L', 0, '', 0, false, 'T', 'C');
-$pdf->Cell(45, 0, $_REQUEST['textfield87'], 'B', 1, 'C', 0, '', 0, false, 'T', 'C');
-
-$pdf->Cell(45, 0, 'Porcentaje de enganche', '', 0, 'L', 0, '', 0, false, 'T', 'C');
-$pdf->Cell(45, 0,$_REQUEST['textfield89'], 'B', 1, 'C', 0, '', 0, false, 'T', 'C');
-
-$pdf->Cell(45, 0, 'Monto financiado', '', 0, 'L', 0, '', 0, false, 'T', 'C');
-$pdf->Cell(45, 0, $_REQUEST['textfield90'], 'B', 1, 'C', 0, '', 0, false, 'T', 'C');
-
 $pdf->Cell(45, 0, 'Plazo', '', 0, 'L', 0, '', 0, false, 'T', 'C');
 $pdf->Cell(45, 0, $_REQUEST['textfield91'], 'B', 1, 'C', 0, '', 0, false, 'T', 'C');
 
 $pdf->Cell(45, 0, 'Pago mensual esperado', '', 0, 'L', 0, '', 0, false, 'T', 'C');
 $pdf->Cell(45, 0, $_REQUEST['textfield92'], 'B', 1, 'C', 0, '', 0, false, 'T', 'C');
+
+$pdf->Cell(45, 0, 'Comision por apertura', '', 0, 'L', 0, '', 0, false, 'T', 'C');
+$pdf->Cell(45, 0, $_REQUEST['textfield96'], 'B', 1, 'C', 0, '', 0, false, 'T', 'C');
+
+
+$pdf->Cell(45, 0, 'Seguro de vida', '', 0, 'L', 0, '', 0, false, 'T', 'C');
+$pdf->Cell(45, 0, $_REQUEST['textfield98'], 'B', 1, 'C', 0, '', 0, false, 'T', 'C');
+
+$pdf->Cell(45, 0, 'Seguro de desempleo', '', 0, 'L', 0, '', 0, false, 'T', 'C');
+$pdf->Cell(45, 0, $_REQUEST['textfield99'], 'B', 1, 'C', 0, '', 0, false, 'T', 'C');
 $pdf->Ln(15);
 
 $pdf->Cell(45, 0, '    ', '', 0, 'C', 0, '', 0, false, 'T', 'C');

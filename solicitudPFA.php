@@ -1571,59 +1571,84 @@ input::-moz-placeholder {
           </table>
 		  <br>
           
-          <div>
+        
 
           <div class="row">
-          <div class="small-5 columns">
+          <div class="small-6 columns">
 
           <div>
-              <p id="valorautochange"></p>
-              <p><input name="textfield86" type="text" id="textfield86" size="50%" onkeypress="return validaNumeroDecimal(event)"  required ></p>
+          <label>
+            
+              <p id="valorautochange" align="left"></p>
+             <input name="textfield86" type="text" id="textfield86" size="50%" onkeypress="return validaNumeroDecimal(event)"  required >
+          </label>
             </div>
             <div id="engautochange">
-              <p >Enganche  </p>
-              <p><input name="textfield87" type="text" id="textfield87" size="50%" onkeypress="return validaNumeroDecimal(event)"   onchange="datosAuto()"></p>
+            <label>
+              <p align="left ">Enganche <input name="textfield87" type="text" id="textfield87" size="50%" onkeypress="return validaNumeroDecimal(event)"   onchange="datosAuto()"></p>
+            </label>
             </div>
             <div id="porengautochange">
-              <p>Porcentaje de Enganche </p>
-              <p><input name="textfield88" type="text" id="textfield88" size="50%"  readonly></p>
+            <label> <p align="left">Porcentaje de Enganche<input name="textfield88" type="text" id="textfield88" size="50%"  readonly></p>
+            </label>
             </div>
             <div id="porfinautochange">
-              <p>Porcentaje de Financieamiento </p>
-              <p><input name="textfield89" type="text" id="textfield89" size="50%"  readonly></p>
+            <label> 
+              <p align="left">Porcentaje de Financieamiento<input name="textfield89" type="text" id="textfield89" size="50%"  readonly></p>
+            </label>
             </div>
             <div id="monfinautochange">
-              <p>Monto Financiado </p>
-              <p><input name="textfield90" type="text" id="textfield90" size="50%"  readonly></p>
+            <label>
+              
+              <p align="left">Monto Financiado <input name="textfield90" type="text" id="textfield90" size="50%"  readonly></p>
+            </label>
             </div>
             <div>
-              <p>Interes Anual</p>
-              <p><input name="textfield100" type="text" id="textfield100" size="50%"  readonly onkeypress="return validaNumero(event)" ></p>
+            <label>
+              
+              <p align="left">Interes Anual<input name="textfield100" type="text" id="textfield100" size="50%"  readonly onkeypress="return validaNumero(event)" ></p>
+            </label>
             </div>
             <div id="comisionapchange">
-              <p>Comisión por Apertura</p>
-              <p><input name="textfield96" type="text" id="textfield96" size="50%"  readonly onkeypress="return validaNumero(event)" ></p>
+            <label>
+              
+              <p align="left">Comisión por Apertura<input name="textfield96" type="text" id="textfield96" size="50%"  readonly onkeypress="return validaNumero(event)" ></p>
+            </label>
             </div>
+          </div>
+          <div class="small-5 columns">
+            
             <div id="segautochange">
-              <p>Seguro de Auto</p>
-              <p><input name="textfield97" type="text" id="textfield97" size="50%"  onkeypress="return validaNumero(event)" ></p>
+
+            <label>
+              
+              <p align="left">Seguro de Auto<input name="textfield97" type="text" id="textfield97" size="50%"  onkeypress="return validaNumero(event)" ></p>
+            </label>
             </div>
             <div>
-              <p>Seguro de Vida</p>
-              <p><input name="textfield98" type="text" id="textfield98" size="50%"  onkeypress="return validaNumero(event)" ></p>
+            <label>
+              
+              <p align="left">Seguro de Vida<input name="textfield98" type="text" id="textfield98" size="50%"  onkeypress="return validaNumero(event)" ></p>
+            </label>
             </div>
             <div id="segdeschange">
-              <p>Seguro de Desempleo</p>
-              <p><input name="textfield99" type="text" id="textfield99" size="50%"  onkeypress="return validaNumero(event)" ></p>
+            <label>
+              
+              <p align="left">Seguro de Desempleo<input name="textfield99" type="text" id="textfield99" size="50%"  onkeypress="return validaNumero(event)" ></p>
+            </label>
             </div>
             <div>
-              <p>Plazo (meses)</p>
-              <p><input name="textfield91" type="text" id="textfield91" size="50%"  onkeypress="return validaNumero(event)" required></p>
+            <label>
+              
+              <p align="left">Plazo (meses)<input name="textfield91" type="text" id="textfield91" size="50%"  onkeypress="return validaNumero(event)" required></p>
+            </label>
             </div>
             
             <div>
-              <p>Pago Mensual Esperado </p>
-              <p><input name="textfield92" type="text" id="textfield92" size="50%"  onkeypress="return validaNumeroDecimal(event)" required></p>
+            <label>
+              
+              <p align="left">Pago Mensual Esperado<input name="textfield92" type="text" id="textfield92" size="50%"  onkeypress="return validaNumeroDecimal(event)" required></p>
+            </label>
             </div>
 
          <p><input type="button" class="button" data-open="Aut" value="Cambiar Valores"></p>
@@ -1644,8 +1669,8 @@ input::-moz-placeholder {
 </div>
           </div>
           </div>
-		  <br>
-	      <p align="left">¿ Usted o algún familiar suyo de hasta segundo grado de consanguinidad o afinidad (cónyuge,padre,madre,hijos,hermanos, abuelos, tios, primos, cuñados, suegros, yernos, etc), desempeña o a desempeñado funciones públicas destacadas en el territorio nacional o en el Extranjero (incluyendo puestos de Gobierno Federales, Estatales ,Municipales, funciones gubernamentales o judiciales, en partidos politicos, militares de alta jerarquía, altos ejecutivos de empresas paraestatales, etc.?<br>
+      <br>
+        <p align="left">¿ Usted o algún familiar suyo de hasta segundo grado de consanguinidad o afinidad (cónyuge,padre,madre,hijos,hermanos, abuelos, tios, primos, cuñados, suegros, yernos, etc), desempeña o a desempeñado funciones públicas destacadas en el territorio nacional o en el Extranjero (incluyendo puestos de Gobierno Federales, Estatales ,Municipales, funciones gubernamentales o judiciales, en partidos politicos, militares de alta jerarquía, altos ejecutivos de empresas paraestatales, etc.?<br>
 	        
                 <input id="PEPS1" name="PEPS" type="radio" value="Si" <?php if(isset($row2['Folio_Cliente'])) { if($row3['PEPS']=='Si'){echo "checked";} } ?>><label for="PEPS1"> Si</label>
 
