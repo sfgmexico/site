@@ -106,9 +106,9 @@
 
 <div class="menu-centered">
   <ul class='tabs' data-tabs id='example-tabs'>
-  <li class='tabs-title'><a href='#panel1' aria-selected='true'>Tipo de Créditos</a></li>
-  <li class='tabs-title'><a href='#panel2'>Otros</a></li>
-  <li class='tabs-title'><a href='#panel3'>Otros</a></li>
+  <li class='tabs-title'><a href='#panel1' id="tab1" aria-selected='true'>Tipo de Créditos</a></li>
+  <li class='tabs-title'><a href='#panel2' id="tab2">Usuarios</a></li>
+  <li class='tabs-title'><a href='#panel3' id="tab3">Otros</a></li>
 
 </ul>
 </div>
@@ -120,17 +120,157 @@
 
 
 <div class="tabs-panel" id="panel1">
-    <p>holo dice kevin </p>
+    <div id="panel1A"></div>
+    <input name="updatecreditos" class="button" type="button" id="updatecreditos"  value="Modificar">
  </div>
 
 <div class="tabs-panel" id="panel2">
- 
+    <div id="panel2A"></div>
 </div>
 
 <div class="tabs-panel" id="panel3" >
    
 </div>
+<script>
 
+
+
+$("#tab1").click(function(event) {
+ 
+
+   var data = new FormData();
+
+
+   data.append('panel', 'panel1');
+
+    if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
+        document.getElementById("panel1A").innerHTML = xmlhttp.responseText;
+        
+        
+
+        
+      }
+  }
+xmlhttp.open("POST","confdata.php",true);
+xmlhttp.send(data);
+                
+                                });
+
+$("#tab2").click(function(event) {
+ 
+
+   var data = new FormData();
+
+
+   data.append('panel', 'panel2');
+
+    if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
+        document.getElementById("panel2A").innerHTML = xmlhttp.responseText;
+        
+        
+
+        
+      }
+  }
+xmlhttp.open("POST","confdata.php",true);
+xmlhttp.send(data);
+                
+                                });
+
+
+
+
+$("#updatecreditos").click(function(event) {
+ 
+
+   var data = new FormData();
+
+
+   data.append('panel', 'updatepanel1');
+
+   data.append('tasa_1', document.getElementById("tasa_1").value);
+   data.append('tasa_2', document.getElementById("tasa_2").value);
+   data.append('tasa_3', document.getElementById("tasa_3").value);
+   data.append('tasa_4', document.getElementById("tasa_4").value);
+   data.append('tasa_5', document.getElementById("tasa_5").value);
+   data.append('tasa_6', document.getElementById("tasa_6").value);
+   data.append('tasa_7', document.getElementById("tasa_7").value);
+   data.append('tasa_8', document.getElementById("tasa_8").value);
+   data.append('tasa_9', document.getElementById("tasa_9").value);
+   data.append('tasa_10', document.getElementById("tasa_10").value);
+   data.append('tasa_11', document.getElementById("tasa_11").value);
+   data.append('tasa_12', document.getElementById("tasa_12").value);
+  
+   data.append('comision_1', document.getElementById("comision_1").value);
+   data.append('comision_2', document.getElementById("comision_2").value);
+   data.append('comision_3', document.getElementById("comision_3").value);
+   data.append('comision_4', document.getElementById("comision_4").value);
+   data.append('comision_5', document.getElementById("comision_5").value);
+   data.append('comision_6', document.getElementById("comision_6").value);
+   data.append('comision_7', document.getElementById("comision_7").value);
+   data.append('comision_8', document.getElementById("comision_8").value);
+   data.append('comision_9', document.getElementById("comision_9").value);
+   data.append('comision_10', document.getElementById("comision_10").value);
+   data.append('comision_11', document.getElementById("comision_11").value);
+   data.append('comision_12', document.getElementById("comision_12").value);
+
+
+
+
+
+
+    if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
+        alert(xmlhttp.responseText);
+        
+        
+
+        
+      }
+  }
+xmlhttp.open("POST","confdata.php",true);
+xmlhttp.send(data);
+                
+                                });
+
+
+
+
+
+
+</script>
 
     <script  scr="js/validasolicitud.js"></script>
     <script src="js/vendor/jquery.js"></script>
