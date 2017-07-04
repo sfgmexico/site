@@ -1620,6 +1620,7 @@ input::-moz-placeholder {
               <p>Plazo (meses)</p>
               <p><input name="textfield91" type="text" id="textfield91" size="50%"  onkeypress="return validaNumero(event)" required></p>
             </div>
+            
             <div>
               <p>Pago Mensual Esperado </p>
               <p><input name="textfield92" type="text" id="textfield92" size="50%"  onkeypress="return validaNumeroDecimal(event)" required></p>
