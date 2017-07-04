@@ -1582,7 +1582,7 @@ input::-moz-placeholder {
             </div>
             <div id="engautochange">
               <p >Enganche  </p>
-              <p><input name="textfield87" type="text" id="textfield87" size="50%" onkeypress="return validaNumeroDecimal(event)"  required onchange="datosAuto()"></p>
+              <p><input name="textfield87" type="text" id="textfield87" size="50%" onkeypress="return validaNumeroDecimal(event)"   onchange="datosAuto()"></p>
             </div>
             <div id="porengautochange">
               <p>Porcentaje de Enganche </p>
@@ -1598,23 +1598,23 @@ input::-moz-placeholder {
             </div>
             <div>
               <p>Interes Anual</p>
-              <p><input name="textfield100" type="text" id="textfield100" size="50%"  readonly onkeypress="return validaNumero(event)" required></p>
+              <p><input name="textfield100" type="text" id="textfield100" size="50%"  readonly onkeypress="return validaNumero(event)" ></p>
             </div>
             <div id="comisionapchange">
               <p>Comisión por Apertura</p>
-              <p><input name="textfield96" type="text" id="textfield96" size="50%"  readonly onkeypress="return validaNumero(event)" required></p>
+              <p><input name="textfield96" type="text" id="textfield96" size="50%"  readonly onkeypress="return validaNumero(event)" ></p>
             </div>
             <div id="segautochange">
               <p>Seguro de Auto</p>
-              <p><input name="textfield97" type="text" id="textfield97" size="50%"  onkeypress="return validaNumero(event)" required></p>
+              <p><input name="textfield97" type="text" id="textfield97" size="50%"  onkeypress="return validaNumero(event)" ></p>
             </div>
             <div>
               <p>Seguro de Vida</p>
-              <p><input name="textfield98" type="text" id="textfield98" size="50%"  onkeypress="return validaNumero(event)" required></p>
+              <p><input name="textfield98" type="text" id="textfield98" size="50%"  onkeypress="return validaNumero(event)" ></p>
             </div>
             <div id="segdeschange">
               <p>Seguro de Desempleo</p>
-              <p><input name="textfield99" type="text" id="textfield99" size="50%"  onkeypress="return validaNumero(event)" required></p>
+              <p><input name="textfield99" type="text" id="textfield99" size="50%"  onkeypress="return validaNumero(event)" ></p>
             </div>
             <div>
               <p>Plazo (meses)</p>
