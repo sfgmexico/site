@@ -195,7 +195,43 @@
    
 </div>
 <script>
+function obtendatos(elementoid){
 
+  var data = new FormData();
+
+
+   data.append('panel', 'obtendata');
+   data.append('dataid', elementoid);
+
+
+    if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
+       
+
+        obj = JSON.parse(xmlhttp.responseText);
+         document.getElementById("per").checked = parseInt(obj.GSolicitudes);
+         document.getElementById("per1").checked = parseInt(obj.BSolicitudes);
+         document.getElementById("per2").checked = parseInt(obj.GCotizacion);
+         document.getElementById("per3").checked = parseInt(obj.BQeQ);
+         document.getElementById("per4").checked = parseInt(obj.SetConf);
+        
+        
+        
+      }
+  }
+xmlhttp.open("POST","confdata.php",true);
+xmlhttp.send(data);
+}
 
 
 $("#tab1").click(function(event) {

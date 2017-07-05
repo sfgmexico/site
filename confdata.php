@@ -95,7 +95,7 @@ if($_REQUEST['panel']=="panel2"){
 			  <tr>
 			  	<td>'.$row['nombre'].'</td>
 			  	<td>'.$row['llave_autorizacion'].'</td>
-			  	 <td> <input class="button" type="button"  data-open="exampleModal2" name="modi" value="Modificar"> </td>';
+			  	 <td> <input class="button" type="button"  data-open="exampleModal2" name="modi" id="'.$row['id'].'" value="Modificar" onclick="obtendatos(this.id)"> </td>';
 
 			  	
 
@@ -109,9 +109,16 @@ if($_REQUEST['panel']=="panel2"){
 }
 
 
-if($_REQUEST['panel']=="updatepanel2"){
+if($_REQUEST['panel']=="obtendata"){
 
-
+	
+	include('Conexion2.php');
+	$result=mysqli_query($cnx,"select * from acceso where id='".$_REQUEST['dataid']."'");
+	if($result===false){
+		exit();
+	}
+	$row=mysqli_fetch_array($result);
+	echo json_encode($row);
 }
 
 
