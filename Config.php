@@ -126,6 +126,7 @@
 
 <div class="tabs-panel" id="panel2">
     <div id="panel2A"></div>
+   
 </div>
 
 <div class="tabs-panel" id="panel3" >

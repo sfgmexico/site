@@ -63,14 +63,90 @@ if($_REQUEST['panel']=="updatepanel1"){
 	echo 'Realizado';
 	} catch (Exception $e) {
 		echo 'Error';
+	}	
+}
+
+
+if($_REQUEST['panel']=="panel2"){
+	include('Conexion2.php');
+	$result=mysqli_query($cnx,"select * from acceso");
+	if($result===false){
+		exit();
 	}
-	
+
+	echo '<table class="stack">';
+
+		echo '<thead>
+				<tr>
+					<td>Usuario</td>
+					<td>Llave de un solo uso</td>
+					<td>Generación de Solicitudes</td>
+					<td>Buscar Solicitudes</td>
+					<td>Generar Cotización</td>
+					<td>QeQ</td>
+					<td>Acceso a Configuración</td>
+				</tr>
+			  </thead>';
+
+	while($row=mysqli_fetch_array($result)){
+		$checkbox1="";
+		$checkbox2="";
+		$checkbox3="";
+		$checkbox4="";
+		$checkbox5="";
+		
+			echo '
+			  <tr>
+			  	<td>'.$row['nombre'].'</td>
+			  	<td>'.$row['llave_autorizacion'].'</td>';
+
+			  	if($row['GSolicitudes']){
+			  		$checkbox1="checked";
+			  	}
+			  	if($row['BSolicitudes']){
+			  		$checkbox2="checked";
+			  	}
+			  	if($row['GCotizacion']){
+			  		$checkbox3="checked";
+			  	}
+			  	if($row['BQeQ']){
+			  		$checkbox4="checked";
+			  	}
+			  	if($row['SetConf']){
+			  		$checkbox5="checked";
+			  	}
 
 
 
 
 
-	
+			echo '<td><input type="checkbox" id="ck1_'.$row['GSolicitudes'].'" '.$checkbox1.'></td>';
+
+			echo '<td><input type="checkbox" id="ck2_'.$row['BSolicitudes'].'" '.$checkbox2.'></td>';
+
+			echo '<td><input type="checkbox" id="ck3_'.$row['GSolicitudes'].'" '.$checkbox3.'></td>';
+
+			echo '<td><input type="checkbox" id="ck4_'.$row['GSolicitudes'].'" '.$checkbox4.'></td>';
+
+			echo '<td><input type="checkbox" id="ck5_'.$row['GSolicitudes'].'" '.$checkbox5.'></td>
+			  </tr>
+
+
+			  ';
+
+
+		
+	}
+
+	echo '</table>';
+
+
+}
+
+
+if($_REQUEST['panel']=="updatepanel2"){
+
+
 }
 
 
