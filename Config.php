@@ -87,6 +87,35 @@
     transform: rotate(360deg);
   }
   }
+  input[type=checkbox].css-checkbox {
+              position:absolute; z-index:-1000; left:-1000px; overflow: hidden; clip: rect(0 0 0 0); height:1px; width:1px; margin:-1px; padding:0; border:0;
+            }
+
+            input[type=checkbox].css-checkbox + label.css-label {
+              padding-left:29px;
+              height:24px; 
+              display:inline-block;
+              line-height:24px;
+              background-repeat:no-repeat;
+              background-position: 0 0;
+              font-size:24px;
+              vertical-align:middle;
+              cursor:pointer;
+
+            }
+
+            input[type=checkbox].css-checkbox:checked + label.css-label {
+              background-position: 0 -24px;
+            }
+            label.css-label {
+        background-image:url(images/csscheckbox_4f6bc9a7cc47504b9c36e04aa489f19e.png);
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
   </style>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -126,7 +155,40 @@
 
 <div class="tabs-panel" id="panel2">
     <div id="panel2A"></div>
-   
+   <div class="reveal" id="exampleModal2" data-reveal>
+  <h1>Permisos!</h1>
+<div class="row">
+<p align="left">
+  <div class="small-6 columns">
+    
+  <input class="css-checkbox" type="checkbox" name="per" id="per"> <label for="per" class="css-label">Crear Solicitud</label>
+  </div>
+<div class="small-5 columns">
+  
+  <input class="css-checkbox" type="checkbox" name="per" id="per2"> <label for="per2" class="css-label">Cotizacion</label>
+</div>
+<div class="small-7 columns">
+  
+  <input class="css-checkbox" type="checkbox" name="per" id="per1" checked> <label for="per1" class="css-label">Buscar Solicitudes</label>
+</div>
+  <div class="small-6 columns">
+    
+  <input class="css-checkbox" type="checkbox" name="per" id="per3"><label for="per3" class="css-label"> QeQ</label>
+  </div>
+<div class="small-6 columns">
+  <input class="css-checkbox" type="checkbox" name="per" id="per4"> <label for="per4" class="css-label">Configuracion</label>
+</div>
+</p>
+</div>
+
+
+  
+
+
+  <button class="close-button" data-close aria-label="Close reveal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
 </div>
 
 <div class="tabs-panel" id="panel3" >

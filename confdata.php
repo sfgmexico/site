@@ -80,11 +80,7 @@ if($_REQUEST['panel']=="panel2"){
 				<tr>
 					<td>Usuario</td>
 					<td>Llave de un solo uso</td>
-					<td>Generación de Solicitudes</td>
-					<td>Buscar Solicitudes</td>
-					<td>Generar Cotización</td>
-					<td>QeQ</td>
-					<td>Acceso a Configuración</td>
+					<td>Permisos</td>
 				</tr>
 			  </thead>';
 
@@ -98,41 +94,10 @@ if($_REQUEST['panel']=="panel2"){
 			echo '
 			  <tr>
 			  	<td>'.$row['nombre'].'</td>
-			  	<td>'.$row['llave_autorizacion'].'</td>';
+			  	<td>'.$row['llave_autorizacion'].'</td>
+			  	 <td> <input class="button" type="button"  data-open="exampleModal2" name="modi" value="Modificar"> </td>';
 
-			  	if($row['GSolicitudes']){
-			  		$checkbox1="checked";
-			  	}
-			  	if($row['BSolicitudes']){
-			  		$checkbox2="checked";
-			  	}
-			  	if($row['GCotizacion']){
-			  		$checkbox3="checked";
-			  	}
-			  	if($row['BQeQ']){
-			  		$checkbox4="checked";
-			  	}
-			  	if($row['SetConf']){
-			  		$checkbox5="checked";
-			  	}
-
-
-
-
-
-			echo '<td><input type="checkbox" id="ck1_'.$row['GSolicitudes'].'" '.$checkbox1.'></td>';
-
-			echo '<td><input type="checkbox" id="ck2_'.$row['BSolicitudes'].'" '.$checkbox2.'></td>';
-
-			echo '<td><input type="checkbox" id="ck3_'.$row['GSolicitudes'].'" '.$checkbox3.'></td>';
-
-			echo '<td><input type="checkbox" id="ck4_'.$row['GSolicitudes'].'" '.$checkbox4.'></td>';
-
-			echo '<td><input type="checkbox" id="ck5_'.$row['GSolicitudes'].'" '.$checkbox5.'></td>
-			  </tr>
-
-
-			  ';
+			  	
 
 
 		
