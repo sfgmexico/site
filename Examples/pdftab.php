@@ -190,6 +190,7 @@ $tbl = <<<EOD
 EOD;
 
 $pdf->writeHTML($tbl, true, false, false, false, '');
+
 // close and output PDF document
 $pdf->Output('example_011.pdf', 'I');
 

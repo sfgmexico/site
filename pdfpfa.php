@@ -1025,7 +1025,7 @@ $pdf->SetAlpha(0.2);
 $pdf->Ln(1);
 $pdf->Ln(1);
 
-$pdf->SetFontSize(6,true);	
+$pdf->SetFontSize(7,true);	
 
 
 $pdf->MultiCell(0,0, 'Para el caso de que SERVICIOS FINANCIEROS DEL GUADIANA S.A. DE C.V. SOFOM E.N.R. (SFG) ofrezca el servicio de consulta e impresión de estados de cuenta a través de su página de Internet (www.sfgmexico.mx), el apoderado: (i) instruye a SFG para que los estados de cuenta sólo se pongan a disposición a través de dicho medio, (ii) se obliga a consultarlos periódicamente y con toda oportunidad y (iii) releva a SFG de enviar estados de cuenta al domicilio de su representada. En el caso de que el apoderado no esté conforme con lo anterior, deberá marcar cualquiera de los siguientes recuadros:' , 0, 'L', 0, 1, '', '', true,1,false,true);
@@ -1141,7 +1141,7 @@ $pdf->MultiCell(0,0, 'Datos de inscripcion en el registro publico de contratos d
 
 
 $pdf->SetAlpha(0.2);
-$pdf->RoundedRect(15, 29, 186, 150, 6.5, '0000','DF',null ,array(255, 255, 200) );
+$pdf->RoundedRect(15, 29, 186, 193, 6.5, '0000','DF',null ,array(255, 255, 200) );
 
 $pdf->AddPage();
 $clienteEst = array( 1 => array( 1 => "X" , 2 => " ","" => " " ),

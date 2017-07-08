@@ -38,8 +38,8 @@ if(!$_SESSION['usser']) {
 <!-- content -->
 <section>
 	
-		<div class="medium-10 large-11 medium-push-4 large-push-2 columns" >
-			<div class="medium-8 columns">
+		
+		
 			<head>
 			<img src="images/logosfg.png" >
 		
@@ -90,15 +90,248 @@ if(!$_SESSION['usser']) {
 </head>
 
 		<div class="container" id="htmlext" >
+
+
+  <div class="medium-2 columns">
+    <ul class="vertical tabs" data-tabs id="example-tabs">
+      <li class="tabs-title is-active"><a href="#panel1v" aria-selected="true">Clientes</a></li>
+      <li class="tabs-title"><a href="#panel2v">Solicitudes</a></li>
+      <li class="tabs-title"><a href="#panel3v">Conocimiento del cliente</a></li>
+      <li class="tabs-title"><a href="#panel4v">Documentacion</a></li>
+      <li class="tabs-title"><a href="#panel5v">Tab 5</a></li>
+      <li class="tabs-title"><a href="#panel6v">Tab 6</a></li>
+    </ul>
+  </div>
+  <div class="medium-9 columns">
+    <div class="tabs-content" data-tabs-content="example-tabs">
+      <div class="tabs-panel is-active" id="panel1v">
+      <ul class="tabs" data-active-collapse="true" data-tabs id="collapsing-tabs">
+  <li class="tabs-title is-active"><a href="#panel1c" aria-selected="true">Datos Generales</a></li>
+  <li class="tabs-title"><a href="#panel2c">Datos Laborales</a></li>
+  <li class="tabs-title"><a href="#panel3c">Referencias Personales</a></li>
+  <li class="tabs-title"><a href="#panel4c">Informacion Bancaria</a></li>
+  <li class="tabs-title"><a href="#panel5c">Referencias Comerciales</a></li>
+  <li class="tabs-title"><a href="#panel6c">Datos del Conyuge</a></li>
+  <li class="tabs-title"><a href="#panel7c">Accionistas</a></li>
+  <li class="tabs-title"><a href="#panel8c">Beneficiario</a></li>
+</ul>
+
+<div class="tabs-content" data-tabs-content="collapsing-tabs">
+  <div class="tabs-panel is-active" id="panel1c">
+  <div class="row">
+  <div class="small-3 columns">
+  	
+<select name="TipoCliente"> <option>-Seleccione una opción-</option> <option>Persona Fisica</option><option>Persona Moral</option> </select> 
+  </div>
+  </div>
+  <div class="row">
+  	
+<div class="medium-3 columns">
+	
+           <label>Primer nombre
+           	 <input name="nomsol" type="text" id="nomsol" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['NomSolicitante']; } ?>" onkeyup="viewButton()" placeholder="Primer Nombre"  onkeypress="return validaTexto(event)"pattern="alpha"> 
+           </label>
+</div>
+<div class="small-3 columns">
+	
+          <label> Segundo Nombre <input name="segnomsol" type="text" id="segnomsol"   value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['SegNomSolicitante']; } ?>" placeholder="Segundo Nombre" onkeypress="return validaTexto(event)" pattern="alpha"></label>
+</div>
+
+        <div class="small-3 columns">
+        	<label> Apellido Paterno
+            <input name="apepasol" type="text" id="apepasol"  value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['ApPatSolicitante']; } ?>" onkeyup="viewButton()" placeholder="Apellido Parteno"  onkeypress="return validaTexto(event)" pattern="alpha">  </label>
+        </div> 
+        <div class="small-3 columns">
+        	<labbel> Apellido Materno
+            <input name="apemasol" type="text" id="apemasol" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['ApMatSolicitante']; } ?>" placeholder="Apellido Materno"  onkeypress="return validaTexto(event)" pattern="alpha"></labbel>
+        </div>
+  </div>
+  
+    
+		<p align="left">
+		<div class="small-3 columns">
+			<label> RFC
+				<input name="rfc1" type="text" id="rfc1" value="<?php if(isset($row2['Folio_Cliente']))  { echo $row2['RFCSolicitante'][0];}?>" maxlength="1" onKeyUp="myFunction(this,this.value,rfc2)" onkeypress="return validaRFC(event)" pattern="alpha_numeric"> </label>
+		</div>
+		
+			
+	<div class="small-3 columns">
+				
+			<label> Telefono Particular
+				<input name="telsol1" type="text" id="telsol1"  value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['TelSolicitante'][0]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,telsol2)" onkeypress="return validaNumero(event)" pattern="integer"></label>
+			</div>
+
+	 <div class="small-3 columns">
+	 <label> Telefono Movil
+	 <input name="movsol1" type="text" id="movsol1" size="1px" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['MovSolicitante'][0]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,movsol2)" onkeypress="return validaNumero(event)" pattern="integer">
+	 </label>
+	 </div>		
+            <div class="small-3 columns">
+            <label> Email
+            <input name="mailsol" type="text" id="mailsol" size="20px" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['EmailSolicitante']; } ?>"placeholder="Email" pattern="email"></label></div>
+		</p>
+	
+       <p align="left">
+            <div class="small-5 columns"><label> Direccion / Calle
+            <input name="dirsol" type="text" id="dirsol" size="74px" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['DirSolicitante']; } ?>" placeholder="Dirección / Calle" onkeypress="return validaTexto(event)" pattern="alpha"></label></div>
+            
+            <div class="small-2 columns"><label> Numero <input name="dirnumsol" type="text" id="dirnumsol" size="20px" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['NumDirSol']; } ?>" placeholder="Número" onkeypress="return validaNumero(event)" pattern="integer"></label></div>
+           
+            <div class="small-3 columns"><label>Colonia<input name="colsol" type="text" id="colsol" size="49px" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['ColSolicitante']; } ?>" placeholder="Colonia"></label></div>
+           
+            <div class="small-2 columns"><label>Codigo Postal<input name="cpsol" type="text" id="cpsol" size="20px" placeholder="C.P." value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['CPSolicitante']; } ?>"onkeypress="return validaNumero(event)" pattern="integer"></label></div>
+
+            <div class="small-3 columns"><label>Lugar de nacimiento<input name="lugnacsol" type="text" id="lugnacsol" size="20px" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['LugNacSolicitante']; } ?>"placeholder="Lugar de nacimiento (País y Estado)"></label></div>
+            
+            <div class="small-3 columns"><label>Estado <input name="edosol" type="text" id="edosol" size="20px" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['EdoSolicitante']; } ?>"placeholder="Estado"></label></div>
+           
+            <div class="small-3 columns"><label>Ciudad<input name="cdsol" type="text" id="cdsol" size="20px" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['CdSolicitante']; } ?>" placeholder="Ciudad"></label></div>
+           
+            <div class="small-3 columns"><label>CURP <input name="curpsol" type="text" id="curpsol" size="49px" placeholder="CURP" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['CURPSolicitante']; } ?>" onkeypress="return validaRFC(event)" pattern="alpha_numeric"></label></div>
+          </p>
+  
+
+   
+           <div class="row">
+           <div class="small-3 columns">
+           <p align="left">Sexo:
+             
+            <input id="sexsol1" name="sexsol" type="radio" <?php if (isset($row2['Folio_Cliente'])) { if($row2['SexoDatGen']=='Masculino'){echo "checked";} } ?> value="Masculino"><label for="sexsol1"><i class="step fi-male size-72"></i> M</label>
+             
+            <input id="sexsol2" name="sexsol" type="radio" <?php if (isset($row2['Folio_Cliente'])) { if($row2['SexoDatGen']=='F' || $row2['SexoDatGen']=='Femenino' ){echo "checked";} } ?> value="Femenino"><label for="sexsol2"><i class="step fi-female size-72"></i> F</label>
+           </p>
+           </div>
+           <p align="left">
+            <div class="small-3 columns">
+            <label>Fecha de nacimiento
+            <input name="fechnacsol" type="date" id="fechnacsol" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['FeNacDatGen']; } ?>" placeholder="dd" ></label></div>
+
+            <div class="small-3 columns"> <label> Edad
+            <input name="edsol" type="number" id="edsol" size="2px" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['EdDatGen']; } ?>" placeholder="Edad"maxlength="2" onKeyUp="mayorEdad(this, this.value)" onkeypress="return validaNumero(event)" pattern="integer"></label></div>
+            
+            <div class="small-3 columns"> <label>Nacionalidad
+            <input name="nacsol" type="text" id="nacsol" size="10px" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['NaDatGen']; } ?>" placeholder="Nacionalidad" onkeypress="return validaTexto(event)" pattern="alpha"></label></div>
+
+            <div class="small-3 columns"><label>Num. Dependientes
+            <input name="depensol" type="text" id="depensol" size="10px" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['NoDepDatGen']; } ?>" placeholder="Num. Dependientes" onkeypress="return validaNumero(event)" pattern="integer"></label></div>
+
+            <div class="small-3 columns"><label>Acredita Domicilio con:
+            <input name="acdomsol" type="text" id="acdomsol" size="10px" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['AcDomDatGen']; } ?>" placeholder="Acredita Domicilio con"></label></div>
+          </p>
+
+         
+          <p align="left">
+            <div class="small-3 columns"><label> Años de residir en la ciudad
+            <input name="anosol" type="text" id="anosol" size="13" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['AnResDatGen']; } ?>" placeholder="Años de residir en la ciudad" onkeypress="return validaNumero(event)" pattern="integer"></label></div>
+            
+            <div class="small-3 columns"><label> Arraigo en el domicilio
+            <input name="arraisol" type="text" id="arraisol" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['ArDomDatGen']; } ?>" placeholder="Arraigo en el domicilio desde el año" onkeypress="return validaNumero(event)" pattern="integer"></label></div>
+           
+            <div class="small-3 columns"><label>Acredita Domicilio con
+            <input name="acdomsol2" type="text" id="acdomsol2" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['AcDomDatGen']; } ?>" size="16px" placeholder="Acredita Domicilio con"></label></div>
+            
+            <div class="small-3 columns"> <label>Años de residir en la ciudad
+            <input name="anosol2" type="text" id="anosol2" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['AnResDatGen']; } ?>" size="20px" placeholder="Años de residir en la ciudad" onkeypress="return validaNumero(event)" pattern="integer"></label></div>
+          </p>
+            </div>
+                   <div class="row">
+          <p align="left">vive en: <br>
+             <div class="small-2 columns">
+               <input id="vivsol1" name="vivsol" type="radio" <?php if(isset($row2['Folio_Cliente'])) { if($row2['VivDatGen']=='Casa Propia'){echo "checked";} }?> value="1"><label for="vivsol1">Casa Propia</label>
+             </div>
+              <div class="small-2 columns">
+              	
+               <input id="vivsol2" name="vivsol" type="radio" <?php if(isset($row2['Folio_Cliente'])) { if($row2['VivDatGen']=='Rentada'){echo "checked";} } ?> value="2"><label for="vivsol2">Rentada</label>
+              </div>
+              <div class="small-2 columns">
+               <input id="vivsol3" name="vivsol" type="radio" <?php if(isset($row2['Folio_Cliente'])) { if($row2['VivDatGen']=='Hipotecada'){echo "checked";} } ?> value="3"><label for="vivsol3">Hipotecada</label>
+               </div>
+                       <div class="small-3 columns">
+                <input id="vivsol4" name="vivsol" type="radio" <?php if(isset($row2['Folio_Cliente'])) { if($row2['VivDatGen']=='Casa propiedad de sus familiares'){echo "checked";} } ?> value="4"><label for="vivsol4">Casa propiedad de sus familiares</label>
+          </div>
+                     <div class="small-3 columns">
+               	
+                <input id="vivsol5" name="vivsol" type="radio" <?php if(isset($row2['Folio_Cliente'])) { if($row2['VivDatGen']=='Otros especificar'){echo "checked";} } ?> value="5"><label for="vivsol5">Otros especificar<input name="vivsolesp" type="text" id="vivsolesp" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['OtrDatGen']; } ?>" pattern="alpha">
+</label>
+               </div> 
+                
+          </p>
+           </div>
+          <p align="left">Es propietario de algún inmueble:
+            <input id="inmusol1" name="inmusol" type="radio" <?php if(isset($row2['Folio_Cliente'])) { if($row2['PropInmuDatGen']=='Si'){echo "checked";} } ?> value="1"><label for="inmusol1">Si</label>
+            
+            <input id="inmusol2" name="inmusol" type="radio" <?php if(isset($row2['Folio_Cliente'])) { if($row2['PropInmuDatGen']=='No'){echo "checked";} } ?> value="2"><label for="inmusol2">No</label>
+          </p>
+<div class="row">
+	
+</div>
+  </div>
+  <div class="tabs-panel" id="panel2c">
+    <p>Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus.</p>
+  </div>
+  <div class="tabs-panel" id="panel3c">
+    <img class="thumbnail" src="assets/img/generic/rectangle-3.jpg">
+  </div>
+  <div class="tabs-panel" id="panel4c">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  </div>
+ <div class="tabs-panel" id="panel5c">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  </div>
+   <div class="tabs-panel" id="panel6c">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  </div>
+ <div class="tabs-panel" id="panel7c">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  </div>
+   <div class="tabs-panel" id="panel8c">
+     <div class="row">
+            <p align="left">
+                Beneficiario en caso de fallecimiento:
+             <div class="small-4 columns"><input name="benesol1" type="text" id="benesol1" size="20px" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['ApPatBenDatGen']; } ?>" placeholder="Apellido Paterno" onkeypress="return validaTexto(event)" pattern="alpha"></div>
+             <div class="small-4 columns"><input name="benesol2" type="text" id="benesol2" size="20px" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['ApMatBenDatGen']; } ?>" placeholder="Apellido Materno" onkeypress="return validaTexto(event)" pattern="alpha"></div>
+             <div class="small-4 columns"><input name="benesol3" type="text" id="benesol3" size="30px" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['NomBenDatGen']; } ?>" placeholder="Nombre(s)" onkeypress="return validaTexto(event)" pattern="alpha"></div>
+          </p>
+            </div>
+  </div>
+</div>
+
+      </div>
+      <div class="tabs-panel" id="panel2v">
+        <p>Two</p>
+        <img class="thumbnail" src="assets/img/generic/rectangle-7.jpg">
+      </div>
+      <div class="tabs-panel" id="panel3v">
+        <p>Three</p>
+        <p>Check me out! I'm a super cool Tab panel with text content!</p>
+      </div>
+      <div class="tabs-panel" id="panel4v">
+        <p>Four</p>
+        <img class="thumbnail" src="assets/img/generic/rectangle-2.jpg">
+      </div>
+      <div class="tabs-panel" id="panel5v">
+        <p>Five</p>
+        <p>Check me out! I'm a super cool Tab panel with text content!</p>
+      </div>
+      <div class="tabs-panel" id="panel6v">
+        <p>Six</p>
+        <img class="thumbnail" src="assets/img/generic/rectangle-8.jpg">
+      </div>
+    </div>
+  </div>
+
+
+<!--
 <img src="images/sfg.jpg" width="100%">
+	-->
 				 <div>
  
 
 		</div>
 
 		</div>
-		</div>
-	</div>
+		
+	
 
 	
 </section>
