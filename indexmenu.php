@@ -126,11 +126,44 @@ if(!$_SESSION['usser']) {
   </div>
   </div>
 
-
+<div id="pm">
+	
   <div class="row">
 	     <div class="small-6 columns"><label>Razon social <input name="nomrazsoc2" type="text" id="nomrazsoc2" onchange="return valforms(this.form,this)" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['NomSolicitante']; } ?>"  placeholder="Nombre, Razón Social"></label>
 </div>
+
+<div class="small-3 columns">
+<label>Telefono
+<input name="telsol1" type="text" id="telefono" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['TelSolicitante'][0]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,telsol2)"  ></label></div>
+
+   <div class="small-3 columns"><label> RFC
+   <input name="rfcsol1" type="text" id="rfcsol1" value="<?php if(isset($row2['Folio_Cliente']))  { echo $row2['RFCSolicitante'][0];}?>" maxlength="1"  onKeyUp="myFunction(this,this.value,rfcsol2)"></label></div>
+
+
+	
+	    <p align="left">
+	      <input name="dirsol" type="text" id="dirsol" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['DirSolicitante']; } ?>" placeholder="Dirección / Calle" >
+
+	<label>
+          <input name="dirnumsol" type="text" id="dirnumsol" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['NumDirSol']; } ?>"   placeholder="Número"></label>
+
+          <input name="mailsol2" type="text" id="mailsol2"  value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['EmailSolicitante']; } ?>" placeholder="Email" pattern="email">
+
+	   
+	      <input name="colsol" type="text" id="colsol"  value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['ColSolicitante']; } ?>" placeholder="Colonia">
+
+          <input name="cdsol" type="text" id="cdsol"  value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['CdSolicitante']; } ?>" placeholder="Ciudad">
+          <input name="edosol" type="text" id="edosol"  value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['EdoSolicitante']; } ?>"  placeholder="Estado">
+          <input name="cpsol" type="text" id="cpsol"  value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['CPSolicitante']; } ?>"  placeholder="C.P.">
+	    </p>
+</div>
+
+
  </div>
+ <hr>
+
+ <div id="pfa">
+ 	
   <div class="row">
   	
 <div class="medium-3 columns">
@@ -290,6 +323,7 @@ if(!$_SESSION['usser']) {
             </div>
 
 
+ </div>
 
 <div class="row">
 
