@@ -2,7 +2,6 @@
 
 
 function cambiacartas(){
-	alert('entra function');
 	if(document.getElementById('TipoCliente').value==""){
 		document.getElementById('pfa').style.display='none';
 		document.getElementById('pm').style.display='none';

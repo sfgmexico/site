@@ -126,7 +126,7 @@ if(!$_SESSION['usser']) {
   </div>
   </div>
 
-<div id="pm">
+<div id="pm" style="display:none;">
 	
   <div class="row">
 	     <div class="small-6 columns"><label>Razon social <input name="nomrazsoc2" type="text" id="nomrazsoc2" onchange="return valforms(this.form,this)" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['NomSolicitante']; } ?>"  placeholder="Nombre, Razón Social"></label>
@@ -162,7 +162,7 @@ if(!$_SESSION['usser']) {
  </div>
  <hr>
 
- <div id="pfa">
+ <div id="pfa" style="display:none;">
  	
   <div class="row">
   	
