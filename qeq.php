@@ -130,6 +130,8 @@ leer();
     foreach($xml->persona as $item){
       $salida .=
         "<b>Lista: </b> " . $item->lista ."<br>".
+        "<b>Nombre: </b>".$item->nombrecomp."<br>".
+        "<b>RFC: </b>".$item->rfc."<br>".
         "<b>Estatus: </b>".$item->estatus."<br>".
         "<b>Dependencia: </b>".$item->dependencia. "<br>".
         "<b>Puesto: </b>".$item->puesto."<br>".
