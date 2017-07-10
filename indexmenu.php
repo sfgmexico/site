@@ -101,6 +101,7 @@ if(!$_SESSION['usser']) {
       <li class="tabs-title"><a href="#panel5v">Tab 5</a></li>
       <li class="tabs-title"><a href="#panel6v">Tab 6</a></li>
     </ul>
+
   </div>
   <div class="medium-9 columns">
     <div class="tabs-content" data-tabs-content="example-tabs">
@@ -121,7 +122,7 @@ if(!$_SESSION['usser']) {
   <div class="row">
   <div class="small-3 columns">
   	
-<select name="TipoCliente"> <option>-Seleccione una opción-</option> <option>Persona Fisica</option><option>Persona Moral</option> </select> 
+<select name="TipoCliente" id="TipoCliente" onchange="cambiacartas()"> <option value="">-Seleccione una opción-</option> <option value="1">Persona Fisica</option><option value="2">Persona Moral</option> </select> 
   </div>
   </div>
 
@@ -298,7 +299,7 @@ if(!$_SESSION['usser']) {
     <p>Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus.</p>
   </div>
   <div class="tabs-panel" id="panel3c">
-    <img class="thumbnail" src="assets/img/generic/rectangle-3.jpg">
+    
   </div>
   <div class="tabs-panel" id="panel4c">
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -327,7 +328,7 @@ if(!$_SESSION['usser']) {
       </div>
       <div class="tabs-panel" id="panel2v">
         <p>Two</p>
-        <img class="thumbnail" src="assets/img/generic/rectangle-7.jpg">
+        
       </div>
       <div class="tabs-panel" id="panel3v">
         <p>Three</p>
@@ -335,7 +336,7 @@ if(!$_SESSION['usser']) {
       </div>
       <div class="tabs-panel" id="panel4v">
         <p>Four</p>
-        <img class="thumbnail" src="assets/img/generic/rectangle-2.jpg">
+        
       </div>
       <div class="tabs-panel" id="panel5v">
         <p>Five</p>
@@ -343,7 +344,7 @@ if(!$_SESSION['usser']) {
       </div>
       <div class="tabs-panel" id="panel6v">
         <p>Six</p>
-        <img class="thumbnail" src="assets/img/generic/rectangle-8.jpg">
+        
       </div>
     </div>
   </div>
@@ -384,6 +385,7 @@ if(!$_SESSION['usser']) {
 })</script>
 
 		<script type="text/javascript" src="js/botones.js"></script>
+    <script type="text/javascript" src="js/clientes.js"></script>
 			 
 			
 			
