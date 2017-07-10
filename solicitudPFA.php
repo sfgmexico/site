@@ -665,6 +665,7 @@ input::-moz-placeholder {
             <div class="small-5 columns"> <input name="anosol2" type="text" id="anosol2" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['AnResDatGen']; } ?>" size="20px" placeholder="Años de residir en la ciudad" onkeypress="return validaNumero(event)" pattern="integer"></div>
           </p>
             </div>
+            
             <div class="row">
             <p align="left">
                 Beneficiario en caso de fallecimiento:

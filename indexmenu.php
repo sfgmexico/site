@@ -55,7 +55,7 @@ if(!$_SESSION['usser']) {
 	if($_SESSION['GSolicitudes']=="1"){
 		echo '<li>
 
-		<a href="#"><i class="fi-pencil"></i><span>Solicitudes de credito</span></a>
+		<a href="#"><i class="fi-pencil"></i><span>Registros</span></a>
 		<ul class="menu">
 			<li id="bot1"><a href="#"><i class="fi-clipboard-notes"></i><span>Solicitud PFA</span></a></li>
 			<li id="bot2"><a href="#"><i class="fi-clipboard-notes"></i><span>Solicitud PM</span></a></li>
@@ -124,6 +124,12 @@ if(!$_SESSION['usser']) {
 <select name="TipoCliente"> <option>-Seleccione una opción-</option> <option>Persona Fisica</option><option>Persona Moral</option> </select> 
   </div>
   </div>
+
+
+  <div class="row">
+	     <div class="small-6 columns"><label>Razon social <input name="nomrazsoc2" type="text" id="nomrazsoc2" onchange="return valforms(this.form,this)" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['NomSolicitante']; } ?>"  placeholder="Nombre, Razón Social"></label>
+</div>
+ </div>
   <div class="row">
   	
 <div class="medium-3 columns">
@@ -186,22 +192,21 @@ if(!$_SESSION['usser']) {
             <div class="small-3 columns"><label>Estado <input name="edosol" type="text" id="edosol" size="20px" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['EdoSolicitante']; } ?>"placeholder="Estado"></label></div>
            
             <div class="small-3 columns"><label>Ciudad<input name="cdsol" type="text" id="cdsol" size="20px" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['CdSolicitante']; } ?>" placeholder="Ciudad"></label></div>
-           
+           	<div class="small-3 columns"><label>Delegacion o municipio<input name="textfield5" type="text" id="textfield5" size="100%" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['MunicipioSolicitante']; } ?>" required></label></div>
+
             <div class="small-3 columns"><label>CURP <input name="curpsol" type="text" id="curpsol" size="49px" placeholder="CURP" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['CURPSolicitante']; } ?>" onkeypress="return validaRFC(event)" pattern="alpha_numeric"></label></div>
-          </p>
+     
   
 
    
            <div class="row">
+         
            <div class="small-3 columns">
-           <p align="left">Sexo:
-             
-            <input id="sexsol1" name="sexsol" type="radio" <?php if (isset($row2['Folio_Cliente'])) { if($row2['SexoDatGen']=='Masculino'){echo "checked";} } ?> value="Masculino"><label for="sexsol1"><i class="step fi-male size-72"></i> M</label>
-             
-            <input id="sexsol2" name="sexsol" type="radio" <?php if (isset($row2['Folio_Cliente'])) { if($row2['SexoDatGen']=='F' || $row2['SexoDatGen']=='Femenino' ){echo "checked";} } ?> value="Femenino"><label for="sexsol2"><i class="step fi-female size-72"></i> F</label>
-           </p>
+           <label>Sexo
+             <select name="sexsol" id="sexsol" ><option>-Seleccione una opción-</option><option>Mujer</option><option>Hombre</option></select>
+    </label>
            </div>
-           <p align="left">
+         
             <div class="small-3 columns">
             <label>Fecha de nacimiento
             <input name="fechnacsol" type="date" id="fechnacsol" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['FeNacDatGen']; } ?>" placeholder="dd" ></label></div>
@@ -257,13 +262,36 @@ if(!$_SESSION['usser']) {
                 
           </p>
            </div>
-          <p align="left">Es propietario de algún inmueble:
+         
+           <div class="row">
+          <p align="left">
+            <div class="small-5 columns">
+            <label>Estado civil:
+          <select name="civilsol"><option>-Seleccione una opción-</option><option>Casado Bienes Mancomunados</option><option>Casado Bienes Separados</option><option>Viudo</option><option>Divorciado</option><option>Soltero</option></select></label>
+          
+            </div>
+      
+          <div class="small-3 columns">
+         <label>Tiene Auto Propio: </label>
+            <input id="autosol1" name="autosol" type="radio" <?php if(isset($row2['Folio_Cliente'])) { if($row2['AuPropDatGen']=='Si'){echo "checked";} } ?> value="Si"><label for="autosol1">Si</label>
+            
+            <input id="autosol2" name="autosol" type="radio" <?php if(isset($row2['Folio_Cliente'])) { if($row2['AuPropDatGen']=='No'){echo "checked";} } ?> value="No"><label for="autosol2">No</label>
+        <input name="marcasol"value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['MarDatGen']; } ?>"  type="text" id="marcasol" size="70px" placeholder="Especifique Marca y Tipo">
+
+          </div>
+          <div class="small-3 columns">
+           Es propietario de algún inmueble:
             <input id="inmusol1" name="inmusol" type="radio" <?php if(isset($row2['Folio_Cliente'])) { if($row2['PropInmuDatGen']=='Si'){echo "checked";} } ?> value="1"><label for="inmusol1">Si</label>
             
             <input id="inmusol2" name="inmusol" type="radio" <?php if(isset($row2['Folio_Cliente'])) { if($row2['PropInmuDatGen']=='No'){echo "checked";} } ?> value="2"><label for="inmusol2">No</label>
+         </div>
           </p>
+            </div>
+
+
+
 <div class="row">
-	
+
 </div>
   </div>
   <div class="tabs-panel" id="panel2c">
