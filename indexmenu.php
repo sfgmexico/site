@@ -167,7 +167,7 @@ if(!$_SESSION['usser']) {
   <div class="row">
   	
 <div class="medium-3 columns">
-	
+	<p>
            <label>Primer nombre
            	 <input name="nomsol" type="text" id="nomsol" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['NomSolicitante']; } ?>" onkeyup="viewButton()" placeholder="Primer Nombre"  onkeypress="return validaTexto(event)"pattern="alpha"> 
            </label>
@@ -186,7 +186,7 @@ if(!$_SESSION['usser']) {
             <input name="apemasol" type="text" id="apemasol" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['ApMatSolicitante']; } ?>" placeholder="Apellido Materno"  onkeypress="return validaTexto(event)" pattern="alpha"></labbel>
         </div>
   </div>
-  
+  </p>
     
 		<p align="left">
 		<div class="small-3 columns">
