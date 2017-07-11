@@ -845,13 +845,7 @@ input::-moz-placeholder {
         </p>
         </div>
     <hr>
-    <div id="secCarDirecto" class="row">
-      <p align="left"><strong>CARGO DIRECTO (para contratos en M.N.) </strong></p>
-      <p align="left">
-          <div class="small-4 columns"><input name="cargdir" type="text" id="cargdir" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['BancCarDir']; } ?>" size="54px" placeholder="Banco"></div>
-          <div class="small-4 columns"><input name="nocuentcd" type="text" id="nocuentcd" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NoTarCarDir']; } ?>" size="40px" placeholder="Número de Cuenta (CLAVE)"></div>
-      </p>
-      </div>
+
       <hr>
       <div id="secDatConyuge" class="row">
       <p align="left"><strong>DATOS DEL CONYUGE (EN CASO DE UNIR INGRESOS) </strong></p>
