@@ -108,12 +108,12 @@ if(!$_SESSION['usser']) {
       <div class="tabs-panel is-active" id="panel1v">
       <ul class="tabs" data-active-collapse="true" data-tabs id="collapsing-tabs">
   <li class="tabs-title is-active"><a href="#panel1c" aria-selected="true">Datos Generales</a></li>
-  <li class="tabs-title"><a href="#panel2c">Datos Laborales</a></li>
+  <li class="tabs-title" id="tabpanel2c" style="display: none;"><a href="#panel2c">Datos Laborales</a></li>
   <li class="tabs-title"><a href="#panel3c">Referencias Personales</a></li>
   <li class="tabs-title"><a href="#panel4c">Informacion Bancaria</a></li>
   <li class="tabs-title"><a href="#panel5c">Referencias Comerciales</a></li>
   <li class="tabs-title"><a href="#panel6c">Datos del Conyuge</a></li>
-  <li class="tabs-title"><a href="#panel7c">Accionistas</a></li>
+  <li class="tabs-title" id="tabpanel7c" style="display: none;"><a href="#panel7c">Accionistas</a></li>
   <li class="tabs-title"><a href="#panel8c">Beneficiario</a></li>
 </ul>
 
@@ -162,12 +162,12 @@ if(!$_SESSION['usser']) {
  </div>
  <hr>
 
- <div id="pfa" style="display:none;">
+ <div id="pfa" style="display:none;" >
  	
-  <div class="row">
+  <div class="row" >
   	
 <div class="medium-3 columns">
-	<p>
+	
            <label>Primer nombre
            	 <input name="nomsol" type="text" id="nomsol" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['NomSolicitante']; } ?>" onkeyup="viewButton()" placeholder="Primer Nombre"  onkeypress="return validaTexto(event)"pattern="alpha"> 
            </label>
@@ -186,7 +186,7 @@ if(!$_SESSION['usser']) {
             <input name="apemasol" type="text" id="apemasol" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['ApMatSolicitante']; } ?>" placeholder="Apellido Materno"  onkeypress="return validaTexto(event)" pattern="alpha"></labbel>
         </div>
   </div>
-  </p>
+
     
 		<p align="left">
 		<div class="small-3 columns">
@@ -243,7 +243,7 @@ if(!$_SESSION['usser']) {
          
             <div class="small-3 columns">
             <label>Fecha de nacimiento
-            <input name="fechnacsol" type="date" id="fechnacsol" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['FeNacDatGen']; } ?>" placeholder="dd" ></label></div>
+            <input name="fechnacsol" type="date" id="fechnacsol" onchange="calcularEdad()" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['FeNacDatGen']; } ?>" placeholder="dd" ></label></div>
 
             <div class="small-3 columns"> <label> Edad
             <input name="edsol" type="number" id="edsol" size="2px" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['EdDatGen']; } ?>" placeholder="Edad"maxlength="2" onKeyUp="mayorEdad(this, this.value)" onkeypress="return validaNumero(event)" pattern="integer"></label></div>
