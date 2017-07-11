@@ -592,16 +592,16 @@ Telefono(Con lada - 10 dígitos):
 
       <p align="left"><strong>DATOS DEL CONTACTO DE LA EMPRESA</strong></p>
      <div class="row">
-      <div class="small-6 columns">
       <p align="left">
+      <div class="small-6 columns">
         <input name="nomconemp" type="text" id="nomconemp" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['NomDatContEmp']; } ?>" placeholder="Primer Nombre">
         <input name="segnomconemp" type="text" id="segnomconemp" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['SegNomDatContEmp']; } ?>" placeholder="Segundo Nombre">
     </div>
         <div class="small-6 columns">
         <input name="apepaconemp" type="text" id="apepaconemp" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['ApPatDatContEmp']; } ?>" placeholder="Apellido Parteno">
         <input name="apemaconemp" type="text" id="apemaconemp" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['ApMatDatContEmp']; } ?>" placeholder="Apellido Materno">
-</p></div>
 </div>
+</p></div>
 <div class="row">
       <div class="small-6 columns">
       <p align="left">
