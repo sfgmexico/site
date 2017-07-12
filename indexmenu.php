@@ -438,8 +438,7 @@ if(!$_SESSION['usser']) {
             <div class="small-3 columns"><label>Departamento o area
             <input name="depasol" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['DepDatEmp']; } ?>" type="text" id="depasol" size="30px" placeholder="Departamento o área"></label></div>
 
-            <div class="small-3 columns"><label>Desde el año
-            <input name="desdesol" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['DesAnDatEmp']; } ?>" type="text" id="desdesol" size="20px" placeholder="Desde el año"></label></div>
+           
            
             <div class="small-3 columns"><label>Compañia
             <input name="compasol" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['CompDatEmp']; } ?>" type="text" id="compasol" size="70px" placeholder="Compañía"></label></div>
@@ -451,12 +450,10 @@ if(!$_SESSION['usser']) {
 
              <p align="left">
      
-          <div class="small-3 columns"><label>Ocapacion / Giro
+          <div class="small-3 columns"><label>Ocupacion / Giro
           <input name="giroprof" type="text" id="giroprof" size="40px" value="<?php if (isset($row2['Folio_Cliente'])) {  echo $row2['Ocupacion_Profesion']; } ?>" placeholder="Ocupación/Giro según alta o último cambio ante SHCP"></label></div>
          
-          <div class="small-3 columns"><label>Puesto
-          <input name="depasol" type="text" id="depasol" size="30px" value="<?php if (isset($row2['Folio_Cliente'])) {  echo $row2['PuestDatEmp']; } ?>" placeholder="Puesto"></label></div>
-        
+      
          <div class="small-3 columns"> <label> Antigüedad desde:<input name="desdesol" type="date" id="desdesol" size="1px" value="<?php if (isset($row2['Folio_Cliente'])) {  echo $row2['DesAnDatEmp']; } ?>" maxlength="2" placeholder="dd" ></label>
          </div>
           
@@ -468,8 +465,7 @@ if(!$_SESSION['usser']) {
         <input name="noempleados" type="text" id="noempleados" value="<?php if (isset($row2['Folio_Cliente'])) {  echo $row2['NoEmDatEmp']; } ?>" placeholder="Núm. de empleados"pattern="integer"></label></div>
        
 
-          <div class="small-3 columns"><label>Giro del negocio
-          <input name="giroactreal" type="text" id="giroactreal" size="44px" value="<?php if (isset($row2['Folio_Cliente'])) {  echo $row2['GiroDatEmp']; } ?>" placeholder="Giro del negocio: actividad que realiza"></label></div>
+    
          <div class="small-3 columns"> <label>Domicilio del negocio
          <input name="domneg" type="text" id="domneg" size="44px" value="<?php if (isset($row2['Folio_Cliente'])) {  echo $row2['DomicilioLaboral']; } ?>" placeholder="Domicilio del negocio:"></label></div>
          
@@ -636,7 +632,7 @@ if(!$_SESSION['usser']) {
 </div>
 <div class="small-4 columns"><label>RFC
         <input name="rfcaccion1" type="text" id="rfcaccion1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCAcc1']; } ?>" placeholder="RFC"></label></div>
-        <div class="small-4 columns"><label>Porcentaje
+        <div class="small-4 columns"><label>Porcentaje de las acciones
         <input name="%1" type="text" id="%1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAcc1']; } ?>" placeholder="%"></label></div>
         </p>
       <p align="left">
@@ -644,7 +640,7 @@ if(!$_SESSION['usser']) {
         <input name="accionista2" type="text" id="accionista2" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['NomAcc2']; } ?>" placeholder="Nombre"></label></div>
         <div class="small-4 columns"><label>RFC
           <input name="rfcaccion2" type="text" id="rfcaccion2" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCAcc1']; } ?>" placeholder="RFC"></label></div>
-          <div class="small-4 columns"><label>Porcentaje
+          <div class="small-4 columns"><label>Porcentaje de las acciones
           <input name="%2" type="text" id="%2" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAcc1']; } ?>" placeholder="%"></label></div>
 </p>
       <p align="left">
@@ -652,7 +648,7 @@ if(!$_SESSION['usser']) {
         <input name="accionista3" type="text" id="accionista3" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['NomAcc3']; } ?>" placeholder="Nombre"></label></div>
         <div class="small-4 columns"><label>RFC
           <input name="rfcaccion3" type="text" id="rfcaccion3" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCAcc1']; } ?>" placeholder="RFC"></label></div>
-          <div class="small-4 columns"><label>Porcentaje
+          <div class="small-4 columns"><label>Porcentaje de las acciones
           <input name="%3" type="text" id="%3" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAcc1']; } ?>" placeholder="%"></label></div>
 </p>
       <p align="left">
@@ -660,7 +656,7 @@ if(!$_SESSION['usser']) {
         <input name="accionista4" type="text" id="accionista4" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['NomAcc4']; } ?>" placeholder="Nombre"></label></div>
         <div class="small-4 columns"><label>RFC
           <input name="rfcaccion4" type="text" id="rfcaccion4" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCAcc1']; } ?>" placeholder="RFC"></label></div>
-          <div class="small-4 columns"><label>Porcentaje
+          <div class="small-4 columns"><label>Porcentaje de las acciones
           <input name="%4" type="text" id="%4" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAcc1']; } ?>" placeholder="%"></label></div>
 </p>
       </div>
@@ -673,7 +669,7 @@ if(!$_SESSION['usser']) {
       <div class="small-4 columns"><label>RFC
           <input name="rfcaccpermor1" type="text" id="rfcaccpermor1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCAccPM1']; } ?>" placeholder="RFC"></label></div>
 
-          <div class="small-4 columns"><label>Porcentaje
+          <div class="small-4 columns"><label>Porcentaje de las acciones
           <input name="%permoracc1" type="text" id="%permoracc1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAccPM1']; } ?>" placeholder="%"></label>
           </div>
 
@@ -684,7 +680,7 @@ if(!$_SESSION['usser']) {
           <input name="rfcaccpermor2" type="text" id="rfcaccpermor2" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCAccPM2']; } ?>" placeholder="RFC"></label>
           </div>
 
-          <div class="small-4 columns"><label>Porcentaje
+          <div class="small-4 columns"><label>Porcentaje de las acciones
           <input name="%permoracc2" type="text" id="%permoracc2" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAccPM2']; } ?>" placeholder="%"></label></div>
 
   </div>
@@ -775,15 +771,110 @@ if(!$_SESSION['usser']) {
       </div>
       <div class="tabs-panel" id="panel2v">
        <ul class="tabs" data-deep-link="true" data-update-history="true" data-deep-link-smudge="true" data-deep-link-smudge="500" data-tabs id="deeplinked-tabs">
-  <li class="tabs-title is-active"><a href="#panel1d" aria-selected="true">Tab 1</a></li>
-  <li class="tabs-title"><a href="#panel2d">Tab 2</a></li>
+  <li class="tabs-title is-active"><a href="#panel1d" aria-selected="true">Credito</a></li>
+  <li class="tabs-title"><a href="#panel2d">Obligado Solidario</a></li>
   <li class="tabs-title"><a href="#panel3d">Tab 3</a></li>
   <li class="tabs-title"><a href="#panel4d">Tab 4</a></li>
 </ul>
 
 <div class="tabs-content" data-tabs-content="deeplinked-tabs">
   <div class="tabs-panel is-active" id="panel1d">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+   <div class="row">
+          <div class="small-6 columns">
+
+          <div>
+          <label>
+            
+              <p id="valorautochange" align="left"></p>
+             <input name="textfield86" type="text" id="textfield86" size="50%" onkeypress="return validaNumeroDecimal(event)"  required >
+          </label>
+            </div>
+            <div id="engautochange">
+            <label>
+              <p align="left ">Enganche <input name="textfield87" type="text" id="textfield87" size="50%" onkeypress="return validaNumeroDecimal(event)"   onchange="datosAuto()"></p>
+            </label>
+            </div>
+            <div id="porengautochange">
+            <label> <p align="left">Porcentaje de Enganche<input name="textfield88" type="text" id="textfield88" size="50%"  readonly></p>
+            </label>
+            </div>
+            <div id="porfinautochange">
+            <label> 
+              <p align="left">Porcentaje de Financieamiento<input name="textfield89" type="text" id="textfield89" size="50%"  readonly></p>
+            </label>
+            </div>
+            <div id="monfinautochange">
+            <label>
+              
+              <p align="left">Monto Financiado <input name="textfield90" type="text" id="textfield90" size="50%"  readonly></p>
+            </label>
+            </div>
+            <div>
+            <label>
+              
+              <p align="left">Interes Anual<input name="textfield100" type="text" id="textfield100" size="50%"  readonly onkeypress="return validaNumero(event)" ></p>
+            </label>
+            </div>
+            <div id="comisionapchange">
+            <label>
+              
+              <p align="left">Comisión por Apertura<input name="textfield96" type="text" id="textfield96" size="50%"  readonly onkeypress="return validaNumero(event)" ></p>
+            </label>
+            </div>
+          </div>
+          <div class="small-5 columns">
+            
+            <div id="segautochange">
+
+            <label>
+              
+              <p align="left">Seguro de Auto<input name="textfield97" type="text" id="textfield97" size="50%"  onkeypress="return validaNumero(event)" ></p>
+            </label>
+            </div>
+            <div>
+            <label>
+              
+              <p align="left">Seguro de Vida<input name="textfield98" type="text" id="textfield98" size="50%"  onkeypress="return validaNumero(event)" ></p>
+            </label>
+            </div>
+            <div id="segdeschange">
+            <label>
+              
+              <p align="left">Seguro de Desempleo<input name="textfield99" type="text" id="textfield99" size="50%"  onkeypress="return validaNumero(event)" ></p>
+            </label>
+            </div>
+            <div>
+            <label>
+              
+              <p align="left">Plazo (meses)<input name="textfield91" type="text" id="textfield91" size="50%"  onkeypress="return validaNumero(event)" required></p>
+            </label>
+            </div>
+            
+            <div>
+            <label>
+              
+              <p align="left">Pago Mensual Esperado<input name="textfield92" type="text" id="textfield92" size="50%"  onkeypress="return validaNumeroDecimal(event)" required></p>
+            </label>
+            </div>
+
+         <p><input type="button" class="button" data-open="Aut" value="Cambiar Valores"></p>
+
+<!-- This is the first modal -->
+<div class="reveal" id="Aut" data-reveal>
+  <h3>Clave de Autorizacion</h3>
+  <div class="row">
+    <div class="small-5 columns">
+      
+  <input type="text" id="clave" name="clave">
+  <button class="button" data-close aria-label="Close reveal" id="keycheck" data-open="exampleModal3">Aceptar!</button>
+    </div>
+  </div>
+  <button class="close-button" data-close aria-label="Close reveal" type="button">
+    <span aria-hidden="true">X</span>
+  </button>
+</div>
+          </div>
+          </div>
   </div>
   <div class="tabs-panel" id="panel2d">
     <p>Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus.</p>
