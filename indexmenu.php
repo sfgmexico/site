@@ -771,8 +771,8 @@ if(!$_SESSION['usser']) {
        <ul class="tabs" data-deep-link="true" data-update-history="true" data-deep-link-smudge="true" data-deep-link-smudge="500" data-tabs id="deeplinked-tabs">
   <li class="tabs-title is-active"><a href="#panel1d" aria-selected="true">Credito</a></li>
   <li class="tabs-title"><a href="#panel2d">Obligado Solidario</a></li>
-  <li class="tabs-title"><a href="#panel3d">Tab 3</a></li>
-  <li class="tabs-title"><a href="#panel4d">Tab 4</a></li>
+  <li class="tabs-title"><a href="#panel3d">Datos de concesionario</a></li>
+ 
 </ul>
 
 <div class="tabs-content" data-tabs-content="deeplinked-tabs">
@@ -889,31 +889,167 @@ if(!$_SESSION['usser']) {
   <div class="tabs-panel" id="panel2d">
   <div class="row">
        <p align="left">
-            <div class="small-5 columns"><input name="datobnom1" type="text" id="datobnom1" size="30px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NomObSol']; } ?>" placeholder="Nombre(s)" pattern="alpha"></div>
-            <div class="small-5 columns"><input name="datobappat1" type="text" id="datobappat1" size="30px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ApPatObSol']; } ?>" placeholder="Apellido Paterno" pattern="alpha"></div>
-            <div class="small-5 columns"><input name="datobapmat1" type="text" id="datobapmat1" size="30px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ApMatObSol']; } ?>" placeholder="Apellido Materno" pattern="alpha"></div>
-            <div class="small-5 columns"><input name="datobdir1" type="text" id="datobdir1" size="48px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['DirObSol']; } ?>" placeholder="Dirección / Calle y número"></div>
-            <div class="small-5 columns"><input name="datobcol1" type="text" id="datobcol1" size="48px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ColObSol']; } ?>" placeholder="Colonia"></div>
-            <div class="small-5 columns"><input name="datobcd1" type="text" id="datobcd1" size="20px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['CdObSol']; } ?>" placeholder="Ciudad"></div>
-            <div class="small-10 columns"><input name="datoblugnac1" type="text" id="datoblugnac1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['LugNacObSol']; } ?>" size="30px" placeholder="Lugar nacimiento (País y Edo.)"></div>
+            <div class="small-3 columns"><label>Nombre
+            <input name="datobnom1" type="text" id="datobnom1" size="30px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NomObSol']; } ?>" placeholder="Nombre(s)" pattern="alpha"></label></div>
+
+            <div class="small-3 columns"><label>Apellido Paterno
+            <input name="datobappat1" type="text" id="datobappat1" size="30px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ApPatObSol']; } ?>" placeholder="Apellido Paterno" pattern="alpha"></label></div>
+
+            <div class="small-3 columns"><label>Apellido Materno
+            <input name="datobapmat1" type="text" id="datobapmat1" size="30px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ApMatObSol']; } ?>" placeholder="Apellido Materno" pattern="alpha"></label></div>
+
+            <div class="small-3 columns"><label>Direccion/ Calle y numero
+            <input name="datobdir1" type="text" id="datobdir1" size="48px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['DirObSol']; } ?>" placeholder="Dirección / Calle y número"></label></div>
+
+            <div class="small-3 columns"><label>Colonia
+            <input name="datobcol1" type="text" id="datobcol1" size="48px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ColObSol']; } ?>" placeholder="Colonia"></label></div>
+
+            <div class="small-3 columns"><label>Ciudad
+            <input name="datobcd1" type="text" id="datobcd1" size="20px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['CdObSol']; } ?>" placeholder="Ciudad"></label></div>
+
+            <div class="small-3 columns"><label>Lugar de nacimiento
+            <input name="datoblugnac1" type="text" id="datoblugnac1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['LugNacObSol']; } ?>" size="30px" placeholder="Lugar nacimiento (País y Edo.)"></label></div>
           </p>
           </div>
+          <div class="row"> 
+          <p align="left">
+            <div class="small-3 columns"><label>Estado
+            <input name="datobedo1" type="text" id="datobedo1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['EdoObSol']; } ?>" size="30px" placeholder="Estado"></label></div>
+            <div class="small-3 columns"><label>Codigo Postal
+            <input name="datobcp1" type="text" id="datobcp1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['CPObSol']; } ?>" size="30px" placeholder="C.P." onkeypress="return validaNumero(event)" patern="integer"></label></div>
+
+            <div class="small-3 columns"><label>Email
+            <input  name="datobmail1" type="text" id="datobmail1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['EmailObSol']; } ?>" size="30px" placeholder="Email" pattern="email"></label></div>
+        
+        <div class="small-3 columns"> <label>Sexo <select name="datobsex1"><option>Femenino</option><option>Masculino</option></select></label></div>
+          </p>
+          </div>
+         
+     
+          
+          <div class="row">
+          <p align="left">
+            
+            <div class="small-3 columns"><label>Fecha de nacimiento:
+            <input name="datobfechnac1d" type="date" id="datobfechnac1d" size="1px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['FeNacObSol']; } ?>" maxlength="2" placeholder="dd" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobfechnac1m)"></label></div>
+
+            <div class="small-3 columns"><label>Edad
+            <input name="datobed1" type="text" id="datobed1" size="2px" placeholder="Edad" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['EdObSol']; } ?>" onkeypress="return validaNumero(event)" pattern="integer"></label></div>
+
+            <div class="small-3 columns"><label>CURP
+            <input name="datobcurp1" type="text" id="datobcurp1" size="22px" placeholder="CURP" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['CURPObSol']; } ?>" onkeypress="return validaRFC(event)" pattern="alpha_numeric"></label></div>
+          </p>
+          <div class="small-3 columns"><label>RFC
+          <input name="datobrfc11" value="<?php if(isset($row['Folio_Cliente'])&& $row['RFCObSol']!='') {  echo $row['RFCObSol'][0]; } ?>" type="text" id="datobrfc11" size="1px" maxlength="1" onkeypress="return validaRFC(event)" onKeyUp="myFunction(this,this.value,datobrfc12)" pattern="alpha_numeric"></label></div>
+
+           <div class="small-3 columns"><label>Telefono Particular
+           <input name="datobtel11" value="<?php if(isset($row['Folio_Cliente'])&& $row['TelObSol']!='') {  echo $row['TelObSol'][0]; } ?>" type="text" id="datobtel11" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel12)" pattern="integer"></label></div>
+
+            <div class="small-3 columns"><label>Telefono Movil
+            <input name="datobtel112" value="<?php if(isset($row['Folio_Cliente'])&& $row['MovObSol']!='') {  echo $row['MovObSol'][0]; } ?>" type="text" id="datobtel112" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel122)" pattern="integer"></label></div>
+<div class="small-5 columns">
                   <p align="left">
             Tiene propiedad a su nombre? 
             <input id="datobprop1A" name="datobprop1" type="radio" <?php if(isset($row['Folio_Cliente'])) { if($row['PropObSol']=='Si'){echo "checked";} } ?> value="Si"><label for="datobprop1A">Si</label>
             
             <input id="datobprop1B" name="datobprop1" type="radio" <?php if(isset($row['Folio_Cliente'])) { if($row['PropObSol']=='No'){echo "checked";} } ?> value="No"><label for="datobprop1B">No</label>
           </p>
-          <div class="row"> 
-          <p align="left">
-            <div class="small-4 columns"><input name="datobedo1" type="text" id="datobedo1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['EdoObSol']; } ?>" size="30px" placeholder="Estado"></div>
-            <div class="small-4 columns"><input name="datobcp1" type="text" id="datobcp1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['CPObSol']; } ?>" size="30px" placeholder="C.P." onkeypress="return validaNumero(event)" patern="integer"></div>
-            <div class="small-4 columns"><input  name="datobmail1" type="text" id="datobmail1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['EmailObSol']; } ?>" size="30px" placeholder="Email" pattern="email"></div>
-          </p>
           </div>
+          </div>
+<br>
+
+
+<p align="left"><strong>DATOS DEL OBLIGADO SOLIDARIO (2) PERSONA FÍSICA, PROPIETARIO DE BIEN INMUEBLE </strong></p>
+
+             <div class="row">
+          <p align="left">
+            <div class="small-3 columns"><label>Nombre(s)
+            <input name="datobnom2" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NomObSol2']; } ?>" type="text" id="datobnom2" size="30px" placeholder="Nombre(s)" pattern="alpha"></label></div>
+
+            <div class="small-3 columns"><label>Apellido paterno
+            <input name="datobappat2" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ApPatObSol2']; } ?>" type="text" id="datobappat2" size="30px" placeholder="Apellido Paterno" pattern="alpha"></label></div>
+
+            <div class="small-3 columns"><label>Apellido Materno
+            <input name="datobapmat2" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ApMatObSol2']; } ?>" type="text" id="datobapmat2" size="30px" placeholder="Apellido Materno" pattern="alpha"></label></div>
+
+            <div class="small-3 columns"><label>Direccion / Calle y numero 
+            <input name="datobdir2" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['DirObSol2']; } ?>" type="text" id="datobdir2" size="48px" placeholder="Dirección / Calle y número"></label></div>
+
+            <div class="small-3 columns"><label>Colonia
+            <input name="datobcol2" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ColObSol2']; } ?>"type="text" id="datobcol2" size="48px" placeholder="Colonia"></label></div>
+
+            <div class="small-3 columns"><label>Ciudad
+            <input name="datobcd2" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['CdObSol2']; } ?>" type="text" id="datobcd2" size="20px" placeholder="Ciudad"></label></div>
+
+            <div class="small-3 columns"><label>Lugar de nacimiento
+            <input name="datoblugnac2" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['LugNacObSol2']; } ?>" type="text" id="datoblugnac2" size="30px" placeholder="Lugar nacimiento (País y Edo.)"></label></div>
+          </p>
+         </div>
+          <div class="row">
+          <p align="left">
+            <div class="small-3 columns"><label>Estado
+            <input name="datobedo2" type="text" id="datobedo2" size="30px" placeholder="Estado" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['EdoObSol2']; } ?>"></label></div>
+
+            <div class="small-3 columns"><label>Codigo Postal
+            <input name="datobcp2" type="text" id="datobcp2" size="30px" placeholder="C.P." value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['CPObSol2']; } ?>" onkeypress="return validaNumero(event)" pattern="integer"></label></div>
+
+            <div class="small-3 columns"><label>Email
+            <input  name="datobmail2" type="text" id="datobmail2" size="30px" placeholder="Email" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['EmailObSol2']; } ?>" pattern="email"></label></div>
+          </p>
+          <div class="small-3 columns"><label>Sexo
+          <select name="datobsex2"><option>-Seleccione una opcion-</option><option>Femenino</option><option>Masculino</option></select></label>
+         </div>
+          </div>
+            <div class="row"> 
+            <p align="left">
+           
+            <div class="small-3 columns"><label> Fecha de nacimiento:
+            <input name="datobfechnac2d" type="date" id="datobfechnac2d" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['FeNacObSol2']; } ?>" size="1px" maxlength="2" placeholder="dd" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobfechnac2m)"></label></div>
+            <div class="small-3 columns"><label>Edad
+            <input name="datobed2" type="text" id="datobed2" size="2px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['EdObSol2']; } ?>" placeholder="Edad" onkeypress="return validaNumero(event)"></label></div>
+
+            <div class="small-3 columns"><label>CURP
+            <input name="datobcurp2" type="text" id="datobcurp2" size="22px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['CURPObSol2']; } ?>" placeholder="CURP" onkeypress="return validaRFC(event)"></label></div>
+
+          <div class="small-3 columns"><label>RFC
+          <input name="datobrfc21" type="text" id="datobrfc21" size="1px" maxlength="1"  value="<?php if(isset($row['Folio_Cliente'])&& $row['RFCObSol2']!='') {  echo $row['RFCObSol2'][0]; } ?>" onkeypress="return validaRFC(event)" onKeyUp="myFunction(this,this.value,datobrfc22)"></label></div>
+
+                <div class="small-3 columns"><label>Telefono
+                <input name="datobtel21" type="text" id="datobtel21" size="1px" maxlength="1" value="<?php if(isset($row['Folio_Cliente'])&& $row['TelObSol2']!='') {  echo $row['TelObSol2'][0]; } ?>" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel22)"></label></div>
+
+                   <div class="small-3 columns"><label>Telefono Movil
+                   <input name="datobtel212" type="text" id="datobtel212" size="1px" maxlength="1" value="<?php if(isset($row['Folio_Cliente'])&& $row['MovObSol2']!='') {  echo $row['MovObSol2'][0]; } ?>" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel222)"></label></div>
+          </p>
+          <p align="left">
+            Tiene propiedad a su nombre? 
+            <input id="datobprop2A" name="datobprop2" type="radio" value="Si" <?php if(isset($row['Folio_Cliente'])) { if($row['PropObSol2']=='Si'){echo "checked";} } ?>><label for="datobprop2A">Si</label>
+            
+            <input id="datobprop2B" name="datobprop2" type="radio" value="No" <?php if(isset($row['Folio_Cliente'])) { if($row['PropObSol2']=='No'){echo "checked";} } ?>><label for="datobprop2B">No</label>
+          </p>
+
+            </div>
+
+
   </div>
   <div class="tabs-panel" id="panel3d">
-    <img class="thumbnail" src="assets/img/generic/rectangle-3.jpg">
+        <div class="row">
+          <p align="justify">
+            <div class="small-3 columns"><label>Concesionario
+            <input name="clavcon" type="text" id="clavcon" size="30px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ClavConcesionario']; } ?>" placeholder="Clave Consesionario o Distribuidor" required></label></div>
+
+            <div class="small-3 columns"><label>Nombre Concesionario
+            <input name="nomcons" type="text" id="nomcons" size="30px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NomConcesionario']; } ?>" placeholder="Nombre Concesionario o Distribuidor" required></label></div>
+
+            <div class="small-3 columns"><label>Nombre del Vendedor
+            <input name="nomvend" type="text" id="nomvend" size="48px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NomVendedor']; } ?>" placeholder="Nombre del Vendedor" required></label></div>
+
+            <div class="small-3 columns"><label>Nombre y firma
+            <input name="gerentegral" type="text" id="gerentegral" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NomGerenteGral']; } ?>" size="48px" placeholder="Nombre y firma del Gerente General" required></label></div>
+
+            <div class="small-3 columns"><label>Fecha
+            <input name="fecha" type="text" id="fecha" value="<?php echo date("Y-m-d");?>" size="10px" readonly></label></div>
+          </p>
+          </div>
   </div>
   <div class="tabs-panel" id="panel4d">
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -923,11 +1059,75 @@ if(!$_SESSION['usser']) {
       </div>
       <div class="tabs-panel" id="panel3v">
         <p>Three</p>
-        <p>Check me out! I'm a super cool Tab panel with text content!</p>
+      
       </div>
       <div class="tabs-panel" id="panel4v">
         <p>Four</p>
-        
+        <ul class="tabs" data-active-collapse="true" data-tabs id="collapsing-tabs">
+  <li class="tabs-title is-active"><a href="#panel1f" aria-selected="true">Tab 1</a></li>
+  <li class="tabs-title"><a href="#panel2f">Tab 2</a></li>
+  <li class="tabs-title"><a href="#panel3f">Tab 3</a></li>
+  <li class="tabs-title"><a href="#panel4f">Tab 4</a></li>
+</ul>
+
+<div class="tabs-content" data-tabs-content="collapsing-tabs">
+  <div class="tabs-panel is-active" id="panel1f">
+    
+       <h6 align="left">DOCUMENTACION DE IDENTIFICACION </h6>
+          <table width="100%" border="0">
+            <tr id="secINE">
+              <td width="21%">Credencial para votar </td>
+              <td width="35%"><input name="textfield39" type="text" id="textfield39" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['INESolicitante']; } ?>"></td>
+              <td width="15%">Se adjunta copia: </td>
+              <td width="29%" ><input id="copiasA" name="copias" type="radio" value="Si" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_INESolicitante']=='Si'){echo "checked";} } ?>><label for="copiasA"> Si</label>  <input id="copiasB" name="copias" type="radio" value="No" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_INESolicitante']=='No'){echo "checked";} } ?>><label for="copiasB"> No</label></td>
+            </tr>
+            <tr id="secCedProfesional">
+              <td>Pasaporte cedula profesional </td>
+              <td><input name="textfield40" type="text" id="textfield40" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['Pasaporte_o_CedulaProfSolicitante']; } ?>" ></td>
+              <td>Se adjunta copia: </td>
+              <td ><input id="copias2A" name="copias2" type="radio" value="Si"<?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_Pasaporte_o_CedulaProfSolicitante']=='Si'){echo "checked";} } ?>><label for="copias2A"> Si</label>  <input id="copias2B" name="copias2" type="radio" value="No"<?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_Pasaporte_o_CedulaProfSolicitante']=='<noscript>
+              
+              </noscript>'){echo "checked";} } ?>><label for="copias2B"> No</label></td>
+            </tr>
+            <tr id="secCarMilitar">
+              <td>Cartilla de servicio militar </td>
+              <td><input name="textfield41" type="text" id="textfield41" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['CartillaMilitarSolicitante']; } ?>" ></td>
+              <td>Se adjunta copia: </td>
+              <td ><input id="copias3A" name="copias3" type="radio" value="Si" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_CartillaMilitarSolicitante']=='Si'){echo "checked";} } ?>><label for="copias3A"> Si</label>  <input id="copias3B" name="copias3" type="radio" value="No" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_CartillaMilitarSolicitante']=='No'){echo "checked";} } ?>><label for="copias3B"> No</label></td>
+            </tr>
+            <tr id="secLicConducir">
+              <td>Licencia para conducir </td>
+              <td><input name="textfield42" type="text" id="textfield42" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['LicenciaConducirSolicitante']; } ?>" ></td>
+              <td>Se adjunta copia: </td>
+              <td ><input id="copias4A" name="copias4" type="radio" value="Si" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_LicenciaConducirSolicitante']=='Si'){echo "checked";} } ?>><label for="copias4A"> Si</label>
+                                      <input id="copias4B" name="copias4" type="radio" value="No" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_LicenciaConducirSolicitante']=='No'){echo "checked";} } ?>><label for="copias4B"> No</label></td>
+            </tr>
+            <tr id="secOtrIdentificacion">
+              <td>Otra</td>
+              <td><input name="textfield43" type="text" id="textfield43" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['OtraIdentSolicitante']; } ?>" ></td>
+              <td>Se adjunta copia: </td>
+              <td ><input id="copias5A" name="copias5" type="radio" value="Si" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_OtraIdentSolicitante']=='Si'){echo "checked";} } ?>><label for="copias5A"> Si</label>
+                                            <input id="copias5B" name="copias5" type="radio" value="No" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_OtraIdentSolicitante']=='No'){echo "checked";} } ?>><label for="copias5B"> No</label></td>
+            </tr>
+            <tr>
+              <td>Especificar</td>
+              <td id="secOtrIdentificacion2"><input name="textfield44" type="text" id="textfield44" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['EspIdentSolicitante']; } ?>" ></td>
+              <td>Se cotejo vs original: </td>
+              <td ><input id="cotejo1" name="cotejo" type="radio" value="Si" <?php if(isset($row['Folio_Cliente'])) { if($row3['CotejoVsOriginal']=='Si'){echo "checked";} } ?> required><label for="cotejo1"> Si</label>
+                   <input id="cotejo2" name="cotejo" type="radio" value="No" <?php if(isset($row['Folio_Cliente'])) { if($row3['CotejoVsOriginal']=='No'){echo "checked";} } ?> required><label for="cotejo2"> No</label></td>
+            </tr>
+          </table>
+  </div>
+  <div class="tabs-panel" id="panel2f">
+    <p>Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus.</p>
+  </div>
+  <div class="tabs-panel" id="panel3f">
+    <img class="thumbnail" src="assets/img/generic/rectangle-3.jpg">
+  </div>
+  <div class="tabs-panel" id="panel4f">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  </div>
+</div>
       </div>
       <div class="tabs-panel" id="panel5v">
         <p>Five</p>
