@@ -60,6 +60,7 @@ if(!$_SESSION['usser']) {
 			<li id="bot1"><a href="#"><i class="fi-clipboard-notes"></i><span>Solicitud PFA</span></a></li>
 			<li id="bot2"><a href="#"><i class="fi-clipboard-notes"></i><span>Solicitud PM</span></a></li>
 			<li id="bot3"><a href="#"><i class="fi-clipboard-notes"></i><span>Solicitud PFNA</span></a></li>
+      <li id="bot4"><a href="#"><i class="fi-clipboard-notes"></i><span>Nuevos Registros</span></a></li>
 
 
 		</ul>
@@ -976,7 +977,7 @@ if(!$_SESSION['usser']) {
 })</script>
 
 		<script type="text/javascript" src="js/botones.js"></script>
-    <script type="text/javascript" src="js/clientes.js"></script>
+    
 			 
 			
 			

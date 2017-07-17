@@ -1,5 +1,63 @@
 
+$("#nuevocliente").click(function(event) {
+    
+   var data = new FormData();
+   data.append('function', "nuevocliente");
+   
+    if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
+        
+        obj = JSON.parse(xmlhttp.responseText);
+        document.getElementById("botonescliente").style.display="none";
+        document.getElementById("contenidorequestcliente").style.display="block";
+        document.getElementById("idcliente").value=obj[0];
+        
+      
+      }
+  }
+xmlhttp.open("POST","clientes.php",true);
+xmlhttp.send(data);
+});
 
+$("#guardarcliente").click(function(event) {
+    
+   var data = new FormData(document.forms['form1']);
+   data.append('function', "guardacliente");
+   
+   data.append('id', obj[0]);
+   
+    if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
+        
+        alert(xmlhttp.responseText);
+        
+        
+      
+      }
+  }
+xmlhttp.open("POST","clientes.php",true);
+xmlhttp.send(data);
+});
 
 function cambiacartas(){
 	if(document.getElementById('TipoCliente').value==""){
@@ -7,12 +65,12 @@ function cambiacartas(){
 		document.getElementById('pm').style.display='none';
 		document.getElementById('tabpanel7c').style.display='none';
 		document.getElementById('tabpanel2c').style.display='none';
-	}else if(document.getElementById('TipoCliente').value=="1"){
+	}else if(document.getElementById('TipoCliente').value=="Persona Fisica"){
 		document.getElementById("pfa").style.display = "block";
 		document.getElementById('tabpanel2c').style.display='block';
 		document.getElementById('pm').style.display='none';
 		document.getElementById('tabpanel7c').style.display='none';
-	}else if(document.getElementById('TipoCliente').value=="2"){
+	}else if(document.getElementById('TipoCliente').value=="Persona Moral"){
 		document.getElementById('tabpanel2c').style.display='none';
 		document.getElementById('pfa').style.display='none';
 		document.getElementById('pm').style.display='block';
