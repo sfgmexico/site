@@ -183,8 +183,6 @@ switch ($_REQUEST['function']) {
 
 
 
-
-
     case "pastel":
         echo "i es un pastel";
         break;
