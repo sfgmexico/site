@@ -36,12 +36,59 @@ switch ($_REQUEST['function']) {
 
 
     case "guardacliente":
+        $status="Incompleto";
 
-        if($_REQUEST['TipoCliente']=="Persona Fisica" and ($_REQUEST['nomsol']!='' || $_REQUEST['segnomsol']!='' || $_REQUEST['apepasol']!='' || $_REQUEST['apemasol']!='' || $_REQUEST['rfc1']!='' )){
+       
+        
+
+        if(($_REQUEST['TipoCliente']=="Persona Fisica") 
+
+            && 
+
+
+            (($_REQUEST['actempresarial']== "Si" && ($_REQUEST['puestosol']!='' && $_REQUEST['depasol']!='' && $_REQUEST['desdesol']!='' && $_REQUEST['compasol']!='' && $_REQUEST['compatelsol1']!='' && $_REQUEST['giroprof']!='' && $_REQUEST['noempleados']!='' && $_REQUEST['domneg']!='')) || ($_REQUEST['actempresarial']== "No" && ($_REQUEST['puestosol']!='' && $_REQUEST['depasol']!='' && $_REQUEST['desdesol']!='' && $_REQUEST['compasol']!='' && $_REQUEST['compatelsol1']!=''))) 
+
+            && 
+
+
+
+            (($_REQUEST['vivsol']=="Otros especificar" && $_REQUEST['vivsolesp']!='') || ($_REQUEST['vivsol']!="" && $_REQUEST['vivsol']!="Otros especificar")) 
+
+            && 
+
+            (($_REQUEST['autosol']=='Si' && $_REQUEST['marcasol']!='') || ($_REQUEST['autosol']!='' && $_REQUEST['autosol']!='Si' )) 
+
+            &&
+
+
+            ((($_REQUEST['civilsol']=='Casado Bienes Mancomunados' || $_REQUEST['civilsol']=='Casado Bienes Separados') && $_REQUEST['conyunom']!='' && $_REQUEST['conyuape1']!='' && $_REQUEST['conyuape2']!='' && $_REQUEST['compaconyu']!='' && $_REQUEST['puestconyu']!='' ) || ($_REQUEST['civilsol']!='' && ($_REQUEST['civilsol']!='Casado Bienes Mancomunados' && $_REQUEST['civilsol']!='Casado Bienes Separados'))) 
+
+            &&
+            
+            ($_REQUEST['nomsol']!=''  &&  $_REQUEST['apepasol']!=''  &&  $_REQUEST['rfc1']!='' && $_REQUEST['telsol1']!='' && $_REQUEST['movsol1']!='' && $_REQUEST['mailsol']!='' && $_REQUEST['dirsol']!='' && $_REQUEST['dirsol']!='' && $_REQUEST['dirnumsol']!='' && $_REQUEST['colsol']!='' && $_REQUEST['cpsol']!='' && $_REQUEST['lugnacsol']!='' && $_REQUEST['edosol']!='' && $_REQUEST['cdsol']!='' && $_REQUEST['textfield5']!='' && $_REQUEST['curpsol']!='' && $_REQUEST['sexsol']!='' && $_REQUEST['fechnacsol']!='' && $_REQUEST['edsol']!='' && $_REQUEST['nacsol']!='' && $_REQUEST['acdomsol']!='' && $_REQUEST['anosol']!='' && $_REQUEST['arraisol']!='' && $_REQUEST['inmusol']!='' && $_REQUEST['nomref1']!='' && $_REQUEST['parenref1']!='' && $_REQUEST['telref11']!='' && $_REQUEST['nomref2']!='' && $_REQUEST['parenref2']!='' && $_REQUEST['telref12']!='' && $_REQUEST['refbanc']!='' && $_REQUEST['numcuebanc']!='' && $_REQUEST['sucbanc1']!='' && $_REQUEST['aperbanc1d']!='0000-00-00' && $_REQUEST['refbanc2']!='' && $_REQUEST['numcuebanc2']!='' && $_REQUEST['sucbanc2']!='' && $_REQUEST['aperbanc2d']!='' && $_REQUEST['cargdir']!='' && $_REQUEST['nocuentcd']!='' && $_REQUEST['refcomemp1']!='' && $_REQUEST['telrefcom11']!='' && $_REQUEST['antirefcom1']!='' && $_REQUEST['refcomemp2']!='' && $_REQUEST['telrefcom22']!='' && $_REQUEST['antirefcom2']!='' && $_REQUEST['benesol3']!='' && $_REQUEST['benesol1']!='' && $_REQUEST['benesol2']!='' && $_REQUEST['textfield48']!='' && $_REQUEST['textfield49']!='' && $_REQUEST['textfield50']!='' && $_REQUEST['textfield51']!='' && $_REQUEST['textfield52']!='' && $_REQUEST['textfield53']!='' && $_REQUEST['textfield54']!='' && $_REQUEST['textfield55']!='' && $_REQUEST['textfield56']!='' && $_REQUEST['textfield57']!='' && $_REQUEST['textfield58']!='' && $_REQUEST['textfield59']!='' && $_REQUEST['textfield60']!='' && $_REQUEST['textfield61']!='' && $_REQUEST['textfield62']!='')
+            /*
+            
+            */
+
+             ){
+
+            $status="Finalizado";
 
         }
 
-            
+
+
+        
+
+        
+
+          
+         
+           
+
+
+
+          
 
 
 
@@ -175,11 +222,11 @@ switch ($_REQUEST['function']) {
     		Acc6Nombre='".$_REQUEST['accpermor2']."', 
     		Acc6RFC='".$_REQUEST['rfcaccpermor2']."', 
     		Acc6Porcentaje='".$_REQUEST['%permoracc2']."', 
-    		FechaRegistro='".$_REQUEST['fecharegistro']."', Status='sin terminar'
+    		FechaRegistro='".$_REQUEST['fecharegistro']."', Status='$status'
 
 
     		where id='".$_REQUEST['id']."'");
-        echo json_encode($_REQUEST['nomsol']);
+        echo "¡Guardado!";
         break;
     
 
@@ -195,9 +242,52 @@ switch ($_REQUEST['function']) {
 
 
 
-    case "pastel":
-        echo "i es un pastel";
+    case "cancelarcliente":
+        include('Conexion3.php');
+        mysqli_query($cnx,"delete FROM clientes WHERE Status = ''");
+        echo "Cancelado";
         break;
+
+
+
+
+
+
+     case "modificarcliente":
+        include('Conexion3.php');
+        try {
+            if($_REQUEST['tipodecliente']=="Persona Fisica" && $_REQUEST['idpf']!=''){
+            $result=mysqli_fetch_array(mysqli_query($cnx,"select * FROM clientes WHERE TipoCliente = '".$_REQUEST['tipodecliente']."' and id='".$_REQUEST['idpf']."'"));
+            echo json_encode($result);
+            }
+            if($_REQUEST['tipodecliente']=="Persona Fisica" && $_REQUEST['curppf']!=''){
+            $result=mysqli_fetch_array(mysqli_query($cnx,"select * FROM clientes WHERE TipoCliente = '".$_REQUEST['tipodecliente']."' and CURPPF='".$_REQUEST['curppf']."'"));
+            echo json_encode($result);
+            }
+            if($_REQUEST['tipodecliente']=="Persona Moral" && $_REQUEST['idpm']!=''){
+            $result=mysqli_fetch_array(mysqli_query($cnx,"select * FROM clientes WHERE TipoCliente = '".$_REQUEST['tipodecliente']."' and id='".$_REQUEST['idpm']."'"));
+            echo json_encode($result);
+            }
+            if($_REQUEST['tipodecliente']=="Persona Moral" && $_REQUEST['rfcpm']!=''){
+            $result=mysqli_fetch_array(mysqli_query($cnx,"select * FROM clientes WHERE TipoCliente = '".$_REQUEST['tipodecliente']."' and RFCPM='".$_REQUEST['rfcpm']."'"));
+            echo json_encode($result);
+            }
+
+
+            
+            if(($_REQUEST['tipodecliente']=="" || $_REQUEST['tipodecliente']=="Persona Fisica" || $_REQUEST['tipodecliente']=="Persona Moral") && $_REQUEST['idpf']=="" && $_REQUEST['curppf']=="" && $_REQUEST['idpm']=="" && $_REQUEST['rfcpm']==""){
+                echo "¡Por favor de Ingresar un Dato!";
+            }
+
+
+        } catch (Exception $e) {
+            echo "Error";
+        }
+        
+        
+        
+        break;
+    
     
 
 

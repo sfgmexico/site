@@ -17,7 +17,47 @@
         <form name="form1" id="form1" action=""  method="post" > 
         <div id="botonescliente">  
           <input class="button" type="button" name="nuevocliente" id="nuevocliente" value="Generar Cliente Nuevo">
-          <input class="button" type="button" name="modificarcliente" id="modificarcliente" value="Modificar Cliente">
+          <input class="button" data-open="modalmodificarcliente" type="button" name="modificarcliente" id="modificarcliente" value="Modificar Cliente">
+          
+
+          <!-- This is the first modal -->
+          <div class="reveal" id="modalmodificarcliente" data-reveal>
+            <h4>Buscar por:</h4>
+            <select name="selectmodificacliente" id="selectmodificacliente"><option value="">Seleccione una opción</option><option value="Persona Fisica">Persona Fisica</option><option value="Persona Moral">Persona Moral</option></select>
+            <div id="divmodificacliente1" style="display: none;">
+              <label>ID:<input type="text" name="idmodificacliente" id="idmodificacliente"></label>
+              <h5>Ó</h5>
+              <label>CURP:<input type="text" name="curpmodificacliente" id="curpmodificacliente"></label>
+            </div>
+            <div id="divmodificacliente2" style="display: none;">
+              <label>ID:<input type="text" name="idmodificaclientepm" id="idmodificaclientepm"></label>
+              <h5>Ó</h5>
+              <label>RFC:<input type="text" name="curpmodificaclientepm" id="curpmodificaclientepm"></label>
+            </div>
+
+
+
+
+
+
+            <button id="requestmodificarcliente" name="requestmodificarcliente" class="button" >Buscar</button>
+            <button class="close-button" data-close aria-label="Close reveal" type="button">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <!-- This is the nested modal -->
+          <div class="reveal" id="exampleModal3" data-reveal>
+            <h2>ANOTHER MODAL!!!</h2>
+            <button class="close-button" data-close aria-label="Close reveal" type="button">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+
+
+
+
           <input class="button" type="button" name="contuniarcliente" id="contuniarcliente" value="Continuar Con Registro">
         </div>
         <input type="text" name="idcliente" id="idcliente" style="display: none;">
@@ -195,7 +235,7 @@
                   <div class="small-3 columns">
           
                     <label> Telefono Particular
-                    <input name="telsol1" type="text" id="telsol1"  value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['TelSolicitante'][0]; } ?>"  onKeyUp="myFunction(this,this.value,telsol2)" onkeypress="return validaNumero(event)" pattern="integer"></label>
+                    <input name="telsol1" type="text" id="telsol1"  value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['TelSolicitante'][0]; } ?>"   onkeypress="return validaNumero(event)" pattern="integer"></label>
                   </div>
 
                   <div class="small-3 columns">
@@ -756,6 +796,7 @@
             <div class="row">
               
             <input class="button" type="button" name="guardarcliente" id="guardarcliente" value="Guardar">
+            <input class="button" type="button" name="cancelarcliente" id="cancelarcliente" value="Cancelar Registro">
             <input name="fecharegistro" type="text" id="fecharegistro" value="<?php echo date("Y-m-d");?>" size="10px" readonly>
             </div>
           </div>

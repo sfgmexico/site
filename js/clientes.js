@@ -1,3 +1,110 @@
+$("#requestmodificarcliente").click(function(event) {
+    
+   var data = new FormData();
+   data.append('tipodecliente', document.getElementById("selectmodificacliente").value);
+   data.append('idpf', document.getElementById("idmodificacliente").value);
+   data.append('curppf', document.getElementById("curpmodificacliente").value);
+   data.append('idpm', document.getElementById("idmodificaclientepm").value);
+   data.append('rfcpm', document.getElementById("curpmodificaclientepm").value);
+
+   document.getElementById("idmodificacliente").value="";
+   document.getElementById("curpmodificacliente").value="";
+   document.getElementById("idmodificaclientepm").value="";
+   document.getElementById("curpmodificaclientepm").value="";
+   document.getElementById("idmodificaclientepm").disabled=false;
+   document.getElementById("curpmodificaclientepm").disabled=false;
+   document.getElementById("idmodificacliente").disabled=false;
+   document.getElementById("curpmodificacliente").disabled=false;
+
+   data.append('function', "modificarcliente");
+   
+    if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
+        
+        if(xmlhttp.responseText=='null'){
+            alert("¡No Existe el Registro!, Favor de Ingresar Información correcta");
+        }
+        obj = JSON.parse(xmlhttp.responseText);
+        
+      
+      }
+  }
+xmlhttp.open("POST","clientes.php",true);
+xmlhttp.send(data);
+});
+
+$( "#curpmodificaclientepm" ).change(function() {
+    document.getElementById("idmodificaclientepm").disabled=false;
+    document.getElementById("curpmodificaclientepm").disabled=false;
+  if(document.getElementById("curpmodificaclientepm").value!=""){
+    document.getElementById("idmodificaclientepm").disabled=true;
+    document.getElementById("curpmodificaclientepm").disabled=false;
+  }
+  
+});
+
+
+$( "#idmodificaclientepm" ).change(function() {
+    document.getElementById("idmodificaclientepm").disabled=false;
+    document.getElementById("curpmodificaclientepm").disabled=false;
+  if(document.getElementById("idmodificaclientepm").value!=""){
+    document.getElementById("idmodificaclientepm").disabled=false;
+    document.getElementById("curpmodificaclientepm").disabled=true;
+  }
+  
+});
+
+
+
+
+$( "#curpmodificacliente" ).change(function() {
+    document.getElementById("idmodificacliente").disabled=false;
+    document.getElementById("curpmodificacliente").disabled=false;
+  if(document.getElementById("curpmodificacliente").value!=""){
+    document.getElementById("idmodificacliente").disabled=true;
+    document.getElementById("curpmodificacliente").disabled=false;
+  }
+  
+});
+
+
+$( "#idmodificacliente" ).change(function() {
+    document.getElementById("idmodificacliente").disabled=false;
+    document.getElementById("curpmodificacliente").disabled=false;
+  if(document.getElementById("idmodificacliente").value!=""){
+    document.getElementById("idmodificacliente").disabled=false;
+    document.getElementById("curpmodificacliente").disabled=true;
+  }
+  
+});
+
+
+
+$( "#selectmodificacliente" ).change(function() {
+    document.getElementById("divmodificacliente1").style.display='none';
+    document.getElementById("divmodificacliente2").style.display='none';
+  if(document.getElementById("selectmodificacliente").value=="Persona Fisica"){
+    document.getElementById("divmodificacliente1").style.display='block';
+    document.getElementById("divmodificacliente2").style.display='none';
+  }
+  if(document.getElementById("selectmodificacliente").value=="Persona Moral"){
+    document.getElementById("divmodificacliente1").style.display='none';
+    document.getElementById("divmodificacliente2").style.display='block';
+  }
+});
+
+
+
 
 $("#nuevocliente").click(function(event) {
     
@@ -16,7 +123,7 @@ xmlhttp.onreadystatechange=function()
   {
     if (xmlhttp.readyState==4 && xmlhttp.status==200)
       {
-        alert(xmlhttp.responseText);
+        
         obj = JSON.parse(xmlhttp.responseText);
         document.getElementById("botonescliente").style.display="none";
         document.getElementById("contenidorequestcliente").style.display="block";
@@ -51,12 +158,48 @@ xmlhttp.onreadystatechange=function()
         
         alert(xmlhttp.responseText);
         
+        document.getElementById("cancelarcliente").disabled = true;
         
       }
   }
 xmlhttp.open("POST","clientes.php",true);
 xmlhttp.send(data);
 });
+
+
+$("#cancelarcliente").click(function(event) {
+    
+   var data = new FormData();
+   data.append('function', "cancelarcliente");
+   
+   
+   
+    if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
+        
+        alert(xmlhttp.responseText);
+        document.getElementById("botonescliente").style.display="block";
+        document.getElementById("contenidorequestcliente").style.display="none";
+        
+      }
+  }
+xmlhttp.open("POST","clientes.php",true);
+xmlhttp.send(data);
+});
+
+
+
+
 
 function cambiacartas(){
 	if(document.getElementById('TipoCliente').value==""){
