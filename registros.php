@@ -779,157 +779,153 @@
           <div class="tabs-panel is-active" id="panel1d">
     
 
-            <select name="tipocredito" size="1" id="tipocredito" style="width:40%;" onchange="seleccionvalor()" required>
-              <option value="" ></option>
-              <?php
-              $rescreditos=mysqli_query($cnx,"select * from tiposcreditos");
-              while($rowcreditos=mysqli_fetch_array($rescreditos)){?> 
-              <option value="<?php echo $rowcreditos['descripcion'];?>" ><?php echo $rowcreditos['descripcion'];?></option>
+                                                        <select name="tipocredito" size="1" id="tipocredito" style="width:40%;" onchange="seleccionvalor()" required>
+                                                          <option value="" ></option>
+                                                          <?php
+                                                          $rescreditos=mysqli_query($cnx,"select * from tiposcreditos");
+                                                          while($rowcreditos=mysqli_fetch_array($rescreditos)){?> 
+                                                          <option value="<?php echo $rowcreditos['descripcion'];?>" ><?php echo $rowcreditos['descripcion'];?></option>
 
-              <?php }
-              ?>
-            </select>
+                                                          <?php }
+                                                          ?>
+                                                        </select>
 
-            <div class="row">
-              
-              <label>
-                  <input name="textfield86" type="text" id="textfield86" size="50%" onkeypress="return validaNumeroDecimal(event)"  required >
-              </label>
-            </div>
-            <div id="engautochange">
-            <div class="small-6 columns">  <label>
-               Enganche <input name="textfield87" type="text" id="textfield87" size="50%" onkeypress="return validaNumeroDecimal(event)"   onchange="datosAuto()">
-              </label></div>
-            </div>
+                                                  <div class="row">
+                                                    
+                                                    <label>
+                                                        <input name="textfield86" type="text" id="textfield86" size="50%" onkeypress="return validaNumeroDecimal(event)"  required >
+                                                    </label>
+                                                  </div>
+                                                  <div id="engautochange">
+                                                    <label>
+                                                      <p align="left ">Enganche <input name="textfield87" type="text" id="textfield87" size="50%" onkeypress="return validaNumeroDecimal(event)"   onchange="datosAuto()"></p>
+                                                    </label>
+                                                  </div>
+                                                  <div id="porengautochange">
+                                                    <label> <p align="left">Porcentaje de Enganche<input name="textfield88" type="text" id="textfield88" size="50%"  readonly></p>
+                                                    </label>
+                                                  </div>
+                                                  <div id="porfinautochange">
+                                                    <label> 
+                                                      <p align="left">Porcentaje de Financieamiento<input name="textfield89" type="text" id="textfield89" size="50%"  readonly></p>
+                                                    </label>
+                                                  </div>
+                                                  <div id="monfinautochange">
+                                                    <label>
+                                                    
+                                                      <p align="left">Monto Financiado <input name="textfield90" type="text" id="textfield90" size="50%"  readonly></p>
+                                                    </label>
+                                                  </div>
+                                                  <div>
+                                                    <label>
+                                                    
+                                                      <p align="left">Interes Anual<input name="textfield100" type="text" id="textfield100" size="50%"  readonly onkeypress="return validaNumero(event)" ></p>
+                                                    </label>
+                                                  </div>
+                                                  <div id="comisionapchange">
+                                                    <label>
+                                                    
+                                                      <p align="left">Comisión por Apertura<input name="textfield96" type="text" id="textfield96" size="50%"  readonly onkeypress="return validaNumero(event)" ></p>
+                                                    </label>
+                                                  </div>
 
-            <div id="porengautochange">
-                <div class="small-6 columns">
-              <label> Porcentaje de Enganche<input name="textfield88" type="text" id="textfield88" size="50%"  readonly>
-              </label></div>
+                                              <div class="row">
+                                                          <div class="small-5 columns">
+                                                          
+                                                            <div id="segautochange">
 
-            </div>
-            <div id="porfinautochange">
-            <div class="small-6 columns">
-              <label> 
-               Porcentaje de Financieamiento<input name="textfield89" type="text" id="textfield89" size="50%"  readonly>
-              </label></div>
+                                                              <label>
+                                                            
+                                                                <p align="left">Seguro de Auto<input name="textfield97" type="text" id="textfield97" size="50%"  onkeypress="return validaNumero(event)" ></p>
+                                                              </label>
+                                                            </div>
+                                                            <div>
+                                                              <label>
+                                                            
+                                                                <p align="left">Seguro de Vida<input name="textfield98" type="text" id="textfield98" size="50%"  onkeypress="return validaNumero(event)" ></p>
+                                                              </label>
+                                                            </div>
+                                                            <div id="segdeschange">
+                                                              <label>
+                                                            
+                                                                <p align="left">Seguro de Desempleo<input name="textfield99" type="text" id="textfield99" size="50%"  onkeypress="return validaNumero(event)" ></p>
+                                                              </label>
+                                                            </div>
+                                                            <div>
+                                                              <label>
+                                                            
+                                                                <p align="left">Plazo (meses)<input name="textfield91" type="text" id="textfield91" size="50%"  onkeypress="return validaNumero(event)" required></p>
+                                                              </label>
+                                                            </div>
+                                                          
+                                                            <div>
+                                                              <label>
+                                                            
+                                                                <p align="left">Pago Mensual Esperado<input name="textfield92" type="text" id="textfield92" size="50%"  onkeypress="return validaNumeroDecimal(event)" required></p>
+                                                              </label>
+                                                            </div>
 
-            </div>
-            <div id="monfinautochange">
-         <div class="small-6 columns">    
-              <label>
-              
-                Monto Financiado <input name="textfield90" type="text" id="textfield90" size="50%"  readonly>
-              </label></div>
-
-            </div>
-            <div class="small-6 columns">
-              <label>
-              
-             Interes Anual<input name="textfield100" type="text" id="textfield100" size="50%"  readonly onkeypress="return validaNumero(event)" >
-              </label></div>
-            </div>
-            <div id="comisionapchange">
-             <div class="small-6 columns">
-              <label>
-              
-                Comisión por Apertura<input name="textfield96" type="text" id="textfield96" size="50%"  readonly onkeypress="return validaNumero(event)" >
-              </label></div>
-            </div>
-        </div>
-            <div class="small-5 columns">
+                                                            <p><input type="button" class="button" data-open="Aut" value="Cambiar Valores">
+                                                            </p>
+                                                      </div>
+                                              </div>
             
-              <div id="segautochange">
-
-                <label>
-              
-               Seguro de Auto<input name="textfield97" type="text" id="textfield97" size="50%"  onkeypress="return validaNumero(event)" >
-                </label>
-              </div>
-              <div>
-                <label>
-              
-                  <p align="left">Seguro de Vida<input name="textfield98" type="text" id="textfield98" size="50%"  onkeypress="return validaNumero(event)" ></p>
-                </label>
-              </div>
-              <div id="segdeschange">
-                <label>
-              
-                  <p align="left">Seguro de Desempleo<input name="textfield99" type="text" id="textfield99" size="50%"  onkeypress="return validaNumero(event)" ></p>
-                </label>
-              </div>
-              <div>
-                <label>
-              
-                  <p align="left">Plazo (meses)<input name="textfield91" type="text" id="textfield91" size="50%"  onkeypress="return validaNumero(event)" required></p>
-                </label>
-              </div>
-            
-              <div>
-                <label>
-              
-                  <p align="left">Pago Mensual Esperado<input name="textfield92" type="text" id="textfield92" size="50%"  onkeypress="return validaNumeroDecimal(event)" required></p>
-                </label>
-              </div>
-
-              <p><input type="button" class="button" data-open="Aut" value="Cambiar Valores">
-              </p>
-
 <!-- This is the first modal -->
 
 
-              <div class="reveal" id="Aut" data-reveal>
-                <h3>Clave de Autorizacion
-                </h3>
-                <div class="row">
-                  <div class="small-5 columns">
-      
-                    <input type="text" id="clave" name="clave">
-                    <button class="button" data-close aria-label="Close reveal" id="keycheck" data-open="exampleModal3">Aceptar!</button>
-                  </div>
-                </div>
-                <button class="close-button" data-close aria-label="Close reveal" type="button">
-                  <span aria-hidden="true">X</span>
-                  </button>
-                </div>
-          </div>
-          </div>
-  </div>
-  <div class="tabs-panel" id="panel2d">
-  <div class="row">
-       <p align="left">
-            <div class="small-5 columns"><input name="datobnom1" type="text" id="datobnom1" size="30px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NomObSol']; } ?>" placeholder="Nombre(s)" pattern="alpha"></div>
-            <div class="small-5 columns"><input name="datobappat1" type="text" id="datobappat1" size="30px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ApPatObSol']; } ?>" placeholder="Apellido Paterno" pattern="alpha"></div>
-            <div class="small-5 columns"><input name="datobapmat1" type="text" id="datobapmat1" size="30px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ApMatObSol']; } ?>" placeholder="Apellido Materno" pattern="alpha"></div>
-            <div class="small-5 columns"><input name="datobdir1" type="text" id="datobdir1" size="48px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['DirObSol']; } ?>" placeholder="Dirección / Calle y número"></div>
-            <div class="small-5 columns"><input name="datobcol1" type="text" id="datobcol1" size="48px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ColObSol']; } ?>" placeholder="Colonia"></div>
-            <div class="small-5 columns"><input name="datobcd1" type="text" id="datobcd1" size="20px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['CdObSol']; } ?>" placeholder="Ciudad"></div>
-            <div class="small-10 columns"><input name="datoblugnac1" type="text" id="datoblugnac1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['LugNacObSol']; } ?>" size="30px" placeholder="Lugar nacimiento (País y Edo.)"></div>
-          </p>
-          </div>
-                  <p align="left">
-            Tiene propiedad a su nombre? 
-            <input id="datobprop1A" name="datobprop1" type="radio" <?php if(isset($row['Folio_Cliente'])) { if($row['PropObSol']=='Si'){echo "checked";} } ?> value="Si"><label for="datobprop1A">Si</label>
-            
-            <input id="datobprop1B" name="datobprop1" type="radio" <?php if(isset($row['Folio_Cliente'])) { if($row['PropObSol']=='No'){echo "checked";} } ?> value="No"><label for="datobprop1B">No</label>
-          </p>
-          <div class="row"> 
-          <p align="left">
-            <div class="small-4 columns"><input name="datobedo1" type="text" id="datobedo1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['EdoObSol']; } ?>" size="30px" placeholder="Estado"></div>
-            <div class="small-4 columns"><input name="datobcp1" type="text" id="datobcp1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['CPObSol']; } ?>" size="30px" placeholder="C.P." onkeypress="return validaNumero(event)" patern="integer"></div>
-            <div class="small-4 columns"><input  name="datobmail1" type="text" id="datobmail1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['EmailObSol']; } ?>" size="30px" placeholder="Email" pattern="email"></div>
-          </p>
-          </div>
-  </div>
-  <div class="tabs-panel" id="panel3d">
-    <img class="thumbnail" src="assets/img/generic/rectangle-3.jpg">
-  </div>
-  <div class="tabs-panel" id="panel4d">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-  </div>
-</div>
+                                                                        <div class="reveal" id="Aut" data-reveal>
+                                                                          <h3>Clave de Autorizacion
+                                                                          </h3>
+                                                                          <div class="row">
+                                                                            <div class="small-5 columns">
+                                                                
+                                                                              <input type="text" id="clave" name="clave">
+                                                                              <button class="button" data-close aria-label="Close reveal" id="keycheck" data-open="exampleModal3">Aceptar!</button>
+                                                                            </div>
+                                                                          </div>
+                                                                          <button class="close-button" data-close aria-label="Close reveal" type="button">
+                                                                            <span aria-hidden="true">X</span>
+                                                                            </button>
+                                                                          </div>
+                                              </div>
+                                      <div class="tabs-panel" id="panel2d">
+                                            <div class="row">
+                                           <p align="left">
+                                                <div class="small-5 columns"><input name="datobnom1" type="text" id="datobnom1" size="30px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NomObSol']; } ?>" placeholder="Nombre(s)" pattern="alpha"></div>
+                                                <div class="small-5 columns"><input name="datobappat1" type="text" id="datobappat1" size="30px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ApPatObSol']; } ?>" placeholder="Apellido Paterno" pattern="alpha"></div>
+                                                <div class="small-5 columns"><input name="datobapmat1" type="text" id="datobapmat1" size="30px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ApMatObSol']; } ?>" placeholder="Apellido Materno" pattern="alpha"></div>
+                                                <div class="small-5 columns"><input name="datobdir1" type="text" id="datobdir1" size="48px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['DirObSol']; } ?>" placeholder="Dirección / Calle y número"></div>
+                                                <div class="small-5 columns"><input name="datobcol1" type="text" id="datobcol1" size="48px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ColObSol']; } ?>" placeholder="Colonia"></div>
+                                                <div class="small-5 columns"><input name="datobcd1" type="text" id="datobcd1" size="20px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['CdObSol']; } ?>" placeholder="Ciudad"></div>
+                                                <div class="small-10 columns"><input name="datoblugnac1" type="text" id="datoblugnac1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['LugNacObSol']; } ?>" size="30px" placeholder="Lugar nacimiento (País y Edo.)"></div>
+                                              </p>
+                                              </div>
+                                                      <p align="left">
+                                                Tiene propiedad a su nombre? 
+                                                <input id="datobprop1A" name="datobprop1" type="radio" <?php if(isset($row['Folio_Cliente'])) { if($row['PropObSol']=='Si'){echo "checked";} } ?> value="Si"><label for="datobprop1A">Si</label>
+                                                
+                                                <input id="datobprop1B" name="datobprop1" type="radio" <?php if(isset($row['Folio_Cliente'])) { if($row['PropObSol']=='No'){echo "checked";} } ?> value="No"><label for="datobprop1B">No</label>
+                                              </p>
+                                              <div class="row"> 
+                                              <p align="left">
+                                                <div class="small-4 columns"><input name="datobedo1" type="text" id="datobedo1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['EdoObSol']; } ?>" size="30px" placeholder="Estado"></div>
+                                                <div class="small-4 columns"><input name="datobcp1" type="text" id="datobcp1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['CPObSol']; } ?>" size="30px" placeholder="C.P." onkeypress="return validaNumero(event)" patern="integer"></div>
+                                                <div class="small-4 columns"><input  name="datobmail1" type="text" id="datobmail1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['EmailObSol']; } ?>" size="30px" placeholder="Email" pattern="email"></div>
+                                              </p>
+                                              </div>
+                                      </div>
+                                            <div class="tabs-panel" id="panel3d">
+                                                      <img class="thumbnail" src="assets/img/generic/rectangle-3.jpg">
+                                            </div>
+                                      <div class="tabs-panel" id="panel4d">
+                                               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                      </div>
+                      </div>
+            </div>
         
-      </div>
+ 
+
+
       <div class="tabs-panel" id="panel3v">
         <p>Three</p>
         <p>Check me out! I'm a super cool Tab panel with text content!</p>

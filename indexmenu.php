@@ -1343,7 +1343,7 @@ if(!$_SESSION['usser']) {
 		 <script src="js/jquery-ui/jquery-ui.js"></script>
 		<script src="js/vendor/app.js"></script>
 
-		<script src="js/clientes.js" ></script>
+	
 		<script src="js/jquery-ui/jquery-ui.js"></script>
 		<script src="js/vendor/app.js"></script>
 		
@@ -1355,7 +1355,7 @@ if(!$_SESSION['usser']) {
 })</script>
 
 		<script type="text/javascript" src="js/botones.js"></script>
-    
+    	<script src="js/clientes.js" ></script>
 			 
 			
 			
