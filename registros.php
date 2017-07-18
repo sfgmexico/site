@@ -753,7 +753,11 @@
 
             <div class="tabs-panel" id="panel8c">
             </div>
+            <div class="row">
+              
             <input class="button" type="button" name="guardarcliente" id="guardarcliente" value="Guardar">
+            <input name="fecharegistro" type="text" id="fecharegistro" value="<?php echo date("Y-m-d");?>" size="10px" readonly>
+            </div>
           </div>
         </div>
         </form>

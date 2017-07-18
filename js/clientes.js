@@ -52,7 +52,6 @@ xmlhttp.onreadystatechange=function()
         alert(xmlhttp.responseText);
         
         
-      
       }
   }
 xmlhttp.open("POST","clientes.php",true);
