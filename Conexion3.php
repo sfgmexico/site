@@ -6,4 +6,6 @@ mysqli_query($cnx,"SET NAMES 'utf8'");
 
 //mysql_close($cnx);
 
+
+
 ?>

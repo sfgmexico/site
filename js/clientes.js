@@ -16,7 +16,7 @@ xmlhttp.onreadystatechange=function()
   {
     if (xmlhttp.readyState==4 && xmlhttp.status==200)
       {
-        
+        alert(xmlhttp.responseText);
         obj = JSON.parse(xmlhttp.responseText);
         document.getElementById("botonescliente").style.display="none";
         document.getElementById("contenidorequestcliente").style.display="block";
