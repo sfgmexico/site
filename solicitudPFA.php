@@ -981,15 +981,7 @@ input::-moz-placeholder {
             </div>
             </div>
           <hr>
-          <div class="row">
-          <p align="justify">
-            <div class="small-5 columns"><input name="clavcon" type="text" id="clavcon" size="30px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ClavConcesionario']; } ?>" placeholder="Clave Consesionario o Distribuidor" required></div>
-            <div class="small-5 columns"><input name="nomcons" type="text" id="nomcons" size="30px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NomConcesionario']; } ?>" placeholder="Nombre Concesionario o Distribuidor" required></div>
-            <div class="small-5 columns"><input name="nomvend" type="text" id="nomvend" size="48px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NomVendedor']; } ?>" placeholder="Nombre del Vendedor" required></div>
-            <div class="small-5 columns"><input name="gerentegral" type="text" id="gerentegral" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NomGerenteGral']; } ?>" size="48px" placeholder="Nombre y firma del Gerente General" required></div>
-            <div class="small-10 columns"><input name="fecha" type="text" id="fecha" value="<?php echo date("Y-m-d");?>" size="10px" readonly></div>
-          </p>
-          </div>
+        º
           
           <hr>
         </div>

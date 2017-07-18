@@ -797,36 +797,44 @@
               </label>
             </div>
             <div id="engautochange">
-              <label>
-                <p align="left ">Enganche <input name="textfield87" type="text" id="textfield87" size="50%" onkeypress="return validaNumeroDecimal(event)"   onchange="datosAuto()"></p>
-              </label>
+            <div class="small-6 columns">  <label>
+               Enganche <input name="textfield87" type="text" id="textfield87" size="50%" onkeypress="return validaNumeroDecimal(event)"   onchange="datosAuto()">
+              </label></div>
             </div>
+
             <div id="porengautochange">
-              <label> <p align="left">Porcentaje de Enganche<input name="textfield88" type="text" id="textfield88" size="50%"  readonly></p>
-              </label>
+                <div class="small-6 columns">
+              <label> Porcentaje de Enganche<input name="textfield88" type="text" id="textfield88" size="50%"  readonly>
+              </label></div>
+
             </div>
             <div id="porfinautochange">
+            <div class="small-6 columns">
               <label> 
-                <p align="left">Porcentaje de Financieamiento<input name="textfield89" type="text" id="textfield89" size="50%"  readonly></p>
-              </label>
+               Porcentaje de Financieamiento<input name="textfield89" type="text" id="textfield89" size="50%"  readonly>
+              </label></div>
+
             </div>
             <div id="monfinautochange">
+         <div class="small-6 columns">    
               <label>
               
-                <p align="left">Monto Financiado <input name="textfield90" type="text" id="textfield90" size="50%"  readonly></p>
-              </label>
+                Monto Financiado <input name="textfield90" type="text" id="textfield90" size="50%"  readonly>
+              </label></div>
+
             </div>
-            <div>
+            <div class="small-6 columns">
               <label>
               
-                <p align="left">Interes Anual<input name="textfield100" type="text" id="textfield100" size="50%"  readonly onkeypress="return validaNumero(event)" ></p>
-              </label>
+             Interes Anual<input name="textfield100" type="text" id="textfield100" size="50%"  readonly onkeypress="return validaNumero(event)" >
+              </label></div>
             </div>
             <div id="comisionapchange">
+             <div class="small-6 columns">
               <label>
               
-                <p align="left">Comisión por Apertura<input name="textfield96" type="text" id="textfield96" size="50%"  readonly onkeypress="return validaNumero(event)" ></p>
-              </label>
+                Comisión por Apertura<input name="textfield96" type="text" id="textfield96" size="50%"  readonly onkeypress="return validaNumero(event)" >
+              </label></div>
             </div>
         </div>
             <div class="small-5 columns">
@@ -835,7 +843,7 @@
 
                 <label>
               
-                  <p align="left">Seguro de Auto<input name="textfield97" type="text" id="textfield97" size="50%"  onkeypress="return validaNumero(event)" ></p>
+               Seguro de Auto<input name="textfield97" type="text" id="textfield97" size="50%"  onkeypress="return validaNumero(event)" >
                 </label>
               </div>
               <div>

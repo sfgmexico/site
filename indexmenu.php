@@ -124,7 +124,7 @@ if(!$_SESSION['usser']) {
   <div class="row">
   <div class="small-3 columns">
   	
-<select name="TipoCliente" id="TipoCliente" onchange="cambiacartas()"> <option value="">-Seleccione una opción-</option> <option value="1">Persona Fisica</option><option value="2">Persona Moral</option> </select> 
+<select name="TipoCliente" id="TipoCliente" onchange="cambiacartas()"> <option value="">-Seleccione una opción-</option> <option value="Persona Fisica">Persona Fisica</option><option value="Persona Moral">Persona Moral</option> </select> 
   </div>
   </div>
 
@@ -1343,7 +1343,7 @@ if(!$_SESSION['usser']) {
 		 <script src="js/jquery-ui/jquery-ui.js"></script>
 		<script src="js/vendor/app.js"></script>
 
-
+		<script src="js/clientes.js" ></script>
 		<script src="js/jquery-ui/jquery-ui.js"></script>
 		<script src="js/vendor/app.js"></script>
 		
