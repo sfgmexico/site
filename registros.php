@@ -1,4 +1,4 @@
-<div class="container" id="htmlext" >
+ <div class="container" id="htmlext" >
   
   <div class="medium-2 columns">
     <ul class="vertical tabs" data-tabs id="example-tabs">
@@ -330,27 +330,12 @@
                   </div>
                 </p>
                 <div class="row">
-                  <p align="left">vive en: <br>
-                    <div class="small-2 columns">
-                      <input id="vivsol1" name="vivsol" type="radio" <?php if(isset($row2['Folio_Cliente'])) { if($row2['VivDatGen']=='Casa Propia'){echo "checked";} }?> value="Casa Propia"><label for="vivsol1">Casa Propia</label>
-                    </div>
-                    <div class="small-2 columns">
-                  
-                      <input id="vivsol2" name="vivsol" type="radio" <?php if(isset($row2['Folio_Cliente'])) { if($row2['VivDatGen']=='Rentada'){echo "checked";} } ?> value="Rentada"><label for="vivsol2">Rentada</label>
-                    </div>
-                    <div class="small-2 columns">
-                      <input id="vivsol3" name="vivsol" type="radio" <?php if(isset($row2['Folio_Cliente'])) { if($row2['VivDatGen']=='Hipotecada'){echo "checked";} } ?> value="Hipotecada"><label for="vivsol3">Hipotecada</label>
-                    </div>
-                    <div class="small-3 columns">
-                      <input id="vivsol4" name="vivsol" type="radio" <?php if(isset($row2['Folio_Cliente'])) { if($row2['VivDatGen']=='Casa propiedad de sus familiares'){echo "checked";} } ?> value="Casa propiedad de sus familiares"><label for="vivsol4">Casa propiedad de sus familiares</label>
-                    </div>
-                    <div class="small-3 columns">
-                  
-                      <input id="vivsol5" name="vivsol" type="radio" <?php if(isset($row2['Folio_Cliente'])) { if($row2['VivDatGen']=='Otros especificar'){echo "checked";} } ?> value="Otros especificar"><label for="vivsol5">Otros especificar<input name="vivsolesp" type="text" id="vivsolesp" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['OtrDatGen']; } ?>" pattern="alpha">
-                      </label>
-                    </div> 
-                  
-                  </p>
+                <div class="small-3 columns">
+                  <label>Vive en:
+                <select><option>Casa Propia</option><option>Rentada</option><option>Hipotecada</option><option>Casa propiedad de sus familiares</option><option>Otros especificar</option></select></label>
+                </div>
+              <div class="small-3 columns">  <label>
+               <input type="text" name="especifico"></label></div>
                 </div>
            
                 <div class="row">
@@ -956,7 +941,24 @@
                                               </div>
                                       </div>
                                             <div class="tabs-panel" id="panel3d">
-                                                      <img class="thumbnail" src="assets/img/generic/rectangle-3.jpg">
+                                                       <div class="row">
+          <p align="justify">
+            <div class="small-3 columns"><label>Concesionario
+            <input name="clavcon" type="text" id="clavcon" size="30px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ClavConcesionario']; } ?>" placeholder="Clave Consesionario o Distribuidor" required></label></div>
+
+            <div class="small-3 columns"><label>Nombre Concesionario
+            <input name="nomcons" type="text" id="nomcons" size="30px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NomConcesionario']; } ?>" placeholder="Nombre Concesionario o Distribuidor" required></label></div>
+
+            <div class="small-3 columns"><label>Nombre del Vendedor
+            <input name="nomvend" type="text" id="nomvend" size="48px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NomVendedor']; } ?>" placeholder="Nombre del Vendedor" required></label></div>
+
+            <div class="small-3 columns"><label>Nombre y firma
+            <input name="gerentegral" type="text" id="gerentegral" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NomGerenteGral']; } ?>" size="48px" placeholder="Nombre y firma del Gerente General" required></label></div>
+
+            <div class="small-3 columns"><label>Fecha
+            <input name="fecha" type="text" id="fecha" value="<?php echo date("Y-m-d");?>" size="10px" readonly></label></div>
+          </p>
+          </div>
                                             </div>
                                       <div class="tabs-panel" id="panel4d">
                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -968,13 +970,256 @@
 
 
       <div class="tabs-panel" id="panel3v">
-        <p>Three</p>
-        <p>Check me out! I'm a super cool Tab panel with text content!</p>
+                   <h4 align="left">Calificación del grado de riesgo</h4>
+                    <table width="100%" border="0">
+                      <tr>
+                        <td width="32%">Actividad | Objeto Social </td>
+                        <td width="68%"><select id="select" name="select" size="1" style="width:60%;" required>
+                          <option value="" selected></option>
+                          <option value="3" <?php if(isset($row['Folio_Cliente'])) { if($row3['Antiguedad_ObjetoSocial']=="Vulnerable"){echo "selected";}}?>>Vulnerable</option>
+                          <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Antiguedad_ObjetoSocial']=="Informal"){echo "selected";}}?>>Informal</option>
+                          <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Antiguedad_ObjetoSocial']=="Otra"){echo "selected";}}?>>Otra</option>
+                        </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Antigüedad del cliente </td>
+                        <td><select id="select2" name="select2" size="1" style="width:60%;" required>
+                          <option value="" selected></option>
+                          <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Antiguedad_Cliente']=="1-3 años"){echo "selected";}}?>>1-3 años</option>
+                          <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Antiguedad_Cliente']=="4-6 años"){echo "selected";}}?>>4-6 años</option>
+                          <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Antiguedad_Cliente']=="7-10 años"){echo "selected";}}?>>7-10 años</option>
+                          <option value="0"<?php if(isset($row['Folio_Cliente'])) {if($row3['Antiguedad_Cliente']=="N/A"){echo "selected";}}?>>N/A</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td>Naturaleza de las operaciones </td>
+                        <td><select id="select3" name="select3" size="1" style="width:60%;" required>
+                          <option value="" selected></option>
+                          <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Naturaleza_Operaciones']=="Prestamo"){echo "selected";}}?>>Prestamo</option>
+                          <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Naturaleza_Operaciones']=="Arrendamiento"){echo "selected";}}?>>Arrendamiento</option>
+                          <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Naturaleza_Operaciones']=="Otros"){echo "selected";}}?>>Otros</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td>Q de Beneficiarios </td>
+                        <td><select id="select4" name="select4" size="1" style="width:60%;" required>
+                          <option value="" selected></option>
+                          <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Numero_Beneficiarios']=="1 a 2"){echo "selected";}}?>>1 a 2</option>
+                          <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Numero_Beneficiarios']=="3 a 4"){echo "selected";}}?>>3 a 4</option>
+                          <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Numero_Beneficiarios']=="5 o mas"){echo "selected";}}?>>5 o mas</option>
+                          <option value="0"<?php if(isset($row['Folio_Cliente'])) {if($row3['Numero_Beneficiarios']=="N/A"){echo "selected";}}?>>N/A</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td>Q de Terceros Relacionados (Apoderados y Cotitulares) </td>
+                        <td><select id="select5" name="select5" size="1" style="width:60%;" required>
+                          <option value="" selected></option>
+                          <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Numero_TercerosRelacionados']=="1 a 2"){echo "selected";}}?>>1 a 2</option>
+                          <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Numero_TercerosRelacionados']=="3 a 4"){echo "selected";}}?>>3 a 4</option>
+                          <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Numero_TercerosRelacionados']=="5 o mas"){echo "selected";}}?>>5 o mas</option>
+                          <option value="0"<?php if(isset($row['Folio_Cliente'])) {if($row3['Numero_TercerosRelacionados']=="N/A"){echo "selected";}}?>>N/A</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td>PEPs Relacionados </td>
+                        <td><select id="select6" name="select6" size="1" style="width:60%;" required>
+                          <option value="" selected></option>
+                          <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['PEPs_Relacionados']=="1% - 49%"){echo "selected";}}?>>1% - 49%</option>
+                          <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['PEPs_Relacionados']=="50% - 74%"){echo "selected";}}?>>50% - 74%</option>
+                          <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['PEPs_Relacionados']=="75% - 100%"){echo "selected";}}?>>75% - 100%</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td>Alerta Reputacional </td>
+                        <td><select id="select7" name="select7" size="1" style="width:60%;" required>
+                          <option value="" selected></option>
+                          <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Alerta_Reputacional']=="1% - 49%"){echo "selected";}}?>>1% - 49%</option>
+                          <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Alerta_Reputacional']=="50% - 74%"){echo "selected";}}?>>50% - 74%</option>
+                          <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Alerta_Reputacional']=="75% - 100%"){echo "selected";}}?>>75% - 100%</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td>Volumen esperado (Monto) </td>
+                        <td><select id="select8" name="select8" size="1" style="width:60%;" required>
+                          <option value="" selected></option>
+                          <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Volumen_Esperado']=="$18000 - $20000"){echo "selected";}}?>>$18000 - $20000</option>
+                          <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Volumen_Esperado']=="$21000 - $25000"){echo "selected";}}?>>$21000 - $25000</option>
+                          <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Volumen_Esperado']=="mas de $25000"){echo "selected";}}?>>mas de $25000</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td>Frecuencia esperada (No. Veces) </td>
+                        <td><select id="select9" name="select9" size="1" style="width:60%;" required>
+                          <option value="" selected></option>
+                          <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Frecuencia_Esperada']=="1 a 3"){echo "selected";}}?>>1 a 3</option>
+                          <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Frecuencia_Esperada']=="4 a 6"){echo "selected";}}?>>4 a 6</option>
+                          <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Frecuencia_Esperada']=="7 a 10"){echo "selected";}}?>>7 a 10</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td>Instrumento Monetario Utilizado </td>
+                        <td><select id="select10" name="select10" size="1" style="width:60%;" required>
+                          <option value="" selected></option>
+                          <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Instrumento_Monetario']=="Transferencia"){echo "selected";}}?>>Transferencia</option>
+                          <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Instrumento_Monetario']=="Cheque"){echo "selected";}}?>>Cheque</option>
+                          <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Instrumento_Monetario']=="Efectivo"){echo "selected";}}?>>Efectivo</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td>Canales o Medios Utilizados </td>
+                        <td><select id="select11" name="select11" size="1" style="width:60%;" required>
+                          <option value="" selected></option>
+                          <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Canales_MediosUtilizados']=="Agencia"){echo "selected";}}?>>Agencia</option>
+                          <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Canales_MediosUtilizados']=="Internet"){echo "selected";}}?>>Internet</option>
+                          <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Canales_MediosUtilizados']=="Otro"){echo "selected";}}?>>Otro</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td>País | Estado Oficial </td>
+                        <td><select id="select12" name="select12" size="1" style="width:60%;" required>
+                          <option value="" selected></option>
+                          <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Pais_EstadoOficial']=="México"){echo "selected";}}?>>México</option>
+                          <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Pais_EstadoOficial']=="Otros"){echo "selected";}}?>>Otros</option>
+                          <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Pais_EstadoOficial']=="Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar"){echo "selected";}}?>>Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td>País | Estado Residencia </td>
+                        <td><select id="select13" name="select13" size="1" style="width:60%;" required>
+                          <option value="" selected></option>
+                          <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Pais_EstadoResidencia']=="Guerrero-Michoacan-Tamaulipas-Morelos"){echo "selected";}}?>>Guerrero-Michoacan-Tamaulipas-Morelos</option>
+                          <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Pais_EstadoResidencia']=="Durango-Chihuhua-Jalisco-México-CD México-Sonora"){echo "selected";}}?>>Durango-Chihuhua-Jalisco-México-CD México-Sonora</option>
+                          <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Pais_EstadoResidencia']=="Puebla-Coahuila-Zcatecas-Hidalgo-Durango"){echo "selected";}}?>>Puebla-Coahuila-Zcatecas-Hidalgo-Durango</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td>País | Estado Operación </td>
+                        <td><select id="select14" name="select14" size="1" style="width:60%;" required>
+                          <option value="" selected></option>
+                          <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Pais_EstadoOperacion']=="Guerrero-Michoacan-Tamaulipas-Morelos"){echo "selected";}}?>>Guerrero-Michoacan-Tamaulipas-Morelos</option>
+                          <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Pais_EstadoOperacion']=="Durango-Chihuhua-Jalisco-México-CD México-Sonora"){echo "selected";}}?>>Durango-Chihuhua-Jalisco-México-CD México-Sonora</option>
+                          <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Pais_EstadoOperacion']=="Puebla-Coahuila-Zcatecas-Hidalgo-Durango"){echo "selected";}}?>>Puebla-Coahuila-Zcatecas-Hidalgo-Durango</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td>Origen de los recursos </td>
+                        <td><select id="select15" name="select15" size="1" style="width:60%;" required>
+                          <option value="" selected></option>
+                          <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Origen_Recursos']=="México"){echo "selected";}}?>>México</option>
+                          <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Origen_Recursos']=="Otros"){echo "selected";}}?>>Otros</option>
+                          <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Origen_Recursos']=="Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar"){echo "selected";}}?>>Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td>Destino de los recursos </td>
+                        <td><select id="select16" name="select16" size="1" style="width:60%;" required>
+                          <option value="" selected></option>
+                          <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Destino_Recursos']=="México"){echo "selected";}}?>>México</option>
+                          <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Destino_Recursos']=="Otros"){echo "selected";}}?>>Otros</option>
+                          <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Destino_Recursos']=="Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar"){echo "selected";}}?>>Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar</option>
+                        </select></td>
+                      </tr>
+                      <tr>
+                        <td>País | Estado Residencia de Terceros Relacionados </td>
+                        <td><select id="select17" name="select17" size="1" style="width:60%;" required>
+                          <option value="" selected></option>
+                          <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Pais_EstadoResidenciaTerceros']=="México"){echo "selected";}}?>>México</option>
+                          <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Pais_EstadoResidenciaTerceros']=="Otros"){echo "selected";}}?>>Otros</option>
+                          <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Pais_EstadoResidenciaTerceros']=="Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar"){echo "selected";}}?>>Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar</option>
+                        </select></td>
+                      </tr>
+                    </table>
       </div>
       <div class="tabs-panel" id="panel4v">
-        <p>Four</p>
-        
-      </div>
+         <p>Four</p>
+        <ul class="tabs" data-active-collapse="true" data-tabs id="collapsing-tabs">
+  <li class="tabs-title is-active"><a href="#panel1f" aria-selected="true">Tab 1</a></li>
+  <li class="tabs-title"><a href="#panel2f">Tab 2</a></li>
+  <li class="tabs-title"><a href="#panel3f">Tab 3</a></li>
+  <li class="tabs-title"><a href="#panel4f">Tab 4</a></li>
+</ul>
+
+<div class="tabs-content" data-tabs-content="collapsing-tabs">
+  <div class="tabs-panel is-active" id="panel1f">
+    
+                   <h6 align="left">DOCUMENTACION DE IDENTIFICACION </h6>
+                      <table width="100%" border="0">
+                        <tr id="secINE">
+                          <td width="21%">Credencial para votar </td>
+                          <td width="35%"><input name="textfield39" type="text" id="textfield39" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['INESolicitante']; } ?>"></td>
+                          <td width="15%">Se adjunta copia: </td>
+                          <td width="29%" ><input id="copiasA" name="copias" type="radio" value="Si" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_INESolicitante']=='Si'){echo "checked";} } ?>><label for="copiasA"> Si</label>  <input id="copiasB" name="copias" type="radio" value="No" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_INESolicitante']=='No'){echo "checked";} } ?>><label for="copiasB"> No</label></td>
+                        </tr>
+                        <tr id="secCedProfesional">
+                          <td>Pasaporte cedula profesional </td>
+                          <td><input name="textfield40" type="text" id="textfield40" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['Pasaporte_o_CedulaProfSolicitante']; } ?>" ></td>
+                          <td>Se adjunta copia: </td>
+                          <td ><input id="copias2A" name="copias2" type="radio" value="Si"<?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_Pasaporte_o_CedulaProfSolicitante']=='Si'){echo "checked";} } ?>><label for="copias2A"> Si</label>  <input id="copias2B" name="copias2" type="radio" value="No"<?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_Pasaporte_o_CedulaProfSolicitante']=='<noscript>
+                          
+                          </noscript>'){echo "checked";} } ?>><label for="copias2B"> No</label></td>
+                        </tr>
+                        <tr id="secCarMilitar">
+                          <td>Cartilla de servicio militar </td>
+                          <td><input name="textfield41" type="text" id="textfield41" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['CartillaMilitarSolicitante']; } ?>" ></td>
+                          <td>Se adjunta copia: </td>
+                          <td ><input id="copias3A" name="copias3" type="radio" value="Si" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_CartillaMilitarSolicitante']=='Si'){echo "checked";} } ?>><label for="copias3A"> Si</label>  <input id="copias3B" name="copias3" type="radio" value="No" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_CartillaMilitarSolicitante']=='No'){echo "checked";} } ?>><label for="copias3B"> No</label></td>
+                        </tr>
+                        <tr id="secLicConducir">
+                          <td>Licencia para conducir </td>
+                          <td><input name="textfield42" type="text" id="textfield42" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['LicenciaConducirSolicitante']; } ?>" ></td>
+                          <td>Se adjunta copia: </td>
+                          <td ><input id="copias4A" name="copias4" type="radio" value="Si" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_LicenciaConducirSolicitante']=='Si'){echo "checked";} } ?>><label for="copias4A"> Si</label>
+                                                  <input id="copias4B" name="copias4" type="radio" value="No" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_LicenciaConducirSolicitante']=='No'){echo "checked";} } ?>><label for="copias4B"> No</label></td>
+                        </tr>
+                        <tr id="secOtrIdentificacion">
+                          <td>Otra</td>
+                          <td><input name="textfield43" type="text" id="textfield43" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['OtraIdentSolicitante']; } ?>" ></td>
+                          <td>Se adjunta copia: </td>
+                          <td ><input id="copias5A" name="copias5" type="radio" value="Si" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_OtraIdentSolicitante']=='Si'){echo "checked";} } ?>><label for="copias5A"> Si</label>
+                                                        <input id="copias5B" name="copias5" type="radio" value="No" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_OtraIdentSolicitante']=='No'){echo "checked";} } ?>><label for="copias5B"> No</label></td>
+                        </tr>
+                        <tr>
+                          <td>Especificar</td>
+                          <td id="secOtrIdentificacion2"><input name="textfield44" type="text" id="textfield44" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['EspIdentSolicitante']; } ?>" ></td>
+                          <td>Se cotejo vs original: </td>
+                          <td ><input id="cotejo1" name="cotejo" type="radio" value="Si" <?php if(isset($row['Folio_Cliente'])) { if($row3['CotejoVsOriginal']=='Si'){echo "checked";} } ?> required><label for="cotejo1"> Si</label>
+                               <input id="cotejo2" name="cotejo" type="radio" value="No" <?php if(isset($row['Folio_Cliente'])) { if($row3['CotejoVsOriginal']=='No'){echo "checked";} } ?> required><label for="cotejo2"> No</label></td>
+                        </tr>
+                      </table>
+  </div>
+  <div class="tabs-panel" id="panel2f">
+               <p align="left">OTROS DOCUMENTOS QUE SE ADJUNTAN:</p>
+                <table width="100%" border="0">
+                      <tr>
+                        <td width="30%">Se adjunta CURP y/o cédula RFC, FEA* </td>
+                        <td width="70%"><input id="adjuntos1A" name="adjuntos1" type="radio" value="Si" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_CURP_RFC_FEA']=='Si'){echo "checked";} } ?> required><label for="adjuntos1A"> Si</label>
+                                        <input id="adjuntos1B" name="adjuntos1" type="radio" value="No" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_CURP_RFC_FEA']=='No'){echo "checked";} } ?> required><label for="adjuntos1B"> No</label></td>
+                      </tr>
+                      <tr>
+                        <td>Se adjunta comprobante de domicilio </td>
+                        <td><input id="adjuntos2A" name="adjuntos2" type="radio" value="Si" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_ComprobanteDom']=='Si'){echo "checked";} } ?> required><label for="adjuntos2A"> Si</label>
+                            <input id="adjuntos2B" name="adjuntos2" type="radio" value="No" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_ComprobanteDom']=='No'){echo "checked";} } ?> required><label for="adjuntos2B"> No</label></td>
+                      </tr>
+                      <tr>
+                        <td>Fecha del comprobante de domicilio </td>
+                        <td><input name="fechaComprobante" type="date" id="fechaComprobante" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['FechaComprobanteDom']; } ?>" required></td>
+                      </tr>
+                      <tr>
+                        <td>Domicilio manifestado coincide con la ID</td>
+                        <td><input id="adjuntos3A" name="adjuntos3" type="radio" value="Si" <?php if(isset($row2['Folio_Cliente'])) { if($row3['DomicilioCoincideId']=='Si'){echo "checked";} } ?> required><label for="adjuntos3A"> Si</label>
+                            <input id="adjuntos3B" name="adjuntos3" type="radio" value="No" <?php if(isset($row2['Folio_Cliente'])) { if($row3['DomicilioCoincideId']=='No'){echo "checked";} } ?> required><label for="adjuntos3B"> No</label></td>
+                      </tr>
+                    </table>
+          </div>
+                             <div class="tabs-panel" id="panel3f">
+                                                      <img class="thumbnail" src="assets/img/generic/rectangle-3.jpg">
+                              </div>
+                              <div class="tabs-panel" id="panel4f">
+                                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                             </div>
+        </div>
+        </div>
       <div class="tabs-panel" id="panel5v">
         <p>Five</p>
         <p>Check me out! I'm a super cool Tab panel with text content!</p>
