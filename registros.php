@@ -796,15 +796,19 @@
         <ul class="tabs" data-deep-link="true" data-update-history="true" data-deep-link-smudge="true" data-deep-link-smudge="500" data-tabs id="deeplinked-tabs">
           <li class="tabs-title is-active"><a href="#panel1d" aria-selected="true">Credito</a></li>
           <li class="tabs-title"><a href="#panel2d">Obligado Solidario</a></li>
-          <li class="tabs-title"><a href="#panel3d">Tab 3</a></li>
-          <li class="tabs-title"><a href="#panel4d">Tab 4</a></li>
+          <li class="tabs-title"><a href="#panel3d">Concesionario</a></li>
+          
         </ul>
 
         <div class="tabs-content" data-tabs-content="deeplinked-tabs">
           <div class="tabs-panel is-active" id="panel1d">
     
 
-                                                        <select name="tipocredito" size="1" id="tipocredito" style="width:40%;" onchange="seleccionvalor()" required>
+                                 <div class="row">
+                                 <p align="left">
+                                              <div class="small-3 columns">
+                                                <label> Tipo Credito
+                                                        <select name="tipocredito" size="1" id="tipocredito"  onchange="seleccionvalor()" required>
                                                           <option value="" ></option>
                                                           <?php
                                                           $rescreditos=mysqli_query($cnx,"select * from tiposcreditos");
@@ -814,86 +818,84 @@
                                                           <?php }
                                                           ?>
                                                         </select>
-
-                                                  <div class="row">
+                                               </label>
+                                              </div>
                                                     
-                                                    <label>
-                                                        <input name="textfield86" type="text" id="textfield86" size="50%" onkeypress="return validaNumeroDecimal(event)"  required >
-                                                    </label>
+                                                    <div class="small-3 columns"> 
+                                                          <label>
+                                                              <input name="textfield86" type="text" id="textfield86" size="50%" onkeypress="return validaNumeroDecimal(event)"  required >
+                                                          </label> 
+                                                    </div>
+
+                                                  <div class="small-3 columns" id="engautochange">
+                                                           <label>
+                                                            Enganche <input name="textfield87" type="text" id="textfield87" size="50%" onkeypress="return validaNumeroDecimal(event)"   onchange="datosAuto()">
+                                                          </label>
                                                   </div>
-                                                  <div id="engautochange">
-                                                    <label>
-                                                      <p align="left ">Enganche <input name="textfield87" type="text" id="textfield87" size="50%" onkeypress="return validaNumeroDecimal(event)"   onchange="datosAuto()"></p>
-                                                    </label>
+
+                                                  <div class="small-3 columns" id="porengautochange">
+                                                          <label> Porcentaje de Enganche<input name="textfield88" type="text" id="textfield88" size="50%"  readonly>
+                                                          </label>
                                                   </div>
-                                                  <div id="porengautochange">
-                                                    <label> <p align="left">Porcentaje de Enganche<input name="textfield88" type="text" id="textfield88" size="50%"  readonly></p>
-                                                    </label>
-                                                  </div>
-                                                  <div id="porfinautochange">
+                                                  <div class="small-3 columns" id="porfinautochange">
                                                     <label> 
-                                                      <p align="left">Porcentaje de Financieamiento<input name="textfield89" type="text" id="textfield89" size="50%"  readonly></p>
+                                                   Porcentaje de Financieamiento<input name="textfield89" type="text" id="textfield89" size="50%"  readonly>
                                                     </label>
                                                   </div>
-                                                  <div id="monfinautochange">
+                                                  <div class="small-3 columns" id="monfinautochange">
                                                     <label>
                                                     
-                                                      <p align="left">Monto Financiado <input name="textfield90" type="text" id="textfield90" size="50%"  readonly></p>
+                                                     Monto Financiado <input name="textfield90" type="text" id="textfield90" size="50%"  readonly>
                                                     </label>
                                                   </div>
-                                                  <div>
+                                                  <div class="small-3 columns">
                                                     <label>
-                                                    
-                                                      <p align="left">Interes Anual<input name="textfield100" type="text" id="textfield100" size="50%"  readonly onkeypress="return validaNumero(event)" ></p>
+                                                      Interes Anual<input name="textfield100" type="text" id="textfield100" size="50%"  readonly onkeypress="return validaNumero(event)" >
                                                     </label>
                                                   </div>
-                                                  <div id="comisionapchange">
+                                                  <div class="small-3 columns" id="comisionapchange">
                                                     <label>
                                                     
-                                                      <p align="left">Comisión por Apertura<input name="textfield96" type="text" id="textfield96" size="50%"  readonly onkeypress="return validaNumero(event)" ></p>
+                                                  Comisión por Apertura<input name="textfield96" type="text" id="textfield96" size="50%"  readonly onkeypress="return validaNumero(event)" >
                                                     </label>
                                                   </div>
 
-                                              <div class="row">
-                                                          <div class="small-5 columns">
-                                                          
-                                                            <div id="segautochange">
+                                                          <div class="small-3 columns">
+                                                              <label>
+                                                               Seguro de Auto<input name="textfield97" type="text" id="textfield97" size="50%"  onkeypress="return validaNumero(event)" >
+                                                              </label>
+                                                            
+                                                         </div>
+                                                            <div class="small-3 columns">
+                                                              <label>
+                                                            
+                                                            Seguro de Vida<input name="textfield98" type="text" id="textfield98" size="50%"  onkeypress="return validaNumero(event)" >
+                                                              </label>
+                                                            </div>
 
-                                                              <label>
-                                                            
-                                                                <p align="left">Seguro de Auto<input name="textfield97" type="text" id="textfield97" size="50%"  onkeypress="return validaNumero(event)" ></p>
-                                                              </label>
-                                                            </div>
-                                                            <div>
-                                                              <label>
-                                                            
-                                                                <p align="left">Seguro de Vida<input name="textfield98" type="text" id="textfield98" size="50%"  onkeypress="return validaNumero(event)" ></p>
-                                                              </label>
-                                                            </div>
-                                                            <div id="segdeschange">
+                                                            <div class="small-3 columns" id="segdeschange">
                                                               <label>
                                                             
                                                                 <p align="left">Seguro de Desempleo<input name="textfield99" type="text" id="textfield99" size="50%"  onkeypress="return validaNumero(event)" ></p>
                                                               </label>
                                                             </div>
-                                                            <div>
+                                                            <div class="small-3 columns">
                                                               <label>
                                                             
-                                                                <p align="left">Plazo (meses)<input name="textfield91" type="text" id="textfield91" size="50%"  onkeypress="return validaNumero(event)" required></p>
+                                                               Plazo (meses)<input name="textfield91" type="text" id="textfield91" size="50%"  onkeypress="return validaNumero(event)" required>
                                                               </label>
                                                             </div>
                                                           
-                                                            <div>
+                                                            <div class="small-3 columns">
                                                               <label>
-                                                            
-                                                                <p align="left">Pago Mensual Esperado<input name="textfield92" type="text" id="textfield92" size="50%"  onkeypress="return validaNumeroDecimal(event)" required></p>
+                                                               Pago Mensual Esperado<input name="textfield92" type="text" id="textfield92" size="50%"  onkeypress="return validaNumeroDecimal(event)" required>
                                                               </label>
                                                             </div>
-
-                                                            <p><input type="button" class="button" data-open="Aut" value="Cambiar Valores">
-                                                            </p>
-                                                      </div>
-                                              </div>
+                                                            <div class="small-5 columns">
+                                                            <input type="button" class="button" data-open="Aut" value="Cambiar Valores"></div>
+                                                            
+                                            </p>
+                     </div>
             
 <!-- This is the first modal -->
 
@@ -1236,7 +1238,6 @@
   -->
          
 
-    </div>
 
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
