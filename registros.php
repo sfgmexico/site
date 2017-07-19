@@ -41,7 +41,7 @@
 
 
             <button id="requestmodificarcliente" name="requestmodificarcliente" class="button" >Buscar</button>
-            <button class="close-button" data-close aria-label="Close reveal" type="button">
+            <button id="cerrarmodalmodificacliente" class="close-button" data-close aria-label="Close reveal" type="button">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -79,7 +79,7 @@
             <div class="tabs-panel is-active" id="panel1c">
               <div class="row">
                 <div class="small-3 columns">
-                  <select name="TipoCliente" id="TipoCliente" onchange="cambiacartas()"> <option value="">-Seleccione una opción-</option> <option value="Persona Fisica">Persona Fisica</option><option value="Persona Moral">Persona Moral</option> 
+                  <select name="TipoCliente" id="TipoCliente" > <option value="">-Seleccione una opción-</option> <option value="Persona Fisica">Persona Fisica</option><option value="Persona Moral">Persona Moral</option> 
                   </select> 
                 </div>
               </div>

@@ -33,8 +33,52 @@ xmlhttp.onreadystatechange=function()
         
         if(xmlhttp.responseText=='null'){
             alert("¡No Existe el Registro!, Favor de Ingresar Información correcta");
+            return;
         }
+        if(xmlhttp.responseText=='¡Por favor de Ingresar un Dato!'){
+            alert("¡Por favor de Ingresar un Dato!");
+            return;
+        }
+
+
         obj = JSON.parse(xmlhttp.responseText);
+
+        $( "#cerrarmodalmodificacliente" ).click();
+        document.getElementById("botonescliente").style.display="none";
+        document.getElementById("contenidorequestcliente").style.display="block";
+        document.getElementById("idcliente").value=obj.id;
+        document.getElementById("cancelarcliente").disabled=true;
+        document.getElementById("TipoCliente").value=obj.TipoCliente;
+        cambiacartas();
+        document.getElementById("nomsol").value=obj.NombrePF;
+        document.getElementById("segnomsol").value=obj.SegNombrePF;
+        document.getElementById("apepasol").value=obj.ApPatPF;
+        document.getElementById("apemasol").value=obj.ApMatPF;
+        document.getElementById("rfc1").value=obj.RFCPF;
+        document.getElementById("telsol1").value=obj.TelefonoPF;
+        document.getElementById("movsol1").value=obj.MovilPF;
+        document.getElementById("mailsol").value=obj.EmailPF;
+        document.getElementById("dirsol").value=obj.DireccionPF;
+        document.getElementById("dirnumsol").value=obj.NumDireccionPF;
+        document.getElementById("colsol").value=obj.ColoniaPF;
+        document.getElementById("cpsol").value=obj.CPPF;
+        document.getElementById("lugnacsol").value=obj.LugNacimientoPF;
+        document.getElementById("edosol").value=obj.EstadoPF;
+        document.getElementById("cdsol").value=obj.CiudadPF;
+        document.getElementById("textfield5").value=obj.MunicipioPF;
+        document.getElementById("curpsol").value=obj.CURPPF;
+        document.getElementById("sexsol").value=obj.SexoPF;
+        document.getElementById("fechnacsol").value=obj.FechNacimientoPF;
+        document.getElementById("edsol").value=obj.Edad;
+        document.getElementById("nacsol").value=obj.NacionalidadPF;
+        document.getElementById("depensol").value=obj.NumDependientesPF;
+        document.getElementById("acdomsol").value=obj.AcreditaDomPF;
+        document.getElementById("anosol").value=obj.RecidirCiudadPF;
+        document.getElementById("arraisol").value=obj.ArraigoDomPF;
+        document.getElementById("vivsol").value=obj.ViviendaPF;
+
+
+
         
       
       }
@@ -201,6 +245,7 @@ xmlhttp.send(data);
 
 
 
+
 function cambiacartas(){
 	if(document.getElementById('TipoCliente').value==""){
 		document.getElementById('pfa').style.display='none';
@@ -223,7 +268,26 @@ function cambiacartas(){
 
 }
 
-
+$( "#TipoCliente" ).change(function() {
+    if(document.getElementById('TipoCliente').value==""){
+        document.getElementById('pfa').style.display='none';
+        document.getElementById('pm').style.display='none';
+        document.getElementById('tabpanel7c').style.display='none';
+        document.getElementById('tabpanel2c').style.display='none';
+    }else if(document.getElementById('TipoCliente').value=="Persona Fisica"){
+        document.getElementById("pfa").style.display = "block";
+        document.getElementById('tabpanel2c').style.display='block';
+        document.getElementById('pm').style.display='none';
+        document.getElementById('tabpanel7c').style.display='none';
+    }else if(document.getElementById('TipoCliente').value=="Persona Moral"){
+        document.getElementById('tabpanel2c').style.display='none';
+        document.getElementById('pfa').style.display='none';
+        document.getElementById('pm').style.display='block';
+        document.getElementById('tabpanel7c').style.display='block';
+    }
+    
+  
+});
 
 
 
