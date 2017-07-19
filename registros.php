@@ -335,7 +335,7 @@
                 <select name="vivsol" id="vivsol"><option value="">-Seleccione una opcion-</option><option value="Casa Propia">Casa Propia</option><option value="Rentada">Rentada</option><option value="Hipotecada">Hipotecada</option><option value="Casa propiedad de sus familiares">Casa propiedad de sus familiares</option><option value="Otros especificar">Otros especificar</option></select></label>
                 </div>
               <div class="small-3 columns">  <label>
-               <input type="text" name="especifico"></label></div>
+               <input type="text" name="vivsolesp" id="vivsolesp"></label></div>
                 </div>
            
                 <div class="row">
