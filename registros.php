@@ -342,21 +342,25 @@
                   <p align="left">
                     <div class="small-5 columns">
                       <label>Estado civil:
-                      <select name="civilsol"><option>-Seleccione una opción-</option><option value="Casado Bienes Mancomunados">Casado Bienes Mancomunados</option><option value="Casado Bienes Separados">Casado Bienes Separados</option><option value="Viudo">Viudo</option><option value="Divorciado">Divorciado</option><option value="Soltero">Soltero</option></select></label>
+                      <select name="civilsol" id="civilsol"><option>-Seleccione una opción-</option><option value="Casado Bienes Mancomunados">Casado Bienes Mancomunados</option><option value="Casado Bienes Separados">Casado Bienes Separados</option><option value="Viudo">Viudo</option><option value="Divorciado">Divorciado</option><option value="Soltero">Soltero</option></select></label>
             
                     </div>
         
                     <div class="small-3 columns">
 
                       <label>Tiene Auto Propio:
-                    <select><option>Si</option><option>No</option></select>
+                    <select name="autosol" id="autosol"><option value="">-Seleccione una opción</option><option value="Si">Si</option><option value="No">No</option></select>
+
                        </label>
 
                     </div>
                     <div class="small-3 columns">
+                        <input type="text" name="marcasol" id="marcasol">
+                    </div>
+                    <div class="small-3 columns">
                     <label>
                       Es propietario de algún inmueble:
-                  <select><option>Si</option><option>No</option></select>
+                  <select name="inmusol" id="inmusol"><option value="">-Seleccione una opción-</option><option value="Si">Si</option><option value="No">No</option></select>
                       </label>
                     </div>
                   </p>
@@ -779,7 +783,8 @@
             </div>
             <div class="row">
               
-            <input class="button" type="button" name="guardarcliente" id="guardarcliente" value="Guardar">
+            <input class="button" type="button" name="guardarcliente" id="guardarcliente" value="Guardar" style="display: none;">
+            <input class="button" type="button" name="botonmodcliente" id="botonmodcliente" value="Guardar" style="display: none;">
             <input class="button" type="button" name="cancelarcliente" id="cancelarcliente" value="Cancelar Registro">
             <input name="fecharegistro" type="text" id="fecharegistro" value="<?php echo date("Y-m-d");?>" size="10px" readonly>
             </div>

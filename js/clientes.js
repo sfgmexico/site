@@ -1,4 +1,45 @@
+$("#botonmodcliente").click(function(event) {
+    
+   var data = new FormData(document.forms['form1']);
+   data.append('function', "modificacioncliente");
+   
+   data.append('id', obj.id);
+
+   data.append('TipoCliente', obj.TipoCliente);
+   
+    if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
+        
+        alert(xmlhttp.responseText);
+        
+        document.getElementById("cancelarcliente").disabled = true;
+        
+      }
+  }
+xmlhttp.open("POST","clientes.php",true);
+xmlhttp.send(data);
+});
+
+
+
+
+
+
+
 $("#requestmodificarcliente").click(function(event) {
+
+
+
     
    var data = new FormData();
    data.append('tipodecliente', document.getElementById("selectmodificacliente").value);
@@ -49,6 +90,7 @@ xmlhttp.onreadystatechange=function()
         document.getElementById("idcliente").value=obj.id;
         document.getElementById("cancelarcliente").disabled=true;
         document.getElementById("TipoCliente").value=obj.TipoCliente;
+        document.getElementById("TipoCliente").disabled=true;
         cambiacartas();
         document.getElementById("nomsol").value=obj.NombrePF;
         document.getElementById("segnomsol").value=obj.SegNombrePF;
@@ -77,9 +119,134 @@ xmlhttp.onreadystatechange=function()
         document.getElementById("arraisol").value=obj.ArraigoDomPF;
         document.getElementById("vivsol").value=obj.ViviendaPF;
 
+        document.getElementById("vivsolesp").value=obj.EspViviendaPF;
+        document.getElementById("civilsol").value=obj.EstCivilPF;
+        document.getElementById("autosol").value=obj.AutoPropioPF;
+        document.getElementById("marcasol").value=obj.EspAuto;
+        document.getElementById("inmusol").value=obj.InmueblePF;
+        document.getElementById("actempresarial").value=obj.ActividadEmpresarial;
+        document.getElementById("puestosol").value=obj.PuestoPF;
+
+        document.getElementById("depasol").value=obj.DepartamentoPF;
+        document.getElementById("desdesol").value=obj.DesdeEmpPF;
+        document.getElementById("compasol").value=obj.CompaniaPF;
+        document.getElementById("compatelsol1").value=obj.TelefonoEmpPF;
+        document.getElementById("compatelsolext").value=obj.ExtensionEmpPF;
+        document.getElementById("giroprof").value=obj.GiroPF;
+        document.getElementById("noempleados").value=obj.NumEmpleadosPF;
+
+        document.getElementById("domneg").value=obj.DomicilioNegPF;
+        document.getElementById("nomref1").value=obj.RefPerNom1PF;
+        document.getElementById("parenref1").value=obj.RefPerParentesco1PF;
+        document.getElementById("telref11").value=obj.RefPerTelefono1PF;
+        document.getElementById("nomref2").value=obj.RefPerNom2PF;
+        document.getElementById("parenref2").value=obj.RefPerParentesco2PF;
+        document.getElementById("telref12").value=obj.RefPerTelefono2PF;
+
+        document.getElementById("refbanc").value=obj.Banco1;
+        document.getElementById("numcuebanc").value=obj.CuentaBanc1;
+        document.getElementById("sucbanc1").value=obj.SucursalBanc1;
+        document.getElementById("aperbanc1d").value=obj.FechaApertura1;
+        document.getElementById("refbanc2").value=obj.Banco2;
+        document.getElementById("numcuebanc2").value=obj.CuentaBanc2;
+        document.getElementById("sucbanc2").value=obj.SucursalBanc2;
+
+        document.getElementById("aperbanc2d").value=obj.FechaApertura2;
+        document.getElementById("cargdir").value=obj.CarDirBanco;
+        document.getElementById("nocuentcd").value=obj.CLABE;
+        document.getElementById("refcomemp1").value=obj.RefComEmp1;
+        document.getElementById("telrefcom11").value=obj.RefComTel1;
+        document.getElementById("antirefcom1").value=obj.RefComAnt1;
+        document.getElementById("refcomemp2").value=obj.RefComEmp2;
+
+        document.getElementById("telrefcom22").value=obj.RefComTel1;
+        document.getElementById("antirefcom2").value=obj.RefComAnt1;
+        document.getElementById("conyunom").value=obj.ConyugeNom;
+        document.getElementById("conyuape1").value=obj.ConyugeApPat;
+        document.getElementById("conyuape2").value=obj.ConyugeApMat;
+        document.getElementById("compaconyu").value=obj.ConyugeCompania;
+        document.getElementById("puestconyu").value=obj.ConyugePuesto;
+
+        document.getElementById("benesol3").value=obj.BeneficiarioNom;
+        document.getElementById("benesol1").value=obj.BeneficiarioApPat;
+        document.getElementById("benesol2").value=obj.BeneficiarioApMat;
+        document.getElementById("textfield48").value=obj.BeneficiarioDom;
+        document.getElementById("textfield49").value=obj.BeneficiarioCol;
+        document.getElementById("textfield50").value=obj.BeneficiarioCP;
+        document.getElementById("textfield51").value=obj.BeneficiarioPais;
+
+        document.getElementById("textfield52").value=obj.BeneficiarioTel;
+        document.getElementById("textfield53").value=obj.BeneficiarioCURP;
+        document.getElementById("textfield54").value=obj.BeneficiarioRFC;
+        document.getElementById("textfield55").value=obj.BeneficiarioParent;
+        document.getElementById("textfield56").value=obj.BeneficiarioPorciento;
+        document.getElementById("textfield57").value=obj.BeneficiarioFechNac;
+        document.getElementById("textfield58").value=obj.BeneficiarioMun;
+
+        document.getElementById("textfield59").value=obj.BeneficiarioEstado;
+        document.getElementById("textfield60").value=obj.BeneficiarioEstCivil;
+        document.getElementById("textfield61").value=obj.BeneficiarioSocConyugal;
+        document.getElementById("textfield62").value=obj.BeneficiarioOcupacion;
+        document.getElementById("nomrazsoc2").value=obj.RazonSocial;
+        document.getElementById("telsol2").value=obj.TelPM;
+        document.getElementById("rfcsol1").value=obj.RFCPM;
+
+        document.getElementById("dirsolpm").value=obj.DireccionPM;
+        document.getElementById("dirnumsolpm").value=obj.NumDireccionPM;
+        document.getElementById("mailsol2").value=obj.EmailPM;
+        document.getElementById("colsolpm").value=obj.ColoniaPM;
+        document.getElementById("cdsolpm").value=obj.CiudadPM;
+        document.getElementById("edosolpm").value=obj.EstadoPM;
+        document.getElementById("cpsolpm").value=obj.CPPM;
+
+        document.getElementById("actprinc").value=obj.ActPrinPM;
+        document.getElementById("cantperson").value=obj.CantPersonalPM;
+        document.getElementById("inicoper1").value=obj.InOperacionesPM;
+        document.getElementById("inicoper13").value=obj.ConstEmpresaPM;
+        document.getElementById("antemp").value=obj.AntiguedadPM;
+        document.getElementById("apodsusc").value=obj.ApoderadoPM;
+        document.getElementById("nomconemp").value=obj.ContEmpNombre;
+
+        document.getElementById("segnomconemp").value=obj.ContEmpSegNombre;
+        document.getElementById("apepaconemp").value=obj.ContEmpApPat;
+        document.getElementById("apemaconemp").value=obj.ContEmpApMat;
+        document.getElementById("datobdir22").value=obj.ContEmpDireccion;
+        document.getElementById("datobcol23").value=obj.ContEmpColonia;
+        document.getElementById("colsol22").value=obj.ContEmpCiudad;
+        document.getElementById("cdsol22").value=obj.ContEmpEstado;
+
+        document.getElementById("lugnacsol22").value=obj.ContEmpCP;
+        document.getElementById("rfcconemp1").value=obj.ContEmpRFC;
+        document.getElementById("telconemp1").value=obj.ContEmpTel;
+        document.getElementById("mailconemp").value=obj.ContEmpEmail;
+        document.getElementById("puesconemp").value=obj.ContEmpPuesto;
+        document.getElementById("accionista1").value=obj.Acc1Nombre;
+        document.getElementById("rfcaccion1").value=obj.Acc1RFC;
+
+        document.getElementById("%1").value=obj.Acc1Porcentaje;
+        document.getElementById("accionista2").value=obj.Acc2Nombre;
+        document.getElementById("rfcaccion2").value=obj.Acc2RFC;
+        document.getElementById("%2").value=obj.Acc2Porcentaje;
+        document.getElementById("accionista3").value=obj.Acc3Nombre;
+        document.getElementById("rfcaccion3").value=obj.Acc3RFC;
+        document.getElementById("%3").value=obj.Acc3Porcentaje;
+
+        document.getElementById("accionista4").value=obj.Acc4Nombre;
+        document.getElementById("rfcaccion4").value=obj.Acc4RFC;
+        document.getElementById("%4").value=obj.Acc4Porcentaje;
+        document.getElementById("accpermor1").value=obj.Acc5Nombre;
+        document.getElementById("rfcaccpermor1").value=obj.Acc5RFC;
+        document.getElementById("%permoracc1").value=obj.Acc5Porcentaje;
+        document.getElementById("accpermor2").value=obj.Acc6Nombre;
+        document.getElementById("rfcaccpermor2").value=obj.Acc6RFC;
+        document.getElementById("%permoracc2").value=obj.Acc6Porcentaje;
 
 
-        
+
+
+         document.getElementById("botonmodcliente").style.display="block";
+
+
       
       }
   }
@@ -149,6 +316,9 @@ $( "#selectmodificacliente" ).change(function() {
 
 
 
+        
+        
+ 
 
 $("#nuevocliente").click(function(event) {
     
@@ -171,6 +341,7 @@ xmlhttp.onreadystatechange=function()
         obj = JSON.parse(xmlhttp.responseText);
         document.getElementById("botonescliente").style.display="none";
         document.getElementById("contenidorequestcliente").style.display="block";
+        document.getElementById("guardarcliente").style.display="block";
         document.getElementById("idcliente").value=obj[0];
         
       
@@ -234,6 +405,7 @@ xmlhttp.onreadystatechange=function()
         alert(xmlhttp.responseText);
         document.getElementById("botonescliente").style.display="block";
         document.getElementById("contenidorequestcliente").style.display="none";
+        document.getElementById("guardarcliente").style.display="none";
         
       }
   }
