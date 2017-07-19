@@ -972,7 +972,6 @@
 
             <div class="small-3 columns"><label>CURP
             <input name="datobcurp1" type="text" id="datobcurp1" size="22px" placeholder="CURP" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['CURPObSol']; } ?>" onkeypress="return validaRFC(event)" pattern="alpha_numeric"></label></div>
-          </p>
           <div class="small-3 columns"><label>RFC
           <input name="datobrfc11" value="<?php if(isset($row['Folio_Cliente'])&& $row['RFCObSol']!='') {  echo $row['RFCObSol'][0]; } ?>" type="text" id="datobrfc11" size="1px" maxlength="1" onkeypress="return validaRFC(event)" onKeyUp="myFunction(this,this.value,datobrfc12)" pattern="alpha_numeric"></label></div>
 
@@ -981,14 +980,12 @@
 
             <div class="small-3 columns"><label>Telefono Movil
             <input name="datobtel112" value="<?php if(isset($row['Folio_Cliente'])&& $row['MovObSol']!='') {  echo $row['MovObSol'][0]; } ?>" type="text" id="datobtel112" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel122)" pattern="integer"></label></div>
-<div class="small-5 columns">
-                  <p align="left">
-            Tiene propiedad a su nombre? 
-            <input id="datobprop1A" name="datobprop1" type="radio" <?php if(isset($row['Folio_Cliente'])) { if($row['PropObSol']=='Si'){echo "checked";} } ?> value="Si"><label for="datobprop1A">Si</label>
-            
-            <input id="datobprop1B" name="datobprop1" type="radio" <?php if(isset($row['Folio_Cliente'])) { if($row['PropObSol']=='No'){echo "checked";} } ?> value="No"><label for="datobprop1B">No</label>
-          </p>
+            <div class="small-3 columns">
+            <label>Tiene propiedad a su nombre?
+            <select name="datobprop1" ><option>Si</option><option>No</option></select></label>
+              
           </div>
+          </p>
           </div>
 <br>
 
@@ -1053,14 +1050,12 @@
 
                    <div class="small-3 columns"><label>Telefono Movil
                    <input name="datobtel212" type="text" id="datobtel212" size="1px" maxlength="1" value="<?php if(isset($row['Folio_Cliente'])&& $row['MovObSol2']!='') {  echo $row['MovObSol2'][0]; } ?>" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,datobtel222)"></label></div>
-          </p>
-          <p align="left">
-            Tiene propiedad a su nombre? 
-            <input id="datobprop2A" name="datobprop2" type="radio" value="Si" <?php if(isset($row['Folio_Cliente'])) { if($row['PropObSol2']=='Si'){echo "checked";} } ?>><label for="datobprop2A">Si</label>
-            
-            <input id="datobprop2B" name="datobprop2" type="radio" value="No" <?php if(isset($row['Folio_Cliente'])) { if($row['PropObSol2']=='No'){echo "checked";} } ?>><label for="datobprop2B">No</label>
-          </p>
+          <div class="small-3 columns">
+          <label>Tiene propiedad a su nombre?
+          <select name="datobprop2" ><option>Si</option><option>No</option></select></label></div>
+         
 
+          </p>
             </div>
                                       </div>
                                             <div class="tabs-panel" id="panel3d">
@@ -1257,8 +1252,8 @@
       <div class="tabs-panel" id="panel4v">
          <p>Four</p>
         <ul class="tabs" data-active-collapse="true" data-tabs id="collapsing-tabs">
-  <li class="tabs-title is-active"><a href="#panel1f" aria-selected="true">Tab 1</a></li>
-  <li class="tabs-title"><a href="#panel2f">Tab 2</a></li>
+  <li class="tabs-title is-active"><a href="#panel1f" aria-selected="true">Identificación</a></li>
+  <li class="tabs-title"><a href="#panel2f">Otros documentos</a></li>
   <li class="tabs-title"><a href="#panel3f">Tab 3</a></li>
   <li class="tabs-title"><a href="#panel4f">Tab 4</a></li>
 </ul>
@@ -1272,42 +1267,51 @@
                           <td width="21%">Credencial para votar </td>
                           <td width="35%"><input name="textfield39" type="text" id="textfield39" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['INESolicitante']; } ?>"></td>
                           <td width="15%">Se adjunta copia: </td>
-                          <td width="29%" ><input id="copiasA" name="copias" type="radio" value="Si" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_INESolicitante']=='Si'){echo "checked";} } ?>><label for="copiasA"> Si</label>  <input id="copiasB" name="copias" type="radio" value="No" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_INESolicitante']=='No'){echo "checked";} } ?>><label for="copiasB"> No</label></td>
+                          <td width="29%" >
+
+                          <input class="button" type="button" name="copias" value=" Si "> 
+                          </td>
                         </tr>
                         <tr id="secCedProfesional">
                           <td>Pasaporte cedula profesional </td>
                           <td><input name="textfield40" type="text" id="textfield40" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['Pasaporte_o_CedulaProfSolicitante']; } ?>" ></td>
                           <td>Se adjunta copia: </td>
-                          <td ><input id="copias2A" name="copias2" type="radio" value="Si"<?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_Pasaporte_o_CedulaProfSolicitante']=='Si'){echo "checked";} } ?>><label for="copias2A"> Si</label>  <input id="copias2B" name="copias2" type="radio" value="No"<?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_Pasaporte_o_CedulaProfSolicitante']=='<noscript>
-                          
-                          </noscript>'){echo "checked";} } ?>><label for="copias2B"> No</label></td>
+                          <td >
+                         <input class="button" type="button" name="copias2" value="Si">
+                          </td>
                         </tr>
                         <tr id="secCarMilitar">
                           <td>Cartilla de servicio militar </td>
                           <td><input name="textfield41" type="text" id="textfield41" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['CartillaMilitarSolicitante']; } ?>" ></td>
                           <td>Se adjunta copia: </td>
-                          <td ><input id="copias3A" name="copias3" type="radio" value="Si" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_CartillaMilitarSolicitante']=='Si'){echo "checked";} } ?>><label for="copias3A"> Si</label>  <input id="copias3B" name="copias3" type="radio" value="No" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_CartillaMilitarSolicitante']=='No'){echo "checked";} } ?>><label for="copias3B"> No</label></td>
+                          <td >
+                         <input class="button" type="button" name="copias2" value="Si">
+                          </td>
                         </tr>
                         <tr id="secLicConducir">
                           <td>Licencia para conducir </td>
                           <td><input name="textfield42" type="text" id="textfield42" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['LicenciaConducirSolicitante']; } ?>" ></td>
                           <td>Se adjunta copia: </td>
-                          <td ><input id="copias4A" name="copias4" type="radio" value="Si" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_LicenciaConducirSolicitante']=='Si'){echo "checked";} } ?>><label for="copias4A"> Si</label>
-                                                  <input id="copias4B" name="copias4" type="radio" value="No" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_LicenciaConducirSolicitante']=='No'){echo "checked";} } ?>><label for="copias4B"> No</label></td>
+                          <td >
+                            <input class="button" type="button" name="copia" value="Si">
+
+                          </td>
                         </tr>
                         <tr id="secOtrIdentificacion">
                           <td>Otra</td>
                           <td><input name="textfield43" type="text" id="textfield43" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['OtraIdentSolicitante']; } ?>" ></td>
                           <td>Se adjunta copia: </td>
-                          <td ><input id="copias5A" name="copias5" type="radio" value="Si" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_OtraIdentSolicitante']=='Si'){echo "checked";} } ?>><label for="copias5A"> Si</label>
-                                                        <input id="copias5B" name="copias5" type="radio" value="No" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_OtraIdentSolicitante']=='No'){echo "checked";} } ?>><label for="copias5B"> No</label></td>
+                          <td >
+                       <input class="button" type="button" name="copias3" value="Si">
+                                                        </td>
                         </tr>
                         <tr>
                           <td>Especificar</td>
                           <td id="secOtrIdentificacion2"><input name="textfield44" type="text" id="textfield44" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['EspIdentSolicitante']; } ?>" ></td>
                           <td>Se cotejo vs original: </td>
-                          <td ><input id="cotejo1" name="cotejo" type="radio" value="Si" <?php if(isset($row['Folio_Cliente'])) { if($row3['CotejoVsOriginal']=='Si'){echo "checked";} } ?> required><label for="cotejo1"> Si</label>
-                               <input id="cotejo2" name="cotejo" type="radio" value="No" <?php if(isset($row['Folio_Cliente'])) { if($row3['CotejoVsOriginal']=='No'){echo "checked";} } ?> required><label for="cotejo2"> No</label></td>
+                          <td >
+                          <input class="button" type="button" name="copias4" value="Si" >
+                               </td>
                         </tr>
                       </table>
   </div>
