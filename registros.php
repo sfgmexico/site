@@ -347,18 +347,17 @@
                     </div>
         
                     <div class="small-3 columns">
-                      <label>Tiene Auto Propio: </label>
-                      <input id="autosol1" name="autosol" type="radio" <?php if(isset($row2['Folio_Cliente'])) { if($row2['AuPropDatGen']=='Si'){echo "checked";} } ?> value="Si"><label for="autosol1">Si</label>
-              
-                      <input id="autosol2" name="autosol" type="radio" <?php if(isset($row2['Folio_Cliente'])) { if($row2['AuPropDatGen']=='No'){echo "checked";} } ?> value="No"><label for="autosol2">No</label>
-                      <input name="marcasol"value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['MarDatGen']; } ?>"  type="text" id="marcasol" size="70px" placeholder="Especifique Marca y Tipo">
+
+                      <label>Tiene Auto Propio:
+                    <select><option>Si</option><option>No</option></select>
+                       </label>
 
                     </div>
                     <div class="small-3 columns">
+                    <label>
                       Es propietario de algún inmueble:
-                      <input id="inmusol1" name="inmusol" type="radio" <?php if(isset($row2['Folio_Cliente'])) { if($row2['PropInmuDatGen']=='Si'){echo "checked";} } ?> value="Si"><label for="inmusol1">Si</label>
-              
-                      <input id="inmusol2" name="inmusol" type="radio" <?php if(isset($row2['Folio_Cliente'])) { if($row2['PropInmuDatGen']=='No'){echo "checked";} } ?> value="No"><label for="inmusol2">No</label>
+                  <select><option>Si</option><option>No</option></select>
+                      </label>
                     </div>
                   </p>
                 </div>
