@@ -269,25 +269,100 @@ xmlhttp.send(data);
 
 
 $("#botonmodcliente").click(function(event) {
-
+    $('#form1').foundation('validateForm');
 
 var validacion=false;
+//$( "#panel1c-label" ).addClass( "is-invalid-input" );
+$( "#panel1c-label" ).removeClass( "is-invalid-input" );
+$( "#panel2c-label" ).removeClass( "is-invalid-input" );
+$( "#panel3c-label" ).removeClass( "is-invalid-input" );
+$( "#panel4c-label" ).removeClass( "is-invalid-input" );
+$( "#panel5c-label" ).removeClass( "is-invalid-input" );
+$( "#panel6c-label" ).removeClass( "is-invalid-input" );
+$( "#panel7c-label" ).removeClass( "is-invalid-input" );
+$( "#panel8c-label" ).removeClass( "is-invalid-input" );
+$( "#panel9c-label" ).removeClass( "is-invalid-input" );
 
-$('form#form1').find('input').each(function(){ 
 
-        if($( "#"+this.id).hasClass( "is-invalid-input" )){
-            console.log(this.id);
-            validacion=true;
-            return false;
-        }
+$('#panel1c').find('input').each(function(){ 
+    if($( "#"+this.id).hasClass( "is-invalid-input" )){
+
+        $( "#panel1c-label" ).addClass( "is-invalid-input" );
+        validacion=true;
+    }
+
+     });
+$('#panel2c').find('input').each(function(){ 
+    if($( "#"+this.id).hasClass( "is-invalid-input" )){
+
+        $( "#panel2c-label" ).addClass( "is-invalid-input" );
+        validacion=true;
+    }
+
+     });
+$('#panel3c').find('input').each(function(){ 
+    if($( "#"+this.id).hasClass( "is-invalid-input" )){
+
+        $( "#panel3c-label" ).addClass( "is-invalid-input" );
+        validacion=true;
+    }
+
+     });
+$('#panel4c').find('input').each(function(){ 
+    if($( "#"+this.id).hasClass( "is-invalid-input" )){
+
+        $( "#panel4c-label" ).addClass( "is-invalid-input" );
+        validacion=true;
+    }
+
+     });
+$('#panel5c').find('input').each(function(){ 
+    if($( "#"+this.id).hasClass( "is-invalid-input" )){
+
+        $( "#panel5c-label" ).addClass( "is-invalid-input" );
+        validacion=true;
+    }
+
+     });
+$('#panel6c').find('input').each(function(){ 
+    if($( "#"+this.id).hasClass( "is-invalid-input" )){
+
+        $( "#panel6c-label" ).addClass( "is-invalid-input" );
+        validacion=true;
+    }
+
+     });
+$('#panel7c').find('input').each(function(){ 
+    if($( "#"+this.id).hasClass( "is-invalid-input" )){
+
+        $( "#panel7c-label" ).addClass( "is-invalid-input" );
+        validacion=true;
+    }
+
+     });
+$('#panel8c').find('input').each(function(){ 
+    if($( "#"+this.id).hasClass( "is-invalid-input" )){
+
+        $( "#panel8c-label" ).addClass( "is-invalid-input" );
+        validacion=true;
+    }
+
+     });
+$('#panel9c').find('input').each(function(){ 
+    if($( "#"+this.id).hasClass( "is-invalid-input" )){
+
+        $( "#panel9c-label" ).addClass( "is-invalid-input" );
+        validacion=true;
+    }
+
+     });
 
 
-         
-        });
 
 
     if(validacion){
          console.log("Hay errores");
+         alert("¡¡Verifica Que Todos Los Datos Sean Correctos!!");
          return validacion;
     }
 
@@ -325,6 +400,9 @@ xmlhttp.onreadystatechange=function()
   }
 xmlhttp.open("POST","clientes.php",true);
 xmlhttp.send(data);
+
+
+
 });
 
 
@@ -653,26 +731,102 @@ xmlhttp.send(data);
 });
 
 $("#guardarcliente").click(function(event) {
+    $('#form1').foundation('validateForm');
 
 
 
 var validacion=false;
+$( "#panel1c-label" ).removeClass( "is-invalid-input" );
+$( "#panel2c-label" ).removeClass( "is-invalid-input" );
+$( "#panel3c-label" ).removeClass( "is-invalid-input" );
+$( "#panel4c-label" ).removeClass( "is-invalid-input" );
+$( "#panel5c-label" ).removeClass( "is-invalid-input" );
+$( "#panel6c-label" ).removeClass( "is-invalid-input" );
+$( "#panel7c-label" ).removeClass( "is-invalid-input" );
+$( "#panel8c-label" ).removeClass( "is-invalid-input" );
+$( "#panel9c-label" ).removeClass( "is-invalid-input" );
 
-$('form#form1').find('input').each(function(){ 
 
-        if($( "#"+this.id).hasClass( "is-invalid-input" )){
-            console.log(this.id);
-            validacion=true;
-            return false;
-        }
+$('#panel1c').find('input').each(function(){ 
+    if($( "#"+this.id).hasClass( "is-invalid-input" )){
+
+        $( "#panel1c-label" ).addClass( "is-invalid-input" );
+        validacion=true;
+    }
+
+     });
+$('#panel2c').find('input').each(function(){ 
+    if($( "#"+this.id).hasClass( "is-invalid-input" )){
+
+        $( "#panel2c-label" ).addClass( "is-invalid-input" );
+        validacion=true;
+    }
+
+     });
+$('#panel3c').find('input').each(function(){ 
+    if($( "#"+this.id).hasClass( "is-invalid-input" )){
+
+        $( "#panel3c-label" ).addClass( "is-invalid-input" );
+        validacion=true;
+    }
+
+     });
+$('#panel4c').find('input').each(function(){ 
+    if($( "#"+this.id).hasClass( "is-invalid-input" )){
+
+        $( "#panel4c-label" ).addClass( "is-invalid-input" );
+        validacion=true;
+    }
+
+     });
+$('#panel5c').find('input').each(function(){ 
+    if($( "#"+this.id).hasClass( "is-invalid-input" )){
+
+        $( "#panel5c-label" ).addClass( "is-invalid-input" );
+        validacion=true;
+    }
+
+     });
+$('#panel6c').find('input').each(function(){ 
+    if($( "#"+this.id).hasClass( "is-invalid-input" )){
+
+        $( "#panel6c-label" ).addClass( "is-invalid-input" );
+        validacion=true;
+    }
+
+     });
+$('#panel7c').find('input').each(function(){ 
+    if($( "#"+this.id).hasClass( "is-invalid-input" )){
+
+        $( "#panel7c-label" ).addClass( "is-invalid-input" );
+        validacion=true;
+    }
+
+     });
+$('#panel8c').find('input').each(function(){ 
+    if($( "#"+this.id).hasClass( "is-invalid-input" )){
+
+        $( "#panel8c-label" ).addClass( "is-invalid-input" );
+        validacion=true;
+    }
+
+     });
+$('#panel9c').find('input').each(function(){ 
+    if($( "#"+this.id).hasClass( "is-invalid-input" )){
+
+        $( "#panel9c-label" ).addClass( "is-invalid-input" );
+        validacion=true;
+    }
+
+     });
 
 
-         
-        });
+
 
 
     if(validacion){
          console.log("Hay errores");
+         alert("¡¡Verifica Que Todos Los Datos Sean Correctos!!");
          return validacion;
     }
 
@@ -753,16 +907,19 @@ function cambiacartas(){
 		document.getElementById('pm').style.display='none';
 		document.getElementById('tabpanel7c').style.display='none';
 		document.getElementById('tabpanel2c').style.display='none';
+        document.getElementById('tabpanel3c').style.display='none';
 	}else if(document.getElementById('TipoCliente').value=="Persona Fisica"){
 		document.getElementById("pfa").style.display = "block";
 		document.getElementById('tabpanel2c').style.display='block';
 		document.getElementById('pm').style.display='none';
 		document.getElementById('tabpanel7c').style.display='none';
+        document.getElementById('tabpanel3c').style.display='block';
 	}else if(document.getElementById('TipoCliente').value=="Persona Moral"){
 		document.getElementById('tabpanel2c').style.display='none';
 		document.getElementById('pfa').style.display='none';
 		document.getElementById('pm').style.display='block';
 		document.getElementById('tabpanel7c').style.display='block';
+        document.getElementById('tabpanel3c').style.display='none';
 	}
 	
 
@@ -775,16 +932,19 @@ $( "#TipoCliente" ).change(function() {
         document.getElementById('pm').style.display='none';
         document.getElementById('tabpanel7c').style.display='none';
         document.getElementById('tabpanel2c').style.display='none';
+        document.getElementById('tabpanel3c').style.display='none';
     }else if(document.getElementById('TipoCliente').value=="Persona Fisica"){
         document.getElementById("pfa").style.display = "block";
         document.getElementById('tabpanel2c').style.display='block';
         document.getElementById('pm').style.display='none';
         document.getElementById('tabpanel7c').style.display='none';
+        document.getElementById('tabpanel3c').style.display='block';
     }else if(document.getElementById('TipoCliente').value=="Persona Moral"){
         document.getElementById('tabpanel2c').style.display='none';
         document.getElementById('pfa').style.display='none';
         document.getElementById('pm').style.display='block';
         document.getElementById('tabpanel7c').style.display='block';
+        document.getElementById('tabpanel3c').style.display='none';
     }
     
   
