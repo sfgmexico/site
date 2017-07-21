@@ -14,7 +14,7 @@
   <div class="medium-9 columns">
     <div class="tabs-content" data-tabs-content="example-tabs">
       <div class="tabs-panel is-active" id="panel1v">
-        <form name="form1" id="form1" action=""  method="post" > 
+        <form name="form1" id="form1" action=""  method="post" data-abide novalidate> 
         <div id="botonescliente">  
           <input class="button" type="button" name="nuevocliente" id="nuevocliente" value="Generar Cliente Nuevo">
           <input class="button" data-open="modalmodificarcliente" type="button" name="modificarcliente" id="modificarcliente" value="Modificar Cliente">
@@ -47,9 +47,17 @@
           </div>
 
           <!-- This is the nested modal -->
-          <div class="reveal" id="exampleModal3" data-reveal>
-            <h2>ANOTHER MODAL!!!</h2>
-            <button class="close-button" data-close aria-label="Close reveal" type="button">
+          <div class="reveal" id="modalcontregcliente" data-reveal>
+            <h4>Registros Incompletos...</h4>
+            <table  id="tablajson">
+              <thead>
+                <th>Id</th> 
+                <th>Nombre/Razon Social</th>
+                <th>CURP/RFC</th>
+              </thead>
+              <tbody></tbody>
+            </table>
+            <button id="cerrarmodalcontregcliente" class="close-button" data-close aria-label="Close reveal" type="button">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -58,7 +66,7 @@
 
 
 
-          <input class="button" type="button" name="contuniarcliente" id="contuniarcliente" value="Continuar Con Registro">
+          <input class="button" type="button" data-open="modalcontregcliente" name="continuarcliente" id="continuarcliente" value="Continuar Con Registro">
         </div>
         <input type="text" name="idcliente" id="idcliente" style="display: none;">
 
@@ -69,7 +77,7 @@
             <li class="tabs-title" id="tabpanel2c" style="display: none;"><a href="#panel2c">Datos Laborales</a></li>
             <li class="tabs-title"><a href="#panel3c">Referencias Personales</a></li>
             <li class="tabs-title"><a href="#panel4c">Informacion Bancaria</a></li>
-            <li class="tabs-title"><a href="#panel5c">Referencias Comerciales</a></li>
+            <li class="tabs-title"><a href="#panel5c"  style="display: none;">Referencias Comerciales</a></li>
             <li class="tabs-title"><a href="#panel6c">Datos del Conyuge</a></li>
             <li class="tabs-title" id="tabpanel7c" style="display: none;"><a href="#panel7c">Accionistas</a></li>
             <li class="tabs-title"><a href="#panel8c">Beneficiario</a></li>
@@ -284,7 +292,7 @@
            
                     <div class="small-3 columns">
                       <label>Sexo
-                      <select name="sexsol" id="sexsol" ><option>-Seleccione una opción-</option><option value="Femenino">Mujer</option><option value="Masculino">Hombre</option></select>
+                      <select name="sexsol" id="sexsol" ><option value="">-Seleccione una opción-</option><option value="Femenino">Mujer</option><option value="Masculino">Hombre</option></select>
                       </label>
                     </div>
            
@@ -294,7 +302,7 @@
                     </div>
 
                     <div class="small-3 columns"> <label> Edad
-                      <input name="edsol" type="number" id="edsol" size="2px" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['EdDatGen']; } ?>" placeholder="Edad"maxlength="2" onKeyUp="mayorEdad(this, this.value)" onkeypress="return validaNumero(event)" pattern="integer"></label>
+                      <input name="edsol" type="number" id="edsol" size="2px" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['EdDatGen']; } ?>" placeholder="Edad" readonly   pattern="integer"></label>
                     </div>
               
                     <div class="small-3 columns"> <label>Nacionalidad
@@ -335,7 +343,7 @@
                 <select name="vivsol" id="vivsol"><option value="">-Seleccione una opcion-</option><option value="Casa Propia">Casa Propia</option><option value="Rentada">Rentada</option><option value="Hipotecada">Hipotecada</option><option value="Casa propiedad de sus familiares">Casa propiedad de sus familiares</option><option value="Otros especificar">Otros especificar</option></select></label>
                 </div>
               <div class="small-3 columns">  <label>
-               <input type="text" name="vivsolesp" id="vivsolesp"></label></div>
+               <input type="text" name="vivsolesp" id="vivsolesp" style="display: none;"></label></div>
                 </div>
            
                 <div class="row">
@@ -355,7 +363,7 @@
 
                     </div>
                     <div class="small-3 columns">
-                        <input type="text" name="marcasol" id="marcasol">
+                        <input type="text" name="marcasol" id="marcasol" style="display: none;">
                     </div>
                     <div class="small-3 columns">
                     <label>
@@ -376,7 +384,7 @@
               <div class="row">
                 <label>
                 Actividad empresarial
-                <select name="actempresarial" id="actempresarial"><option>-Seleccione una opcion-</option><option value="Si">Si</option><option value="No">No</option></select>
+                <select name="actempresarial" id="actempresarial"><option value="">-Seleccione una opcion-</option><option value="Si">Si</option><option value="No">No</option></select>
                 </label>
 
                 <p align="left">
@@ -394,7 +402,7 @@
                     <input name="compasol" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['CompDatEmp']; } ?>" type="text" id="compasol" size="70px" placeholder="Compañía"></label>
                   </div>
                   <div class="small-3 columns" ><label>Telefono
-                    <input name="compatelsol1" type="text" id="compatelsol1"  value="<?php if(isset($row2['Folio_Cliente'])&& $row2['TelDatEmp']!= '') {  echo $row2['TelDatEmp'][0]; } ?>" size="1px" maxlength="1" onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,compatelsol2)"></label>
+                    <input name="compatelsol1" type="text" id="compatelsol1"  value="<?php if(isset($row2['Folio_Cliente'])&& $row2['TelDatEmp']!= '') {  echo $row2['TelDatEmp'][0]; } ?>" size="1px"  onkeypress="return validaNumero(event)" ></label>
                   </div>
                   <div class="small-2 columns" ><label>Extension
                     <input name="compatelsolext" type="text" id="compatelsolext" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['ExtDatEmp']; } ?>" size="20px" placeholder="Extensión" onkeypress="return validaNumero(event)"></label>
@@ -403,8 +411,8 @@
 
                 <p align="left">
        
-                  <div class="small-3 columns"><label>Ocupacion / Giro
-                    <input name="giroprof" type="text" id="giroprof" size="40px" value="<?php if (isset($row2['Folio_Cliente'])) {  echo $row2['Ocupacion_Profesion']; } ?>" placeholder="Ocupación/Giro según alta o último cambio ante SHCP"></label>
+                  <div class="small-3 columns" id="divgiroprof" style="display: none;"><label>Ocupacion / Giro
+                    <input name="giroprof" type="text" id="giroprof" size="40px"  value="<?php if (isset($row2['Folio_Cliente'])) {  echo $row2['Ocupacion_Profesion']; } ?>" placeholder="Ocupación/Giro según alta o último cambio ante SHCP" ></label>
                   </div>
            
         
@@ -415,14 +423,14 @@
                 <p align="left">
         
          
-                  <div class="small-3 columns"><label>Numero de empleados
-                    <input name="noempleados" type="text" id="noempleados" value="<?php if (isset($row2['Folio_Cliente'])) {  echo $row2['NoEmDatEmp']; } ?>" placeholder="Núm. de empleados"pattern="integer"></label>
+                  <div class="small-3 columns" id="divnoempleados" style="display: none;"><label>Numero de empleados
+                    <input name="noempleados" type="text" id="noempleados"  value="<?php if (isset($row2['Folio_Cliente'])) {  echo $row2['NoEmDatEmp']; } ?>" placeholder="Núm. de empleados"pattern="integer"></label>
                   </div>
          
 
       
-                  <div class="small-3 columns"> <label>Domicilio del negocio
-                    <input name="domneg" type="text" id="domneg" size="44px" value="<?php if (isset($row2['Folio_Cliente'])) {  echo $row2['DomicilioLaboral']; } ?>" placeholder="Domicilio del negocio:"></label>
+                  <div class="small-3 columns" id="divdomneg" style="display: none;"> <label>Domicilio del negocio
+                    <input name="domneg" type="text" id="domneg" size="44px"  value="<?php if (isset($row2['Folio_Cliente'])) {  echo $row2['DomicilioLaboral']; } ?>" placeholder="Domicilio del negocio:"></label>
                   </div>
            
                 </p>
@@ -444,7 +452,7 @@
                   </div>
             
                   <div class="small-3 columns"><label>Telefono
-                    <input name="telref11" type="text" id="telref11" size="1px" value="<?php if(isset($row['Folio_Cliente'])&& $row['TelRefPer']!='') {  echo $row['TelRefPer'][0]; } ?>" maxlength="1"  onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,telref12)" pattern="integer"></label>
+                    <input name="telref11" type="text" id="telref11" size="1px" value="<?php if(isset($row['Folio_Cliente'])&& $row['TelRefPer']!='') {  echo $row['TelRefPer'][0]; } ?>"   onkeypress="return validaNumero(event)"  pattern="integer"></label>
                   </div>
                 </p>
               </div>
@@ -460,7 +468,7 @@
                   </div>
             
                   <div class="small-3 columns"><label>Telefono
-                    <input name="telref12" type="text" id="telref12" size="1px" value="<?php if(isset($row['Folio_Cliente'])&& $row['TelRefPer']!='') {  echo $row['TelRefPer'][0]; } ?>" maxlength="1"  onkeypress="return validaNumero(event)" onKeyUp="myFunction(this,this.value,telref12)" pattern="integer"></label>
+                    <input name="telref12" type="text" id="telref12" size="1px" value="<?php if(isset($row['Folio_Cliente'])&& $row['TelRefPer']!='') {  echo $row['TelRefPer'][0]; } ?>"   onkeypress="return validaNumero(event)"  pattern="integer"></label>
                   </div>
                 </p>
               </div>
@@ -541,7 +549,7 @@
        
                 </p>
                 <div class="small-3 columns"><label>Telefono
-                  <input name="telrefcom11" type="text" id="telrefcom11" size="1px" maxlength="1" value="<?php if(isset($row['Folio_Cliente']) && $row['TelRefCom'] != '' ) {  echo $row['TelRefCom'][0]; } ?>"  onKeyUp="myFunction(this,this.value,telrefcom12)"pattern="integer"></label>
+                  <input name="telrefcom11" type="text" id="telrefcom11" size="1px"  value="<?php if(isset($row['Folio_Cliente']) && $row['TelRefCom'] != '' ) {  echo $row['TelRefCom'][0]; } ?>" pattern="integer"></label>
                 </div>
 
                 <p align="left">
@@ -561,7 +569,7 @@
                   </div>
        
                   <div class="small-3 columns"><label>Telefono
-                    <input name="telrefcom22" type="text" id="telrefcom22" size="1px" maxlength="1" value="<?php if(isset($row['Folio_Cliente']) && $row['TelRefCom2']) {  echo $row['TelRefCom2'][0]; } ?>"onKeyUp="myFunction(this,this.value,telrefcom23)"pattern="integer"></label>
+                    <input name="telrefcom22" type="text" id="telrefcom22" size="1px"  value="<?php if(isset($row['Folio_Cliente']) && $row['TelRefCom2']) {  echo $row['TelRefCom2'][0]; } ?>"pattern="integer"></label>
                   </div>
                 </p>
                 <p align="left">
@@ -612,7 +620,7 @@
                     <input name="rfcaccion1" type="text" id="rfcaccion1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCAcc1']; } ?>" placeholder="RFC"></label>
                   </div>
                   <div class="small-4 columns"><label>Porcentaje de las acciones
-                    <input name="%1" type="text" id="%1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAcc1']; } ?>" placeholder="%"></label>
+                    <input name="porcent1" type="text" id="porcent1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAcc1']; } ?>" placeholder="%"></label>
                   </div>
                 </p>
                 <p align="left">
@@ -623,7 +631,7 @@
                     <input name="rfcaccion2" type="text" id="rfcaccion2" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCAcc1']; } ?>" placeholder="RFC"></label>
                   </div>
                   <div class="small-4 columns"><label>Porcentaje de las acciones
-                    <input name="%2" type="text" id="%2" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAcc1']; } ?>" placeholder="%"></label>
+                    <input name="porcent2" type="text" id="porcent2" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAcc1']; } ?>" placeholder="%"></label>
                   </div>
                 </p>
                 <p align="left">
@@ -634,7 +642,7 @@
                     <input name="rfcaccion3" type="text" id="rfcaccion3" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCAcc1']; } ?>" placeholder="RFC"></label>
                   </div>
                   <div class="small-4 columns"><label>Porcentaje de las acciones
-                    <input name="%3" type="text" id="%3" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAcc1']; } ?>" placeholder="%"></label>
+                    <input name="porcent3" type="text" id="porcent3" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAcc1']; } ?>" placeholder="%"></label>
                   </div>
                 </p>
                 <p align="left">
@@ -645,7 +653,7 @@
                     <input name="rfcaccion4" type="text" id="rfcaccion4" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCAcc1']; } ?>" placeholder="RFC"></label>
                   </div>
                   <div class="small-4 columns"><label>Porcentaje de las acciones
-                    <input name="%4" type="text" id="%4" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAcc1']; } ?>" placeholder="%"></label>
+                    <input name="porcent4" type="text" id="porcent4" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAcc1']; } ?>" placeholder="%"></label>
                   </div>
                 </p>
               </div>
@@ -662,7 +670,7 @@
                 </div>
 
                 <div class="small-4 columns"><label>Porcentaje de las acciones
-                  <input name="%permoracc1" type="text" id="%permoracc1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAccPM1']; } ?>" placeholder="%"></label>
+                  <input name="permoracc1" type="text" id="permoracc1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAccPM1']; } ?>" placeholder="%"></label>
                 </div>
 
                 <div class="small-4 columns"> <label>Nombre
@@ -674,7 +682,7 @@
                 </div>
 
                 <div class="small-4 columns"><label>Porcentaje de las acciones
-                  <input name="%permoracc2" type="text" id="%permoracc2" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAccPM2']; } ?>" placeholder="%"></label>
+                  <input name="permoracc2" type="text" id="permoracc2" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAccPM2']; } ?>" placeholder="%"></label>
                 </div>
 
               </div>
@@ -1264,53 +1272,51 @@
                    <h6 align="left">DOCUMENTACION DE IDENTIFICACION </h6>
                       <table width="100%" border="0">
                         <tr id="secINE">
-                          <td width="21%">Credencial para votar </td>
-                          <td width="35%"><input name="textfield39" type="text" id="textfield39" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['INESolicitante']; } ?>"></td>
-                          <td width="15%">Se adjunta copia: </td>
-                          <td width="29%" >
-
-                          <input class="button" type="button" name="copias" value=" Si "> 
+                          <td width="15%">Credencial para votar </td>
+                          <td width="15%"><input name="textfield39" type="text" id="textfield39" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['INESolicitante']; } ?>"></td>
+                          <td width="15%"><input class="button" type="button" name="copias" value=" adjuntar copia ">  </td>
+                          <td width="10%" >
+                              <img  src="images/sfg.jpg" >
+                          
                           </td>
                         </tr>
                         <tr id="secCedProfesional">
                           <td>Pasaporte cedula profesional </td>
                           <td><input name="textfield40" type="text" id="textfield40" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['Pasaporte_o_CedulaProfSolicitante']; } ?>" ></td>
-                          <td>Se adjunta copia: </td>
+                          <td><input class="button" type="button" name="copias" value=" adjuntar copia ">  </td>
                           <td >
-                         <input class="button" type="button" name="copias2" value="Si">
+                    
                           </td>
                         </tr>
                         <tr id="secCarMilitar">
                           <td>Cartilla de servicio militar </td>
                           <td><input name="textfield41" type="text" id="textfield41" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['CartillaMilitarSolicitante']; } ?>" ></td>
-                          <td>Se adjunta copia: </td>
+                          <td><input class="button" type="button" name="copias" value=" adjuntar copia ">  </td>
                           <td >
-                         <input class="button" type="button" name="copias2" value="Si">
+                       
                           </td>
                         </tr>
                         <tr id="secLicConducir">
                           <td>Licencia para conducir </td>
                           <td><input name="textfield42" type="text" id="textfield42" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['LicenciaConducirSolicitante']; } ?>" ></td>
-                          <td>Se adjunta copia: </td>
+                          <td><input class="button" type="button" name="copias" value=" adjuntar copia ">  </td>
                           <td >
-                            <input class="button" type="button" name="copia" value="Si">
-
+                        
                           </td>
                         </tr>
                         <tr id="secOtrIdentificacion">
-                          <td>Otra</td>
+                          <td>  <label>Otra (Especificar)<input name="textfield44" type="text" id="textfield44" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['EspIdentSolicitante']; } ?>" ></label></td>
                           <td><input name="textfield43" type="text" id="textfield43" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['OtraIdentSolicitante']; } ?>" ></td>
-                          <td>Se adjunta copia: </td>
+                          <td><input class="button" type="button" name="copias" value=" adjuntar copia ">  </td>
                           <td >
-                       <input class="button" type="button" name="copias3" value="Si">
+                       
                                                         </td>
                         </tr>
                         <tr>
-                          <td>Especificar</td>
-                          <td id="secOtrIdentificacion2"><input name="textfield44" type="text" id="textfield44" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['EspIdentSolicitante']; } ?>" ></td>
+                          
                           <td>Se cotejo vs original: </td>
                           <td >
-                          <input class="button" type="button" name="copias4" value="Si" >
+                          <select><option>Si</option><option>Ño</option></select>
                                </td>
                         </tr>
                       </table>

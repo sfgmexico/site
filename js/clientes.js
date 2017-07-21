@@ -1,63 +1,15 @@
-$("#botonmodcliente").click(function(event) {
+
+
+
+
+function contiregcliente(idlcliente){
     
-   var data = new FormData(document.forms['form1']);
-   data.append('function', "modificacioncliente");
-   
-   data.append('id', obj.id);
-
-   data.append('TipoCliente', obj.TipoCliente);
-   
-    if (window.XMLHttpRequest)
-  {// code for IE7+, Firefox, Chrome, Opera, Safari
-  xmlhttp=new XMLHttpRequest();
-  }
-else
-  {// code for IE6, IE5
-  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
-xmlhttp.onreadystatechange=function()
-  {
-    if (xmlhttp.readyState==4 && xmlhttp.status==200)
-      {
-        
-        alert(xmlhttp.responseText);
-        
-        document.getElementById("cancelarcliente").disabled = true;
-        
-      }
-  }
-xmlhttp.open("POST","clientes.php",true);
-xmlhttp.send(data);
-});
-
-
-
-
-
-
-
-$("#requestmodificarcliente").click(function(event) {
-
-
-
     
    var data = new FormData();
-   data.append('tipodecliente', document.getElementById("selectmodificacliente").value);
-   data.append('idpf', document.getElementById("idmodificacliente").value);
-   data.append('curppf', document.getElementById("curpmodificacliente").value);
-   data.append('idpm', document.getElementById("idmodificaclientepm").value);
-   data.append('rfcpm', document.getElementById("curpmodificaclientepm").value);
+   
 
-   document.getElementById("idmodificacliente").value="";
-   document.getElementById("curpmodificacliente").value="";
-   document.getElementById("idmodificaclientepm").value="";
-   document.getElementById("curpmodificaclientepm").value="";
-   document.getElementById("idmodificaclientepm").disabled=false;
-   document.getElementById("curpmodificaclientepm").disabled=false;
-   document.getElementById("idmodificacliente").disabled=false;
-   document.getElementById("curpmodificacliente").disabled=false;
-
-   data.append('function', "modificarcliente");
+   data.append('function', "contregcliente");
+   data.append('idlcliente', idlcliente );
    
     if (window.XMLHttpRequest)
   {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -84,7 +36,7 @@ xmlhttp.onreadystatechange=function()
 
         obj = JSON.parse(xmlhttp.responseText);
 
-        $( "#cerrarmodalmodificacliente" ).click();
+        $( "#cerrarmodalcontregcliente" ).click();
         document.getElementById("botonescliente").style.display="none";
         document.getElementById("contenidorequestcliente").style.display="block";
         document.getElementById("idcliente").value=obj.id;
@@ -118,13 +70,17 @@ xmlhttp.onreadystatechange=function()
         document.getElementById("anosol").value=obj.RecidirCiudadPF;
         document.getElementById("arraisol").value=obj.ArraigoDomPF;
         document.getElementById("vivsol").value=obj.ViviendaPF;
+        vivsol();
 
         document.getElementById("vivsolesp").value=obj.EspViviendaPF;
         document.getElementById("civilsol").value=obj.EstCivilPF;
+        civilsol();
         document.getElementById("autosol").value=obj.AutoPropioPF;
+        autosol();
         document.getElementById("marcasol").value=obj.EspAuto;
         document.getElementById("inmusol").value=obj.InmueblePF;
         document.getElementById("actempresarial").value=obj.ActividadEmpresarial;
+        actempresarial();
         document.getElementById("puestosol").value=obj.PuestoPF;
 
         document.getElementById("depasol").value=obj.DepartamentoPF;
@@ -223,25 +179,370 @@ xmlhttp.onreadystatechange=function()
         document.getElementById("accionista1").value=obj.Acc1Nombre;
         document.getElementById("rfcaccion1").value=obj.Acc1RFC;
 
-        document.getElementById("%1").value=obj.Acc1Porcentaje;
+        document.getElementById("porcent1").value=obj.Acc1Porcentaje;
         document.getElementById("accionista2").value=obj.Acc2Nombre;
         document.getElementById("rfcaccion2").value=obj.Acc2RFC;
-        document.getElementById("%2").value=obj.Acc2Porcentaje;
+        document.getElementById("porcent2").value=obj.Acc2Porcentaje;
         document.getElementById("accionista3").value=obj.Acc3Nombre;
         document.getElementById("rfcaccion3").value=obj.Acc3RFC;
-        document.getElementById("%3").value=obj.Acc3Porcentaje;
+        document.getElementById("porcent3").value=obj.Acc3Porcentaje;
 
         document.getElementById("accionista4").value=obj.Acc4Nombre;
         document.getElementById("rfcaccion4").value=obj.Acc4RFC;
-        document.getElementById("%4").value=obj.Acc4Porcentaje;
+        document.getElementById("porcent4").value=obj.Acc4Porcentaje;
         document.getElementById("accpermor1").value=obj.Acc5Nombre;
         document.getElementById("rfcaccpermor1").value=obj.Acc5RFC;
-        document.getElementById("%permoracc1").value=obj.Acc5Porcentaje;
+        document.getElementById("permoracc1").value=obj.Acc5Porcentaje;
         document.getElementById("accpermor2").value=obj.Acc6Nombre;
         document.getElementById("rfcaccpermor2").value=obj.Acc6RFC;
-        document.getElementById("%permoracc2").value=obj.Acc6Porcentaje;
+        document.getElementById("permoracc2").value=obj.Acc6Porcentaje;
 
 
+
+
+         document.getElementById("botonmodcliente").style.display="block";
+
+
+      
+      }
+  }
+xmlhttp.open("POST","clientes.php",true);
+xmlhttp.send(data);
+}
+
+
+
+$("#continuarcliente").click(function(event) {
+    
+   var data = new FormData();
+   data.append('function', "continuaregistro");
+   
+   //data.append('id', obj.id);
+
+   data.append('TipoCliente', "df");
+   
+    if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
+        $("#tablajson tbody tr").remove();
+        //alert(xmlhttp.responseText);
+        obj = JSON.parse(xmlhttp.responseText);
+        //alert(obj[0].id);
+        $.each(obj, function(i,cliente){
+            var newRow =
+            "<tr>"
+            +"<td> <input onclick='contiregcliente(this.id)' class='button' type='button' name='"+cliente.id+"' id='"+cliente.id+"' value='"+cliente.id+"'></td>";
+
+            if(cliente.TipoCliente=="Persona Fisica"){
+                 newRow +="<td> "+cliente.NombrePF+" "+cliente.SegNombrePF+" "+cliente.ApPatPF+" "+cliente.ApMatPF+"</td>"
+                +"<td> "+cliente.CURPPF+"</td>"
+                +"</tr>";
+            }
+            if(cliente.TipoCliente=="Persona Moral"){
+                 newRow +="<td> "+cliente.RazonSocial+"</td>"
+                +"<td> "+cliente.RFCPM+"</td>"
+                +"</tr>";
+            }
+
+           
+            $(newRow).appendTo("#tablajson tbody");
+        });
+        
+        
+        
+      }
+  }
+xmlhttp.open("POST","clientes.php",true);
+xmlhttp.send(data);
+});
+
+
+
+
+$("#botonmodcliente").click(function(event) {
+
+
+var validacion=false;
+
+$('form#form1').find('input').each(function(){ 
+
+        if($( "#"+this.id).hasClass( "is-invalid-input" )){
+            console.log(this.id);
+            validacion=true;
+            return false;
+        }
+
+
+         
+        });
+
+
+    if(validacion){
+         console.log("Hay errores");
+         return validacion;
+    }
+
+
+
+
+
+   
+    
+   var data = new FormData(document.forms['form1']);
+   data.append('function', "modificacioncliente");
+   
+   data.append('id', obj.id);
+
+   data.append('TipoCliente', obj.TipoCliente);
+   
+    if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
+        
+        alert(xmlhttp.responseText);
+        
+        document.getElementById("cancelarcliente").disabled = true;
+        
+      }
+  }
+xmlhttp.open("POST","clientes.php",true);
+xmlhttp.send(data);
+});
+
+
+
+
+
+
+
+$("#requestmodificarcliente").click(function(event) {
+
+
+    
+   var data = new FormData();
+   data.append('tipodecliente', document.getElementById("selectmodificacliente").value);
+   data.append('idpf', document.getElementById("idmodificacliente").value);
+   data.append('curppf', document.getElementById("curpmodificacliente").value);
+   data.append('idpm', document.getElementById("idmodificaclientepm").value);
+   data.append('rfcpm', document.getElementById("curpmodificaclientepm").value);
+
+   document.getElementById("idmodificacliente").value="";
+   document.getElementById("curpmodificacliente").value="";
+   document.getElementById("idmodificaclientepm").value="";
+   document.getElementById("curpmodificaclientepm").value="";
+   document.getElementById("idmodificaclientepm").disabled=false;
+   document.getElementById("curpmodificaclientepm").disabled=false;
+   document.getElementById("idmodificacliente").disabled=false;
+   document.getElementById("curpmodificacliente").disabled=false;
+
+   data.append('function', "modificarcliente");
+   
+    if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
+        
+        if(xmlhttp.responseText=='null'){
+            alert("¡No Existe el Registro!, Favor de Ingresar Información correcta");
+            return;
+        }
+        if(xmlhttp.responseText=='¡Por favor de Ingresar un Dato!'){
+            alert("¡Por favor de Ingresar un Dato!");
+            return;
+        }
+
+
+        obj = JSON.parse(xmlhttp.responseText);
+
+        $( "#cerrarmodalmodificacliente" ).click();
+        document.getElementById("botonescliente").style.display="none";
+        document.getElementById("contenidorequestcliente").style.display="block";
+        document.getElementById("idcliente").value=obj.id;
+        document.getElementById("cancelarcliente").disabled=true;
+        document.getElementById("TipoCliente").value=obj.TipoCliente;
+        document.getElementById("TipoCliente").disabled=true;
+        cambiacartas();
+        document.getElementById("nomsol").value=obj.NombrePF;
+        document.getElementById("segnomsol").value=obj.SegNombrePF;
+        document.getElementById("apepasol").value=obj.ApPatPF;
+        document.getElementById("apemasol").value=obj.ApMatPF;
+        document.getElementById("rfc1").value=obj.RFCPF;
+        document.getElementById("telsol1").value=obj.TelefonoPF;
+        document.getElementById("movsol1").value=obj.MovilPF;
+        document.getElementById("mailsol").value=obj.EmailPF;
+        document.getElementById("dirsol").value=obj.DireccionPF;
+        document.getElementById("dirnumsol").value=obj.NumDireccionPF;
+        document.getElementById("colsol").value=obj.ColoniaPF;
+        document.getElementById("cpsol").value=obj.CPPF;
+        document.getElementById("lugnacsol").value=obj.LugNacimientoPF;
+        document.getElementById("edosol").value=obj.EstadoPF;
+        document.getElementById("cdsol").value=obj.CiudadPF;
+        document.getElementById("textfield5").value=obj.MunicipioPF;
+        document.getElementById("curpsol").value=obj.CURPPF;
+        document.getElementById("sexsol").value=obj.SexoPF;
+        document.getElementById("fechnacsol").value=obj.FechNacimientoPF;
+        document.getElementById("edsol").value=obj.Edad;
+        document.getElementById("nacsol").value=obj.NacionalidadPF;
+        document.getElementById("depensol").value=obj.NumDependientesPF;
+        document.getElementById("acdomsol").value=obj.AcreditaDomPF;
+        document.getElementById("anosol").value=obj.RecidirCiudadPF;
+        document.getElementById("arraisol").value=obj.ArraigoDomPF;
+        document.getElementById("vivsol").value=obj.ViviendaPF;
+        vivsol();
+
+        document.getElementById("vivsolesp").value=obj.EspViviendaPF;
+        document.getElementById("civilsol").value=obj.EstCivilPF;
+        civilsol();
+        document.getElementById("autosol").value=obj.AutoPropioPF;
+        autosol();
+        document.getElementById("marcasol").value=obj.EspAuto;
+        document.getElementById("inmusol").value=obj.InmueblePF;
+        document.getElementById("actempresarial").value=obj.ActividadEmpresarial;
+        actempresarial();
+        document.getElementById("puestosol").value=obj.PuestoPF;
+
+        document.getElementById("depasol").value=obj.DepartamentoPF;
+        document.getElementById("desdesol").value=obj.DesdeEmpPF;
+        document.getElementById("compasol").value=obj.CompaniaPF;
+        document.getElementById("compatelsol1").value=obj.TelefonoEmpPF;
+        document.getElementById("compatelsolext").value=obj.ExtensionEmpPF;
+        document.getElementById("giroprof").value=obj.GiroPF;
+        document.getElementById("noempleados").value=obj.NumEmpleadosPF;
+
+        document.getElementById("domneg").value=obj.DomicilioNegPF;
+        document.getElementById("nomref1").value=obj.RefPerNom1PF;
+        document.getElementById("parenref1").value=obj.RefPerParentesco1PF;
+        document.getElementById("telref11").value=obj.RefPerTelefono1PF;
+        document.getElementById("nomref2").value=obj.RefPerNom2PF;
+        document.getElementById("parenref2").value=obj.RefPerParentesco2PF;
+        document.getElementById("telref12").value=obj.RefPerTelefono2PF;
+
+        document.getElementById("refbanc").value=obj.Banco1;
+        document.getElementById("numcuebanc").value=obj.CuentaBanc1;
+        document.getElementById("sucbanc1").value=obj.SucursalBanc1;
+        document.getElementById("aperbanc1d").value=obj.FechaApertura1;
+        document.getElementById("refbanc2").value=obj.Banco2;
+        document.getElementById("numcuebanc2").value=obj.CuentaBanc2;
+        document.getElementById("sucbanc2").value=obj.SucursalBanc2;
+
+        document.getElementById("aperbanc2d").value=obj.FechaApertura2;
+        document.getElementById("cargdir").value=obj.CarDirBanco;
+        document.getElementById("nocuentcd").value=obj.CLABE;
+        document.getElementById("refcomemp1").value=obj.RefComEmp1;
+        document.getElementById("telrefcom11").value=obj.RefComTel1;
+        document.getElementById("antirefcom1").value=obj.RefComAnt1;
+        document.getElementById("refcomemp2").value=obj.RefComEmp2;
+
+        document.getElementById("telrefcom22").value=obj.RefComTel1;
+        document.getElementById("antirefcom2").value=obj.RefComAnt1;
+        document.getElementById("conyunom").value=obj.ConyugeNom;
+        document.getElementById("conyuape1").value=obj.ConyugeApPat;
+        document.getElementById("conyuape2").value=obj.ConyugeApMat;
+        document.getElementById("compaconyu").value=obj.ConyugeCompania;
+        document.getElementById("puestconyu").value=obj.ConyugePuesto;
+
+        document.getElementById("benesol3").value=obj.BeneficiarioNom;
+        document.getElementById("benesol1").value=obj.BeneficiarioApPat;
+        document.getElementById("benesol2").value=obj.BeneficiarioApMat;
+        document.getElementById("textfield48").value=obj.BeneficiarioDom;
+        document.getElementById("textfield49").value=obj.BeneficiarioCol;
+        document.getElementById("textfield50").value=obj.BeneficiarioCP;
+        document.getElementById("textfield51").value=obj.BeneficiarioPais;
+
+        document.getElementById("textfield52").value=obj.BeneficiarioTel;
+        document.getElementById("textfield53").value=obj.BeneficiarioCURP;
+        document.getElementById("textfield54").value=obj.BeneficiarioRFC;
+        document.getElementById("textfield55").value=obj.BeneficiarioParent;
+        document.getElementById("textfield56").value=obj.BeneficiarioPorciento;
+        document.getElementById("textfield57").value=obj.BeneficiarioFechNac;
+        document.getElementById("textfield58").value=obj.BeneficiarioMun;
+
+        document.getElementById("textfield59").value=obj.BeneficiarioEstado;
+        document.getElementById("textfield60").value=obj.BeneficiarioEstCivil;
+        document.getElementById("textfield61").value=obj.BeneficiarioSocConyugal;
+        document.getElementById("textfield62").value=obj.BeneficiarioOcupacion;
+        document.getElementById("nomrazsoc2").value=obj.RazonSocial;
+        document.getElementById("telsol2").value=obj.TelPM;
+        document.getElementById("rfcsol1").value=obj.RFCPM;
+
+        document.getElementById("dirsolpm").value=obj.DireccionPM;
+        document.getElementById("dirnumsolpm").value=obj.NumDireccionPM;
+        document.getElementById("mailsol2").value=obj.EmailPM;
+        document.getElementById("colsolpm").value=obj.ColoniaPM;
+        document.getElementById("cdsolpm").value=obj.CiudadPM;
+        document.getElementById("edosolpm").value=obj.EstadoPM;
+        document.getElementById("cpsolpm").value=obj.CPPM;
+
+        document.getElementById("actprinc").value=obj.ActPrinPM;
+        document.getElementById("cantperson").value=obj.CantPersonalPM;
+        document.getElementById("inicoper1").value=obj.InOperacionesPM;
+        document.getElementById("inicoper13").value=obj.ConstEmpresaPM;
+        document.getElementById("antemp").value=obj.AntiguedadPM;
+        document.getElementById("apodsusc").value=obj.ApoderadoPM;
+        document.getElementById("nomconemp").value=obj.ContEmpNombre;
+
+        document.getElementById("segnomconemp").value=obj.ContEmpSegNombre;
+        document.getElementById("apepaconemp").value=obj.ContEmpApPat;
+        document.getElementById("apemaconemp").value=obj.ContEmpApMat;
+        document.getElementById("datobdir22").value=obj.ContEmpDireccion;
+        document.getElementById("datobcol23").value=obj.ContEmpColonia;
+        document.getElementById("colsol22").value=obj.ContEmpCiudad;
+        document.getElementById("cdsol22").value=obj.ContEmpEstado;
+
+        document.getElementById("lugnacsol22").value=obj.ContEmpCP;
+        document.getElementById("rfcconemp1").value=obj.ContEmpRFC;
+        document.getElementById("telconemp1").value=obj.ContEmpTel;
+        document.getElementById("mailconemp").value=obj.ContEmpEmail;
+        document.getElementById("puesconemp").value=obj.ContEmpPuesto;
+        document.getElementById("accionista1").value=obj.Acc1Nombre;
+        document.getElementById("rfcaccion1").value=obj.Acc1RFC;
+
+        document.getElementById("porcent1").value=obj.Acc1Porcentaje;
+        document.getElementById("accionista2").value=obj.Acc2Nombre;
+        document.getElementById("rfcaccion2").value=obj.Acc2RFC;
+        document.getElementById("porcent2").value=obj.Acc2Porcentaje;
+        document.getElementById("accionista3").value=obj.Acc3Nombre;
+        document.getElementById("rfcaccion3").value=obj.Acc3RFC;
+        document.getElementById("porcent3").value=obj.Acc3Porcentaje;
+
+        document.getElementById("accionista4").value=obj.Acc4Nombre;
+        document.getElementById("rfcaccion4").value=obj.Acc4RFC;
+        document.getElementById("porcent4").value=obj.Acc4Porcentaje;
+        document.getElementById("accpermor1").value=obj.Acc5Nombre;
+        document.getElementById("rfcaccpermor1").value=obj.Acc5RFC;
+        document.getElementById("permoracc1").value=obj.Acc5Porcentaje;
+        document.getElementById("accpermor2").value=obj.Acc6Nombre;
+        document.getElementById("rfcaccpermor2").value=obj.Acc6RFC;
+        document.getElementById("permoracc2").value=obj.Acc6Porcentaje;
+        document.getElementById("fecharegistro").value=obj.FechaRegistro;
+
+        
 
 
          document.getElementById("botonmodcliente").style.display="block";
@@ -352,6 +653,34 @@ xmlhttp.send(data);
 });
 
 $("#guardarcliente").click(function(event) {
+
+
+
+var validacion=false;
+
+$('form#form1').find('input').each(function(){ 
+
+        if($( "#"+this.id).hasClass( "is-invalid-input" )){
+            console.log(this.id);
+            validacion=true;
+            return false;
+        }
+
+
+         
+        });
+
+
+    if(validacion){
+         console.log("Hay errores");
+         return validacion;
+    }
+
+
+
+
+
+
     
    var data = new FormData(document.forms['form1']);
    data.append('function', "guardacliente");
@@ -460,6 +789,119 @@ $( "#TipoCliente" ).change(function() {
     
   
 });
+
+
+
+$( "#civilsol" ).change(function() {
+    if(document.getElementById('civilsol').value==""){
+        document.getElementById('panel6c-label').style.display='none';
+    }else if(document.getElementById('civilsol').value=="Casado Bienes Mancomunados" || document.getElementById('civilsol').value=="Casado Bienes Separados"){
+        document.getElementById('panel6c-label').style.display='block';
+    }else {
+        document.getElementById('panel6c-label').style.display='none';
+    }
+    
+  
+});
+
+function civilsol(){
+    if(document.getElementById('civilsol').value==""){
+        document.getElementById('panel6c-label').style.display='none';
+    }else if(document.getElementById('civilsol').value=="Casado Bienes Mancomunados" || document.getElementById('civilsol').value=="Casado Bienes Separados"){
+        document.getElementById('panel6c-label').style.display='block';
+    }else {
+        document.getElementById('panel6c-label').style.display='none';
+    }
+}
+
+
+$( "#actempresarial" ).change(function() {
+    if(document.getElementById('actempresarial').value==""){
+        document.getElementById('divgiroprof').style.display='none';
+        document.getElementById('divnoempleados').style.display='none';
+        document.getElementById('divdomneg').style.display='none';
+        document.getElementById('panel5c-label').style.display='none';
+    }else if(document.getElementById('actempresarial').value=="Si"){
+        document.getElementById('divgiroprof').style.display='block';
+        document.getElementById('divnoempleados').style.display='block';
+        document.getElementById('divdomneg').style.display='block';
+        document.getElementById('panel5c-label').style.display='block';
+    }else {
+        document.getElementById('divgiroprof').style.display='none';
+        document.getElementById('divnoempleados').style.display='none';
+        document.getElementById('divdomneg').style.display='none';
+        document.getElementById('panel5c-label').style.display='none';
+    }
+    
+  
+});
+
+function actempresarial(){
+    if(document.getElementById('actempresarial').value==""){
+        document.getElementById('divgiroprof').style.display='none';
+        document.getElementById('divnoempleados').style.display='none';
+        document.getElementById('divdomneg').style.display='none';
+        document.getElementById('panel5c-label').style.display='none';
+    }else if(document.getElementById('actempresarial').value=="Si"){
+        document.getElementById('divgiroprof').style.display='block';
+        document.getElementById('divnoempleados').style.display='block';
+        document.getElementById('divdomneg').style.display='block';
+        document.getElementById('panel5c-label').style.display='block';
+    }else {
+        document.getElementById('divgiroprof').style.display='none';
+        document.getElementById('divnoempleados').style.display='none';
+        document.getElementById('divdomneg').style.display='none';
+        document.getElementById('panel5c-label').style.display='none';
+    }
+    
+}
+
+
+
+$( "#autosol" ).change(function() {
+    if(document.getElementById('autosol').value==""){
+        document.getElementById('marcasol').style.display='none';
+    }else if(document.getElementById('autosol').value=="Si"){
+        document.getElementById('marcasol').style.display='block';
+    }else {
+        document.getElementById('marcasol').style.display='none';
+    }
+    
+  
+});
+
+function autosol(){
+    if(document.getElementById('autosol').value==""){
+        document.getElementById('marcasol').style.display='none';
+    }else if(document.getElementById('autosol').value=="Si"){
+        document.getElementById('marcasol').style.display='block';
+    }else {
+        document.getElementById('marcasol').style.display='none';
+    }
+    
+}
+
+$( "#vivsol" ).change(function() {
+    if(document.getElementById('vivsol').value==""){
+        document.getElementById('vivsolesp').style.display='none';
+    }else if(document.getElementById('vivsol').value=="Otros especificar"){
+        document.getElementById('vivsolesp').style.display='block';
+    }else {
+        document.getElementById('vivsolesp').style.display='none';
+    }
+    
+  
+});
+
+function vivsol(){
+    if(document.getElementById('vivsol').value==""){
+        document.getElementById('vivsolesp').style.display='none';
+    }else if(document.getElementById('vivsol').value=="Otros especificar"){
+        document.getElementById('vivsolesp').style.display='block';
+    }else {
+        document.getElementById('vivsolesp').style.display='none';
+    }
+}
 
 
 
@@ -578,3 +1020,8 @@ function calcularEdad()
         document.getElementById("edsol").value=0;
     }
 }
+
+
+
+
+
