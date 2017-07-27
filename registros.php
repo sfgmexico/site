@@ -14,7 +14,10 @@
   <div class="medium-9 columns">
     <div class="tabs-content" data-tabs-content="example-tabs">
       <div class="tabs-panel is-active" id="panel1v">
-        <form name="form1" id="form1" action=""  method="post" data-abide novalidate> 
+        <form name="form1" id="form1" action=""  method="post" data-abide novalidate>
+          <div data-abide-error class="alert callout" style="display: none;">
+            <p><i class="fi-alert"></i> Despues de corregir los campos marcados, no olvides Guardar.</p>
+          </div> 
         <div id="botonescliente">  
           <input class="button" type="button" name="nuevocliente" id="nuevocliente" value="Generar Cliente Nuevo">
           <input class="button" data-open="modalmodificarcliente" type="button" name="modificarcliente" id="modificarcliente" value="Modificar Cliente">
@@ -78,7 +81,7 @@
             <li class="tabs-title" id="tabpanel3c"><a href="#panel3c" >Referencias Personales</a></li>
             <li class="tabs-title"><a href="#panel4c">Informacion Bancaria</a></li>
             <li class="tabs-title"><a href="#panel5c"  style="display: none;">Referencias Comerciales</a></li>
-            <li class="tabs-title"><a href="#panel6c">Datos del Conyuge</a></li>
+            <li class="tabs-title" id="tabpanel6c" style="display: none;"><a href="#panel6c">Datos del Conyuge</a></li>
             <li class="tabs-title" id="tabpanel7c" style="display: none;"><a href="#panel7c">Accionistas</a></li>
             <li class="tabs-title"><a href="#panel8c">Beneficiario</a></li>
             <li class="tabs-title"><a href="#panel9c">Situacion Financiera</a></li>
@@ -87,7 +90,7 @@
             <div class="tabs-panel is-active" id="panel1c">
               <div class="row">
                 <div class="small-3 columns">
-                  <select name="TipoCliente" id="TipoCliente" > <option value="">-Seleccione una opción-</option> <option value="Persona Fisica">Persona Fisica</option><option value="Persona Moral">Persona Moral</option> 
+                  <select name="TipoCliente" id="TipoCliente" required=""  > <option value="">-Seleccione una opción-</option> <option value="Persona Fisica">Persona Fisica</option><option value="Persona Moral">Persona Moral</option> 
                   </select> 
                 </div>
               </div>
@@ -195,11 +198,11 @@
                     </div>
 
                     <div class="small-3 columns"><label>RFC
-                      <input name="rfcconemp1" type="text" id="rfcconemp1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCDatConEmp'][0]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,rfcconemp2)"></label>
+                      <input name="rfcconemp1" type="text" id="rfcconemp1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCDatConEmp'][0]; } ?>" ></label>
                     </div>
      
                     <div class="small-3 columns"> <label> Telefono
-                      <input name="telconemp1" type="text" id="telconemp1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['TelDatConEmp'][0]; } ?>" maxlength="1" onKeyUp="myFunction(this,this.value,telconemp2)"></label>
+                      <input name="telconemp1" type="text" id="telconemp1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['TelDatConEmp'][0]; } ?>" ></label>
                     </div>
                   </p>
                   <p align="left">
@@ -214,7 +217,7 @@
 
                 
               </div>
-              <hr>
+              
 
               <div id="pfa" style="display:none;" >
                 <div class="row" >
@@ -350,7 +353,7 @@
                   <p align="left">
                     <div class="small-5 columns">
                       <label>Estado civil:
-                      <select name="civilsol" id="civilsol"><option>-Seleccione una opción-</option><option value="Casado Bienes Mancomunados">Casado Bienes Mancomunados</option><option value="Casado Bienes Separados">Casado Bienes Separados</option><option value="Viudo">Viudo</option><option value="Divorciado">Divorciado</option><option value="Soltero">Soltero</option></select></label>
+                      <select name="civilsol" id="civilsol"><option value="">-Seleccione una opción-</option><option value="Casado Bienes Mancomunados">Casado Bienes Mancomunados</option><option value="Casado Bienes Separados">Casado Bienes Separados</option><option value="Viudo">Viudo</option><option value="Divorciado">Divorciado</option><option value="Soltero">Soltero</option></select></label>
             
                     </div>
         
@@ -485,7 +488,9 @@
                   </div>
           
                   <div class="small-3 columns"><label>Numero de cuenta
-                    <input name="numcuebanc" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NoTarRefBan']; } ?>" type="text" id="numcuebanc" size="40px" placeholder="Número de cuenta" pattern="integer"></label>
+                    <input name="numcuebanc" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NoTarRefBan']; } ?>" type="text" id="numcuebanc" size="40px" placeholder="Número de cuenta" pattern="integer">
+
+                    </label>
                   </div>
 
                   <div class="small-3 columns"><label>Sucursal
@@ -806,291 +811,380 @@
 
 
       <div class="tabs-panel" id="panel2v">
-        <ul class="tabs" data-deep-link="true" data-update-history="true" data-deep-link-smudge="true" data-deep-link-smudge="500" data-tabs id="deeplinked-tabs">
-          <li class="tabs-title is-active"><a href="#panel1d" aria-selected="true">Credito</a></li>
-          <li class="tabs-title"><a href="#panel2d">Obligado Solidario</a></li>
-          <li class="tabs-title"><a href="#panel3d">Concesionario</a></li>
+        <form name="form2" id="form2" action=""  method="post" data-abide novalidate>
+          <div id="botonessolicitud">
+            <input class="button" data-open="modalnuevasolicitud" type="button" name="nuevasolicitud" id="nuevasolicitud" value="Generar Solicitud Nueva">
+            <input class="button" data-open="modalmodificarsolicitud" type="button" name="modificarsolicitud" id="modificarsolicitud" value="Modificar Solicitud">
           
-        </ul>
-
-        <div class="tabs-content" data-tabs-content="deeplinked-tabs">
-          <div class="tabs-panel is-active" id="panel1d">
-    
-
-                                 <div class="row">
-                                 <p align="left">
-                                              <div class="small-3 columns">
-                                                <label> Tipo Credito
-                                                        <select name="tipocredito" size="1" id="tipocredito"  onchange="seleccionvalor()" >
-                                                          <option value="" ></option>
-                                                          <?php
-                                                          $rescreditos=mysqli_query($cnx,"select * from tiposcreditos");
-                                                          while($rowcreditos=mysqli_fetch_array($rescreditos)){?> 
-                                                          <option value="<?php echo $rowcreditos['descripcion'];?>" ><?php echo $rowcreditos['descripcion'];?></option>
-
-                                                          <?php }
-                                                          ?>
-                                                        </select>
-                                               </label>
-                                              </div>
-                                                    
-                                                    <div class="small-3 columns"> 
-                                                          <label>
-                                                              <input name="textfield86" type="text" id="textfield86" size="50%"    >
-                                                          </label> 
-                                                    </div>
-
-                                                  <div class="small-3 columns" id="engautochange">
-                                                           <label>
-                                                            Enganche <input name="textfield87" type="text" id="textfield87" size="50%"    onchange="datosAuto()">
-                                                          </label>
-                                                  </div>
-
-                                                  <div class="small-3 columns" id="porengautochange">
-                                                          <label> Porcentaje de Enganche<input name="textfield88" type="text" id="textfield88" size="50%"  readonly>
-                                                          </label>
-                                                  </div>
-                                                  <div class="small-3 columns" id="porfinautochange">
-                                                    <label> 
-                                                   Porcentaje de Financieamiento<input name="textfield89" type="text" id="textfield89" size="50%"  readonly>
-                                                    </label>
-                                                  </div>
-                                                  <div class="small-3 columns" id="monfinautochange">
-                                                    <label>
-                                                    
-                                                     Monto Financiado <input name="textfield90" type="text" id="textfield90" size="50%"  readonly>
-                                                    </label>
-                                                  </div>
-                                                  <div class="small-3 columns">
-                                                    <label>
-                                                      Interes Anual<input name="textfield100" type="text" id="textfield100" size="50%"  readonly  >
-                                                    </label>
-                                                  </div>
-                                                  <div class="small-3 columns" id="comisionapchange">
-                                                    <label>
-                                                    
-                                                  Comisión por Apertura<input name="textfield96" type="text" id="textfield96" size="50%"  readonly  >
-                                                    </label>
-                                                  </div>
-
-                                                          <div class="small-3 columns">
-                                                              <label>
-                                                               Seguro de Auto<input name="textfield97" type="text" id="textfield97" size="50%"   >
-                                                              </label>
-                                                            
-                                                         </div>
-                                                            <div class="small-3 columns">
-                                                              <label>
-                                                            
-                                                            Seguro de Vida<input name="textfield98" type="text" id="textfield98" size="50%"   >
-                                                              </label>
-                                                            </div>
-
-                                                            <div class="small-3 columns" id="segdeschange">
-                                                              <label>
-                                                            
-                                                                <p align="left">Seguro de Desempleo<input name="textfield99" type="text" id="textfield99" size="50%"   ></p>
-                                                              </label>
-                                                            </div>
-                                                            <div class="small-3 columns">
-                                                              <label>
-                                                            
-                                                               Plazo (meses)<input name="textfield91" type="text" id="textfield91" size="50%"   >
-                                                              </label>
-                                                            </div>
-                                                          
-                                                            <div class="small-3 columns">
-                                                              <label>
-                                                               Pago Mensual Esperado<input name="textfield92" type="text" id="textfield92" size="50%"   >
-                                                              </label>
-                                                            </div>
-                                                            <div class="small-5 columns">
-                                                            <input type="button" class="button" data-open="Aut" value="Cambiar Valores"></div>
-                                                            
-                                            </p>
-                     </div>
-            
-<!-- This is the first modal -->
-
-
-                                                                        <div class="reveal" id="Aut" data-reveal>
-                                                                          <h3>Clave de Autorizacion
-                                                                          </h3>
-                                                                          <div class="row">
-                                                                            <div class="small-5 columns">
-                                                                
-                                                                              <input type="text" id="clave" name="clave">
-                                                                              <button class="button" data-close aria-label="Close reveal" id="keycheck" data-open="exampleModal3">Aceptar!</button>
-                                                                            </div>
-                                                                          </div>
-                                                                          <button class="close-button" data-close aria-label="Close reveal" type="button">
-                                                                            <span aria-hidden="true">X</span>
-                                                                            </button>
-                                                                          </div>
-                                              </div>
-                                      <div class="tabs-panel" id="panel2d">
-                                         <div class="row">
-       <p align="left">
-            <div class="small-3 columns"><label>Nombre
-            <input name="datobnom1" type="text" id="datobnom1" size="30px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NomObSol']; } ?>" placeholder="Nombre(s)" pattern="alpha"></label></div>
-
-            <div class="small-3 columns"><label>Apellido Paterno
-            <input name="datobappat1" type="text" id="datobappat1" size="30px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ApPatObSol']; } ?>" placeholder="Apellido Paterno" pattern="alpha"></label></div>
-
-            <div class="small-3 columns"><label>Apellido Materno
-            <input name="datobapmat1" type="text" id="datobapmat1" size="30px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ApMatObSol']; } ?>" placeholder="Apellido Materno" pattern="alpha"></label></div>
-
-            <div class="small-3 columns"><label>Direccion/ Calle y numero
-            <input name="datobdir1" type="text" id="datobdir1" size="48px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['DirObSol']; } ?>" placeholder="Dirección / Calle y número"></label></div>
-
-            <div class="small-3 columns"><label>Colonia
-            <input name="datobcol1" type="text" id="datobcol1" size="48px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ColObSol']; } ?>" placeholder="Colonia"></label></div>
-
-            <div class="small-3 columns"><label>Ciudad
-            <input name="datobcd1" type="text" id="datobcd1" size="20px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['CdObSol']; } ?>" placeholder="Ciudad"></label></div>
-
-            <div class="small-3 columns"><label>Lugar de nacimiento
-            <input name="datoblugnac1" type="text" id="datoblugnac1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['LugNacObSol']; } ?>" size="30px" placeholder="Lugar nacimiento (País y Edo.)"></label></div>
-          </p>
-          </div>
-          <div class="row"> 
-          <p align="left">
-            <div class="small-3 columns"><label>Estado
-            <input name="datobedo1" type="text" id="datobedo1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['EdoObSol']; } ?>" size="30px" placeholder="Estado"></label></div>
-            <div class="small-3 columns"><label>Codigo Postal
-            <input name="datobcp1" type="text" id="datobcp1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['CPObSol']; } ?>" size="30px" placeholder="C.P."  patern="integer"></label></div>
-
-            <div class="small-3 columns"><label>Email
-            <input  name="datobmail1" type="text" id="datobmail1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['EmailObSol']; } ?>" size="30px" placeholder="Email" pattern="email"></label></div>
-        
-        <div class="small-3 columns"> <label>Sexo <select name="datobsex1"><option>Femenino</option><option>Masculino</option></select></label></div>
-          </p>
-          </div>
-         
-     
-          
-          <div class="row">
-          <p align="left">
-            
-            <div class="small-3 columns"><label>Fecha de nacimiento:
-            <input name="datobfechnac1d" type="date" id="datobfechnac1d" size="1px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['FeNacObSol']; } ?>" ></label></div>
-
-            <div class="small-3 columns"><label>Edad
-            <input name="datobed1" type="text" id="datobed1" size="2px" placeholder="Edad" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['EdObSol']; } ?>"  pattern="integer"></label></div>
-
-            <div class="small-3 columns"><label>CURP
-            <input name="datobcurp1" type="text" id="datobcurp1" size="22px" placeholder="CURP" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['CURPObSol']; } ?>"  pattern="alpha_numeric"></label></div>
-          <div class="small-3 columns"><label>RFC
-          <input name="datobrfc11" value="<?php if(isset($row['Folio_Cliente'])&& $row['RFCObSol']!='') {  echo $row['RFCObSol'][0]; } ?>" type="text" id="datobrfc11" size="1px"  pattern="alpha_numeric"></label></div>
-
-           <div class="small-3 columns"><label>Telefono Particular
-           <input name="datobtel11" value="<?php if(isset($row['Folio_Cliente'])&& $row['TelObSol']!='') {  echo $row['TelObSol'][0]; } ?>" type="text" id="datobtel11" size="1px"  pattern="integer"></label></div>
-
-            <div class="small-3 columns"><label>Telefono Movil
-            <input name="datobtel112" value="<?php if(isset($row['Folio_Cliente'])&& $row['MovObSol']!='') {  echo $row['MovObSol'][0]; } ?>" type="text" id="datobtel112" size="1px"  pattern="integer"></label></div>
-            <div class="small-3 columns">
-            <label>Tiene propiedad a su nombre?
-            <select name="datobprop1" ><option>Si</option><option>No</option></select></label>
+            <div class="reveal" id="modalnuevasolicitud" data-reveal>
+              <h4>Ingresa el Número de Cliente:</h4>
               
+              <select name="ANYBODY" id="ANYBODY"><option id="id" value="1">ID</option><option id="nombrepf" value="2">Nombre (Persona Fisca)</option><option id="razonpm " value="3">Razon social(Persona Moral)</option></select>
+                <label>ID:<input type="text" name="idnuevasolicitud" id="idnuevasolicitud"></label>
+              
+              
+                <div id="resultadonuevasolicitud"></div>
+              <button id="requestnuevasolicitud" name="requestnuevasolicitud" class="button" >Buscar</button>
+              <button id="cerrarmodalnuevasolicitud" class="close-button" data-close aria-label="Close reveal" type="button">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+
+
+
+          <!-- This is the first modal -->
+            <div class="reveal" id="modalmodificarsolicitud" data-reveal>
+              <h4>Ingresa el Número de Solicitud:</h4>
+              
+              
+                <label>ID:<input type="text" name="idmodificasolicitud" id="idmodificasolicitud"></label>
+              
+              
+
+              <button id="requestmodificarsolicitud" name="requestmodificarsolicitud" class="button" >Buscar</button>
+              <button id="cerrarmodalmodificasolicitud" class="close-button" data-close aria-label="Close reveal" type="button">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <!-- This is the nested modal -->
+            <div class="reveal" id="modalcontregsolicitud" data-reveal>
+              <h4>Registros Incompletos...</h4>
+              <table  id="tablajson">
+                <thead>
+                  <th>Id</th> 
+                </thead>
+                <tbody></tbody>
+              </table>
+              <button id="cerrarmodalcontregsolicitud" class="close-button" data-close aria-label="Close reveal" type="button">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <input class="button" type="button" data-open="modalcontregsolicitud" name="continuarsolicitud" id="continuarsolicitud" value="Continuar Con Registro">
           </div>
-          </p>
-          </div>
-<br>
+          
+          <div id="contenidorequestsolicitud" style="display: none;">
+            <ul class="tabs" data-deep-link="true" data-update-history="true" data-deep-link-smudge="true" data-deep-link-smudge="500" data-tabs id="deeplinked-tabs">
+              <li class="tabs-title is-active"><a href="#panel1d" aria-selected="true">Credito</a></li>
+              <li class="tabs-title"><a href="#panel2d">Obligado Solidario</a></li>
+              <li class="tabs-title"><a href="#panel3d">Concesionario</a></li>
+              
+            </ul>
+
+            <div class="tabs-content" data-tabs-content="deeplinked-tabs">
+              <div class="tabs-panel is-active" id="panel1d">
+        
+
+                <div class="row">
+                  <p align="left">
+                    <div class="small-3 columns">
+                      <label> Tipo Credito
+                        <select name="tipocredito" size="1" id="tipocredito"  onchange="seleccionvalor()" >
+                          <option value="" ></option>
+                                                              <?php
+                                                              include("Conexion2.php");
+                                                              $rescreditos=mysqli_query($cnx,"select * from tiposcreditos");
+                                                              while($rowcreditos=mysqli_fetch_array($rescreditos)){?> 
+                          <option value="<?php echo $rowcreditos['descripcion'];?>" ><?php echo $rowcreditos['descripcion'];?></option>
+
+                                                              <?php }
+                                                              ?>
+                          </select>
+                      </label>
+                    </div>
+                                                        
+                    <div class="small-3 columns"> 
+                      <label>
+                        <input name="textfield86" type="text" id="textfield86" size="50%"    >
+                      </label> 
+                    </div>
+
+                    <div class="small-3 columns" id="engautochange">
+                      <label>Enganche 
+                        <input name="textfield87" type="text" id="textfield87" size="50%"    onchange="datosAuto()">
+                      </label>
+                    </div>
+
+                    <div class="small-3 columns" id="porengautochange">
+                      <label> Porcentaje de Enganche<input name="textfield88" type="text" id="textfield88" size="50%"  readonly>
+                      </label>
+                    </div>
+                    <div class="small-3 columns" id="porfinautochange">
+                      <label>Porcentaje de Financieamiento<input name="textfield89" type="text" id="textfield89" size="50%"  readonly>
+                      </label>
+                    </div>
+                    <div class="small-3 columns" id="monfinautochange">
+                      <label>Monto Financiado <input name="textfield90" type="text" id="textfield90" size="50%"  readonly>
+                      </label>
+                    </div>
+                    <div class="small-3 columns">
+                      <label>Interes Anual<input name="textfield100" type="text" id="textfield100" size="50%"  readonly  >
+                      </label>
+                    </div>
+                    <div class="small-3 columns" id="comisionapchange">
+                      <label>Comisión por Apertura<input name="textfield96" type="text" id="textfield96" size="50%"  readonly  >
+                      </label>
+                    </div>
+                    <div class="small-3 columns">
+                      <label>Seguro de Auto<input name="textfield97" type="text" id="textfield97" size="50%"   >
+                      </label>
+                    </div>
+                    <div class="small-3 columns">
+                      <label>Seguro de Vida<input name="textfield98" type="text" id="textfield98" size="50%"   >
+                      </label>
+                    </div>
+
+                    <div class="small-3 columns" id="segdeschange">
+                      <label>
+                        <p align="left">Seguro de Desempleo<input name="textfield99" type="text" id="textfield99" size="50%"   ></p>
+                      </label>
+                    </div>
+                    <div class="small-3 columns">
+                      <label>Plazo (meses)<input name="textfield91" type="text" id="textfield91" size="50%"   >
+                      </label>
+                    </div>
+                    <div class="small-3 columns">
+                      <label>Pago Mensual Esperado<input name="textfield92" type="text" id="textfield92" size="50%"   >
+                      </label>
+                    </div>
+                    <div class="small-5 columns">
+                      <input type="button" class="button" data-open="Aut" value="Cambiar Valores">
+                    </div>
+                                                                
+                  </p>
+                </div>
+                
+    <!-- This is the first modal -->
 
 
-<p align="left"><strong>DATOS DEL OBLIGADO SOLIDARIO (2) PERSONA FÍSICA, PROPIETARIO DE BIEN INMUEBLE </strong></p>
+                <div class="reveal" id="Aut" data-reveal>
+                  <h3>Clave de Autorizacion</h3>
+                  <div class="row">
+                    <div class="small-5 columns">
+                      <input type="text" id="clave" name="clave">
+                      <button class="button" data-close aria-label="Close reveal" id="keycheck" data-open="exampleModal3">Aceptar!</button>
+                    </div>
+                  </div>
+                  <button class="close-button" data-close aria-label="Close reveal" type="button">
+                    <span aria-hidden="true">X</span>
+                  </button>
+                </div>
+              </div>
 
-             <div class="row">
-          <p align="left">
-            <div class="small-3 columns"><label>Nombre(s)
-            <input name="datobnom2" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NomObSol2']; } ?>" type="text" id="datobnom2" size="30px" placeholder="Nombre(s)" pattern="alpha"></label></div>
 
-            <div class="small-3 columns"><label>Apellido paterno
-            <input name="datobappat2" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ApPatObSol2']; } ?>" type="text" id="datobappat2" size="30px" placeholder="Apellido Paterno" pattern="alpha"></label></div>
 
-            <div class="small-3 columns"><label>Apellido Materno
-            <input name="datobapmat2" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ApMatObSol2']; } ?>" type="text" id="datobapmat2" size="30px" placeholder="Apellido Materno" pattern="alpha"></label></div>
 
-            <div class="small-3 columns"><label>Direccion / Calle y numero 
-            <input name="datobdir2" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['DirObSol2']; } ?>" type="text" id="datobdir2" size="48px" placeholder="Dirección / Calle y número"></label></div>
 
-            <div class="small-3 columns"><label>Colonia
-            <input name="datobcol2" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ColObSol2']; } ?>" type="text" id="datobcol2" size="48px" placeholder="Colonia"></label></div>
+              <div class="tabs-panel" id="panel2d">
+                <div class="row">
+                  <p align="left">
+                    <div class="small-3 columns"><label>Nombre
+                      <input name="datobnom1" type="text" id="datobnom1" size="30px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NomObSol']; } ?>" placeholder="Nombre(s)" pattern="alpha"></label>
+                    </div>
 
-            <div class="small-3 columns"><label>Ciudad
-            <input name="datobcd2" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['CdObSol2']; } ?>" type="text" id="datobcd2" size="20px" placeholder="Ciudad"></label></div>
+                    <div class="small-3 columns"><label>Apellido Paterno
+                      <input name="datobappat1" type="text" id="datobappat1" size="30px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ApPatObSol']; } ?>" placeholder="Apellido Paterno" pattern="alpha"></label>
+                    </div>
 
-            <div class="small-3 columns"><label>Lugar de nacimiento
-            <input name="datoblugnac2" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['LugNacObSol2']; } ?>" type="text" id="datoblugnac2" size="30px" placeholder="Lugar nacimiento (País y Edo.)"></label></div>
-          </p>
-         </div>
-          <div class="row">
-          <p align="left">
-            <div class="small-3 columns"><label>Estado
-            <input name="datobedo2" type="text" id="datobedo2" size="30px" placeholder="Estado" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['EdoObSol2']; } ?>"></label></div>
+                    <div class="small-3 columns"><label>Apellido Materno
+                      <input name="datobapmat1" type="text" id="datobapmat1" size="30px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ApMatObSol']; } ?>" placeholder="Apellido Materno" pattern="alpha"></label>
+                    </div>
 
-            <div class="small-3 columns"><label>Codigo Postal
-            <input name="datobcp2" type="text" id="datobcp2" size="30px" placeholder="C.P." value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['CPObSol2']; } ?>"  pattern="integer"></label></div>
+                    <div class="small-3 columns"><label>Direccion/ Calle y numero
+                      <input name="datobdir1" type="text" id="datobdir1" size="48px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['DirObSol']; } ?>" placeholder="Dirección / Calle y número"></label>
+                    </div>
 
-            <div class="small-3 columns"><label>Email
-            <input  name="datobmail2" type="text" id="datobmail2" size="30px" placeholder="Email" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['EmailObSol2']; } ?>" pattern="email"></label></div>
-          </p>
-          <div class="small-3 columns"><label>Sexo
-          <select name="datobsex2"><option>-Seleccione una opcion-</option><option>Femenino</option><option>Masculino</option></select></label>
-         </div>
-          </div>
-            <div class="row"> 
-            <p align="left">
-           
-            <div class="small-3 columns"><label> Fecha de nacimiento:
-            <input name="datobfechnac2d" type="date" id="datobfechnac2d" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['FeNacObSol2']; } ?>" size="1px"    ></label></div>
-            <div class="small-3 columns"><label>Edad
-            <input name="datobed2" type="text" id="datobed2" size="2px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['EdObSol2']; } ?>" placeholder="Edad" ></label></div>
+                    <div class="small-3 columns"><label>Colonia
+                      <input name="datobcol1" type="text" id="datobcol1" size="48px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ColObSol']; } ?>" placeholder="Colonia"></label>
+                    </div>
 
-            <div class="small-3 columns"><label>CURP
-            <input name="datobcurp2" type="text" id="datobcurp2" size="22px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['CURPObSol2']; } ?>" placeholder="CURP" ></label></div>
+                    <div class="small-3 columns"><label>Ciudad
+                      <input name="datobcd1" type="text" id="datobcd1" size="20px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['CdObSol']; } ?>" placeholder="Ciudad"></label>
+                    </div>
 
-          <div class="small-3 columns"><label>RFC
-          <input name="datobrfc21" type="text" id="datobrfc21" size="1px"  value="<?php if(isset($row['Folio_Cliente'])&& $row['RFCObSol2']!='') {  echo $row['RFCObSol2'][0]; } ?>"  ></label></div>
+                    <div class="small-3 columns"><label>Lugar de nacimiento
+                      <input name="datoblugnac1" type="text" id="datoblugnac1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['LugNacObSol']; } ?>" size="30px" placeholder="Lugar nacimiento (País y Edo.)"></label>
+                    </div>
+                  </p>
+                </div>
+                <div class="row"> 
+                  <p align="left">
+                    <div class="small-3 columns"><label>Estado
+                      <input name="datobedo1" type="text" id="datobedo1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['EdoObSol']; } ?>" size="30px" placeholder="Estado"></label>
+                    </div>
+                    <div class="small-3 columns"><label>Codigo Postal
+                      <input name="datobcp1" type="text" id="datobcp1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['CPObSol']; } ?>" size="30px" placeholder="C.P."  patern="integer"></label>
+                    </div>
 
-                <div class="small-3 columns"><label>Telefono
-                <input name="datobtel21" type="text" id="datobtel21" size="1px"  value="<?php if(isset($row['Folio_Cliente'])&& $row['TelObSol2']!='') {  echo $row['TelObSol2'][0]; } ?>"  ></label></div>
-
-                   <div class="small-3 columns"><label>Telefono Movil
-                   <input name="datobtel212" type="text" id="datobtel212" size="1px"  value="<?php if(isset($row['Folio_Cliente'])&& $row['MovObSol2']!='') {  echo $row['MovObSol2'][0]; } ?>"  ></label></div>
-          <div class="small-3 columns">
-          <label>Tiene propiedad a su nombre?
-          <select name="datobprop2" ><option>Si</option><option>No</option></select></label></div>
+                    <div class="small-3 columns"><label>Email
+                      <input  name="datobmail1" type="text" id="datobmail1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['EmailObSol']; } ?>" size="30px" placeholder="Email" pattern="email"></label>
+                    </div>
+            
+                    <div class="small-3 columns"> <label>Sexo
+                      <select name="datobsex1"><option>Femenino</option><option>Masculino</option></select></label>
+                    </div>
+                  </p>
+                </div>
+             
          
+              
+                <div class="row">
+                  <p align="left">
+                
+                    <div class="small-3 columns"><label>Fecha de nacimiento:
+                      <input name="datobfechnac1d" type="date" id="datobfechnac1d" size="1px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['FeNacObSol']; } ?>" ></label>
+                    </div>
 
-          </p>
+                    <div class="small-3 columns"><label>Edad
+                      <input name="datobed1" type="text" id="datobed1" size="2px" placeholder="Edad" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['EdObSol']; } ?>"  pattern="integer"></label>
+                    </div>
+
+                    <div class="small-3 columns"><label>CURP
+                      <input name="datobcurp1" type="text" id="datobcurp1" size="22px" placeholder="CURP" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['CURPObSol']; } ?>"  pattern="alpha_numeric"></label>
+                    </div>
+                    <div class="small-3 columns"><label>RFC
+                      <input name="datobrfc11" value="<?php if(isset($row['Folio_Cliente'])&& $row['RFCObSol']!='') {  echo $row['RFCObSol'][0]; } ?>" type="text" id="datobrfc11" size="1px"  pattern="alpha_numeric"></label> 
+                    </div>
+
+                    <div class="small-3 columns"><label>Telefono Particular
+                      <input name="datobtel11" value="<?php if(isset($row['Folio_Cliente'])&& $row['TelObSol']!='') {  echo $row['TelObSol'][0]; } ?>" type="text" id="datobtel11" size="1px"  pattern="integer"></label>
+                    </div>
+
+                    <div class="small-3 columns"><label>Telefono Movil
+                      <input name="datobtel112" value="<?php if(isset($row['Folio_Cliente'])&& $row['MovObSol']!='') {  echo $row['MovObSol'][0]; } ?>" type="text" id="datobtel112" size="1px"  pattern="integer"></label>
+                    </div>
+                    <div class="small-3 columns">
+                      <label>Tiene propiedad a su nombre?
+                        <select name="datobprop1" ><option>Si</option><option>No</option></select></label>
+                  
+                    </div>
+                  </p>
+                </div>
+                <br>
+
+
+                <p align="left"><strong>DATOS DEL OBLIGADO SOLIDARIO (2) PERSONA FÍSICA, PROPIETARIO DE BIEN INMUEBLE </strong></p>
+
+                <div class="row">
+                  <p align="left">
+                    <div class="small-3 columns"><label>Nombre(s)
+                      <input name="datobnom2" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NomObSol2']; } ?>" type="text" id="datobnom2" size="30px" placeholder="Nombre(s)" pattern="alpha"></label>
+                    </div>
+
+                    <div class="small-3 columns"><label>Apellido paterno
+                      <input name="datobappat2" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ApPatObSol2']; } ?>" type="text" id="datobappat2" size="30px" placeholder="Apellido Paterno" pattern="alpha"></label>
+                    </div>
+
+                    <div class="small-3 columns"><label>Apellido Materno
+                      <input name="datobapmat2" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ApMatObSol2']; } ?>" type="text" id="datobapmat2" size="30px" placeholder="Apellido Materno" pattern="alpha"></label>
+                    </div>
+
+                    <div class="small-3 columns"><label>Direccion / Calle y numero 
+                      <input name="datobdir2" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['DirObSol2']; } ?>" type="text" id="datobdir2" size="48px" placeholder="Dirección / Calle y número"></label>
+                    </div>
+
+                    <div class="small-3 columns"><label>Colonia
+                      <input name="datobcol2" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ColObSol2']; } ?>" type="text" id="datobcol2" size="48px" placeholder="Colonia"></label>
+                    </div>
+
+                    <div class="small-3 columns"><label>Ciudad
+                      <input name="datobcd2" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['CdObSol2']; } ?>" type="text" id="datobcd2" size="20px" placeholder="Ciudad"></label>
+                    </div>
+
+                    <div class="small-3 columns"><label>Lugar de nacimiento
+                      <input name="datoblugnac2" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['LugNacObSol2']; } ?>" type="text" id="datoblugnac2" size="30px" placeholder="Lugar nacimiento (País y Edo.)"></label>
+                    </div>
+                  </p>
+                </div>
+                <div class="row">
+                  <p align="left">
+                    <div class="small-3 columns"><label>Estado
+                      <input name="datobedo2" type="text" id="datobedo2" size="30px" placeholder="Estado" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['EdoObSol2']; } ?>"></label>
+                    </div>
+
+                    <div class="small-3 columns"><label>Codigo Postal
+                      <input name="datobcp2" type="text" id="datobcp2" size="30px" placeholder="C.P." value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['CPObSol2']; } ?>"  pattern="integer"></label>
+                    </div>
+
+                    <div class="small-3 columns"><label>Email
+                      <input  name="datobmail2" type="text" id="datobmail2" size="30px" placeholder="Email" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['EmailObSol2']; } ?>" pattern="email"></label>
+                    </div>
+                  </p>
+                  <div class="small-3 columns"><label>Sexo
+                    <select name="datobsex2"><option>-Seleccione una opcion-</option><option>Femenino</option><option>Masculino</option></select></label>
+                  </div>
+                </div>
+                <div class="row"> 
+                  <p align="left">
+               
+                    <div class="small-3 columns"><label> Fecha de nacimiento:
+                      <input name="datobfechnac2d" type="date" id="datobfechnac2d" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['FeNacObSol2']; } ?>" size="1px"    ></label>
+                    </div>
+                    <div class="small-3 columns"><label>Edad
+                      <input name="datobed2" type="text" id="datobed2" size="2px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['EdObSol2']; } ?>" placeholder="Edad" ></label>
+                    </div>
+
+                    <div class="small-3 columns"><label>CURP
+                      <input name="datobcurp2" type="text" id="datobcurp2" size="22px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['CURPObSol2']; } ?>" placeholder="CURP" ></label>
+                    </div>
+
+                    <div class="small-3 columns"><label>RFC
+                      <input name="datobrfc21" type="text" id="datobrfc21" size="1px"  value="<?php if(isset($row['Folio_Cliente'])&& $row['RFCObSol2']!='') {  echo $row['RFCObSol2'][0]; } ?>"  ></label>
+                    </div>
+
+                    <div class="small-3 columns"><label>Telefono
+                      <input name="datobtel21" type="text" id="datobtel21" size="1px"  value="<?php if(isset($row['Folio_Cliente'])&& $row['TelObSol2']!='') {  echo $row['TelObSol2'][0]; } ?>"  ></label>
+                    </div>
+
+                    <div class="small-3 columns"><label>Telefono Movil
+                      <input name="datobtel212" type="text" id="datobtel212" size="1px"  value="<?php if(isset($row['Folio_Cliente'])&& $row['MovObSol2']!='') {  echo $row['MovObSol2'][0]; } ?>"  ></label>
+                    </div>
+                    <div class="small-3 columns">
+                      <label>Tiene propiedad a su nombre?
+                        <select name="datobprop2" ><option>Si</option><option>No</option></select></label>
+                    </div>
+                  </p>
+                </div>
+              </div>
+              <div class="tabs-panel" id="panel3d">
+                <div class="row">
+                  <p align="justify">
+                    <div class="small-3 columns"><label>Concesionario
+                      <input name="clavcon" type="text" id="clavcon" size="30px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ClavConcesionario']; } ?>" placeholder="Clave Consesionario o Distribuidor" ></label>
+                    </div>
+
+                    <div class="small-3 columns"><label>Nombre Concesionario
+                      <input name="nomcons" type="text" id="nomcons" size="30px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NomConcesionario']; } ?>" placeholder="Nombre Concesionario o Distribuidor" ></label>
+                    </div>
+
+                    <div class="small-3 columns"><label>Nombre del Vendedor
+                      <input name="nomvend" type="text" id="nomvend" size="48px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NomVendedor']; } ?>" placeholder="Nombre del Vendedor" ></label>
+                    </div>
+
+                    <div class="small-3 columns"><label>Nombre y firma
+                      <input name="gerentegral" type="text" id="gerentegral" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NomGerenteGral']; } ?>" size="48px" placeholder="Nombre y firma del Gerente General" ></label>
+                    </div>
+
+                    <div class="small-3 columns"><label>Fecha
+                      <input name="fecha" type="text" id="fecha" value="<?php echo date("Y-m-d");?>" size="10px" readonly></label>
+                    </div>
+                  </p>
+                </div>
+              </div>
+              
+              <div class="tabs-panel" id="panel4d">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </div>
+              <input class="button" type="button" name="guardarsolicitud" id="guardarsolicitud" value="Guardar" style="display: none;">
+              <input class="button" type="button" name="botonmodsolicitud" id="botonmodsolicitud" value="Guardar" style="display: none;">
+              <input class="button" type="button" name="cancelarsolicitud" id="cancelarsolicitud" value="Cancelar Registro">
+              <input name="fechasolicitudregistro" type="text" id="fechasolicitudregistro" value="<?php echo date("Y-m-d");?>" size="10px" readonly>
             </div>
-                                      </div>
-                                            <div class="tabs-panel" id="panel3d">
-                                                       <div class="row">
-          <p align="justify">
-            <div class="small-3 columns"><label>Concesionario
-            <input name="clavcon" type="text" id="clavcon" size="30px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ClavConcesionario']; } ?>" placeholder="Clave Consesionario o Distribuidor" ></label></div>
-
-            <div class="small-3 columns"><label>Nombre Concesionario
-            <input name="nomcons" type="text" id="nomcons" size="30px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NomConcesionario']; } ?>" placeholder="Nombre Concesionario o Distribuidor" ></label></div>
-
-            <div class="small-3 columns"><label>Nombre del Vendedor
-            <input name="nomvend" type="text" id="nomvend" size="48px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NomVendedor']; } ?>" placeholder="Nombre del Vendedor" ></label></div>
-
-            <div class="small-3 columns"><label>Nombre y firma
-            <input name="gerentegral" type="text" id="gerentegral" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NomGerenteGral']; } ?>" size="48px" placeholder="Nombre y firma del Gerente General" ></label></div>
-
-            <div class="small-3 columns"><label>Fecha
-            <input name="fecha" type="text" id="fecha" value="<?php echo date("Y-m-d");?>" size="10px" readonly></label></div>
-          </p>
           </div>
-                                            </div>
-                                      <div class="tabs-panel" id="panel4d">
-                                               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                      </div>
-                      </div>
-            </div>
+        </form> 
+      </div>
         
  
 
@@ -1101,7 +1195,7 @@
                       <tr>
                         <td width="32%">Actividad | Objeto Social </td>
                         <td width="68%"><select id="select" name="select" size="1" style="width:60%;" >
-                          <option value="" selected></option>
+                          <option value="" selected>¿Cual es la actividad economica del cliente o tercero relacionado?</option>
                           <option value="3" <?php if(isset($row['Folio_Cliente'])) { if($row3['Antiguedad_ObjetoSocial']=="Vulnerable"){echo "selected";}}?>>Vulnerable</option>
                           <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Antiguedad_ObjetoSocial']=="Informal"){echo "selected";}}?>>Informal</option>
                           <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Antiguedad_ObjetoSocial']=="Otra"){echo "selected";}}?>>Otra</option>
@@ -1111,7 +1205,7 @@
                       <tr>
                         <td>Antigüedad del cliente </td>
                         <td><select id="select2" name="select2" size="1" style="width:60%;" >
-                          <option value="" selected></option>
+                          <option value="" selected>¿Cuanto tiempo tiene la relacion con el cliente?</option>
                           <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Antiguedad_Cliente']=="1-3 años"){echo "selected";}}?>>1-3 años</option>
                           <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Antiguedad_Cliente']=="4-6 años"){echo "selected";}}?>>4-6 años</option>
                           <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Antiguedad_Cliente']=="7-10 años"){echo "selected";}}?>>7-10 años</option>
@@ -1121,16 +1215,16 @@
                       <tr>
                         <td>Naturaleza de las operaciones </td>
                         <td><select id="select3" name="select3" size="1" style="width:60%;" >
-                          <option value="" selected></option>
+                          <option value="" selected>¿Que tipo de operaciones realizara con SFG?</option>
                           <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Naturaleza_Operaciones']=="Prestamo"){echo "selected";}}?>>Prestamo</option>
                           <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Naturaleza_Operaciones']=="Arrendamiento"){echo "selected";}}?>>Arrendamiento</option>
                           <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Naturaleza_Operaciones']=="Otros"){echo "selected";}}?>>Otros</option>
                         </select></td>
                       </tr>
                       <tr>
-                        <td>Q de Beneficiarios </td>
+                        <td>Numero de Beneficiarios </td>
                         <td><select id="select4" name="select4" size="1" style="width:60%;" >
-                          <option value="" selected></option>
+                          <option value="" selected> ¿Cuantos beneficiarios tiene el cliente?</option>
                           <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Numero_Beneficiarios']=="1 a 2"){echo "selected";}}?>>1 a 2</option>
                           <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Numero_Beneficiarios']=="3 a 4"){echo "selected";}}?>>3 a 4</option>
                           <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Numero_Beneficiarios']=="5 o mas"){echo "selected";}}?>>5 o mas</option>
@@ -1138,9 +1232,9 @@
                         </select></td>
                       </tr>
                       <tr>
-                        <td>Q de Terceros Relacionados (Apoderados y Cotitulares) </td>
+                        <td>Numero de Terceros Relacionados (Apoderados y Cotitulares) </td>
                         <td><select id="select5" name="select5" size="1" style="width:60%;" >
-                          <option value="" selected></option>
+                          <option value="" selected>¿Cuantas personas relacionadas(Apoderados y Cotitulares) participan en la operacion ?</option>
                           <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Numero_TercerosRelacionados']=="1 a 2"){echo "selected";}}?>>1 a 2</option>
                           <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Numero_TercerosRelacionados']=="3 a 4"){echo "selected";}}?>>3 a 4</option>
                           <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Numero_TercerosRelacionados']=="5 o mas"){echo "selected";}}?>>5 o mas</option>
@@ -1150,7 +1244,7 @@
                       <tr>
                         <td>PEPs Relacionados </td>
                         <td><select id="select6" name="select6" size="1" style="width:60%;" >
-                          <option value="" selected></option>
+                          <option value="" selected>¿Cual es el porcentaje de coincidencia de un cliente con respecto a las personas Politicamente expuestas?</option>
                           <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['PEPs_Relacionados']=="1% - 49%"){echo "selected";}}?>>1% - 49%</option>
                           <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['PEPs_Relacionados']=="50% - 74%"){echo "selected";}}?>>50% - 74%</option>
                           <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['PEPs_Relacionados']=="75% - 100%"){echo "selected";}}?>>75% - 100%</option>
@@ -1159,7 +1253,7 @@
                       <tr>
                         <td>Alerta Reputacional </td>
                         <td><select id="select7" name="select7" size="1" style="width:60%;" >
-                          <option value="" selected></option>
+                          <option value="" selected>¿Cual es el porcentaje de coincidencia de un cliente con respecto a las listas negras?*</option>
                           <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Alerta_Reputacional']=="1% - 49%"){echo "selected";}}?>>1% - 49%</option>
                           <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Alerta_Reputacional']=="50% - 74%"){echo "selected";}}?>>50% - 74%</option>
                           <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Alerta_Reputacional']=="75% - 100%"){echo "selected";}}?>>75% - 100%</option>
@@ -1168,7 +1262,7 @@
                       <tr>
                         <td>Volumen esperado (Monto) </td>
                         <td><select id="select8" name="select8" size="1" style="width:60%;" >
-                          <option value="" selected></option>
+                          <option value="" selected>¿Cual es el monto esperado de la operacion?</option>
                           <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Volumen_Esperado']=="$18000 - $20000"){echo "selected";}}?>>$18000 - $20000</option>
                           <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Volumen_Esperado']=="$21000 - $25000"){echo "selected";}}?>>$21000 - $25000</option>
                           <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Volumen_Esperado']=="mas de $25000"){echo "selected";}}?>>mas de $25000</option>
@@ -1177,7 +1271,7 @@
                       <tr>
                         <td>Frecuencia esperada (No. Veces) </td>
                         <td><select id="select9" name="select9" size="1" style="width:60%;" >
-                          <option value="" selected></option>
+                          <option value="" selected>¿Cual es el numero de pagos esperados en la operación?</option>
                           <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Frecuencia_Esperada']=="1 a 3"){echo "selected";}}?>>1 a 3</option>
                           <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Frecuencia_Esperada']=="4 a 6"){echo "selected";}}?>>4 a 6</option>
                           <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Frecuencia_Esperada']=="7 a 10"){echo "selected";}}?>>7 a 10</option>
@@ -1186,7 +1280,7 @@
                       <tr>
                         <td>Instrumento Monetario Utilizado </td>
                         <td><select id="select10" name="select10" size="1" style="width:60%;" >
-                          <option value="" selected></option>
+                          <option value="" selected> ¿De que forma realiza los pagos el cliente? </option>
                           <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Instrumento_Monetario']=="Transferencia"){echo "selected";}}?>>Transferencia</option>
                           <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Instrumento_Monetario']=="Cheque"){echo "selected";}}?>>Cheque</option>
                           <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Instrumento_Monetario']=="Efectivo"){echo "selected";}}?>>Efectivo</option>
@@ -1195,7 +1289,7 @@
                       <tr>
                         <td>Canales o Medios Utilizados </td>
                         <td><select id="select11" name="select11" size="1" style="width:60%;" >
-                          <option value="" selected></option>
+                          <option value="" selected>¿En donde realiza el pago el cliente?</option>
                           <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Canales_MediosUtilizados']=="Agencia"){echo "selected";}}?>>Agencia</option>
                           <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Canales_MediosUtilizados']=="Internet"){echo "selected";}}?>>Internet</option>
                           <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Canales_MediosUtilizados']=="Otro"){echo "selected";}}?>>Otro</option>
@@ -1204,7 +1298,7 @@
                       <tr>
                         <td>País | Estado Oficial </td>
                         <td><select id="select12" name="select12" size="1" style="width:60%;" >
-                          <option value="" selected></option>
+                          <option value="" selected>¿Cual es el pais de residencia del cliente?*</option>
                           <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Pais_EstadoOficial']=="México"){echo "selected";}}?>>México</option>
                           <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Pais_EstadoOficial']=="Otros"){echo "selected";}}?>>Otros</option>
                           <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Pais_EstadoOficial']=="Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar"){echo "selected";}}?>>Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar</option>
@@ -1213,7 +1307,7 @@
                       <tr>
                         <td>País | Estado Residencia </td>
                         <td><select id="select13" name="select13" size="1" style="width:60%;" >
-                          <option value="" selected></option>
+                          <option value="" selected>¿Cual es el estado de residencia del cliente?</option>
                           <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Pais_EstadoResidencia']=="Guerrero-Michoacan-Tamaulipas-Morelos"){echo "selected";}}?>>Guerrero-Michoacan-Tamaulipas-Morelos</option>
                           <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Pais_EstadoResidencia']=="Durango-Chihuhua-Jalisco-México-CD México-Sonora"){echo "selected";}}?>>Durango-Chihuhua-Jalisco-México-CD México-Sonora</option>
                           <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Pais_EstadoResidencia']=="Puebla-Coahuila-Zcatecas-Hidalgo-Durango"){echo "selected";}}?>>Puebla-Coahuila-Zcatecas-Hidalgo-Durango</option>
@@ -1222,7 +1316,7 @@
                       <tr>
                         <td>País | Estado Operación </td>
                         <td><select id="select14" name="select14" size="1" style="width:60%;" >
-                          <option value="" selected></option>
+                          <option value="" selected>¿Cual es el estado donde el cliente realiza operaciones frecuentes?</option>
                           <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Pais_EstadoOperacion']=="Guerrero-Michoacan-Tamaulipas-Morelos"){echo "selected";}}?>>Guerrero-Michoacan-Tamaulipas-Morelos</option>
                           <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Pais_EstadoOperacion']=="Durango-Chihuhua-Jalisco-México-CD México-Sonora"){echo "selected";}}?>>Durango-Chihuhua-Jalisco-México-CD México-Sonora</option>
                           <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Pais_EstadoOperacion']=="Puebla-Coahuila-Zcatecas-Hidalgo-Durango"){echo "selected";}}?>>Puebla-Coahuila-Zcatecas-Hidalgo-Durango</option>
@@ -1231,7 +1325,7 @@
                       <tr>
                         <td>Origen de los recursos </td>
                         <td><select id="select15" name="select15" size="1" style="width:60%;" >
-                          <option value="" selected></option>
+                          <option value="" selected>¿Cual es el lugar de origen de los recursos del cliente?*</option>
                           <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Origen_Recursos']=="México"){echo "selected";}}?>>México</option>
                           <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Origen_Recursos']=="Otros"){echo "selected";}}?>>Otros</option>
                           <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Origen_Recursos']=="Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar"){echo "selected";}}?>>Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar</option>
@@ -1240,7 +1334,7 @@
                       <tr>
                         <td>Destino de los recursos </td>
                         <td><select id="select16" name="select16" size="1" style="width:60%;" >
-                          <option value="" selected></option>
+                          <option value="" selected>¿Cual es el lugar de destino de los recursos del cliente?*</option>
                           <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Destino_Recursos']=="México"){echo "selected";}}?>>México</option>
                           <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Destino_Recursos']=="Otros"){echo "selected";}}?>>Otros</option>
                           <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Destino_Recursos']=="Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar"){echo "selected";}}?>>Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar</option>
@@ -1249,12 +1343,64 @@
                       <tr>
                         <td>País | Estado Residencia de Terceros Relacionados </td>
                         <td><select id="select17" name="select17" size="1" style="width:60%;" >
-                          <option value="" selected></option>
+                          <option value="" selected>¿Cual es el estado de residencia de las personas relacionadas del cliente?*</option>
                           <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Pais_EstadoResidenciaTerceros']=="México"){echo "selected";}}?>>México</option>
                           <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Pais_EstadoResidenciaTerceros']=="Otros"){echo "selected";}}?>>Otros</option>
                           <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Pais_EstadoResidenciaTerceros']=="Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar"){echo "selected";}}?>>Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar</option>
                         </select></td>
                       </tr>
+                       <tr>
+                        <td>Edad del cliente </td>
+                        <td><select id="select17" name="select17" size="1" style="width:60%;" >
+                          <option value="" selected></option>
+                          <option value="3">18 - 26 </option>
+                          <option value="2">27 - 36 </option>
+                          <option value="1">37 - 56 </option>
+                          <option value="3">56 en adelante</option>
+                        </select></td>
+                      </tr>
+                         <tr>
+                        <td>Años de constitucion </td>
+                        <td><select id="select17" name="select17" size="1" style="width:60%;" >
+                          <option value="" selected></option>
+                          <option value="3">0 - 3 </option>
+                          <option value="2">4 - 7 </option>
+                          <option value="1">8 en adelante</option>
+                        </select></td>
+                      </tr>
+
+                      <tr>
+                        <td>Regimen de tributacion </td>
+                        <td>
+
+ <select id="select18" name="select18" size="1" style="width:60%;" >
+                          <option value="" selected></option>
+
+      <option value="3" >Regimen agape</option>
+                          <option value="1">Regimen general de ley</option>
+                          <option value="2">Regimen Donatarios</option>
+                          <option value="3">Regimen Coordinados</option>
+
+
+
+                        </select>
+                          <div style="display:none;">
+                        <select id="select19" name="select19" size="1" style="width:60%;" >
+                          <option value="" selected></option>
+
+                          <option value="3">Incorporacion Fiscal </option>
+                          <option value="3">Servicios Profesionales</option>
+                          <option value="3">Intereses</option>
+                          <option value="1">Asalariado</option>
+                          <option value="2">Arrendamiento</option>
+                          <option value="2">Actividad empresarial</option>
+                          <option value="3">Regimen Agape</option>
+
+                        </select>
+                          </div>
+                        </td>
+                      </tr>
+                      <td>*Si la valoracion de riesgo de esta variable es igual a 3, contactar al oficial de cumplimiento inmediantamente para aprobacion o cancelacion del credito/ arrendamiento</td>
                     </table>
       </div>
       <div class="tabs-panel" id="panel4v">
@@ -1390,3 +1536,4 @@
 })</script>
 
 <script src="js/clientes.js"></script>
+<script src="js/solicitudes.js"></script>

@@ -62,7 +62,12 @@ xmlhttp.onreadystatechange=function()
         document.getElementById("textfield5").value=obj.MunicipioPF;
         document.getElementById("curpsol").value=obj.CURPPF;
         document.getElementById("sexsol").value=obj.SexoPF;
-        document.getElementById("fechnacsol").value=obj.FechNacimientoPF;
+        
+        if(obj.FechNacimientoPF=="0000-00-00"){
+            document.getElementById("fechnacsol").value="";
+        }else{
+            document.getElementById("fechnacsol").value=obj.FechNacimientoPF;
+        }
         document.getElementById("edsol").value=obj.Edad;
         document.getElementById("nacsol").value=obj.NacionalidadPF;
         document.getElementById("depensol").value=obj.NumDependientesPF;
@@ -84,7 +89,12 @@ xmlhttp.onreadystatechange=function()
         document.getElementById("puestosol").value=obj.PuestoPF;
 
         document.getElementById("depasol").value=obj.DepartamentoPF;
-        document.getElementById("desdesol").value=obj.DesdeEmpPF;
+        
+        if(obj.DesdeEmpPF=="0000-00-00"){
+            document.getElementById("desdesol").value="";
+        }else{
+            document.getElementById("desdesol").value=obj.DesdeEmpPF;
+        }
         document.getElementById("compasol").value=obj.CompaniaPF;
         document.getElementById("compatelsol1").value=obj.TelefonoEmpPF;
         document.getElementById("compatelsolext").value=obj.ExtensionEmpPF;
@@ -102,12 +112,22 @@ xmlhttp.onreadystatechange=function()
         document.getElementById("refbanc").value=obj.Banco1;
         document.getElementById("numcuebanc").value=obj.CuentaBanc1;
         document.getElementById("sucbanc1").value=obj.SucursalBanc1;
-        document.getElementById("aperbanc1d").value=obj.FechaApertura1;
+        
+        if(obj.FechaApertura1=="0000-00-00"){
+            document.getElementById("aperbanc1d").value="";
+        }else{
+            document.getElementById("aperbanc1d").value=obj.FechaApertura1;
+        }
         document.getElementById("refbanc2").value=obj.Banco2;
         document.getElementById("numcuebanc2").value=obj.CuentaBanc2;
         document.getElementById("sucbanc2").value=obj.SucursalBanc2;
 
-        document.getElementById("aperbanc2d").value=obj.FechaApertura2;
+        
+        if(obj.FechaApertura2=="0000-00-00"){
+            document.getElementById("aperbanc2d").value="";
+        }else{
+           document.getElementById("aperbanc2d").value=obj.FechaApertura2; 
+        }
         document.getElementById("cargdir").value=obj.CarDirBanco;
         document.getElementById("nocuentcd").value=obj.CLABE;
         document.getElementById("refcomemp1").value=obj.RefComEmp1;
@@ -136,7 +156,12 @@ xmlhttp.onreadystatechange=function()
         document.getElementById("textfield54").value=obj.BeneficiarioRFC;
         document.getElementById("textfield55").value=obj.BeneficiarioParent;
         document.getElementById("textfield56").value=obj.BeneficiarioPorciento;
-        document.getElementById("textfield57").value=obj.BeneficiarioFechNac;
+        
+        if(obj.BeneficiarioFechNac=="0000-00-00"){
+            document.getElementById("textfield57").value="";
+        }else{
+          document.getElementById("textfield57").value=obj.BeneficiarioFechNac;  
+        }
         document.getElementById("textfield58").value=obj.BeneficiarioMun;
 
         document.getElementById("textfield59").value=obj.BeneficiarioEstado;
@@ -157,8 +182,17 @@ xmlhttp.onreadystatechange=function()
 
         document.getElementById("actprinc").value=obj.ActPrinPM;
         document.getElementById("cantperson").value=obj.CantPersonalPM;
-        document.getElementById("inicoper1").value=obj.InOperacionesPM;
-        document.getElementById("inicoper13").value=obj.ConstEmpresaPM;
+        if(obj.InOperacionesPM=="0000-00-00"){
+            document.getElementById("inicoper1").value="";
+        }else{
+            document.getElementById("inicoper1").value=obj.InOperacionesPM;
+        }
+        if(obj.ConstEmpresaPM=="0000-00-00"){
+            document.getElementById("inicoper13").value="";
+        }else{
+            document.getElementById("inicoper13").value=obj.ConstEmpresaPM;
+        }
+        
         document.getElementById("antemp").value=obj.AntiguedadPM;
         document.getElementById("apodsusc").value=obj.ApoderadoPM;
         document.getElementById("nomconemp").value=obj.ContEmpNombre;
@@ -286,7 +320,7 @@ $( "#panel9c-label" ).removeClass( "is-invalid-input" );
 
 $('#panel1c').find('input').each(function(){ 
     if($( "#"+this.id).hasClass( "is-invalid-input" )){
-
+        console.log(this.id);
         $( "#panel1c-label" ).addClass( "is-invalid-input" );
         validacion=true;
     }
@@ -294,7 +328,7 @@ $('#panel1c').find('input').each(function(){
      });
 $('#panel2c').find('input').each(function(){ 
     if($( "#"+this.id).hasClass( "is-invalid-input" )){
-
+        console.log(this.id);
         $( "#panel2c-label" ).addClass( "is-invalid-input" );
         validacion=true;
     }
@@ -302,7 +336,7 @@ $('#panel2c').find('input').each(function(){
      });
 $('#panel3c').find('input').each(function(){ 
     if($( "#"+this.id).hasClass( "is-invalid-input" )){
-
+        console.log(this.id);
         $( "#panel3c-label" ).addClass( "is-invalid-input" );
         validacion=true;
     }
@@ -310,7 +344,7 @@ $('#panel3c').find('input').each(function(){
      });
 $('#panel4c').find('input').each(function(){ 
     if($( "#"+this.id).hasClass( "is-invalid-input" )){
-
+        console.log(this.id);
         $( "#panel4c-label" ).addClass( "is-invalid-input" );
         validacion=true;
     }
@@ -318,7 +352,7 @@ $('#panel4c').find('input').each(function(){
      });
 $('#panel5c').find('input').each(function(){ 
     if($( "#"+this.id).hasClass( "is-invalid-input" )){
-
+        console.log(this.id);
         $( "#panel5c-label" ).addClass( "is-invalid-input" );
         validacion=true;
     }
@@ -326,7 +360,7 @@ $('#panel5c').find('input').each(function(){
      });
 $('#panel6c').find('input').each(function(){ 
     if($( "#"+this.id).hasClass( "is-invalid-input" )){
-
+        console.log(this.id);
         $( "#panel6c-label" ).addClass( "is-invalid-input" );
         validacion=true;
     }
@@ -334,7 +368,7 @@ $('#panel6c').find('input').each(function(){
      });
 $('#panel7c').find('input').each(function(){ 
     if($( "#"+this.id).hasClass( "is-invalid-input" )){
-
+        console.log(this.id);
         $( "#panel7c-label" ).addClass( "is-invalid-input" );
         validacion=true;
     }
@@ -342,7 +376,7 @@ $('#panel7c').find('input').each(function(){
      });
 $('#panel8c').find('input').each(function(){ 
     if($( "#"+this.id).hasClass( "is-invalid-input" )){
-
+        console.log(this.id);
         $( "#panel8c-label" ).addClass( "is-invalid-input" );
         validacion=true;
     }
@@ -350,7 +384,7 @@ $('#panel8c').find('input').each(function(){
      });
 $('#panel9c').find('input').each(function(){ 
     if($( "#"+this.id).hasClass( "is-invalid-input" )){
-
+        console.log(this.id);
         $( "#panel9c-label" ).addClass( "is-invalid-input" );
         validacion=true;
     }
@@ -464,7 +498,7 @@ xmlhttp.onreadystatechange=function()
         document.getElementById("idcliente").value=obj.id;
         document.getElementById("cancelarcliente").disabled=true;
         document.getElementById("TipoCliente").value=obj.TipoCliente;
-        document.getElementById("TipoCliente").disabled=true;
+        document.getElementById("TipoCliente").style.display='none';
         cambiacartas();
         document.getElementById("nomsol").value=obj.NombrePF;
         document.getElementById("segnomsol").value=obj.SegNombrePF;
@@ -484,7 +518,12 @@ xmlhttp.onreadystatechange=function()
         document.getElementById("textfield5").value=obj.MunicipioPF;
         document.getElementById("curpsol").value=obj.CURPPF;
         document.getElementById("sexsol").value=obj.SexoPF;
-        document.getElementById("fechnacsol").value=obj.FechNacimientoPF;
+        if(obj.FechNacimientoPF=="0000-00-00"){
+            document.getElementById("fechnacsol").value="";
+        }else{
+            document.getElementById("fechnacsol").value=obj.FechNacimientoPF;
+        }
+        
         document.getElementById("edsol").value=obj.Edad;
         document.getElementById("nacsol").value=obj.NacionalidadPF;
         document.getElementById("depensol").value=obj.NumDependientesPF;
@@ -506,7 +545,12 @@ xmlhttp.onreadystatechange=function()
         document.getElementById("puestosol").value=obj.PuestoPF;
 
         document.getElementById("depasol").value=obj.DepartamentoPF;
-        document.getElementById("desdesol").value=obj.DesdeEmpPF;
+        if(obj.DesdeEmpPF=="0000-00-00"){
+            document.getElementById("desdesol").value="";
+        }else{
+            document.getElementById("desdesol").value=obj.DesdeEmpPF;
+        }
+        
         document.getElementById("compasol").value=obj.CompaniaPF;
         document.getElementById("compatelsol1").value=obj.TelefonoEmpPF;
         document.getElementById("compatelsolext").value=obj.ExtensionEmpPF;
@@ -524,12 +568,21 @@ xmlhttp.onreadystatechange=function()
         document.getElementById("refbanc").value=obj.Banco1;
         document.getElementById("numcuebanc").value=obj.CuentaBanc1;
         document.getElementById("sucbanc1").value=obj.SucursalBanc1;
-        document.getElementById("aperbanc1d").value=obj.FechaApertura1;
+        if(obj.FechaApertura1=="0000-00-00"){
+            document.getElementById("aperbanc1d").value="";
+        }else{
+            document.getElementById("aperbanc1d").value=obj.FechaApertura1;
+        }
+        
         document.getElementById("refbanc2").value=obj.Banco2;
         document.getElementById("numcuebanc2").value=obj.CuentaBanc2;
         document.getElementById("sucbanc2").value=obj.SucursalBanc2;
-
-        document.getElementById("aperbanc2d").value=obj.FechaApertura2;
+        if(obj.FechaApertura2=="0000-00-00"){
+            document.getElementById("aperbanc2d").value="";
+        }else{
+           document.getElementById("aperbanc2d").value=obj.FechaApertura2; 
+        }
+        
         document.getElementById("cargdir").value=obj.CarDirBanco;
         document.getElementById("nocuentcd").value=obj.CLABE;
         document.getElementById("refcomemp1").value=obj.RefComEmp1;
@@ -558,7 +611,12 @@ xmlhttp.onreadystatechange=function()
         document.getElementById("textfield54").value=obj.BeneficiarioRFC;
         document.getElementById("textfield55").value=obj.BeneficiarioParent;
         document.getElementById("textfield56").value=obj.BeneficiarioPorciento;
-        document.getElementById("textfield57").value=obj.BeneficiarioFechNac;
+        if(obj.BeneficiarioFechNac=="0000-00-00"){
+            document.getElementById("textfield57").value="";
+        }else{
+          document.getElementById("textfield57").value=obj.BeneficiarioFechNac;  
+        }
+        
         document.getElementById("textfield58").value=obj.BeneficiarioMun;
 
         document.getElementById("textfield59").value=obj.BeneficiarioEstado;
@@ -579,8 +637,17 @@ xmlhttp.onreadystatechange=function()
 
         document.getElementById("actprinc").value=obj.ActPrinPM;
         document.getElementById("cantperson").value=obj.CantPersonalPM;
-        document.getElementById("inicoper1").value=obj.InOperacionesPM;
-        document.getElementById("inicoper13").value=obj.ConstEmpresaPM;
+        if(obj.InOperacionesPM=="0000-00-00"){
+            document.getElementById("inicoper1").value="";
+        }else{
+            document.getElementById("inicoper1").value=obj.InOperacionesPM;
+        }
+        if(obj.ConstEmpresaPM=="0000-00-00"){
+            document.getElementById("inicoper13").value="";
+        }else{
+            document.getElementById("inicoper13").value=obj.ConstEmpresaPM;
+        }
+        
         document.getElementById("antemp").value=obj.AntiguedadPM;
         document.getElementById("apodsusc").value=obj.ApoderadoPM;
         document.getElementById("nomconemp").value=obj.ContEmpNombre;
@@ -747,9 +814,16 @@ $( "#panel8c-label" ).removeClass( "is-invalid-input" );
 $( "#panel9c-label" ).removeClass( "is-invalid-input" );
 
 
+    if($( "#TipoCliente").hasClass( "is-invalid-input" )){
+
+        $( "#panel1c-label" ).addClass( "is-invalid-input" );
+        validacion=true;
+    }
+
+    
 $('#panel1c').find('input').each(function(){ 
     if($( "#"+this.id).hasClass( "is-invalid-input" )){
-
+        console.log(this.id);
         $( "#panel1c-label" ).addClass( "is-invalid-input" );
         validacion=true;
     }
@@ -757,7 +831,7 @@ $('#panel1c').find('input').each(function(){
      });
 $('#panel2c').find('input').each(function(){ 
     if($( "#"+this.id).hasClass( "is-invalid-input" )){
-
+        console.log(this.id);
         $( "#panel2c-label" ).addClass( "is-invalid-input" );
         validacion=true;
     }
@@ -765,7 +839,7 @@ $('#panel2c').find('input').each(function(){
      });
 $('#panel3c').find('input').each(function(){ 
     if($( "#"+this.id).hasClass( "is-invalid-input" )){
-
+        console.log(this.id);
         $( "#panel3c-label" ).addClass( "is-invalid-input" );
         validacion=true;
     }
@@ -773,7 +847,7 @@ $('#panel3c').find('input').each(function(){
      });
 $('#panel4c').find('input').each(function(){ 
     if($( "#"+this.id).hasClass( "is-invalid-input" )){
-
+        console.log(this.id);
         $( "#panel4c-label" ).addClass( "is-invalid-input" );
         validacion=true;
     }
@@ -781,7 +855,7 @@ $('#panel4c').find('input').each(function(){
      });
 $('#panel5c').find('input').each(function(){ 
     if($( "#"+this.id).hasClass( "is-invalid-input" )){
-
+        console.log(this.id);
         $( "#panel5c-label" ).addClass( "is-invalid-input" );
         validacion=true;
     }
@@ -789,7 +863,7 @@ $('#panel5c').find('input').each(function(){
      });
 $('#panel6c').find('input').each(function(){ 
     if($( "#"+this.id).hasClass( "is-invalid-input" )){
-
+        console.log(this.id);
         $( "#panel6c-label" ).addClass( "is-invalid-input" );
         validacion=true;
     }
@@ -797,7 +871,7 @@ $('#panel6c').find('input').each(function(){
      });
 $('#panel7c').find('input').each(function(){ 
     if($( "#"+this.id).hasClass( "is-invalid-input" )){
-
+        console.log(this.id);
         $( "#panel7c-label" ).addClass( "is-invalid-input" );
         validacion=true;
     }
@@ -805,7 +879,7 @@ $('#panel7c').find('input').each(function(){
      });
 $('#panel8c').find('input').each(function(){ 
     if($( "#"+this.id).hasClass( "is-invalid-input" )){
-
+        console.log(this.id);
         $( "#panel8c-label" ).addClass( "is-invalid-input" );
         validacion=true;
     }
@@ -813,7 +887,7 @@ $('#panel8c').find('input').each(function(){
      });
 $('#panel9c').find('input').each(function(){ 
     if($( "#"+this.id).hasClass( "is-invalid-input" )){
-
+        console.log(this.id);
         $( "#panel9c-label" ).addClass( "is-invalid-input" );
         validacion=true;
     }
@@ -841,6 +915,10 @@ $('#panel9c').find('input').each(function(){
    
    data.append('id', obj[0]);
    
+
+
+
+
     if (window.XMLHttpRequest)
   {// code for IE7+, Firefox, Chrome, Opera, Safari
   xmlhttp=new XMLHttpRequest();
@@ -857,11 +935,14 @@ xmlhttp.onreadystatechange=function()
         alert(xmlhttp.responseText);
         
         document.getElementById("cancelarcliente").disabled = true;
+        document.getElementById('TipoCliente').style.display='none';
+
         
       }
   }
 xmlhttp.open("POST","clientes.php",true);
 xmlhttp.send(data);
+
 });
 
 
@@ -920,6 +1001,7 @@ function cambiacartas(){
 		document.getElementById('pm').style.display='block';
 		document.getElementById('tabpanel7c').style.display='block';
         document.getElementById('tabpanel3c').style.display='none';
+        document.getElementById('tabpanel6c').style.display='none';
 	}
 	
 
@@ -945,6 +1027,7 @@ $( "#TipoCliente" ).change(function() {
         document.getElementById('pm').style.display='block';
         document.getElementById('tabpanel7c').style.display='block';
         document.getElementById('tabpanel3c').style.display='none';
+        document.getElementById('tabpanel6c').style.display='none';
     }
     
   
@@ -954,11 +1037,11 @@ $( "#TipoCliente" ).change(function() {
 
 $( "#civilsol" ).change(function() {
     if(document.getElementById('civilsol').value==""){
-        document.getElementById('panel6c-label').style.display='none';
+        document.getElementById('tabpanel6c').style.display='none';
     }else if(document.getElementById('civilsol').value=="Casado Bienes Mancomunados" || document.getElementById('civilsol').value=="Casado Bienes Separados"){
-        document.getElementById('panel6c-label').style.display='block';
+        document.getElementById('tabpanel6c').style.display='block';
     }else {
-        document.getElementById('panel6c-label').style.display='none';
+        document.getElementById('tabpanel6c').style.display='none';
     }
     
   
@@ -966,11 +1049,11 @@ $( "#civilsol" ).change(function() {
 
 function civilsol(){
     if(document.getElementById('civilsol').value==""){
-        document.getElementById('panel6c-label').style.display='none';
+        document.getElementById('tabpanel6c').style.display='none';
     }else if(document.getElementById('civilsol').value=="Casado Bienes Mancomunados" || document.getElementById('civilsol').value=="Casado Bienes Separados"){
-        document.getElementById('panel6c-label').style.display='block';
+        document.getElementById('tabpanel6c').style.display='block';
     }else {
-        document.getElementById('panel6c-label').style.display='none';
+        document.getElementById('tabpanel6c').style.display='none';
     }
 }
 

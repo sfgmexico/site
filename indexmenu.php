@@ -56,7 +56,7 @@ if(!$_SESSION['usser']) {
 		echo '
 
 		
-      <li id="bot4"><a href="#"><i class="fi-clipboard-notes"></i><span>Nuevos Registros</span></a></li>
+      <li id="bot4"><a href="#"><i class="fi-clipboard-notes"></i><span>Registros</span></a></li>
 ';
 	}
 	
@@ -120,7 +120,7 @@ if(!$_SESSION['usser']) {
 })</script>
 
 		<script type="text/javascript" src="js/botones.js"></script>
-    	<script src="js/clientes.js" ></script>
+    	
 			 
 			
 			

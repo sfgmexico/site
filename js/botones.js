@@ -20,7 +20,6 @@
 						$("#Admin").click(function(event){
                         $("#htmlext").load('Config.php');
                                                             });
-
                         $("#bot4").click(function(event){
                         $("#htmlext").load('registros.php');
                                                             });

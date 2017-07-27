@@ -11,7 +11,7 @@ switch ($_REQUEST['function']) {
 
 
     case "nuevocliente":
-        include("Conexion3.php");
+        include("Conexion2.php");
         mysqli_query($cnx,"insert into clientes () values()");
         $id=mysqli_fetch_array(mysqli_query($cnx,"select LAST_INSERT_ID()"));							 
 		$id_cliente=$id['LAST_INSERT_ID()'];
@@ -150,7 +150,7 @@ $status="Finalizado";
 
 
 
-    	include("Conexion3.php");
+    	include("Conexion2.php");
     	mysqli_query($cnx,"update clientes set TipoCliente='".$_REQUEST['TipoCliente']."', NombrePF='".$_REQUEST['nomsol']."', SegNombrePF='".$_REQUEST['segnomsol']."', ApPatPF='".$_REQUEST['apepasol']."', ApMatPF='".$_REQUEST['apemasol']."', 
     		RFCPF='".$_REQUEST['rfc1']."', 
     		TelefonoPF='".$_REQUEST['telsol1']."', 
@@ -404,7 +404,7 @@ $status="Finalizado";
 
 
 
-        include("Conexion3.php");
+        include("Conexion2.php");
         mysqli_query($cnx,"update clientes set TipoCliente='".$_REQUEST['TipoCliente']."', NombrePF='".$_REQUEST['nomsol']."', SegNombrePF='".$_REQUEST['segnomsol']."', ApPatPF='".$_REQUEST['apepasol']."', ApMatPF='".$_REQUEST['apemasol']."', 
             RFCPF='".$_REQUEST['rfc1']."', 
             TelefonoPF='".$_REQUEST['telsol1']."', 
@@ -549,7 +549,7 @@ $status="Finalizado";
 
 
     case "cancelarcliente":
-        include('Conexion3.php');
+        include('Conexion2.php');
         mysqli_query($cnx,"delete FROM clientes WHERE Status = ''");
         echo "Cancelado";
         break;
@@ -560,7 +560,7 @@ $status="Finalizado";
 
 
      case "modificarcliente":
-        include('Conexion3.php');
+        include('Conexion2.php');
         try {
             if($_REQUEST['tipodecliente']=="Persona Fisica" && $_REQUEST['idpf']!=''){
             $result=mysqli_fetch_array(mysqli_query($cnx,"select * FROM clientes WHERE TipoCliente = '".$_REQUEST['tipodecliente']."' and id='".$_REQUEST['idpf']."'"));
@@ -596,7 +596,7 @@ $status="Finalizado";
 
 
     case "continuaregistro":
-        include('Conexion3.php');
+        include('Conexion2.php');
         try {
             $rawdata = array();
             $i=0;
@@ -620,7 +620,7 @@ $status="Finalizado";
         break;
 
     case "contregcliente":
-        include('Conexion3.php');
+        include('Conexion2.php');
         try {
             $result=mysqli_fetch_array(mysqli_query($cnx,"select * FROM clientes WHERE id='".$_REQUEST['idlcliente']."'"));
             echo json_encode($result);
