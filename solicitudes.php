@@ -10,6 +10,12 @@ switch ($_REQUEST['function']) {
 		
 
 
+    case "cancelarsolicitud":
+    	include("Conexion2.php");
+    	mysqli_query($cnx,"delete FROM solicitudes WHERE Status = ''");
+        echo "Cancelado";
+        break;
+
 	default;
         echo 'Error';
     	break;

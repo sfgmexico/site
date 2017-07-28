@@ -587,7 +587,7 @@ $status="Finalizado";
 
 
         } catch (Exception $e) {
-            echo "Error";
+            echo "Error Al Modificar Cliente";
         }
         
         
@@ -612,7 +612,7 @@ $status="Finalizado";
 
 
         } catch (Exception $e) {
-            echo "Error";
+            echo "Error Al Obtener listado";
         }
         
         
@@ -628,7 +628,7 @@ $status="Finalizado";
 
 
         } catch (Exception $e) {
-            echo "Error";
+            echo "Error Al obtener registros";
         }
         
         
@@ -655,7 +655,7 @@ $status="Finalizado";
 
 
     default;
-        echo 'Error';
+        echo 'Error Funcion no encontrada';
     	break;
 }
 

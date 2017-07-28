@@ -1,4 +1,39 @@
-$("#guardarcliente").click(function(event) {
+
+$("#cancelarsolicitud").click(function(event) {
+    
+   var data = new FormData();
+   data.append('function', "cancelarsolicitud");
+   
+   
+   
+    if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
+        
+        alert(xmlhttp.responseText);
+        document.getElementById("botonessolicitud").style.display="block";
+        document.getElementById("contenidorequestsolicitud").style.display="none";
+        document.getElementById("guardarsolicitud").style.display="none";
+        
+      }
+  }
+xmlhttp.open("POST","solicitudes.php",true);
+xmlhttp.send(data);
+});
+
+
+
+
+$("#").click(function(event) {
     $('#form2').foundation('validateForm');
 
 
@@ -148,11 +183,43 @@ xmlhttp.send(data);
 });
 
 
-$("#requestnuevasolicitud").click(function(event) {
 
-   var data = new FormData();
+
+
+$( "#ANYBODY" ).change(function() {
+    
+if(document.getElementById('ANYBODY').value=="0"){
+     document.getElementById("nombres").style.display = "none";
+    	document.getElementById("ident").style.display='none';
+
+    }
+    else if(document.getElementById('ANYBODY').value=="1"){
+        document.getElementById('nombres').style.display='none';
+        document.getElementById("ident").style.display='block';
+
+    }else if(document.getElementById('ANYBODY').value=="2"){
+        document.getElementById("nombres").style.display = "block";
+    	document.getElementById("ident").style.display='none';
+      
+    }else if(document.getElementById('ANYBODY').value=="3"){
+        document.getElementById('nombres').style.display='none';
+        document.getElementById("ident").style.display='block';
+
+       
+      
+       
+    }
+    
+  
+});
+
+
+
+function sol(fun){
+
+ var data = new FormData();
    data.append('function', "nuevasolicitud");
-   data.append('cliente', document.getElementById("idnuevasolicitud").value);
+   data.append('cliente', fun);
    
     if (window.XMLHttpRequest)
   {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -178,23 +245,31 @@ xmlhttp.onreadystatechange=function()
   }
 xmlhttp.open("POST","solicitudes.php",true);
 xmlhttp.send(data);
-});
+  
+}
 
- $("#idnuevasolicitud").keyup(function(e){
+
+
+function busqueda(){
+
+ 
                                      
               //obtenemos el texto introducido en el campo de búsqueda
               consulta = $("#idnuevasolicitud").val();
-                                           select= $("#ANYBODY").val();                                
+                                           select= $("#ANYBODY").val();   
+                                           nom= $("#nombrepf").val();
+                                           pa= $("#ApellidoPa").val();
+                                           ma= $("#ApellidoMa").val();                             
               //hace la búsqueda
                                                                                   
               $.ajax({
                     type: "POST",
                     url: "buscar.php",
-                    data: "ANYBODY="+select+"&b="+consulta,
+                    data: "ANYBODY="+select+"&b="+consulta+"&c="+nom+"&d="+pa+"&e="+ma,
                     dataType: "html",
                     beforeSend: function(){
                           //imagen de carga
-                          $("#resultadonuevasolicitud").html("<p align='center'><img src='ajax-loader.gif' /></p>");
+                          $("#resultadonuevasolicitud").html("<p align='center'><img src='images/cargando.gif' /></p>");
                     },
                     error: function(){
                           alert("error petición ajax");
@@ -206,5 +281,7 @@ xmlhttp.send(data);
                     }
               });
                                                                                   
+}
                                                                            
-        });
+        
+

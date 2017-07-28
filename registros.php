@@ -819,12 +819,21 @@
             <div class="reveal" id="modalnuevasolicitud" data-reveal>
               <h4>Ingresa el Número de Cliente:</h4>
               
-              <select name="ANYBODY" id="ANYBODY"><option id="id" value="1">ID</option><option id="nombrepf" value="2">Nombre (Persona Fisca)</option><option id="razonpm " value="3">Razon social(Persona Moral)</option></select>
-                <label>ID:<input type="text" name="idnuevasolicitud" id="idnuevasolicitud"></label>
-              
+              <select name="ANYBODY" id="ANYBODY"><option value="0">-seleccione uno-</option><option value="1">ID</option><option value="2">Nombre (Persona Fisca)</option><option  value="3">Razon social(Persona Moral)</option></select>
+              <div id="ident" name="ident" style="display: none;">
+                
+                <label>ID:<input type="text" name="idnuevasolicitud" onkeyup="busqueda()" id="idnuevasolicitud"></label>
+              </div>
+
+                <div id="nombres" name="nombres" style="display: none;">
+                  
+              <label>Nombre<input type="text" onkeyup="busqueda()" id="nombrepf" name="nombrepf"></label>
+              <label>Apellido Paterno<input type="text" onkeyup="busqueda()" id="ApellidoPa" name="ApellidoPa"></label>
+              <label>Apellido Materno<input type="text" onkeyup="busqueda()" id="ApellidoMa" name="ApellidoMa"></label>
+                </div>
               
                 <div id="resultadonuevasolicitud"></div>
-              <button id="requestnuevasolicitud" name="requestnuevasolicitud" class="button" >Buscar</button>
+              <!--<button id="requestnuevasolicitud" name="requestnuevasolicitud" class="button" >Buscar</button>-->
               <button id="cerrarmodalnuevasolicitud" class="close-button" data-close aria-label="Close reveal" type="button">
                 <span aria-hidden="true">&times;</span>
               </button>
