@@ -2464,7 +2464,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       day_month_year: /^(0[1-9]|[12][0-9]|3[01])[- \/.](0[1-9]|1[012])[- \/.]\d{4}$/,
 
       // #FFF or #FFFFFF
-      color: /^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$/
+      color: /^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$/,
+
+      curp: /^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$/,
+    
+      rfc:  /^([A-ZÑ&]{3,4}) ?(?:- ?)?(\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])) ?(?:- ?)?([A-Z\d]{2})([A\d])$/,
+      
+      telefono: /^(\d{3})-(\d{7})/,
+
+      cpostal: /^\d{4,5}/
     },
 
     /**

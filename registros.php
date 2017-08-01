@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Home</title>
+<meta charset="utf-8">
+
+
+</head>
+<body>
  <div class="container" id="htmlext" >
   
   <div class="medium-2 columns">
@@ -101,10 +110,10 @@
                   </div>
                   <div class="small-3 columns">
                     <label>Telefono
-                    <input name="telsol2" type="text" id="telsol2" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['TelSolicitante'][0]; } ?>"    ></label>
+                    <input name="telsol2" type="text" id="telsol2" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['TelSolicitante'][0]; } ?>"   pattern="telefono" onfocus="mascaratel(this)"   ></label>
                   </div>
                   <div class="small-3 columns"><label> RFC
-                    <input name="rfcsol1" type="text" id="rfcsol1" value="<?php if(isset($row2['Folio_Cliente']))  { echo $row2['RFCSolicitante'][0];}?>"   ></label>
+                    <input name="rfcsol1" type="text" id="rfcsol1" value="<?php if(isset($row2['Folio_Cliente']))  { echo $row2['RFCSolicitante'][0];}?>"  pattern="rfc" onkeypress="mayusculas(this)"  ></label>
                   </div>
                   <p align="left">
                     <div class="small-3 columns"><label>
@@ -143,14 +152,14 @@
                   </p>
 
                   <div class="small-3 columns"> <label>Inicio de operaciones:
-                    <input name="inicoper1" type="date" id="inicoper1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['IniOpDatGenPM']; } ?>"  placeholder="dd" onKeyUp="myFunction(this,this.value,inicoper2)"></label>
+                    <input name="inicoper1" type="date" id="inicoper1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['IniOpDatGenPM']; } ?>"  onfocus="datepick(this)" onchange="calcularAntiguedad()" ></label>
                   </div>
                   <div class="small-3 columns"><label>Constitución de la empresa:
-                    <input name="inicoper13" type="date" id="inicoper13" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['FechaConsEmp']; } ?>" maxlength="2" placeholder="dd" onKeyUp="myFunction(this,this.value,inicoper23)"></label>
+                    <input name="inicoper13" type="date" id="inicoper13" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['FechaConsEmp']; } ?>" onfocus="datepick(this)"></label>
                   </div>
                   
                   <div class="small-3 columns"><label>Antiguedad
-                    <input name="antemp" type="text" id="antemp" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['AntConsEmp']; } ?>" placeholder="Antigüedad"></label>
+                    <input name="antemp" type="text" id="antemp" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['AntConsEmp']; } ?>" placeholder="Antigüedad" readonly ></label>
                   </div>
                   
                   <p align="left">
@@ -194,15 +203,15 @@
                   </p>
                   <p align="left">
                     <div class="small-3 columns"><label>Codigo Postal
-                      <input name="lugnacsol22" type="text" id="lugnacsol22" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['CPConEmp']; } ?>" placeholder="Código Postal:"></label>
+                      <input name="lugnacsol22" type="text" id="lugnacsol22" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['CPConEmp']; } ?>" onfocus="" ></label>
                     </div>
 
                     <div class="small-3 columns"><label>RFC
-                      <input name="rfcconemp1" type="text" id="rfcconemp1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCDatConEmp'][0]; } ?>" ></label>
+                      <input name="rfcconemp1" type="text" id="rfcconemp1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCDatConEmp'][0]; } ?>"  pattern="rfc" onkeypress="mayusculas(this)"></label>
                     </div>
      
                     <div class="small-3 columns"> <label> Telefono
-                      <input name="telconemp1" type="text" id="telconemp1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['TelDatConEmp'][0]; } ?>" ></label>
+                      <input name="telconemp1" type="text" id="telconemp1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['TelDatConEmp'][0]; } ?>"  pattern="telefono" onfocus="mascaratel(this)" ></label>
                     </div>
                   </p>
                   <p align="left">
@@ -239,19 +248,19 @@
                 <p align="left">
                   <div class="small-3 columns">
                     <label> RFC
-                    <input name="rfc1" type="text" id="rfc1" value="<?php if(isset($row2['Folio_Cliente']))  { echo $row2['RFCSolicitante'][0];}?>"   pattern="alpha_numeric"> </label>
+                    <input name="rfc1" type="text" id="rfc1" value="<?php if(isset($row2['Folio_Cliente']))  { echo $row2['RFCSolicitante'][0];}?>"   pattern="rfc" onkeypress="mayusculas(this)" > </label>
                   </div>
       
         
                   <div class="small-3 columns">
           
                     <label> Telefono Particular
-                    <input name="telsol1" type="text" id="telsol1"  value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['TelSolicitante'][0]; } ?>"    pattern="integer"></label>
+                    <input name="telsol1" type="text" id="telsol1"  value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['TelSolicitante'][0]; } ?>"    pattern="telefono" onfocus="mascaratel(this)" ></label>
                   </div>
 
                   <div class="small-3 columns">
                     <label> Telefono Movil
-                    <input name="movsol1" type="text" id="movsol1" size="1px" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['MovSolicitante'][0]; } ?>"   pattern="integer">
+                    <input name="movsol1" type="text" id="movsol1" size="1px" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['MovSolicitante'][0]; } ?>"   pattern="telefono" onfocus="mascaratel(this)"  >
                     </label>
                   </div>   
                   <div class="small-3 columns">
@@ -271,13 +280,13 @@
                   <div class="small-3 columns"><label>Colonia<input name="colsol" type="text" id="colsol" size="49px" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['ColSolicitante']; } ?>"   placeholder="Colonia"></label>
                   </div>
              
-                  <div class="small-2 columns"><label>Codigo Postal<input name="cpsol" type="text" id="cpsol" size="20px" placeholder="C.P." value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['CPSolicitante']; } ?>" pattern="integer"></label>
+                  <div class="small-2 columns"><label>Codigo Postal<input name="cpsol" type="text" id="cpsol" size="20px" placeholder="C.P." value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['CPSolicitante']; } ?>" pattern="cpostal" maxlength="5"></label>
                   </div>
 
-                  <div class="small-3 columns"><label>Lugar de nacimiento<input name="lugnacsol" type="text" id="lugnacsol" size="20px" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['LugNacSolicitante']; } ?>"placeholder="Lugar de nacimiento (País y Estado)"></label>
+                  <div class="small-3 columns"><label>Lugar de nacimiento<input name="lugnacsol" type="text" id="lugnacsol" size="20px" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['LugNacSolicitante']; } ?>"placeholder="Lugar de nacimiento (País y Estado)" pattern="alpha"></label>
                   </div>
               
-                  <div class="small-3 columns"><label>Estado <input name="edosol" type="text" id="edosol" size="20px" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['EdoSolicitante']; } ?>"placeholder="Estado"></label>
+                  <div class="small-3 columns"><label>Estado <input name="edosol" type="text" id="edosol" size="20px" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['EdoSolicitante']; } ?>" placeholder="Estado" pattern="alpha"></label>
                   </div>
              
                   <div class="small-3 columns"><label>Ciudad<input name="cdsol" type="text" id="cdsol" size="20px" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['CdSolicitante']; } ?>" placeholder="Ciudad"></label>
@@ -285,7 +294,7 @@
                   <div class="small-3 columns"><label>Delegacion o municipio<input name="textfield5" type="text" id="textfield5" size="100%" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['MunicipioSolicitante']; } ?>" ></label>
                   </div>
 
-                  <div class="small-3 columns"><label>CURP <input name="curpsol" type="text" id="curpsol" size="49px" placeholder="CURP" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['CURPSolicitante']; } ?>"  pattern="alpha_numeric"></label>
+                  <div class="small-3 columns"><label>CURP <input name="curpsol" type="text" id="curpsol" size="49px" placeholder="CURP" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['CURPSolicitante']; } ?>"  pattern="curp" onkeypress="mayusculas(this)" ></label>
                   </div>
        
     
@@ -301,7 +310,7 @@
            
                     <div class="small-3 columns">
                       <label>Fecha de nacimiento
-                      <input name="fechnacsol" type="date" id="fechnacsol" onchange="calcularEdad()" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['FeNacDatGen']; } ?>"  ></label>
+                      <input name="fechnacsol" type="date" id="fechnacsol" onchange="calcularEdad()" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['FeNacDatGen']; } ?>" onfocus="datepick(this)" ></label>
                     </div>
 
                     <div class="small-3 columns"> <label> Edad
@@ -328,8 +337,12 @@
                     <input name="anosol" type="text" id="anosol" size="13" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['AnResDatGen']; } ?>" placeholder="Años de residir en la ciudad"  pattern="integer"></label>
                   </div>
               
-                  <div class="small-3 columns"><label> Arraigo en el domicilio
-                    <input name="arraisol" type="text" id="arraisol" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['ArDomDatGen']; } ?>" placeholder="Arraigo en el domicilio desde el año"  pattern="integer"></label>
+                  <div class="small-3 columns"><label> Arraigo en el domicilio (Fecha)
+                    <input name="arraisol" type="date" id="arraisol" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['ArDomDatGen']; } ?>" placeholder="Arraigo en el domicilio desde el año" onfocus="datepick(this)" onchange="calcularEdad2()"></label>
+                  </div>
+
+                  <div class="small-3 columns"><label> Arraigo en el domicilio (años)
+                    <input name="arraisolanios" type="text" id="arraisolanios" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['ArDomDatGen']; } ?>"  readonly pattern="integer"></label>
                   </div>
              
                   <div class="small-3 columns"><label>Acredita Domicilio con
@@ -405,7 +418,7 @@
                     <input name="compasol" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['CompDatEmp']; } ?>" type="text" id="compasol" size="70px" placeholder="Compañía"></label>
                   </div>
                   <div class="small-3 columns" ><label>Telefono
-                    <input name="compatelsol1" type="text" id="compatelsol1"  value="<?php if(isset($row2['Folio_Cliente'])&& $row2['TelDatEmp']!= '') {  echo $row2['TelDatEmp'][0]; } ?>" size="1px"   ></label>
+                    <input name="compatelsol1" type="text" id="compatelsol1"  value="<?php if(isset($row2['Folio_Cliente'])&& $row2['TelDatEmp']!= '') {  echo $row2['TelDatEmp'][0]; } ?>" size="1px"  pattern="telefono" onfocus="mascaratel(this)"   ></label>
                   </div>
                   <div class="small-2 columns" ><label>Extension
                     <input name="compatelsolext" type="text" id="compatelsolext" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['ExtDatEmp']; } ?>" size="20px" placeholder="Extensión" ></label>
@@ -419,7 +432,7 @@
                   </div>
            
         
-                  <div class="small-3 columns"> <label> Antigüedad desde:<input name="desdesol" type="date" id="desdesol" size="1px" value="<?php if (isset($row2['Folio_Cliente'])) {  echo $row2['DesAnDatEmp']; } ?>"  placeholder="dd" ></label>
+                  <div class="small-3 columns"> <label> Antigüedad desde:<input name="desdesol" type="date" id="desdesol" size="1px" value="<?php if (isset($row2['Folio_Cliente'])) {  echo $row2['DesAnDatEmp']; } ?>"   onfocus="datepick(this)" ></label>
                   </div>
             
                 </p>
@@ -455,7 +468,7 @@
                   </div>
             
                   <div class="small-3 columns"><label>Telefono
-                    <input name="telref11" type="text" id="telref11" size="1px" value="<?php if(isset($row['Folio_Cliente'])&& $row['TelRefPer']!='') {  echo $row['TelRefPer'][0]; } ?>"     pattern="integer"></label>
+                    <input name="telref11" type="text" id="telref11" size="1px" value="<?php if(isset($row['Folio_Cliente'])&& $row['TelRefPer']!='') {  echo $row['TelRefPer'][0]; } ?>"      pattern="telefono" onfocus="mascaratel(this)" ></label>
                   </div>
                 </p>
               </div>
@@ -471,7 +484,7 @@
                   </div>
             
                   <div class="small-3 columns"><label>Telefono
-                    <input name="telref12" type="text" id="telref12" size="1px" value="<?php if(isset($row['Folio_Cliente'])&& $row['TelRefPer']!='') {  echo $row['TelRefPer'][0]; } ?>"     pattern="integer"></label>
+                    <input name="telref12" type="text" id="telref12" size="1px" value="<?php if(isset($row['Folio_Cliente'])&& $row['TelRefPer']!='') {  echo $row['TelRefPer'][0]; } ?>"    pattern="telefono" onfocus="mascaratel(this)" ></label>
                   </div>
                 </p>
               </div>
@@ -500,7 +513,7 @@
       
                 <p align="left">
          
-                  <div class="small-3 columns"><label>  Fecha de apertura: <input name="aperbanc1d" type="date" id="aperbanc1d" size="1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['FecApRefBan']; } ?>" placeholder="dd" ></label>
+                  <div class="small-3 columns"><label>  Fecha de apertura: <input name="aperbanc1d" type="date" id="aperbanc1d" size="1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['FecApRefBan']; } ?>" onfocus="datepick(this)"></label>
                   </div>
                 </p>
               </div>
@@ -523,7 +536,7 @@
       
                 <p align="left">
          
-                  <div class="small-3 columns"><label>  Fecha de apertura: <input name="aperbanc2d" type="date" id="aperbanc2d" size="1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['FecApRefBan']; } ?>" placeholder="dd" ></label>
+                  <div class="small-3 columns"><label>  Fecha de apertura: <input name="aperbanc2d" type="date" id="aperbanc2d" size="1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['FecApRefBan']; } ?>" onfocus="datepick(this)"></label>
                   </div>
                 </p>
               </div>
@@ -554,7 +567,7 @@
        
                 </p>
                 <div class="small-3 columns"><label>Telefono
-                  <input name="telrefcom11" type="text" id="telrefcom11" size="1px"  value="<?php if(isset($row['Folio_Cliente']) && $row['TelRefCom'] != '' ) {  echo $row['TelRefCom'][0]; } ?>" pattern="integer"></label>
+                  <input name="telrefcom11" type="text" id="telrefcom11" size="1px"  value="<?php if(isset($row['Folio_Cliente']) && $row['TelRefCom'] != '' ) {  echo $row['TelRefCom'][0]; } ?>"  pattern="telefono" onfocus="mascaratel(this)" ></label>
                 </div>
 
                 <p align="left">
@@ -574,7 +587,7 @@
                   </div>
        
                   <div class="small-3 columns"><label>Telefono
-                    <input name="telrefcom22" type="text" id="telrefcom22" size="1px"  value="<?php if(isset($row['Folio_Cliente']) && $row['TelRefCom2']) {  echo $row['TelRefCom2'][0]; } ?>" pattern="integer"></label>
+                    <input name="telrefcom22" type="text" id="telrefcom22" size="1px"  value="<?php if(isset($row['Folio_Cliente']) && $row['TelRefCom2']) {  echo $row['TelRefCom2'][0]; } ?>"  pattern="telefono" onfocus="mascaratel(this)" ></label>
                   </div>
                 </p>
                 <p align="left">
@@ -622,7 +635,7 @@
                     <input name="accionista1" type="text" id="accionista1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['NomAcc1']; } ?>" placeholder="Nombre"></label>
                   </div>
                   <div class="small-4 columns"><label>RFC
-                    <input name="rfcaccion1" type="text" id="rfcaccion1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCAcc1']; } ?>" placeholder="RFC"></label>
+                    <input name="rfcaccion1" type="text" id="rfcaccion1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCAcc1']; } ?>"  pattern="rfc" onkeypress="mayusculas(this)"></label>
                   </div>
                   <div class="small-4 columns"><label>Porcentaje de las acciones
                     <input name="porcent1" type="text" id="porcent1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAcc1']; } ?>" placeholder="%"></label>
@@ -633,7 +646,7 @@
                     <input name="accionista2" type="text" id="accionista2" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['NomAcc2']; } ?>" placeholder="Nombre"></label>
                   </div>
                   <div class="small-4 columns"><label>RFC
-                    <input name="rfcaccion2" type="text" id="rfcaccion2" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCAcc1']; } ?>" placeholder="RFC"></label>
+                    <input name="rfcaccion2" type="text" id="rfcaccion2" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCAcc1']; } ?>"  pattern="rfc" onkeypress="mayusculas(this)"></label>
                   </div>
                   <div class="small-4 columns"><label>Porcentaje de las acciones
                     <input name="porcent2" type="text" id="porcent2" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAcc1']; } ?>" placeholder="%"></label>
@@ -644,7 +657,7 @@
                     <input name="accionista3" type="text" id="accionista3" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['NomAcc3']; } ?>" placeholder="Nombre"></label>
                   </div>
                   <div class="small-4 columns"><label>RFC
-                    <input name="rfcaccion3" type="text" id="rfcaccion3" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCAcc1']; } ?>" placeholder="RFC"></label>
+                    <input name="rfcaccion3" type="text" id="rfcaccion3" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCAcc1']; } ?>"  pattern="rfc" onkeypress="mayusculas(this)"></label>
                   </div>
                   <div class="small-4 columns"><label>Porcentaje de las acciones
                     <input name="porcent3" type="text" id="porcent3" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAcc1']; } ?>" placeholder="%"></label>
@@ -655,7 +668,7 @@
                     <input name="accionista4" type="text" id="accionista4" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['NomAcc4']; } ?>" placeholder="Nombre"></label>
                   </div>
                   <div class="small-4 columns"><label>RFC
-                    <input name="rfcaccion4" type="text" id="rfcaccion4" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCAcc1']; } ?>" placeholder="RFC"></label>
+                    <input name="rfcaccion4" type="text" id="rfcaccion4" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCAcc1']; } ?>"  pattern="rfc" onkeypress="mayusculas(this)"></label>
                   </div>
                   <div class="small-4 columns"><label>Porcentaje de las acciones
                     <input name="porcent4" type="text" id="porcent4" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAcc1']; } ?>" placeholder="%"></label>
@@ -671,7 +684,7 @@
                   <input name="accpermor1" type="text" id="accpermor1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['NomAccPM1']; } ?>" placeholder="Nombre"></label>
                 </div>
                 <div class="small-4 columns"><label>RFC
-                  <input name="rfcaccpermor1" type="text" id="rfcaccpermor1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCAccPM1']; } ?>" placeholder="RFC"></label>
+                  <input name="rfcaccpermor1" type="text" id="rfcaccpermor1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCAccPM1']; } ?>"  pattern="rfc" onkeypress="mayusculas(this)"></label>
                 </div>
 
                 <div class="small-4 columns"><label>Porcentaje de las acciones
@@ -683,7 +696,7 @@
                 </div>
 
                 <div class="small-4 columns"><label>RFC
-                  <input name="rfcaccpermor2" type="text" id="rfcaccpermor2" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCAccPM2']; } ?>" placeholder="RFC"></label>
+                  <input name="rfcaccpermor2" type="text" id="rfcaccpermor2" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCAccPM2']; } ?>"  pattern="rfc" onkeypress="mayusculas(this)"></label>
                 </div>
 
                 <div class="small-4 columns"><label>Porcentaje de las acciones
@@ -734,17 +747,17 @@
             
 
                   <div class="small-3 columns"><label>   Teléfono
-                    <input name="textfield52" type="text" id="textfield52" size="50%"  value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['TelBeneficiario']; } ?>"></label>
+                    <input name="textfield52" type="text" id="textfield52" size="50%"  value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['TelBeneficiario']; } ?>" pattern="telefono" onfocus="mascaratel(this)" ></label>
                   </div>
               
              
                   <div class="small-3 columns"><label> CURP
-                    <input name="textfield53" type="text" id="textfield53" size="50%"  value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['CURPBeneficiario']; } ?>"></label>
+                    <input name="textfield53" type="text" id="textfield53" size="50%"  value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['CURPBeneficiario']; } ?>" pattern="curp" onkeypress="mayusculas(this)"></label>
                   </div>
             
 
                   <div class="small-3 columns"><label> RFC
-                    <input name="textfield54" type="text" id="textfield54" size="50%"  value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['RFCBeneficiario']; } ?>"></label>
+                    <input name="textfield54" type="text" id="textfield54" size="50%"  value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['RFCBeneficiario']; } ?>"  pattern="rfc" onkeypress="mayusculas(this)"></label>
                   </div>
               
 
@@ -761,7 +774,7 @@
 
 
                   <div class="small-3 columns"> <label>Fecha de Nacimiento 
-                    <input name="textfield57" type="date" id="textfield57" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['FeNacBeneficiario']; } ?>"></label>
+                    <input name="textfield57" type="date" id="textfield57" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['FeNacBeneficiario']; } ?>" onfocus="datepick(this)"></label>
                   </div>
               
 
@@ -890,7 +903,7 @@
                   <p align="left">
                     <div class="small-3 columns">
                       <label> Tipo Credito
-                        <select name="tipocredito" size="1" id="tipocredito"  onchange="seleccionvalor()" >
+                        <select name="tipocredito" size="1" id="tipocredito"  required="" >
                           <option value="" ></option>
                                                               <?php
                                                               include("Conexion2.php");
@@ -904,57 +917,57 @@
                       </label>
                     </div>
                                                         
-                    <div class="small-3 columns"> 
-                      <label>
+                    <div class="small-3 columns" id="displaymonto" style="display: none;"> 
+                      <label><span id="labelmontosoli"></span> 
                         <input name="textfield86" type="text" id="textfield86" size="50%"    >
                       </label> 
                     </div>
 
-                    <div class="small-3 columns" id="engautochange">
+                    <div class="small-3 columns" id="engautochange" style="display: none;">
                       <label>Enganche 
                         <input name="textfield87" type="text" id="textfield87" size="50%"    onchange="datosAuto()">
                       </label>
                     </div>
 
-                    <div class="small-3 columns" id="porengautochange">
+                    <div class="small-3 columns" id="porengautochange" style="display: none;">
                       <label> Porcentaje de Enganche<input name="textfield88" type="text" id="textfield88" size="50%"  readonly>
                       </label>
                     </div>
-                    <div class="small-3 columns" id="porfinautochange">
+                    <div class="small-3 columns" id="porfinautochange" style="display: none;">
                       <label>Porcentaje de Financieamiento<input name="textfield89" type="text" id="textfield89" size="50%"  readonly>
                       </label>
                     </div>
-                    <div class="small-3 columns" id="monfinautochange">
+                    <div class="small-3 columns" id="monfinautochange" style="display: none;">
                       <label>Monto Financiado <input name="textfield90" type="text" id="textfield90" size="50%"  readonly>
                       </label>
                     </div>
-                    <div class="small-3 columns">
+                    <div class="small-3 columns" style="display: none;" id="interesanual">
                       <label>Interes Anual<input name="textfield100" type="text" id="textfield100" size="50%"  readonly  >
                       </label>
                     </div>
-                    <div class="small-3 columns" id="comisionapchange">
+                    <div class="small-3 columns" id="comisionapchange" style="display: none;">
                       <label>Comisión por Apertura<input name="textfield96" type="text" id="textfield96" size="50%"  readonly  >
                       </label>
                     </div>
-                    <div class="small-3 columns">
+                    <div class="small-3 columns" id="seguroauto" style="display: none;">
                       <label>Seguro de Auto<input name="textfield97" type="text" id="textfield97" size="50%"   >
                       </label>
                     </div>
-                    <div class="small-3 columns">
+                    <div class="small-3 columns" id="segurovida" style="display: none;">
                       <label>Seguro de Vida<input name="textfield98" type="text" id="textfield98" size="50%"   >
                       </label>
                     </div>
 
-                    <div class="small-3 columns" id="segdeschange">
+                    <div class="small-3 columns" id="segdeschange" style="display: none;">
                       <label>
                         <p align="left">Seguro de Desempleo<input name="textfield99" type="text" id="textfield99" size="50%"   ></p>
                       </label>
                     </div>
-                    <div class="small-3 columns">
+                    <div class="small-3 columns" id="plazocredito" style="display: none;">
                       <label>Plazo (meses)<input name="textfield91" type="text" id="textfield91" size="50%"   >
                       </label>
                     </div>
-                    <div class="small-3 columns">
+                    <div class="small-3 columns" id="pagomensualesp" style="display: none;">
                       <label>Pago Mensual Esperado<input name="textfield92" type="text" id="textfield92" size="50%"   >
                       </label>
                     </div>
@@ -1043,7 +1056,7 @@
                   <p align="left">
                 
                     <div class="small-3 columns"><label>Fecha de nacimiento:
-                      <input name="datobfechnac1d" type="date" id="datobfechnac1d" size="1px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['FeNacObSol']; } ?>" ></label>
+                      <input name="datobfechnac1d" type="date" id="datobfechnac1d" size="1px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['FeNacObSol']; } ?>" onfocus="datepick(this)"></label>
                     </div>
 
                     <div class="small-3 columns"><label>Edad
@@ -1051,18 +1064,18 @@
                     </div>
 
                     <div class="small-3 columns"><label>CURP
-                      <input name="datobcurp1" type="text" id="datobcurp1" size="22px" placeholder="CURP" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['CURPObSol']; } ?>"  pattern="alpha_numeric"></label>
+                      <input name="datobcurp1" type="text" id="datobcurp1" size="22px" placeholder="CURP" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['CURPObSol']; } ?>"  pattern="curp" onkeypress="mayusculas(this)"></label>
                     </div>
                     <div class="small-3 columns"><label>RFC
-                      <input name="datobrfc11" value="<?php if(isset($row['Folio_Cliente'])&& $row['RFCObSol']!='') {  echo $row['RFCObSol'][0]; } ?>" type="text" id="datobrfc11" size="1px"  pattern="alpha_numeric"></label> 
+                      <input name="datobrfc11" value="<?php if(isset($row['Folio_Cliente'])&& $row['RFCObSol']!='') {  echo $row['RFCObSol'][0]; } ?>" type="text" id="datobrfc11" size="1px"   pattern="rfc" onkeypress="mayusculas(this)"></label> 
                     </div>
 
                     <div class="small-3 columns"><label>Telefono Particular
-                      <input name="datobtel11" value="<?php if(isset($row['Folio_Cliente'])&& $row['TelObSol']!='') {  echo $row['TelObSol'][0]; } ?>" type="text" id="datobtel11" size="1px"  pattern="integer"></label>
+                      <input name="datobtel11" value="<?php if(isset($row['Folio_Cliente'])&& $row['TelObSol']!='') {  echo $row['TelObSol'][0]; } ?>" type="text" id="datobtel11" size="1px"   pattern="telefono" onfocus="mascaratel(this)" ></label>
                     </div>
 
                     <div class="small-3 columns"><label>Telefono Movil
-                      <input name="datobtel112" value="<?php if(isset($row['Folio_Cliente'])&& $row['MovObSol']!='') {  echo $row['MovObSol'][0]; } ?>" type="text" id="datobtel112" size="1px"  pattern="integer"></label>
+                      <input name="datobtel112" value="<?php if(isset($row['Folio_Cliente'])&& $row['MovObSol']!='') {  echo $row['MovObSol'][0]; } ?>" type="text" id="datobtel112" size="1px"  pattern="telefono" onfocus="mascaratel(this)" ></label>
                     </div>
                     <div class="small-3 columns">
                       <label>Tiene propiedad a su nombre?
@@ -1129,26 +1142,26 @@
                   <p align="left">
                
                     <div class="small-3 columns"><label> Fecha de nacimiento:
-                      <input name="datobfechnac2d" type="date" id="datobfechnac2d" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['FeNacObSol2']; } ?>" size="1px"    ></label>
+                      <input name="datobfechnac2d" type="date" id="datobfechnac2d" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['FeNacObSol2']; } ?>" size="1px"  onfocus="datepick(this)"  ></label>
                     </div>
                     <div class="small-3 columns"><label>Edad
                       <input name="datobed2" type="text" id="datobed2" size="2px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['EdObSol2']; } ?>" placeholder="Edad" ></label>
                     </div>
 
                     <div class="small-3 columns"><label>CURP
-                      <input name="datobcurp2" type="text" id="datobcurp2" size="22px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['CURPObSol2']; } ?>" placeholder="CURP" ></label>
+                      <input name="datobcurp2" type="text" id="datobcurp2" size="22px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['CURPObSol2']; } ?>" pattern="curp" onkeypress="mayusculas(this)"></label>
                     </div>
 
                     <div class="small-3 columns"><label>RFC
-                      <input name="datobrfc21" type="text" id="datobrfc21" size="1px"  value="<?php if(isset($row['Folio_Cliente'])&& $row['RFCObSol2']!='') {  echo $row['RFCObSol2'][0]; } ?>"  ></label>
+                      <input name="datobrfc21" type="text" id="datobrfc21" size="1px"  value="<?php if(isset($row['Folio_Cliente'])&& $row['RFCObSol2']!='') {  echo $row['RFCObSol2'][0]; } ?>"  pattern="rfc" onkeypress="mayusculas(this)" ></label>
                     </div>
 
                     <div class="small-3 columns"><label>Telefono
-                      <input name="datobtel21" type="text" id="datobtel21" size="1px"  value="<?php if(isset($row['Folio_Cliente'])&& $row['TelObSol2']!='') {  echo $row['TelObSol2'][0]; } ?>"  ></label>
+                      <input name="datobtel21" type="text" id="datobtel21" size="1px"  value="<?php if(isset($row['Folio_Cliente'])&& $row['TelObSol2']!='') {  echo $row['TelObSol2'][0]; } ?>"  pattern="telefono" onfocus="mascaratel(this)"  ></label>
                     </div>
 
                     <div class="small-3 columns"><label>Telefono Movil
-                      <input name="datobtel212" type="text" id="datobtel212" size="1px"  value="<?php if(isset($row['Folio_Cliente'])&& $row['MovObSol2']!='') {  echo $row['MovObSol2'][0]; } ?>"  ></label>
+                      <input name="datobtel212" type="text" id="datobtel212" size="1px"  value="<?php if(isset($row['Folio_Cliente'])&& $row['MovObSol2']!='') {  echo $row['MovObSol2'][0]; } ?>"  pattern="telefono" onfocus="mascaratel(this)"  ></label>
                     </div>
                     <div class="small-3 columns">
                       <label>Tiene propiedad a su nombre?
@@ -1491,7 +1504,7 @@
                       </tr>
                       <tr>
                         <td>Fecha del comprobante de domicilio </td>
-                        <td><input name="fechaComprobante" type="date" id="fechaComprobante" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['FechaComprobanteDom']; } ?>" ></td>
+                        <td><input name="fechaComprobante" type="date" id="fechaComprobante" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['FechaComprobanteDom']; } ?>" onfocus="datepick(this)"></td>
                       </tr>
                       <tr>
                         <td>Domicilio manifestado coincide con la ID</td>
@@ -1520,6 +1533,8 @@
   </div>
 
 
+
+
 <!--
 <img src="images/sfg.jpg" width="100%">
   -->
@@ -1532,10 +1547,10 @@
 
      <script src="js/jquery-ui/jquery-ui.js"></script>
     <script src="js/vendor/app.js"></script>
+    <script src="js/jquery.maskedinput.js" type="text/javascript"></script>
 
 
-    <script src="js/jquery-ui/jquery-ui.js"></script>
-    <script src="js/vendor/app.js"></script>
+    
     
   <script>$(document).foundation();
   $('.title-bar').on('sticky.zf.stuckto:top', function(){
@@ -1546,3 +1561,5 @@
 
 <script src="js/clientes.js"></script>
 <script src="js/solicitudes.js"></script>
+
+</body></html>

@@ -1,4 +1,134 @@
 
+
+
+$( "#tipocredito" ).change(function() {
+	seleccionvalor();
+});
+
+function seleccionvalor(){
+	var data = new FormData();
+	data.append('function', "requesttipocredito");
+	if(document.getElementById("tipocredito").value==""){
+		document.getElementById("displaymonto").style.display='none';
+		document.getElementById("engautochange").style.display='none';
+		document.getElementById("porengautochange").style.display='none';
+		document.getElementById("porfinautochange").style.display='none';
+		document.getElementById("monfinautochange").style.display='none';
+		document.getElementById("interesanual").style.display='none';
+		document.getElementById("comisionapchange").style.display='none';
+		document.getElementById("seguroauto").style.display='none';
+		document.getElementById("segurovida").style.display='none';
+		document.getElementById("segdeschange").style.display='none';
+		document.getElementById("plazocredito").style.display='none';
+		document.getElementById("pagomensualesp").style.display='none';
+		data.append('requestcredito', "");
+
+		
+
+	}else if(document.getElementById("tipocredito").value=="Auto Nuevo"){
+		document.getElementById("displaymonto").style.display='block';
+		document.getElementById("labelmontosoli").innerHTML='Monto del Vehiculo';
+		document.getElementById("engautochange").style.display='block';
+		document.getElementById("porengautochange").style.display='block';
+		document.getElementById("porfinautochange").style.display='block';
+		document.getElementById("monfinautochange").style.display='block';
+		document.getElementById("interesanual").style.display='block';
+		document.getElementById("comisionapchange").style.display='block';
+		document.getElementById("seguroauto").style.display='block';
+		document.getElementById("segurovida").style.display='block';
+		document.getElementById("segdeschange").style.display='none';
+		document.getElementById("plazocredito").style.display='block';
+		document.getElementById("pagomensualesp").style.display='block';
+		data.append('requestcredito', "Auto Nuevo");
+
+
+		
+	}else if(document.getElementById("tipocredito").value=="Auto Usado"){
+		document.getElementById("displaymonto").style.display='block';
+		document.getElementById("labelmontosoli").innerHTML='Monto del Vehiculo';
+		document.getElementById("engautochange").style.display='block';
+		document.getElementById("porengautochange").style.display='block';
+		document.getElementById("porfinautochange").style.display='block';
+		document.getElementById("monfinautochange").style.display='block';
+		document.getElementById("interesanual").style.display='block';
+		document.getElementById("comisionapchange").style.display='block';
+		document.getElementById("seguroauto").style.display='block';
+		document.getElementById("segurovida").style.display='block';
+		document.getElementById("segdeschange").style.display='none';
+		document.getElementById("plazocredito").style.display='block';
+		document.getElementById("pagomensualesp").style.display='block';
+		data.append('requestcredito', "Auto Usado");
+
+
+	}else if(document.getElementById("tipocredito").value=="Crédito Simple de Nomina"){
+		document.getElementById("displaymonto").style.display='block';
+		document.getElementById("labelmontosoli").innerHTML='Monto Solicitado';
+		document.getElementById("engautochange").style.display='none';
+		document.getElementById("porengautochange").style.display='none';
+		document.getElementById("porfinautochange").style.display='none';
+		document.getElementById("monfinautochange").style.display='none';
+		document.getElementById("interesanual").style.display='block';
+		document.getElementById("comisionapchange").style.display='block';
+		document.getElementById("seguroauto").style.display='none';
+		document.getElementById("segurovida").style.display='block';
+		document.getElementById("segdeschange").style.display='block';
+		document.getElementById("plazocredito").style.display='block';
+		document.getElementById("pagomensualesp").style.display='block';
+		data.append('requestcredito', "Crédito Simple de Nomina");
+
+
+	}else{
+		document.getElementById("displaymonto").style.display='none';
+		document.getElementById("engautochange").style.display='none';
+		document.getElementById("porengautochange").style.display='none';
+		document.getElementById("porfinautochange").style.display='none';
+		document.getElementById("monfinautochange").style.display='none';
+		document.getElementById("interesanual").style.display='none';
+		document.getElementById("comisionapchange").style.display='none';
+		document.getElementById("seguroauto").style.display='none';
+		document.getElementById("segurovida").style.display='none';
+		document.getElementById("segdeschange").style.display='none';
+		document.getElementById("plazocredito").style.display='none';
+		document.getElementById("pagomensualesp").style.display='none';
+		data.append('requestcredito', "");
+
+
+	}
+
+   
+   
+   
+   
+    if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
+        
+        alert(xmlhttp.responseText);
+        obj3 = JSON.parse(xmlhttp.responseText);
+        if(obj3.descripcion=="Crédito Simple de Nomina"){
+        	document.getElementById("textfield100").value=obj3.tasa;
+        }
+
+        
+      }
+  }
+xmlhttp.open("POST","solicitudes.php",true);
+xmlhttp.send(data);
+
+
+
+	
+}
+
 $("#cancelarsolicitud").click(function(event) {
     
    var data = new FormData();
@@ -33,14 +163,14 @@ xmlhttp.send(data);
 
 
 
-$("#").click(function(event) {
+$("#guardarsolicitud").click(function(event) {
     $('#form2').foundation('validateForm');
 
 
 
 var validacion=false;
+$( "#panel1d-label" ).removeClass( "is-invalid-input" );
 /*
-$( "#panel1c-label" ).removeClass( "is-invalid-input" );
 $( "#panel2c-label" ).removeClass( "is-invalid-input" );
 $( "#panel3c-label" ).removeClass( "is-invalid-input" );
 $( "#panel4c-label" ).removeClass( "is-invalid-input" );
@@ -49,23 +179,23 @@ $( "#panel6c-label" ).removeClass( "is-invalid-input" );
 $( "#panel7c-label" ).removeClass( "is-invalid-input" );
 $( "#panel8c-label" ).removeClass( "is-invalid-input" );
 $( "#panel9c-label" ).removeClass( "is-invalid-input" );
+*/
+    if($( "#tipocredito").hasClass( "is-invalid-input" )){
 
-
-    if($( "#TipoCliente").hasClass( "is-invalid-input" )){
-
-        $( "#panel1c-label" ).addClass( "is-invalid-input" );
+        $( "#panel1d-label" ).addClass( "is-invalid-input" );
         validacion=true;
     }
 
     
-$('#panel1c').find('input').each(function(){ 
+$('#panel1d').find('input').each(function(){ 
     if($( "#"+this.id).hasClass( "is-invalid-input" )){
         console.log(this.id);
-        $( "#panel1c-label" ).addClass( "is-invalid-input" );
+        $( "#panel1d-label" ).addClass( "is-invalid-input" );
         validacion=true;
     }
 
      });
+/*
 $('#panel2c').find('input').each(function(){ 
     if($( "#"+this.id).hasClass( "is-invalid-input" )){
         console.log(this.id);
