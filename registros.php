@@ -309,7 +309,7 @@
            
                     <div class="small-3 columns">
                       <label>Fecha de nacimiento
-                      <input name="fechnacsol" type="date" id="fechnacsol" onchange="calcularEdad()" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['FeNacDatGen']; } ?>" onfocus="datepick(this)" ></label>
+                      <input name="fechnacsol" type="date" id="fechnacsol" onchange="calcularEdad(this,'edsol')" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['FeNacDatGen']; } ?>" onfocus="datepick(this)" ></label>
                     </div>
 
                     <div class="small-3 columns"> <label> Edad
@@ -337,7 +337,7 @@
                   </div>
               
                   <div class="small-3 columns"><label> Arraigo en el domicilio (Fecha)
-                    <input name="arraisol" type="date" id="arraisol" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['ArDomDatGen']; } ?>" placeholder="Arraigo en el domicilio desde el año" onfocus="datepick(this)" onchange="calcularEdad2()"></label>
+                    <input name="arraisol" type="date" id="arraisol" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['ArDomDatGen']; } ?>" placeholder="Arraigo en el domicilio desde el año" onfocus="datepick(this)" onchange="calcularAnios(this,'arraisolanios')"></label>
                   </div>
 
                   <div class="small-3 columns"><label> Arraigo en el domicilio (años)
@@ -420,7 +420,7 @@
                     <input name="compatelsol1" type="text" id="compatelsol1"  value="<?php if(isset($row2['Folio_Cliente'])&& $row2['TelDatEmp']!= '') {  echo $row2['TelDatEmp'][0]; } ?>" size="1px"  pattern="telefono" onfocus="mascaratel(this)"   ></label>
                   </div>
                   <div class="small-2 columns" ><label>Extension
-                    <input name="compatelsolext" type="text" id="compatelsolext" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['ExtDatEmp']; } ?>" size="20px" placeholder="Extensión" pattern="integer" maxlength="7">></label>
+                    <input name="compatelsolext" type="text" id="compatelsolext" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['ExtDatEmp']; } ?>" size="20px" placeholder="Extensión" pattern="integer" maxlength="7"></label>
                   </div>
                 </p>
 
@@ -434,7 +434,7 @@
                   <div class="small-3 columns"> <label> Antigüedad desde:<input name="desdesol" type="date" id="desdesol" size="1px" value="<?php if (isset($row2['Folio_Cliente'])) {  echo $row2['DesAnDatEmp']; } ?>"   onfocus="datepick(this)" onchange="calcularAntiguedad(this,'desdesolanios')" ></label>
                   </div>
 
-                  <div class="small-3 columns"> <label> Antigüedad años:<input name="desdesolanios" type="date" id="desdesolanios" size="1px"   readonly=""  ></label>
+                  <div class="small-3 columns"> <label> Antigüedad años:<input name="desdesolanios" type="text" id="desdesolanios" size="1px"   readonly=""  ></label>
                   </div>
             
                 </p>
