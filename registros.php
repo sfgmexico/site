@@ -344,13 +344,8 @@
                     <input name="arraisolanios" type="text" id="arraisolanios" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['ArDomDatGen']; } ?>"  readonly pattern="integer"></label>
                   </div>
              
-                  <div class="small-3 columns"><label>Acredita Domicilio con
-                    <input name="acdomsol2" type="text" id="acdomsol2" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['AcDomDatGen']; } ?>" size="16px" placeholder="Acredita Domicilio con"></label>
-                  </div>
-              
-                  <div class="small-3 columns"> <label>Años de residir en la ciudad
-                    <input name="anosol2" type="text" id="anosol2" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['AnResDatGen']; } ?>" size="20px" placeholder="Años de residir en la ciudad"  pattern="integer"></label>
-                  </div>
+                
+                  
                 </p>
                 <div class="row">
                 <div class="small-3 columns">
