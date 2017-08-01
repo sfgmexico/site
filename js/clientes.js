@@ -1347,8 +1347,9 @@ function mayusculas(input) {
 function datepick(inputdate){
     
     $fecha=$(inputdate);
-    $("#"+inputdate.id).mask("9999-99-99",{placeholder:"yyyy/mm/dd"});
+    
     if ($fecha[0].type!="date"){
+        $("#"+inputdate.id).mask("9999-99-99",{placeholder:"yyyy/mm/dd"});
       $fecha.datepicker({ dateFormat: 'yy-mm-dd',changeMonth: true,changeYear: true} );
       
       }
