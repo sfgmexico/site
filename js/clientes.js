@@ -1207,9 +1207,9 @@ function validate_fecha(fecha)
  * La fecha la tiene que tener el formato yyyy-mm-dd que es
  * metodo que por defecto lo devuelve el <input type="date">
  */
-function calcularEdad()
+function calcularEdad(input,destino)
 {
-    var fecha=document.getElementById("fechnacsol").value;
+    var fecha=document.getElementById(input.id).value;
     if(validate_fecha(fecha)==true)
     {
         // Si la fecha es correcta, calculamos la edad
@@ -1259,14 +1259,15 @@ function calcularEdad()
         }
         if(edad>75){
             
-            document.getElementById("edsol").value=edad;
-            $( "#edsol" ).addClass( "is-invalid-input" );
+            document.getElementById(destino).value=edad;
+            $( "#"+destino ).addClass( "is-invalid-input" );
             //$('#form1').foundation('validateForm');
-        }/*else if(edad<18){
-
-        }*/else{
-            document.getElementById("edsol").value=edad;
-            $( "#edsol" ).removeClass( "is-invalid-input" );
+        }else if(edad<18){
+            document.getElementById(destino).value=edad;
+            $( "#"+destino).addClass( "is-invalid-input" );
+        }else{
+            document.getElementById(destino).value=edad;
+            $( "#"+destino ).removeClass( "is-invalid-input" );
         }
         
     }else{
@@ -1274,9 +1275,9 @@ function calcularEdad()
     }
 }
 
-function calcularEdad2()
+function calcularAnios(input,destino)
 {
-    var fecha=document.getElementById("arraisol").value;
+    var fecha=document.getElementById(input.id).value;
     if(validate_fecha(fecha)==true)
     {
         // Si la fecha es correcta, calculamos la edad
@@ -1327,12 +1328,12 @@ function calcularEdad2()
        
            
         
-            document.getElementById("arraisolanios").value=edad;
+            document.getElementById(destino).value=edad;
             
        
         
     }else{
-        document.getElementById("arraisolanios").value=0;
+        document.getElementById(destino).value=0;
     }
 }
 
