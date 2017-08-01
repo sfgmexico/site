@@ -118,11 +118,11 @@
                   <p align="left">
                     <div class="small-3 columns"><label>
                       Direccion
-                      <input name="dirsolpm" type="text" id="dirsolpm" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['DirSolicitante']; } ?>" placeholder="Dirección / Calle" >
+                      <input name="dirsolpm" type="text" id="dirsolpm" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['DirSolicitante']; } ?>" placeholder="Dirección / Calle" pattern="alpha">
                       </label>
                     </div>
                     <div class="small-3 columns"><label>Numero
-                      <input name="dirnumsolpm" type="text" id="dirnumsolpm" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['NumDirSol']; } ?>"   placeholder="Número"></label>
+                      <input name="dirnumsolpm" type="text" id="dirnumsolpm" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['NumDirSol']; } ?>"   placeholder="Número" pattern="alpha_numeric2" maxlength="7"></label>
                     </div>
                     <div class="small-3 columns"><label>Email
                       <input name="mailsol2" type="text" id="mailsol2"  value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['EmailSolicitante']; } ?>" placeholder="Email" pattern="email"></label>
@@ -138,7 +138,7 @@
                       <input name="edosolpm" type="text" id="edosolpm"  value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['EdoSolicitante']; } ?>"  placeholder="Estado"></label>
                     </div>
                     <div class="small-3 columns"><label>Codigo Postal
-                      <input name="cpsolpm" type="text" id="cpsolpm"  value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['CPSolicitante']; } ?>"  placeholder="C.P."></label>
+                      <input name="cpsolpm" type="text" id="cpsolpm"  value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['CPSolicitante']; } ?>"  placeholder="C.P." pattern="cpostal" maxlength="5"></label>
                     </div>
                   </p>
 
@@ -147,24 +147,24 @@
                       <input name="actprinc" type="text" id="actprinc" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['ActPrinDatGenPM']; } ?>" placeholder="Actividad Principal/según alta o último cambio ante SHCP"></label>
                     </div>
                     <div class="small-3 columns">  <label>Cantidad de personal
-                      <input name="cantperson" type="text" id="cantperson" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['CantPerDatGenPM']; } ?>" placeholder="Cantidad de personal"></label>
+                      <input name="cantperson" type="text" id="cantperson" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['CantPerDatGenPM']; } ?>" placeholder="Cantidad de personal" pattern="integer"></label>
                     </div>
                   </p>
 
                   <div class="small-3 columns"> <label>Inicio de operaciones:
-                    <input name="inicoper1" type="date" id="inicoper1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['IniOpDatGenPM']; } ?>"  onfocus="datepick(this)" onchange="calcularAntiguedad()" ></label>
+                    <input name="inicoper1" type="date" id="inicoper1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['IniOpDatGenPM']; } ?>"  onfocus="datepick(this)" onchange="calcularAntiguedad(this,'antemp')" ></label>
                   </div>
                   <div class="small-3 columns"><label>Constitución de la empresa:
                     <input name="inicoper13" type="date" id="inicoper13" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['FechaConsEmp']; } ?>" onfocus="datepick(this)"></label>
                   </div>
                   
-                  <div class="small-3 columns"><label>Antiguedad
+                  <div class="small-3 columns"><label>Antiguedad (años)
                     <input name="antemp" type="text" id="antemp" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['AntConsEmp']; } ?>" placeholder="Antigüedad" readonly ></label>
                   </div>
                   
                   <p align="left">
                     <div class="small-7 columns"><label>Apoderado para suscribir Títulos de Crédito y realizar actos de administración
-                      <input name="apodsusc" type="text" id="apodsusc" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['ApoConsEmp']; } ?>" placeholder="Apoderado para suscribir Títulos de Crédito y realizar actos de administración"></label>
+                      <input name="apodsusc" type="text" id="apodsusc" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['ApoConsEmp']; } ?>" placeholder="Apoderado para suscribir Títulos de Crédito y realizar actos de administración" pattern="alpha"></label>
                     </div>
                   </p>    
                 </div>
@@ -173,21 +173,21 @@
                   <p align="left"><strong>DATOS DEL CONTACTO DE LA EMPRESA</strong></p>
                   <p align="left">
                     <div class="small-3 columns"><label>Primer Nombre
-                      <input name="nomconemp" type="text" id="nomconemp" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['NomDatContEmp']; } ?>" placeholder="Primer Nombre"></label>
+                      <input name="nomconemp" type="text" id="nomconemp" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['NomDatContEmp']; } ?>" placeholder="Primer Nombre" pattern="alpha"></label>
                     </div>
                     <div class="small-3 columns"><label>Segundo Nombre
-                      <input name="segnomconemp" type="text" id="segnomconemp" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['SegNomDatContEmp']; } ?>" placeholder="Segundo Nombre"></label>
+                      <input name="segnomconemp" type="text" id="segnomconemp" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['SegNomDatContEmp']; } ?>" placeholder="Segundo Nombre" pattern="alpha"></label>
                     </div>
                     <div class="small-3 columns"><label>Apellido Paterno
-                      <input name="apepaconemp" type="text" id="apepaconemp" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['ApPatDatContEmp']; } ?>" placeholder="Apellido Parteno"></label>
+                      <input name="apepaconemp" type="text" id="apepaconemp" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['ApPatDatContEmp']; } ?>" placeholder="Apellido Parteno" pattern="alpha"></label>
                     </div>
                     <div class="small-3 columns"><label>Apellido Materno
-                      <input name="apemaconemp" type="text" id="apemaconemp" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['ApMatDatContEmp']; } ?>" placeholder="Apellido Materno"></label>
+                      <input name="apemaconemp" type="text" id="apemaconemp" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['ApMatDatContEmp']; } ?>" placeholder="Apellido Materno" pattern="alpha"></label>
                     </div>
                   </p>
                   <p align="left">
                     <div class="small-3 columns"><label>Calle y Numero
-                      <input name="datobdir22" type="text" id="datobdir22" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['DirConEmp']; } ?>" placeholder="Calle y No.:"></label>
+                      <input name="datobdir22" type="text" id="datobdir22" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['DirConEmp']; } ?>" placeholder="Calle y No.:" pattern="alpha_numeric2"></label>
                     </div>
                     <div class="small-3 columns"><label>Colonia
                       <input name="datobcol23" type="text" id="datobcol23" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['ColConEmp']; } ?>" placeholder="Colonia:"></label>
@@ -203,7 +203,7 @@
                   </p>
                   <p align="left">
                     <div class="small-3 columns"><label>Codigo Postal
-                      <input name="lugnacsol22" type="text" id="lugnacsol22" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['CPConEmp']; } ?>" onfocus="" ></label>
+                      <input name="lugnacsol22" type="text" id="lugnacsol22" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['CPConEmp']; } ?>" pattern="cpostal" maxlength="5" ></label>
                     </div>
 
                     <div class="small-3 columns"><label>RFC
@@ -216,10 +216,10 @@
                   </p>
                   <p align="left">
                     <div class="small-3 columns">  <label> Email
-                      <input name="mailconemp" type="text" id="mailconemp" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['EmailDatConEmp']; } ?>" placeholder="Email"></label>
+                      <input name="mailconemp" type="text" id="mailconemp" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['EmailDatConEmp']; } ?>" placeholder="Email" pattern="email"></label>
                     </div>
                     <div class="small-3 columns">  <label>Puesto que desempeña en la empresa
-                      <input name="puesconemp" type="text" id="puesconemp" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PuestDatConEmp']; } ?>" placeholder="Puesto que desempeña en la empresa"></label>
+                      <input name="puesconemp" type="text" id="puesconemp" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PuestDatConEmp']; } ?>" placeholder="Puesto que desempeña en la empresa" pattern="alpha_numeric2"></label>
                     </div>
                   </p>
                 </div>
@@ -274,7 +274,7 @@
                     <input name="dirsol" type="text" id="dirsol" size="74px" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['DirSolicitante']; } ?>" placeholder="Dirección / Calle"  pattern="alpha"></label>
                   </div>
               
-                  <div class="small-2 columns"><label> Numero <input name="dirnumsol" type="text" id="dirnumsol" size="20px" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['NumDirSol']; } ?>" placeholder="Número"  pattern="integer"></label>
+                  <div class="small-2 columns"><label> Numero <input name="dirnumsol" type="text" id="dirnumsol" size="20px" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['NumDirSol']; } ?>" placeholder="Número"  pattern="alpha_numeric2" maxlength="7"></label>
                   </div>
              
                   <div class="small-3 columns"><label>Colonia<input name="colsol" type="text" id="colsol" size="49px" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['ColSolicitante']; } ?>"   placeholder="Colonia"></label>
@@ -322,7 +322,7 @@
                     </div>
 
                     <div class="small-3 columns"><label>Num. Dependientes
-                      <input name="depensol" type="text" id="depensol" size="10px" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['NoDepDatGen']; } ?>" placeholder="Num. Dependientes"  pattern="integer"></label>
+                      <input name="depensol" type="text" id="depensol" size="10px" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['NoDepDatGen']; } ?>" placeholder="Num. Dependientes"  pattern="integer" maxlength="2" ></label>
                     </div>
 
                     <div class="small-3 columns"><label>Acredita Domicilio con:
@@ -334,7 +334,7 @@
            
                 <p align="left">
                   <div class="small-3 columns"><label> Años de residir en la ciudad
-                    <input name="anosol" type="text" id="anosol" size="13" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['AnResDatGen']; } ?>" placeholder="Años de residir en la ciudad"  pattern="integer"></label>
+                    <input name="anosol" type="text" id="anosol" size="13" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['AnResDatGen']; } ?>" placeholder="Años de residir en la ciudad"  pattern="integer" maxlength="2"></label>
                   </div>
               
                   <div class="small-3 columns"><label> Arraigo en el domicilio (Fecha)
@@ -405,11 +405,11 @@
 
                 <p align="left">
                   <div class="small-3 columns"><label> Puesto
-                    <input name="puestosol" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['PuestDatEmp']; } ?>" type="text" id="puestosol" size="40px" placeholder="Puesto"></label>
+                    <input name="puestosol" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['PuestDatEmp']; } ?>" type="text" id="puestosol" size="40px" placeholder="Puesto" pattern="alpha"></label>
                   </div>
 
                   <div class="small-3 columns"><label>Departamento o area
-                    <input name="depasol" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['DepDatEmp']; } ?>" type="text" id="depasol" size="30px" placeholder="Departamento o área"></label>
+                    <input name="depasol" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['DepDatEmp']; } ?>" type="text" id="depasol" size="30px" placeholder="Departamento o área" pattern="alpha"></label>
                   </div>
 
              
@@ -421,7 +421,7 @@
                     <input name="compatelsol1" type="text" id="compatelsol1"  value="<?php if(isset($row2['Folio_Cliente'])&& $row2['TelDatEmp']!= '') {  echo $row2['TelDatEmp'][0]; } ?>" size="1px"  pattern="telefono" onfocus="mascaratel(this)"   ></label>
                   </div>
                   <div class="small-2 columns" ><label>Extension
-                    <input name="compatelsolext" type="text" id="compatelsolext" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['ExtDatEmp']; } ?>" size="20px" placeholder="Extensión" ></label>
+                    <input name="compatelsolext" type="text" id="compatelsolext" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['ExtDatEmp']; } ?>" size="20px" placeholder="Extensión" pattern="integer" maxlength="7">></label>
                   </div>
                 </p>
 
@@ -432,7 +432,10 @@
                   </div>
            
         
-                  <div class="small-3 columns"> <label> Antigüedad desde:<input name="desdesol" type="date" id="desdesol" size="1px" value="<?php if (isset($row2['Folio_Cliente'])) {  echo $row2['DesAnDatEmp']; } ?>"   onfocus="datepick(this)" ></label>
+                  <div class="small-3 columns"> <label> Antigüedad desde:<input name="desdesol" type="date" id="desdesol" size="1px" value="<?php if (isset($row2['Folio_Cliente'])) {  echo $row2['DesAnDatEmp']; } ?>"   onfocus="datepick(this)" onchange="calcularAntiguedad(this,'desdesolanios')" ></label>
+                  </div>
+
+                  <div class="small-3 columns"> <label> Antigüedad años:<input name="desdesolanios" type="date" id="desdesolanios" size="1px"   readonly=""  ></label>
                   </div>
             
                 </p>
@@ -501,13 +504,13 @@
                   </div>
           
                   <div class="small-3 columns"><label>Numero de cuenta
-                    <input name="numcuebanc" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NoTarRefBan']; } ?>" type="text" id="numcuebanc" size="40px" placeholder="Número de cuenta" pattern="integer">
+                    <input name="numcuebanc" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NoTarRefBan']; } ?>" type="text" id="numcuebanc" size="40px" placeholder="Número de cuenta" pattern="cuenta" maxlength="24">
 
                     </label>
                   </div>
 
                   <div class="small-3 columns"><label>Sucursal
-                    <input name="sucbanc1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['SucRefBan']; } ?>" type="text" id="sucbanc1" size="54px" placeholder="Sucursal"></label>
+                    <input name="sucbanc1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['SucRefBan']; } ?>" type="text" id="sucbanc1" size="54px" placeholder="Sucursal" pattern="integer" maxlength="8"></label>
                   </div>
                 </p>
       
@@ -526,11 +529,11 @@
                   </div>
           
                   <div class="small-3 columns"><label>Numero de cuenta
-                    <input name="numcuebanc2" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NoTarRefBan']; } ?>" type="text" id="numcuebanc2" size="40px" placeholder="Número de cuenta" pattern="integer"></label>
+                    <input name="numcuebanc2" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NoTarRefBan']; } ?>" type="text" id="numcuebanc2" size="40px" placeholder="Número de cuenta" maxlength="24" pattern="cuenta"></label>
                   </div>
 
                   <div class="small-3 columns"><label>Sucursal
-                    <input name="sucbanc2" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['SucRefBan']; } ?>" type="text" id="sucbanc2" size="54px" placeholder="Sucursal"></label>
+                    <input name="sucbanc2" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['SucRefBan']; } ?>" type="text" id="sucbanc2" size="54px" placeholder="Sucursal" pattern="integer" maxlength="8"></label>
                   </div>
                 </p>
       
@@ -550,7 +553,7 @@
                   </div>
 
                   <div class="small-3 columns"><label>CLABE
-                    <input name="nocuentcd" type="text" id="nocuentcd" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NoTarCarDir']; } ?>" size="40px" placeholder="Número de Cuenta (CLABE)"></label>
+                    <input name="nocuentcd" type="text" id="nocuentcd" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NoTarCarDir']; } ?>" size="40px" placeholder="Número de Cuenta (CLABE)" maxlength="18" pattern="clabe"></label>
                   </div>
                 </p>
               </div>
@@ -572,7 +575,7 @@
 
                 <p align="left">
                   <div class="small-3 columns"><label>Antiguedad desde el año
-                    <input name="antirefcom1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['AntRefCom']; } ?>" type="text" id="antirefcom1" placeholder="Antigüedad Desde el Año" pattern="integer"></label>
+                    <input name="antirefcom1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['AntRefCom']; } ?>" type="text" id="antirefcom1" placeholder="Antigüedad Desde el Año" pattern="anio" maxlength="4"></label>
                   </div>
 
                 </p>
@@ -592,7 +595,7 @@
                 </p>
                 <p align="left">
                   <div class="small-3 columns"><label>Antiguedad desde el año
-                    <input name="antirefcom2" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['AntRefCom2']; } ?>" type="text" id="antirefcom2" placeholder="Antigüedad Desde el Año" pattern="integer"></label>
+                    <input name="antirefcom2" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['AntRefCom2']; } ?>" type="text" id="antirefcom2" placeholder="Antigüedad Desde el Año" pattern="anio" maxlength="4"></label>
                   </div>
                 </p>
               </div>
@@ -618,7 +621,7 @@
                   </div>
              
                   <div class="small-3 columns"><label>Puesto
-                    <input name="puestconyu" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['PuestDatCon']; } ?>" type="text" id="puestconyu" size="20px" placeholder="Puesto"></label>
+                    <input name="puestconyu" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['PuestDatCon']; } ?>" type="text" id="puestconyu" size="20px" placeholder="Puesto" pattern="alpha"></label>
                   </div>
                 </p>
               </div>
@@ -737,12 +740,12 @@
                   </div>
              
                   <div class="small-3 columns"><label>Código Postal 
-                    <input name="textfield50" type="text" id="textfield50" size="50%"  value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['CPBeneficiario']; } ?>"></label>
+                    <input name="textfield50" type="text" id="textfield50" size="50%"  value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['CPBeneficiario']; } ?>" pattern="cpostal" maxlength="5"></label>
                   </div>
             
 
                   <div class="small-3 columns"><label>País
-                    <input name="textfield51" type="text" id="textfield51" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['PaisBeneficiario']; } ?>" ></label>
+                    <input name="textfield51" type="text" id="textfield51" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['PaisBeneficiario']; } ?>" pattern="alpha"></label>
                   </div>
             
 
@@ -762,12 +765,12 @@
               
 
                   <div class="small-3 columns"><label> Parentesco
-                    <input name="textfield55" type="text" id="textfield55" size="50%"  value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['ParentescoBeneficiario']; } ?>"></label>
+                    <input name="textfield55" type="text" id="textfield55" size="50%"  value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['ParentescoBeneficiario']; } ?>" pattern="alpha"></label>
                   </div>
 
               
-                  <div class="small-3 columns"><label> Porciento
-                    <input name="textfield56" type="text" id="textfield56" size="50%"   value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['PorcientoBeneficiario']; } ?>"></label>
+                  <div class="small-3 columns"><label> Porcentaje
+                    <input name="textfield56" type="text" id="textfield56" size="50%"   value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['PorcientoBeneficiario']; } ?>" pattern="porcentaje" maxlength="3"></label>
                   </div>
               
 
@@ -799,7 +802,7 @@
                   </div>
              
                   <div class="small-3 columns"><label> Ocupación o Profesión 
-                    <input name="textfield62" type="text" id="textfield62" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['OcuProfBeneficiario']; } ?>" ></label>
+                    <input name="textfield62" type="text" id="textfield62" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['OcuProfBeneficiario']; } ?>" pattern="alpha"></label>
                   </div>
                 </p>
               </div> 

@@ -2472,7 +2472,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       
       telefono: /^(\d{3})-(\d{7})/,
 
-      cpostal: /^\d{4,5}/
+      cpostal: /^\d{4,5}$/,
+
+      cuenta: /^([A-Z][A-Z]\d\d){0,1}(\d\d\d\d){5}$/,
+
+      clabe: /^\d{18}$/,
+
+      anio: /^(?:19|20)[0-9]{2}$/,
+
+      porcentaje: /^(100|\d{1,2})$/,
+
+      alpha_numeric2: /^[a-zA-Z0-9\s]+$/,
     },
 
     /**

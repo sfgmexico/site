@@ -1363,9 +1363,9 @@ function mascaratel(input){
     }
 }
 
-function calcularAntiguedad()
+function calcularAntiguedad(input,destino)
 {
-    var fecha=document.getElementById("inicoper1").value;
+    var fecha=document.getElementById(input.id).value;
     if(validate_fecha(fecha)==true)
     {
         // Si la fecha es correcta, calculamos la edad
@@ -1416,12 +1416,13 @@ function calcularAntiguedad()
        
            
         
-            document.getElementById("antemp").value=edad;
+            document.getElementById(destino).value=edad;
             
        
         
     }else{
-        document.getElementById("antemp").value=0;
+        document.getElementById(destino).value=0;
     }
 }
+
 
