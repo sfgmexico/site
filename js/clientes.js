@@ -1262,9 +1262,10 @@ function calcularEdad()
             document.getElementById("edsol").value=edad;
             $( "#edsol" ).addClass( "is-invalid-input" );
             //$('#form1').foundation('validateForm');
-        }/*else if(edad<18){
-
-        }*/else{
+        }else if(edad<18){
+            document.getElementById("edsol").value=edad;
+            $( "#edsol" ).addClass( "is-invalid-input" );
+        }else{
             document.getElementById("edsol").value=edad;
             $( "#edsol" ).removeClass( "is-invalid-input" );
         }
