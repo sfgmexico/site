@@ -343,8 +343,8 @@
                   <label>Vive en:
                 <select name="vivsol" id="vivsol"><option value="">-Seleccione una opcion-</option><option value="Casa Propia">Casa Propia</option><option value="Rentada">Rentada</option><option value="Hipotecada">Hipotecada</option><option value="Casa propiedad de sus familiares">Casa propiedad de sus familiares</option><option value="Otros especificar">Otros especificar</option></select></label>
                 </div>
-              <div class="small-3 columns">  <label>
-               <input type="text" name="vivsolesp" id="vivsolesp" style="display: none;"></label></div>
+              <div class="small-3 columns" id="divvivsolesp" style="display: none;">  <label>Especifique:
+               <input type="text" name="vivsolesp" id="vivsolesp" ></label></div>
                 </div>
            
                 <div class="row">
@@ -363,8 +363,10 @@
                        </label>
 
                     </div>
-                    <div class="small-3 columns">
-                        <input type="text" name="marcasol" id="marcasol" style="display: none;">
+                    <div class="small-3 columns" id="especifiquemarca" style="display: none;">
+                        <label>Especifique Marca:
+                        <input type="text" name="marcasol" id="marcasol" >
+                        </label>
                     </div>
                     <div class="small-3 columns">
                     <label>

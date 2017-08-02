@@ -1102,47 +1102,31 @@ function actempresarial(){
 
 
 $( "#autosol" ).change(function() {
-    if(document.getElementById('autosol').value==""){
-        document.getElementById('marcasol').style.display='none';
-    }else if(document.getElementById('autosol').value=="Si"){
-        document.getElementById('marcasol').style.display='block';
-    }else {
-        document.getElementById('marcasol').style.display='none';
-    }
-    
-  
+    autosol();
 });
 
 function autosol(){
     if(document.getElementById('autosol').value==""){
-        document.getElementById('marcasol').style.display='none';
+        document.getElementById('especifiquemarca').style.display='none';
     }else if(document.getElementById('autosol').value=="Si"){
-        document.getElementById('marcasol').style.display='block';
+        document.getElementById('especifiquemarca').style.display='block';
     }else {
-        document.getElementById('marcasol').style.display='none';
+        document.getElementById('especifiquemarca').style.display='none';
     }
     
 }
 
 $( "#vivsol" ).change(function() {
-    if(document.getElementById('vivsol').value==""){
-        document.getElementById('vivsolesp').style.display='none';
-    }else if(document.getElementById('vivsol').value=="Otros especificar"){
-        document.getElementById('vivsolesp').style.display='block';
-    }else {
-        document.getElementById('vivsolesp').style.display='none';
-    }
-    
-  
+      vivsol();
 });
 
 function vivsol(){
     if(document.getElementById('vivsol').value==""){
-        document.getElementById('vivsolesp').style.display='none';
+        document.getElementById('divvivsolesp').style.display='none';
     }else if(document.getElementById('vivsol').value=="Otros especificar"){
-        document.getElementById('vivsolesp').style.display='block';
+        document.getElementById('divvivsolesp').style.display='block';
     }else {
-        document.getElementById('vivsolesp').style.display='none';
+        document.getElementById('divvivsolesp').style.display='none';
     }
 }
 
