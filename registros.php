@@ -96,7 +96,7 @@
             <li class="tabs-title"><a href="#panel9c">Situacion Financiera</a></li>
           </ul>
           <div class="tabs-content" data-tabs-content="collapsing-tabs">
-            <div class="tabs-panel is-active" id="panel1c">
+            <div class="tabs-panel is-active" id="panel1c" >
               <div class="row">
                 <div class="small-3 columns">
                   <select name="TipoCliente" id="TipoCliente" required=""  > <option value="">-Seleccione una opción-</option> <option value="Persona Fisica">Persona Fisica</option><option value="Persona Moral">Persona Moral</option> 
@@ -434,12 +434,20 @@
                     <input name="noempleados" type="text" id="noempleados"  value="<?php if (isset($row2['Folio_Cliente'])) {  echo $row2['NoEmDatEmp']; } ?>" placeholder="Núm. de empleados"pattern="integer"></label>
                   </div>
          
-
+                  <div id="siactem" style="display: none;">
       
-                  <div class="small-3 columns" id="divdomneg" style="display: none;"> <label>Domicilio del negocio
-                    <input name="domneg" type="text" id="domneg" size="44px"  value="<?php if (isset($row2['Folio_Cliente'])) {  echo $row2['DomicilioLaboral']; } ?>" placeholder="Domicilio del negocio:"></label>
+                    <div class="small-3 columns" id="divdomneg" > <label>Domicilio (calle)
+                      <input name="domneg" type="text" id="domneg"   ></label>
+                    </div>
+
+                    <div class="small-3 columns" id="divdomnegnum" > <label>Domicilio (Número)
+                      <input name="domnegnum" type="text" id="domnegnum"  ></label>
+                    </div>
+
+                    <div class="small-3 columns" id="divcpneg" > <label>Código Postal
+                      <input name="cpneg" type="text" id="cpneg"  ></label>
+                    </div>
                   </div>
-           
                 </p>
 
 

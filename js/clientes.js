@@ -1059,42 +1059,28 @@ function civilsol(){
 
 
 $( "#actempresarial" ).change(function() {
-    if(document.getElementById('actempresarial').value==""){
-        document.getElementById('divgiroprof').style.display='none';
-        document.getElementById('divnoempleados').style.display='none';
-        document.getElementById('divdomneg').style.display='none';
-        document.getElementById('panel5c-label').style.display='none';
-    }else if(document.getElementById('actempresarial').value=="Si"){
-        document.getElementById('divgiroprof').style.display='block';
-        document.getElementById('divnoempleados').style.display='block';
-        document.getElementById('divdomneg').style.display='block';
-        document.getElementById('panel5c-label').style.display='block';
-    }else {
-        document.getElementById('divgiroprof').style.display='none';
-        document.getElementById('divnoempleados').style.display='none';
-        document.getElementById('divdomneg').style.display='none';
-        document.getElementById('panel5c-label').style.display='none';
-    }
-    
-  
+    actempresarial();
 });
 
 function actempresarial(){
     if(document.getElementById('actempresarial').value==""){
-        document.getElementById('divgiroprof').style.display='none';
+        /*document.getElementById('divgiroprof').style.display='none';
         document.getElementById('divnoempleados').style.display='none';
         document.getElementById('divdomneg').style.display='none';
-        document.getElementById('panel5c-label').style.display='none';
+        document.getElementById('panel5c-label').style.display='none';*/
+        document.getElementById('siactem').style.display='none';
     }else if(document.getElementById('actempresarial').value=="Si"){
-        document.getElementById('divgiroprof').style.display='block';
+        /*document.getElementById('divgiroprof').style.display='block';
         document.getElementById('divnoempleados').style.display='block';
         document.getElementById('divdomneg').style.display='block';
-        document.getElementById('panel5c-label').style.display='block';
+        document.getElementById('panel5c-label').style.display='block';*/
+        document.getElementById('siactem').style.display='block';
     }else {
-        document.getElementById('divgiroprof').style.display='none';
+        /*document.getElementById('divgiroprof').style.display='none';
         document.getElementById('divnoempleados').style.display='none';
         document.getElementById('divdomneg').style.display='none';
-        document.getElementById('panel5c-label').style.display='none';
+        document.getElementById('panel5c-label').style.display='none';*/
+        document.getElementById('siactem').style.display='none';
     }
     
 }
