@@ -115,7 +115,7 @@
                   <div class="small-3 columns"><label> RFC
                     <input name="rfcsol1" type="text" id="rfcsol1" value="<?php if(isset($row2['Folio_Cliente']))  { echo $row2['RFCSolicitante'][0];}?>"  pattern="rfc" onkeypress="mayusculas(this)"  ></label>
                   </div>
-                  <p align="left">
+                  
                     <div class="small-3 columns"><label>
                       Direccion
                       <input name="dirsolpm" type="text" id="dirsolpm" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['DirSolicitante']; } ?>" placeholder="Dirección / Calle" >
@@ -140,9 +140,9 @@
                     <div class="small-3 columns"><label>Codigo Postal
                       <input name="cpsolpm" type="text" id="cpsolpm"  value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['CPSolicitante']; } ?>"  placeholder="C.P." pattern="cpostal" maxlength="5"></label>
                     </div>
-                  </p>
+                  
 
-                  <p align="left">
+                
                     <div class="small-3 columns">  <label> Actividad Principal/ségun SHCP
                       <input name="actprinc" type="text" id="actprinc" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['ActPrinDatGenPM']; } ?>" placeholder="Actividad Principal/según alta o último cambio ante SHCP"></label>
                     </div>
@@ -162,16 +162,16 @@
                     <input name="antemp" type="text" id="antemp" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['AntConsEmp']; } ?>" placeholder="Antigüedad" readonly ></label>
                   </div>
                   
-                  <p align="left">
+                 
                     <div class="small-7 columns"><label>Apoderado para suscribir Títulos de Crédito y realizar actos de administración
                       <input name="apodsusc" type="text" id="apodsusc" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['ApoConsEmp']; } ?>" placeholder="Apoderado para suscribir Títulos de Crédito y realizar actos de administración" pattern="alpha"></label>
                     </div>
-                  </p>    
+                     
                 </div>
 
                 <div class="row">
                   <p align="left"><strong>DATOS DEL CONTACTO DE LA EMPRESA</strong></p>
-                  <p align="left">
+                  
                     <div class="small-3 columns"><label>Primer Nombre
                       <input name="nomconemp" type="text" id="nomconemp" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['NomDatContEmp']; } ?>" placeholder="Primer Nombre" pattern="alpha"></label>
                     </div>
@@ -184,24 +184,24 @@
                     <div class="small-3 columns"><label>Apellido Materno
                       <input name="apemaconemp" type="text" id="apemaconemp" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['ApMatDatContEmp']; } ?>" placeholder="Apellido Materno" pattern="alpha"></label>
                     </div>
-                  </p>
-                  <p align="left">
+                  
+                  
                     <div class="small-3 columns"><label>Calle y Numero
                       <input name="datobdir22" type="text" id="datobdir22" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['DirConEmp']; } ?>" placeholder="Calle y No.:" pattern="alpha_numeric2"></label>
                     </div>
                     <div class="small-3 columns"><label>Colonia
                       <input name="datobcol23" type="text" id="datobcol23" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['ColConEmp']; } ?>" placeholder="Colonia:"></label>
                     </div>
-                  </p>
-                  <p align="left">
+                  
+                 
                     <div class="small-3 columns"><label>Ciudad
                       <input name="colsol22" type="text" id="colsol22" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['CdConEmp']; } ?>" placeholder="Ciudad:"></label>
                     </div>
                     <div class="small-3 columns"><label>Estado
                       <input name="cdsol22" type="text" id="cdsol22" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['EdoConEmp']; } ?>" placeholder="Estado:"></label>
                     </div>
-                  </p>
-                  <p align="left">
+                  
+                 
                     <div class="small-3 columns"><label>Codigo Postal
                       <input name="lugnacsol22" type="text" id="lugnacsol22" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['CPConEmp']; } ?>" pattern="cpostal" maxlength="5" ></label>
                     </div>
@@ -214,14 +214,14 @@
                       <input name="telconemp1" type="text" id="telconemp1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['TelDatConEmp'][0]; } ?>"  pattern="telefono" onfocus="mascaratel(this)" ></label>
                     </div>
                   </p>
-                  <p align="left">
+                 
                     <div class="small-3 columns">  <label> Email
                       <input name="mailconemp" type="text" id="mailconemp" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['EmailDatConEmp']; } ?>" placeholder="Email" pattern="email"></label>
                     </div>
                     <div class="small-3 columns">  <label>Puesto que desempeña en la empresa
                       <input name="puesconemp" type="text" id="puesconemp" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PuestDatConEmp']; } ?>" placeholder="Puesto que desempeña en la empresa" pattern="alpha_numeric2"></label>
                     </div>
-                  </p>
+                  
                 </div>
                 
               </div>
@@ -241,10 +241,9 @@
                   <div class="small-3 columns">
                     <label>Apellido Materno<input name="apemasol" type="text" id="apemasol" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['ApMatSolicitante']; } ?>" placeholder="Apellido Materno"   pattern="alpha"></label>
                   </div>
-                </div>
 
       
-                <p align="left">
+               
                   <div class="small-3 columns">
                     <label> RFC
                     <input name="rfc1" type="text" id="rfc1" value="<?php if(isset($row2['Folio_Cliente']))  { echo $row2['RFCSolicitante'][0];}?>"   pattern="rfc" onkeypress="mayusculas(this)" > </label>
@@ -266,9 +265,9 @@
                     <label> Email
                     <input name="mailsol" type="text" id="mailsol" size="20px" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['EmailSolicitante']; } ?>" placeholder="Email" pattern="email"></label>
                   </div>
-                </p>
+                
     
-                <p align="left">
+              
                   <div class="small-5 columns"><label> Direccion / Calle
                     <input name="dirsol" type="text" id="dirsol" size="74px" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['DirSolicitante']; } ?>" placeholder="Dirección / Calle"  ></label>
                   </div>
@@ -297,9 +296,6 @@
                   </div>
        
     
-
-     
-                  <div class="row">
            
                     <div class="small-3 columns">
                       <label>Sexo
@@ -327,11 +323,10 @@
                     <div class="small-3 columns"><label>Acredita Domicilio con:
                       <input name="acdomsol" type="text" id="acdomsol" size="10px" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['AcDomDatGen']; } ?>" placeholder="Acredita Domicilio con"></label>
                     </div>
-                  </div>
-                </p>
+                
 
            
-                <p align="left">
+                
                   <div class="small-3 columns"><label> Años de residir en la ciudad
                     <input name="anosol" type="text" id="anosol" size="13" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['AnResDatGen']; } ?>" placeholder="Años de residir en la ciudad"  pattern="integer" maxlength="2"></label>
                   </div>
@@ -343,11 +338,7 @@
                   <div class="small-3 columns"><label> Arraigo en el domicilio (años)
                     <input name="arraisolanios" type="text" id="arraisolanios" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['ArDomDatGen']; } ?>"  readonly pattern="integer"></label>
                   </div>
-             
-                
-                  
-                </p>
-                <div class="row">
+                 
                 <div class="small-3 columns">
                   <label>Vive en:
                 <select name="vivsol" id="vivsol"><option value="">-Seleccione una opcion-</option><option value="Casa Propia">Casa Propia</option><option value="Rentada">Rentada</option><option value="Hipotecada">Hipotecada</option><option value="Casa propiedad de sus familiares">Casa propiedad de sus familiares</option><option value="Otros especificar">Otros especificar</option></select></label>
@@ -358,7 +349,7 @@
            
                 <div class="row">
                   <p align="left">
-                    <div class="small-5 columns">
+                    <div class="small-3 columns">
                       <label>Estado civil:
                       <select name="civilsol" id="civilsol"><option value="">-Seleccione una opción-</option><option value="Casado Bienes Mancomunados">Casado Bienes Mancomunados</option><option value="Casado Bienes Separados">Casado Bienes Separados</option><option value="Viudo">Viudo</option><option value="Divorciado">Divorciado</option><option value="Soltero">Soltero</option></select></label>
             
@@ -384,6 +375,7 @@
                   </p>
                 </div>
                 
+                <!-- -->
               </div>
 
             </div>
