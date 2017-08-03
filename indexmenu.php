@@ -52,7 +52,7 @@ if(!$_SESSION['usser']) {
 
 	<div class="title-bar" id="example-menu" titlebar-background="$white" >
 	<div class="title-bar-left" >
-	<ul class="dropdown menu" data-dropdown-menu >
+	<ul class="vertical medium-horizontal menu" data-dropdown-menu >
 	<li>
 		<a href="indexmenu.php"><i class="fi-home"></i><span>Inicio</span></a>
 	</li>
