@@ -638,7 +638,7 @@
                     <input name="rfcaccion1" type="text" id="rfcaccion1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCAcc1']; } ?>"  pattern="rfc" onkeypress="mayusculas(this)"></label>
                   </div>
                   <div class="medium-4 columns"><label>Porcentaje de las acciones
-                    <input name="porcent1" type="text" id="porcent1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAcc1']; } ?>" placeholder="%"></label>
+                    <input name="porcent1" type="text" id="porcent1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAcc1']; } ?>" placeholder="%" pattern="porcentaje" maxlength="3"></label>
                   </div>
                 </p>
                 <p align="left">
@@ -649,7 +649,7 @@
                     <input name="rfcaccion2" type="text" id="rfcaccion2" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCAcc1']; } ?>"  pattern="rfc" onkeypress="mayusculas(this)"></label>
                   </div>
                   <div class="medium-4 columns"><label>Porcentaje de las acciones
-                    <input name="porcent2" type="text" id="porcent2" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAcc1']; } ?>" placeholder="%"></label>
+                    <input name="porcent2" type="text" id="porcent2" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAcc1']; } ?>" placeholder="%" pattern="porcentaje" maxlength="3"></label>
                   </div>
                 </p>
                 <p align="left">
@@ -660,7 +660,7 @@
                     <input name="rfcaccion3" type="text" id="rfcaccion3" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCAcc1']; } ?>"  pattern="rfc" onkeypress="mayusculas(this)"></label>
                   </div>
                   <div class="medium-4 columns"><label>Porcentaje de las acciones
-                    <input name="porcent3" type="text" id="porcent3" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAcc1']; } ?>" placeholder="%"></label>
+                    <input name="porcent3" type="text" id="porcent3" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAcc1']; } ?>" placeholder="%" pattern="porcentaje" maxlength="3"></label>
                   </div>
                 </p>
                 <p align="left">
@@ -671,7 +671,7 @@
                     <input name="rfcaccion4" type="text" id="rfcaccion4" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCAcc1']; } ?>"  pattern="rfc" onkeypress="mayusculas(this)"></label>
                   </div>
                   <div class="medium-4 columns"><label>Porcentaje de las acciones
-                    <input name="porcent4" type="text" id="porcent4" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAcc1']; } ?>" placeholder="%"></label>
+                    <input name="porcent4" type="text" id="porcent4" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAcc1']; } ?>" placeholder="%" pattern="porcentaje" maxlength="3"></label>
                   </div>
                 </p>
               </div>
@@ -688,7 +688,7 @@
                 </div>
 
                 <div class="medium-4 columns"><label>Porcentaje de las acciones
-                  <input name="permoracc1" type="text" id="permoracc1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAccPM1']; } ?>" placeholder="%"></label>
+                  <input name="permoracc1" type="text" id="permoracc1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAccPM1']; } ?>" placeholder="%" pattern="porcentaje" maxlength="3"></label>
                 </div>
 
                 <div class="medium-4 columns"> <label>Nombre
@@ -700,7 +700,7 @@
                 </div>
 
                 <div class="medium-4 columns"><label>Porcentaje de las acciones
-                  <input name="permoracc2" type="text" id="permoracc2" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAccPM2']; } ?>" placeholder="%"></label>
+                  <input name="permoracc2" type="text" id="permoracc2" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAccPM2']; } ?>" placeholder="%" pattern="porcentaje" maxlength="3"></label>
                 </div>
 
               </div>
