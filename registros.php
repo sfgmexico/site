@@ -149,7 +149,7 @@
                     <div class="medium-3 columns">  <label>Cantidad de personal
                       <input name="cantperson" type="text" id="cantperson" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['CantPerDatGenPM']; } ?>" placeholder="Cantidad de personal" pattern="integer"></label>
                     </div>
-                  </p>
+                  
 
                   <div class="medium-3 columns"> <label>Inicio de operaciones:
                     <input name="inicoper1" type="date" id="inicoper1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['IniOpDatGenPM']; } ?>"  onfocus="datepick(this)" onchange="calcularAntiguedad(this,'antemp')" ></label>
@@ -162,11 +162,11 @@
                     <input name="antemp" type="text" id="antemp" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['AntConsEmp']; } ?>" placeholder="Antigüedad" readonly ></label>
                   </div>
                   
-                 
+                 <p align="left">
                     <div class="medium-7 columns"><label>Apoderado para suscribir Títulos de Crédito y realizar actos de administración
                       <input name="apodsusc" type="text" id="apodsusc" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['ApoConsEmp']; } ?>" placeholder="Apoderado para suscribir Títulos de Crédito y realizar actos de administración" pattern="alpha"></label>
                     </div>
-                     
+                     </p>
                 </div>
 
                 <div class="row">
@@ -218,10 +218,11 @@
                     <div class="medium-3 columns">  <label> Email
                       <input name="mailconemp" type="text" id="mailconemp" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['EmailDatConEmp']; } ?>" placeholder="Email" pattern="email"></label>
                     </div>
+                    <p align="left">
                     <div class="medium-3 columns">  <label>Puesto que desempeña en la empresa
                       <input name="puesconemp" type="text" id="puesconemp" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PuestDatConEmp']; } ?>" placeholder="Puesto que desempeña en la empresa" pattern="alpha_numeric2"></label>
                     </div>
-                  
+                  </p>
                 </div>
                 
               </div>
