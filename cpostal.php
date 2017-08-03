@@ -20,10 +20,7 @@ function leer($url,$cpostal){
     }
 
      echo json_encode($miArray);
-         
-    
-  
-           }
+           
     
     }catch (Exception $e) {
       echo 'Caught exception:---->>>> ',  $e->getMessage(), "\n";
