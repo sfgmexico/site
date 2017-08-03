@@ -490,7 +490,7 @@
                   <label>Municipio</label><input type="text" name="muni">
                   </div>
                   <div class="medium-3 columns">
-                  <label>Ciudad</label><input type="text" name="">
+                  <label>Ciudad</label><input type="text" name="ciudad">
                   </div>
                 </p>
               </div>
@@ -508,7 +508,12 @@
                   <div class="medium-3 columns"><label>Telefono
                     <input name="telref12" type="text" id="telref12" size="1px" value="<?php if(isset($row['Folio_Cliente'])&& $row['TelRefPer']!='') {  echo $row['TelRefPer'][0]; } ?>"    pattern="telefono" onfocus="mascaratel(this)" ></label>
                   </div>
+
+
+
+
                 </p>
+
               </div>
             </div>
     
@@ -659,7 +664,7 @@
                   <div class="medium-4 columns"><label>RFC
                     <input name="rfcaccion1" type="text" id="rfcaccion1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCAcc1']; } ?>"  pattern="rfc" onkeypress="mayusculas(this)"></label>
                   </div>
-<<<<<<< HEAD
+
                   <div class="medium-4 columns">
                     <label>Porcentaje de las acciones
                     </label>
@@ -667,10 +672,7 @@
     <span class="input-group-label">%</span>
                     <input class="input-group-field"  name="porcent1" type="url" id="porcent1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAcc1']; } ?>">
   </div>
-=======
-                  <div class="medium-4 columns"><label>Porcentaje de las acciones
-                    <input name="porcent1" type="text" id="porcent1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAcc1']; } ?>" placeholder="%" pattern="porcentaje" maxlength="3"></label>
->>>>>>> cd01b6f53e66d4351f08ac61aef49d035525e248
+
                   </div>
                 </p>
                 <p align="left">
@@ -682,7 +684,7 @@
                     <input name="rfcaccion2" type="text" id="rfcaccion2" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCAcc1']; } ?>"  pattern="rfc" onkeypress="mayusculas(this)"></label>
                   </div>
                   <div class="medium-4 columns"><label>Porcentaje de las acciones
-<<<<<<< HEAD
+
 
                    </label>
                                      <div class="input-group">
@@ -691,9 +693,7 @@
  </div>  
                   
 
-=======
-                    <input name="porcent2" type="text" id="porcent2" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAcc1']; } ?>" placeholder="%" pattern="porcentaje" maxlength="3"></label>
->>>>>>> cd01b6f53e66d4351f08ac61aef49d035525e248
+
                   </div>
                 </p>
                 <p align="left">
@@ -704,7 +704,7 @@
                     <input name="rfcaccion3" type="text" id="rfcaccion3" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCAcc1']; } ?>"  pattern="rfc" onkeypress="mayusculas(this)"></label>
                   </div>
                   <div class="medium-4 columns"><label>Porcentaje de las acciones
-<<<<<<< HEAD
+
 
 
                    </label>
@@ -713,9 +713,7 @@
                    <input class="input-group-field" name="porcent3" type="text" id="porcent3" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAcc1']; } ?>" >
  </div>
 
-=======
-                    <input name="porcent3" type="text" id="porcent3" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAcc1']; } ?>" placeholder="%" pattern="porcentaje" maxlength="3"></label>
->>>>>>> cd01b6f53e66d4351f08ac61aef49d035525e248
+
                   </div>
                 </p>
                 <p align="left">
@@ -726,7 +724,7 @@
                     <input name="rfcaccion4" type="text" id="rfcaccion4" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCAcc1']; } ?>"  pattern="rfc" onkeypress="mayusculas(this)"></label>
                   </div>
                   <div class="medium-4 columns"><label>Porcentaje de las acciones
-<<<<<<< HEAD
+
                     </label>
                                      <div class="input-group">
    <span class="input-group-label">%</span>
@@ -734,9 +732,7 @@
  </div>
 
 
-=======
-                    <input name="porcent4" type="text" id="porcent4" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAcc1']; } ?>" placeholder="%" pattern="porcentaje" maxlength="3"></label>
->>>>>>> cd01b6f53e66d4351f08ac61aef49d035525e248
+
                   </div>
                 </p>
               </div>
@@ -753,7 +749,6 @@
                 </div>
 
                 <div class="medium-4 columns"><label>Porcentaje de las acciones
-<<<<<<< HEAD
                
                    </label>
                                   <div class="input-group">
@@ -761,9 +756,7 @@
                    <input class="input-group-field"   name="permoracc1" type="text" id="permoracc1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAccPM1']; } ?>" >
  </div>
 
-=======
-                  <input name="permoracc1" type="text" id="permoracc1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAccPM1']; } ?>" placeholder="%" pattern="porcentaje" maxlength="3"></label>
->>>>>>> cd01b6f53e66d4351f08ac61aef49d035525e248
+
                 </div>
 
                 <div class="medium-4 columns"> <label>Nombre
@@ -775,16 +768,13 @@
                 </div>
 
                 <div class="medium-4 columns"><label>Porcentaje de las acciones
-<<<<<<< HEAD
+
                   </label>
                                    <div class="input-group">
    <span class="input-group-label">%</span>
                    <input class="input-group-field"  name="permoracc2" type="text" id="permoracc2" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAccPM2']; } ?>" >
  </div>
 
-=======
-                  <input name="permoracc2" type="text" id="permoracc2" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['PorAccPM2']; } ?>" placeholder="%" pattern="porcentaje" maxlength="3"></label>
->>>>>>> cd01b6f53e66d4351f08ac61aef49d035525e248
                 </div>
 
               </div>
