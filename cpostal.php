@@ -20,10 +20,9 @@ function leer($url,$cpostal){
     }
 
      echo json_encode($miArray);
-           echo "<br><br><br>";
+         
     
-    foreach ($miArray as $key ) {
-               echo $key['Fracc']."<br>";
+  
            }
     
     }catch (Exception $e) {
