@@ -657,7 +657,27 @@
                   <div class="medium-3 columns"><label>Antiguedad desde el año
                     <input name="antirefcom1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['AntRefCom']; } ?>" type="text" id="antirefcom1" placeholder="Antigüedad Desde el Año" pattern="anio" maxlength="4"></label>
                   </div>
-
+   <div class="medium-3 columns">
+                  <label>Direccion</label>  <input type="text" name="dir" >
+                  </div>    
+                  <div class="medium-3 columns">
+                  <label>Numero</label><input type="text" name="numero">
+                  </div>         
+                  <div class="medium-3 columns">
+                  <label>CP</label><input type="text" name="CP">
+                  </div>
+                  <div class="medium-3 columns">
+                  <label>Colonia</label><input type="text" name="Colonia">
+                  </div>
+                  <div class="medium-3 columns">
+                  <label>Estado</label><input type="text" name="estado">
+                  </div>
+                  <div class="medium-3 columns">
+                  <label>Municipio</label><input type="text" name="muni">
+                  </div>
+                  <div class="medium-3 columns">
+                  <label>Ciudad</label><input type="text" name="ciudad">
+                  </div>
                 </p>
      
 
@@ -676,6 +696,29 @@
                 <p align="left">
                   <div class="medium-3 columns"><label>Antiguedad desde el año
                     <input name="antirefcom2" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['AntRefCom2']; } ?>" type="text" id="antirefcom2" placeholder="Antigüedad Desde el Año" pattern="anio" maxlength="4"></label>
+                  </div>
+
+
+                     <div class="medium-3 columns">
+                  <label>Direccion</label>  <input type="text" name="dir" >
+                  </div>    
+                  <div class="medium-3 columns">
+                  <label>Numero</label><input type="text" name="numero">
+                  </div>         
+                  <div class="medium-3 columns">
+                  <label>CP</label><input type="text" name="CP">
+                  </div>
+                  <div class="medium-3 columns">
+                  <label>Colonia</label><input type="text" name="Colonia">
+                  </div>
+                  <div class="medium-3 columns">
+                  <label>Estado</label><input type="text" name="estado">
+                  </div>
+                  <div class="medium-3 columns">
+                  <label>Municipio</label><input type="text" name="muni">
+                  </div>
+                  <div class="medium-3 columns">
+                  <label>Ciudad</label><input type="text" name="ciudad">
                   </div>
                 </p>
               </div>
