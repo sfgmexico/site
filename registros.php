@@ -366,7 +366,7 @@
 
 
                            <div class="input-group">
-                    <input class="input-group-field" name="arraisolanios" type="text" id="arraisolanios" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['ArDomDatGen']; } ?>"  readonly pattern="integer">
+                    <input class="input-group-field" name="arraisolanios" type="text" id="arraisolanios"   readonly pattern="integer">
                                                     
    <span class="input-group-label">Años </span>
                                                     
@@ -472,26 +472,26 @@
                   </div>
          
                   
-                     <div class="medium-3 columns">
-                  <label>Direccion</label>  <input type="text" name="dir" >
+                     <div class="medium-3 columns" id="divdomneg">
+                  <label>Direccion</label>  <input type="text" name="domneg" id="domneg" >
                   </div>    
-                  <div class="medium-3 columns">
-                  <label>Numero</label><input type="text" name="numero">
+                  <div class="medium-3 columns" id="divnumdomneg">
+                  <label>Numero</label><input type="text" name="numdomneg" id="numdomneg">
                   </div>         
-                  <div class="medium-3 columns">
-                  <label>CP</label><input type="text" name="CP">
+                  <div class="medium-3 columns" id="divcpneg">
+                  <label>CP</label><input type="text" name="cpneg" id="cpneg">
                   </div>
-                  <div class="medium-3 columns">
-                  <label>Colonia</label><input type="text" name="Colonia">
+                  <div class="medium-3 columns" id="divcolneg">
+                  <label>Colonia</label><input type="text" name="colneg" id="colneg">
                   </div>
-                  <div class="medium-3 columns">
-                  <label>Estado</label><input type="text" name="estado">
+                  <div class="medium-3 columns" id="divestneg">
+                  <label>Estado</label><input type="text" name="estneg" id="estneg">
                   </div>
-                  <div class="medium-3 columns">
-                  <label>Municipio</label><input type="text" name="muni">
+                  <div class="medium-3 columns" id="divmunneg">
+                  <label>Municipio</label><input type="text" name="munneg" id="munneg">
                   </div>
-                  <div class="medium-3 columns">
-                  <label>Ciudad</label><input type="text" name="ciudad">
+                  <div class="medium-3 columns" id="divcdneg">
+                  <label>Ciudad</label><input type="text" name="cdneg" id="cdneg">
                   </div>
                 </p>
 
@@ -516,25 +516,25 @@
                   </div>
 
                   <div class="medium-3 columns">
-                  <label>Direccion</label>  <input type="text" name="dir" >
+                  <label>Direccion</label>  <input type="text" name="refperdir" id="refperdir">
                   </div>    
                   <div class="medium-3 columns">
-                  <label>Numero</label><input type="text" name="numero">
+                  <label>Numero</label><input type="text" name="refpernumdir" id="refpernumdir">
                   </div>         
                   <div class="medium-3 columns">
-                  <label>CP</label><input type="text" name="CP">
+                  <label>CP</label><input type="text" name="refpercp" id="refpercp">
                   </div>
                   <div class="medium-3 columns">
-                  <label>Colonia</label><input type="text" name="Colonia">
+                  <label>Colonia</label><input type="text" name="refpercol" id="refpercol">
                   </div>
                   <div class="medium-3 columns">
-                  <label>Estado</label><input type="text" name="estado">
+                  <label>Estado</label><input type="text" name="refperest" id="refperest">
                   </div>
                   <div class="medium-3 columns">
-                  <label>Municipio</label><input type="text" name="muni">
+                  <label>Municipio</label><input type="text" name="refpermun" id="refpermun">
                   </div>
                   <div class="medium-3 columns">
-                  <label>Ciudad</label><input type="text" name="ciudad">
+                  <label>Ciudad</label><input type="text" name="refpercd" id="refpercd">
                   </div>
                 </p>
               </div>
@@ -555,25 +555,25 @@
 
 
                   <div class="medium-3 columns">
-                  <label>Direccion</label>  <input type="text" name="dir" >
+                  <label>Direccion</label>  <input type="text" name="refperdir2" id="refperdir2">
                   </div>    
                   <div class="medium-3 columns">
-                  <label>Numero</label><input type="text" name="numero">
+                  <label>Numero</label><input type="text" name="refpernumdir2" id="refpernumdir2">
                   </div>         
                   <div class="medium-3 columns">
-                  <label>CP</label><input type="text" name="CP">
+                  <label>CP</label><input type="text" name="refpercp2" id="refpercp2">
                   </div>
                   <div class="medium-3 columns">
-                  <label>Colonia</label><input type="text" name="Colonia">
+                  <label>Colonia</label><input type="text" name="refpercol2" id="refpercol2">
                   </div>
                   <div class="medium-3 columns">
-                  <label>Estado</label><input type="text" name="estado">
+                  <label>Estado</label><input type="text" name="refperest2" id="refperest2">
                   </div>
                   <div class="medium-3 columns">
-                  <label>Municipio</label><input type="text" name="muni">
+                  <label>Municipio</label><input type="text" name="refpermun2" id="refpermun2">
                   </div>
                   <div class="medium-3 columns">
-                  <label>Ciudad</label><input type="text" name="ciudad">
+                  <label>Ciudad</label><input type="text" name="refpercd2" id="refpercd2">
                   </div>
 
                 </p>

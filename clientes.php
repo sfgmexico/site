@@ -173,7 +173,7 @@ $status="Finalizado";
     		AcreditaDomPF='".$_REQUEST['acdomsol']."', 
     		RecidirCiudadPF='".$_REQUEST['anosol']."', 
     		ArraigoDomPF='".$_REQUEST['arraisol']."', 
-            
+            ArraigoAniosDomPF='".$_REQUEST['arraisolanios']."',
     		ViviendaPF='".$_REQUEST['vivsol']."', 
     		EspViviendaPF='".$_REQUEST['vivsolesp']."',
     		EstCivilPF='".$_REQUEST['civilsol']."', 
@@ -184,19 +184,40 @@ $status="Finalizado";
     		PuestoPF='".$_REQUEST['puestosol']."', 
     		DepartamentoPF='".$_REQUEST['depasol']."', 
     		DesdeEmpPF='".$_REQUEST['desdesol']."', 
+            DesdeAniosEmpPF='".$_REQUEST['desdesolanios']."', 
     		CompaniaPF='".$_REQUEST['compasol']."', 
     		TelefonoEmpPF='".$_REQUEST['compatelsol1']."', 
     		ExtensionEmpPF='".$_REQUEST['compatelsolext']."', 
     		GiroPF='".$_REQUEST['giroprof']."', 
     		NumEmpleadosPF='".$_REQUEST['noempleados']."', 
     		DomicilioNegPF='".$_REQUEST['domneg']."', 
+            NumDomicilioNegPF='".$_REQUEST['numdomneg']."', 
+            CPNegPF='".$_REQUEST['cpneg']."',
+            ColoniaNegPF='".$_REQUEST['colneg']."',
+            EstadoNegPF='".$_REQUEST['estneg']."',
+            MunicipioNegPF='".$_REQUEST['munneg']."',
+            CiudadNegPF='".$_REQUEST['cdneg']."',
     		RefPerNom1PF='".$_REQUEST['nomref1']."', 
     		RefPerParentesco1PF='".$_REQUEST['parenref1']."',
     		RefPerTelefono1PF='".$_REQUEST['telref11']."', 
+            RefPerDirPF='".$_REQUEST['refperdir']."',
+            RefPerNumDirPF='".$_REQUEST['refpernumdir']."',
+            RefPerCPPF='".$_REQUEST['refpercp']."',
+            RefPerColPF='".$_REQUEST['refpercol']."',
+            RefPerEstPF='".$_REQUEST['refperest']."',
+            RefPerMunPF='".$_REQUEST['refpermun']."',
+            RefPerCdPF='".$_REQUEST['refpercd']."',
     		RefPerNom2PF='".$_REQUEST['nomref2']."', 
     		RefPerParentesco2PF='".$_REQUEST['parenref2']."', 
     		RefPerTelefono2PF='".$_REQUEST['telref12']."', 
-    		Banco1='".$_REQUEST['refbanc']."', 
+    		RefPerDirPF2='".$_REQUEST['refperdir2']."',
+            RefPerNumDirPF2='".$_REQUEST['refpernumdir2']."',
+            RefPerCPPF2='".$_REQUEST['refpercp2']."',
+            RefPerColPF2='".$_REQUEST['refpercol2']."',
+            RefPerEstPF2='".$_REQUEST['refperest2']."',
+            RefPerMunPF2='".$_REQUEST['refpermun2']."',
+            RefPerCdPF2='".$_REQUEST['refpercd2']."',
+            Banco1='".$_REQUEST['refbanc']."', 
     		CuentaBanc1='".$_REQUEST['numcuebanc']."', 
     		SucursalBanc1='".$_REQUEST['sucbanc1']."', 
     		FechaApertura1='".$_REQUEST['aperbanc1d']."', 
@@ -209,10 +230,24 @@ $status="Finalizado";
     		RefComEmp1='".$_REQUEST['refcomemp1']."', 
     		RefComTel1='".$_REQUEST['telrefcom11']."',
     		RefComAnt1='".$_REQUEST['antirefcom1']."', 
+
+
+
+
+
+
+
     		RefComEmp2='".$_REQUEST['refcomemp2']."', 
     		RefComTel2='".$_REQUEST['telrefcom22']."', 
     		RefComAnt2='".$_REQUEST['antirefcom2']."', 
-    		ConyugeNom='".$_REQUEST['conyunom']."', ConyugeApPat='".$_REQUEST['conyuape1']."', ConyugeApMat='".$_REQUEST['conyuape2']."', ConyugeCompania='".$_REQUEST['compaconyu']."', ConyugePuesto='".$_REQUEST['puestconyu']."', 
+    		
+
+
+
+
+
+
+            ConyugeNom='".$_REQUEST['conyunom']."', ConyugeApPat='".$_REQUEST['conyuape1']."', ConyugeApMat='".$_REQUEST['conyuape2']."', ConyugeCompania='".$_REQUEST['compaconyu']."', ConyugePuesto='".$_REQUEST['puestconyu']."', 
     		BeneficiarioNom='".$_REQUEST['benesol3']."', 
     		BeneficiarioApPat='".$_REQUEST['benesol1']."', 
     		BeneficiarioApMat='".$_REQUEST['benesol2']."', 
