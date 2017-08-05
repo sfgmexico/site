@@ -230,23 +230,23 @@ $status="Finalizado";
     		RefComEmp1='".$_REQUEST['refcomemp1']."', 
     		RefComTel1='".$_REQUEST['telrefcom11']."',
     		RefComAnt1='".$_REQUEST['antirefcom1']."', 
-
-
-
-
-
-
-
+            RefComDir='".$_REQUEST['refcomdir']."', 
+            RefComNumDir='".$_REQUEST['refcomnumdir']."', 
+            RefComCP='".$_REQUEST['refcomcp']."', 
+            RefComCol='".$_REQUEST['refcomcol']."', 
+            RefComEst='".$_REQUEST['refcomest']."', 
+            RefComMun='".$_REQUEST['refcommun']."', 
+            RefComCd='".$_REQUEST['refcomcd']."', 
     		RefComEmp2='".$_REQUEST['refcomemp2']."', 
     		RefComTel2='".$_REQUEST['telrefcom22']."', 
     		RefComAnt2='".$_REQUEST['antirefcom2']."', 
-    		
-
-
-
-
-
-
+    		RefComDir2='".$_REQUEST['refcomdir2']."', 
+            RefComNumDir2='".$_REQUEST['refcomnumdir2']."', 
+            RefComCP2='".$_REQUEST['refcomcp2']."', 
+            RefComCol2='".$_REQUEST['refcomcol2']."', 
+            RefComEst2='".$_REQUEST['refcomest2']."', 
+            RefComMun2='".$_REQUEST['refcommun2']."', 
+            RefComCd2='".$_REQUEST['refcomcd2']."', 
             ConyugeNom='".$_REQUEST['conyunom']."', ConyugeApPat='".$_REQUEST['conyuape1']."', ConyugeApMat='".$_REQUEST['conyuape2']."', ConyugeCompania='".$_REQUEST['compaconyu']."', ConyugePuesto='".$_REQUEST['puestconyu']."', 
     		BeneficiarioNom='".$_REQUEST['benesol3']."', 
     		BeneficiarioApPat='".$_REQUEST['benesol1']."', 

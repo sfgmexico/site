@@ -666,25 +666,25 @@
                     <input name="antirefcom1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['AntRefCom']; } ?>" type="text" id="antirefcom1" placeholder="Antigüedad Desde el Año" pattern="anio" maxlength="4"></label>
                   </div>
    <div class="medium-3 columns">
-                  <label>Direccion</label>  <input type="text" name="dir" >
+                  <label>Direccion</label>  <input type="text" name="refcomdir" id="refcomdir" >
                   </div>    
                   <div class="medium-3 columns">
-                  <label>Numero</label><input type="text" name="numero">
+                  <label>Numero</label><input type="text" name="refcomnumdir" id="refcomnumdir" >
                   </div>         
                   <div class="medium-3 columns">
-                  <label>CP</label><input type="text" name="CP">
+                  <label>CP</label><input type="text" name="refcomcp" id="refcomcp" >
                   </div>
                   <div class="medium-3 columns">
-                  <label>Colonia</label><input type="text" name="Colonia">
+                  <label>Colonia</label><input type="text" name="refcomcol" id="refcomcol" >
                   </div>
                   <div class="medium-3 columns">
-                  <label>Estado</label><input type="text" name="estado">
+                  <label>Estado</label><input type="text" name="refcomest" id="refcomest" >
                   </div>
                   <div class="medium-3 columns">
-                  <label>Municipio</label><input type="text" name="muni">
+                  <label>Municipio</label><input type="text" name="refcommun" id="refcommun" >
                   </div>
                   <div class="medium-3 columns">
-                  <label>Ciudad</label><input type="text" name="ciudad">
+                  <label>Ciudad</label><input type="text" name="refcomcd" id="refcomcd" >
                   </div>
                 </p>
      
@@ -708,25 +708,25 @@
 
 
                      <div class="medium-3 columns">
-                  <label>Direccion</label>  <input type="text" name="dir" >
+                  <label>Direccion</label>  <input type="text" name="refcomdir2" id="refcomdir2"  >
                   </div>    
                   <div class="medium-3 columns">
-                  <label>Numero</label><input type="text" name="numero">
+                  <label>Numero</label><input type="text" name="refcomnumdir2" id="refcomnumdir2">
                   </div>         
                   <div class="medium-3 columns">
-                  <label>CP</label><input type="text" name="CP">
+                  <label>CP</label><input type="text" name="refcomcp2" id="refcomcp2">
                   </div>
                   <div class="medium-3 columns">
-                  <label>Colonia</label><input type="text" name="Colonia">
+                  <label>Colonia</label><input type="text" name="refcomcol2" id="refcomcol2" >
                   </div>
                   <div class="medium-3 columns">
-                  <label>Estado</label><input type="text" name="estado">
+                  <label>Estado</label><input type="text" name="refcomest2" id="refcomest2">
                   </div>
                   <div class="medium-3 columns">
-                  <label>Municipio</label><input type="text" name="muni">
+                  <label>Municipio</label><input type="text" name="refcommun2" id="refcommun2" >
                   </div>
                   <div class="medium-3 columns">
-                  <label>Ciudad</label><input type="text" name="ciudad">
+                  <label>Ciudad</label><input type="text" name="refcomcd2" id="refcomcd2" >
                   </div>
                 </p>
               </div>
