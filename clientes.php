@@ -173,6 +173,7 @@ $status="Finalizado";
     		AcreditaDomPF='".$_REQUEST['acdomsol']."', 
     		RecidirCiudadPF='".$_REQUEST['anosol']."', 
     		ArraigoDomPF='".$_REQUEST['arraisol']."', 
+            
     		ViviendaPF='".$_REQUEST['vivsol']."', 
     		EspViviendaPF='".$_REQUEST['vivsolesp']."',
     		EstCivilPF='".$_REQUEST['civilsol']."', 

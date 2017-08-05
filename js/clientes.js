@@ -1002,6 +1002,7 @@ function cambiacartas(){
 		document.getElementById('tabpanel7c').style.display='block';
         document.getElementById('tabpanel3c').style.display='none';
         document.getElementById('tabpanel6c').style.display='none';
+        document.getElementById('panel5c-label').style.display='block';
 	}
 	
 
@@ -1009,26 +1010,7 @@ function cambiacartas(){
 }
 
 $( "#TipoCliente" ).change(function() {
-    if(document.getElementById('TipoCliente').value==""){
-        document.getElementById('pfa').style.display='none';
-        document.getElementById('pm').style.display='none';
-        document.getElementById('tabpanel7c').style.display='none';
-        document.getElementById('tabpanel2c').style.display='none';
-        document.getElementById('tabpanel3c').style.display='none';
-    }else if(document.getElementById('TipoCliente').value=="Persona Fisica"){
-        document.getElementById("pfa").style.display = "block";
-        document.getElementById('tabpanel2c').style.display='block';
-        document.getElementById('pm').style.display='none';
-        document.getElementById('tabpanel7c').style.display='none';
-        document.getElementById('tabpanel3c').style.display='block';
-    }else if(document.getElementById('TipoCliente').value=="Persona Moral"){
-        document.getElementById('tabpanel2c').style.display='none';
-        document.getElementById('pfa').style.display='none';
-        document.getElementById('pm').style.display='block';
-        document.getElementById('tabpanel7c').style.display='block';
-        document.getElementById('tabpanel3c').style.display='none';
-        document.getElementById('tabpanel6c').style.display='none';
-    }
+    cambiacartas();
     
   
 });
@@ -1068,19 +1050,19 @@ function actempresarial(){
         document.getElementById('divnoempleados').style.display='none';
         document.getElementById('divdomneg').style.display='none';
         document.getElementById('panel5c-label').style.display='none';
-        document.getElementById('siactem').style.display='none';
+        
     }else if(document.getElementById('actempresarial').value=="Si"){
         document.getElementById('divgiroprof').style.display='block';
         document.getElementById('divnoempleados').style.display='block';
         document.getElementById('divdomneg').style.display='block';
         document.getElementById('panel5c-label').style.display='block';
-        document.getElementById('siactem').style.display='block';
+        
     }else {
         document.getElementById('divgiroprof').style.display='none';
         document.getElementById('divnoempleados').style.display='none';
         document.getElementById('divdomneg').style.display='none';
         document.getElementById('panel5c-label').style.display='none';
-        document.getElementById('siactem').style.display='none';
+        
     }
     
 }
