@@ -472,19 +472,27 @@
                   </div>
          
                   
-      
-                    <div class="medium-3 columns" id="divdomneg" > <label>Domicilio (calle)
-                      <input name="domneg" type="text" id="domneg"   ></label>
-                    </div>
-
-                    <div class="medium-3 columns" id="divdomnegnum" > <label>Domicilio (Número)
-                      <input name="domnegnum" type="text" id="domnegnum"  ></label>
-                    </div>
-
-                    <div class="medium-3 columns" id="divcpneg" > <label>Código Postal
-                      <input name="cpneg" type="text" id="cpneg"  ></label>
-                    </div>
-                  
+                     <div class="medium-3 columns">
+                  <label>Direccion</label>  <input type="text" name="dir" >
+                  </div>    
+                  <div class="medium-3 columns">
+                  <label>Numero</label><input type="text" name="numero">
+                  </div>         
+                  <div class="medium-3 columns">
+                  <label>CP</label><input type="text" name="CP">
+                  </div>
+                  <div class="medium-3 columns">
+                  <label>Colonia</label><input type="text" name="Colonia">
+                  </div>
+                  <div class="medium-3 columns">
+                  <label>Estado</label><input type="text" name="estado">
+                  </div>
+                  <div class="medium-3 columns">
+                  <label>Municipio</label><input type="text" name="muni">
+                  </div>
+                  <div class="medium-3 columns">
+                  <label>Ciudad</label><input type="text" name="ciudad">
+                  </div>
                 </p>
 
 
