@@ -36,26 +36,57 @@ switch ($_REQUEST['function']) {
 
 
     case "modificacioncliente":
+
+        session_start();
         $status="Incompleto";
 
        
         
-        if(($_REQUEST['TipoCliente']=="Persona Fisica") 
-
+       if(($_REQUEST['TipoCliente']=="Persona Fisica") 
             && 
-
-
-            (($_REQUEST['actempresarial']== "Si" && ($_REQUEST['puestosol']!='' && $_REQUEST['depasol']!='' && $_REQUEST['desdesol']!='' && $_REQUEST['compasol']!='' && $_REQUEST['compatelsol1']!='' && $_REQUEST['giroprof']!='' && $_REQUEST['noempleados']!='' && $_REQUEST['domneg']!='' && $_REQUEST['refcomemp1']!='' && $_REQUEST['telrefcom11']!='' && $_REQUEST['antirefcom1']!='')) || ($_REQUEST['actempresarial']== "No" && ($_REQUEST['puestosol']!='' && $_REQUEST['depasol']!='' && $_REQUEST['desdesol']!='' && $_REQUEST['compasol']!='' && $_REQUEST['compatelsol1']!=''))) 
-
-            && 
-
-
-
             (($_REQUEST['vivsol']=="Otros especificar" && $_REQUEST['vivsolesp']!='') || ($_REQUEST['vivsol']!="" && $_REQUEST['vivsol']!="Otros especificar")) 
+
+
 
             && 
 
             (($_REQUEST['autosol']=='Si' && $_REQUEST['marcasol']!='') || ($_REQUEST['autosol']!='' && $_REQUEST['autosol']!='Si' )) 
+
+
+
+
+            && 
+
+             (($_REQUEST['actempresarial']== "Si" && ($_REQUEST['puestosol']!='' && $_REQUEST['depasol']!='' && $_REQUEST['desdesol']!='' && $_REQUEST['desdesolanios']!='' && $_REQUEST['compasol']!='' && $_REQUEST['compatelsol1']!='' && $_REQUEST['giroprof']!='' && $_REQUEST['noempleados']!='' && $_REQUEST['domneg']!='' && $_REQUEST['numdomneg']!='' && $_REQUEST['cpneg']!='' && $_REQUEST['colneg']!='' && $_REQUEST['estneg']!='' && $_REQUEST['munneg']!=''))
+
+
+
+                || ($_REQUEST['actempresarial']== "No" && ($_REQUEST['puestosol']!='' && $_REQUEST['depasol']!='' && $_REQUEST['desdesol']!='' && $_REQUEST['desdesolanios']!='' && $_REQUEST['compasol']!='' && $_REQUEST['compatelsol1']!=''  && $_REQUEST['domneg']!='' && $_REQUEST['numdomneg']!='' && $_REQUEST['cpneg']!='' && $_REQUEST['colneg']!='' && $_REQUEST['estneg']!='' && $_REQUEST['munneg']!='' ))) 
+
+            &&
+
+            (($_REQUEST['nomref1']!='' && $_REQUEST['parenref1']!='' && $_REQUEST['telref11']!='' && $_REQUEST['refperdir']!='' && $_REQUEST['refpernumdir']!='' && $_REQUEST['refpercp']!='' && $_REQUEST['refpercol']!='' && $_REQUEST['refperest']!='' && $_REQUEST['refpermun']!='') )
+
+            &&
+
+
+            (($_REQUEST['nomref2']!='' && $_REQUEST['parenref2']!='' && $_REQUEST['telref12']!='' && $_REQUEST['refperdir2']!='' && $_REQUEST['refpernumdir2']!='' && $_REQUEST['refpercp2']!='' && $_REQUEST['refpercol2']!='' && $_REQUEST['refperest2']!='' && $_REQUEST['refpermun2']!='') || ($_REQUEST['nomref2']=='' && $_REQUEST['parenref2']=='' && $_REQUEST['telref12']=='' && $_REQUEST['refperdir2']=='' && $_REQUEST['refpernumdir2']=='' && $_REQUEST['refpercp2']=='' && $_REQUEST['refpercol2']=='' && $_REQUEST['refperest2']=='' && $_REQUEST['refpermun2']==''))
+
+            &&
+
+            (($_REQUEST['refbanc']!='' && $_REQUEST['numcuebanc']!='' && $_REQUEST['sucbanc1']!='' && $_REQUEST['aperbanc1d']!='' ) 
+                
+                && ($_REQUEST['refbanc2']!='' && $_REQUEST['numcuebanc2']!='' && $_REQUEST['sucbanc2']!='' && $_REQUEST['aperbanc2d']!='' || $_REQUEST['refbanc2']=='' && $_REQUEST['numcuebanc2']=='' && $_REQUEST['sucbanc2']=='' && $_REQUEST['aperbanc2d']=='' ) 
+
+                && ($_REQUEST['cargdir']!='' && $_REQUEST['nocuentcd']!='' || $_REQUEST['cargdir']=='' && $_REQUEST['nocuentcd']==''))
+
+            &&
+
+            (($_REQUEST['refcomemp1']!='' && $_REQUEST['telrefcom11']!='' && $_REQUEST['antirefcom1']!='' && $_REQUEST['refcomdir']!='' && $_REQUEST['refcomnumdir']!='' && $_REQUEST['refcomcp']!='' && $_REQUEST['refcomcol']!='' && $_REQUEST['refcomest']!='' && $_REQUEST['refcommun']!=''))
+
+            &&
+
+            (($_REQUEST['refcomemp2']!='' && $_REQUEST['telrefcom22']!='' && $_REQUEST['antirefcom2']!='' && $_REQUEST['refcomdir2']!='' && $_REQUEST['refcomnumdir2']!='' && $_REQUEST['refcomcp2']!='' && $_REQUEST['refcomcol2']!='' && $_REQUEST['refcomest2']!='' && $_REQUEST['refcommun2']!='') || ($_REQUEST['refcomemp2']=='' && $_REQUEST['telrefcom22']=='' && $_REQUEST['antirefcom2']=='' && $_REQUEST['refcomdir2']=='' && $_REQUEST['refcomnumdir2']=='' && $_REQUEST['refcomcp2']=='' && $_REQUEST['refcomcol2']=='' && $_REQUEST['refcomest2']=='' && $_REQUEST['refcommun2']==''))
 
             &&
 
@@ -64,10 +95,10 @@ switch ($_REQUEST['function']) {
 
             &&
             
-            ($_REQUEST['nomsol']!=''  &&  $_REQUEST['apepasol']!=''  &&  $_REQUEST['rfc1']!='' && $_REQUEST['telsol1']!='' && $_REQUEST['movsol1']!='' && $_REQUEST['mailsol']!='' && $_REQUEST['dirsol']!='' && $_REQUEST['dirsol']!='' && $_REQUEST['dirnumsol']!='' && $_REQUEST['colsol']!='' && $_REQUEST['cpsol']!='' && $_REQUEST['lugnacsol']!='' && $_REQUEST['edosol']!='' && $_REQUEST['cdsol']!='' && $_REQUEST['textfield5']!='' && $_REQUEST['curpsol']!='' && $_REQUEST['sexsol']!='' && $_REQUEST['fechnacsol']!='0000-00-00' && $_REQUEST['edsol']!='' && $_REQUEST['nacsol']!='' && $_REQUEST['acdomsol']!='' && $_REQUEST['anosol']!='' && $_REQUEST['arraisol']!='' && $_REQUEST['inmusol']!='' && $_REQUEST['nomref1']!='' && $_REQUEST['parenref1']!='' && $_REQUEST['telref11']!='' /*&& $_REQUEST['refbanc']!='' && $_REQUEST['numcuebanc']!='' && $_REQUEST['sucbanc1']!='' && $_REQUEST['aperbanc1d']!='0000-00-00' && $_REQUEST['refbanc2']!='' && $_REQUEST['numcuebanc2']!='' && $_REQUEST['sucbanc2']!='' && $_REQUEST['aperbanc2d']!='' && $_REQUEST['cargdir']!='' && $_REQUEST['nocuentcd']!='' */&& $_REQUEST['benesol3']!='' && $_REQUEST['benesol1']!='' && $_REQUEST['benesol2']!='' && $_REQUEST['textfield48']!='' && $_REQUEST['textfield49']!='' && $_REQUEST['textfield50']!='' && $_REQUEST['textfield51']!='' && $_REQUEST['textfield52']!='' && $_REQUEST['textfield53']!='' && $_REQUEST['textfield54']!='' && $_REQUEST['textfield55']!='' && $_REQUEST['textfield56']!='' && $_REQUEST['textfield57']!='' && $_REQUEST['textfield58']!='' && $_REQUEST['textfield59']!='' && $_REQUEST['textfield60']!='' && $_REQUEST['textfield61']!='' && $_REQUEST['textfield62']!='')
-            /*
-            
+/*
             */
+            ($_REQUEST['nomsol']!=''  &&  $_REQUEST['apepasol']!=''  &&  $_REQUEST['rfc1']!='' && $_REQUEST['telsol1']!='' && $_REQUEST['movsol1']!='' && $_REQUEST['mailsol']!='' && $_REQUEST['dirsol']!='' && $_REQUEST['dirsol']!='' && $_REQUEST['dirnumsol']!='' && $_REQUEST['colsol']!='' && $_REQUEST['cpsol']!='' && $_REQUEST['lugnacsol']!='' && $_REQUEST['edosol']!='' && $_REQUEST['cdsol']!='' && $_REQUEST['textfield5']!='' && $_REQUEST['curpsol']!='' && $_REQUEST['sexsol']!='' && $_REQUEST['fechnacsol']!='0000-00-00' && $_REQUEST['edsol']!='' && $_REQUEST['nacsol']!='' && $_REQUEST['acdomsol']!='' && $_REQUEST['anosol']!='' && $_REQUEST['arraisol']!='' && $_REQUEST['inmusol']!='' /*$_REQUEST['benesol3']!='' && $_REQUEST['benesol1']!='' && $_REQUEST['benesol2']!='' && $_REQUEST['textfield48']!='' && $_REQUEST['textfield49']!='' && $_REQUEST['textfield50']!='' && $_REQUEST['textfield51']!='' && $_REQUEST['textfield52']!='' && $_REQUEST['textfield53']!='' && $_REQUEST['textfield54']!='' && $_REQUEST['textfield55']!='' && $_REQUEST['textfield56']!='' && $_REQUEST['textfield57']!='' && $_REQUEST['textfield58']!='' && $_REQUEST['textfield59']!='' && $_REQUEST['textfield60']!='' && $_REQUEST['textfield61']!='' && $_REQUEST['textfield62']!=''*/)
+            
 
              ){
 
@@ -313,11 +344,12 @@ $status="Finalizado";
     		Acc6Nombre='".$_REQUEST['accpermor2']."', 
     		Acc6RFC='".$_REQUEST['rfcaccpermor2']."', 
     		Acc6Porcentaje='".$_REQUEST['permoracc2']."', 
-    		Status='$status', FechaModificacion=CURDATE()
+    		Status='$status', FechaModificacion=CURDATE(),ModPor='".$_SESSION['usser']."'
 
 
     		where id='".$_REQUEST['id']."'");
         echo "¡Guardado!";
+        
         break;
     
 
@@ -326,6 +358,7 @@ $status="Finalizado";
 
 
     case "guardacliente":
+    session_start();
         $status="Incompleto";
 
        
@@ -463,6 +496,7 @@ $status="Finalizado";
             AcreditaDomPF='".$_REQUEST['acdomsol']."', 
             RecidirCiudadPF='".$_REQUEST['anosol']."', 
             ArraigoDomPF='".$_REQUEST['arraisol']."', 
+            ArraigoAniosDomPF='".$_REQUEST['arraisolanios']."',
             ViviendaPF='".$_REQUEST['vivsol']."', 
             EspViviendaPF='".$_REQUEST['vivsolesp']."',
             EstCivilPF='".$_REQUEST['civilsol']."', 
@@ -473,18 +507,39 @@ $status="Finalizado";
             PuestoPF='".$_REQUEST['puestosol']."', 
             DepartamentoPF='".$_REQUEST['depasol']."', 
             DesdeEmpPF='".$_REQUEST['desdesol']."', 
+            DesdeAniosEmpPF='".$_REQUEST['desdesolanios']."', 
             CompaniaPF='".$_REQUEST['compasol']."', 
             TelefonoEmpPF='".$_REQUEST['compatelsol1']."', 
             ExtensionEmpPF='".$_REQUEST['compatelsolext']."', 
             GiroPF='".$_REQUEST['giroprof']."', 
             NumEmpleadosPF='".$_REQUEST['noempleados']."', 
             DomicilioNegPF='".$_REQUEST['domneg']."', 
+            NumDomicilioNegPF='".$_REQUEST['numdomneg']."', 
+            CPNegPF='".$_REQUEST['cpneg']."',
+            ColoniaNegPF='".$_REQUEST['colneg']."',
+            EstadoNegPF='".$_REQUEST['estneg']."',
+            MunicipioNegPF='".$_REQUEST['munneg']."',
+            CiudadNegPF='".$_REQUEST['cdneg']."',
             RefPerNom1PF='".$_REQUEST['nomref1']."', 
             RefPerParentesco1PF='".$_REQUEST['parenref1']."',
             RefPerTelefono1PF='".$_REQUEST['telref11']."', 
+            RefPerDirPF='".$_REQUEST['refperdir']."',
+            RefPerNumDirPF='".$_REQUEST['refpernumdir']."',
+            RefPerCPPF='".$_REQUEST['refpercp']."',
+            RefPerColPF='".$_REQUEST['refpercol']."',
+            RefPerEstPF='".$_REQUEST['refperest']."',
+            RefPerMunPF='".$_REQUEST['refpermun']."',
+            RefPerCdPF='".$_REQUEST['refpercd']."',
             RefPerNom2PF='".$_REQUEST['nomref2']."', 
             RefPerParentesco2PF='".$_REQUEST['parenref2']."', 
             RefPerTelefono2PF='".$_REQUEST['telref12']."', 
+            RefPerDirPF2='".$_REQUEST['refperdir2']."',
+            RefPerNumDirPF2='".$_REQUEST['refpernumdir2']."',
+            RefPerCPPF2='".$_REQUEST['refpercp2']."',
+            RefPerColPF2='".$_REQUEST['refpercol2']."',
+            RefPerEstPF2='".$_REQUEST['refperest2']."',
+            RefPerMunPF2='".$_REQUEST['refpermun2']."',
+            RefPerCdPF2='".$_REQUEST['refpercd2']."',
             Banco1='".$_REQUEST['refbanc']."', 
             CuentaBanc1='".$_REQUEST['numcuebanc']."', 
             SucursalBanc1='".$_REQUEST['sucbanc1']."', 
@@ -498,9 +553,23 @@ $status="Finalizado";
             RefComEmp1='".$_REQUEST['refcomemp1']."', 
             RefComTel1='".$_REQUEST['telrefcom11']."',
             RefComAnt1='".$_REQUEST['antirefcom1']."', 
+            RefComDir='".$_REQUEST['refcomdir']."', 
+            RefComNumDir='".$_REQUEST['refcomnumdir']."', 
+            RefComCP='".$_REQUEST['refcomcp']."', 
+            RefComCol='".$_REQUEST['refcomcol']."', 
+            RefComEst='".$_REQUEST['refcomest']."', 
+            RefComMun='".$_REQUEST['refcommun']."', 
+            RefComCd='".$_REQUEST['refcomcd']."', 
             RefComEmp2='".$_REQUEST['refcomemp2']."', 
             RefComTel2='".$_REQUEST['telrefcom22']."', 
             RefComAnt2='".$_REQUEST['antirefcom2']."', 
+            RefComDir2='".$_REQUEST['refcomdir2']."', 
+            RefComNumDir2='".$_REQUEST['refcomnumdir2']."', 
+            RefComCP2='".$_REQUEST['refcomcp2']."', 
+            RefComCol2='".$_REQUEST['refcomcol2']."', 
+            RefComEst2='".$_REQUEST['refcomest2']."', 
+            RefComMun2='".$_REQUEST['refcommun2']."', 
+            RefComCd2='".$_REQUEST['refcomcd2']."', 
             ConyugeNom='".$_REQUEST['conyunom']."', ConyugeApPat='".$_REQUEST['conyuape1']."', ConyugeApMat='".$_REQUEST['conyuape2']."', ConyugeCompania='".$_REQUEST['compaconyu']."', ConyugePuesto='".$_REQUEST['puestconyu']."', 
             BeneficiarioNom='".$_REQUEST['benesol3']."', 
             BeneficiarioApPat='".$_REQUEST['benesol1']."', 
@@ -567,7 +636,7 @@ $status="Finalizado";
             Acc6Nombre='".$_REQUEST['accpermor2']."', 
             Acc6RFC='".$_REQUEST['rfcaccpermor2']."', 
             Acc6Porcentaje='".$_REQUEST['permoracc2']."', 
-            FechaRegistro='".$_REQUEST['fecharegistro']."', Status='$status'
+            FechaRegistro='".$_REQUEST['fecharegistro']."', Status='$status', FechaModificacion=CURDATE(),ModPor='".$_SESSION['usser']."'
 
 
             where id='".$_REQUEST['id']."'");

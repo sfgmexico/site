@@ -2474,7 +2474,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
       cpostal: /^\d{4,5}$/,
 
-      cuenta: /^([A-Z][A-Z]\d\d){0,1}(\d\d\d\d){5}$/,
+      cuenta: /^([A-Z][A-Z]\d\d\-){0,1}(\d\d\d\d\-){4}(\d\d\d\d){1}$/,
 
       clabe: /^\d{18}$/,
 

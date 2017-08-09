@@ -1,5 +1,129 @@
 
+function cpostal(cpos,estado,municipio,colonia,ciudad,loading){
+    var data = new FormData();
+   data.append('idCP', cpos);
+   
+   //data.append('id', obj.id);
 
+ 
+   
+    if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  { 
+    if(xmlhttp.readyState==1){
+        $("#"+loading).html("<img src='images/cargando.gif' width='20' height='20'/>");
+    }
+
+
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
+        
+        
+        $("#"+loading).empty();
+
+        
+        codigospostales = JSON.parse(xmlhttp.responseText);
+
+
+        
+        if(codigospostales==""){
+            alert("¡¡Codigo Postal no Registrado, Favor de ingresar uno valido!!");
+            return false;
+        }
+        
+
+        if(document.getElementById(ciudad)!=null){
+            var cdd = document.getElementById(ciudad);
+            $("#"+ciudad+" option").remove();
+            var optionprin4 = document.createElement("option");
+                optionprin4.text = "-Seleccione una opcion-";
+                optionprin4.value = "";
+                cdd.add(optionprin4);
+        var option4 = document.createElement("option");
+                if(codigospostales[0].Ciudad[0]!=null){
+                    
+                    option4.text = codigospostales[0].Ciudad[0];
+                    option4.value = codigospostales[0].Ciudad[0];
+                }else{
+                    option4.text = "N/A";
+                    option4.value = "N/A";
+                }
+                
+                cdd.add(option4);
+        }
+
+
+        if(document.getElementById(estado)!=null){
+            var est = document.getElementById(estado);
+            $("#"+estado+" option").remove();
+            var optionprin = document.createElement("option");
+                optionprin.text = "-Seleccione una opcion-";
+                optionprin.value = "";
+                est.add(optionprin);
+            var option = document.createElement("option");
+                option.text = codigospostales[0].Estado[0];
+                option.value = codigospostales[0].Estado[0];
+                est.add(option);
+        }
+
+        if(document.getElementById(municipio)!=null){
+            var mun = document.getElementById(municipio);
+            $("#"+municipio+" option").remove();
+            var optionprin2 = document.createElement("option");
+                optionprin2.text = "-Seleccione una opcion-";
+                optionprin2.value = "";
+                mun.add(optionprin2);
+            var option2 = document.createElement("option");
+                option2.text = codigospostales[0].Municipio[0];
+                option2.value = codigospostales[0].Municipio[0];
+                mun.add(option2);
+        }
+        
+        if(document.getElementById(colonia)!=null){
+            var col = document.getElementById(colonia);
+            $("#"+colonia+" option").remove();
+             var optionprin3 = document.createElement("option");
+                optionprin3.text = "-Seleccione una opcion-";
+                optionprin3.value = "";
+                col.add(optionprin3);
+             $.each(codigospostales, function(i,cliente){
+            var option3 = document.createElement("option");
+                option3.text = this.Fracc[0];
+                option3.value = this.Fracc[0];
+                col.add(option3);
+        });
+        return true;
+        }
+        
+        
+        
+        
+        
+        
+        
+
+        
+
+        
+
+       
+        
+         
+    
+    
+        
+      }
+  }
+xmlhttp.open("POST","cpostal.php",true);
+xmlhttp.send(data);
+}
 
 
 function contiregcliente(idlcliente){
@@ -54,8 +178,33 @@ xmlhttp.onreadystatechange=function()
         document.getElementById("mailsol").value=obj.EmailPF;
         document.getElementById("dirsol").value=obj.DireccionPF;
         document.getElementById("dirnumsol").value=obj.NumDireccionPF;
-        document.getElementById("colsol").value=obj.ColoniaPF;
         document.getElementById("cpsol").value=obj.CPPF;
+        
+        var cdd=document.getElementById("edosol");
+        var recpostales = document.createElement("option");
+                recpostales.text = obj.EstadoPF;
+                recpostales.value = obj.EstadoPF;
+                cdd.add(recpostales);
+
+            cdd=document.getElementById("colsol");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.ColoniaPF;
+            recpostales.value = obj.ColoniaPF;
+            cdd.add(recpostales);
+
+            cdd=document.getElementById("cdsol");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.CiudadPF;
+            recpostales.value = obj.CiudadPF;
+            cdd.add(recpostales);
+
+            cdd=document.getElementById("textfield5");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.MunicipioPF;
+            recpostales.value = obj.MunicipioPF;
+            cdd.add(recpostales);
+              
+        document.getElementById("colsol").value=obj.ColoniaPF;
         document.getElementById("lugnacsol").value=obj.LugNacimientoPF;
         document.getElementById("edosol").value=obj.EstadoPF;
         document.getElementById("cdsol").value=obj.CiudadPF;
@@ -74,6 +223,7 @@ xmlhttp.onreadystatechange=function()
         document.getElementById("acdomsol").value=obj.AcreditaDomPF;
         document.getElementById("anosol").value=obj.RecidirCiudadPF;
         document.getElementById("arraisol").value=obj.ArraigoDomPF;
+        document.getElementById("arraisolanios").value=obj.ArraigoAniosDomPF;
         document.getElementById("vivsol").value=obj.ViviendaPF;
         vivsol();
 
@@ -95,6 +245,7 @@ xmlhttp.onreadystatechange=function()
         }else{
             document.getElementById("desdesol").value=obj.DesdeEmpPF;
         }
+        document.getElementById("desdesolanios").value=obj.DesdeAniosEmpPF;
         document.getElementById("compasol").value=obj.CompaniaPF;
         document.getElementById("compatelsol1").value=obj.TelefonoEmpPF;
         document.getElementById("compatelsolext").value=obj.ExtensionEmpPF;
@@ -102,12 +253,102 @@ xmlhttp.onreadystatechange=function()
         document.getElementById("noempleados").value=obj.NumEmpleadosPF;
 
         document.getElementById("domneg").value=obj.DomicilioNegPF;
+        document.getElementById("numdomneg").value=obj.NumDomicilioNegPF;
+        document.getElementById("cpneg").value=obj.CPNegPF;
+
+            cdd=document.getElementById("colneg");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.ColoniaNegPF;
+            recpostales.value = obj.ColoniaNegPF;
+            cdd.add(recpostales);
+
+        document.getElementById("colneg").value=obj.ColoniaNegPF;
+            cdd=document.getElementById("estneg");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.EstadoNegPF;
+            recpostales.value = obj.EstadoNegPF;
+            cdd.add(recpostales);
+
+        document.getElementById("estneg").value=obj.EstadoNegPF;
+            cdd=document.getElementById("munneg");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.MunicipioNegPF;
+            recpostales.value = obj.MunicipioNegPF;
+            cdd.add(recpostales);
+
+        document.getElementById("munneg").value=obj.MunicipioNegPF;
+            cdd=document.getElementById("cdneg");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.CiudadNegPF;
+            recpostales.value = obj.CiudadNegPF;
+            cdd.add(recpostales);
+
+        document.getElementById("cdneg").value=obj.CiudadNegPF;
+
+
         document.getElementById("nomref1").value=obj.RefPerNom1PF;
         document.getElementById("parenref1").value=obj.RefPerParentesco1PF;
         document.getElementById("telref11").value=obj.RefPerTelefono1PF;
+        document.getElementById("refperdir").value=obj.RefPerDirPF;
+        document.getElementById("refpernumdir").value=obj.RefPerNumDirPF;
+        document.getElementById("refpercp").value=obj.RefPerCPPF;
+            cdd=document.getElementById("refpercol");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.RefPerColPF;
+            recpostales.value = obj.RefPerColPF;
+            cdd.add(recpostales);
+        document.getElementById("refpercol").value=obj.RefPerColPF;
+            cdd=document.getElementById("refperest");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.RefPerEstPF;
+            recpostales.value = obj.RefPerEstPF;
+            cdd.add(recpostales);
+        document.getElementById("refperest").value=obj.RefPerEstPF;
+            cdd=document.getElementById("refpermun");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.RefPerMunPF;
+            recpostales.value = obj.RefPerMunPF;
+            cdd.add(recpostales);
+        document.getElementById("refpermun").value=obj.RefPerMunPF;
+            cdd=document.getElementById("refpercd");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.RefPerCdPF;
+            recpostales.value = obj.RefPerCdPF;
+            cdd.add(recpostales);
+        document.getElementById("refpercd").value=obj.RefPerCdPF;
+
+
+
         document.getElementById("nomref2").value=obj.RefPerNom2PF;
         document.getElementById("parenref2").value=obj.RefPerParentesco2PF;
         document.getElementById("telref12").value=obj.RefPerTelefono2PF;
+        document.getElementById("refperdir2").value=obj.RefPerDirPF;
+        document.getElementById("refpernumdir2").value=obj.RefPerNumDirPF;
+        document.getElementById("refpercp2").value=obj.RefPerCPPF2;
+            cdd=document.getElementById("refpercol2");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.RefPerColPF2;
+            recpostales.value = obj.RefPerColPF2;
+            cdd.add(recpostales);
+        document.getElementById("refpercol2").value=obj.RefPerColPF2;
+            cdd=document.getElementById("refperest2");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.RefPerEstPF2;
+            recpostales.value = obj.RefPerEstPF2;
+            cdd.add(recpostales);
+        document.getElementById("refperest2").value=obj.RefPerEstPF2;
+            cdd=document.getElementById("refpermun2");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.RefPerMunPF2;
+            recpostales.value = obj.RefPerMunPF2;
+            cdd.add(recpostales);
+        document.getElementById("refpermun2").value=obj.RefPerMunPF2;
+            cdd=document.getElementById("refpercd2");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.RefPerCdPF2;
+            recpostales.value = obj.RefPerCdPF2;
+            cdd.add(recpostales);
+        document.getElementById("refpercd2").value=obj.RefPerCdPF2;
 
         document.getElementById("refbanc").value=obj.Banco1;
         document.getElementById("numcuebanc").value=obj.CuentaBanc1;
@@ -133,10 +374,70 @@ xmlhttp.onreadystatechange=function()
         document.getElementById("refcomemp1").value=obj.RefComEmp1;
         document.getElementById("telrefcom11").value=obj.RefComTel1;
         document.getElementById("antirefcom1").value=obj.RefComAnt1;
-        document.getElementById("refcomemp2").value=obj.RefComEmp2;
+        document.getElementById("refcomdir").value=obj.RefComDir;
+        document.getElementById("refcomnumdir").value=obj.RefComNumDir;
+        document.getElementById("refcomcp").value=obj.RefComCP;
+            cdd=document.getElementById("refcomcol");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.RefComCol;
+            recpostales.value = obj.RefComCol;
+            cdd.add(recpostales);
+        document.getElementById("refcomcol").value=obj.RefComCol;
+            cdd=document.getElementById("refcomest");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.RefComEst;
+            recpostales.value = obj.RefComEst;
+            cdd.add(recpostales);
+        document.getElementById("refcomest").value=obj.RefComEst;
+            cdd=document.getElementById("refcommun");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.RefComMun;
+            recpostales.value = obj.RefComMun;
+            cdd.add(recpostales);
+        document.getElementById("refcommun").value=obj.RefComMun;
+            cdd=document.getElementById("refcomcd");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.RefComCd;
+            recpostales.value = obj.RefComCd;
+            cdd.add(recpostales);
+        document.getElementById("refcomcd").value=obj.RefComCd;
 
+
+
+
+
+        document.getElementById("refcomemp2").value=obj.RefComEmp2;
         document.getElementById("telrefcom22").value=obj.RefComTel1;
         document.getElementById("antirefcom2").value=obj.RefComAnt1;
+        document.getElementById("refcomdir2").value=obj.RefComDir;
+        document.getElementById("refcomnumdir2").value=obj.RefComNumDir;
+        document.getElementById("refcomcp2").value=obj.RefComCP2;
+            cdd=document.getElementById("refcomcol2");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.RefComCol2;
+            recpostales.value = obj.RefComCol2;
+            cdd.add(recpostales);
+        document.getElementById("refcomcol2").value=obj.RefComCol2;
+            cdd=document.getElementById("refcomest2");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.RefComEst2;
+            recpostales.value = obj.RefComEst2;
+            cdd.add(recpostales);
+        document.getElementById("refcomest2").value=obj.RefComEst2;
+            cdd=document.getElementById("refcommun2");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.RefComMun2;
+            recpostales.value = obj.RefComMun2;
+            cdd.add(recpostales);
+        document.getElementById("refcommun2").value=obj.RefComMun2;
+            cdd=document.getElementById("refcomcd2");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.RefComCd2;
+            recpostales.value = obj.RefComCd2;
+            cdd.add(recpostales);
+        document.getElementById("refcomcd2").value=obj.RefComCd2;
+
+
         document.getElementById("conyunom").value=obj.ConyugeNom;
         document.getElementById("conyuape1").value=obj.ConyugeApPat;
         document.getElementById("conyuape2").value=obj.ConyugeApMat;
@@ -147,6 +448,11 @@ xmlhttp.onreadystatechange=function()
         document.getElementById("benesol1").value=obj.BeneficiarioApPat;
         document.getElementById("benesol2").value=obj.BeneficiarioApMat;
         document.getElementById("textfield48").value=obj.BeneficiarioDom;
+             cdd=document.getElementById("textfield49");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.BeneficiarioCol;
+            recpostales.value = obj.BeneficiarioCol;
+            cdd.add(recpostales);
         document.getElementById("textfield49").value=obj.BeneficiarioCol;
         document.getElementById("textfield50").value=obj.BeneficiarioCP;
         document.getElementById("textfield51").value=obj.BeneficiarioPais;
@@ -162,8 +468,17 @@ xmlhttp.onreadystatechange=function()
         }else{
           document.getElementById("textfield57").value=obj.BeneficiarioFechNac;  
         }
+            cdd=document.getElementById("textfield58");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.BeneficiarioMun;
+            recpostales.value = obj.BeneficiarioMun;
+            cdd.add(recpostales);
         document.getElementById("textfield58").value=obj.BeneficiarioMun;
-
+            cdd=document.getElementById("textfield59");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.BeneficiarioEstado;
+            recpostales.value = obj.BeneficiarioEstado;
+            cdd.add(recpostales);
         document.getElementById("textfield59").value=obj.BeneficiarioEstado;
         document.getElementById("textfield60").value=obj.BeneficiarioEstCivil;
         document.getElementById("textfield61").value=obj.BeneficiarioSocConyugal;
@@ -175,8 +490,23 @@ xmlhttp.onreadystatechange=function()
         document.getElementById("dirsolpm").value=obj.DireccionPM;
         document.getElementById("dirnumsolpm").value=obj.NumDireccionPM;
         document.getElementById("mailsol2").value=obj.EmailPM;
+            cdd=document.getElementById("colsolpm");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.ColoniaPM;
+            recpostales.value = obj.ColoniaPM;
+            cdd.add(recpostales);
         document.getElementById("colsolpm").value=obj.ColoniaPM;
+            cdd=document.getElementById("cdsolpm");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.CiudadPM;
+            recpostales.value = obj.CiudadPM;
+            cdd.add(recpostales);
         document.getElementById("cdsolpm").value=obj.CiudadPM;
+            cdd=document.getElementById("edosolpm");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.EstadoPM;
+            recpostales.value = obj.EstadoPM;
+            cdd.add(recpostales);
         document.getElementById("edosolpm").value=obj.EstadoPM;
         document.getElementById("cpsolpm").value=obj.CPPM;
 
@@ -201,8 +531,23 @@ xmlhttp.onreadystatechange=function()
         document.getElementById("apepaconemp").value=obj.ContEmpApPat;
         document.getElementById("apemaconemp").value=obj.ContEmpApMat;
         document.getElementById("datobdir22").value=obj.ContEmpDireccion;
+            cdd=document.getElementById("datobcol23");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.ContEmpColonia;
+            recpostales.value = obj.ContEmpColonia;
+            cdd.add(recpostales);
         document.getElementById("datobcol23").value=obj.ContEmpColonia;
+            cdd=document.getElementById("colsol22");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.ContEmpCiudad;
+            recpostales.value = obj.ContEmpCiudad;
+            cdd.add(recpostales);
         document.getElementById("colsol22").value=obj.ContEmpCiudad;
+            cdd=document.getElementById("cdsol22");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.ContEmpEstado;
+            recpostales.value = obj.ContEmpEstado;
+            cdd.add(recpostales);
         document.getElementById("cdsol22").value=obj.ContEmpEstado;
 
         document.getElementById("lugnacsol22").value=obj.ContEmpCP;
@@ -510,8 +855,32 @@ xmlhttp.onreadystatechange=function()
         document.getElementById("mailsol").value=obj.EmailPF;
         document.getElementById("dirsol").value=obj.DireccionPF;
         document.getElementById("dirnumsol").value=obj.NumDireccionPF;
-        document.getElementById("colsol").value=obj.ColoniaPF;
         document.getElementById("cpsol").value=obj.CPPF;
+        
+        var cdd=document.getElementById("edosol");
+        var recpostales = document.createElement("option");
+                recpostales.text = obj.EstadoPF;
+                recpostales.value = obj.EstadoPF;
+                cdd.add(recpostales);
+
+            cdd=document.getElementById("colsol");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.ColoniaPF;
+            recpostales.value = obj.ColoniaPF;
+            cdd.add(recpostales);
+
+            cdd=document.getElementById("cdsol");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.CiudadPF;
+            recpostales.value = obj.CiudadPF;
+            cdd.add(recpostales);
+
+            cdd=document.getElementById("textfield5");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.MunicipioPF;
+            recpostales.value = obj.MunicipioPF;
+            cdd.add(recpostales);
+        document.getElementById("colsol").value=obj.ColoniaPF;
         document.getElementById("lugnacsol").value=obj.LugNacimientoPF;
         document.getElementById("edosol").value=obj.EstadoPF;
         document.getElementById("cdsol").value=obj.CiudadPF;
@@ -530,6 +899,7 @@ xmlhttp.onreadystatechange=function()
         document.getElementById("acdomsol").value=obj.AcreditaDomPF;
         document.getElementById("anosol").value=obj.RecidirCiudadPF;
         document.getElementById("arraisol").value=obj.ArraigoDomPF;
+        document.getElementById("arraisolanios").value=obj.ArraigoAniosDomPF;
         document.getElementById("vivsol").value=obj.ViviendaPF;
         vivsol();
 
@@ -550,7 +920,7 @@ xmlhttp.onreadystatechange=function()
         }else{
             document.getElementById("desdesol").value=obj.DesdeEmpPF;
         }
-        
+        document.getElementById("desdesolanios").value=obj.DesdeAniosEmpPF;
         document.getElementById("compasol").value=obj.CompaniaPF;
         document.getElementById("compatelsol1").value=obj.TelefonoEmpPF;
         document.getElementById("compatelsolext").value=obj.ExtensionEmpPF;
@@ -558,12 +928,99 @@ xmlhttp.onreadystatechange=function()
         document.getElementById("noempleados").value=obj.NumEmpleadosPF;
 
         document.getElementById("domneg").value=obj.DomicilioNegPF;
+        document.getElementById("numdomneg").value=obj.NumDomicilioNegPF;
+        document.getElementById("cpneg").value=obj.CPNegPF;
+            cdd=document.getElementById("colneg");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.ColoniaNegPF;
+            recpostales.value = obj.ColoniaNegPF;
+            cdd.add(recpostales);
+
+        document.getElementById("colneg").value=obj.ColoniaNegPF;
+            cdd=document.getElementById("estneg");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.EstadoNegPF;
+            recpostales.value = obj.EstadoNegPF;
+            cdd.add(recpostales);
+
+        document.getElementById("estneg").value=obj.EstadoNegPF;
+            cdd=document.getElementById("munneg");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.MunicipioNegPF;
+            recpostales.value = obj.MunicipioNegPF;
+            cdd.add(recpostales);
+
+        document.getElementById("munneg").value=obj.MunicipioNegPF;
+            cdd=document.getElementById("cdneg");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.CiudadNegPF;
+            recpostales.value = obj.CiudadNegPF;
+            cdd.add(recpostales);
+        document.getElementById("cdneg").value=obj.CiudadNegPF;
+
         document.getElementById("nomref1").value=obj.RefPerNom1PF;
         document.getElementById("parenref1").value=obj.RefPerParentesco1PF;
         document.getElementById("telref11").value=obj.RefPerTelefono1PF;
+        document.getElementById("refperdir").value=obj.RefPerDirPF;
+        document.getElementById("refpernumdir").value=obj.RefPerNumDirPF;
+        document.getElementById("refpercp").value=obj.RefPerCPPF;
+            cdd=document.getElementById("refpercol");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.RefPerColPF;
+            recpostales.value = obj.RefPerColPF;
+            cdd.add(recpostales);
+        document.getElementById("refpercol").value=obj.RefPerColPF;
+            cdd=document.getElementById("refperest");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.RefPerEstPF;
+            recpostales.value = obj.RefPerEstPF;
+            cdd.add(recpostales);
+        document.getElementById("refperest").value=obj.RefPerEstPF;
+            cdd=document.getElementById("refpermun");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.RefPerMunPF;
+            recpostales.value = obj.RefPerMunPF;
+            cdd.add(recpostales);
+        document.getElementById("refpermun").value=obj.RefPerMunPF;
+            cdd=document.getElementById("refpercd");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.RefPerCdPF;
+            recpostales.value = obj.RefPerCdPF;
+            cdd.add(recpostales);
+        document.getElementById("refpercd").value=obj.RefPerCdPF;
+
+
+
         document.getElementById("nomref2").value=obj.RefPerNom2PF;
         document.getElementById("parenref2").value=obj.RefPerParentesco2PF;
         document.getElementById("telref12").value=obj.RefPerTelefono2PF;
+        document.getElementById("refperdir2").value=obj.RefPerDirPF;
+        document.getElementById("refpernumdir2").value=obj.RefPerNumDirPF;
+        document.getElementById("refpercp2").value=obj.RefPerCPPF2;
+        cdd=document.getElementById("refpercol2");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.RefPerColPF2;
+            recpostales.value = obj.RefPerColPF2;
+            cdd.add(recpostales);
+        document.getElementById("refpercol2").value=obj.RefPerColPF2;
+            cdd=document.getElementById("refperest2");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.RefPerEstPF2;
+            recpostales.value = obj.RefPerEstPF2;
+            cdd.add(recpostales);
+        document.getElementById("refperest2").value=obj.RefPerEstPF2;
+            cdd=document.getElementById("refpermun2");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.RefPerMunPF2;
+            recpostales.value = obj.RefPerMunPF2;
+            cdd.add(recpostales);
+        document.getElementById("refpermun2").value=obj.RefPerMunPF2;
+            cdd=document.getElementById("refpercd2");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.RefPerCdPF2;
+            recpostales.value = obj.RefPerCdPF2;
+            cdd.add(recpostales);
+        document.getElementById("refpercd2").value=obj.RefPerCdPF2;
 
         document.getElementById("refbanc").value=obj.Banco1;
         document.getElementById("numcuebanc").value=obj.CuentaBanc1;
@@ -588,10 +1045,69 @@ xmlhttp.onreadystatechange=function()
         document.getElementById("refcomemp1").value=obj.RefComEmp1;
         document.getElementById("telrefcom11").value=obj.RefComTel1;
         document.getElementById("antirefcom1").value=obj.RefComAnt1;
+        document.getElementById("refcomdir").value=obj.RefComDir;
+        document.getElementById("refcomnumdir").value=obj.RefComNumDir;
+        document.getElementById("refcomcp").value=obj.RefComCP;
+            cdd=document.getElementById("refcomcol");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.RefComCol;
+            recpostales.value = obj.RefComCol;
+            cdd.add(recpostales);
+        document.getElementById("refcomcol").value=obj.RefComCol;
+            cdd=document.getElementById("refcomest");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.RefComEst;
+            recpostales.value = obj.RefComEst;
+            cdd.add(recpostales);
+        document.getElementById("refcomest").value=obj.RefComEst;
+            cdd=document.getElementById("refcommun");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.RefComMun;
+            recpostales.value = obj.RefComMun;
+            cdd.add(recpostales);
+        document.getElementById("refcommun").value=obj.RefComMun;
+            cdd=document.getElementById("refcomcd");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.RefComCd;
+            recpostales.value = obj.RefComCd;
+            cdd.add(recpostales);
+        document.getElementById("refcomcd").value=obj.RefComCd;
+
+
+
         document.getElementById("refcomemp2").value=obj.RefComEmp2;
 
         document.getElementById("telrefcom22").value=obj.RefComTel1;
         document.getElementById("antirefcom2").value=obj.RefComAnt1;
+        document.getElementById("refcomdir2").value=obj.RefComDir;
+        document.getElementById("refcomnumdir2").value=obj.RefComNumDir;
+        document.getElementById("refcomcp2").value=obj.RefComCP2;
+            cdd=document.getElementById("refcomcol2");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.RefComCol2;
+            recpostales.value = obj.RefComCol2;
+            cdd.add(recpostales);
+        document.getElementById("refcomcol2").value=obj.RefComCol2;
+            cdd=document.getElementById("refcomest2");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.RefComEst2;
+            recpostales.value = obj.RefComEst2;
+            cdd.add(recpostales);
+        document.getElementById("refcomest2").value=obj.RefComEst2;
+            cdd=document.getElementById("refcommun2");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.RefComMun2;
+            recpostales.value = obj.RefComMun2;
+            cdd.add(recpostales);
+        document.getElementById("refcommun2").value=obj.RefComMun2;
+            cdd=document.getElementById("refcomcd2");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.RefComCd2;
+            recpostales.value = obj.RefComCd2;
+            cdd.add(recpostales);
+        document.getElementById("refcomcd2").value=obj.RefComCd2;
+
+
         document.getElementById("conyunom").value=obj.ConyugeNom;
         document.getElementById("conyuape1").value=obj.ConyugeApPat;
         document.getElementById("conyuape2").value=obj.ConyugeApMat;
@@ -602,6 +1118,11 @@ xmlhttp.onreadystatechange=function()
         document.getElementById("benesol1").value=obj.BeneficiarioApPat;
         document.getElementById("benesol2").value=obj.BeneficiarioApMat;
         document.getElementById("textfield48").value=obj.BeneficiarioDom;
+            cdd=document.getElementById("textfield49");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.BeneficiarioCol;
+            recpostales.value = obj.BeneficiarioCol;
+            cdd.add(recpostales);
         document.getElementById("textfield49").value=obj.BeneficiarioCol;
         document.getElementById("textfield50").value=obj.BeneficiarioCP;
         document.getElementById("textfield51").value=obj.BeneficiarioPais;
@@ -616,9 +1137,17 @@ xmlhttp.onreadystatechange=function()
         }else{
           document.getElementById("textfield57").value=obj.BeneficiarioFechNac;  
         }
-        
+            cdd=document.getElementById("textfield58");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.BeneficiarioMun;
+            recpostales.value = obj.BeneficiarioMun;
+            cdd.add(recpostales);
         document.getElementById("textfield58").value=obj.BeneficiarioMun;
-
+            cdd=document.getElementById("textfield59");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.BeneficiarioEstado;
+            recpostales.value = obj.BeneficiarioEstado;
+            cdd.add(recpostales);
         document.getElementById("textfield59").value=obj.BeneficiarioEstado;
         document.getElementById("textfield60").value=obj.BeneficiarioEstCivil;
         document.getElementById("textfield61").value=obj.BeneficiarioSocConyugal;
@@ -630,8 +1159,23 @@ xmlhttp.onreadystatechange=function()
         document.getElementById("dirsolpm").value=obj.DireccionPM;
         document.getElementById("dirnumsolpm").value=obj.NumDireccionPM;
         document.getElementById("mailsol2").value=obj.EmailPM;
+         cdd=document.getElementById("colsolpm");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.ColoniaPM;
+            recpostales.value = obj.ColoniaPM;
+            cdd.add(recpostales);
         document.getElementById("colsolpm").value=obj.ColoniaPM;
+            cdd=document.getElementById("cdsolpm");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.CiudadPM;
+            recpostales.value = obj.CiudadPM;
+            cdd.add(recpostales);
         document.getElementById("cdsolpm").value=obj.CiudadPM;
+            cdd=document.getElementById("edosolpm");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.EstadoPM;
+            recpostales.value = obj.EstadoPM;
+            cdd.add(recpostales);
         document.getElementById("edosolpm").value=obj.EstadoPM;
         document.getElementById("cpsolpm").value=obj.CPPM;
 
@@ -656,10 +1200,24 @@ xmlhttp.onreadystatechange=function()
         document.getElementById("apepaconemp").value=obj.ContEmpApPat;
         document.getElementById("apemaconemp").value=obj.ContEmpApMat;
         document.getElementById("datobdir22").value=obj.ContEmpDireccion;
+        cdd=document.getElementById("datobcol23");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.ContEmpColonia;
+            recpostales.value = obj.ContEmpColonia;
+            cdd.add(recpostales);
         document.getElementById("datobcol23").value=obj.ContEmpColonia;
+            cdd=document.getElementById("colsol22");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.ContEmpCiudad;
+            recpostales.value = obj.ContEmpCiudad;
+            cdd.add(recpostales);
         document.getElementById("colsol22").value=obj.ContEmpCiudad;
+            cdd=document.getElementById("cdsol22");
+            recpostales = document.createElement("option");
+            recpostales.text = obj.ContEmpEstado;
+            recpostales.value = obj.ContEmpEstado;
+            cdd.add(recpostales);
         document.getElementById("cdsol22").value=obj.ContEmpEstado;
-
         document.getElementById("lugnacsol22").value=obj.ContEmpCP;
         document.getElementById("rfcconemp1").value=obj.ContEmpRFC;
         document.getElementById("telconemp1").value=obj.ContEmpTel;
@@ -1048,19 +1606,19 @@ function actempresarial(){
     if(document.getElementById('actempresarial').value==""){
         document.getElementById('divgiroprof').style.display='none';
         document.getElementById('divnoempleados').style.display='none';
-        document.getElementById('divdomneg').style.display='none';
+        //document.getElementById('divdomneg').style.display='none';
         document.getElementById('panel5c-label').style.display='none';
         
     }else if(document.getElementById('actempresarial').value=="Si"){
         document.getElementById('divgiroprof').style.display='block';
         document.getElementById('divnoempleados').style.display='block';
-        document.getElementById('divdomneg').style.display='block';
+        //document.getElementById('divdomneg').style.display='block';
         document.getElementById('panel5c-label').style.display='block';
         
     }else {
         document.getElementById('divgiroprof').style.display='none';
         document.getElementById('divnoempleados').style.display='none';
-        document.getElementById('divdomneg').style.display='none';
+        //document.getElementById('divdomneg').style.display='none';
         document.getElementById('panel5c-label').style.display='none';
         
     }
@@ -1379,4 +1937,43 @@ function calcularAntiguedad(input,destino)
     }
 }
 
+var patron = new Array(4,4,4,4,4,4);
+
+function mascarasimple(d,sep,pat,nums){
+if(d.valant != d.value){
+    val = d.value
+    largo = val.length
+    val = val.split(sep)
+    val2 = ''
+    for(r=0;r<val.length;r++){
+        val2 += val[r]  
+    }
+    if(nums){
+        for(z=0;z<val2.length;z++){
+            if(isNaN(val2.charAt(z))){
+                letra = new RegExp(val2.charAt(z),"g")
+                val2 = val2.replace(letra,"")
+            }
+        }
+    }
+    val = ''
+    val3 = new Array()
+    for(s=0; s<pat.length; s++){
+        val3[s] = val2.substring(0,pat[s])
+        val2 = val2.substr(pat[s])
+    }
+    for(q=0;q<val3.length; q++){
+        if(q ==0){
+            val = val3[q]
+        }
+        else{
+            if(val3[q] != ""){
+                val += sep + val3[q]
+                }
+        }
+    }
+    d.value = val.toUpperCase().trim().replace(" ","");
+    d.valant = val
+    }
+}
 

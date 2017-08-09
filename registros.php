@@ -127,18 +127,21 @@
                     <div class="medium-3 columns"><label>Email
                       <input name="mailsol2" type="text" id="mailsol2"  value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['EmailSolicitante']; } ?>" placeholder="Email" pattern="email"></label>
                     </div>
+                    <div class="medium-3 columns"><label>Codigo Postal
+                      <input name="cpsolpm" type="text" id="cpsolpm" onchange="cpostal(this.value,'edosolpm','','colsolpm','cdsolpm','loading8')"  placeholder="C.P." pattern="cpostal" maxlength="5"></label>
+                    </div>
 
-                    <div class="medium-3 columns"><label>Colonia
-                      <input name="colsolpm" type="text" id="colsolpm"  value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['ColSolicitante']; } ?>" placeholder="Colonia"></label>
+                    <div class="medium-3 columns"><label>Colonia<div id="loading8"></div>
+                    <select name="colsolpm"  id="colsolpm"><option value="">-Seleccione una opción-</option></select>
+                      </label>
                     </div>
                     <div class="medium-3 columns"><label>Ciudad
-                      <input name="cdsolpm" type="text" id="cdsolpm"  value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['CdSolicitante']; } ?>" placeholder="Ciudad"></label>
+                    <select name="cdsolpm"  id="cdsolpm"><option value="">-Seleccione una opción-</option></select>
+                      </label>
                     </div>
                     <div class="medium-3 columns"><label>Estado
-                      <input name="edosolpm" type="text" id="edosolpm"  value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['EdoSolicitante']; } ?>"  placeholder="Estado"></label>
-                    </div>
-                    <div class="medium-3 columns"><label>Codigo Postal
-                      <input name="cpsolpm" type="text" id="cpsolpm"  value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['CPSolicitante']; } ?>"  placeholder="C.P." pattern="cpostal" maxlength="5"></label>
+                    <select name="edosolpm"  id="edosolpm"><option value="">-Seleccione una opción-</option></select>
+                      </label>
                     </div>
                   
 
@@ -189,22 +192,25 @@
                     <div class="medium-3 columns"><label>Calle y Numero
                       <input name="datobdir22" type="text" id="datobdir22" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['DirConEmp']; } ?>" placeholder="Calle y No.:" pattern="alpha_numeric2"></label>
                     </div>
-                    <div class="medium-3 columns"><label>Colonia
-                      <input name="datobcol23" type="text" id="datobcol23" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['ColConEmp']; } ?>" placeholder="Colonia:"></label>
+                    <div class="medium-3 columns"><label>Codigo Postal
+                      <input name="lugnacsol22" type="text" id="lugnacsol22" onchange="cpostal(this.value,'cdsol22','','datobcol23','colsol22','loading9')" pattern="cpostal" maxlength="5" ></label>
+                    </div>
+                    <div class="medium-3 columns"><label>Colonia<div id="loading9"></div>
+                      <select name="datobcol23"  id="datobcol23"><option value="">-Seleccione una opción-</option></select>
+                      </label>
                     </div>
                   
                  
                     <div class="medium-3 columns"><label>Ciudad
-                      <input name="colsol22" type="text" id="colsol22" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['CdConEmp']; } ?>" placeholder="Ciudad:"></label>
+                    <select name="colsol22"  id="colsol22"><option value="">-Seleccione una opción-</option></select>
+                      </label>
                     </div>
                     <div class="medium-3 columns"><label>Estado
-                      <input name="cdsol22" type="text" id="cdsol22" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['EdoConEmp']; } ?>" placeholder="Estado:"></label>
+                    <select name="cdsol22"  id="cdsol22"><option value="">-Seleccione una opción-</option></select>
+                      </label>
                     </div>
                   
                  
-                    <div class="medium-3 columns"><label>Codigo Postal
-                      <input name="lugnacsol22" type="text" id="lugnacsol22" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['CPConEmp']; } ?>" pattern="cpostal" maxlength="5" ></label>
-                    </div>
 
                     <div class="medium-3 columns"><label>RFC
                       <input name="rfcconemp1" type="text" id="rfcconemp1" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['RFCDatConEmp'][0]; } ?>"  pattern="rfc" onkeypress="mayusculas(this)"></label>
@@ -283,22 +289,22 @@
                    </label>
                   </div>
              
-                  <div class="medium-3 columns"><label>Colonia<input name="colsol" type="text" id="colsol" size="49px" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['ColSolicitante']; } ?>"   placeholder="Colonia"></label>
-                  </div>
              
-                  <div class="medium-2 columns"><label>Codigo Postal<input name="cpsol" type="text" id="cpsol" size="20px" placeholder="C.P." value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['CPSolicitante']; } ?>" pattern="cpostal" maxlength="5"></label>
+                  <div class="medium-2 columns"><label>Codigo Postal<input name="cpsol" type="text" id="cpsol" size="20px" placeholder="C.P." onchange="cpostal(this.value,'edosol','textfield5','colsol','cdsol','loading1')" pattern="cpostal" maxlength="5"></label>
+                  </div>
+                  <div class="medium-3 columns"><label>Colonia<div id="loading1"></div><select name="colsol" id="colsol"><option value="">-Seleccione una opción-</option></select></label>
                   </div>
 
                   <div class="medium-3 columns"><label>Lugar de nacimiento
                   <input name="lugnacsol" type="text" id="lugnacsol" size="20px" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['LugNacSolicitante']; } ?>" placeholder="Lugar de nacimiento (País y Estado)" pattern="alpha"></label>
                   </div>
               
-                  <div class="medium-3 columns"><label>Estado <input name="edosol" type="text" id="edosol" size="20px" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['EdoSolicitante']; } ?>" placeholder="Estado" pattern="alpha"></label>
+                  <div class="medium-3 columns"><label>Estado <select name="edosol" id="edosol"><option value="">-Seleccione una opción</option></select></label>
                   </div>
              
-                  <div class="medium-3 columns"><label>Ciudad<input name="cdsol" type="text" id="cdsol" size="20px" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['CdSolicitante']; } ?>" placeholder="Ciudad"></label>
+                  <div class="medium-3 columns"><label>Ciudad<select name="cdsol"  id="cdsol"><option value="">-Seleccione una opcion-</option></select></label>
                   </div>
-                  <div class="medium-3 columns"><label>Delegacion o municipio<input name="textfield5" type="text" id="textfield5" size="100%" value="<?php if(isset($row2['Folio_Cliente'])) {  echo $row2['MunicipioSolicitante']; } ?>" ></label>
+                  <div class="medium-3 columns"><label>Delegacion o municipio <select name="textfield5"  id="textfield5" ><option value="">-Seleccione una opción-</option></select></label>
                   </div>
 
                   <div class="medium-3 columns"><label>CURP <input name="curpsol" type="text" id="curpsol" size="49px" placeholder="CURP" value="<?php if (isset($row2['Folio_Cliente'])) { echo $row2['CURPSolicitante']; } ?>"  pattern="curp" onkeypress="mayusculas(this)" ></label>
@@ -476,22 +482,22 @@
                   <label>Direccion</label>  <input type="text" name="domneg" id="domneg" >
                   </div>    
                   <div class="medium-3 columns" id="divnumdomneg">
-                  <label>Numero</label><input type="text" name="numdomneg" id="numdomneg">
+                  <label>Numero</label><input type="text" name="numdomneg" id="numdomneg" pattern="alpha_numeric2" maxlength="7">
                   </div>         
                   <div class="medium-3 columns" id="divcpneg">
-                  <label>CP</label><input type="text" name="cpneg" id="cpneg">
+                  <label>CP</label><input type="text" name="cpneg" id="cpneg" onchange="cpostal(this.value,'estneg','munneg','colneg','cdneg','loading2')" pattern="integer" maxlength="5">
                   </div>
                   <div class="medium-3 columns" id="divcolneg">
-                  <label>Colonia</label><input type="text" name="colneg" id="colneg">
+                  <label>Colonia<div id="loading2"></div><select name="colneg" id="colneg"><option value="">-Seleccione una opción-</option></select></label>
                   </div>
                   <div class="medium-3 columns" id="divestneg">
-                  <label>Estado</label><input type="text" name="estneg" id="estneg">
+                  <label>Estado<select name="estneg" id="estneg"><option>-Seleccione una opción-</option></select></label>
                   </div>
                   <div class="medium-3 columns" id="divmunneg">
-                  <label>Municipio</label><input type="text" name="munneg" id="munneg">
+                  <label>Municipio<select name="munneg" id="munneg"><option value="">-Seleccione una opción-</option></select></label>
                   </div>
                   <div class="medium-3 columns" id="divcdneg">
-                  <label>Ciudad</label><input type="text" name="cdneg" id="cdneg">
+                  <label>Ciudad<select name="cdneg" id="cdneg"><option value="">-Seleccione una opción-</option></select></label>
                   </div>
                 </p>
 
@@ -519,22 +525,22 @@
                   <label>Direccion</label>  <input type="text" name="refperdir" id="refperdir">
                   </div>    
                   <div class="medium-3 columns">
-                  <label>Numero</label><input type="text" name="refpernumdir" id="refpernumdir">
+                  <label>Numero</label><input type="text" name="refpernumdir" id="refpernumdir" pattern="alpha_numeric2" maxlength="7">
                   </div>         
                   <div class="medium-3 columns">
-                  <label>CP</label><input type="text" name="refpercp" id="refpercp">
+                  <label>CP </label><input type="text" name="refpercp" id="refpercp" onchange="cpostal(this.value,'refperest','refpermun','refpercol','refpercd','loading3')" pattern="integer" maxlength="5">
                   </div>
                   <div class="medium-3 columns">
-                  <label>Colonia</label><input type="text" name="refpercol" id="refpercol">
+                  <label>Colonia<div id="loading3"></div><select name="refpercol" id="refpercol"><option value="">-Seleccione una opción-</option></select></label>
                   </div>
                   <div class="medium-3 columns">
-                  <label>Estado</label><input type="text" name="refperest" id="refperest">
+                  <label>Estado<select name="refperest" id="refperest"><option value="">-Seleccione una opción-</option></select></label>
                   </div>
                   <div class="medium-3 columns">
-                  <label>Municipio</label><input type="text" name="refpermun" id="refpermun">
+                  <label>Municipio<select name="refpermun" id="refpermun"><option value="">-Seleccione una opción-</option></select></label>
                   </div>
                   <div class="medium-3 columns">
-                  <label>Ciudad</label><input type="text" name="refpercd" id="refpercd">
+                  <label>Ciudad<select name="refpercd" id="refpercd"><option value="">-Seleccione una opción-</option></select></label>
                   </div>
                 </p>
               </div>
@@ -558,22 +564,22 @@
                   <label>Direccion</label>  <input type="text" name="refperdir2" id="refperdir2">
                   </div>    
                   <div class="medium-3 columns">
-                  <label>Numero</label><input type="text" name="refpernumdir2" id="refpernumdir2">
+                  <label>Numero</label><input type="text" name="refpernumdir2" id="refpernumdir2" pattern="alpha_numeric2" maxlength="7">
                   </div>         
                   <div class="medium-3 columns">
-                  <label>CP</label><input type="text" name="refpercp2" id="refpercp2">
+                  <label>CP</label><input type="text" name="refpercp2" id="refpercp2" onchange="cpostal(this.value,'refperest2','refpermun2','refpercol2','refpercd2','loading4')" pattern="integer" maxlength="5">
                   </div>
                   <div class="medium-3 columns">
-                  <label>Colonia</label><input type="text" name="refpercol2" id="refpercol2">
+                  <label>Colonia<div id="loading4"></div><select name="refpercol2" id="refpercol2"><option value="">-Seleccione una opción-</option></select></label>
                   </div>
                   <div class="medium-3 columns">
-                  <label>Estado</label><input type="text" name="refperest2" id="refperest2">
+                  <label>Estado<select name="refperest2" id="refperest2"><option value="">-Seleccione una opción-</option></select></label>
                   </div>
                   <div class="medium-3 columns">
-                  <label>Municipio</label><input type="text" name="refpermun2" id="refpermun2">
+                  <label>Municipio<select name="refpermun2" id="refpermun2"><option value="">-Seleccione una opción-</option></select></label>
                   </div>
                   <div class="medium-3 columns">
-                  <label>Ciudad</label><input type="text" name="refpercd2" id="refpercd2">
+                  <label>Ciudad<select name="refpercd2" id="refpercd2"><option value="">-Seleccione una opción-</option></select></label>
                   </div>
 
                 </p>
@@ -592,7 +598,7 @@
                   </div>
           
                   <div class="medium-3 columns"><label>Numero de cuenta
-                    <input name="numcuebanc" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NoTarRefBan']; } ?>" type="text" id="numcuebanc" size="40px" placeholder="Número de cuenta" pattern="cuenta" maxlength="24">
+                    <input name="numcuebanc" onkeyup="mascarasimple(this,'-',patron,false)"  type="text" id="numcuebanc" size="40px" placeholder="Número de cuenta" pattern="cuenta" maxlength="29     ">
 
                     </label>
                   </div>
@@ -617,7 +623,7 @@
                   </div>
           
                   <div class="medium-3 columns"><label>Numero de cuenta
-                    <input name="numcuebanc2" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NoTarRefBan']; } ?>" type="text" id="numcuebanc2" size="40px" placeholder="Número de cuenta" maxlength="24" pattern="cuenta"></label>
+                    <input name="numcuebanc2" onkeyup="mascarasimple(this,'-',patron,false)" type="text" id="numcuebanc2" size="40px" placeholder="Número de cuenta" maxlength="29" pattern="cuenta"></label>
                   </div>
 
                   <div class="medium-3 columns"><label>Sucursal
@@ -669,22 +675,22 @@
                   <label>Direccion</label>  <input type="text" name="refcomdir" id="refcomdir" >
                   </div>    
                   <div class="medium-3 columns">
-                  <label>Numero</label><input type="text" name="refcomnumdir" id="refcomnumdir" >
+                  <label>Numero</label><input type="text" name="refcomnumdir" id="refcomnumdir" pattern="alpha_numeric2" maxlength="7">
                   </div>         
                   <div class="medium-3 columns">
-                  <label>CP</label><input type="text" name="refcomcp" id="refcomcp" >
+                  <label>CP</label><input type="text" name="refcomcp" id="refcomcp" onchange="cpostal(this.value,'refcomest','refcommun','refcomcol','refcomcd','loading5')" pattern="integer" maxlength="5">
                   </div>
                   <div class="medium-3 columns">
-                  <label>Colonia</label><input type="text" name="refcomcol" id="refcomcol" >
+                  <label>Colonia<div id="loading5"></div><select name="refcomcol" id="refcomcol"><option value="">-Seleccione una opción-</option></select></label>
                   </div>
                   <div class="medium-3 columns">
-                  <label>Estado</label><input type="text" name="refcomest" id="refcomest" >
+                  <label>Estado<select name="refcomest" id="refcomest"><option value="">-Seleccione una opción-</option></select></label>
                   </div>
                   <div class="medium-3 columns">
-                  <label>Municipio</label><input type="text" name="refcommun" id="refcommun" >
+                  <label>Municipio<select name="refcommun" id="refcommun"><option value="">-Seleccione una opción-</option></select></label>
                   </div>
                   <div class="medium-3 columns">
-                  <label>Ciudad</label><input type="text" name="refcomcd" id="refcomcd" >
+                  <label>Ciudad<select name="refcomcd" id="refcomcd"><option value="">-Seleccione una opción-</option></select></label>
                   </div>
                 </p>
      
@@ -711,22 +717,22 @@
                   <label>Direccion</label>  <input type="text" name="refcomdir2" id="refcomdir2"  >
                   </div>    
                   <div class="medium-3 columns">
-                  <label>Numero</label><input type="text" name="refcomnumdir2" id="refcomnumdir2">
+                  <label>Numero</label><input type="text" name="refcomnumdir2" id="refcomnumdir2" pattern="alpha_numeric2" maxlength="7">
                   </div>         
                   <div class="medium-3 columns">
-                  <label>CP</label><input type="text" name="refcomcp2" id="refcomcp2">
+                  <label>CP</label><input type="text" name="refcomcp2" id="refcomcp2" onchange="cpostal(this.value,'refcomest2','refcommun2','refcomcol2','refcomcd2','loading6')" pattern="integer" maxlength="5">
                   </div>
                   <div class="medium-3 columns">
-                  <label>Colonia</label><input type="text" name="refcomcol2" id="refcomcol2" >
+                  <label>Colonia<div id="loading6"></div><select name="refcomcol2" id="refcomcol2"><option value="">-Seleccione una opción-</option></select></label>
                   </div>
                   <div class="medium-3 columns">
-                  <label>Estado</label><input type="text" name="refcomest2" id="refcomest2">
+                  <label>Estado<select name="refcomest2" id="refcomest2"><option value="">-Seleccione una opción-</option></select></label>
                   </div>
                   <div class="medium-3 columns">
-                  <label>Municipio</label><input type="text" name="refcommun2" id="refcommun2" >
+                  <label>Municipio<select name="refcommun2" id="refcommun2"><option value="">-Seleccione una opción-</option></select></label>
                   </div>
                   <div class="medium-3 columns">
-                  <label>Ciudad</label><input type="text" name="refcomcd2" id="refcomcd2" >
+                  <label>Ciudad<select name="refcomcd2" id="refcomcd2"><option value="">-Seleccione una opción-</option></select></label>
                   </div>
                 </p>
               </div>
@@ -915,14 +921,14 @@
                   </div>
             
             
-                  <div class="medium-3 columns"><label>Colonia
-                    <input name="textfield49" type="text" id="textfield49" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['ColBeneficiario']; } ?>"></label>
-                  </div>
              
                   <div class="medium-3 columns"><label>Código Postal 
-                    <input name="textfield50" type="text" id="textfield50" size="50%"  value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['CPBeneficiario']; } ?>" pattern="cpostal" maxlength="5"></label>
+                    <input name="textfield50" type="text" id="textfield50" size="50%"  onchange="cpostal(this.value,'textfield59','textfield58','textfield49','','loading7')" pattern="cpostal" maxlength="5"></label>
                   </div>
             
+                  <div class="medium-3 columns"><label>Colonia<div id="loading7"></div>
+                    <select name="textfield49" id="textfield49"><option value="">-Seleccione una opción-</option></select></label>
+                  </div>
 
                   <div class="medium-3 columns"><label>País
                     <input name="textfield51" type="text" id="textfield51" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['PaisBeneficiario']; } ?>" pattern="alpha"></label>
@@ -960,15 +966,15 @@
                     <input name="textfield57" type="date" id="textfield57" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['FeNacBeneficiario']; } ?>" onfocus="datepick(this)"></label>
                   </div>
               
+                  <div class="medium-3 columns"><label> Estado
+                    <select name="textfield59" id="textfield59"><option value="">-Seleccione una opción-</option></select></label>
+                  </div>
 
                   <div class="medium-3 columns"><label> Municipio
-                    <input name="textfield58" type="text" id="textfield58" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['MunBeneficiario']; } ?>"></label>
+                    <select name="textfield58" id="textfield58"><option value="">-Seleccione una opción-</option></select></label>
                   </div>
               
 
-                  <div class="medium-3 columns"><label> Estado
-                    <input name="textfield59" type="text" id="textfield59" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['EdoBeneficiario']; } ?>"></label>
-                  </div>
               
 
 
@@ -1704,7 +1710,7 @@
                     </table>
           </div>
                              <div class="tabs-panel" id="panel3f">
-                                                      <img class="thumbnail" src="assets/img/generic/rectangle-3.jpg">
+                                                      <!--<img class="thumbnail" src="assets/img/generic/rectangle-3.jpg">-->
                               </div>
                               <div class="tabs-panel" id="panel4f">
                                                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
