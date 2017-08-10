@@ -213,7 +213,7 @@ xmlhttp.onreadystatechange=function()
         document.getElementById('tipo').value="";
         document.getElementById('clabe').value="";
         document.getElementById('titularCuenta').value="";
-      //location.reload();
+        location.reload();
       }
   }
 xmlhttp.open("POST","domic.php",true);
@@ -261,13 +261,16 @@ var texto = document.getElementById("descargar");
 texto.download = (f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear())+".txt";
 texto.href = "data:text/plain;charset=utf-8," 
                      + encodeURIComponent(txtc);
-                    // location.reload();
+                     location.reload();
 }
 
 function mos(){
 document.getElementById('regi').style.display='block';
 document.getElementById('registro').style.display='none';
 document.getElementById('prueba').style.display='none';
+document.getElementById('ho').style.display='none';
+document.getElementById('d2').style.display='none';
+
 
 }
 
@@ -309,7 +312,7 @@ document.getElementById('prueba').style.display='none';
 
 </ul>
 </div>
- <div class="medium-6 columns" >
+ <div class="medium-6 columns" id="d2">
  <h4>Titulares a cobro</h4>
 <ul id="sortable2" class="connectedSortable" >
 
