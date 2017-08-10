@@ -1,3 +1,17 @@
+$( "#textfield60" ).change(function() {
+    estcivbene();
+});
+
+function estcivbene(){
+  if(document.getElementById("textfield60").value=="Casado"){
+    document.getElementById("divtextfield61").style.display='block';
+    
+  }else{
+    document.getElementById("divtextfield61").style.display='none';
+
+  }
+}
+
 
 function cpostal(cpos,estado,municipio,colonia,ciudad,loading){
     var data = new FormData();
@@ -481,6 +495,7 @@ xmlhttp.onreadystatechange=function()
             cdd.add(recpostales);
         document.getElementById("textfield59").value=obj.BeneficiarioEstado;
         document.getElementById("textfield60").value=obj.BeneficiarioEstCivil;
+        estcivbene();
         document.getElementById("textfield61").value=obj.BeneficiarioSocConyugal;
         document.getElementById("textfield62").value=obj.BeneficiarioOcupacion;
         document.getElementById("nomrazsoc2").value=obj.RazonSocial;
@@ -648,7 +663,122 @@ xmlhttp.send(data);
 
 
 $("#botonmodcliente").click(function(event) {
+    if(document.getElementById('cpsol').value!="" && (document.getElementById('colsol').value=="" || document.getElementById('edosol').value=="" || document.getElementById('cdsol').value=="" || document.getElementById('textfield5').value=="")){
+        document.getElementById("colsol").required=true;
+        document.getElementById("edosol").required=true;
+        document.getElementById("cdsol").required=true;
+        document.getElementById("textfield5").required=true;
+        }else{
+            document.getElementById("colsol").required=false;
+            document.getElementById("edosol").required=false;
+            document.getElementById("cdsol").required=false;
+            document.getElementById("textfield5").required=false;
+        }
+
+    if(document.getElementById('cpneg').value!="" && (document.getElementById('colneg').value=="" || document.getElementById('estneg').value=="" || document.getElementById('munneg').value=="" || document.getElementById('cdneg').value=="")){
+        document.getElementById("colneg").required=true;
+        document.getElementById("estneg").required=true;
+        document.getElementById("munneg").required=true;
+        document.getElementById("cdneg").required=true;
+        }else{
+            document.getElementById("colneg").required=false;
+            document.getElementById("estneg").required=false;
+            document.getElementById("munneg").required=false;
+            document.getElementById("cdneg").required=false;
+        }
+
+    if(document.getElementById('refpercp').value!="" && (document.getElementById('refpercol').value=="" || document.getElementById('refperest').value=="" || document.getElementById('refpermun').value=="" || document.getElementById('refpercd').value=="")){
+        document.getElementById("refpercol").required=true;
+        document.getElementById("refperest").required=true;
+        document.getElementById("refpermun").required=true;
+        document.getElementById("refpercd").required=true;
+        }else{
+            document.getElementById("refpercol").required=false;
+            document.getElementById("refperest").required=false;
+            document.getElementById("refpermun").required=false;
+            document.getElementById("refpercd").required=false;
+        }
+
+    if(document.getElementById('refpercp2').value!="" && (document.getElementById('refpercol2').value=="" || document.getElementById('refperest2').value=="" || document.getElementById('refpermun2').value=="" || document.getElementById('refpercd2').value=="")){
+        document.getElementById("refpercol2").required=true;
+        document.getElementById("refperest2").required=true;
+        document.getElementById("refpermun2").required=true;
+        document.getElementById("refpercd2").required=true;
+        }else{
+            document.getElementById("refpercol2").required=false;
+            document.getElementById("refperest2").required=false;
+            document.getElementById("refpermun2").required=false;
+            document.getElementById("refpercd2").required=false;
+        }
+
+
+    if(document.getElementById('refcomcp').value!="" && (document.getElementById('refcomcol').value=="" || document.getElementById('refcomest').value=="" || document.getElementById('refcommun').value=="" || document.getElementById('refcomcd').value=="")){
+        document.getElementById("refcomcol").required=true;
+        document.getElementById("refcomest").required=true;
+        document.getElementById("refcommun").required=true;
+        document.getElementById("refcomcd").required=true;
+        }else{
+            document.getElementById("refcomcol").required=false;
+            document.getElementById("refcomest").required=false;
+            document.getElementById("refcommun").required=false;
+            document.getElementById("refcomcd").required=false;
+        }
+
+    if(document.getElementById('refcomcp2').value!="" && (document.getElementById('refcomcol2').value=="" || document.getElementById('refcomest2').value=="" || document.getElementById('refcommun2').value=="" || document.getElementById('refcomcd2').value=="")){
+        document.getElementById("refcomcol2").required=true;
+        document.getElementById("refcomest2").required=true;
+        document.getElementById("refcommun2").required=true;
+        document.getElementById("refcomcd2").required=true;
+        }else{
+            document.getElementById("refcomcol2").required=false;
+            document.getElementById("refcomest2").required=false;
+            document.getElementById("refcommun2").required=false;
+            document.getElementById("refcomcd2").required=false;
+        }
+
+
+    if(document.getElementById('textfield50').value!="" && (document.getElementById('textfield49').value=="" || document.getElementById('textfield59').value=="" || document.getElementById('textfield58').value=="" /*|| document.getElementById('refcomcd2').value==""*/)){
+        document.getElementById("textfield49").required=true;
+        document.getElementById("textfield59").required=true;
+        document.getElementById("textfield58").required=true;
+        //document.getElementById("refcomcd2").required=true;
+        }else{
+            document.getElementById("textfield49").required=false;
+            document.getElementById("textfield59").required=false;
+            document.getElementById("textfield58").required=false;
+          //  document.getElementById("refcomcd2").required=false;
+        }
+
+    if(document.getElementById('cpsolpm').value!="" && (document.getElementById('colsolpm').value=="" || document.getElementById('cdsolpm').value=="" || document.getElementById('edosolpm').value=="" /*|| document.getElementById('refcomcd2').value==""*/)){
+        document.getElementById("colsolpm").required=true;
+        document.getElementById("cdsolpm").required=true;
+        document.getElementById("edosolpm").required=true;
+        //document.getElementById("refcomcd2").required=true;
+        }else{
+            document.getElementById("colsolpm").required=false;
+            document.getElementById("cdsolpm").required=false;
+            document.getElementById("edosolpm").required=false;
+          //  document.getElementById("refcomcd2").required=false;
+        }
+
+    if(document.getElementById('lugnacsol22').value!="" && (document.getElementById('datobcol23').value=="" || document.getElementById('colsol22').value=="" || document.getElementById('cdsol22').value=="" /*|| document.getElementById('refcomcd2').value==""*/)){
+        document.getElementById("datobcol23").required=true;
+        document.getElementById("colsol22").required=true;
+        document.getElementById("cdsol22").required=true;
+        //document.getElementById("refcomcd2").required=true;
+        }else{
+            document.getElementById("datobcol23").required=false;
+            document.getElementById("colsol22").required=false;
+            document.getElementById("cdsol22").required=false;
+          //  document.getElementById("refcomcd2").required=false;
+        }
+
+
+
+
     $('#form1').foundation('validateForm');
+
+
 
 var validacion=false;
 //$( "#panel1c-label" ).addClass( "is-invalid-input" );
@@ -663,6 +793,8 @@ $( "#panel8c-label" ).removeClass( "is-invalid-input" );
 $( "#panel9c-label" ).removeClass( "is-invalid-input" );
 
 
+
+
 $('#panel1c').find('input').each(function(){ 
     if($( "#"+this.id).hasClass( "is-invalid-input" )){
         console.log(this.id);
@@ -671,7 +803,26 @@ $('#panel1c').find('input').each(function(){
     }
 
      });
+$('#panel1c').find('select').each(function(){ 
+    if($( "#"+this.id).hasClass( "is-invalid-input" )){
+        console.log(this.id);
+        $( "#panel1c-label" ).addClass( "is-invalid-input" );
+        validacion=true;
+    }
+
+     });
+
+
+
 $('#panel2c').find('input').each(function(){ 
+    if($( "#"+this.id).hasClass( "is-invalid-input" )){
+        console.log(this.id);
+        $( "#panel2c-label" ).addClass( "is-invalid-input" );
+        validacion=true;
+    }
+
+     });
+$('#panel2c').find('select').each(function(){ 
     if($( "#"+this.id).hasClass( "is-invalid-input" )){
         console.log(this.id);
         $( "#panel2c-label" ).addClass( "is-invalid-input" );
@@ -687,6 +838,14 @@ $('#panel3c').find('input').each(function(){
     }
 
      });
+$('#panel3c').find('select').each(function(){ 
+    if($( "#"+this.id).hasClass( "is-invalid-input" )){
+        console.log(this.id);
+        $( "#panel3c-label" ).addClass( "is-invalid-input" );
+        validacion=true;
+    }
+
+     });
 $('#panel4c').find('input').each(function(){ 
     if($( "#"+this.id).hasClass( "is-invalid-input" )){
         console.log(this.id);
@@ -695,7 +854,23 @@ $('#panel4c').find('input').each(function(){
     }
 
      });
+$('#panel4c').find('select').each(function(){ 
+    if($( "#"+this.id).hasClass( "is-invalid-input" )){
+        console.log(this.id);
+        $( "#panel4c-label" ).addClass( "is-invalid-input" );
+        validacion=true;
+    }
+
+     });
 $('#panel5c').find('input').each(function(){ 
+    if($( "#"+this.id).hasClass( "is-invalid-input" )){
+        console.log(this.id);
+        $( "#panel5c-label" ).addClass( "is-invalid-input" );
+        validacion=true;
+    }
+
+     });
+$('#panel5c').find('select').each(function(){ 
     if($( "#"+this.id).hasClass( "is-invalid-input" )){
         console.log(this.id);
         $( "#panel5c-label" ).addClass( "is-invalid-input" );
@@ -719,6 +894,14 @@ $('#panel7c').find('input').each(function(){
     }
 
      });
+$('#panel7c').find('select').each(function(){ 
+    if($( "#"+this.id).hasClass( "is-invalid-input" )){
+        console.log(this.id);
+        $( "#panel7c-label" ).addClass( "is-invalid-input" );
+        validacion=true;
+    }
+
+     });
 $('#panel8c').find('input').each(function(){ 
     if($( "#"+this.id).hasClass( "is-invalid-input" )){
         console.log(this.id);
@@ -727,7 +910,23 @@ $('#panel8c').find('input').each(function(){
     }
 
      });
+$('#panel8c').find('select').each(function(){ 
+    if($( "#"+this.id).hasClass( "is-invalid-input" )){
+        console.log(this.id);
+        $( "#panel8c-label" ).addClass( "is-invalid-input" );
+        validacion=true;
+    }
+
+     });
 $('#panel9c').find('input').each(function(){ 
+    if($( "#"+this.id).hasClass( "is-invalid-input" )){
+        console.log(this.id);
+        $( "#panel9c-label" ).addClass( "is-invalid-input" );
+        validacion=true;
+    }
+
+     });
+$('#panel9c').find('select').each(function(){ 
     if($( "#"+this.id).hasClass( "is-invalid-input" )){
         console.log(this.id);
         $( "#panel9c-label" ).addClass( "is-invalid-input" );
@@ -1150,6 +1349,7 @@ xmlhttp.onreadystatechange=function()
             cdd.add(recpostales);
         document.getElementById("textfield59").value=obj.BeneficiarioEstado;
         document.getElementById("textfield60").value=obj.BeneficiarioEstCivil;
+        estcivbene();
         document.getElementById("textfield61").value=obj.BeneficiarioSocConyugal;
         document.getElementById("textfield62").value=obj.BeneficiarioOcupacion;
         document.getElementById("nomrazsoc2").value=obj.RazonSocial;

@@ -97,7 +97,50 @@ switch ($_REQUEST['function']) {
             
 /*
             */
-            ($_REQUEST['nomsol']!=''  &&  $_REQUEST['apepasol']!=''  &&  $_REQUEST['rfc1']!='' && $_REQUEST['telsol1']!='' && $_REQUEST['movsol1']!='' && $_REQUEST['mailsol']!='' && $_REQUEST['dirsol']!='' && $_REQUEST['dirsol']!='' && $_REQUEST['dirnumsol']!='' && $_REQUEST['colsol']!='' && $_REQUEST['cpsol']!='' && $_REQUEST['lugnacsol']!='' && $_REQUEST['edosol']!='' && $_REQUEST['cdsol']!='' && $_REQUEST['textfield5']!='' && $_REQUEST['curpsol']!='' && $_REQUEST['sexsol']!='' && $_REQUEST['fechnacsol']!='0000-00-00' && $_REQUEST['edsol']!='' && $_REQUEST['nacsol']!='' && $_REQUEST['acdomsol']!='' && $_REQUEST['anosol']!='' && $_REQUEST['arraisol']!='' && $_REQUEST['inmusol']!='' /*$_REQUEST['benesol3']!='' && $_REQUEST['benesol1']!='' && $_REQUEST['benesol2']!='' && $_REQUEST['textfield48']!='' && $_REQUEST['textfield49']!='' && $_REQUEST['textfield50']!='' && $_REQUEST['textfield51']!='' && $_REQUEST['textfield52']!='' && $_REQUEST['textfield53']!='' && $_REQUEST['textfield54']!='' && $_REQUEST['textfield55']!='' && $_REQUEST['textfield56']!='' && $_REQUEST['textfield57']!='' && $_REQUEST['textfield58']!='' && $_REQUEST['textfield59']!='' && $_REQUEST['textfield60']!='' && $_REQUEST['textfield61']!='' && $_REQUEST['textfield62']!=''*/)
+            ($_REQUEST['nomsol']!=''  &&  $_REQUEST['apepasol']!=''  &&  $_REQUEST['rfc1']!='' && $_REQUEST['telsol1']!='' && $_REQUEST['movsol1']!='' && $_REQUEST['mailsol']!='' && $_REQUEST['dirsol']!='' && $_REQUEST['dirsol']!='' && $_REQUEST['dirnumsol']!='' && $_REQUEST['colsol']!='' && $_REQUEST['cpsol']!='' && $_REQUEST['lugnacsol']!='' && $_REQUEST['edosol']!='' && $_REQUEST['cdsol']!='' && $_REQUEST['textfield5']!='' && $_REQUEST['curpsol']!='' && $_REQUEST['sexsol']!='' && $_REQUEST['fechnacsol']!='0000-00-00' && $_REQUEST['edsol']!='' && $_REQUEST['nacsol']!='' && $_REQUEST['acdomsol']!='' && $_REQUEST['anosol']!='' && $_REQUEST['arraisol']!='' && $_REQUEST['inmusol']!='' )
+
+            &&
+
+            (
+            ($_REQUEST['benesol3']!='' 
+                        && $_REQUEST['benesol1']!='' 
+                        //&& $_REQUEST['benesol2']!='' 
+                        && $_REQUEST['textfield48']!='' 
+                        //&& $_REQUEST['textfield49']!='' 
+                        && $_REQUEST['textfield50']!='' 
+                        && $_REQUEST['textfield51']!='' 
+                        && $_REQUEST['textfield52']!='' 
+                        && $_REQUEST['textfield53']!='' 
+                        && $_REQUEST['textfield54']!='' 
+                        && $_REQUEST['textfield55']!='' 
+                        && $_REQUEST['textfield56']!='' 
+                        && $_REQUEST['textfield57']!='' 
+                        //&& $_REQUEST['textfield58']!='' 
+                        //&& $_REQUEST['textfield59']!='' 
+                        && (($_REQUEST['textfield60']!='' && $_REQUEST['textfield60']=='Casado' && $_REQUEST['textfield61']!='') || ($_REQUEST['textfield60']!='' && $_REQUEST['textfield60']!='Casado') ) 
+                        
+                        && $_REQUEST['textfield62']!='')
+                /*|| 
+                ($_REQUEST['benesol3']=='' 
+                        && $_REQUEST['benesol1']=='' 
+                        //&& $_REQUEST['benesol2']=='' 
+                        && $_REQUEST['textfield48']=='' 
+                        //&& $_REQUEST['textfield49']=='' 
+                        && $_REQUEST['textfield50']=='' 
+                        && $_REQUEST['textfield51']=='' 
+                        && $_REQUEST['textfield52']=='' 
+                        && $_REQUEST['textfield53']=='' 
+                        && $_REQUEST['textfield54']=='' 
+                        && $_REQUEST['textfield55']=='' 
+                        && $_REQUEST['textfield56']=='' 
+                        && $_REQUEST['textfield57']=='' 
+                        //&& $_REQUEST['textfield58']=='' 
+                        //&& $_REQUEST['textfield59']=='' 
+                        && $_REQUEST['textfield60']=='' 
+                        && $_REQUEST['textfield61']=='' 
+                        && $_REQUEST['textfield62']=='')*/
+
+                )
             
 
              ){
@@ -113,6 +156,7 @@ if (($_REQUEST['TipoCliente']=="Persona Moral")
 
  &&
 
+ 
 ($_REQUEST['nomrazsoc2']!='' 
  &&  $_REQUEST['telsol2']!=''  
  &&  $_REQUEST['rfcsol1']!='' 
@@ -130,30 +174,92 @@ if (($_REQUEST['TipoCliente']=="Persona Moral")
  && $_REQUEST['antemp']!='' 
  && $_REQUEST['apodsusc']!='' 
  && $_REQUEST['nomconemp']!='' 
- && $_REQUEST['segnomconemp']!='' 
+ //&& $_REQUEST['segnomconemp']!=''
  && $_REQUEST['apepaconemp']!='' 
- && $_REQUEST['apemaconemp']!='' 
+ //&& $_REQUEST['apemaconemp']!='' 
  && $_REQUEST['datobdir22']!='' 
+ && $_REQUEST['lugnacsol22']!='' 
  && $_REQUEST['datobcol23']!='' 
  && $_REQUEST['colsol22']!=''
-
- 
- && $_REQUEST['refbanc']!='' 
- && $_REQUEST['numcuebanc']!='' 
- && $_REQUEST['sucbanc1']!='' 
- && $_REQUEST['aperbanc1d']!='0000-00-00' 
- && $_REQUEST['accionista1']!='' && $_REQUEST['rfcaccion1']!='' && $_REQUEST['porcent1']!=''
- /*
-  && $_REQUEST['aperbanc2d']!='' && $_REQUEST['cargdir']!='' && $_REQUEST['nocuentcd']!='' 
- */
-
- && $_REQUEST['cdsol22']!='' 
- && $_REQUEST['lugnacsol22']!='' 
  && $_REQUEST['rfcconemp1']!='' 
  && $_REQUEST['telconemp1']!='' 
  && $_REQUEST['mailconemp']!='' 
- && $_REQUEST['puesconemp']!='')
+ && $_REQUEST['puesconemp']!=''
+ )
 
+
+
+&&
+
+(($_REQUEST['refbanc']!='' && $_REQUEST['numcuebanc']!='' && $_REQUEST['sucbanc1']!='' && $_REQUEST['aperbanc1d']!='' ) 
+                
+&& ($_REQUEST['refbanc2']!='' && $_REQUEST['numcuebanc2']!='' && $_REQUEST['sucbanc2']!='' && $_REQUEST['aperbanc2d']!='' || $_REQUEST['refbanc2']=='' && $_REQUEST['numcuebanc2']=='' && $_REQUEST['sucbanc2']=='' && $_REQUEST['aperbanc2d']=='' ) 
+
+&& ($_REQUEST['cargdir']!='' && $_REQUEST['nocuentcd']!='' || $_REQUEST['cargdir']=='' && $_REQUEST['nocuentcd']==''))
+
+&&
+
+(($_REQUEST['refcomemp1']!='' && $_REQUEST['telrefcom11']!='' && $_REQUEST['antirefcom1']!='' && $_REQUEST['refcomdir']!='' && $_REQUEST['refcomnumdir']!='' && $_REQUEST['refcomcp']!='' && $_REQUEST['refcomcol']!='' && $_REQUEST['refcomest']!='' && $_REQUEST['refcommun']!=''))
+
+&&
+
+(($_REQUEST['refcomemp2']!='' && $_REQUEST['telrefcom22']!='' && $_REQUEST['antirefcom2']!='' && $_REQUEST['refcomdir2']!='' && $_REQUEST['refcomnumdir2']!='' && $_REQUEST['refcomcp2']!='' && $_REQUEST['refcomcol2']!='' && $_REQUEST['refcomest2']!='' && $_REQUEST['refcommun2']!='') || ($_REQUEST['refcomemp2']=='' && $_REQUEST['telrefcom22']=='' && $_REQUEST['antirefcom2']=='' && $_REQUEST['refcomdir2']=='' && $_REQUEST['refcomnumdir2']=='' && $_REQUEST['refcomcp2']=='' && $_REQUEST['refcomcol2']=='' && $_REQUEST['refcomest2']=='' && $_REQUEST['refcommun2']==''))
+
+&&
+
+(
+            ($_REQUEST['benesol3']!='' 
+                        && $_REQUEST['benesol1']!='' 
+                        //&& $_REQUEST['benesol2']!='' 
+                        && $_REQUEST['textfield48']!='' 
+                        //&& $_REQUEST['textfield49']!='' 
+                        && $_REQUEST['textfield50']!='' 
+                        && $_REQUEST['textfield51']!='' 
+                        && $_REQUEST['textfield52']!='' 
+                        && $_REQUEST['textfield53']!='' 
+                        && $_REQUEST['textfield54']!='' 
+                        && $_REQUEST['textfield55']!='' 
+                        && $_REQUEST['textfield56']!='' 
+                        && $_REQUEST['textfield57']!='' 
+                        //&& $_REQUEST['textfield58']!='' 
+                        //&& $_REQUEST['textfield59']!='' 
+                        && $_REQUEST['textfield60']!='' 
+                        && $_REQUEST['textfield61']!='' 
+                        && $_REQUEST['textfield62']!='')
+                || 
+                ($_REQUEST['benesol3']=='' 
+                        && $_REQUEST['benesol1']=='' 
+                        //&& $_REQUEST['benesol2']=='' 
+                        && $_REQUEST['textfield48']=='' 
+                        //&& $_REQUEST['textfield49']=='' 
+                        && $_REQUEST['textfield50']=='' 
+                        && $_REQUEST['textfield51']=='' 
+                        && $_REQUEST['textfield52']=='' 
+                        && $_REQUEST['textfield53']=='' 
+                        && $_REQUEST['textfield54']=='' 
+                        && $_REQUEST['textfield55']=='' 
+                        && $_REQUEST['textfield56']=='' 
+                        && $_REQUEST['textfield57']=='' 
+                        //&& $_REQUEST['textfield58']=='' 
+                        //&& $_REQUEST['textfield59']=='' 
+                        && (($_REQUEST['textfield60']!='' && $_REQUEST['textfield60']=='Casado' && $_REQUEST['textfield61']!='') || ($_REQUEST['textfield60']!='' && $_REQUEST['textfield60']!='Casado') ) 
+                        
+                        && $_REQUEST['textfield62']=='')
+
+                )
+
+
+    &&
+
+    (
+      (($_REQUEST['accionista1']!='' && $_REQUEST['rfcaccion1']!='' && $_REQUEST['porcent1']!=''))
+    &&(($_REQUEST['accionista2']!='' && $_REQUEST['rfcaccion2']!='' && $_REQUEST['porcent2']!='') || ($_REQUEST['accionista2']=='' && $_REQUEST['rfcaccion2']=='' && $_REQUEST['porcent2']==''))
+    &&(($_REQUEST['accionista3']!=''  && $_REQUEST['rfcaccion3']!='' && $_REQUEST['porcent3']!='') || ($_REQUEST['accionista3']=='' && $_REQUEST['rfcaccion3']=='' && $_REQUEST['porcent3']==''))
+    &&(($_REQUEST['accionista4']!=''&& $_REQUEST['rfcaccion4']!='' && $_REQUEST['porcent4']!='') || ($_REQUEST['accionista4']=='' && $_REQUEST['rfcaccion4']=='' && $_REQUEST['porcent4']==''))
+    &&(($_REQUEST['accpermor1']!='' && $_REQUEST['rfcaccpermor1']!='' && $_REQUEST['permoracc1']!='') || ($_REQUEST['accpermor1']=='' && $_REQUEST['rfcaccpermor1']=='' && $_REQUEST['permoracc1']==''))
+    &&(($_REQUEST['accpermor2']!='' && $_REQUEST['rfcaccpermor2']!='' && $_REQUEST['permoracc2']!='') || ($_REQUEST['accpermor2']=='' && $_REQUEST['rfcaccpermor2']=='' && $_REQUEST['permoracc2']==''))
+
+        )
 
 
 
@@ -365,22 +471,50 @@ $status="Finalizado";
         
 
         if(($_REQUEST['TipoCliente']=="Persona Fisica") 
-
             && 
-
-
-             (($_REQUEST['actempresarial']== "Si" && ($_REQUEST['puestosol']!='' && $_REQUEST['depasol']!='' && $_REQUEST['desdesol']!='' && $_REQUEST['compasol']!='' && $_REQUEST['compatelsol1']!='' && $_REQUEST['giroprof']!='' && $_REQUEST['noempleados']!='' && $_REQUEST['domneg']!='' && $_REQUEST['refcomemp1']!='' && $_REQUEST['telrefcom11']!='' && $_REQUEST['antirefcom1']!='')) || ($_REQUEST['actempresarial']== "No" && ($_REQUEST['puestosol']!='' && $_REQUEST['depasol']!='' && $_REQUEST['desdesol']!='' && $_REQUEST['compasol']!='' && $_REQUEST['compatelsol1']!=''))) 
-
-            && 
-
-
-
-
             (($_REQUEST['vivsol']=="Otros especificar" && $_REQUEST['vivsolesp']!='') || ($_REQUEST['vivsol']!="" && $_REQUEST['vivsol']!="Otros especificar")) 
+
+
 
             && 
 
             (($_REQUEST['autosol']=='Si' && $_REQUEST['marcasol']!='') || ($_REQUEST['autosol']!='' && $_REQUEST['autosol']!='Si' )) 
+
+
+
+
+            && 
+
+             (($_REQUEST['actempresarial']== "Si" && ($_REQUEST['puestosol']!='' && $_REQUEST['depasol']!='' && $_REQUEST['desdesol']!='' && $_REQUEST['desdesolanios']!='' && $_REQUEST['compasol']!='' && $_REQUEST['compatelsol1']!='' && $_REQUEST['giroprof']!='' && $_REQUEST['noempleados']!='' && $_REQUEST['domneg']!='' && $_REQUEST['numdomneg']!='' && $_REQUEST['cpneg']!='' && $_REQUEST['colneg']!='' && $_REQUEST['estneg']!='' && $_REQUEST['munneg']!=''))
+
+
+
+                || ($_REQUEST['actempresarial']== "No" && ($_REQUEST['puestosol']!='' && $_REQUEST['depasol']!='' && $_REQUEST['desdesol']!='' && $_REQUEST['desdesolanios']!='' && $_REQUEST['compasol']!='' && $_REQUEST['compatelsol1']!=''  && $_REQUEST['domneg']!='' && $_REQUEST['numdomneg']!='' && $_REQUEST['cpneg']!='' && $_REQUEST['colneg']!='' && $_REQUEST['estneg']!='' && $_REQUEST['munneg']!='' ))) 
+
+            &&
+
+            (($_REQUEST['nomref1']!='' && $_REQUEST['parenref1']!='' && $_REQUEST['telref11']!='' && $_REQUEST['refperdir']!='' && $_REQUEST['refpernumdir']!='' && $_REQUEST['refpercp']!='' && $_REQUEST['refpercol']!='' && $_REQUEST['refperest']!='' && $_REQUEST['refpermun']!='') )
+
+            &&
+
+
+            (($_REQUEST['nomref2']!='' && $_REQUEST['parenref2']!='' && $_REQUEST['telref12']!='' && $_REQUEST['refperdir2']!='' && $_REQUEST['refpernumdir2']!='' && $_REQUEST['refpercp2']!='' && $_REQUEST['refpercol2']!='' && $_REQUEST['refperest2']!='' && $_REQUEST['refpermun2']!='') || ($_REQUEST['nomref2']=='' && $_REQUEST['parenref2']=='' && $_REQUEST['telref12']=='' && $_REQUEST['refperdir2']=='' && $_REQUEST['refpernumdir2']=='' && $_REQUEST['refpercp2']=='' && $_REQUEST['refpercol2']=='' && $_REQUEST['refperest2']=='' && $_REQUEST['refpermun2']==''))
+
+            &&
+
+            (($_REQUEST['refbanc']!='' && $_REQUEST['numcuebanc']!='' && $_REQUEST['sucbanc1']!='' && $_REQUEST['aperbanc1d']!='' ) 
+                
+                && ($_REQUEST['refbanc2']!='' && $_REQUEST['numcuebanc2']!='' && $_REQUEST['sucbanc2']!='' && $_REQUEST['aperbanc2d']!='' || $_REQUEST['refbanc2']=='' && $_REQUEST['numcuebanc2']=='' && $_REQUEST['sucbanc2']=='' && $_REQUEST['aperbanc2d']=='' ) 
+
+                && ($_REQUEST['cargdir']!='' && $_REQUEST['nocuentcd']!='' || $_REQUEST['cargdir']=='' && $_REQUEST['nocuentcd']==''))
+
+            &&
+
+            (($_REQUEST['refcomemp1']!='' && $_REQUEST['telrefcom11']!='' && $_REQUEST['antirefcom1']!='' && $_REQUEST['refcomdir']!='' && $_REQUEST['refcomnumdir']!='' && $_REQUEST['refcomcp']!='' && $_REQUEST['refcomcol']!='' && $_REQUEST['refcomest']!='' && $_REQUEST['refcommun']!=''))
+
+            &&
+
+            (($_REQUEST['refcomemp2']!='' && $_REQUEST['telrefcom22']!='' && $_REQUEST['antirefcom2']!='' && $_REQUEST['refcomdir2']!='' && $_REQUEST['refcomnumdir2']!='' && $_REQUEST['refcomcp2']!='' && $_REQUEST['refcomcol2']!='' && $_REQUEST['refcomest2']!='' && $_REQUEST['refcommun2']!='') || ($_REQUEST['refcomemp2']=='' && $_REQUEST['telrefcom22']=='' && $_REQUEST['antirefcom2']=='' && $_REQUEST['refcomdir2']=='' && $_REQUEST['refcomnumdir2']=='' && $_REQUEST['refcomcp2']=='' && $_REQUEST['refcomcol2']=='' && $_REQUEST['refcomest2']=='' && $_REQUEST['refcommun2']==''))
 
             &&
 
@@ -389,10 +523,10 @@ $status="Finalizado";
 
             &&
             
-            ($_REQUEST['nomsol']!=''  &&  $_REQUEST['apepasol']!=''  &&  $_REQUEST['rfc1']!='' && $_REQUEST['telsol1']!='' && $_REQUEST['movsol1']!='' && $_REQUEST['mailsol']!='' && $_REQUEST['dirsol']!='' && $_REQUEST['dirsol']!='' && $_REQUEST['dirnumsol']!='' && $_REQUEST['colsol']!='' && $_REQUEST['cpsol']!='' && $_REQUEST['lugnacsol']!='' && $_REQUEST['edosol']!='' && $_REQUEST['cdsol']!='' && $_REQUEST['textfield5']!='' && $_REQUEST['curpsol']!='' && $_REQUEST['sexsol']!='' && $_REQUEST['fechnacsol']!='0000-00-00' && $_REQUEST['edsol']!='' && $_REQUEST['nacsol']!='' && $_REQUEST['acdomsol']!='' && $_REQUEST['anosol']!='' && $_REQUEST['arraisol']!='' && $_REQUEST['inmusol']!='' && $_REQUEST['nomref1']!='' && $_REQUEST['parenref1']!='' && $_REQUEST['telref11']!='' /*&& $_REQUEST['refbanc']!='' && $_REQUEST['numcuebanc']!='' && $_REQUEST['sucbanc1']!='' && $_REQUEST['aperbanc1d']!='0000-00-00' && $_REQUEST['refbanc2']!='' && $_REQUEST['numcuebanc2']!='' && $_REQUEST['sucbanc2']!='' && $_REQUEST['aperbanc2d']!='' && $_REQUEST['cargdir']!='' && $_REQUEST['nocuentcd']!='' */&& $_REQUEST['benesol3']!='' && $_REQUEST['benesol1']!='' && $_REQUEST['benesol2']!='' && $_REQUEST['textfield48']!='' && $_REQUEST['textfield49']!='' && $_REQUEST['textfield50']!='' && $_REQUEST['textfield51']!='' && $_REQUEST['textfield52']!='' && $_REQUEST['textfield53']!='' && $_REQUEST['textfield54']!='' && $_REQUEST['textfield55']!='' && $_REQUEST['textfield56']!='' && $_REQUEST['textfield57']!='' && $_REQUEST['textfield58']!='' && $_REQUEST['textfield59']!='' && $_REQUEST['textfield60']!='' && $_REQUEST['textfield61']!='' && $_REQUEST['textfield62']!='')
-            /*
-            
+/*
             */
+            ($_REQUEST['nomsol']!=''  &&  $_REQUEST['apepasol']!=''  &&  $_REQUEST['rfc1']!='' && $_REQUEST['telsol1']!='' && $_REQUEST['movsol1']!='' && $_REQUEST['mailsol']!='' && $_REQUEST['dirsol']!='' && $_REQUEST['dirsol']!='' && $_REQUEST['dirnumsol']!='' && $_REQUEST['colsol']!='' && $_REQUEST['cpsol']!='' && $_REQUEST['lugnacsol']!='' && $_REQUEST['edosol']!='' && $_REQUEST['cdsol']!='' && $_REQUEST['textfield5']!='' && $_REQUEST['curpsol']!='' && $_REQUEST['sexsol']!='' && $_REQUEST['fechnacsol']!='0000-00-00' && $_REQUEST['edsol']!='' && $_REQUEST['nacsol']!='' && $_REQUEST['acdomsol']!='' && $_REQUEST['anosol']!='' && $_REQUEST['arraisol']!='' && $_REQUEST['inmusol']!='' /*$_REQUEST['benesol3']!='' && $_REQUEST['benesol1']!='' && $_REQUEST['benesol2']!='' && $_REQUEST['textfield48']!='' && $_REQUEST['textfield49']!='' && $_REQUEST['textfield50']!='' && $_REQUEST['textfield51']!='' && $_REQUEST['textfield52']!='' && $_REQUEST['textfield53']!='' && $_REQUEST['textfield54']!='' && $_REQUEST['textfield55']!='' && $_REQUEST['textfield56']!='' && $_REQUEST['textfield57']!='' && $_REQUEST['textfield58']!='' && $_REQUEST['textfield59']!='' && $_REQUEST['textfield60']!='' && $_REQUEST['textfield61']!='' && $_REQUEST['textfield62']!=''*/)
+            
 
              ){
 
