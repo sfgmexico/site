@@ -33,7 +33,7 @@
 				  <?php 
 				  if(isset($_POST['aceptar'])){
 				  $user=$_REQUEST['user'];
-				  $pass=$_REQUEST['pass'];
+				  $pass=md5($_REQUEST['pass']);
 				  if($user=="" && $pass==""){?>
 				  	<script>alert("¡¡Favor de Ingresar Usuario y Contraseña!!");</script>
 				  <?php
