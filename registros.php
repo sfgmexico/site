@@ -1029,9 +1029,9 @@
 
                 <div id="nombres" name="nombres" style="display: none;">
                   
-              <label>Nombre<input type="text" onkeyup="busqueda()" id="nombrepf" name="nombrepf"></label>
-              <label>Apellido Paterno<input type="text" onkeyup="busqueda()" id="ApellidoPa" name="ApellidoPa"></label>
-              <label>Apellido Materno<input type="text" onkeyup="busqueda()" id="ApellidoMa" name="ApellidoMa"></label>
+                  <label>Nombre<input type="text" onkeyup="busqueda()" id="nombrepf" name="nombrepf"></label>
+                  <label>Apellido Paterno<input type="text" onkeyup="busqueda()" id="ApellidoPa" name="ApellidoPa"></label>
+                  <label>Apellido Materno<input type="text" onkeyup="busqueda()" id="ApellidoMa" name="ApellidoMa"></label>
                 </div>
               
                 <div id="resultadonuevasolicitud"></div>
@@ -1044,12 +1044,12 @@
 
 
 
-          <!-- This is the first modal -->
+            <!-- This is the first modal -->
             <div class="reveal" id="modalmodificarsolicitud" data-reveal>
               <h4>Ingresa el Número de Solicitud:</h4>
               
               
-                <label>ID:<input type="text" name="idmodificasolicitud" id="idmodificasolicitud"></label>
+              <label>ID:<input type="text" name="idmodificasolicitud" id="idmodificasolicitud"></label>
               
               
 
@@ -1167,7 +1167,7 @@
                   </p>
                 </div>
                 
-    <!-- This is the first modal -->
+                <!-- This is the first modal -->
 
 
                 <div class="reveal" id="Aut" data-reveal>
@@ -1183,11 +1183,6 @@
                   </button>
                 </div>
               </div>
-
-
-
-
-
               <div class="tabs-panel" id="panel2d">
                 <div class="row">
                   <p align="left"><strong>DATOS DEL OBLIGADO SOLIDARIO PERSONA FÍSICA, PROPIETARIO DE BIEN INMUEBLE </strong></p>
@@ -1252,7 +1247,7 @@
                     <div class="medium-3 columns"><label>Edad
                      
  
-        <input  name="datobed1" type="text" id="datobed1" size="2px" placeholder="Edad" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['EdObSol']; } ?>"  pattern="integer">
+                      <input  name="datobed1" type="text" id="datobed1" size="2px" placeholder="Edad" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['EdObSol']; } ?>"  pattern="integer">
  
  
  
@@ -1364,29 +1359,37 @@
                       <label>Tiene propiedad a su nombre?
                         <select name="datobprop2" ><option>Si</option><option>No</option></select></label>
                     </div>
-<label>Datos Persona Moral</label>
-                    <div class="medium-3 columns"><label> Nombre Razon social<input type="text" name="NomOb" id=""></label></div>
-<div class="medium-3 columns"><label>RFC <input type="text" name="RFC" id=""></label></div>
-<div class="medium-3 columns"><label>Telefono <input type="text" name="tel" id=""></label></div>
-<div class="medium-3 columns"><label>Telefono Alternativo <input type="text" name="tel" id=""></label></div>
-<div class="medium-3 columns"><label>Codigo Posta <input type="text" name="CP" id=""></label></div>
-<div class="medium-3 columns"><label>Direccion <input type="text" name="dir" id=""></label></div>
-<div class="medium-3 columns"><label>Colonia <input type="text" name="dir" id=""></label></div>
-<div class="medium-3 columns"><label>Ciudad <input type="text" name="ciud" id=""></label></div>
-<div class="medium-3 columns"><label>Estado <input type="text" name="est" id=""></label></div>
-<div class="medium-3 columns"><label>Municipio <input type="text" name="tel" id=""></label></div>
-<div class="medium-3 columns"><label>E-Mail <input type="text" name="E-mail" id=""></label></div>
-<div class="medium-3 columns"><label>Constitucion de la Empresa</label></div>
-<div class="medium-3 columns"><label>Antiguedad <input type="text" name="Antiguedad" id=""></label></div>
-<div class="medium-6 columns"><label>Apoderado para suscribir titulos de credito y realizar actos de administracion <input type="text" name="curp" id=""></label></div>
-<div class="medium-3 columns"><label>Datos Generales</label></div>
-<div class="medium-3 columns"><label>Actividad Principal <input type="text" name="Actividad" id=""></label></div>
-<div class="medium-3 columns"><label>Fecha de inicio de operaciones <input type="text" name="Actividad" id=""></label></div>
-<div class="medium-3 columns"><label>Cantidad de personal <input type="text" name="Actividad" id=""></label></div>
-
-
                   </p>
+
                 </div>
+                <!--<div class="row">
+                    
+                       <p><strong> <label>DATOS DEL OBLIGADO SOLIDARIO PERSONA MORAL</label></strong></p>
+                  
+                        <div class="medium-3 columns"><label> Nombre Razon social<input type="text" name="NomOb" id=""></label></div>
+                        <div class="medium-3 columns"><label>RFC <input type="text" name="RFC" id=""></label></div>
+                        <div class="medium-3 columns"><label>Telefono <input type="text" name="tel" id=""></label></div>
+                        <div class="medium-3 columns"><label>Telefono Alternativo <input type="text" name="tel" id=""></label></div>
+                        <div class="medium-3 columns"><label>Codigo Posta <input type="text" name="CP" id=""></label></div>
+                        <div class="medium-3 columns"><label>Direccion <input type="text" name="dir" id=""></label></div>
+                        <div class="medium-3 columns"><label>Colonia <input type="text" name="dir" id=""></label></div>
+                        <div class="medium-3 columns"><label>Ciudad <input type="text" name="ciud" id=""></label></div>
+                        <div class="medium-3 columns"><label>Estado <input type="text" name="est" id=""></label></div>
+                        <div class="medium-3 columns"><label>Municipio <input type="text" name="tel" id=""></label></div>
+                        <div class="medium-3 columns"><label>E-Mail <input type="text" name="E-mail" id=""></label></div>
+                 
+                    
+                       <p><label>Constitucion de la Empresa</label></p>
+                        <div class="medium-3 columns"><label>Antiguedad <input type="text" name="Antiguedad" id=""></label></div>
+                        <div class="medium-6 columns"><label>Apoderado para suscribir titulos de credito y realizar actos de administracion <input type="text" name="curp" id=""></label></div>
+                  
+                       <p><label>Datos Generales</label></p>
+                        <div class="medium-3 columns"><label>Actividad Principal <input type="text" name="Actividad" id=""></label></div>
+                        <div class="medium-3 columns"><label>Fecha de inicio de operaciones <input type="text" name="Actividad" id=""></label></div>
+                        <div class="medium-3 columns"><label>Cantidad de personal <input type="text" name="Actividad" id=""></label></div>
+
+                </div>
+                      -->
               </div>
               <div class="tabs-panel" id="panel3d">
                 <div class="row">
@@ -1417,6 +1420,7 @@
               <div class="tabs-panel" id="panel4d">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
               </div>
+
               <input class="button" type="button" name="guardarsolicitud" id="guardarsolicitud" value="Guardar" style="display: none;">
               <input class="button" type="button" name="botonmodsolicitud" id="botonmodsolicitud" value="Guardar" style="display: none;">
               <input class="button" type="button" name="cancelarsolicitud" id="cancelarsolicitud" value="Cancelar Registro">
