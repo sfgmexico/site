@@ -14,12 +14,12 @@
             if($buscar==""){
                   break;
             }
-            $sql = mysqli_query($cnx,"select * FROM clientes WHERE id LIKE '".$buscar."%'");
+            $sql = mysqli_query($cnx,"select * FROM clientes WHERE id LIKE '".$buscar."%' and Status='Finalizado'");
              
             $contar = mysqli_num_rows($sql);
              
             if($contar == 0){
-                  echo "No se han encontrado resultados para '<b>".$buscar."</b>'.";
+                  echo "El cliente buscado no tiene su información completa o no existe: '<b>".$buscar."</b>'.";
 
             }else{
                echo  "<table><th><tr><td>ID</td><td>Nombre / Razon social</td><td>CURP/RFC</td></tr></th>";
@@ -38,12 +38,12 @@
        if($buscar1=="" && $buscar2=="" && $buscar3==""){
                   break;
             }
-            $sql = mysqli_query($cnx,"select * FROM clientes WHERE (NombrePF LIKE '%".$buscar1."%') and (ApPatPF LIKE '%".$buscar2."%') and (ApMatPF LIKE '%".$buscar3."%')");
+            $sql = mysqli_query($cnx,"select * FROM clientes WHERE (NombrePF LIKE '%".$buscar1."%') and (ApPatPF LIKE '%".$buscar2."%') and (ApMatPF LIKE '%".$buscar3."%' and Status='Finalizado')");
              
             $contar = mysqli_num_rows($sql);
              
             if($contar == 0){
-                  echo "No se han encontrado resultados para '<b>".$buscar1."</b>  <b>".$buscar2."</b>  <b>".$buscar3."</b>'.";
+                  echo "El cliente buscado no tiene su información completa o no existe: '<b>".$buscar1."</b>  <b>".$buscar2."</b>  <b>".$buscar3."</b>'.";
                  
 
 
@@ -64,12 +64,12 @@
        if($buscar==""){
                   break;
             }
-            $sql = mysqli_query($cnx,"select * FROM clientes WHERE RazonSocial LIKE '".$buscar."%'");
+            $sql = mysqli_query($cnx,"select * FROM clientes WHERE RazonSocial LIKE '".$buscar."%' and Status='Finalizado'");
              
             $contar = mysqli_num_rows($sql);
              
             if($contar == 0){
-                  echo "No se han encontrado resultados para '<b>".$buscar."</b>'.";
+                  echo "El cliente buscado no tiene su información completa o no existe: '<b>".$buscar."</b>'.";
             }else{
                 echo  "<table><th><tr><td>ID</td><td>Nombre</td><td>RFC</td></tr></th>";
                   while($row=mysqli_fetch_array($sql)){

@@ -1190,6 +1190,7 @@
 
               <div class="tabs-panel" id="panel2d">
                 <div class="row">
+                  <p align="left"><strong>DATOS DEL OBLIGADO SOLIDARIO PERSONA FÍSICA, PROPIETARIO DE BIEN INMUEBLE </strong></p>
                   <p align="left">
                     <div class="medium-3 columns"><label>Nombre
                       <input name="datobnom1" type="text" id="datobnom1" size="30px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NomObSol']; } ?>" placeholder="Nombre(s)" pattern="alpha"></label>

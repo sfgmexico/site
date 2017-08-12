@@ -43,7 +43,7 @@ function seleccionvalor(){
 
 
 		
-	}else if(document.getElementById("tipocredito").value=="Auto Usado"){
+	}else if(document.getElementById("tipocredito").value=="Auto Seminuevo"){
 		document.getElementById("displaymonto").style.display='block';
 		document.getElementById("labelmontosoli").innerHTML='Monto del Vehiculo';
 		document.getElementById("engautochange").style.display='block';
@@ -57,7 +57,7 @@ function seleccionvalor(){
 		document.getElementById("segdeschange").style.display='none';
 		document.getElementById("plazocredito").style.display='block';
 		document.getElementById("pagomensualesp").style.display='block';
-		data.append('requestcredito', "Auto Usado");
+		data.append('requestcredito', "Auto Seminuevo");
 
 
 	}else if(document.getElementById("tipocredito").value=="Crédito Simple de Nomina"){
@@ -112,11 +112,19 @@ xmlhttp.onreadystatechange=function()
     if (xmlhttp.readyState==4 && xmlhttp.status==200)
       {
         
-        alert(xmlhttp.responseText);
+        //alert(xmlhttp.responseText);
         obj3 = JSON.parse(xmlhttp.responseText);
-        if(obj3.descripcion=="Crédito Simple de Nomina"){
-        	document.getElementById("textfield100").value=obj3.tasa;
+
+        if(obj3!=null){
+            if(obj3.descripcion=="Crédito Simple de Nomina"){
+              document.getElementById("textfield100").value=obj3.tasa;
+            }else if(obj3.descripcion=="Auto Nuevo"){
+              document.getElementById("textfield100").value=obj3.tasa;
+            }else{
+              document.getElementById("textfield100").value="";
+            }
         }
+            
 
         
       }
