@@ -139,7 +139,7 @@
                     <select name="cdsolpm"  id="cdsolpm"><option value="">-Seleccione una opción-</option></select>
                       </label>
                     </div>
-                    <div class="medium-3 columns"><label>Estado
+                    <div class="medium-3 columns"><label>Estad
                     <select name="edosolpm"  id="edosolpm"><option value="">-Seleccione una opción-</option></select>
                       </label>
                     </div>
@@ -1364,6 +1364,27 @@
                       <label>Tiene propiedad a su nombre?
                         <select name="datobprop2" ><option>Si</option><option>No</option></select></label>
                     </div>
+<label>Datos Persona Moral</label>
+                    <div class="medium-3 columns"><label> Nombre Razon social<input type="text" name="NomOb" id=""></label></div>
+<div class="medium-3 columns"><label>RFC <input type="text" name="RFC" id=""></label></div>
+<div class="medium-3 columns"><label>Telefono <input type="text" name="tel" id=""></label></div>
+<div class="medium-3 columns"><label>Telefono Alternativo <input type="text" name="tel" id=""></label></div>
+<div class="medium-3 columns"><label>Codigo Posta <input type="text" name="CP" id=""></label></div>
+<div class="medium-3 columns"><label>Direccion <input type="text" name="dir" id=""></label></div>
+<div class="medium-3 columns"><label>Colonia <input type="text" name="dir" id=""></label></div>
+<div class="medium-3 columns"><label>Ciudad <input type="text" name="ciud" id=""></label></div>
+<div class="medium-3 columns"><label>Estado <input type="text" name="est" id=""></label></div>
+<div class="medium-3 columns"><label>Municipio <input type="text" name="tel" id=""></label></div>
+<div class="medium-3 columns"><label>E-Mail <input type="text" name="E-mail" id=""></label></div>
+<div class="medium-3 columns"><label>Constitucion de la Empresa</label></div>
+<div class="medium-3 columns"><label>Antiguedad <input type="text" name="Antiguedad" id=""></label></div>
+<div class="medium-3 columns"><label>Apoderado para suscribir titulos de credito y realizar actos de administracion <input type="text" name="curp" id=""></label></div>
+<div class="medium-3 columns"><label>Datos Generales</label></div>
+<div class="medium-3 columns"><label>Actividad Principal <input type="text" name="Actividad" id=""></label></div>
+<div class="medium-3 columns"><label>Fecha de inicio de operaciones <input type="text" name="Actividad" id=""></label></div>
+<div class="medium-3 columns"><label>Cantidad de personal <input type="text" name="Actividad" id=""></label></div>
+
+
                   </p>
                 </div>
               </div>

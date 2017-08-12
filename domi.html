@@ -119,6 +119,7 @@
   } );
 
 function buscar(){ 
+    
 var c=0;
 $( "#sortable2 li" ).each(function( index ) {
    
@@ -126,7 +127,7 @@ $( "#sortable1 li" ).appendTo( "#prueba" );
 
 $('#sortable2').find('input').each(function(){ 
     this.style.display='block';
-
+this.pattern="number";
      });
 
 
@@ -162,7 +163,7 @@ xmlhttp.onreadystatechange=function()
       obj= JSON.parse(xmlhttp.responseText);
 $.each(obj, function(i,cliente){
     
-      $("#sortable1").append('<li class="ui-state-default" id="'+this.Referencia+'"><strong>'+ this.Referencia +'  </strong>' + this.Titular_servicio   +' <input type="text" name="imp" id="imp'+this.Referencia+'" style="display: none;"></li>');
+      $("#sortable1").append('<li class="ui-state-default" id="'+this.Referencia+'"><strong>'+ this.Referencia +'  </strong>' + this.Titular_servicio   +' <input onkeyup="nometoches(this)" type="text" name="imp" id="imp'+this.Referencia+'" style="display:none;" ></li> ');
    
 
         });
@@ -173,6 +174,7 @@ xmlhttp.send(data);
 
 
 $("#guardar").click(function(event) {
+  var validacion=false;
     $('#formi').foundation('validateForm');
 $('#formi').find('input').each(function(){ 
     if($( "#"+this.id).hasClass( "is-invalid-input" )){
@@ -210,7 +212,6 @@ xmlhttp.onreadystatechange=function()
         document.getElementById('Referencia').value="";
         document.getElementById('RefNumerica').value="";
         document.getElementById('titular').value="";
-        document.getElementById('tipo').value="";
         document.getElementById('clabe').value="";
         document.getElementById('titularCuenta').value="";
         location.reload();
@@ -223,6 +224,32 @@ xmlhttp.send(data);
 
 
 function txt(){
+
+    var validacion=false;
+    $('#formi2').foundation('validateForm');
+
+$('#formi2').find('input').each(function(){ 
+ // alert(this.value);
+
+  if(!this.value.match(/^[^0-][+]?\d*(?:[\.\,]\d+)?$/) || (this.value) <= 0 || (this.value)== null ){
+ 
+    $( "#"+this.id).addClass( "is-invalid-input" );
+    if($( "#"+this.id).hasClass( "is-invalid-input" )){
+        console.log(this.id);
+        validacion=true;
+    }
+
+  }else{
+
+    $( "#"+this.id).removeClass( "is-invalid-input" );
+  }
+     });
+
+if(validacion){
+         console.log("Hay errores");
+         alert("¡¡Verifica Que Todos Los Datos Sean Correctos!!");
+         return validacion;
+    }
   var txtc="";
   var cont=0;
         var sum=0;
@@ -274,6 +301,20 @@ document.getElementById('d2').style.display='none';
 
 }
 
+function nometoches(input){
+  if(parseFloat(input.value) && input.value.substr(-1)!="."){
+    input.value=parseFloat(input.value);
+  }
+  
+  if(input.value.match(/^[^0-][+]?\d*(?:[\.\,]\d+)?$/)){
+    $( "#"+input.id).removeClass( "is-invalid-input" );
+  }else{
+    
+    $( "#"+input.id).addClass( "is-invalid-input" );
+  }
+}
+
+
   </script>
 </head>
 <body>
@@ -306,6 +347,7 @@ document.getElementById('d2').style.display='none';
   } );
   </script>
   <div class="row">
+<form id="formi2" name="formi2" data-abide novalidate>
 <div class="medium-6 columns" id="ho">
   <h4>Titulares</h4>
 <ul id="sortable1" class="connectedSortable">
@@ -319,6 +361,7 @@ document.getElementById('d2').style.display='none';
 </ul>
 
 </div>
+</form>
 <div class="medium-3 columns">
 <input type="button" class="button" name="prueba" id="prueba" value="Agregar importe" onclick="buscar()">
 
@@ -327,32 +370,32 @@ document.getElementById('d2').style.display='none';
 <a class="button" id="descargar" onclick="txt()" style="display: none;">Crear archivo</a></div>
 <div class="medium-3 columns">
 <input type="button" class="button" name="registro" id="registro" value="Nuevo Registro" onclick="mos()"></div>
-
+</div>
 
  <form id="formi" data-abide novalidate>
    
 <div class="row" id="regi" style="display: none;">
         <div class="medium-3 columns">
         <label for="tags">Banco </label>
-         <input required type="text" id="tags" name="tags">
+         <input required type="text" id="tags" name="tags" >
         </div>
         <div class="medium-3 columns">
         <label for="Referencia">Referencia </label>
-        <input required type="text" id="Referencia" name="Referencia">
+        <input required type="text" id="Referencia" name="Referencia" pattern="alpha_numeric">
         </div>
         <div class="medium-3 columns">
         <label for="RefNumerica">Referencia Numerica </label>
-        <input required type="text" id="RefNumerica" name="RefNumerica">
+        <input required type="text" id="RefNumerica" name="RefNumerica"  pattern="integer" maxlength="7">
         </div>
         <div class="medium-3 columns">
-        <label for="titular">Titular del Servicio <input required type="text" id="titular" name="titular"></label>
+        <label for="titular">Titular del Servicio <input required type="text" id="titular" name="titular" pattern="alpha_numeric2"></label>
         </div>
     
         <div class="medium-3 columns">
-        <label for="clabe">CLABE/TDD <input required type="text" id="clabe" name="clabe"></label>
+        <label for="clabe">CLABE/TDD <input required type="text" id="clabe" name="clabe" pattern="clabe" maxlength="18"></label>
         </div>
         <div class="medium-3 columns">
-        <label for="titularCuenta">Titular de la Cuenta <input required type="text" id="titularCuenta" name="titularCuenta"></label>
+        <label for="titularCuenta">Titular de la Cuenta <input required type="text" id="titularCuenta" name="titularCuenta" pattern="alpha_numeric2"></label>
         </div>
       <div class="medium-3 columns">
         <input  class="success button" type="button" name="guardar" id="guardar" value="Guardar"></div>
