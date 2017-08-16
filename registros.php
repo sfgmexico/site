@@ -1062,9 +1062,11 @@
             <!-- This is the nested modal -->
             <div class="reveal" id="modalcontregsolicitud" data-reveal>
               <h4>Registros Incompletos...</h4>
-              <table  id="tablajson">
+              <table  id="tablajson2">
                 <thead>
                   <th>Id</th> 
+                  <th>Tipo de Crédito</th>
+                  <th>Cliente</th>
                 </thead>
                 <tbody></tbody>
               </table>
@@ -1077,7 +1079,7 @@
           </div>
           
           <div id="contenidorequestsolicitud" style="display: none;">
-            <ul class="tabs" data-deep-link="true" data-update-history="true" data-deep-link-smudge="true" data-deep-link-smudge="500" data-tabs id="deeplinked-tabs">
+            <ul class="tabs"  data-tabs id="deeplinked-tabs">
               <li class="tabs-title is-active"><a href="#panel1d" aria-selected="true">Credito</a></li>
               <li class="tabs-title"><a href="#panel2d">Obligado Solidario</a></li>
               <li class="tabs-title"><a href="#panel3d">Concesionario</a></li>
@@ -1108,59 +1110,104 @@
                                                         
                     <div class="medium-3 columns" id="displaymonto" style="display: none;"> 
                       <label><span id="labelmontosoli"></span> 
-                        <input name="textfield86" type="text" id="textfield86" size="50%"    >
+                        <div class="input-group">
+                        <span class="input-group-label">$</span>
+                        <input class="input-group-field"  name="textfield86" type="text" id="textfield86"  onkeyup="mascara(this,cpf)"   >
+                        </div>
                       </label> 
                     </div>
 
                     <div class="medium-3 columns" id="engautochange" style="display: none;">
                       <label>Enganche 
-                        <input name="textfield87" type="text" id="textfield87" size="50%"    onchange="datosAuto()">
+                        <div class="input-group">
+                        <span class="input-group-label">$</span>
+                        <input class="input-group-field"  name="textfield87" type="text" id="textfield87" size="50%" onchange="datosAuto()" onkeyup="mascara(this,cpf)"  ><!--onchange="datosAuto()"-->
+                        </div>
                       </label>
                     </div>
 
                     <div class="medium-3 columns" id="porengautochange" style="display: none;">
-                      <label> Porcentaje de Enganche<input name="textfield88" type="text" id="textfield88" size="50%"  readonly>
+                      <label> Porcentaje de Enganche
+                      <div class="input-group">
+                        <input class="input-group-field" name="textfield88" type="text" id="textfield88" size="50%"  readonly>
+                        <span class="input-group-label">%</span>
+                        </div>
                       </label>
                     </div>
                     <div class="medium-3 columns" id="porfinautochange" style="display: none;">
-                      <label>Porcentaje de Financieamiento<input name="textfield89" type="text" id="textfield89" size="50%"  readonly>
+                      <label>Porcentaje de Financieamiento
+                      <div class="input-group">
+                        <input class="input-group-field" name="textfield89" type="text" id="textfield89" size="50%"  readonly>
+                        <span class="input-group-label">%</span>
+                        </div>
                       </label>
                     </div>
                     <div class="medium-3 columns" id="monfinautochange" style="display: none;">
-                      <label>Monto Financiado <input name="textfield90" type="text" id="textfield90" size="50%"  readonly>
+                      <label>Monto Financiado 
+                      <div class="input-group">
+                        <span class="input-group-label">$</span>
+                        <input class="input-group-field" name="textfield90" type="text" id="textfield90" size="50%"  readonly>
+                        </div>
                       </label>
                     </div>
                     <div class="medium-3 columns" style="display: none;" id="interesanual">
-                      <label>Interes Anual<input name="textfield100" type="text" id="textfield100" size="50%"  readonly  >
+                      <label>Interes Anual
+                      <div class="input-group">
+                        <input class="input-group-field" name="textfield100" type="text" id="textfield100" size="50%"  readonly  >
+                        <span class="input-group-label">%</span>
+                        </div>
                       </label>
                     </div>
                     <div class="medium-3 columns" id="comisionapchange" style="display: none;">
-                      <label>Comisión por Apertura<input name="textfield96" type="text" id="textfield96" size="50%"  readonly  >
+                      <label>Comisión por Apertura
+                      <div class="input-group">
+                        <input class="input-group-field" name="textfield96" type="text" id="textfield96" size="50%"  readonly  >
+                        <span class="input-group-label">%</span>
+                        </div>
                       </label>
                     </div>
                     <div class="medium-3 columns" id="seguroauto" style="display: none;">
-                      <label>Seguro de Auto<input name="textfield97" type="text" id="textfield97" size="50%"   >
+                      <label>Seguro de Auto
+                      <div class="input-group">
+                        <span class="input-group-label">$</span>
+                        <input class="input-group-field" name="textfield97" type="text" id="textfield97" size="50%"  onkeyup="mascara(this,cpf)" >
+                        </div>
                       </label>
                     </div>
                     <div class="medium-3 columns" id="segurovida" style="display: none;">
-                      <label>Seguro de Vida<input name="textfield98" type="text" id="textfield98" size="50%"   >
+                      <label>Seguro de Vida
+                      <div class="input-group">
+                        <span class="input-group-label">$</span>
+                        <input class="input-group-field" name="textfield98" type="text" id="textfield98" size="50%" onkeyup="mascara(this,cpf)"  >
+                        </div>
                       </label>
                     </div>
 
                     <div class="medium-3 columns" id="segdeschange" style="display: none;">
-                      <label>
-                        <p align="left">Seguro de Desempleo<input name="textfield99" type="text" id="textfield99" size="50%"   ></p>
+                      <label>Seguro de Desempleo
+                        <div class="input-group">
+                        <span class="input-group-label">$</span>
+                        <input class="input-group-field" name="textfield99" type="text" id="textfield99" size="50%" onkeyup="mascara(this,cpf)"  >
+                        </div>
                       </label>
                     </div>
                     <div class="medium-3 columns" id="plazocredito" style="display: none;">
-                      <label>Plazo (meses)<input name="textfield91" type="text" id="textfield91" size="50%"   >
+                      <label>Plazo
+                      <div class="input-group">
+                        <span class="input-group-label">Meses</span>
+                        <input class="input-group-field" name="textfield91" type="text" id="textfield91" size="50%"   >
+                        </div>
                       </label>
                     </div>
                     <div class="medium-3 columns" id="pagomensualesp" style="display: none;">
-                      <label>Pago Mensual Esperado<input name="textfield92" type="text" id="textfield92" size="50%"   >
+                      <label>Pago Mensual Esperado
+                      <div class="input-group">
+                        <span class="input-group-label">$</span>
+                        <input class="input-group-field" name="textfield92" type="text" id="textfield92" size="50%" onkeyup="mascara(this,cpf)"  >
+                        </div>
                       </label>
                     </div>
-                    <div class="medium-5 columns">
+                    <div class="medium-5 columns" id="divbotoncambval" style="display: none;">
                       <input type="button" class="button" data-open="Aut" value="Cambiar Valores">
                     </div>
                                                                 
@@ -1184,8 +1231,8 @@
                 </div>
               </div>
               <div class="tabs-panel" id="panel2d">
-                <div class="row">
                   <p align="left"><strong>DATOS DEL OBLIGADO SOLIDARIO PERSONA FÍSICA, PROPIETARIO DE BIEN INMUEBLE </strong></p>
+                <div class="row">
                   <p align="left">
                     <div class="medium-3 columns"><label>Nombre
                       <input name="datobnom1" type="text" id="datobnom1" size="30px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NomObSol']; } ?>" placeholder="Nombre(s)" pattern="alpha"></label>
@@ -1198,39 +1245,42 @@
                     <div class="medium-3 columns"><label>Apellido Materno
                       <input name="datobapmat1" type="text" id="datobapmat1" size="30px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ApMatObSol']; } ?>" placeholder="Apellido Materno" pattern="alpha"></label>
                     </div>
-
-                    <div class="medium-3 columns"><label>Direccion/ Calle y numero
-                      <input name="datobdir1" type="text" id="datobdir1" size="48px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['DirObSol']; } ?>" placeholder="Dirección / Calle y número"></label>
+                    <div class="medium-3 columns"><label>Codigo Postal
+                      <input name="datobcp1" type="text" id="datobcp1" size="30px" placeholder="C.P." onchange="cpostal(this.value,'datobedo1','','datobcol1','datobcd1','loading10')" maxlength="5" pattern="integer"></label>
                     </div>
 
-                    <div class="medium-3 columns"><label>Colonia
-                      <input name="datobcol1" type="text" id="datobcol1" size="48px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ColObSol']; } ?>" placeholder="Colonia"></label>
+                    <div class="medium-3 columns"><label>Direccion/ Calle y numero
+                      <input name="datobdir1" type="text" id="datobdir1" size="48px" pattern="alpha_numeric2"></label>
+                    </div>
+
+                    <div class="medium-3 columns"><label>Colonia <div id="loading10"></div>
+                      <select name="datobcol1" id="datobcol1"><option value="">-Seleccione una opción-</option></select>
+                      </label>
                     </div>
 
                     <div class="medium-3 columns"><label>Ciudad
-                      <input name="datobcd1" type="text" id="datobcd1" size="20px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['CdObSol']; } ?>" placeholder="Ciudad"></label>
+                      <select name="datobcd1" id="datobcd1"><option value="">-Seleccione una opción-</option></select>
+                      </label>
                     </div>
 
-                    <div class="medium-3 columns"><label>Lugar de nacimiento
-                      <input name="datoblugnac1" type="text" id="datoblugnac1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['LugNacObSol']; } ?>" size="30px" placeholder="Lugar nacimiento (País y Edo.)"></label>
-                    </div>
                   </p>
                 </div>
                 <div class="row"> 
                   <p align="left">
                     <div class="medium-3 columns"><label>Estado
-                      <input name="datobedo1" type="text" id="datobedo1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['EdoObSol']; } ?>" size="30px" placeholder="Estado"></label>
-                    </div>
-                    <div class="medium-3 columns"><label>Codigo Postal
-                      <input name="datobcp1" type="text" id="datobcp1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['CPObSol']; } ?>" size="30px" placeholder="C.P."  patern="integer"></label>
+                      <select name="datobedo1" id="datobedo1"><option value="">-Seleccione una opción-</option></select>
+                      </label>
                     </div>
 
+                    <div class="medium-3 columns"><label>Lugar de nacimiento
+                      <input name="datoblugnac1" type="text" id="datoblugnac1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['LugNacObSol']; } ?>" size="30px" placeholder="Lugar nacimiento (País y Edo.)"></label>
+                    </div>
                     <div class="medium-3 columns"><label>Email
                       <input  name="datobmail1" type="text" id="datobmail1" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['EmailObSol']; } ?>" size="30px" placeholder="Email" pattern="email"></label>
                     </div>
             
                     <div class="medium-3 columns"> <label>Sexo
-                      <select name="datobsex1"><option>Femenino</option><option>Masculino</option></select></label>
+                      <select name="datobsex1"><option value="">-Seleccione una opción-</option><option value="Femenino">Femenino</option><option value="Masculino">Masculino</option></select></label>
                     </div>
                   </p>
                 </div>
@@ -1241,13 +1291,13 @@
                   <p align="left">
                 
                     <div class="medium-3 columns"><label>Fecha de nacimiento:
-                      <input name="datobfechnac1d" type="date" id="datobfechnac1d" size="1px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['FeNacObSol']; } ?>" onfocus="datepick(this)"></label>
+                      <input name="datobfechnac1d" type="date" id="datobfechnac1d" size="1px"  onfocus="datepick(this)" onchange="calcularAntiguedad(this,'datobed1')"></label>
                     </div>
 
                     <div class="medium-3 columns"><label>Edad
                      
  
-                      <input  name="datobed1" type="text" id="datobed1" size="2px" placeholder="Edad" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['EdObSol']; } ?>"  pattern="integer">
+                      <input  name="datobed1" type="text" id="datobed1" size="2px" placeholder="Edad" pattern="integer" readonly="">
  
  
  
@@ -1271,7 +1321,7 @@
                     </div>
                     <div class="medium-3 columns">
                       <label>Tiene propiedad a su nombre?
-                        <select name="datobprop1" ><option>Si</option><option>No</option></select></label>
+                        <select name="datobprop1" ><option value="">-Seleccione una opción-</option><option value="Si">Si</option><option value="No">No</option></select></label>
                   
                     </div>
                   </p>
@@ -1295,31 +1345,34 @@
                       <input name="datobapmat2" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ApMatObSol2']; } ?>" type="text" id="datobapmat2" size="30px" placeholder="Apellido Materno" pattern="alpha"></label>
                     </div>
 
+                    <div class="medium-3 columns"><label>Codigo Postal
+                      <input name="datobcp2" type="text" id="datobcp2" size="30px" placeholder="C.P." maxlength="5" pattern="cpostal" onchange="cpostal(this.value,'datobedo2','','datobcol2','datobcd2','loading11')"></label>
+                    </div>
                     <div class="medium-3 columns"><label>Direccion / Calle y numero 
-                      <input name="datobdir2" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['DirObSol2']; } ?>" type="text" id="datobdir2" size="48px" placeholder="Dirección / Calle y número"></label>
+                      <input name="datobdir2"  type="text" id="datobdir2" size="48px" placeholder="Dirección / Calle y número" pattern="alpha_numeric2"></label>
                     </div>
 
-                    <div class="medium-3 columns"><label>Colonia
-                      <input name="datobcol2" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ColObSol2']; } ?>" type="text" id="datobcol2" size="48px" placeholder="Colonia"></label>
+                    <div class="medium-3 columns"><label>Colonia<div id="loading11"></div>
+                    <select name="datobcol2" id="datobcol2"><option value="">-Seleccione una opción-</option></select>
+                      </label>
                     </div>
 
                     <div class="medium-3 columns"><label>Ciudad
-                      <input name="datobcd2" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['CdObSol2']; } ?>" type="text" id="datobcd2" size="20px" placeholder="Ciudad"></label>
+                    <select name="datobcd2" id="datobcd2"><option value="">-Seleccione una opción-</option></select>
+                      </label>
                     </div>
 
-                    <div class="medium-3 columns"><label>Lugar de nacimiento
-                      <input name="datoblugnac2" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['LugNacObSol2']; } ?>" type="text" id="datoblugnac2" size="30px" placeholder="Lugar nacimiento (País y Edo.)"></label>
-                    </div>
                   </p>
                 </div>
                 <div class="row">
                   <p align="left">
                     <div class="medium-3 columns"><label>Estado
-                      <input name="datobedo2" type="text" id="datobedo2" size="30px" placeholder="Estado" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['EdoObSol2']; } ?>"></label>
+                    <select name="datobedo2" id="datobedo2"><option value="">-Seleccione una opción-</option></select>
+                      </label>
                     </div>
 
-                    <div class="medium-3 columns"><label>Codigo Postal
-                      <input name="datobcp2" type="text" id="datobcp2" size="30px" placeholder="C.P." value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['CPObSol2']; } ?>"  pattern="integer"></label>
+                    <div class="medium-3 columns"><label>Lugar de nacimiento
+                      <input name="datoblugnac2" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['LugNacObSol2']; } ?>" type="text" id="datoblugnac2" size="30px" placeholder="Lugar nacimiento (País y Edo.)"></label>
                     </div>
 
                     <div class="medium-3 columns"><label>Email
@@ -1327,17 +1380,17 @@
                     </div>
                   </p>
                   <div class="medium-3 columns"><label>Sexo
-                    <select name="datobsex2"><option>-Seleccione una opcion-</option><option>Femenino</option><option>Masculino</option></select></label>
+                    <select name="datobsex2"><option value="">-Seleccione una opcion-</option><option value="Femenino">Femenino</option><option value="Masculino">Masculino</option></select></label>
                   </div>
                 </div>
                 <div class="row"> 
                   <p align="left">
                
                     <div class="medium-3 columns"><label> Fecha de nacimiento:
-                      <input name="datobfechnac2d" type="date" id="datobfechnac2d" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['FeNacObSol2']; } ?>" size="1px"  onfocus="datepick(this)"  ></label>
+                      <input name="datobfechnac2d" type="date" id="datobfechnac2d"  size="1px"  onfocus="datepick(this)"  onchange="calcularAntiguedad(this,'datobed2')"></label>
                     </div>
                     <div class="medium-3 columns"><label>Edad
-                      <input name="datobed2" type="text" id="datobed2" size="2px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['EdObSol2']; } ?>" placeholder="Edad" ></label>
+                      <input name="datobed2" type="text" id="datobed2" size="2px"  placeholder="Edad" readonly=""></label>
                     </div>
 
                     <div class="medium-3 columns"><label>CURP
@@ -1345,7 +1398,7 @@
                     </div>
 
                     <div class="medium-3 columns"><label>RFC
-                      <input name="datobrfc21" type="text" id="datobrfc21" size="1px"  value="<?php if(isset($row['Folio_Cliente'])&& $row['RFCObSol2']!='') {  echo $row['RFCObSol2'][0]; } ?>"  pattern="rfc" onkeypress="mayusculas(this)" ></label>
+                      <input name="datobrfc21" type="text" id="datobrfc21" size="1px"   pattern="rfc" onkeypress="mayusculas(this)" ></label>
                     </div>
 
                     <div class="medium-3 columns"><label>Telefono
@@ -1353,65 +1406,82 @@
                     </div>
 
                     <div class="medium-3 columns"><label>Telefono Movil
-                      <input name="datobtel212" type="text" id="datobtel212" size="1px"  value="<?php if(isset($row['Folio_Cliente'])&& $row['MovObSol2']!='') {  echo $row['MovObSol2'][0]; } ?>"  pattern="telefono" onfocus="mascaratel(this)"  ></label>
+                      <input name="datobtel212" type="text" id="datobtel212" size="1px"   pattern="telefono" onfocus="mascaratel(this)"  ></label>
                     </div>
                     <div class="medium-3 columns">
                       <label>Tiene propiedad a su nombre?
-                        <select name="datobprop2" ><option>Si</option><option>No</option></select></label>
+                        <select name="datobprop2" ><option value="">-Seleccione una opción-</option><option value="Si">Si</option><option value="No">No</option></select></label>
                     </div>
                   </p>
 
                 </div>
-                <!--<div class="row">
-                    
-                       <p><strong> <label>DATOS DEL OBLIGADO SOLIDARIO PERSONA MORAL</label></strong></p>
+                <div id="divcontenidoobsolpm" style="display: none;">
                   
-                        <div class="medium-3 columns"><label> Nombre Razon social<input type="text" name="NomOb" id=""></label></div>
-                        <div class="medium-3 columns"><label>RFC <input type="text" name="RFC" id=""></label></div>
-                        <div class="medium-3 columns"><label>Telefono <input type="text" name="tel" id=""></label></div>
-                        <div class="medium-3 columns"><label>Telefono Alternativo <input type="text" name="tel" id=""></label></div>
-                        <div class="medium-3 columns"><label>Codigo Posta <input type="text" name="CP" id=""></label></div>
-                        <div class="medium-3 columns"><label>Direccion <input type="text" name="dir" id=""></label></div>
-                        <div class="medium-3 columns"><label>Colonia <input type="text" name="dir" id=""></label></div>
-                        <div class="medium-3 columns"><label>Ciudad <input type="text" name="ciud" id=""></label></div>
-                        <div class="medium-3 columns"><label>Estado <input type="text" name="est" id=""></label></div>
-                        <div class="medium-3 columns"><label>Municipio <input type="text" name="tel" id=""></label></div>
-                        <div class="medium-3 columns"><label>E-Mail <input type="text" name="E-mail" id=""></label></div>
+                       
+                       <p align="left"><strong>DATOS DEL OBLIGADO SOLIDARIO PERSONA MORAL </strong></p>
+                <div class="row">
+                  <p align="left">
+                    
+                  
+                        <div class="medium-3 columns"><label>Nombre Razon social<input type="text" name="NomObSolPM" id="NomObSolPM"></label></div>
+                        <div class="medium-3 columns"><label>RFC <input type="text" name="RFCObSolPM" id="RFCObSolPM" pattern="rfc" onkeypress="mayusculas(this)"></label></div>
+                        <div class="medium-3 columns"><label>Telefono <input type="text" name="TelObSolPM" id="TelObSolPM" pattern="telefono" onfocus="mascaratel(this)"></label></div>
+                        <div class="medium-3 columns"><label>Telefono Alternativo <input type="text" name="Tel2ObSolPM" id="Tel2ObSolPM" pattern="telefono" onfocus="mascaratel(this)"></label></div>
+                        <div class="medium-3 columns"><label>Codigo Posta <input type="text" name="CPObSolPM" id="CPObSolPM" maxlength="5" pattern="cpostal" onchange="cpostal(this.value,'EstObSolPM','MunObSolPM','ColObSolPM','CdObSolPM','loading12')"></label></div>
+                        <div class="medium-3 columns"><label>Direccion (calle y número)<input type="text" name="DirObSolPM" id="DirObSolPM" pattern="alpha_numeric2"></label></div>
+                        <div class="medium-3 columns"><label>Colonia<div id="loading12"></div> <select name="ColObSolPM" id="ColObSolPM"><option value="">-Seleccione una opción-</option></select></label></div>
+                        <div class="medium-3 columns"><label>Ciudad <select name="CdObSolPM" id="CdObSolPM"><option value="">-Seleccione una opción-</option></select></label></div>
+                        <div class="medium-3 columns"><label>Estado <select name="EstObSolPM" id="EstObSolPM"><option value="">-Seleccione una opción-</option></select></label></div>
+                        <div class="medium-3 columns"><label>Municipio <select name="MunObSolPM" id="MunObSolPM"><option value="">-Seleccione una opción-</option></select></label></div>
+                        <div class="medium-3 columns"><label>E-Mail <input type="text" name="EmailObSolPM" id="EmailObSolPM" pattern="email"></label></div>
+                  </p>
                  
                     
-                       <p><label>Constitucion de la Empresa</label></p>
-                        <div class="medium-3 columns"><label>Antiguedad <input type="text" name="Antiguedad" id=""></label></div>
-                        <div class="medium-6 columns"><label>Apoderado para suscribir titulos de credito y realizar actos de administracion <input type="text" name="curp" id=""></label></div>
-                  
-                       <p><label>Datos Generales</label></p>
-                        <div class="medium-3 columns"><label>Actividad Principal <input type="text" name="Actividad" id=""></label></div>
-                        <div class="medium-3 columns"><label>Fecha de inicio de operaciones <input type="text" name="Actividad" id=""></label></div>
-                        <div class="medium-3 columns"><label>Cantidad de personal <input type="text" name="Actividad" id=""></label></div>
-
                 </div>
-                      -->
+                <div class="row" >
+                  
+                       <p align="Left"><label><strong>Constitucion de la Empresa</strong></label>
+                        <div class="medium-3 columns"><label>Antiguedad <input type="text" name="AntObSolPM" id="AntObSolPM" pattern="integer" maxlength="3"></label></div>
+                        <div class="medium-6 columns"><label>Apoderado para suscribir titulos de credito y realizar actos de administracion <input type="text" name="ApoObSolPM" id="ApoObSolPM" pattern="alpha"></label></div>
+                       </p>
+                </div>
+                <div class="row">
+                       <p align="left"><label><strong>Datos Generales</strong></label>
+                        <div class="medium-3 columns"><label>Actividad Principal <input type="text" name="ActPrinObSolPM" id="ActPrinObSolPM" pattern="alpha"></label></div>
+                        <div class="medium-3 columns"><label>Fecha de inicio de operaciones <input type="date" name="FeIniOpObSolPM" id="FeIniOpObSolPM" ></label></div>
+                        <div class="medium-3 columns"><label>Cantidad de personal <input type="text" name="CantPerObSolPM" id="CantPerObSolPM" pattern="integer"></label></div>
+                       </p>
+                </div>
+                      
+                </div>
               </div>
               <div class="tabs-panel" id="panel3d">
                 <div class="row">
                   <p align="justify">
                     <div class="medium-3 columns"><label>Concesionario
-                      <input name="clavcon" type="text" id="clavcon" size="30px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['ClavConcesionario']; } ?>" placeholder="Clave Consesionario o Distribuidor" ></label>
+                    <div class="input-group">
+                        <span class="input-group-label">#</span>
+                      <input class="input-group-field" name="clavcon" type="text" id="clavcon" size="30px" placeholder="Clave Consesionario o Distribuidor" pattern="integer"></label>
+                      </div>
                     </div>
 
                     <div class="medium-3 columns"><label>Nombre Concesionario
-                      <input name="nomcons" type="text" id="nomcons" size="30px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NomConcesionario']; } ?>" placeholder="Nombre Concesionario o Distribuidor" ></label>
+                      <input name="nomcons" type="text" id="nomcons" size="30px" placeholder="Nombre Concesionario o Distribuidor" pattern="alpha"></label>
                     </div>
 
                     <div class="medium-3 columns"><label>Nombre del Vendedor
-                      <input name="nomvend" type="text" id="nomvend" size="48px" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NomVendedor']; } ?>" placeholder="Nombre del Vendedor" ></label>
+                      <input name="nomvend" type="text" id="nomvend" size="48px" placeholder="Nombre del Vendedor" pattern="alpha"></label>
                     </div>
 
-                    <div class="medium-3 columns"><label>Nombre y firma
-                      <input name="gerentegral" type="text" id="gerentegral" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row['NomGerenteGral']; } ?>" size="48px" placeholder="Nombre y firma del Gerente General" ></label>
+                    <div class="medium-3 columns"><label>Gerente General Nombre y firma
+                      <input name="gerentegral" type="text" id="gerentegral"  size="48px" placeholder="Nombre y firma del Gerente General" pattern="alpha"></label>
                     </div>
 
                     <div class="medium-3 columns"><label>Fecha
-                      <input name="fecha" type="text" id="fecha" value="<?php echo date("Y-m-d");?>" size="10px" readonly></label>
+                    <div class="input-group">
+                        <span class="input-group-label">_/_/_</span>
+                      <input class="input-group-field" name="fecha" type="text" id="fecha" value="<?php echo date("Y-m-d");?>" size="10px" readonly></label>
+                      </div>
                     </div>
                   </p>
                 </div>
@@ -1783,5 +1853,6 @@
 
 <script src="js/clientes.js"></script>
 <script src="js/solicitudes.js"></script>
+<script src="js/scriptgeneral.js"></script>
 
 </body></html>

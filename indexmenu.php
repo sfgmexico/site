@@ -29,7 +29,9 @@ if(!$_SESSION['usser']) {
 		<style type="text/css">
 
 		</style>
-
+		<!--<script type="text/javascript">
+document.oncontextmenu = function(){return false;}
+</script>-->
 
 
 
