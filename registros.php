@@ -1509,16 +1509,16 @@
       <div class="tabs-panel" id="panel3v">
         <form id="form3" action="">
             <div id="botonesconocimiento">
-            <input class="button" data-open="modalnuevaconocimiento type="button" name="nuevaconocimiento id="nuevaconocimiento value="Generar Solicitud Nueva">
-            <input class="button" data-open="modalmodificarconocimiento type="button" name="modificarconocimiento id="modificarconocimiento value="Modificar conocimiento>
+            <input class="button" data-open="modalnuevaconocimiento" type="button" name="nuevaconocimiento" id="nuevaconocimiento" value="Generar Grado de Riesgo">
+            <input class="button" data-open="modalmodificarconocimiento" type="button" name="modificarconocimiento" id="modificarconocimiento" value="Modificar Grado de Riesgo">
           
-            <div class="reveal" id="modalnuevaconocimiento data-reveal>
+            <div class="reveal" id="modalnuevaconocimiento" data-reveal>
               <h4>Ingresa el Número de Cliente:</h4>
               
-              <select name="ANYBODY" id="ANYBODY"><option value="0">-seleccione uno-</option><option value="1">ID</option><option value="2">Nombre (Persona Fisca)</option><option  value="3">Razon social(Persona Moral)</option></select>
+              <select name="selectconocimiento" id="selectconocimiento"><option value="0">-seleccione uno-</option><option value="1">ID</option><option value="2">Nombre (Persona Fisca)</option><option  value="3">Razon social(Persona Moral)</option></select>
               <div id="identcon" name="identcon" style="display: none;">
                 
-                <label>ID:<input type="text" name="idnuevaconocimiento onkeyup="busqueda()" id="idnuevaconocimiento></label>
+                <label>ID:<input type="text" name="idnuevaconocimiento" onkeyup="busqueda()" id="idnuevaconocimiento"></label>
               </div>
 
                 <div id="nombres" name="nombres" style="display: none;">
@@ -1528,9 +1528,9 @@
                   <label>Apellido Materno<input type="text" onkeyup="busqueda()" id="ApellidoMa" name="ApellidoMa"></label>
                 </div>
               
-                <div id="resultadonuevaconocimiento></div>
+                <div id="resultadonuevaconocimiento"></div>
               <!--<button id="requestnuevaconocimiento name="requestnuevaconocimiento class="button" >Buscar</button>-->
-              <button id="cerrarmodalnuevaconocimiento class="close-button" data-close aria-label="Close reveal" type="button">
+              <button id="cerrarmodalnuevaconocimiento" class="close-button" data-close aria-label="Close reveal" type="button">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
@@ -1539,22 +1539,22 @@
 
 
             <!-- This is the first modal -->
-            <div class="reveal" id="modalmodificarconocimiento data-reveal>
+            <div class="reveal" id="modalmodificarconocimiento" data-reveal>
               <h4>Ingresa el Número de Solicitud:</h4>
               
               
-              <label>ID:<input type="text" name="idmodificaconocimiento id="idmodificaconocimiento></label>
+              <label>ID:<input type="text" name="idmodificaconocimiento" id="idmodificaconocimiento"></label>
               
               
 
-              <button id="requestmodificarconocimiento name="requestmodificarconocimiento class="button" >Buscar</button>
-              <button id="cerrarmodalmodificaconocimiento class="close-button" data-close aria-label="Close reveal" type="button">
+              <button id="requestmodificarconocimiento" name="requestmodificarconocimiento" class="button" >Buscar</button>
+              <button id="cerrarmodalmodificaconocimiento" class="close-button" data-close aria-label="Close reveal" type="button">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
 
             <!-- This is the nested modal -->
-            <div class="reveal" id="modalcontregconocimiento data-reveal>
+            <div class="reveal" id="modalcontregconocimiento" data-reveal>
               <h4>Registros Incompletos...</h4>
               <table  id="tablajson2">
                 <thead>
@@ -1564,12 +1564,12 @@
                 </thead>
                 <tbody></tbody>
               </table>
-              <button id="cerrarmodalcontregconocimiento class="close-button" data-close aria-label="Close reveal" type="button">
+              <button id="cerrarmodalcontregconocimiento" class="close-button" data-close aria-label="Close reveal" type="button">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
 
-            <input class="button" type="button" data-open="modalcontregconocimiento name="continuarconocimiento id="continuarconocimiento value="Continuar Con Registro">
+            <input class="button" type="button" data-open="modalcontregconocimiento" name="continuarconocimiento" id="continuarconocimiento" value="Continuar Con Registro">
           </div>
           <div id="contenidorequestconocimiento" style="display: none;">
             
