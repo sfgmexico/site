@@ -25,7 +25,7 @@ if(!$_SESSION['usser']) {
 		<link rel="stylesheet" href="js/js/css/app.css">
 		<link rel="stylesheet" href="js/js/css/foundation-icons/foundation-icons.css">
 		 <link rel="stylesheet" href="js/jquery-ui/jquery-ui.css">
-		  
+		<link rel="stylesheet" href="css/file-input.css">
 		<style type="text/css">
 
 		</style>
@@ -116,6 +116,12 @@ if(!$_SESSION['usser']) {
 	
 		<script src="js/jquery-ui/jquery-ui.js"></script>
 		<script src="js/vendor/app.js"></script>
+
+
+<script src="js/jquery.custom-file-input.js"></script>
+<script src="js/custom-file-input.js"></script>
+
+<script src="js/jquery-v1.min.js"></script>
 		
 	<script>$(document).foundation();
 	$('.title-bar').on('sticky.zf.stuckto:top', function(){

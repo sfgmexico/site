@@ -4,7 +4,6 @@
 <title>Home</title>
 <meta charset="utf-8">
 
-
 </head>
 <body>
  <div class="container" id="htmlext" >
@@ -933,8 +932,7 @@
                   <div class="medium-3 columns"><label>País
                     <input name="textfield51" type="text" id="textfield51" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['PaisBeneficiario']; } ?>" pattern="alpha"></label>
                   </div>
-            
-
+          
                   <div class="medium-3 columns"><label>   Teléfono
                     <input name="textfield52" type="text" id="textfield52" size="50%"  value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['TelBeneficiario']; } ?>" pattern="telefono" onfocus="mascaratel(this)" ></label>
                   </div>
@@ -1077,111 +1075,109 @@
           </div>
           
           <div id="contenidorequestsolicitud" style="display: none;">
-            <ul class="tabs" data-deep-link="true" data-update-history="true" data-deep-link-smudge="true" data-deep-link-smudge="500" data-tabs id="deeplinked-tabs">
+            <ul class="tabs" data-tabs id="deeplinked-tabs">
               <li class="tabs-title is-active"><a href="#panel1d" aria-selected="true">Credito</a></li>
               <li class="tabs-title"><a href="#panel2d">Obligado Solidario</a></li>
-              <li class="tabs-title"><a href="#panel3d">Concesionario</a></li>
-              
+              <li class="tabs-title"><a href="#panel3d">Concesionario</a></li>    
             </ul>
-
             <div class="tabs-content" data-tabs-content="deeplinked-tabs">
               <div class="tabs-panel is-active" id="panel1d">
-        
+                          
 
-                <div class="row">
-                  <p align="left">
-                    <div class="medium-3 columns">
-                      <label> Tipo Credito
-                        <select name="tipocredito" size="1" id="tipocredito"  required="" >
-                          <option value="" ></option>
-                                                              <?php
-                                                              include("Conexion2.php");
-                                                              $rescreditos=mysqli_query($cnx,"select * from tiposcreditos");
-                                                              while($rowcreditos=mysqli_fetch_array($rescreditos)){?> 
-                          <option value="<?php echo $rowcreditos['descripcion'];?>" ><?php echo $rowcreditos['descripcion'];?></option>
+                                  <div class="row">
+                                    <p align="left">
+                                      <div class="medium-3 columns">
+                                        <label> Tipo Credito
+                                          <select name="tipocredito" size="1" id="tipocredito"  required="" >
+                                            <option value="" ></option>
+                                                                                <?php
+                                                                                include("Conexion2.php");
+                                                                                $rescreditos=mysqli_query($cnx,"select * from tiposcreditos");
+                                                                                while($rowcreditos=mysqli_fetch_array($rescreditos)){?> 
+                                            <option value="<?php echo $rowcreditos['descripcion'];?>" ><?php echo $rowcreditos['descripcion'];?></option>
 
-                                                              <?php }
-                                                              ?>
-                          </select>
-                      </label>
-                    </div>
-                                                        
-                    <div class="medium-3 columns" id="displaymonto" style="display: none;"> 
-                      <label><span id="labelmontosoli"></span> 
-                        <input name="textfield86" type="text" id="textfield86" size="50%"    >
-                      </label> 
-                    </div>
+                                                                                <?php }
+                                                                                ?>
+                                            </select>
+                                        </label>
+                                      </div>
+                                                                          
+                                      <div class="medium-3 columns" id="displaymonto" style="display: none;"> 
+                                        <label><span id="labelmontosoli"></span> 
+                                          <input name="textfield86" type="text" id="textfield86" size="50%"    >
+                                        </label> 
+                                      </div>
 
-                    <div class="medium-3 columns" id="engautochange" style="display: none;">
-                      <label>Enganche 
-                        <input name="textfield87" type="text" id="textfield87" size="50%"    onchange="datosAuto()">
-                      </label>
-                    </div>
+                                      <div class="medium-3 columns" id="engautochange" style="display: none;">
+                                        <label>Enganche 
+                                          <input name="textfield87" type="text" id="textfield87" size="50%"    onchange="datosAuto()">
+                                        </label>
+                                      </div>
 
-                    <div class="medium-3 columns" id="porengautochange" style="display: none;">
-                      <label> Porcentaje de Enganche<input name="textfield88" type="text" id="textfield88" size="50%"  readonly>
-                      </label>
-                    </div>
-                    <div class="medium-3 columns" id="porfinautochange" style="display: none;">
-                      <label>Porcentaje de Financieamiento<input name="textfield89" type="text" id="textfield89" size="50%"  readonly>
-                      </label>
-                    </div>
-                    <div class="medium-3 columns" id="monfinautochange" style="display: none;">
-                      <label>Monto Financiado <input name="textfield90" type="text" id="textfield90" size="50%"  readonly>
-                      </label>
-                    </div>
-                    <div class="medium-3 columns" style="display: none;" id="interesanual">
-                      <label>Interes Anual<input name="textfield100" type="text" id="textfield100" size="50%"  readonly  >
-                      </label>
-                    </div>
-                    <div class="medium-3 columns" id="comisionapchange" style="display: none;">
-                      <label>Comisión por Apertura<input name="textfield96" type="text" id="textfield96" size="50%"  readonly  >
-                      </label>
-                    </div>
-                    <div class="medium-3 columns" id="seguroauto" style="display: none;">
-                      <label>Seguro de Auto<input name="textfield97" type="text" id="textfield97" size="50%"   >
-                      </label>
-                    </div>
-                    <div class="medium-3 columns" id="segurovida" style="display: none;">
-                      <label>Seguro de Vida<input name="textfield98" type="text" id="textfield98" size="50%"   >
-                      </label>
-                    </div>
+                                      <div class="medium-3 columns" id="porengautochange" style="display: none;">
+                                        <label> Porcentaje de Enganche<input name="textfield88" type="text" id="textfield88" size="50%"  readonly>
+                                        </label>
+                                      </div>
+                                      <div class="medium-3 columns" id="porfinautochange" style="display: none;">
+                                        <label>Porcentaje de Financieamiento<input name="textfield89" type="text" id="textfield89" size="50%"  readonly>
+                                        </label>
+                                      </div>
+                                      <div class="medium-3 columns" id="monfinautochange" style="display: none;">
+                                        <label>Monto Financiado <input name="textfield90" type="text" id="textfield90" size="50%"  readonly>
+                                        </label>
+                                      </div>
+                                      <div class="medium-3 columns" style="display: none;" id="interesanual">
+                                        <label>Interes Anual<input name="textfield100" type="text" id="textfield100" size="50%"  readonly  >
+                                        </label>
+                                      </div>
+                                      <div class="medium-3 columns" id="comisionapchange" style="display: none;">
+                                        <label>Comisión por Apertura<input name="textfield96" type="text" id="textfield96" size="50%"  readonly  >
+                                        </label>
+                                      </div>
+                                      <div class="medium-3 columns" id="seguroauto" style="display: none;">
+                                        <label>Seguro de Auto<input name="textfield97" type="text" id="textfield97" size="50%"   >
+                                        </label>
+                                      </div>
+                                      <div class="medium-3 columns" id="segurovida" style="display: none;">
+                                        <label>Seguro de Vida<input name="textfield98" type="text" id="textfield98" size="50%"   >
+                                        </label>
+                                      </div>
 
-                    <div class="medium-3 columns" id="segdeschange" style="display: none;">
-                      <label>
-                        <p align="left">Seguro de Desempleo<input name="textfield99" type="text" id="textfield99" size="50%"   ></p>
-                      </label>
-                    </div>
-                    <div class="medium-3 columns" id="plazocredito" style="display: none;">
-                      <label>Plazo (meses)<input name="textfield91" type="text" id="textfield91" size="50%"   >
-                      </label>
-                    </div>
-                    <div class="medium-3 columns" id="pagomensualesp" style="display: none;">
-                      <label>Pago Mensual Esperado<input name="textfield92" type="text" id="textfield92" size="50%"   >
-                      </label>
-                    </div>
-                    <div class="medium-5 columns">
-                      <input type="button" class="button" data-open="Aut" value="Cambiar Valores">
-                    </div>
-                                                                
-                  </p>
-                </div>
-                
-    <!-- This is the first modal -->
+                                      <div class="medium-3 columns" id="segdeschange" style="display: none;">
+                                        <label>
+                                          <p align="left">Seguro de Desempleo<input name="textfield99" type="text" id="textfield99" size="50%"   ></p>
+                                        </label>
+                                      </div>
+                                      <div class="medium-3 columns" id="plazocredito" style="display: none;">
+                                        <label>Plazo (meses)<input name="textfield91" type="text" id="textfield91" size="50%"   >
+                                        </label>
+                                      </div>
+                                      <div class="medium-3 columns" id="pagomensualesp" style="display: none;">
+                                        <label>Pago Mensual Esperado<input name="textfield92" type="text" id="textfield92" size="50%"   >
+                                        </label>
+                                      </div>
+                                      <div class="medium-5 columns">
+                                        <input type="button" class="button" data-open="Aut" value="Cambiar Valores">
+                                      </div>
+                                                                                  
+                                    </p>
+                                  </div>
+                                  
+                      <!-- This is the first modal -->
 
 
-                <div class="reveal" id="Aut" data-reveal>
-                  <h3>Clave de Autorizacion</h3>
-                  <div class="row">
-                    <div class="medium-5 columns">
-                      <input type="text" id="clave" name="clave">
-                      <button class="button" data-close aria-label="Close reveal" id="keycheck" data-open="exampleModal3">Aceptar!</button>
-                    </div>
-                  </div>
-                  <button class="close-button" data-close aria-label="Close reveal" type="button">
-                    <span aria-hidden="true">X</span>
-                  </button>
-                </div>
+                                  <div class="reveal" id="Aut" data-reveal>
+                                    <h3>Clave de Autorizacion</h3>
+                                    <div class="row">
+                                      <div class="medium-5 columns">
+                                        <input type="text" id="clave" name="clave">
+                                        <button class="button" data-close aria-label="Close reveal" id="keycheck" data-open="exampleModal3">Aceptar!</button>
+                                      </div>
+                                    </div>
+                                    <button class="close-button" data-close aria-label="Close reveal" type="button">
+                                      <span aria-hidden="true">X</span>
+                                    </button>
+                                  </div>
               </div>
 
 
@@ -1388,6 +1384,7 @@
                   </p>
                 </div>
               </div>
+
               <div class="tabs-panel" id="panel3d">
                 <div class="row">
                   <p align="justify">
@@ -1414,9 +1411,7 @@
                 </div>
               </div>
               
-              <div class="tabs-panel" id="panel4d">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-              </div>
+            
               <input class="button" type="button" name="guardarsolicitud" id="guardarsolicitud" value="Guardar" style="display: none;">
               <input class="button" type="button" name="botonmodsolicitud" id="botonmodsolicitud" value="Guardar" style="display: none;">
               <input class="button" type="button" name="cancelarsolicitud" id="cancelarsolicitud" value="Cancelar Registro">
@@ -1656,20 +1651,36 @@
   <div class="tabs-panel is-active" id="panel1f">
     
                    <h6 align="left">DOCUMENTACION DE IDENTIFICACION </h6>
+                        <form enctype="multipart/form-data" action="" method="POST" id="subirdato">
                       <table width="100%" border="0">
                         <tr id="secINE">
                           <td width="15%">Credencial para votar </td>
                           <td width="15%"><input name="textfield39" type="text" id="textfield39" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['INESolicitante']; } ?>"></td>
-                          <td width="15%"><input class="button" type="button" name="copias" value=" adjuntar copia ">  </td>
+                          <td width="15%">
+                          <input type="file" name="file1" id="file1" class="inputfile inputfile-1" data-multiple-caption="{count} archivos seleccionados" multiple />
+<label for="file1">
+<svg xmlns="http://www.w3.org/2000/svg" class="iborrainputfile" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg>
+<span class="iborrainputfile">Seleccionar archivo</span>
+</label> 
+                             
+   
+ </td>
+
                           <td width="10%" >
-                              <img  src="images/sfg.jpg" >
-                          
+
                           </td>
                         </tr>
                         <tr id="secCedProfesional">
                           <td>Pasaporte cedula profesional </td>
                           <td><input name="textfield40" type="text" id="textfield40" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['Pasaporte_o_CedulaProfSolicitante']; } ?>" ></td>
-                          <td><input class="button" type="button" name="copias" value=" adjuntar copia ">  </td>
+                          <td>            <input type="file" name="file2" id="file2" class="inputfile inputfile-1" data-multiple-caption="{count} archivos seleccionados" multiple />
+<label for="file2">
+<svg xmlns="http://www.w3.org/2000/svg" class="iborrainputfile" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg>
+<span class="iborrainputfile">Seleccionar archivo</span>
+</label> 
+
+
+                           </td>
                           <td >
                     
                           </td>
@@ -1677,7 +1688,11 @@
                         <tr id="secCarMilitar">
                           <td>Cartilla de servicio militar </td>
                           <td><input name="textfield41" type="text" id="textfield41" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['CartillaMilitarSolicitante']; } ?>" ></td>
-                          <td><input class="button" type="button" name="copias" value=" adjuntar copia ">  </td>
+                          <td> <input type="file" name="file3" id="file3" class="inputfile inputfile-1" data-multiple-caption="{count} archivos seleccionados" multiple />
+<label for="file3">
+<svg xmlns="http://www.w3.org/2000/svg" class="iborrainputfile" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg>
+<span class="iborrainputfile">Seleccionar archivo</span>
+</label>  </td>
                           <td >
                        
                           </td>
@@ -1685,7 +1700,11 @@
                         <tr id="secLicConducir">
                           <td>Licencia para conducir </td>
                           <td><input name="textfield42" type="text" id="textfield42" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['LicenciaConducirSolicitante']; } ?>" ></td>
-                          <td><input class="button" type="button" name="copias" value=" adjuntar copia ">  </td>
+                          <td> <input type="file" name="file4" id="file4" class="inputfile inputfile-1" data-multiple-caption="{count} archivos seleccionados" multiple />
+<label for="file4">
+<svg xmlns="http://www.w3.org/2000/svg" class="iborrainputfile" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg>
+<span class="iborrainputfile">Seleccionar archivo</span>
+</label>   </td>
                           <td >
                         
                           </td>
@@ -1693,7 +1712,11 @@
                         <tr id="secOtrIdentificacion">
                           <td>  <label>Otra (Especificar)<input name="textfield44" type="text" id="textfield44" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['EspIdentSolicitante']; } ?>" ></label></td>
                           <td><input name="textfield43" type="text" id="textfield43" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['OtraIdentSolicitante']; } ?>" ></td>
-                          <td><input class="button" type="button" name="copias" value=" adjuntar copia ">  </td>
+                          <td> <input type="file" name="file5" id="file5" class="inputfile inputfile-1" data-multiple-caption="{count} archivos seleccionados" multiple />
+<label for="file5">
+<svg xmlns="http://www.w3.org/2000/svg" class="iborrainputfile" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg>
+<span class="iborrainputfile">Seleccionar archivo</span>
+</label>  </td>
                           <td >
                        
                                                         </td>
@@ -1706,20 +1729,32 @@
                                </td>
                         </tr>
                       </table>
+                       <input type="button" class="button" id="subir" name="subir" value="Subir archivo"  >
+                          </ofrm>
   </div>
   <div class="tabs-panel" id="panel2f">
                <p align="left">OTROS DOCUMENTOS QUE SE ADJUNTAN:</p>
                 <table width="100%" border="0">
                       <tr>
                         <td width="30%">Se adjunta CURP y/o cédula RFC, FEA* </td>
-                        <td width="70%"><input id="adjuntos1A" name="adjuntos1" type="radio" value="Si" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_CURP_RFC_FEA']=='Si'){echo "checked";} } ?> ><label for="adjuntos1A"> Si</label>
-                                        <input id="adjuntos1B" name="adjuntos1" type="radio" value="No" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_CURP_RFC_FEA']=='No'){echo "checked";} } ?> ><label for="adjuntos1B"> No</label></td>
-                      </tr>
+                        <td width="70%">
+                           <input type="file" name="file6" id="file6" class="inputfile inputfile-1" data-multiple-caption="{count} archivos seleccionados" multiple />
+<label for="file6">
+<svg xmlns="http://www.w3.org/2000/svg" class="iborrainputfile" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg>
+<span class="iborrainputfile">Seleccionar archivo</span>
+</label> 
+
+
+                        </tr>
                       <tr>
                         <td>Se adjunta comprobante de domicilio </td>
-                        <td><input id="adjuntos2A" name="adjuntos2" type="radio" value="Si" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_ComprobanteDom']=='Si'){echo "checked";} } ?> ><label for="adjuntos2A"> Si</label>
-                            <input id="adjuntos2B" name="adjuntos2" type="radio" value="No" <?php if(isset($row2['Folio_Cliente'])) { if($row3['Adjunta_ComprobanteDom']=='No'){echo "checked";} } ?> ><label for="adjuntos2B"> No</label></td>
-                      </tr>
+                        <td>
+ <input type="file" name="file7" id="file7" class="inputfile inputfile-1" data-multiple-caption="{count} archivos seleccionados" multiple />
+<label for="file7">
+<svg xmlns="http://www.w3.org/2000/svg" class="iborrainputfile" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg>
+<span class="iborrainputfile">Seleccionar archivo</span>
+</label> 
+                        </tr>
                       <tr>
                         <td>Fecha del comprobante de domicilio </td>
                         <td><input name="fechaComprobante" type="date" id="fechaComprobante" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['FechaComprobanteDom']; } ?>" onfocus="datepick(this)"></td>
@@ -1767,7 +1802,7 @@
     <script src="js/vendor/app.js"></script>
     <script src="js/jquery.maskedinput.js" type="text/javascript"></script>
 
-
+<script src="js/documentacion.js" ></script>
     
     
   <script>$(document).foundation();
