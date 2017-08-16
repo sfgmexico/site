@@ -1507,6 +1507,73 @@
 
 
       <div class="tabs-panel" id="panel3v">
+        <form id="form3" action="">
+            <div id="botonesconocimiento">
+            <input class="button" data-open="modalnuevaconocimiento type="button" name="nuevaconocimiento id="nuevaconocimiento value="Generar Solicitud Nueva">
+            <input class="button" data-open="modalmodificarconocimiento type="button" name="modificarconocimiento id="modificarconocimiento value="Modificar conocimiento>
+          
+            <div class="reveal" id="modalnuevaconocimiento data-reveal>
+              <h4>Ingresa el Número de Cliente:</h4>
+              
+              <select name="ANYBODY" id="ANYBODY"><option value="0">-seleccione uno-</option><option value="1">ID</option><option value="2">Nombre (Persona Fisca)</option><option  value="3">Razon social(Persona Moral)</option></select>
+              <div id="identcon" name="identcon" style="display: none;">
+                
+                <label>ID:<input type="text" name="idnuevaconocimiento onkeyup="busqueda()" id="idnuevaconocimiento></label>
+              </div>
+
+                <div id="nombres" name="nombres" style="display: none;">
+                  
+                  <label>Nombre<input type="text" onkeyup="busqueda()" id="nombrepf" name="nombrepf"></label>
+                  <label>Apellido Paterno<input type="text" onkeyup="busqueda()" id="ApellidoPa" name="ApellidoPa"></label>
+                  <label>Apellido Materno<input type="text" onkeyup="busqueda()" id="ApellidoMa" name="ApellidoMa"></label>
+                </div>
+              
+                <div id="resultadonuevaconocimiento></div>
+              <!--<button id="requestnuevaconocimiento name="requestnuevaconocimiento class="button" >Buscar</button>-->
+              <button id="cerrarmodalnuevaconocimiento class="close-button" data-close aria-label="Close reveal" type="button">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+
+
+
+            <!-- This is the first modal -->
+            <div class="reveal" id="modalmodificarconocimiento data-reveal>
+              <h4>Ingresa el Número de Solicitud:</h4>
+              
+              
+              <label>ID:<input type="text" name="idmodificaconocimiento id="idmodificaconocimiento></label>
+              
+              
+
+              <button id="requestmodificarconocimiento name="requestmodificarconocimiento class="button" >Buscar</button>
+              <button id="cerrarmodalmodificaconocimiento class="close-button" data-close aria-label="Close reveal" type="button">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <!-- This is the nested modal -->
+            <div class="reveal" id="modalcontregconocimiento data-reveal>
+              <h4>Registros Incompletos...</h4>
+              <table  id="tablajson2">
+                <thead>
+                  <th>Id</th> 
+                  <th>Tipo de Crédito</th>
+                  <th>Cliente</th>
+                </thead>
+                <tbody></tbody>
+              </table>
+              <button id="cerrarmodalcontregconocimiento class="close-button" data-close aria-label="Close reveal" type="button">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <input class="button" type="button" data-open="modalcontregconocimiento name="continuarconocimiento id="continuarconocimiento value="Continuar Con Registro">
+          </div>
+          <div id="contenidorequestconocimiento" style="display: none;">
+            
+          
                    <h4 align="left">Calificación del grado de riesgo</h4>
                     <table width="100%" border="0">
                       <tr>
@@ -1690,19 +1757,15 @@
                         <td>Regimen de tributacion </td>
                         <td>
 
- <select id="select18" name="select18" size="1" style="width:60%;" >
-                          <option value="" selected></option>
-
-      <option value="3" >Regimen agape</option>
-                          <option value="1">Regimen general de ley</option>
-                          <option value="2">Regimen Donatarios</option>
-                          <option value="3">Regimen Coordinados</option>
-
-
-
-                        </select>
+                          <select id="select18" name="select18" size="1" style="width:60%;" >
+                            <option value="" selected></option>
+                            <option value="3" >Regimen agape</option>
+                            <option value="1">Regimen general de ley</option>
+                            <option value="2">Regimen Donatarios</option>
+                            <option value="3">Regimen Coordinados</option>
+                          </select>
                           <div style="display:none;">
-                        <select id="select19" name="select19" size="1" style="width:60%;" >
+                          <select id="select19" name="select19" size="1" style="width:60%;" >
                           <option value="" selected></option>
 
                           <option value="3">Incorporacion Fiscal </option>
@@ -1719,6 +1782,8 @@
                       </tr>
                       <td>*Si la valoracion de riesgo de esta variable es igual a 3, contactar al oficial de cumplimiento inmediantamente para aprobacion o cancelacion del credito/ arrendamiento</td>
                     </table>
+          </div>
+        </form>
       </div>
       <div class="tabs-panel" id="panel4v">
          <p>Four</p>
