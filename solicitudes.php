@@ -37,6 +37,12 @@ switch ($_REQUEST['function']) {
 
 	case "nuevasolicitud":
 		include("Conexion2.php");
+        if(mysqli_num_rows(mysqli_query($cnx,"select * from solicitudes where FolioCliente='".$_REQUEST['cliente']."' and StatusValidacion='Pendiente' "))>0) {
+            echo "Error solicitud activa";
+            break;
+        }
+
+
         mysqli_query($cnx,"insert into solicitudes (FolioCliente) values('".$_REQUEST['cliente']."')");
         $id=mysqli_fetch_array(mysqli_query($cnx,"select LAST_INSERT_ID()"));							 
 		$id_cliente=$id['LAST_INSERT_ID()'];

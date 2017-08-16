@@ -695,8 +695,12 @@ xmlhttp.onreadystatechange=function()
   {
     if (xmlhttp.readyState==4 && xmlhttp.status==200)
       {
+        if(xmlhttp.responseText=="Error solicitud activa"){
+          alert("¡¡Error -- El usuario tiene una solicitud activa, favor de verificar!!");
+          return false;
+        }
         $( "#cerrarmodalnuevasolicitud" ).click();
-
+        alert(xmlhttp.responseText);
         obj2 = JSON.parse(xmlhttp.responseText);
         document.getElementById("botonessolicitud").style.display="none";
         document.getElementById("contenidorequestsolicitud").style.display="block";

@@ -100,6 +100,7 @@ xmlhttp.onreadystatechange=function()
         document.getElementById("cdsol").value=obj.CiudadPF;
         document.getElementById("textfield5").value=obj.MunicipioPF;
         document.getElementById("curpsol").value=obj.CURPPF;
+        document.getElementById("curpsol").readonly=true;
         document.getElementById("sexsol").value=obj.SexoPF;
         
         if(obj.FechNacimientoPF=="0000-00-00"){
@@ -377,6 +378,7 @@ xmlhttp.onreadystatechange=function()
         document.getElementById("nomrazsoc2").value=obj.RazonSocial;
         document.getElementById("telsol2").value=obj.TelPM;
         document.getElementById("rfcsol1").value=obj.RFCPM;
+        document.getElementById("rfcsol1").readonly=true;
 
         document.getElementById("dirsolpm").value=obj.DireccionPM;
         document.getElementById("dirnumsolpm").value=obj.NumDireccionPM;
@@ -961,6 +963,7 @@ xmlhttp.onreadystatechange=function()
         document.getElementById("cdsol").value=obj.CiudadPF;
         document.getElementById("textfield5").value=obj.MunicipioPF;
         document.getElementById("curpsol").value=obj.CURPPF;
+        document.getElementById("curpsol").readonly=true;
         document.getElementById("sexsol").value=obj.SexoPF;
         if(obj.FechNacimientoPF=="0000-00-00"){
             document.getElementById("fechnacsol").value="";
@@ -1231,6 +1234,7 @@ xmlhttp.onreadystatechange=function()
         document.getElementById("nomrazsoc2").value=obj.RazonSocial;
         document.getElementById("telsol2").value=obj.TelPM;
         document.getElementById("rfcsol1").value=obj.RFCPM;
+        document.getElementById("rfcsol1").readOnly=true;
 
         document.getElementById("dirsolpm").value=obj.DireccionPM;
         document.getElementById("dirnumsolpm").value=obj.NumDireccionPM;
