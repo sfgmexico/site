@@ -1,5 +1,40 @@
 <?php
 switch ($_REQUEST['function']) {
+    case 'continuaregistro':
+        include('Conexion2.php');
+        try {
+            $rawdata = array();
+            $i=0;
+            $result=mysqli_query($cnx,"select solicitudes.Id,TipoCredito,clientes.NombrePF,clientes.SegNombrePF,clientes.ApPatPF,clientes.ApMatPF,clientes.RazonSocial from solicitudes INNER JOIN clientes on solicitudes.FolioCliente=clientes.id where solicitudes.Status='Incompleto'");
+            while($row=mysqli_fetch_array($result)){
+                $rawdata[$i] = $row;
+                $i++;
+                
+            }
+
+            echo json_encode($rawdata);
+            
+
+
+        } catch (Exception $e) {
+            echo "Error Al Obtener listado";
+        }
+        
+        
+        break;
+    case 'modificarsolicitud':
+        
+        if($_REQUEST['solicitud']){
+            include('Conexion2.php');
+            $result=mysqli_fetch_array(mysqli_query($cnx,"select * from solicitudes where id='".$_REQUEST['solicitud']."'"));
+            echo json_encode($result);
+        }
+
+        break;
+
+
+
+
 	case "nuevasolicitud":
 		include("Conexion2.php");
         mysqli_query($cnx,"insert into solicitudes (FolioCliente) values('".$_REQUEST['cliente']."')");
@@ -20,6 +55,23 @@ switch ($_REQUEST['function']) {
     	include("Conexion2.php");
     	try {
     		$status="Incompleto";
+
+            if((($_REQUEST['tipocredito']=="Auto Nuevo" && $_REQUEST['textfield86']!="" && $_REQUEST['textfield87']!="" && $_REQUEST['textfield88']!="" && $_REQUEST['textfield89']!="" && $_REQUEST['textfield90']!="" && $_REQUEST['textfield100']!="" && $_REQUEST['textfield96']!="" && $_REQUEST['textfield92']!="" && $_REQUEST['textfield97']!="" && $_REQUEST['textfield98']!="" && $_REQUEST['textfield91']!="")
+                || 
+                ($_REQUEST['tipocredito']=="Auto Seminuevo" && $_REQUEST['textfield86']!="" && $_REQUEST['textfield87']!="" && $_REQUEST['textfield88']!="" && $_REQUEST['textfield89']!="" && $_REQUEST['textfield90']!="" && $_REQUEST['textfield100']!="" && $_REQUEST['textfield96']!="" && $_REQUEST['textfield92']!="" && $_REQUEST['textfield97']!="" && $_REQUEST['textfield98']!="" && $_REQUEST['textfield91']!="")
+                || 
+                ($_REQUEST['tipocredito']=="Crédito Simple de Nomina" && $_REQUEST['textfield86']!="" && $_REQUEST['textfield100']!="" && $_REQUEST['textfield96']!=""  && $_REQUEST['textfield98']!="" && $_REQUEST['textfield99']!="" && $_REQUEST['textfield91']!="" && $_REQUEST['textfield92']!="")
+                )
+
+                &&
+
+                ($_REQUEST['datobnom1']!="" && $_REQUEST['datobappat1']!="" && $_REQUEST['datobapmat1']!="" && $_REQUEST['datobcp1']!="" && $_REQUEST['datobdir1']!="" && $_REQUEST['datobcol1']!="" && $_REQUEST['datobcd1']!="" && $_REQUEST['datobedo1']!="" && $_REQUEST['datoblugnac1']!="" && $_REQUEST['datobmail1']!="" && $_REQUEST['datobsex1']!="" && $_REQUEST['datobapmat1']!="" && $_REQUEST['datobapmat1']!="" && $_REQUEST['datobapmat1']!="" && $_REQUEST['datobapmat1']!="" && $_REQUEST['datobapmat1']!="" && $_REQUEST['datobapmat1']!="" && $_REQUEST['datobapmat1']!="") 
+
+                ){
+                $status="Finalizado";
+            }
+
+
 
 
     		mysqli_query($cnx,"update solicitudes SET 
@@ -60,35 +112,42 @@ switch ($_REQUEST['function']) {
     		FechNacObSol2    	='".$_REQUEST['datobfechnac2d']."',
     		EdadObSol2    		='".$_REQUEST['datobed2']."',
     		TipoCredito    		='".$_REQUEST['tipocredito']."',
-    		MontoSolicitado    	='".$_REQUEST['textfield86']."',
-    		Enganche    		='".$_REQUEST['textfield87']."',
-    		PorEnganche    		='".$_REQUEST['textfield88']."',
-    		PorFinanciamiento   ='".$_REQUEST['textfield89']."',
-    		MontoFinanciado    	='".$_REQUEST['textfield90']."',
-    		InteresAnual    	='".$_REQUEST['textfield100']."',
-    		ComisionApertura    ='".$_REQUEST['textfield96']."',
-    		PorComApertura    	='".$_REQUEST['textfield96']."',
-    		SeguroAuto    		='".$_REQUEST['textfield97']."',
-    		SeguroVida    		='".$_REQUEST['textfield98']."',
-    		SeguroDesempleo    	='".$_REQUEST['textfield99']."',
-    		Plazo    			='".$_REQUEST['textfield91']."',
-    		PagoMenEsp    		='".$_REQUEST['textfield92']."',
-    		NomObSol_1    		='',
-    		SexoObSol_1    		='',
-    		FeNacObSol_1    	='',
-    		RFCObSol_1    		='',
-    		CURPObSol_1    		='',
-    		EdadObSol_1    		='',
-    		NomObSol_2    		='',
-    		SexoObSol_2    		='',
-    		FeNacObSol_2    	='',
-    		RFCObSol_2    		='',
-    		CURPObSol_2    		='',
-    		EdadObSol_2    		='',
+
+
+    		MontoSolicitado    	='".str_replace(",","",$_REQUEST['textfield86'])."',
+    		Enganche    		='".str_replace(",","",$_REQUEST['textfield87'])."',
+    		PorEnganche    		='".str_replace(",","",$_REQUEST['textfield88'])."',
+    		PorFinanciamiento   ='".str_replace(",","",$_REQUEST['textfield89'])."',
+    		MontoFinanciado    	='".str_replace(",","",$_REQUEST['textfield90'])."',
+    		InteresAnual    	='".str_replace(",","",$_REQUEST['textfield100'])."',
+    		ComisionApertura    ='".str_replace(",","",$_REQUEST['textfield96'])."',
+    		PorComApertura    	='".str_replace(",","",$_REQUEST['textfield96'])."',
+    		SeguroAuto    		='".str_replace(",","",$_REQUEST['textfield97'])."',
+    		SeguroVida    		='".str_replace(",","",$_REQUEST['textfield98'])."',
+    		SeguroDesempleo    	='".str_replace(",","",$_REQUEST['textfield99'])."',
+    		Plazo    			='".str_replace(",","",$_REQUEST['textfield91'])."',
+    		PagoMenEsp    		='".str_replace(",","",$_REQUEST['textfield92'])."',
+    	    
+            NomObSolPM          ='".$_REQUEST['NomObSolPM']."',
+            RFCObSolPM          ='".$_REQUEST['RFCObSolPM']."',
+            TelObSolPM          ='".$_REQUEST['TelObSolPM']."',
+            Tel2ObSolPM         ='".$_REQUEST['Tel2ObSolPM']."',
+            CPObSolPM           ='".$_REQUEST['CPObSolPM']."',
+            DirObSolPM          ='".$_REQUEST['DirObSolPM']."',
+            ColObSolPM          ='".$_REQUEST['ColObSolPM']."',
+            CdObSolPM           ='".$_REQUEST['CdObSolPM']."',
+            EstObSolPM          ='".$_REQUEST['EstObSolPM']."',
+            MunObSolPM          ='".$_REQUEST['MunObSolPM']."',
+            EmailObSolPM        ='".$_REQUEST['EmailObSolPM']."',
+            AntObSolPM          ='".$_REQUEST['AntObSolPM']."',
+            ApoObSolPM          ='".$_REQUEST['ApoObSolPM']."',
+            ActPrinObSolPM      ='".$_REQUEST['ActPrinObSolPM']."',
+            FeIniOpObSolPM      ='".$_REQUEST['FeIniOpObSolPM']."',
+            CantPerObSolPM      ='".$_REQUEST['CantPerObSolPM']."',
     		ClaveCon    		='".$_REQUEST['clavcon']."',
     		NomCon    			='".$_REQUEST['nomcons']."',
     		NomVend    			='".$_REQUEST['nomvend']."',
-    		GerenteGral    		='Pendiente',
+    		GerenteGral    		='".$_REQUEST['gerentegral']."',
     		Fecha    			='".$_REQUEST['fechasolicitudregistro']."',
     		Status    			='".$status."',
     		StatusValidacion    ='Pendiente' 
@@ -116,6 +175,15 @@ switch ($_REQUEST['function']) {
     	$row=mysqli_fetch_array($result);
     	echo json_encode($row);
     	break;
+
+
+    case 'obtendatoscliente':
+        if(isset($_REQUEST['cliente'])){
+            include('Conexion2.php');
+            $result=mysqli_fetch_array(mysqli_query($cnx,"select TipoCliente, ActividadEmpresarial from clientes where id='".$_REQUEST['cliente']."'"));
+            echo json_encode($result);
+        }
+        break;
 
 	default;
         echo 'Error';

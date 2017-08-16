@@ -1,3 +1,160 @@
+function datosAuto() {
+    ///PORCENTAJE
+    var porcentaje = (parseFloat(document.getElementById("textfield87").value) * 100) / parseFloat(document.getElementById("textfield86").value);
+    document.getElementById("textfield88").value = porcentaje.toFixed(2)+" %";
+    var porFinanciado = 100 - porcentaje.toFixed(2);
+    document.getElementById("textfield89").value = porFinanciado.toFixed(2)+" %";
+    var monFincanciado = parseFloat(document.getElementById("textfield86").value) - parseFloat(document.getElementById("textfield87").value);
+    document.getElementById("textfield90").value = monFincanciado.toFixed(2);
+   
+}
+
+$("#continuarsolicitud").click(function(event) {
+    
+   var data = new FormData();
+   data.append('function', "continuaregistro");
+   
+   //data.append('id', obj.id);
+
+   //data.append('TipoCliente', "df");
+   
+    if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
+        $("#tablajson2 tbody tr").remove();
+        //alert(xmlhttp.responseText);
+        obJ6 = JSON.parse(xmlhttp.responseText);
+        
+        $.each(obJ6, function(i,solicitud){
+            var newRow =
+            "<tr>"
+            +"<td> <input onclick='obtensolicitud(this.id)' class='button' type='button' name='"+solicitud.Id+"' id='"+solicitud.Id+"' value='"+solicitud.Id+"'></td>";
+
+            newRow+="<td>"+solicitud.TipoCredito+"</td>";
+
+            newRow+="<td>"+solicitud.NombrePF+" "+solicitud.SegNombrePF+" "+solicitud.ApPatPF+" "+solicitud.ApMatPF+" "+solicitud.RazonSocial+"</td>";
+
+
+
+
+            newRow+="</tr>";
+
+            
+           
+            $(newRow).appendTo("#tablajson2 tbody");
+        });
+        
+        
+        
+      }
+  }
+xmlhttp.open("POST","solicitudes.php",true);
+xmlhttp.send(data);
+});
+
+
+$( "#requestmodificarsolicitud" ).click(function(event) {
+  
+  obtensolicitud(document.getElementById('idmodificasolicitud').value);
+});
+
+function obtensolicitud(solicitud){
+
+
+   var data = new FormData();
+   data.append('function', "modificarsolicitud");
+   data.append('solicitud', solicitud);
+   
+   
+    if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
+
+        if(xmlhttp.responseText=='null'){
+            alert("¡No Existe el Registro!, Favor de Ingresar Información correcta");
+            return;
+        }
+        if(xmlhttp.responseText=='¡Por favor de Ingresar un Dato!'){
+            alert("¡Por favor de Ingresar un Dato!");
+            return;
+        }
+
+        
+        //alert(xmlhttp.responseText);
+        obj5 = JSON.parse(xmlhttp.responseText);
+        document.getElementById("botonessolicitud").style.display="none";
+        document.getElementById("contenidorequestsolicitud").style.display="block";
+        document.getElementById("guardarsolicitud").style.display="block";
+        
+        $('#cerrarmodalmodificasolicitud').click();
+        $('#cerrarmodalcontregsolicitud').click();
+        document.getElementById('tipocredito').value=obj5.TipoCredito;
+        seleccionvalor();
+        document.getElementById('textfield86').value=obj5.MontoSolicitado;
+        mascara(document.getElementById('textfield86'),cpf);
+        document.getElementById('textfield87').value=obj5.Enganche;
+        mascara(document.getElementById('textfield87'),cpf);
+        document.getElementById('textfield88').value=obj5.PorEnganche;
+        document.getElementById('textfield89').value=obj5.PorFinanciamiento;
+        document.getElementById('textfield90').value=obj5.MontoFinanciado;
+        mascara(document.getElementById('textfield90'),cpf);
+        document.getElementById('textfield100').value=obj5.InteresAnual;
+        document.getElementById('textfield96').value=obj5.ComisionApertura;
+        mascara(document.getElementById('textfield96'),cpf);
+        //document.getElementById('textfield96').value=obj5.PorComApertura;
+        document.getElementById('textfield97').value=obj5.SeguroAuto;
+        mascara(document.getElementById('textfield97'),cpf);
+        document.getElementById('textfield98').value=obj5.SeguroVida;
+        mascara(document.getElementById('textfield98'),cpf);
+        document.getElementById('textfield99').value=obj5.SeguroDesempleo;
+        mascara(document.getElementById('textfield99'),cpf);
+        document.getElementById('textfield91').value=obj5.Plazo;
+        document.getElementById('textfield92').value=obj5.PagoMenEsp;
+        mascara(document.getElementById('textfield92'),cpf);
+        document.getElementById('NomObSolPM').value=obj5.NomObSolPM;
+        document.getElementById('RFCObSolPM').value=obj5.RFCObSolPM;
+        document.getElementById('TelObSolPM').value=obj5.TelObSolPM;
+        document.getElementById('Tel2ObSolPM').value=obj5.Tel2ObSolPM;
+        document.getElementById('CPObSolPM').value=obj5.CPObSolPM;
+        document.getElementById('DirObSolPM').value=obj5.DirObSolPM;
+        document.getElementById('ColObSolPM').value=obj5.ColObSolPM;
+        document.getElementById('CdObSolPM').value=obj5.CdObSolPM;
+        document.getElementById('EstObSolPM').value=obj5.EstObSolPM;
+        document.getElementById('MunObSolPM').value=obj5.MunObSolPM;
+        document.getElementById('EmailObSolPM').value=obj5.EmailObSolPM;
+        document.getElementById('AntObSolPM').value=obj5.AntObSolPM;
+        document.getElementById('ApoObSolPM').value=obj5.ApoObSolPM;
+        document.getElementById('ActPrinObSolPM').value=obj5.ActPrinObSolPM;
+        document.getElementById('FeIniOpObSolPM').value=obj5.FeIniOpObSolPM;
+        document.getElementById('CantPerObSolPM').value=obj5.CantPerObSolPM;
+        document.getElementById('clavcon').value=obj5.ClaveCon;
+        document.getElementById('nomcons').value=obj5.NomCon;
+        document.getElementById('nomvend').value=obj5.NomVend;
+        document.getElementById('gerentegral').value=obj5.GerenteGral;
+        obtendatoscliente(obj5.FolioCliente);
+      }
+  }
+xmlhttp.open("POST","solicitudes.php",true);
+xmlhttp.send(data);
+}
 
 
 
@@ -21,6 +178,7 @@ function seleccionvalor(){
 		document.getElementById("segdeschange").style.display='none';
 		document.getElementById("plazocredito").style.display='none';
 		document.getElementById("pagomensualesp").style.display='none';
+    document.getElementById("divbotoncambval").style.display='none';
 		data.append('requestcredito', "");
 
 		
@@ -39,6 +197,7 @@ function seleccionvalor(){
 		document.getElementById("segdeschange").style.display='none';
 		document.getElementById("plazocredito").style.display='block';
 		document.getElementById("pagomensualesp").style.display='block';
+    document.getElementById("divbotoncambval").style.display='block';
 		data.append('requestcredito', "Auto Nuevo");
 
 
@@ -57,6 +216,7 @@ function seleccionvalor(){
 		document.getElementById("segdeschange").style.display='none';
 		document.getElementById("plazocredito").style.display='block';
 		document.getElementById("pagomensualesp").style.display='block';
+    document.getElementById("divbotoncambval").style.display='block';
 		data.append('requestcredito', "Auto Seminuevo");
 
 
@@ -74,6 +234,7 @@ function seleccionvalor(){
 		document.getElementById("segdeschange").style.display='block';
 		document.getElementById("plazocredito").style.display='block';
 		document.getElementById("pagomensualesp").style.display='block';
+    document.getElementById("divbotoncambval").style.display='block';
 		data.append('requestcredito', "Crédito Simple de Nomina");
 
 
@@ -90,6 +251,7 @@ function seleccionvalor(){
 		document.getElementById("segdeschange").style.display='none';
 		document.getElementById("plazocredito").style.display='none';
 		document.getElementById("pagomensualesp").style.display='none';
+    document.getElementById("divbotoncambval").style.display='none';
 		data.append('requestcredito', "");
 
 
@@ -103,11 +265,11 @@ function seleccionvalor(){
   {// code for IE7+, Firefox, Chrome, Opera, Safari
   xmlhttp=new XMLHttpRequest();
   }
-else
+  else
   {// code for IE6, IE5
   xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
   }
-xmlhttp.onreadystatechange=function()
+  xmlhttp.onreadystatechange=function()
   {
     if (xmlhttp.readyState==4 && xmlhttp.status==200)
       {
@@ -118,8 +280,14 @@ xmlhttp.onreadystatechange=function()
         if(obj3!=null){
             if(obj3.descripcion=="Crédito Simple de Nomina"){
               document.getElementById("textfield100").value=obj3.tasa;
+              document.getElementById("textfield96").value=obj3.Comision_Apertura;
+              
             }else if(obj3.descripcion=="Auto Nuevo"){
               document.getElementById("textfield100").value=obj3.tasa;
+              document.getElementById("textfield96").value=obj3.Comision_Apertura;
+            }else if(obj3.descripcion=="Auto Seminuevo"){
+              document.getElementById("textfield100").value=obj3.tasa;
+              document.getElementById("textfield96").value=obj3.Comision_Apertura;
             }else{
               document.getElementById("textfield100").value="";
             }
@@ -129,12 +297,8 @@ xmlhttp.onreadystatechange=function()
         
       }
   }
-xmlhttp.open("POST","solicitudes.php",true);
-xmlhttp.send(data);
-
-
-
-	
+  xmlhttp.open("POST","solicitudes.php",true);
+  xmlhttp.send(data);
 }
 
 $("#cancelarsolicitud").click(function(event) {
@@ -148,11 +312,11 @@ $("#cancelarsolicitud").click(function(event) {
   {// code for IE7+, Firefox, Chrome, Opera, Safari
   xmlhttp=new XMLHttpRequest();
   }
-else
+  else
   {// code for IE6, IE5
   xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
   }
-xmlhttp.onreadystatechange=function()
+  xmlhttp.onreadystatechange=function()
   {
     if (xmlhttp.readyState==4 && xmlhttp.status==200)
       {
@@ -161,11 +325,11 @@ xmlhttp.onreadystatechange=function()
         document.getElementById("botonessolicitud").style.display="block";
         document.getElementById("contenidorequestsolicitud").style.display="none";
         document.getElementById("guardarsolicitud").style.display="none";
-        
+        document.getElementById('bot4').click();
       }
   }
-xmlhttp.open("POST","solicitudes.php",true);
-xmlhttp.send(data);
+  xmlhttp.open("POST","solicitudes.php",true);
+  xmlhttp.send(data);
 });
 
 
@@ -287,8 +451,15 @@ $('#panel9c').find('input').each(function(){
     
    var data = new FormData(document.forms['form2']);
    data.append('function', "guardasolicitud");
+   if(typeof (obj2)!= 'undefined'){
+    
+      data.append('id', obj2[0]);
+   }
+   if(typeof (obj5)!= 'undefined'){
+
+      data.append('id', obj5.Id);
+   }
    
-   data.append('id', obj2[0]);
    
 
 
@@ -372,11 +543,53 @@ xmlhttp.onreadystatechange=function()
     if (xmlhttp.readyState==4 && xmlhttp.status==200)
       {
         $( "#cerrarmodalnuevasolicitud" ).click();
+
         obj2 = JSON.parse(xmlhttp.responseText);
         document.getElementById("botonessolicitud").style.display="none";
         document.getElementById("contenidorequestsolicitud").style.display="block";
         document.getElementById("guardarsolicitud").style.display="block";
         document.getElementById("idcliente").value=obj2[0];
+        obtendatoscliente(fun);
+       
+      }
+  }
+xmlhttp.open("POST","solicitudes.php",true);
+xmlhttp.send(data);
+  
+}
+
+function obtendatoscliente(fun2){
+  var data = new FormData();
+   data.append('function', "obtendatoscliente");
+   data.append('cliente', fun2);
+   
+    if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
+        
+        //alert(xmlhttp.responseText);
+        obj4 = JSON.parse(xmlhttp.responseText);
+        
+         
+        if(obj4.TipoCliente=="Persona Fisica" && obj4.ActividadEmpresarial=="Si"){
+          document.getElementById('divcontenidoobsolpm').style.display='block';
+          
+        }else if(obj4.TipoCliente=="Persona Moral"){
+          document.getElementById('divcontenidoobsolpm').style.display='block';
+          
+        }else{  
+          document.getElementById('divcontenidoobsolpm').style.display='none';
+         
+        }
         
       
       }
@@ -385,7 +598,6 @@ xmlhttp.open("POST","solicitudes.php",true);
 xmlhttp.send(data);
   
 }
-
 
 
 function busqueda(){
@@ -421,5 +633,21 @@ function busqueda(){
                                                                                   
 }
                                                                            
-        
+  function mascara(o,f){  
+    v_obj=o;  
+    v_fun=f;  
+    v_obj.value=v_fun(v_obj.value);
+  }  
+
+  
+  function cpf(v){     
+    v=v.replace(/([^0-9\.]+)/g,''); 
+    v=v.replace(/^[\.]/,''); 
+    v=v.replace(/[\.][\.]/g,''); 
+    v=v.replace(/\.(\d)(\d)(\d)/g,'.$1$2'); 
+    v=v.replace(/\.(\d{1,2})\./g,'.$1'); 
+    v = v.toString().split('').reverse().join('').replace(/(\d{3})/g,'$1,');    
+    v = v.split('').reverse().join('').replace(/^[\,]/,''); 
+    return v;  
+  }   
 
