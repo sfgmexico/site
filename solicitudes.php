@@ -62,10 +62,25 @@ switch ($_REQUEST['function']) {
                 || 
                 ($_REQUEST['tipocredito']=="Crédito Simple de Nomina" && $_REQUEST['textfield86']!="" && $_REQUEST['textfield100']!="" && $_REQUEST['textfield96']!=""  && $_REQUEST['textfield98']!="" && $_REQUEST['textfield99']!="" && $_REQUEST['textfield91']!="" && $_REQUEST['textfield92']!="")
                 )
+                &&
+
+                ($_REQUEST['datobnom1']!="" && $_REQUEST['datobappat1']!="" && $_REQUEST['datobapmat1']!="" && $_REQUEST['datobcp1']!="" && $_REQUEST['datobdir1']!="" && $_REQUEST['datobcol1']!="" && $_REQUEST['datobcd1']!="" && $_REQUEST['datobedo1']!="" && $_REQUEST['datoblugnac1']!="" && $_REQUEST['datobmail1']!="" && $_REQUEST['datobsex1']!="" && $_REQUEST['datobfechnac1d']!="" && $_REQUEST['datobed1']!="" && $_REQUEST['datobcurp1']!="" && $_REQUEST['datobrfc11']!="" && $_REQUEST['datobtel11']!="" && $_REQUEST['datobtel112']!="" && $_REQUEST['datobprop1']!="") 
 
                 &&
 
-                ($_REQUEST['datobnom1']!="" && $_REQUEST['datobappat1']!="" && $_REQUEST['datobapmat1']!="" && $_REQUEST['datobcp1']!="" && $_REQUEST['datobdir1']!="" && $_REQUEST['datobcol1']!="" && $_REQUEST['datobcd1']!="" && $_REQUEST['datobedo1']!="" && $_REQUEST['datoblugnac1']!="" && $_REQUEST['datobmail1']!="" && $_REQUEST['datobsex1']!="" && $_REQUEST['datobapmat1']!="" && $_REQUEST['datobapmat1']!="" && $_REQUEST['datobapmat1']!="" && $_REQUEST['datobapmat1']!="" && $_REQUEST['datobapmat1']!="" && $_REQUEST['datobapmat1']!="" && $_REQUEST['datobapmat1']!="") 
+                (($_REQUEST['datobnom2']!="" && $_REQUEST['datobappat2']!="" && $_REQUEST['datobapmat2']!="" && $_REQUEST['datobcp2']!="" && $_REQUEST['datobdir2']!="" && $_REQUEST['datobcol2']!="" && $_REQUEST['datobcd2']!="" && $_REQUEST['datobedo2']!="" && $_REQUEST['datoblugnac2']!="" && $_REQUEST['datobmail2']!="" && $_REQUEST['datobsex2']!="" && $_REQUEST['datobfechnac2d']!="" && ($_REQUEST['datobed2']!="" || $_REQUEST['datobed2']!="0")&& $_REQUEST['datobcurp2']!="" && $_REQUEST['datobrfc21']!="" && $_REQUEST['datobtel21']!="" && $_REQUEST['datobtel212']!="" && $_REQUEST['datobprop2']!="") || ($_REQUEST['datobnom2']=="" && $_REQUEST['datobappat2']=="" && $_REQUEST['datobapmat2']=="" && $_REQUEST['datobcp2']=="" && $_REQUEST['datobdir2']=="" && $_REQUEST['datobcol2']=="" && $_REQUEST['datobcd2']=="" && $_REQUEST['datobedo2']=="" && $_REQUEST['datoblugnac2']=="" && $_REQUEST['datobmail2']=="" && $_REQUEST['datobsex2']=="" && $_REQUEST['datobfechnac2d']=="" && ($_REQUEST['datobed2']=="" || $_REQUEST['datobed2']=="0")&& $_REQUEST['datobcurp2']=="" && $_REQUEST['datobrfc21']=="" && $_REQUEST['datobtel21']=="" && $_REQUEST['datobtel212']=="" && $_REQUEST['datobprop2']=="")) 
+
+                &&
+
+                (($_REQUEST['NomObSolPM']!='' && $_REQUEST['RFCObSolPM']!='' && $_REQUEST['TelObSolPM']!='' && $_REQUEST['Tel2ObSolPM']!='' && $_REQUEST['CPObSolPM']!='' && $_REQUEST['DirObSolPM']!='' && $_REQUEST['ColObSolPM']!='' && $_REQUEST['CdObSolPM']!='' && $_REQUEST['EstObSolPM']!='' && $_REQUEST['MunObSolPM']!='' && $_REQUEST['EmailObSolPM']!='' && $_REQUEST['AntObSolPM']!='' && $_REQUEST['ApoObSolPM']!='' && $_REQUEST['ActPrinObSolPM']!='' && $_REQUEST['FeIniOpObSolPM']!='' && $_REQUEST['CantPerObSolPM']!='') || ($_REQUEST['NomObSolPM']=='' && $_REQUEST['RFCObSolPM']=='' && $_REQUEST['TelObSolPM']=='' && $_REQUEST['Tel2ObSolPM']=='' && $_REQUEST['CPObSolPM']=='' && $_REQUEST['DirObSolPM']=='' && $_REQUEST['ColObSolPM']=='' && $_REQUEST['CdObSolPM']=='' && $_REQUEST['EstObSolPM']=='' && $_REQUEST['MunObSolPM']=='' && $_REQUEST['EmailObSolPM']=='' && $_REQUEST['AntObSolPM']=='' && $_REQUEST['ApoObSolPM']=='' && $_REQUEST['ActPrinObSolPM']=='' && $_REQUEST['FeIniOpObSolPM']=='' && $_REQUEST['CantPerObSolPM']==''))
+
+                &&
+
+                ($_REQUEST['clavcon']!='' && $_REQUEST['nomcons']!='' && $_REQUEST['nomvend']!='' && $_REQUEST['gerentegral']!='')
+
+                /*
+
+                */
 
                 ){
                 $status="Finalizado";

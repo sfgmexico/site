@@ -124,14 +124,14 @@ document.oncontextmenu = function(){return false;}
 <script src="js/custom-file-input.js"></script>
 
 <script src="js/jquery-v1.min.js"></script>
-		
+	<!--	
 	<script>$(document).foundation();
 	$('.title-bar').on('sticky.zf.stuckto:top', function(){
 	$(this).addClass('shrink');
 }).on('sticky.zf.unstuckfrom:top', function(){
 	$(this).removeClass('shrink');
 })</script>
-
+	-->
 		<script type="text/javascript" src="js/botones.js"></script>
     	
 			 

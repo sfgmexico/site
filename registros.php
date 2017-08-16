@@ -1077,20 +1077,17 @@
           </div>
           
           <div id="contenidorequestsolicitud" style="display: none;">
-<<<<<<< HEAD
+
             <ul class="tabs" data-tabs id="deeplinked-tabs">
-=======
-            <ul class="tabs"  data-tabs id="deeplinked-tabs">
->>>>>>> 58177ea2edd7e457c0391be2cdbe277a7a61b64c
+
+           
               <li class="tabs-title is-active"><a href="#panel1d" aria-selected="true">Credito</a></li>
               <li class="tabs-title"><a href="#panel2d">Obligado Solidario</a></li>
               <li class="tabs-title"><a href="#panel3d">Concesionario</a></li>    
             </ul>
             <div class="tabs-content" data-tabs-content="deeplinked-tabs">
               <div class="tabs-panel is-active" id="panel1d">
-<<<<<<< HEAD
-                          
-=======
+
         
 
                 <div class="row">
@@ -1216,90 +1213,7 @@
                                                                 
                   </p>
                 </div>
-                
-                <!-- This is the first modal -->
-
->>>>>>> 58177ea2edd7e457c0391be2cdbe277a7a61b64c
-
-                                  <div class="row">
-                                    <p align="left">
-                                      <div class="medium-3 columns">
-                                        <label> Tipo Credito
-                                          <select name="tipocredito" size="1" id="tipocredito"  required="" >
-                                            <option value="" ></option>
-                                                                                <?php
-                                                                                include("Conexion2.php");
-                                                                                $rescreditos=mysqli_query($cnx,"select * from tiposcreditos");
-                                                                                while($rowcreditos=mysqli_fetch_array($rescreditos)){?> 
-                                            <option value="<?php echo $rowcreditos['descripcion'];?>" ><?php echo $rowcreditos['descripcion'];?></option>
-
-                                                                                <?php }
-                                                                                ?>
-                                            </select>
-                                        </label>
-                                      </div>
-                                                                          
-                                      <div class="medium-3 columns" id="displaymonto" style="display: none;"> 
-                                        <label><span id="labelmontosoli"></span> 
-                                          <input name="textfield86" type="text" id="textfield86" size="50%"    >
-                                        </label> 
-                                      </div>
-
-                                      <div class="medium-3 columns" id="engautochange" style="display: none;">
-                                        <label>Enganche 
-                                          <input name="textfield87" type="text" id="textfield87" size="50%"    onchange="datosAuto()">
-                                        </label>
-                                      </div>
-
-                                      <div class="medium-3 columns" id="porengautochange" style="display: none;">
-                                        <label> Porcentaje de Enganche<input name="textfield88" type="text" id="textfield88" size="50%"  readonly>
-                                        </label>
-                                      </div>
-                                      <div class="medium-3 columns" id="porfinautochange" style="display: none;">
-                                        <label>Porcentaje de Financieamiento<input name="textfield89" type="text" id="textfield89" size="50%"  readonly>
-                                        </label>
-                                      </div>
-                                      <div class="medium-3 columns" id="monfinautochange" style="display: none;">
-                                        <label>Monto Financiado <input name="textfield90" type="text" id="textfield90" size="50%"  readonly>
-                                        </label>
-                                      </div>
-                                      <div class="medium-3 columns" style="display: none;" id="interesanual">
-                                        <label>Interes Anual<input name="textfield100" type="text" id="textfield100" size="50%"  readonly  >
-                                        </label>
-                                      </div>
-                                      <div class="medium-3 columns" id="comisionapchange" style="display: none;">
-                                        <label>Comisión por Apertura<input name="textfield96" type="text" id="textfield96" size="50%"  readonly  >
-                                        </label>
-                                      </div>
-                                      <div class="medium-3 columns" id="seguroauto" style="display: none;">
-                                        <label>Seguro de Auto<input name="textfield97" type="text" id="textfield97" size="50%"   >
-                                        </label>
-                                      </div>
-                                      <div class="medium-3 columns" id="segurovida" style="display: none;">
-                                        <label>Seguro de Vida<input name="textfield98" type="text" id="textfield98" size="50%"   >
-                                        </label>
-                                      </div>
-
-                                      <div class="medium-3 columns" id="segdeschange" style="display: none;">
-                                        <label>
-                                          <p align="left">Seguro de Desempleo<input name="textfield99" type="text" id="textfield99" size="50%"   ></p>
-                                        </label>
-                                      </div>
-                                      <div class="medium-3 columns" id="plazocredito" style="display: none;">
-                                        <label>Plazo (meses)<input name="textfield91" type="text" id="textfield91" size="50%"   >
-                                        </label>
-                                      </div>
-                                      <div class="medium-3 columns" id="pagomensualesp" style="display: none;">
-                                        <label>Pago Mensual Esperado<input name="textfield92" type="text" id="textfield92" size="50%"   >
-                                        </label>
-                                      </div>
-                                      <div class="medium-5 columns">
-                                        <input type="button" class="button" data-open="Aut" value="Cambiar Valores">
-                                      </div>
-                                                                                  
-                                    </p>
-                                  </div>
-                                  
+            
                       <!-- This is the first modal -->
 
 
@@ -1366,7 +1280,7 @@
                     </div>
             
                     <div class="medium-3 columns"> <label>Sexo
-                      <select name="datobsex1"><option value="">-Seleccione una opción-</option><option value="Femenino">Femenino</option><option value="Masculino">Masculino</option></select></label>
+                      <select name="datobsex1" id="datobsex1"><option value="">-Seleccione una opción-</option><option value="Femenino">Femenino</option><option value="Masculino">Masculino</option></select></label>
                     </div>
                   </p>
                 </div>
@@ -1407,7 +1321,7 @@
                     </div>
                     <div class="medium-3 columns">
                       <label>Tiene propiedad a su nombre?
-                        <select name="datobprop1" ><option value="">-Seleccione una opción-</option><option value="Si">Si</option><option value="No">No</option></select></label>
+                        <select name="datobprop1" id="datobprop1"><option value="">-Seleccione una opción-</option><option value="Si">Si</option><option value="No">No</option></select></label>
                   
                     </div>
                   </p>
@@ -1466,7 +1380,7 @@
                     </div>
                   </p>
                   <div class="medium-3 columns"><label>Sexo
-                    <select name="datobsex2"><option value="">-Seleccione una opcion-</option><option value="Femenino">Femenino</option><option value="Masculino">Masculino</option></select></label>
+                    <select name="datobsex2" id="datobsex2"><option value="">-Seleccione una opcion-</option><option value="Femenino">Femenino</option><option value="Masculino">Masculino</option></select></label>
                   </div>
                 </div>
                 <div class="row"> 
@@ -1496,7 +1410,7 @@
                     </div>
                     <div class="medium-3 columns">
                       <label>Tiene propiedad a su nombre?
-                        <select name="datobprop2" ><option value="">-Seleccione una opción-</option><option value="Si">Si</option><option value="No">No</option></select></label>
+                        <select name="datobprop2" id="datobprop2"><option value="">-Seleccione una opción-</option><option value="Si">Si</option><option value="No">No</option></select></label>
                     </div>
                   </p>
 
@@ -1574,14 +1488,12 @@
                 </div>
               </div>
               
-<<<<<<< HEAD
-            
-=======
+
               <div class="tabs-panel" id="panel4d">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
               </div>
 
->>>>>>> 58177ea2edd7e457c0391be2cdbe277a7a61b64c
+
               <input class="button" type="button" name="guardarsolicitud" id="guardarsolicitud" value="Guardar" style="display: none;">
               <input class="button" type="button" name="botonmodsolicitud" id="botonmodsolicitud" value="Guardar" style="display: none;">
               <input class="button" type="button" name="cancelarsolicitud" id="cancelarsolicitud" value="Cancelar Registro">

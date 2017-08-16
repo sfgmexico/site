@@ -453,7 +453,7 @@ $status="Finalizado";
     		Status='$status', FechaModificacion=CURDATE(),ModPor='".$_SESSION['usser']."'
 
 
-    		where id='".$_REQUEST['id']."'");
+            where id='".$_REQUEST['id']."'");
         echo "¡Guardado!";
         
         break;
@@ -464,7 +464,12 @@ $status="Finalizado";
 
 
     case "guardacliente":
-    session_start();
+        include("Conexion2.php");
+        if(mysqli_num_rows(mysqli_query($cnx,"select CURPPF,RFCPM from clientes where CURPPF='".$_REQUEST['curpsol']."' and RFCPM='".$_REQUEST['rfcsol1']."'"))>0){
+            echo "¡¡Error!! -- ¡Registro Duplicado!";
+            break;
+        }
+        session_start();
         $status="Incompleto";
 
        
@@ -607,7 +612,6 @@ $status="Finalizado";
 
 
 
-        include("Conexion2.php");
         mysqli_query($cnx,"update clientes set TipoCliente='".$_REQUEST['TipoCliente']."', NombrePF='".$_REQUEST['nomsol']."', SegNombrePF='".$_REQUEST['segnomsol']."', ApPatPF='".$_REQUEST['apepasol']."', ApMatPF='".$_REQUEST['apemasol']."', 
             RFCPF='".$_REQUEST['rfc1']."', 
             TelefonoPF='".$_REQUEST['telsol1']."', 
@@ -774,6 +778,8 @@ $status="Finalizado";
 
 
             where id='".$_REQUEST['id']."'");
+
+        
 
         echo "¡Guardado!";
         break;

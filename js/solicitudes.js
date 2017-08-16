@@ -129,15 +129,114 @@ xmlhttp.onreadystatechange=function()
         document.getElementById('textfield91').value=obj5.Plazo;
         document.getElementById('textfield92').value=obj5.PagoMenEsp;
         mascara(document.getElementById('textfield92'),cpf);
+
+
+        document.getElementById('datobnom1').value=obj5.NomObSol;
+        document.getElementById('datobappat1').value=obj5.ApPatObSol;
+        document.getElementById('datobapmat1').value=obj5.ApMatObSol;
+        document.getElementById('datobcp1').value=obj5.CPObSol;
+        document.getElementById('datobdir1').value=obj5.DirObSol;
+        var cdd=document.getElementById("datobcol1");
+        var recpostales = document.createElement("option");
+                recpostales.text = obj5.ColObSol;
+                recpostales.value = obj5.ColObSol;
+                cdd.add(recpostales);
+        document.getElementById('datobcol1').value=obj5.ColObSol;
+        cdd=document.getElementById("datobcd1");
+        recpostales = document.createElement("option");
+                recpostales.text = obj5.CdObSol;
+                recpostales.value = obj5.CdObSol;
+                cdd.add(recpostales);
+        document.getElementById('datobcd1').value=obj5.CdObSol;
+        cdd=document.getElementById("datobedo1");
+        recpostales = document.createElement("option");
+                recpostales.text = obj5.EdoObSol;
+                recpostales.value = obj5.EdoObSol;
+                cdd.add(recpostales);
+        document.getElementById('datobedo1').value=obj5.EdoObSol;
+
+        document.getElementById('datoblugnac1').value=obj5.LugNacObSol;
+        document.getElementById('datobmail1').value=obj5.EmailObSol;
+        document.getElementById('datobsex1').value=obj5.SexoObSol;
+        document.getElementById('datobfechnac1d').value=obj5.FechNacObSol;
+        document.getElementById('datobed1').value=obj5.EdadObSol;
+        document.getElementById('datobcurp1').value=obj5.CURPObSol;
+        document.getElementById('datobrfc11').value=obj5.RFCObSol;
+        document.getElementById('datobtel11').value=obj5.TelObSol;
+        document.getElementById('datobtel112').value=obj5.MovObSol;
+        document.getElementById('datobprop1').value=obj5.PropObSol;
+
+
+
+        document.getElementById('datobnom2').value=obj5.NomObSol2;
+        document.getElementById('datobappat2').value=obj5.ApPatObSol2;
+        document.getElementById('datobapmat2').value=obj5.ApMatObSol2;
+        document.getElementById('datobcp2').value=obj5.CPObSol2;
+        document.getElementById('datobdir2').value=obj5.DirObSol2;
+        cdd=document.getElementById("datobcol2");
+        recpostales = document.createElement("option");
+                recpostales.text = obj5.ColObSol2;
+                recpostales.value = obj5.ColObSol2;
+                cdd.add(recpostales);
+        document.getElementById('datobcol2').value=obj5.ColObSol2;
+        cdd=document.getElementById("datobcd2");
+        recpostales = document.createElement("option");
+                recpostales.text = obj5.CdObSol2;
+                recpostales.value = obj5.CdObSol2;
+                cdd.add(recpostales);
+        document.getElementById('datobcd2').value=obj5.CdObSol2;
+        cdd=document.getElementById("datobedo2");
+        recpostales = document.createElement("option");
+                recpostales.text = obj5.EdoObSol2;
+                recpostales.value = obj5.EdoObSol2;
+                cdd.add(recpostales);
+        document.getElementById('datobedo2').value=obj5.EdoObSol2;
+
+        document.getElementById('datoblugnac2').value=obj5.LugNacObSol2;
+        document.getElementById('datobmail2').value=obj5.EmailObSol2;
+        document.getElementById('datobsex2').value=obj5.SexoObSol2;
+        document.getElementById('datobfechnac2d').value=obj5.FechNacObSol2;
+        document.getElementById('datobed2').value=obj5.EdadObSol2;
+        document.getElementById('datobcurp2').value=obj5.CURPObSol2;
+        document.getElementById('datobrfc21').value=obj5.RFCObSol2;
+        document.getElementById('datobtel21').value=obj5.TelObSol2;
+        document.getElementById('datobtel212').value=obj5.MovObSol2;
+        document.getElementById('datobprop2').value=obj5.PropObSol2;
+
+
+
+
+
+
         document.getElementById('NomObSolPM').value=obj5.NomObSolPM;
         document.getElementById('RFCObSolPM').value=obj5.RFCObSolPM;
         document.getElementById('TelObSolPM').value=obj5.TelObSolPM;
         document.getElementById('Tel2ObSolPM').value=obj5.Tel2ObSolPM;
         document.getElementById('CPObSolPM').value=obj5.CPObSolPM;
         document.getElementById('DirObSolPM').value=obj5.DirObSolPM;
+        cdd=document.getElementById("ColObSolPM");
+        recpostales = document.createElement("option");
+                recpostales.text = obj5.ColObSolPM;
+                recpostales.value = obj5.ColObSolPM;
+                cdd.add(recpostales);
         document.getElementById('ColObSolPM').value=obj5.ColObSolPM;
+        cdd=document.getElementById("CdObSolPM");
+        recpostales = document.createElement("option");
+                recpostales.text = obj5.CdObSolPM;
+                recpostales.value = obj5.CdObSolPM;
+                cdd.add(recpostales);
         document.getElementById('CdObSolPM').value=obj5.CdObSolPM;
+        cdd=document.getElementById("EstObSolPM");
+        recpostales = document.createElement("option");
+                recpostales.text = obj5.EstObSolPM;
+                recpostales.value = obj5.EstObSolPM;
+                cdd.add(recpostales);
         document.getElementById('EstObSolPM').value=obj5.EstObSolPM;
+        cdd=document.getElementById("MunObSolPM");
+        recpostales = document.createElement("option");
+                recpostales.text = obj5.MunObSolPM;
+                recpostales.value = obj5.MunObSolPM;
+                cdd.add(recpostales);
         document.getElementById('MunObSolPM').value=obj5.MunObSolPM;
         document.getElementById('EmailObSolPM').value=obj5.EmailObSolPM;
         document.getElementById('AntObSolPM').value=obj5.AntObSolPM;
@@ -149,6 +248,10 @@ xmlhttp.onreadystatechange=function()
         document.getElementById('nomcons').value=obj5.NomCon;
         document.getElementById('nomvend').value=obj5.NomVend;
         document.getElementById('gerentegral').value=obj5.GerenteGral;
+
+
+
+
         obtendatoscliente(obj5.FolioCliente);
       }
   }
@@ -336,15 +439,53 @@ $("#cancelarsolicitud").click(function(event) {
 
 
 $("#guardarsolicitud").click(function(event) {
+    if(document.getElementById('datobcp1').value!="" && (document.getElementById('datobcol1').value=="" || document.getElementById('datobcd1').value=="" || document.getElementById('datobedo1').value=="" /*|| document.getElementById('textfield5').value==""*/)){
+        document.getElementById("datobcol1").required=true;
+        document.getElementById("datobcd1").required=true;
+        document.getElementById("datobedo1").required=true;
+        //document.getElementById("textfield5").required=true;
+        }else{
+            document.getElementById("datobcol1").required=false;
+            document.getElementById("datobcd1").required=false;
+            document.getElementById("datobedo1").required=false;
+            //document.getElementById("textfield5").required=false;
+        }
+
+    if(document.getElementById('datobcp2').value!="" && (document.getElementById('datobcol2').value=="" || document.getElementById('datobcd2').value=="" || document.getElementById('datobedo2').value=="" /*|| document.getElementById('textfield5').value==""*/)){
+        document.getElementById("datobcol2").required=true;
+        document.getElementById("datobcd2").required=true;
+        document.getElementById("datobedo2").required=true;
+        //document.getElementById("textfield5").required=true;
+        }else{
+            document.getElementById("datobcol2").required=false;
+            document.getElementById("datobcd2").required=false;
+            document.getElementById("datobedo2").required=false;
+            //document.getElementById("textfield5").required=false;
+        }
+
+    if(document.getElementById('CPObSolPM').value!="" && (document.getElementById('ColObSolPM').value=="" || document.getElementById('CdObSolPM').value=="" || document.getElementById('EstObSolPM').value=="" || document.getElementById('MunObSolPM').value=="")){
+        document.getElementById("ColObSolPM").required=true;
+        document.getElementById("CdObSolPM").required=true;
+        document.getElementById("EstObSolPM").required=true;
+        document.getElementById("MunObSolPM").required=true;
+        }else{
+            document.getElementById("ColObSolPM").required=false;
+            document.getElementById("CdObSolPM").required=false;
+            document.getElementById("EstObSolPM").required=false;
+            document.getElementById("MunObSolPM").required=false;
+        }
+
+    
+
     $('#form2').foundation('validateForm');
 
 
 
 var validacion=false;
 $( "#panel1d-label" ).removeClass( "is-invalid-input" );
+$( "#panel2d-label" ).removeClass( "is-invalid-input" );
+$( "#panel3d-label" ).removeClass( "is-invalid-input" );
 /*
-$( "#panel2c-label" ).removeClass( "is-invalid-input" );
-$( "#panel3c-label" ).removeClass( "is-invalid-input" );
 $( "#panel4c-label" ).removeClass( "is-invalid-input" );
 $( "#panel5c-label" ).removeClass( "is-invalid-input" );
 $( "#panel6c-label" ).removeClass( "is-invalid-input" );
@@ -352,11 +493,7 @@ $( "#panel7c-label" ).removeClass( "is-invalid-input" );
 $( "#panel8c-label" ).removeClass( "is-invalid-input" );
 $( "#panel9c-label" ).removeClass( "is-invalid-input" );
 */
-    if($( "#tipocredito").hasClass( "is-invalid-input" )){
-
-        $( "#panel1d-label" ).addClass( "is-invalid-input" );
-        validacion=true;
-    }
+   
 
     
 $('#panel1d').find('input').each(function(){ 
@@ -367,23 +504,39 @@ $('#panel1d').find('input').each(function(){
     }
 
      });
+$('#panel1d').find('select').each(function(){ 
+    if($( "#"+this.id).hasClass( "is-invalid-input" )){
+        console.log(this.id);
+        $( "#panel1d-label" ).addClass( "is-invalid-input" );
+        validacion=true;
+    }
+
+     });
+$('#panel2d').find('input').each(function(){ 
+    if($( "#"+this.id).hasClass( "is-invalid-input" )){
+        console.log(this.id);
+        $( "#panel2d-label" ).addClass( "is-invalid-input" );
+        validacion=true;
+    }
+
+     });
+$('#panel2d').find('select').each(function(){ 
+    if($( "#"+this.id).hasClass( "is-invalid-input" )){
+        console.log(this.id);
+        $( "#panel2d-label" ).addClass( "is-invalid-input" );
+        validacion=true;
+    }
+
+     });
+$('#panel3d').find('input').each(function(){ 
+    if($( "#"+this.id).hasClass( "is-invalid-input" )){
+        console.log(this.id);
+        $( "#panel3d-label" ).addClass( "is-invalid-input" );
+        validacion=true;
+    }
+
+     });
 /*
-$('#panel2c').find('input').each(function(){ 
-    if($( "#"+this.id).hasClass( "is-invalid-input" )){
-        console.log(this.id);
-        $( "#panel2c-label" ).addClass( "is-invalid-input" );
-        validacion=true;
-    }
-
-     });
-$('#panel3c').find('input').each(function(){ 
-    if($( "#"+this.id).hasClass( "is-invalid-input" )){
-        console.log(this.id);
-        $( "#panel3c-label" ).addClass( "is-invalid-input" );
-        validacion=true;
-    }
-
-     });
 $('#panel4c').find('input').each(function(){ 
     if($( "#"+this.id).hasClass( "is-invalid-input" )){
         console.log(this.id);
