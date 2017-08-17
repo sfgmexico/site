@@ -704,7 +704,7 @@ xmlhttp.onreadystatechange=function()
           return false;
         }
         $( "#cerrarmodalnuevasolicitud" ).click();
-        alert(xmlhttp.responseText);
+        //alert(xmlhttp.responseText);
         obj2 = JSON.parse(xmlhttp.responseText);
         document.getElementById("botonessolicitud").style.display="none";
         document.getElementById("contenidorequestsolicitud").style.display="block";
