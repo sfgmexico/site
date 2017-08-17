@@ -94,7 +94,7 @@ switch ($_REQUEST['function']) {
 
 
 
-
+            session_start();
     		mysqli_query($cnx,"update solicitudes SET 
     		NomObSol   			='".$_REQUEST['datobnom1']."',
     		ApPatObSol    		='".$_REQUEST['datobappat1']."',
@@ -171,7 +171,9 @@ switch ($_REQUEST['function']) {
     		GerenteGral    		='".$_REQUEST['gerentegral']."',
     		Fecha    			='".$_REQUEST['fechasolicitudregistro']."',
     		Status    			='".$status."',
-    		StatusValidacion    ='Pendiente' 
+    		StatusValidacion    ='Pendiente',
+            FechaModificacion   =CURDATE(),
+            ModPor              ='".$_SESSION['usser'] ."'
 
     		WHERE id='".$_REQUEST['id']."'");
 

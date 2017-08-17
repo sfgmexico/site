@@ -1481,7 +1481,7 @@
                     <div class="medium-3 columns"><label>Fecha
                     <div class="input-group">
                         <span class="input-group-label">_/_/_</span>
-                      <input class="input-group-field" name="fecha" type="text" id="fecha" value="<?php echo date("Y-m-d");?>" size="10px" readonly></label>
+                      <input class="input-group-field" name="fechasolicitudregistro" type="text" id="fechasolicitudregistro" value="<?php echo date("Y-m-d");?>" size="10px" readonly></label>
                       </div>
                     </div>
                   </p>
@@ -1497,7 +1497,7 @@
               <input class="button" type="button" name="guardarsolicitud" id="guardarsolicitud" value="Guardar" style="display: none;">
               <input class="button" type="button" name="botonmodsolicitud" id="botonmodsolicitud" value="Guardar" style="display: none;">
               <input class="button" type="button" name="cancelarsolicitud" id="cancelarsolicitud" value="Cancelar Registro">
-              <input name="fechasolicitudregistro" type="text" id="fechasolicitudregistro" value="<?php echo date("Y-m-d");?>" size="10px" readonly>
+              <!--<input name="fechasolicitudregistro" type="text" id="fechasolicitudregistro" value="<?php echo date("Y-m-d");?>" size="10px" readonly>-->
             </div>
           </div>
         </form> 
@@ -1513,22 +1513,21 @@
             <input class="button" data-open="modalmodificarconocimiento" type="button" name="modificarconocimiento" id="modificarconocimiento" value="Modificar Grado de Riesgo">
           
             <div class="reveal" id="modalnuevaconocimiento" data-reveal>
-              <h4>Ingresa el Número de Cliente:</h4>
+              <h4>Selecciona la solicitud</h4>
               
-              <select name="selectconocimiento" id="selectconocimiento"><option value="0">-seleccione uno-</option><option value="1">ID</option><option value="2">Nombre (Persona Fisca)</option><option  value="3">Razon social(Persona Moral)</option></select>
-              <div id="identcon" name="identcon" style="display: none;">
-                
-                <label>ID:<input type="text" name="idnuevaconocimiento" onkeyup="busqueda()" id="idnuevaconocimiento"></label>
-              </div>
+              <table  id="tablajson3">
+                <thead>
+                  <th>Id</th> 
+                  <th>Tipo de Crédito</th>
+                  <th>Cliente</th>
+                </thead>
+                <tbody></tbody>
+              </table>
+              
 
-                <div id="nombres" name="nombres" style="display: none;">
-                  
-                  <label>Nombre<input type="text" onkeyup="busqueda()" id="nombrepf" name="nombrepf"></label>
-                  <label>Apellido Paterno<input type="text" onkeyup="busqueda()" id="ApellidoPa" name="ApellidoPa"></label>
-                  <label>Apellido Materno<input type="text" onkeyup="busqueda()" id="ApellidoMa" name="ApellidoMa"></label>
-                </div>
+                
               
-                <div id="resultadonuevaconocimiento"></div>
+            <div id="resultadonuevaconocimiento"></div>
               <!--<button id="requestnuevaconocimiento name="requestnuevaconocimiento class="button" >Buscar</button>-->
               <button id="cerrarmodalnuevaconocimiento" class="close-button" data-close aria-label="Close reveal" type="button">
                 <span aria-hidden="true">&times;</span>
@@ -1961,6 +1960,7 @@
 
 <script src="js/clientes.js"></script>
 <script src="js/solicitudes.js"></script>
+<script src="js/gradoriesgo.js"></script>
 <script src="js/scriptgeneral.js"></script>
 
 </body></html>

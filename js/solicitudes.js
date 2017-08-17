@@ -248,6 +248,10 @@ xmlhttp.onreadystatechange=function()
         document.getElementById('nomcons').value=obj5.NomCon;
         document.getElementById('nomvend').value=obj5.NomVend;
         document.getElementById('gerentegral').value=obj5.GerenteGral;
+        if(obj5.Fecha!="0000-00-00"){
+          document.getElementById('fechasolicitudregistro').value=obj5.Fecha;
+        }
+        
 
 
 
