@@ -1080,8 +1080,12 @@
 
             <ul class="tabs" data-tabs id="deeplinked-tabs">
 
+<<<<<<< HEAD
             <ul class="tabs"  data-tabs id="deeplinked-tabs">
 
+=======
+           
+>>>>>>> 36a50636834ed186b5705d879803b103cb6c7152
               <li class="tabs-title is-active"><a href="#panel1d" aria-selected="true">Credito</a></li>
               <li class="tabs-title"><a href="#panel2d">Obligado Solidario</a></li>
               <li class="tabs-title"><a href="#panel3d">Concesionario</a></li>    
@@ -1214,6 +1218,7 @@
                                                                 
                   </p>
                 </div>
+<<<<<<< HEAD
                 
                 <!-- This is the first modal -->
 
@@ -1297,6 +1302,9 @@
                                     </p>
                                   </div>
                                   
+=======
+            
+>>>>>>> 36a50636834ed186b5705d879803b103cb6c7152
                       <!-- This is the first modal -->
 
 
@@ -1363,7 +1371,7 @@
                     </div>
             
                     <div class="medium-3 columns"> <label>Sexo
-                      <select name="datobsex1"><option value="">-Seleccione una opción-</option><option value="Femenino">Femenino</option><option value="Masculino">Masculino</option></select></label>
+                      <select name="datobsex1" id="datobsex1"><option value="">-Seleccione una opción-</option><option value="Femenino">Femenino</option><option value="Masculino">Masculino</option></select></label>
                     </div>
                   </p>
                 </div>
@@ -1404,7 +1412,7 @@
                     </div>
                     <div class="medium-3 columns">
                       <label>Tiene propiedad a su nombre?
-                        <select name="datobprop1" ><option value="">-Seleccione una opción-</option><option value="Si">Si</option><option value="No">No</option></select></label>
+                        <select name="datobprop1" id="datobprop1"><option value="">-Seleccione una opción-</option><option value="Si">Si</option><option value="No">No</option></select></label>
                   
                     </div>
                   </p>
@@ -1463,7 +1471,7 @@
                     </div>
                   </p>
                   <div class="medium-3 columns"><label>Sexo
-                    <select name="datobsex2"><option value="">-Seleccione una opcion-</option><option value="Femenino">Femenino</option><option value="Masculino">Masculino</option></select></label>
+                    <select name="datobsex2" id="datobsex2"><option value="">-Seleccione una opcion-</option><option value="Femenino">Femenino</option><option value="Masculino">Masculino</option></select></label>
                   </div>
                 </div>
                 <div class="row"> 
@@ -1493,7 +1501,7 @@
                     </div>
                     <div class="medium-3 columns">
                       <label>Tiene propiedad a su nombre?
-                        <select name="datobprop2" ><option value="">-Seleccione una opción-</option><option value="Si">Si</option><option value="No">No</option></select></label>
+                        <select name="datobprop2" id="datobprop2"><option value="">-Seleccione una opción-</option><option value="Si">Si</option><option value="No">No</option></select></label>
                     </div>
                   </p>
 
@@ -1564,7 +1572,7 @@
                     <div class="medium-3 columns"><label>Fecha
                     <div class="input-group">
                         <span class="input-group-label">_/_/_</span>
-                      <input class="input-group-field" name="fecha" type="text" id="fecha" value="<?php echo date("Y-m-d");?>" size="10px" readonly></label>
+                      <input class="input-group-field" name="fechasolicitudregistro" type="text" id="fechasolicitudregistro" value="<?php echo date("Y-m-d");?>" size="10px" readonly></label>
                       </div>
                     </div>
                   </p>
@@ -1576,10 +1584,14 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
               </div>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 36a50636834ed186b5705d879803b103cb6c7152
               <input class="button" type="button" name="guardarsolicitud" id="guardarsolicitud" value="Guardar" style="display: none;">
               <input class="button" type="button" name="botonmodsolicitud" id="botonmodsolicitud" value="Guardar" style="display: none;">
               <input class="button" type="button" name="cancelarsolicitud" id="cancelarsolicitud" value="Cancelar Registro">
-              <input name="fechasolicitudregistro" type="text" id="fechasolicitudregistro" value="<?php echo date("Y-m-d");?>" size="10px" readonly>
+              <!--<input name="fechasolicitudregistro" type="text" id="fechasolicitudregistro" value="<?php echo date("Y-m-d");?>" size="10px" readonly>-->
             </div>
           </div>
         </form> 
@@ -1589,6 +1601,72 @@
 
 
       <div class="tabs-panel" id="panel3v">
+        <form id="form3" action="">
+            <div id="botonesconocimiento">
+            <input class="button" data-open="modalnuevaconocimiento" type="button" name="nuevaconocimiento" id="nuevaconocimiento" value="Generar Grado de Riesgo">
+            <input class="button" data-open="modalmodificarconocimiento" type="button" name="modificarconocimiento" id="modificarconocimiento" value="Modificar Grado de Riesgo">
+          
+            <div class="reveal" id="modalnuevaconocimiento" data-reveal>
+              <h4>Selecciona la solicitud</h4>
+              
+              <table  id="tablajson3">
+                <thead>
+                  <th>Id</th> 
+                  <th>Tipo de Crédito</th>
+                  <th>Cliente</th>
+                </thead>
+                <tbody></tbody>
+              </table>
+              
+
+                
+              
+            <div id="resultadonuevaconocimiento"></div>
+              <!--<button id="requestnuevaconocimiento name="requestnuevaconocimiento class="button" >Buscar</button>-->
+              <button id="cerrarmodalnuevaconocimiento" class="close-button" data-close aria-label="Close reveal" type="button">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+
+
+
+            <!-- This is the first modal -->
+            <div class="reveal" id="modalmodificarconocimiento" data-reveal>
+              <h4>Ingresa el Número de Solicitud:</h4>
+              
+              
+              <label>ID:<input type="text" name="idmodificaconocimiento" id="idmodificaconocimiento"></label>
+              
+              
+
+              <button id="requestmodificarconocimiento" name="requestmodificarconocimiento" class="button" >Buscar</button>
+              <button id="cerrarmodalmodificaconocimiento" class="close-button" data-close aria-label="Close reveal" type="button">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <!-- This is the nested modal -->
+            <div class="reveal" id="modalcontregconocimiento" data-reveal>
+              <h4>Registros Incompletos...</h4>
+              <table  id="tablajson2">
+                <thead>
+                  <th>Id</th> 
+                  <th>Tipo de Crédito</th>
+                  <th>Cliente</th>
+                </thead>
+                <tbody></tbody>
+              </table>
+              <button id="cerrarmodalcontregconocimiento" class="close-button" data-close aria-label="Close reveal" type="button">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <input class="button" type="button" data-open="modalcontregconocimiento" name="continuarconocimiento" id="continuarconocimiento" value="Continuar Con Registro">
+          </div>
+          <div id="contenidorequestconocimiento" style="display: none;">
+            
+          
                    <h4 align="left">Calificación del grado de riesgo</h4>
                     <table width="100%" border="0">
                       <tr>
@@ -1772,19 +1850,15 @@
                         <td>Regimen de tributacion </td>
                         <td>
 
- <select id="select18" name="select18" size="1" style="width:60%;" >
-                          <option value="" selected></option>
-
-      <option value="3" >Regimen agape</option>
-                          <option value="1">Regimen general de ley</option>
-                          <option value="2">Regimen Donatarios</option>
-                          <option value="3">Regimen Coordinados</option>
-
-
-
-                        </select>
+                          <select id="select18" name="select18" size="1" style="width:60%;" >
+                            <option value="" selected></option>
+                            <option value="3" >Regimen agape</option>
+                            <option value="1">Regimen general de ley</option>
+                            <option value="2">Regimen Donatarios</option>
+                            <option value="3">Regimen Coordinados</option>
+                          </select>
                           <div style="display:none;">
-                        <select id="select19" name="select19" size="1" style="width:60%;" >
+                          <select id="select19" name="select19" size="1" style="width:60%;" >
                           <option value="" selected></option>
 
                           <option value="3">Incorporacion Fiscal </option>
@@ -1801,6 +1875,8 @@
                       </tr>
                       <td>*Si la valoracion de riesgo de esta variable es igual a 3, contactar al oficial de cumplimiento inmediantamente para aprobacion o cancelacion del credito/ arrendamiento</td>
                     </table>
+          </div>
+        </form>
       </div>
       <div class="tabs-panel" id="panel4v"  >
 <div id="botonesdocumentacion" > 
@@ -2053,6 +2129,7 @@
 
 <script src="js/clientes.js"></script>
 <script src="js/solicitudes.js"></script>
+<script src="js/gradoriesgo.js"></script>
 <script src="js/scriptgeneral.js"></script>
 
 </body></html>
