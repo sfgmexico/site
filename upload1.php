@@ -22,6 +22,9 @@ if($uploadedfileload=="true"){
 
 if(move_uploaded_file ($_FILES['file1']['tmp_name'], $add)){
 echo " Ha sido subido satisfactoriamente";
+
+mysqli_query($cnx,"insert into docu(INE, INEurl, pasaporte, pasaporteurl, cartilla, cartillaurl, licencia, licenciaurl, otra, otraurl, secotejo, addcurp, addcurpurl, adddomicilio, adddomiciliourl, fechadom, domId) VALUES ('textfield39','file1')");
+
 }else{echo "Error al subir el archivo";}
 
 }
@@ -29,6 +32,14 @@ else{echo $msg;}
 /*
 */
 		break;
+
+		case 'nuevadocumentacion':
+				include("Conexion2.php");
+        mysqli_query($cnx,"insert into documentacion (Rsolicitud) values('".$_REQUEST['cliente']."')");
+        $id=mysqli_fetch_array(mysqli_query($cnx,"select LAST_INSERT_ID()"));							 
+		$id_cliente=$id['LAST_INSERT_ID()'];
+		echo json_encode($id);
+			break;
 	
 	default:
 		# code...

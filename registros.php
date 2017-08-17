@@ -1077,20 +1077,18 @@
           </div>
           
           <div id="contenidorequestsolicitud" style="display: none;">
-<<<<<<< HEAD
+
             <ul class="tabs" data-tabs id="deeplinked-tabs">
-=======
+
             <ul class="tabs"  data-tabs id="deeplinked-tabs">
->>>>>>> 58177ea2edd7e457c0391be2cdbe277a7a61b64c
+
               <li class="tabs-title is-active"><a href="#panel1d" aria-selected="true">Credito</a></li>
               <li class="tabs-title"><a href="#panel2d">Obligado Solidario</a></li>
               <li class="tabs-title"><a href="#panel3d">Concesionario</a></li>    
             </ul>
             <div class="tabs-content" data-tabs-content="deeplinked-tabs">
               <div class="tabs-panel is-active" id="panel1d">
-<<<<<<< HEAD
-                          
-=======
+
         
 
                 <div class="row">
@@ -1219,7 +1217,6 @@
                 
                 <!-- This is the first modal -->
 
->>>>>>> 58177ea2edd7e457c0391be2cdbe277a7a61b64c
 
                                   <div class="row">
                                     <p align="left">
@@ -1574,14 +1571,11 @@
                 </div>
               </div>
               
-<<<<<<< HEAD
-            
-=======
+
               <div class="tabs-panel" id="panel4d">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
               </div>
 
->>>>>>> 58177ea2edd7e457c0391be2cdbe277a7a61b64c
               <input class="button" type="button" name="guardarsolicitud" id="guardarsolicitud" value="Guardar" style="display: none;">
               <input class="button" type="button" name="botonmodsolicitud" id="botonmodsolicitud" value="Guardar" style="display: none;">
               <input class="button" type="button" name="cancelarsolicitud" id="cancelarsolicitud" value="Cancelar Registro">
@@ -1808,8 +1802,83 @@
                       <td>*Si la valoracion de riesgo de esta variable es igual a 3, contactar al oficial de cumplimiento inmediantamente para aprobacion o cancelacion del credito/ arrendamiento</td>
                     </table>
       </div>
-      <div class="tabs-panel" id="panel4v">
-         <p>Four</p>
+      <div class="tabs-panel" id="panel4v"  >
+<div id="botonesdocumentacion" > 
+   <input class="button" type="button" data-open="modalnuevadocumentacion" name="nuevadocumentacion" id="nuevadocumentacion" value="Generar nueva documentacion">
+          <input class="button" data-open="modalmodificardocumentacion" type="button" name="modificardocumentacion" id="modificardocumentacion" value="Modificar Documentacion">
+          
+<div class="reveal" id="modalnuevadocumentacion" data-reveal>
+              <h4>Ingresa el Número de Solicitud:</h4>
+              
+              <select name="docu" id="docu"><option value="0">-seleccione uno-</option><option value="1">ID</option><option value="2">Nombre (Persona Fisca)</option><option  value="3">Razon social(Persona Moral)</option></select>
+              <div id="ident1" name="ident1" style="display: none;">
+                
+                <label>ID:<input type="text" name="idnuevasdocumentacion" onkeyup="buscardocs()" id="idnuevadocumentacion"></label>
+              </div>
+
+                <div id="nombres1" name="nombres1" style="display: none;">
+                  
+                  <label>Nombre<input type="text" onkeyup="buscardocs()" id="nombrepfdoc" name="nombrepfdoc"></label>
+                  <label>Apellido Paterno<input type="text" onkeyup="buscardocs()" id="ApellidoPadoc" name="ApellidoPadoc"></label>
+                  <label>Apellido Materno<input type="text" onkeyup="buscardocs()" id="ApellidoMadoc" name="ApellidoMa"></label>
+                </div>
+              
+                <div id="resultadonuevasolicitud"></div>
+              <!--<button id="requestnuevasolicitud" name="requestnuevasolicitud" class="button" >Buscar</button>-->
+              <button id="cerrarmodalnuevasolicitud" class="close-button" data-close aria-label="Close reveal" type="button">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          <!-- This is the first modal -->
+          <div class="reveal" id="modalmodificardocumentacion" data-reveal>
+            <h4>Buscar por:</h4>
+            <select name="selectmodificadocumentacion" id="selectmodificadocumentacion"><option value="">Seleccione una opción</option><option value="Persona Fisica">Persona Fisica</option><option value="Persona Moral">Persona Moral</option></select>
+            <div id="divmodificadocumentacion1" style="display: none;">
+              <label>ID:<input type="text" name="idmodificadocumentacion" id="idmodificadocumentacion"></label>
+              <h5>Ó</h5>
+              <label>CURP:<input type="text" name="curpmodificadocumentacion" id="curpmodificadocumentacion"></label>
+            </div>
+            <div id="divmodificadocumentacion2" style="display: none;">
+              <label>ID:<input type="text" name="idmodificadocumentacionpm" id="idmodificadocumentacionpm"></label>
+              <h5>Ó</h5>
+              <label>RFC:<input type="text" name="curpmodificadocumentacionpm" id="curpmodificaclientepm"></label>
+            </div>
+
+
+
+
+
+
+            <button id="requestmodificardocumentacion" name="requestmodificardocumentacion" class="button" >Buscar</button>
+            <button id="cerrarmodalmodificadocumentacion" class="close-button" data-close aria-label="Close reveal" type="button">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <!-- This is the nested modal -->
+          <div class="reveal" id="modalcontregdocumentacion" data-reveal>
+            <h4>Registros Incompletos...</h4>
+            <table  id="tablajson">
+              <thead>
+                <th>Id</th> 
+                <th>Nombre/Razon Social</th>
+                <th>CURP/RFC</th>
+              </thead>
+              <tbody></tbody>
+            </table>
+            <button id="cerrarmodalcontregcliente" class="close-button" data-close aria-label="Close reveal" type="button">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+
+
+
+
+          <input class="button" type="button" data-open="modalcontregcliente" name="continuarcliente" id="continuarcliente" value="Continuar Con Registro">
+</div>
+
+         <div style="display: none;" id="docs">
         <ul class="tabs" data-active-collapse="true" data-tabs id="collapsing-tabs">
   <li class="tabs-title is-active"><a href="#panel1f" aria-selected="true">Identificación</a></li>
   <li class="tabs-title"><a href="#panel2f">Otros documentos</a></li>
@@ -1817,25 +1886,22 @@
   <li class="tabs-title"><a href="#panel4f">Tab 4</a></li>
 </ul>
 
-<div class="tabs-content" data-tabs-content="collapsing-tabs">
-  <div class="tabs-panel is-active" id="panel1f">
+                        <form enctype="multipart/form-data" action="" method="POST" id="subirdato">
+<div class="tabs-content" data-tabs-content="collapsing-tabs" >
+      <div class="tabs-panel is-active" id="panel1f">
     
                    <h6 align="left">DOCUMENTACION DE IDENTIFICACION </h6>
-                        <form enctype="multipart/form-data" action="" method="POST" id="subirdato">
                       <table width="100%" border="0">
                         <tr id="secINE">
                           <td width="15%">Credencial para votar </td>
                           <td width="15%"><input name="textfield39" type="text" id="textfield39" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['INESolicitante']; } ?>"></td>
                           <td width="15%">
                           <input type="file" name="file1" id="file1" class="inputfile inputfile-1" data-multiple-caption="{count} archivos seleccionados" multiple />
-<label for="file1">
-<svg xmlns="http://www.w3.org/2000/svg" class="iborrainputfile" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg>
-<span class="iborrainputfile">Seleccionar archivo</span>
-</label> 
-                             
-   
- </td>
-
+                                <label for="file1">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="iborrainputfile" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg>
+                                <span class="iborrainputfile">Seleccionar archivo</span>
+                                </label> 
+                                 </td>
                           <td width="10%" >
 
                           </td>
@@ -1844,25 +1910,23 @@
                           <td>Pasaporte cedula profesional </td>
                           <td><input name="textfield40" type="text" id="textfield40" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['Pasaporte_o_CedulaProfSolicitante']; } ?>" ></td>
                           <td>            <input type="file" name="file2" id="file2" class="inputfile inputfile-1" data-multiple-caption="{count} archivos seleccionados" multiple />
-<label for="file2">
-<svg xmlns="http://www.w3.org/2000/svg" class="iborrainputfile" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg>
-<span class="iborrainputfile">Seleccionar archivo</span>
-</label> 
-
-
+                                    <label for="file2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="iborrainputfile" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg>
+                                    <span class="iborrainputfile">Seleccionar archivo</span>
+                                    </label> 
                            </td>
                           <td >
-                    
+
                           </td>
                         </tr>
                         <tr id="secCarMilitar">
                           <td>Cartilla de servicio militar </td>
                           <td><input name="textfield41" type="text" id="textfield41" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['CartillaMilitarSolicitante']; } ?>" ></td>
                           <td> <input type="file" name="file3" id="file3" class="inputfile inputfile-1" data-multiple-caption="{count} archivos seleccionados" multiple />
-<label for="file3">
-<svg xmlns="http://www.w3.org/2000/svg" class="iborrainputfile" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg>
-<span class="iborrainputfile">Seleccionar archivo</span>
-</label>  </td>
+                          <label for="file3">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="iborrainputfile" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg>
+                          <span class="iborrainputfile">Seleccionar archivo</span>
+                          </label>  </td>
                           <td >
                        
                           </td>
@@ -1871,10 +1935,10 @@
                           <td>Licencia para conducir </td>
                           <td><input name="textfield42" type="text" id="textfield42" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['LicenciaConducirSolicitante']; } ?>" ></td>
                           <td> <input type="file" name="file4" id="file4" class="inputfile inputfile-1" data-multiple-caption="{count} archivos seleccionados" multiple />
-<label for="file4">
-<svg xmlns="http://www.w3.org/2000/svg" class="iborrainputfile" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg>
-<span class="iborrainputfile">Seleccionar archivo</span>
-</label>   </td>
+                              <label for="file4">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="iborrainputfile" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg>
+                              <span class="iborrainputfile">Seleccionar archivo</span>
+                              </label>   </td>
                           <td >
                         
                           </td>
@@ -1883,10 +1947,10 @@
                           <td>  <label>Otra (Especificar)<input name="textfield44" type="text" id="textfield44" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['EspIdentSolicitante']; } ?>" ></label></td>
                           <td><input name="textfield43" type="text" id="textfield43" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['OtraIdentSolicitante']; } ?>" ></td>
                           <td> <input type="file" name="file5" id="file5" class="inputfile inputfile-1" data-multiple-caption="{count} archivos seleccionados" multiple />
-<label for="file5">
-<svg xmlns="http://www.w3.org/2000/svg" class="iborrainputfile" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg>
-<span class="iborrainputfile">Seleccionar archivo</span>
-</label>  </td>
+                                <label for="file5">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="iborrainputfile" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg>
+                                <span class="iborrainputfile">Seleccionar archivo</span>
+                                </label>  </td>
                           <td >
                        
                                                         </td>
@@ -1895,63 +1959,68 @@
                           
                           <td>Se cotejo vs original: </td>
                           <td >
-                          <select><option>Si</option><option>Ño</option></select>
+                          <div class="medium-3 columns">
+                          <select><option>Si</option><option>No</option></select>
+                               </div>
                                </td>
                         </tr>
                       </table>
                        <input type="button" class="button" id="subir" name="subir" value="Subir archivo"  >
-                          </ofrm>
   </div>
-  <div class="tabs-panel" id="panel2f">
-               <p align="left">OTROS DOCUMENTOS QUE SE ADJUNTAN:</p>
+         <div class="tabs-panel" id="panel2f">
+            <p align="left">OTROS DOCUMENTOS QUE SE ADJUNTAN:</p>
                 <table width="100%" border="0">
                       <tr>
-                        <td width="30%">Se adjunta CURP y/o cédula RFC, FEA* </td>
-                        <td width="70%">
-                           <input type="file" name="file6" id="file6" class="inputfile inputfile-1" data-multiple-caption="{count} archivos seleccionados" multiple />
-<label for="file6">
-<svg xmlns="http://www.w3.org/2000/svg" class="iborrainputfile" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg>
-<span class="iborrainputfile">Seleccionar archivo</span>
-</label> 
+                       <td width="30%">Se adjunta CURP y/o cédula RFC, FEA* </td>
+                       <td width="70%">
+                       <input type="file" name="file6" id="file6" class="inputfile inputfile-1" data-multiple-caption="{count} archivos seleccionados" multiple />
+                      <label for="file6">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="iborrainputfile" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg>
+                      <span class="iborrainputfile">Seleccionar archivo</span>
+                      </label> 
 
 
                         </tr>
-                      <tr>
+                    <tr>
                         <td>Se adjunta comprobante de domicilio </td>
                         <td>
- <input type="file" name="file7" id="file7" class="inputfile inputfile-1" data-multiple-caption="{count} archivos seleccionados" multiple />
-<label for="file7">
-<svg xmlns="http://www.w3.org/2000/svg" class="iborrainputfile" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg>
-<span class="iborrainputfile">Seleccionar archivo</span>
-</label> 
-                        </tr>
-                      <tr>
+                         <input type="file" name="file7" id="file7" class="inputfile inputfile-1" data-multiple-caption="{count} archivos seleccionados" multiple />
+                        <label for="file7">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="iborrainputfile" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg>
+                        <span class="iborrainputfile">Seleccionar archivo</span>
+                        </label> 
+                    </tr>
+                    <tr>
                         <td>Fecha del comprobante de domicilio </td>
                         <td><input name="fechaComprobante" type="date" id="fechaComprobante" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['FechaComprobanteDom']; } ?>" onfocus="datepick(this)"></td>
                       </tr>
                       <tr>
                         <td>Domicilio manifestado coincide con la ID</td>
-                        <td><input id="adjuntos3A" name="adjuntos3" type="radio" value="Si" <?php if(isset($row2['Folio_Cliente'])) { if($row3['DomicilioCoincideId']=='Si'){echo "checked";} } ?> ><label for="adjuntos3A"> Si</label>
-                            <input id="adjuntos3B" name="adjuntos3" type="radio" value="No" <?php if(isset($row2['Folio_Cliente'])) { if($row3['DomicilioCoincideId']=='No'){echo "checked";} } ?> ><label for="adjuntos3B"> No</label></td>
-                      </tr>
+                        <td>
+
+                                <select><option>Si</option><option>No</option></select>
+
+                          </tr>
                     </table>
-          </div>
+                       </div>
                              <div class="tabs-panel" id="panel3f">
                                                       <!--<img class="thumbnail" src="assets/img/generic/rectangle-3.jpg">-->
                               </div>
                               <div class="tabs-panel" id="panel4f">
                                                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                              </div>
+                          </form>
+                          </div>
         </div>
         </div>
-      <div class="tabs-panel" id="panel5v">
-        <p>Five</p>
-        <p>Check me out! I'm a super cool Tab panel with text content!</p>
-      </div>
-      <div class="tabs-panel" id="panel6v">
-        <p>Six</p>
-        
-      </div>
+                                      <div class="tabs-panel" id="panel5v">
+                                        <p>Five</p>
+                                        <p>Check me out! I'm a super cool Tab panel with text content!</p>
+                                      </div>
+                                      <div class="tabs-panel" id="panel6v">
+                                        <p>Six</p>
+                                        
+                                      </div>
     </div>
   </div>
 
