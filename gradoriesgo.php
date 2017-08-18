@@ -1,4 +1,6 @@
 <?php
+
+
 switch ($_REQUEST['function']) {
     case 'nuevaconocimiento':
         include('Conexion2.php');
@@ -23,6 +25,9 @@ switch ($_REQUEST['function']) {
         
         
         break;
+
+
+
     case 'nuevaregistroconocimiento':
         include('Conexion2.php');
 
@@ -32,10 +37,14 @@ switch ($_REQUEST['function']) {
         $id=mysqli_fetch_array(mysqli_query($cnx,"select LAST_INSERT_ID()"));                            
         $id_cliente=$id['LAST_INSERT_ID()'];
 
-        mysqli_query($cnx,"update solicitudes SET GradoRiesgo='$id'");
+        //mysqli_query($cnx,"update solicitudes SET GradoRiesgo='$id_cliente' where id='".$_REQUEST['solicitud']."'");
         echo json_encode($id);
 
         break;
+
+
+
+
 	default;
         echo 'Error';
     	break;

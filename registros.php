@@ -329,9 +329,9 @@
                            <div class="input-group">
                                                       <input class="input-group-field" name="edsol" type="number" id="edsol" size="2px" value="<?php if(isset($row2['Folio_Cliente'])) { echo $row2['EdDatGen']; } ?>" placeholder="Edad" readonly   pattern="integer">
                                                     
-   <span class="input-group-label">Años</span>
+                            <span class="input-group-label">Años</span>
                                                     
- </div>
+                            </div>
 
 
 
@@ -373,9 +373,9 @@
                            <div class="input-group">
                     <input class="input-group-field" name="arraisolanios" type="text" id="arraisolanios"   readonly pattern="integer">
                                                     
-   <span class="input-group-label">Años </span>
+                      <span class="input-group-label">Años </span>
                                                     
- </div>
+                            </div>
 
                     </label>
                   </div>
@@ -1601,7 +1601,7 @@
 
 
       <div class="tabs-panel" id="panel3v">
-        <form id="form3" action="">
+        <form id="form3" action="" method="post" data-abide novalidate>
             <div id="botonesconocimiento">
             <input class="button" data-open="modalnuevaconocimiento" type="button" name="nuevaconocimiento" id="nuevaconocimiento" value="Generar Grado de Riesgo">
             <input class="button" data-open="modalmodificarconocimiento" type="button" name="modificarconocimiento" id="modificarconocimiento" value="Modificar Grado de Riesgo">
@@ -1665,9 +1665,18 @@
             <input class="button" type="button" data-open="modalcontregconocimiento" name="continuarconocimiento" id="continuarconocimiento" value="Continuar Con Registro">
           </div>
           <div id="contenidorequestconocimiento" style="display: none;">
-            
-          
-                   <h4 align="left">Calificación del grado de riesgo</h4>
+              
+                <ul class="tabs" data-tabs id="example-tabs">
+                  <li class="tabs-title is-active"><a href="#panel1g" aria-selected="true">Grado de Riesgo</a></li>
+                  <li class="tabs-title"><a href="#panel2g">Perfil Transaccional</a></li>
+                  <li class="tabs-title"><a href="#panel3g">Parentesco con PEP</a></li>
+                </ul>
+              
+                
+                <div class="tabs-content" data-tabs-content="example-tabs">
+                  <div class="tabs-panel is-active" id="panel1g">
+                  
+                  <p align="left"><strong>CLASIFICACIÓN POR GRADO DE RIESGO</strong></p>
                     <table width="100%" border="0">
                       <tr>
                         <td width="32%">Actividad | Objeto Social </td>
@@ -1875,6 +1884,159 @@
                       </tr>
                       <td>*Si la valoracion de riesgo de esta variable es igual a 3, contactar al oficial de cumplimiento inmediantamente para aprobacion o cancelacion del credito/ arrendamiento</td>
                     </table>
+                  </div>
+                  <div class="tabs-panel is-active" id="panel2g">
+                  <p><strong>PERFIL TRANSACCIONAL INICIAL</strong></p>
+                    <div class="row">
+                      <div class="medium-8">
+                        
+                      <label><p>Ingresos Comprobables</p>
+                        <div class="medium-6 columns">
+                            <div class="input-group">
+                            <span class="input-group-label"><pre>1  |  $</pre></span>
+                            <input class="input-group-field" name="" type="text" id="" maxlength="13" onkeyup="mascara(this,cpf)" >
+                            </div>
+                        </div>
+                        <div class="medium-6 columns">
+                            <div class="input-group">
+                            <span class="input-group-label">Fuente</span>
+                            <input class="input-group-field" type="text" id="" name="" pattern="alpha">
+                            </div>
+                        </div>
+                        <div class="medium-6 columns">
+                            <div class="input-group">
+                            <span class="input-group-label"><pre>2  |  $</pre></span>
+                            <input class="input-group-field" name="" type="text" id="" maxlength="13" onkeyup="mascara(this,cpf)">
+                            </div>
+                        </div>
+                        <div class="medium-6 columns">
+                            <div class="input-group">
+                            <span class="input-group-label">Fuente</span>
+                            <input class="input-group-field" type="text" id="" name="" pattern="alpha">
+                            </div>
+                        </div>
+                        <div class="medium-6 columns">
+                            <div class="input-group">
+                            <span class="input-group-label"><pre>3  |  $</pre></span>
+                            <input class="input-group-field" name="" type="text" id="" maxlength="13" onkeyup="mascara(this,cpf)">
+                            </div>
+                        </div>
+                        <div class="medium-6 columns">
+                            <div class="input-group">
+                            <span class="input-group-label">Fuente</span>
+                            <input class="input-group-field" type="text" id="" name="" pattern="alpha">
+                            </div>
+                        </div>
+                        <div class="medium-6 columns">
+                            <div class="input-group">
+                            <span class="input-group-label"><pre>4  |  $</pre></span>
+                            <input class="input-group-field" name="" type="text" id="" maxlength="13" onkeyup="mascara(this,cpf)">
+                            </div>
+                        </div>
+                        <div class="medium-6 columns">
+                            <div class="input-group">
+                            <span class="input-group-label">Fuente</span>
+                            <input class="input-group-field" type="text" id="" name="" pattern="alpha">
+                            </div>
+                        </div>
+                        <div class="medium-6 columns">
+                            <div class="input-group">
+                            <span class="input-group-label"><pre>5  |  $</pre></span>
+                            <input class="input-group-field" name="" type="text" id="" maxlength="13" onkeyup="mascara(this,cpf)">
+                            </div>
+                        </div>
+                        <div class="medium-6 columns">
+                            <div class="input-group">
+                            <span class="input-group-label">Fuente</span>
+                            <input class="input-group-field" type="text" id="" name="" pattern="alpha">
+                            </div>
+                        </div>
+                       </label>
+                      </div>
+
+                          
+                    </div>
+                    <div class="row">
+                      <div class="medium-8">
+                        
+                      <label><p>Ingresos No Comprobables</p>
+                        <div class="medium-6 columns">
+                            <div class="input-group">
+                            <span class="input-group-label"><pre>1  |  $</pre></span>
+                            <input class="input-group-field" name="" type="text" id="" maxlength="13" onkeyup="mascara(this,cpf)">
+                            </div>
+                        </div>
+                        <div class="medium-6 columns">
+                            <div class="input-group">
+                            <span class="input-group-label">Fuente</span>
+                            <input class="input-group-field" type="text" id="" name="" pattern="alpha">
+                            </div>
+                        </div>
+                        <div class="medium-6 columns">
+                            <div class="input-group">
+                            <span class="input-group-label"><pre>2  |  $</pre></span>
+                            <input class="input-group-field" name="" type="text" id="" maxlength="13" onkeyup="mascara(this,cpf)">
+                            </div>
+                        </div>
+                        <div class="medium-6 columns">
+                            <div class="input-group">
+                            <span class="input-group-label">Fuente</span>
+                            <input class="input-group-field" type="text" id="" name="" pattern="alpha">
+                            </div>
+                        </div>
+                        <div class="medium-6 columns">
+                            <div class="input-group">
+                            <span class="input-group-label"><pre>3  |  $</pre></span>
+                            <input class="input-group-field" name="" type="text" id="" maxlength="13" onkeyup="mascara(this,cpf)">
+                            </div>
+                        </div>
+                        <div class="medium-6 columns">
+                            <div class="input-group">
+                            <span class="input-group-label">Fuente</span>
+                            <input class="input-group-field" type="text" id="" name="" pattern="alpha">
+                            </div>
+                        </div>
+                        <div class="medium-6 columns">
+                            <div class="input-group">
+                            <span class="input-group-label"><pre>4  |  $</pre></span>
+                            <input class="input-group-field" name="" type="text" id="" maxlength="13" onkeyup="mascara(this,cpf)">
+                            </div>
+                        </div>
+                        <div class="medium-6 columns">
+                            <div class="input-group">
+                            <span class="input-group-label">Fuente</span>
+                            <input class="input-group-field" type="text" id="" name="" pattern="alpha">
+                            </div>
+                        </div>
+                        <div class="medium-6 columns">
+                            <div class="input-group">
+                            <span class="input-group-label"><pre>5  |  $</pre></span>
+                            <input class="input-group-field" name="" type="text" id="" maxlength="13" onkeyup="mascara(this,cpf)">
+                            </div>
+                        </div>
+                        <div class="medium-6 columns">
+                            <div class="input-group">
+                            <span class="input-group-label">Fuente</span>
+                            <input class="input-group-field" type="text" id="" name="" pattern="alpha">
+                            </div>
+                        </div>
+                       </label>
+                      </div>
+                      
+                          
+                    </div>
+                    
+                  </div>
+                  <div class="tabs-panel is-active" id="panel3g">
+                  <h1>Hola Mundo</h1>
+                  </div>
+                  <div class="row">
+              
+            
+                    <input class="button" type="button" name="" id="" value="Guardar">
+                    <input  name="fecharegistro" type="text" id="fecharegistro" value="<?php echo date("Y-m-d");?>" size="10px" readonly>
+                  </div>
+                </div>
           </div>
         </form>
       </div>
