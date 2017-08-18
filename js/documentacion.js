@@ -89,8 +89,8 @@ function buscardocs(){
  
                                      
               //obtenemos el texto introducido en el campo de búsqueda
-              consulta = $("#idnuevasolicitud").val();
-                                           select= $("#idnuevadocumentacion").val();   
+                                         consulta = $("#idnuevadocumentacion").val();
+                                           select= $("#docu").val();   
                                            nom= $("#nombrepf").val();
                                            pa= $("#ApellidoPadoc").val();
                                            ma= $("#ApellidoMadoc").val();                             
@@ -103,14 +103,14 @@ function buscardocs(){
                     dataType: "html",
                     beforeSend: function(){
                           //imagen de carga
-                          $("#resultadonuevasolicitud").html("<p align='center'><img src='images/cargando.gif' /></p>");
+                          $("#resultadonuevadocumentacio").html("<p align='center'><img src='images/cargando.gif' /></p>");
                     },
                     error: function(){
                           alert("error petición ajax");
                     },
                     success: function(data){                                                    
-                          $("#resultadonuevasolicitud").empty();
-                          $("#resultadonuevasolicitud").append(data);
+                          $("#resultadonuevadocumentacion").empty();
+                          $("#resultadonuevadocumentacion").append(data);
                                                              
                     }
               });
