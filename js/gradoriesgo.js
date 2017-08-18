@@ -71,22 +71,17 @@ xmlhttp.onreadystatechange=function()
   {
     if (xmlhttp.readyState==4 && xmlhttp.status==200)
       {
-        if(xmlhttp.responseText=="Error solicitud activa"){
-          alert("¡¡Error -- El usuario tiene una solicitud activa, favor de verificar!!");
-          return false;
-        }
-        $( "#cerrarmodalnuevasolicitud" ).click();
+        
+        $( "#cerrarmodalnuevaconocimiento" ).click();
         alert(xmlhttp.responseText);
         obj2 = JSON.parse(xmlhttp.responseText);
-        document.getElementById("botonessolicitud").style.display="none";
-        document.getElementById("contenidorequestsolicitud").style.display="block";
-        document.getElementById("guardarsolicitud").style.display="block";
-        document.getElementById("idcliente").value=obj2[0];
-        obtendatoscliente(fun);
+        document.getElementById('contenidorequestconocimiento').style.display='block';
+        document.getElementById('botonesconocimiento').style.display='none';
+
        
       }
   }
-xmlhttp.open("POST","solicitudes.php",true);
+xmlhttp.open("POST","gradoriesgo.php",true);
 xmlhttp.send(data);
   
 }
