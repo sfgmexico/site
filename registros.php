@@ -1667,226 +1667,224 @@
           <div id="contenidorequestconocimiento" style="display: none;">
               
                 <ul class="tabs" data-tabs id="example-tabs">
-                  <li class="tabs-title is-active"><a href="#panel1g" aria-selected="true">Grado de Riesgo</a></li>
-                  <li class="tabs-title"><a href="#panel2g">Perfil Transaccional</a></li>
+                  <li class="tabs-title is-active"><a href="#panel2g">Perfil Transaccional</a></li>
                   <li class="tabs-title"><a href="#panel3g">Parentesco con PEP</a></li>
+                  <li class="tabs-title"><a href="#panel1g" aria-selected="true">Grado de Riesgo</a></li>
                 </ul>
               
                 
                 <div class="tabs-content" data-tabs-content="example-tabs">
                   <div class="tabs-panel is-active" id="panel1g">
                   
-                  <p align="left"><strong>CLASIFICACIÓN POR GRADO DE RIESGO</strong></p>
-                    <table width="100%" border="0">
-                      <tr>
-                        <td width="32%">Actividad | Objeto Social </td>
-                        <td width="68%"><select id="select" name="select" size="1" style="width:60%;" >
-                          <option value="" selected>¿Cual es la actividad economica del cliente o tercero relacionado?</option>
-                          <option value="3" <?php if(isset($row['Folio_Cliente'])) { if($row3['Antiguedad_ObjetoSocial']=="Vulnerable"){echo "selected";}}?>>Vulnerable</option>
-                          <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Antiguedad_ObjetoSocial']=="Informal"){echo "selected";}}?>>Informal</option>
-                          <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Antiguedad_ObjetoSocial']=="Otra"){echo "selected";}}?>>Otra</option>
-                        </select>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Antigüedad del cliente </td>
-                        <td><select id="select2" name="select2" size="1" style="width:60%;" >
-                          <option value="" selected>¿Cuanto tiempo tiene la relacion con el cliente?</option>
-                          <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Antiguedad_Cliente']=="1-3 años"){echo "selected";}}?>>1-3 años</option>
-                          <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Antiguedad_Cliente']=="4-6 años"){echo "selected";}}?>>4-6 años</option>
-                          <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Antiguedad_Cliente']=="7-10 años"){echo "selected";}}?>>7-10 años</option>
-                          <option value="0"<?php if(isset($row['Folio_Cliente'])) {if($row3['Antiguedad_Cliente']=="N/A"){echo "selected";}}?>>N/A</option>
-                        </select></td>
-                      </tr>
-                      <tr>
-                        <td>Naturaleza de las operaciones </td>
-                        <td><select id="select3" name="select3" size="1" style="width:60%;" >
-                          <option value="" selected>¿Que tipo de operaciones realizara con SFG?</option>
-                          <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Naturaleza_Operaciones']=="Prestamo"){echo "selected";}}?>>Prestamo</option>
-                          <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Naturaleza_Operaciones']=="Arrendamiento"){echo "selected";}}?>>Arrendamiento</option>
-                          <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Naturaleza_Operaciones']=="Otros"){echo "selected";}}?>>Otros</option>
-                        </select></td>
-                      </tr>
-                      <tr>
-                        <td>Numero de Beneficiarios </td>
-                        <td><select id="select4" name="select4" size="1" style="width:60%;" >
-                          <option value="" selected> ¿Cuantos beneficiarios tiene el cliente?</option>
-                          <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Numero_Beneficiarios']=="1 a 2"){echo "selected";}}?>>1 a 2</option>
-                          <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Numero_Beneficiarios']=="3 a 4"){echo "selected";}}?>>3 a 4</option>
-                          <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Numero_Beneficiarios']=="5 o mas"){echo "selected";}}?>>5 o mas</option>
-                          <option value="0"<?php if(isset($row['Folio_Cliente'])) {if($row3['Numero_Beneficiarios']=="N/A"){echo "selected";}}?>>N/A</option>
-                        </select></td>
-                      </tr>
-                      <tr>
-                        <td>Numero de Terceros Relacionados (Apoderados y Cotitulares) </td>
-                        <td><select id="select5" name="select5" size="1" style="width:60%;" >
-                          <option value="" selected>¿Cuantas personas relacionadas(Apoderados y Cotitulares) participan en la operacion ?</option>
-                          <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Numero_TercerosRelacionados']=="1 a 2"){echo "selected";}}?>>1 a 2</option>
-                          <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Numero_TercerosRelacionados']=="3 a 4"){echo "selected";}}?>>3 a 4</option>
-                          <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Numero_TercerosRelacionados']=="5 o mas"){echo "selected";}}?>>5 o mas</option>
-                          <option value="0"<?php if(isset($row['Folio_Cliente'])) {if($row3['Numero_TercerosRelacionados']=="N/A"){echo "selected";}}?>>N/A</option>
-                        </select></td>
-                      </tr>
-                      <tr>
-                        <td>PEPs Relacionados </td>
-                        <td><select id="select6" name="select6" size="1" style="width:60%;" >
-                          <option value="" selected>¿Cual es el porcentaje de coincidencia de un cliente con respecto a las personas Politicamente expuestas?</option>
-                          <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['PEPs_Relacionados']=="1% - 49%"){echo "selected";}}?>>1% - 49%</option>
-                          <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['PEPs_Relacionados']=="50% - 74%"){echo "selected";}}?>>50% - 74%</option>
-                          <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['PEPs_Relacionados']=="75% - 100%"){echo "selected";}}?>>75% - 100%</option>
-                        </select></td>
-                      </tr>
-                      <tr>
-                        <td>Alerta Reputacional </td>
-                        <td><select id="select7" name="select7" size="1" style="width:60%;" >
-                          <option value="" selected>¿Cual es el porcentaje de coincidencia de un cliente con respecto a las listas negras?*</option>
-                          <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Alerta_Reputacional']=="1% - 49%"){echo "selected";}}?>>1% - 49%</option>
-                          <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Alerta_Reputacional']=="50% - 74%"){echo "selected";}}?>>50% - 74%</option>
-                          <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Alerta_Reputacional']=="75% - 100%"){echo "selected";}}?>>75% - 100%</option>
-                        </select></td>
-                      </tr>
-                      <tr>
-                        <td>Volumen esperado (Monto) </td>
-                        <td><select id="select8" name="select8" size="1" style="width:60%;" >
-                          <option value="" selected>¿Cual es el monto esperado de la operacion?</option>
-                          <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Volumen_Esperado']=="$18000 - $20000"){echo "selected";}}?>>$18000 - $20000</option>
-                          <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Volumen_Esperado']=="$21000 - $25000"){echo "selected";}}?>>$21000 - $25000</option>
-                          <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Volumen_Esperado']=="mas de $25000"){echo "selected";}}?>>mas de $25000</option>
-                        </select></td>
-                      </tr>
-                      <tr>
-                        <td>Frecuencia esperada (No. Veces) </td>
-                        <td><select id="select9" name="select9" size="1" style="width:60%;" >
-                          <option value="" selected>¿Cual es el numero de pagos esperados en la operación?</option>
-                          <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Frecuencia_Esperada']=="1 a 3"){echo "selected";}}?>>1 a 3</option>
-                          <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Frecuencia_Esperada']=="4 a 6"){echo "selected";}}?>>4 a 6</option>
-                          <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Frecuencia_Esperada']=="7 a 10"){echo "selected";}}?>>7 a 10</option>
-                        </select></td>
-                      </tr>
-                      <tr>
-                        <td>Instrumento Monetario Utilizado </td>
-                        <td><select id="select10" name="select10" size="1" style="width:60%;" >
-                          <option value="" selected> ¿De que forma realiza los pagos el cliente? </option>
-                          <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Instrumento_Monetario']=="Transferencia"){echo "selected";}}?>>Transferencia</option>
-                          <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Instrumento_Monetario']=="Cheque"){echo "selected";}}?>>Cheque</option>
-                          <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Instrumento_Monetario']=="Efectivo"){echo "selected";}}?>>Efectivo</option>
-                        </select></td>
-                      </tr>
-                      <tr>
-                        <td>Canales o Medios Utilizados </td>
-                        <td><select id="select11" name="select11" size="1" style="width:60%;" >
-                          <option value="" selected>¿En donde realiza el pago el cliente?</option>
-                          <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Canales_MediosUtilizados']=="Agencia"){echo "selected";}}?>>Agencia</option>
-                          <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Canales_MediosUtilizados']=="Internet"){echo "selected";}}?>>Internet</option>
-                          <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Canales_MediosUtilizados']=="Otro"){echo "selected";}}?>>Otro</option>
-                        </select></td>
-                      </tr>
-                      <tr>
-                        <td>País | Estado Oficial </td>
-                        <td><select id="select12" name="select12" size="1" style="width:60%;" >
-                          <option value="" selected>¿Cual es el pais de residencia del cliente?*</option>
-                          <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Pais_EstadoOficial']=="México"){echo "selected";}}?>>México</option>
-                          <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Pais_EstadoOficial']=="Otros"){echo "selected";}}?>>Otros</option>
-                          <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Pais_EstadoOficial']=="Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar"){echo "selected";}}?>>Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar</option>
-                        </select></td>
-                      </tr>
-                      <tr>
-                        <td>País | Estado Residencia </td>
-                        <td><select id="select13" name="select13" size="1" style="width:60%;" >
-                          <option value="" selected>¿Cual es el estado de residencia del cliente?</option>
-                          <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Pais_EstadoResidencia']=="Guerrero-Michoacan-Tamaulipas-Morelos"){echo "selected";}}?>>Guerrero-Michoacan-Tamaulipas-Morelos</option>
-                          <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Pais_EstadoResidencia']=="Durango-Chihuhua-Jalisco-México-CD México-Sonora"){echo "selected";}}?>>Durango-Chihuhua-Jalisco-México-CD México-Sonora</option>
-                          <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Pais_EstadoResidencia']=="Puebla-Coahuila-Zcatecas-Hidalgo-Durango"){echo "selected";}}?>>Puebla-Coahuila-Zcatecas-Hidalgo-Durango</option>
-                        </select></td>
-                      </tr>
-                      <tr>
-                        <td>País | Estado Operación </td>
-                        <td><select id="select14" name="select14" size="1" style="width:60%;" >
-                          <option value="" selected>¿Cual es el estado donde el cliente realiza operaciones frecuentes?</option>
-                          <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Pais_EstadoOperacion']=="Guerrero-Michoacan-Tamaulipas-Morelos"){echo "selected";}}?>>Guerrero-Michoacan-Tamaulipas-Morelos</option>
-                          <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Pais_EstadoOperacion']=="Durango-Chihuhua-Jalisco-México-CD México-Sonora"){echo "selected";}}?>>Durango-Chihuhua-Jalisco-México-CD México-Sonora</option>
-                          <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Pais_EstadoOperacion']=="Puebla-Coahuila-Zcatecas-Hidalgo-Durango"){echo "selected";}}?>>Puebla-Coahuila-Zcatecas-Hidalgo-Durango</option>
-                        </select></td>
-                      </tr>
-                      <tr>
-                        <td>Origen de los recursos </td>
-                        <td><select id="select15" name="select15" size="1" style="width:60%;" >
-                          <option value="" selected>¿Cual es el lugar de origen de los recursos del cliente?*</option>
-                          <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Origen_Recursos']=="México"){echo "selected";}}?>>México</option>
-                          <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Origen_Recursos']=="Otros"){echo "selected";}}?>>Otros</option>
-                          <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Origen_Recursos']=="Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar"){echo "selected";}}?>>Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar</option>
-                        </select></td>
-                      </tr>
-                      <tr>
-                        <td>Destino de los recursos </td>
-                        <td><select id="select16" name="select16" size="1" style="width:60%;" >
-                          <option value="" selected>¿Cual es el lugar de destino de los recursos del cliente?*</option>
-                          <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Destino_Recursos']=="México"){echo "selected";}}?>>México</option>
-                          <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Destino_Recursos']=="Otros"){echo "selected";}}?>>Otros</option>
-                          <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Destino_Recursos']=="Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar"){echo "selected";}}?>>Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar</option>
-                        </select></td>
-                      </tr>
-                      <tr>
-                        <td>País | Estado Residencia de Terceros Relacionados </td>
-                        <td><select id="select17" name="select17" size="1" style="width:60%;" >
-                          <option value="" selected>¿Cual es el estado de residencia de las personas relacionadas del cliente?*</option>
-                          <option value="1"<?php if(isset($row['Folio_Cliente'])) {if($row3['Pais_EstadoResidenciaTerceros']=="México"){echo "selected";}}?>>México</option>
-                          <option value="2"<?php if(isset($row['Folio_Cliente'])) {if($row3['Pais_EstadoResidenciaTerceros']=="Otros"){echo "selected";}}?>>Otros</option>
-                          <option value="3"<?php if(isset($row['Folio_Cliente'])) {if($row3['Pais_EstadoResidenciaTerceros']=="Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar"){echo "selected";}}?>>Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar</option>
-                        </select></td>
-                      </tr>
-                       <tr>
-                        <td>Edad del cliente </td>
-                        <td><select id="select17" name="select17" size="1" style="width:60%;" >
-                          <option value="" selected></option>
-                          <option value="3">18 - 26 </option>
-                          <option value="2">27 - 36 </option>
-                          <option value="1">37 - 56 </option>
-                          <option value="3">56 en adelante</option>
-                        </select></td>
-                      </tr>
-                         <tr>
-                        <td>Años de constitucion </td>
-                        <td><select id="select17" name="select17" size="1" style="width:60%;" >
-                          <option value="" selected></option>
-                          <option value="3">0 - 3 </option>
-                          <option value="2">4 - 7 </option>
-                          <option value="1">8 en adelante</option>
-                        </select></td>
-                      </tr>
-
-                      <tr>
-                        <td>Regimen de tributacion </td>
-                        <td>
-
-                          <select id="select18" name="select18" size="1" style="width:60%;" >
-                            <option value="" selected></option>
-                            <option value="3" >Regimen agape</option>
-                            <option value="1">Regimen general de ley</option>
-                            <option value="2">Regimen Donatarios</option>
-                            <option value="3">Regimen Coordinados</option>
+                      <p align="left"><strong>CLASIFICACIÓN POR GRADO DE RIESGO</strong></p>
+                      <table width="100%" border="0">
+                        <tr>
+                          <td width="32%">Actividad | Objeto Social </td>
+                          <td width="68%"><select id="select" name="select" size="1" style="width:60%;" >
+                            <option value="" selected>¿Cual es la actividad economica del cliente o tercero relacionado?</option>
+                            <option value="Vulnerable" >Vulnerable</option>
+                            <option value="Informal">Informal</option>
+                            <option value="Otra">Otra</option>
                           </select>
-                          <div style="display:none;">
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Antigüedad del cliente </td>
+                          <td><select id="select2" name="select2" size="1" style="width:60%;" >
+                            <option value="" selected>¿Cuanto tiempo tiene la relacion con el cliente?</option>
+                            <option value="1-3 años">1-3 años</option>
+                            <option value="4-6 años">4-6 años</option>
+                            <option value="7-10 años">7-10 años</option>
+                            <option value="N/A">N/A</option>
+                          </select></td>
+                        </tr>
+                        <tr>
+                          <td>Naturaleza de las operaciones </td>
+                          <td><select id="select3" name="select3" size="1" style="width:60%;" >
+                            <option value="" selected>¿Que tipo de operaciones realizara con SFG?</option>
+                            <option value="Prestamo">Prestamo</option>
+                            <option value="Arrendamiento">Arrendamiento</option>
+                            <option value="Otros">Otros</option>
+                          </select></td>
+                        </tr>
+                        <tr>
+                          <td>Numero de Beneficiarios </td>
+                          <td><select id="select4" name="select4" size="1" style="width:60%;" >
+                            <option value="" selected> ¿Cuantos beneficiarios tiene el cliente?</option>
+                            <option value="1 a 2">1 a 2</option>
+                            <option value="3 a 4">3 a 4</option>
+                            <option value="5 o mas">5 o mas</option>
+                            <option value="N/A">N/A</option>
+                          </select></td>
+                        </tr>
+                        <tr>
+                          <td>Numero de Terceros Relacionados (Apoderados y Cotitulares) </td>
+                          <td><select id="select5" name="select5" size="1" style="width:60%;" >
+                            <option value="" selected>¿Cuantas personas relacionadas(Apoderados y Cotitulares) participan en la operacion ?</option>
+                            <option value="1 a 2">1 a 2</option>
+                            <option value="3 a 4">3 a 4</option>
+                            <option value="5 o mas">5 o mas</option>
+                            <option value="N/A">N/A</option>
+                          </select></td>
+                        </tr>
+                        <tr>
+                          <td>PEPs Relacionados </td>
+                          <td><select id="select6" name="select6" size="1" style="width:60%;" >
+                            <option value="" selected>¿Cual es el porcentaje de coincidencia de un cliente con respecto a las personas Politicamente expuestas?</option>
+                            <option value="1% - 49%">1% - 49%</option>
+                            <option value="50% - 74%">50% - 74%</option>
+                            <option value="75% - 100%">75% - 100%</option>
+                          </select></td>
+                        </tr>
+                        <tr>
+                          <td>Alerta Reputacional </td>
+                          <td><select id="select7" name="select7" size="1" style="width:60%;" >
+                            <option value="" selected>¿Cual es el porcentaje de coincidencia de un cliente con respecto a las listas negras?*</option>
+                            <option value="1% - 49%">1% - 49%</option>
+                            <option value="50% - 74%">50% - 74%</option>
+                            <option value="75% - 100%">75% - 100%</option>
+                          </select></td>
+                        </tr>
+                        <tr>
+                          <td>Volumen esperado (Monto) </td>
+                          <td><select id="select8" name="select8" size="1" style="width:60%;" >
+                            <option value="" selected>¿Cual es el monto esperado de la operacion?</option>
+                            <option value="$18000 - $20000">$18000 - $20000</option>
+                            <option value="$21000 - $25000">$21000 - $25000</option>
+                            <option value="mas de $25000">mas de $25000</option>
+                          </select></td>
+                        </tr>
+                        <tr>
+                          <td>Frecuencia esperada (No. Veces) </td>
+                          <td><select id="select9" name="select9" size="1" style="width:60%;" >
+                            <option value="" selected>¿Cual es el numero de pagos esperados en la operación?</option>
+                            <option value="1 a 3">1 a 3</option>
+                            <option value="4 a 6">4 a 6</option>
+                            <option value="7 a 10">7 a 10</option>
+                          </select></td>
+                        </tr>
+                        <tr>
+                          <td>Instrumento Monetario Utilizado </td>
+                          <td><select id="select10" name="select10" size="1" style="width:60%;" >
+                            <option value="" selected> ¿De que forma realiza los pagos el cliente? </option>
+                            <option value="Transferencia">Transferencia</option>
+                            <option value="Cheque">Cheque</option>
+                            <option value="Efectivo">Efectivo</option>
+                          </select></td>
+                        </tr>
+                        <tr>
+                          <td>Canales o Medios Utilizados </td>
+                          <td><select id="select11" name="select11" size="1" style="width:60%;" >
+                            <option value="" selected>¿En donde realiza el pago el cliente?</option>
+                            <option value="Agencia">Agencia</option>
+                            <option value="Internet">Internet</option>
+                            <option value="Otro">Otro</option>
+                          </select></td>
+                        </tr>
+                        <tr>
+                          <td>País | Estado Oficial </td>
+                          <td><select id="select12" name="select12" size="1" style="width:60%;" >
+                            <option value="" selected>¿Cual es el pais de residencia del cliente?*</option>
+                            <option value="México">México</option>
+                            <option value="Otros">Otros</option>
+                            <option value="Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar">Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar</option>
+                          </select></td>
+                        </tr>
+                        <tr>
+                          <td>País | Estado Residencia </td>
+                          <td><select id="select13" name="select13" size="1" style="width:60%;" >
+                            <option value="" selected>¿Cual es el estado de residencia del cliente?</option>
+                            <option value="Guerrero-Michoacan-Tamaulipas-Morelos">Guerrero-Michoacan-Tamaulipas-Morelos</option>
+                            <option value="Durango-Chihuhua-Jalisco-México-CD México-Sonora">Durango-Chihuhua-Jalisco-México-CD México-Sonora</option>
+                            <option value="Puebla-Coahuila-Zcatecas-Hidalgo-Durango">Puebla-Coahuila-Zcatecas-Hidalgo-Durango</option>
+                          </select></td>
+                        </tr>
+                        <tr>
+                          <td>País | Estado Operación </td>
+                          <td><select id="select14" name="select14" size="1" style="width:60%;" >
+                            <option value="" selected>¿Cual es el estado donde el cliente realiza operaciones frecuentes?</option>
+                            <option value="Guerrero-Michoacan-Tamaulipas-Morelos">Guerrero-Michoacan-Tamaulipas-Morelos</option>
+                            <option value="Durango-Chihuhua-Jalisco-México-CD México-Sonora">Durango-Chihuhua-Jalisco-México-CD México-Sonora</option>
+                            <option value="Puebla-Coahuila-Zcatecas-Hidalgo-Durango">Puebla-Coahuila-Zcatecas-Hidalgo-Durango</option>
+                          </select></td>
+                        </tr>
+                        <tr>
+                          <td>Origen de los recursos </td>
+                          <td><select id="select15" name="select15" size="1" style="width:60%;" >
+                            <option value="" selected>¿Cual es el lugar de origen de los recursos del cliente?*</option>
+                            <option value="México">México</option>
+                            <option value="Otros">Otros</option>
+                            <option value="Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar">Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar</option>
+                          </select></td>
+                        </tr>
+                        <tr>
+                          <td>Destino de los recursos </td>
+                          <td><select id="select16" name="select16" size="1" style="width:60%;" >
+                            <option value="" selected>¿Cual es el lugar de destino de los recursos del cliente?*</option>
+                            <option value="México">México</option>
+                            <option value="Otros">Otros</option>
+                            <option value="Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar">Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar</option>
+                          </select></td>
+                        </tr>
+                        <tr>
+                          <td>País | Estado Residencia de Terceros Relacionados </td>
+                          <td><select id="select17" name="select17" size="1" style="width:60%;" >
+                            <option value="" selected>¿Cual es el estado de residencia de las personas relacionadas del cliente?*</option>
+                            <option value="México">México</option>
+                            <option value="Otros">Otros</option>
+                            <option value="Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar">Corea del Norte-Iran-Sudan-Siria-Syria-Myanmar</option>
+                          </select></td>
+                        </tr>
+                         <tr >
+                          <td><span id="spangradoreisgoedan">Edad del cliente / Años de constitucion  </span></td>
+                          <td><select id="select18" name="select18" size="1" style="width:60%;" >
+                            <option value="" selected>¿Qué edad tiene el cliente?</option>
+                            <option value="18 - 26">18 - 26 </option>
+                            <option value="27 - 36">27 - 36 </option>
+                            <option value="37 - 56">37 - 56 </option>
+                            <option value="56 en adelante">56 en adelante</option>
+                          </select>
                           <select id="select19" name="select19" size="1" style="width:60%;" >
-                          <option value="" selected></option>
+                            <option value="" selected>¿Cuantos años de Constitución?</option>
+                            <option value="0 - 3">0 - 3 </option>
+                            <option value="4 - 7">4 - 7 </option>
+                            <option value="8 en adelante">8 en adelante</option>
+                          </select>
+                          </td>
+                        </tr >
+                           
+                        <tr>
+                          <td>Regimen de tributacion </td>
+                          <td>
 
-                          <option value="3">Incorporacion Fiscal </option>
-                          <option value="3">Servicios Profesionales</option>
-                          <option value="3">Intereses</option>
-                          <option value="1">Asalariado</option>
-                          <option value="2">Arrendamiento</option>
-                          <option value="2">Actividad empresarial</option>
-                          <option value="3">Regimen Agape</option>
+                            <select id="select20" name="select20" size="1" style="width:60%;" style="display:none;">
+                              <option value="" selected>¿Cual es su regimen de tributación?</option>
+                              <option value="Regimen agape" >Regimen agape</option>
+                              <option value="Regimen general de ley">Regimen general de ley</option>
+                              <option value="Regimen Donatarios">Regimen Donatarios</option>
+                              <option value="Regimen Coordinados">Regimen Coordinados</option>
+                            </select>
+                            <div >
+                            <select id="select21" name="select21" size="1" style="width:60%;" style="display:none;">
+                            <option value="" selected>¿Cual es su regimen de tributación?</option>
 
-                        </select>
-                          </div>
-                        </td>
-                      </tr>
-                      <td>*Si la valoracion de riesgo de esta variable es igual a 3, contactar al oficial de cumplimiento inmediantamente para aprobacion o cancelacion del credito/ arrendamiento</td>
-                    </table>
+                            <option value="Incorporacion Fiscal">Incorporacion Fiscal </option>
+                            <option value="Servicios Profesionales">Servicios Profesionales</option>
+                            <option value="Intereses">Intereses</option>
+                            <option value="Asalariado">Asalariado</option>
+                            <option value="Arrendamiento">Arrendamiento</option>
+                            <option value="Actividad empresarial">Actividad empresarial</option>
+                            <option value="Regimen Agape">Regimen Agape</option>
+
+                          </select>
+                            </div>
+                          </td>
+                        </tr>
+                        <td>*Si la valoracion de riesgo de esta variable es igual a 3, contactar al oficial de cumplimiento inmediantamente para aprobacion o cancelacion del credito/ arrendamiento</td>
+                      </table>
                   </div>
                   <div class="tabs-panel is-active" id="panel2g">
-                  <p><strong>PERFIL TRANSACCIONAL INICIAL</strong></p>
+                    <p><strong>PERFIL TRANSACCIONAL INICIAL</strong></p>
                     <div class="row">
                       <div class="medium-8">
                         
@@ -1894,61 +1892,61 @@
                         <div class="medium-6 columns">
                             <div class="input-group">
                             <span class="input-group-label"><pre>1  |  $</pre></span>
-                            <input class="input-group-field" name="" type="text" id="" maxlength="13" onkeyup="mascara(this,cpf)" >
+                            <input class="input-group-field" name="ingrcomp1" type="text" id="ingrcomp1" maxlength="13" onkeyup="mascara(this,cpf)" >
                             </div>
                         </div>
                         <div class="medium-6 columns">
                             <div class="input-group">
                             <span class="input-group-label">Fuente</span>
-                            <input class="input-group-field" type="text" id="" name="" pattern="alpha">
+                            <input class="input-group-field" type="text" id="fuenteingrcomp1" name="fuenteingrcomp1" pattern="alpha">
                             </div>
                         </div>
                         <div class="medium-6 columns">
                             <div class="input-group">
                             <span class="input-group-label"><pre>2  |  $</pre></span>
-                            <input class="input-group-field" name="" type="text" id="" maxlength="13" onkeyup="mascara(this,cpf)">
+                            <input class="input-group-field" name="ingrcomp2" type="text" id="ingrcomp2" maxlength="13" onkeyup="mascara(this,cpf)">
                             </div>
                         </div>
                         <div class="medium-6 columns">
                             <div class="input-group">
                             <span class="input-group-label">Fuente</span>
-                            <input class="input-group-field" type="text" id="" name="" pattern="alpha">
+                            <input class="input-group-field" type="text" id="fuenteingrcomp2" name="fuenteingrcomp2" pattern="alpha">
                             </div>
                         </div>
                         <div class="medium-6 columns">
                             <div class="input-group">
                             <span class="input-group-label"><pre>3  |  $</pre></span>
-                            <input class="input-group-field" name="" type="text" id="" maxlength="13" onkeyup="mascara(this,cpf)">
+                            <input class="input-group-field" name="ingrcomp3" type="text" id="ingrcomp3" maxlength="13" onkeyup="mascara(this,cpf)">
                             </div>
                         </div>
                         <div class="medium-6 columns">
                             <div class="input-group">
                             <span class="input-group-label">Fuente</span>
-                            <input class="input-group-field" type="text" id="" name="" pattern="alpha">
+                            <input class="input-group-field" type="text" id="fuenteingrcomp3" name="fuenteingrcomp3" pattern="alpha">
                             </div>
                         </div>
                         <div class="medium-6 columns">
                             <div class="input-group">
                             <span class="input-group-label"><pre>4  |  $</pre></span>
-                            <input class="input-group-field" name="" type="text" id="" maxlength="13" onkeyup="mascara(this,cpf)">
+                            <input class="input-group-field" name="ingrcomp4" type="text" id="ingrcomp4" maxlength="13" onkeyup="mascara(this,cpf)">
                             </div>
                         </div>
                         <div class="medium-6 columns">
                             <div class="input-group">
                             <span class="input-group-label">Fuente</span>
-                            <input class="input-group-field" type="text" id="" name="" pattern="alpha">
+                            <input class="input-group-field" type="text" id="fuenteingrcomp4" name="fuenteingrcomp4" pattern="alpha">
                             </div>
                         </div>
                         <div class="medium-6 columns">
                             <div class="input-group">
                             <span class="input-group-label"><pre>5  |  $</pre></span>
-                            <input class="input-group-field" name="" type="text" id="" maxlength="13" onkeyup="mascara(this,cpf)">
+                            <input class="input-group-field" name="ingrcomp5" type="text" id="ingrcomp5" maxlength="13" onkeyup="mascara(this,cpf)">
                             </div>
                         </div>
                         <div class="medium-6 columns">
                             <div class="input-group">
                             <span class="input-group-label">Fuente</span>
-                            <input class="input-group-field" type="text" id="" name="" pattern="alpha">
+                            <input class="input-group-field" type="text" id="fuenteingrcomp5" name="fuenteingrcomp5" pattern="alpha">
                             </div>
                         </div>
                        </label>
@@ -1963,61 +1961,61 @@
                         <div class="medium-6 columns">
                             <div class="input-group">
                             <span class="input-group-label"><pre>1  |  $</pre></span>
-                            <input class="input-group-field" name="" type="text" id="" maxlength="13" onkeyup="mascara(this,cpf)">
+                            <input class="input-group-field" name="ingrnocomp1" type="text" id="ingrnocomp1" maxlength="13" onkeyup="mascara(this,cpf)">
                             </div>
                         </div>
                         <div class="medium-6 columns">
                             <div class="input-group">
                             <span class="input-group-label">Fuente</span>
-                            <input class="input-group-field" type="text" id="" name="" pattern="alpha">
+                            <input class="input-group-field" type="text" id="fuenteingrnocomp1" name="fuenteingrnocomp1" pattern="alpha">
                             </div>
                         </div>
                         <div class="medium-6 columns">
                             <div class="input-group">
                             <span class="input-group-label"><pre>2  |  $</pre></span>
-                            <input class="input-group-field" name="" type="text" id="" maxlength="13" onkeyup="mascara(this,cpf)">
+                            <input class="input-group-field" name="ingrnocomp2" type="text" id="ingrnocomp2" maxlength="13" onkeyup="mascara(this,cpf)">
                             </div>
                         </div>
                         <div class="medium-6 columns">
                             <div class="input-group">
                             <span class="input-group-label">Fuente</span>
-                            <input class="input-group-field" type="text" id="" name="" pattern="alpha">
+                            <input class="input-group-field" type="text" id="fuenteingrnocomp2" name="fuenteingrnocomp2" pattern="alpha">
                             </div>
                         </div>
                         <div class="medium-6 columns">
                             <div class="input-group">
                             <span class="input-group-label"><pre>3  |  $</pre></span>
-                            <input class="input-group-field" name="" type="text" id="" maxlength="13" onkeyup="mascara(this,cpf)">
+                            <input class="input-group-field" name="ingrnocomp3" type="text" id="ingrnocomp3" maxlength="13" onkeyup="mascara(this,cpf)">
                             </div>
                         </div>
                         <div class="medium-6 columns">
                             <div class="input-group">
                             <span class="input-group-label">Fuente</span>
-                            <input class="input-group-field" type="text" id="" name="" pattern="alpha">
+                            <input class="input-group-field" type="text" id="fuenteingrnocomp3" name="fuenteingrnocomp3" pattern="alpha">
                             </div>
                         </div>
                         <div class="medium-6 columns">
                             <div class="input-group">
                             <span class="input-group-label"><pre>4  |  $</pre></span>
-                            <input class="input-group-field" name="" type="text" id="" maxlength="13" onkeyup="mascara(this,cpf)">
+                            <input class="input-group-field" name="ingrnocomp4" type="text" id="ingrnocomp4" maxlength="13" onkeyup="mascara(this,cpf)">
                             </div>
                         </div>
                         <div class="medium-6 columns">
                             <div class="input-group">
                             <span class="input-group-label">Fuente</span>
-                            <input class="input-group-field" type="text" id="" name="" pattern="alpha">
+                            <input class="input-group-field" type="text" id="fuenteingrnocomp4" name="fuenteingrnocomp4" pattern="alpha">
                             </div>
                         </div>
                         <div class="medium-6 columns">
                             <div class="input-group">
                             <span class="input-group-label"><pre>5  |  $</pre></span>
-                            <input class="input-group-field" name="" type="text" id="" maxlength="13" onkeyup="mascara(this,cpf)">
+                            <input class="input-group-field" name="ingrnocomp5" type="text" id="ingrnocomp5" maxlength="13" onkeyup="mascara(this,cpf)">
                             </div>
                         </div>
                         <div class="medium-6 columns">
                             <div class="input-group">
                             <span class="input-group-label">Fuente</span>
-                            <input class="input-group-field" type="text" id="" name="" pattern="alpha">
+                            <input class="input-group-field" type="text" id="fuenteingrnocomp5" name="fuenteingrnocomp5" pattern="alpha">
                             </div>
                         </div>
                        </label>
@@ -2025,16 +2023,54 @@
                       
                           
                     </div>
-                    
                   </div>
                   <div class="tabs-panel is-active" id="panel3g">
-                  <h1>Hola Mundo</h1>
+                    <div class="row">
+                      
+                      <div class="medium-12">
+                        <p align="justify">¿ Usted o algún familiar suyo de hasta segundo grado de consanguinidad o afinidad (cónyuge, padre, madre, hijos, hermanos, abuelos, tios, primos, cuñados, suegros, yernos, etc), desempeña o a desempeñado funciones públicas destacadas en el territorio nacional o en el Extranjero (incluyendo puestos de Gobierno Federales, Estatales, Municipales, funciones gubernamentales o judiciales, en partidos politicos, militares de alta jerarquía, altos ejecutivos de empresas paraestatales, etc.?
+                        </p>
+                      </div>
+                    </div>
+                    
+                    <div class="row">
+                      <div class="medium-2 columns">
+                      
+                        <select name="" id=""><option value="">-Seleccione una opción-</option><option value="Si">Si</option><option value="No">No</option></select>
+                      
+                      </div>
+                    </div>
+                    <div id="Contentpepssi" >
+                      <div class="row">
+                        
+                        <p>
+                          <div class="medium-4 columns">
+                            <label>
+                              ¿Quién?
+                              <input type="text" id="" name="">
+                            </label>
+                          </div>
+
+                          <div class="medium-4 columns">
+                            <label>
+                              Parentesco
+                              <input type="text" id="" name="">
+                            </label>
+                          </div>
+                          <div class="medium-4 columns">
+                            <label>
+                              Puesto
+                              <input type="text" id="" name="">
+                            </label>
+                          </div>
+                        </p>
+                      </div>
                   </div>
-                  <div class="row">
-              
-            
-                    <input class="button" type="button" name="" id="" value="Guardar">
-                    <input  name="fecharegistro" type="text" id="fecharegistro" value="<?php echo date("Y-m-d");?>" size="10px" readonly>
+                </div>
+
+                <div class="row">
+                  <input class="button" type="button" name="guardargradriesgo" id="guardargradriesgo" value="Guardar">
+                  <input  name="fecharegistrogradriesgo" type="text" id="fecharegistrogradriesgo" value="<?php echo date("Y-m-d");?>" size="10px" readonly>
                   </div>
                 </div>
           </div>
