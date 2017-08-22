@@ -2,8 +2,44 @@
 
 
 switch ($_REQUEST['function']) {
+    case 'continuarconocimiento':
+        include('Conexion2.php');
+        try {
+            $rawdata = array();
+            $i=0;
+            $result=mysqli_query($cnx,"select solicitudes.Id,TipoCredito,clientes.NombrePF,clientes.SegNombrePF,clientes.ApPatPF,clientes.ApMatPF,clientes.RazonSocial from solicitudes INNER JOIN clientes on solicitudes.FolioCliente=clientes.id inner join gradoriesgo on gradoriesgo.Id=solicitudes.GradoRiesgo where gradoriesgo.Status='Incompleto'");
+            if($result===false){
+                echo "Error -- No se pudo realizar el Query";
+            }
+            while($row=mysqli_fetch_array($result)){
+                $rawdata[$i] = $row;
+                $i++;
+                
+            }
+
+            echo json_encode($rawdata);
+            
+
+
+        } catch (Exception $e) {
+            echo "Error Al Obtener listado";
+        }
+        
+        
+        break;
+    case 'requestmodificarconocimiento':
+        include('Conexion2.php');
+        $result=mysqli_query($cnx,"select * from gradoriesgo where Id=(select GradoRiesgo from solicitudes where Id='".$_REQUEST['registro']."')");
+        if($result===false){
+            echo "Error -- Falla al realizar Query";
+            break;
+        }
+        echo json_encode(mysqli_fetch_array($result));
+
+        break;
     case 'guardargradriesgo':
         include('Conexion2.php');
+        session_start();
         $matrizgradreisgo=array(
             1=> array('Vulnerable' => 3, 'Informal' =>2, 'Otra'=>1,''=>''),
             2=> array('1-3 años' =>3 ,'4-6 años'=>2, '7-10 años'=>1, 'N/A'=>0,''=>'' ),
@@ -51,8 +87,15 @@ switch ($_REQUEST['function']) {
         +$matrizgradreisgo[20][$_REQUEST['select20']]
         +$matrizgradreisgo[21][$_REQUEST['select21']];
 
+        
 
-        echo $sumagradoriesgo;
+        if($sumagradoriesgo<29){
+            $gradoriesgorango="Bajo";
+        }else if($sumagradoriesgo>=30 || $sumagradoriesgo<=45){
+            $gradoriesgorango="Medio";
+        }else{
+            $gradoriesgorango="Alto";
+        }
 
         $result=mysqli_query($cnx, "update gradoriesgo SET 
         Antiguedad_ObjetoSocial         ='".$_REQUEST['select']."',
@@ -72,7 +115,11 @@ switch ($_REQUEST['function']) {
         Origen_Recursos                 ='".$_REQUEST['select15']."',
         Destino_Recursos                ='".$_REQUEST['select16']."',
         Pais_EstadoResidenciaTerceros   ='".$_REQUEST['select17']."',
-        GradoRiesgo                     ='".$_REQUEST['select18']."',
+        Edad_Cliente                    ='".$_REQUEST['select18']."',
+        An_Construccion                 ='".$_REQUEST['select19']."',
+        Reg_TributacionPF               ='".$_REQUEST['select21']."',
+        Reg_TributacionPM               ='".$_REQUEST['select20']."',
+        GradoRiesgo                     ='".$gradoriesgorango."',
         ingrcomp1                       ='".str_replace(",","",$_REQUEST['ingrcomp1'])."'                      ,
         fuenteingrcomp1                 ='".$_REQUEST['fuenteingrcomp1']."'                ,
         ingrcomp2                       ='".str_replace(",","",$_REQUEST['ingrcomp2'])."'                      ,
@@ -92,8 +139,15 @@ switch ($_REQUEST['function']) {
         ingrnocomp4                     ='".str_replace(",","",$_REQUEST['ingrnocomp4'])."'                    ,
         fuenteingrnocomp4               ='".$_REQUEST['fuenteingrnocomp4']."'              ,
         ingrnocomp5                     ='".str_replace(",","",$_REQUEST['ingrnocomp5'])."'                    ,
-        fuenteingrnocomp5               ='".$_REQUEST['fuenteingrnocomp5']."'           
-       
+        fuenteingrnocomp5               ='".$_REQUEST['fuenteingrnocomp5']."',
+        tienepeprel                     ='".$_REQUEST['tienepeprel']."',
+        quienpep                        ='".$_REQUEST['quienpep']."',
+        parentescopep                   ='".$_REQUEST['parentescopep']."',
+        puestorelpep                    ='".$_REQUEST['puestorelpep']."',
+        Status                          ='Incompleto',
+        FechaModificacion               =CURDATE(),
+        ModPor                          ='".$_SESSION['usser']."'
+
         WHERE Id='".$_REQUEST['registro']."'");
 
         if($result===false){
@@ -148,11 +202,11 @@ switch ($_REQUEST['function']) {
 
 
 
-        mysqli_query($cnx,"insert into gradoriesgo () values()");
+        mysqli_query($cnx,"insert into gradoriesgo (Status) values('Incompleto')");
         $id=mysqli_fetch_array(mysqli_query($cnx,"select LAST_INSERT_ID()"));                            
         $id_cliente=$id['LAST_INSERT_ID()'];
 
-        //mysqli_query($cnx,"update solicitudes SET GradoRiesgo='$id_cliente' where id='".$_REQUEST['solicitud']."'");
+        mysqli_query($cnx,"update solicitudes SET GradoRiesgo='$id_cliente' where id='".$_REQUEST['solicitud']."'");
         echo json_encode($id);
 
         break;

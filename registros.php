@@ -1559,7 +1559,7 @@
             <!-- This is the nested modal -->
             <div class="reveal" id="modalcontregconocimiento" data-reveal>
               <h4>Registros Incompletos...</h4>
-              <table  id="tablajson2">
+              <table  id="tablajson4">
                 <thead>
                   <th>Id</th> 
                   <th>Tipo de Crédito</th>
@@ -1946,31 +1946,31 @@
                     <div class="row">
                       <div class="medium-2 columns">
                       
-                        <select name="" id=""><option value="">-Seleccione una opción-</option><option value="Si">Si</option><option value="No">No</option></select>
+                        <select name="tienepeprel" id="tienepeprel"><option value="">-Seleccione una opción-</option><option value="Si">Si</option><option value="No">No</option></select>
                       
                       </div>
                     </div>
-                    <div id="Contentpepssi" >
+                    <div id="Contentpepssi" style="display: none;">
                       <div class="row">
                         
                         <p>
                           <div class="medium-4 columns">
                             <label>
                               ¿Quién?
-                              <input type="text" id="" name="">
+                              <input type="text" id="quienpep" name="quienpep">
                             </label>
                           </div>
 
                           <div class="medium-4 columns">
                             <label>
                               Parentesco
-                              <input type="text" id="" name="">
+                              <input type="text" id="parentescopep" name="parentescopep">
                             </label>
                           </div>
                           <div class="medium-4 columns">
                             <label>
                               Puesto
-                              <input type="text" id="" name="">
+                              <input type="text" id="puestorelpep" name="puestorelpep">
                             </label>
                           </div>
                         </p>
