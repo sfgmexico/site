@@ -20,17 +20,20 @@ xmlhttp.onreadystatechange=function()
     if (xmlhttp.readyState==4 && xmlhttp.status==200)
       {
         //alert(xmlhttp.responseText);
-        if(xmlhttp.responseText.indexOf("Error") !== -1){
+       
+
+        
+        if(Base64.decode(xmlhttp.responseText).indexOf("Error") !== -1){
           alert(xmlhttp.responseText);
           return false;
         }
-        if(xmlhttp.responseText === "null"){
+        if(Base64.decode(xmlhttp.responseText) === "null"){
           alert("Error -- La solicitud no existe o no contiene matriz de grado de riesgo");
           return false;
         }
         $("#tablajson4 tbody tr").remove();
         //alert(xmlhttp.responseText);
-        obJ6 = JSON.parse(xmlhttp.responseText);
+        obJ6 = JSON.parse(Base64.decode(xmlhttp.responseText));
         
         $.each(obJ6, function(i,solicitud){
             var newRow =
@@ -88,17 +91,17 @@ xmlhttp.onreadystatechange=function()
       {
 
         
-        if(xmlhttp.responseText.indexOf("Error") !== -1){
-          alert(xmlhttp.responseText);
+        if(Base64.decode(xmlhttp.responseText).indexOf("Error") !== -1){
+          alert(Base64.decode(xmlhttp.responseText));
           return false;
         }
-        if(xmlhttp.responseText === "null"){
+        if(Base64.decode(xmlhttp.responseText) === "null"){
           alert("Error -- La solicitud no existe o no contiene matriz de grado de riesgo");
           return false;
         }
-        alert(xmlhttp.responseText);
+        //alert(xmlhttp.responseText);
         //obJ = JSON.parse(xmlhttp.responseText);
-        obj4=JSON.parse(xmlhttp.responseText);
+        obj4=JSON.parse(Base64.decode(xmlhttp.responseText));
         $( "#cerrarmodalmodificaconocimiento" ).click();
         $( "#cerrarmodalcontregconocimiento" ).click();
         document.getElementById('contenidorequestconocimiento').style.display='block';

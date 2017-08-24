@@ -17,7 +17,7 @@ switch ($_REQUEST['function']) {
                 
             }
 
-            echo json_encode($rawdata);
+            echo base64_encode(json_encode($rawdata));
             
 
 
@@ -34,11 +34,15 @@ switch ($_REQUEST['function']) {
             echo "Error -- Falla al realizar Query";
             break;
         }
-        echo json_encode(mysqli_fetch_array($result));
+        echo base64_encode(json_encode(mysqli_fetch_array($result)));
 
         break;
     case 'guardargradriesgo':
         include('Conexion2.php');
+
+
+
+
         session_start();
         $matrizgradreisgo=array(
             1=> array('Vulnerable' => 3, 'Informal' =>2, 'Otra'=>1,''=>''),
