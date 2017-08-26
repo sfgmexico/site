@@ -39,9 +39,47 @@ switch ($_REQUEST['function']) {
         break;
     case 'guardargradriesgo':
         include('Conexion2.php');
+        $status='Incompleto';
+
+        if (
+
+            (
+            $_REQUEST['select']!='' 
+            && $_REQUEST['select2']!='' 
+            && $_REQUEST['select3']!='' 
+            && $_REQUEST['select4']!='' 
+            && $_REQUEST['select5']!='' 
+            && $_REQUEST['select6']!='' 
+            && $_REQUEST['select7']!='' 
+            && $_REQUEST['select8']!='' 
+            && $_REQUEST['select9']!='' 
+            && $_REQUEST['select10']!='' 
+            && $_REQUEST['select11']!='' 
+            && $_REQUEST['select12']!='' 
+            && $_REQUEST['select13']!='' 
+            && $_REQUEST['select14']!='' 
+            && $_REQUEST['select15']!='' 
+            && $_REQUEST['select16']!='' 
+            && $_REQUEST['select17']!='' 
+            && (($_REQUEST['select18']!='' && $_REQUEST['select21']!='') || ($_REQUEST['select19']!='' && $_REQUEST['select20']!='')))
 
 
+            &&
 
+            (($_REQUEST['ingrcomp1']!='' && $_REQUEST['fuenteingrcomp1']!='')  || ($_REQUEST['ingrnocomp1']!='' && $_REQUEST['fuenteingrnocomp1']!=''))
+            &&
+
+
+            (($_REQUEST['tienepeprel']!='' && $_REQUEST['tienepeprel']!="Si") || ($_REQUEST['tienepeprel']!='' && $_REQUEST['tienepeprel']=="Si" && $_REQUEST['quienpep']!="" && $_REQUEST['parentescopep']!="" && $_REQUEST['puestorelpep']!=""))
+
+/*
+*/
+            
+
+            ) {
+            # code...
+            $status='Finalizado';
+        }
 
         session_start();
         $matrizgradreisgo=array(
@@ -148,7 +186,7 @@ switch ($_REQUEST['function']) {
         quienpep                        ='".$_REQUEST['quienpep']."',
         parentescopep                   ='".$_REQUEST['parentescopep']."',
         puestorelpep                    ='".$_REQUEST['puestorelpep']."',
-        Status                          ='Incompleto',
+        Status                          ='$status',
         FechaModificacion               =CURDATE(),
         ModPor                          ='".$_SESSION['usser']."'
 
