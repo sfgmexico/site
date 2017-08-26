@@ -23,7 +23,7 @@
     <div class="tabs-content" data-tabs-content="example-tabs">
       <div class="tabs-panel is-active" id="panel1v">
         <form name="form1" id="form1" action=""  method="post" data-abide novalidate>
-          <div data-abide-error class="alert callout" style="display: none;">
+          <div data-abide-error class="alert callout " style="display: none;">
             <p><i class="fi-alert"></i> Despues de corregir los campos marcados, no olvides Guardar.</p>
           </div> 
         <div id="botonescliente">  
@@ -1988,52 +1988,33 @@
       </div>
       <div class="tabs-panel" id="panel4v"  >
 <div id="botonesdocumentacion" > 
-   <input class="button" type="button" data-open="modalnuevadocumentacion" name="nuevadocumentacion" id="nuevadocumentacion" value="Generar nueva documentacion">
+   <input class="button" type="button" data-open="modalnuevadocumentacion" name="nuevadocumentacion" id="nuevadocumentacion" value="Generar nueva documentacion" >
           <input class="button" data-open="modalmodificardocumentacion" type="button" name="modificardocumentacion" id="modificardocumentacion" value="Modificar Documentacion">
           
 <div class="reveal" id="modalnuevadocumentacion" data-reveal>
-              <h4>Ingresa el Número de Solicitud:</h4>
-              
-              <select name="docu" id="docu"><option value="0">-seleccione uno-</option><option value="1">ID</option><option value="2">Nombre (Persona Fisca)</option><option  value="3">Razon social(Persona Moral)</option></select>
-              <div id="ident1" name="ident1" style="display: none;">
-                
-                <label>ID:<input type="text" name="idnuevasdocumentacion" onkeyup="buscardocs()" id="idnuevadocumentacion"></label>
-              </div>
+         
+               <table id="table1">
+ <thead>
+   <tr>
+     <th>Id</th>
+     <th>Cliente</th>
+     <th>Tipo de Credito</th>
+   </tr>
+ </thead>
+ <tbody></tbody>  
 
-                <div id="nombres1" name="nombres1" style="display: none;">
-                  
-                  <label>Nombre<input type="text" onkeyup="buscardocs()" id="nombrepfdoc" name="nombrepfdoc"></label>
-                  <label>Apellido Paterno<input type="text" onkeyup="buscardocs()" id="ApellidoPadoc" name="ApellidoPadoc"></label>
-                  <label>Apellido Materno<input type="text" onkeyup="buscardocs()" id="ApellidoMadoc" name="ApellidoMa"></label>
-                </div>
-              
-                <div id="resultadonuevasolicitud"></div>
-              <!--<button id="requestnuevasolicitud" name="requestnuevasolicitud" class="button" >Buscar</button>-->
-              <button id="cerrarmodalnuevasolicitud" class="close-button" data-close aria-label="Close reveal" type="button">
+</table>
+              <button id="cerrarmodalnuevadocu" class="close-button" data-close aria-label="Close reveal" type="button">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
           <!-- This is the first modal -->
           <div class="reveal" id="modalmodificardocumentacion" data-reveal>
-            <h4>Buscar por:</h4>
-            <select name="selectmodificadocumentacion" id="selectmodificadocumentacion"><option value="">Seleccione una opción</option><option value="Persona Fisica">Persona Fisica</option><option value="Persona Moral">Persona Moral</option></select>
-            <div id="divmodificadocumentacion1" style="display: none;">
-              <label>ID:<input type="text" name="idmodificadocumentacion" id="idmodificadocumentacion"></label>
-              <h5>Ó</h5>
-              <label>CURP:<input type="text" name="curpmodificadocumentacion" id="curpmodificadocumentacion"></label>
-            </div>
-            <div id="divmodificadocumentacion2" style="display: none;">
-              <label>ID:<input type="text" name="idmodificadocumentacionpm" id="idmodificadocumentacionpm"></label>
-              <h5>Ó</h5>
-              <label>RFC:<input type="text" name="curpmodificadocumentacionpm" id="curpmodificaclientepm"></label>
-            </div>
+          <h4>Ingresa el numero de la solicitud</h4>
+          <label>ID</label>
+       <input type="text" name="didi" id="didi">
+      <input class="button" type="button" name="dexter" id="dexter" value="Buscar">
 
-
-
-
-
-
-            <button id="requestmodificardocumentacion" name="requestmodificardocumentacion" class="button" >Buscar</button>
             <button id="cerrarmodalmodificadocumentacion" class="close-button" data-close aria-label="Close reveal" type="button">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -2042,15 +2023,15 @@
           <!-- This is the nested modal -->
           <div class="reveal" id="modalcontregdocumentacion" data-reveal>
             <h4>Registros Incompletos...</h4>
-            <table  id="tablajson">
+            <table  id="table2">
               <thead>
                 <th>Id</th> 
-                <th>Nombre/Razon Social</th>
-                <th>CURP/RFC</th>
+                <th>Cliente</th>
+                <th>Tipo de credito</th>
               </thead>
               <tbody></tbody>
             </table>
-            <button id="cerrarmodalcontregcliente" class="close-button" data-close aria-label="Close reveal" type="button">
+            <button id="cerrarmodalcontdoc" class="close-button" data-close aria-label="Close reveal" type="button">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -2059,7 +2040,7 @@
 
 
 
-          <input class="button" type="button" data-open="modalcontregcliente" name="continuarcliente" id="continuarcliente" value="Continuar Con Registro">
+          <input class="button" type="button" data-open="modalcontregdocumentacion" name="continuardoc" id="continuardoc" value="Continuar Con Registro">
 </div>
 
          <div style="display: none;" id="docs">
@@ -2078,114 +2059,158 @@
                       <table width="100%" border="0">
                         <tr id="secINE">
                           <td width="15%">Credencial para votar </td>
-                          <td width="15%"><input name="textfield39" type="text" id="textfield39" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['INESolicitante']; } ?>"></td>
+                          <td width="15%"><input name="textfield39" type="text" id="textfield39" size="50%" ></td>
                           <td width="15%">
-                          <input type="file" name="file1" id="file1" class="inputfile inputfile-1" data-multiple-caption="{count} archivos seleccionados" multiple />
+                          <input type="file" name="file1" id="file1"  data-multiple-caption="{count} archivos seleccionados" multiple />
                                 <label for="file1">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="iborrainputfile" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg>
-                                <span class="iborrainputfile">Seleccionar archivo</span>
+                                   
                                 </label> 
                                  </td>
                           <td width="10%" >
-
+                          <a href="#" target="_blank" id="visor1"></a>
                           </td>
                         </tr>
                         <tr id="secCedProfesional">
                           <td>Pasaporte cedula profesional </td>
                           <td><input name="textfield40" type="text" id="textfield40" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['Pasaporte_o_CedulaProfSolicitante']; } ?>" ></td>
-                          <td>            <input type="file" name="file2" id="file2" class="inputfile inputfile-1" data-multiple-caption="{count} archivos seleccionados" multiple />
+                          <td>            <input type="file" name="file2" id="file2"  data-multiple-caption="{count} archivos seleccionados" multiple />
                                     <label for="file2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="iborrainputfile" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg>
-                                    <span class="iborrainputfile">Seleccionar archivo</span>
+                                           
                                     </label> 
                            </td>
                           <td >
-
+                     <a href="#" target="_blank" id="visor2"></a>
                           </td>
                         </tr>
                         <tr id="secCarMilitar">
                           <td>Cartilla de servicio militar </td>
                           <td><input name="textfield41" type="text" id="textfield41" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['CartillaMilitarSolicitante']; } ?>" ></td>
-                          <td> <input type="file" name="file3" id="file3" class="inputfile inputfile-1" data-multiple-caption="{count} archivos seleccionados" multiple />
+                          <td> <input type="file" name="file3" id="file3"  data-multiple-caption="{count} archivos seleccionados" multiple />
                           <label for="file3">
-                          <svg xmlns="http://www.w3.org/2000/svg" class="iborrainputfile" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg>
-                          <span class="iborrainputfile">Seleccionar archivo</span>
+                       
                           </label>  </td>
                           <td >
-                       
+                          <a href="#" target="_blank" id="visor3"></a>
                           </td>
                         </tr>
                         <tr id="secLicConducir">
                           <td>Licencia para conducir </td>
                           <td><input name="textfield42" type="text" id="textfield42" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['LicenciaConducirSolicitante']; } ?>" ></td>
-                          <td> <input type="file" name="file4" id="file4" class="inputfile inputfile-1" data-multiple-caption="{count} archivos seleccionados" multiple />
+                          <td> <input type="file" name="file4" id="file4"  data-multiple-caption="{count} archivos seleccionados" multiple />
                               <label for="file4">
-                              <svg xmlns="http://www.w3.org/2000/svg" class="iborrainputfile" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg>
-                              <span class="iborrainputfile">Seleccionar archivo</span>
+                               
                               </label>   </td>
                           <td >
-                        
+                           <a href="#" target="_blank" id="visor4"></a>
                           </td>
                         </tr>
                         <tr id="secOtrIdentificacion">
                           <td>  <label>Otra (Especificar)<input name="textfield44" type="text" id="textfield44" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['EspIdentSolicitante']; } ?>" ></label></td>
                           <td><input name="textfield43" type="text" id="textfield43" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['OtraIdentSolicitante']; } ?>" ></td>
-                          <td> <input type="file" name="file5" id="file5" class="inputfile inputfile-1" data-multiple-caption="{count} archivos seleccionados" multiple />
+                          <td> <input type="file" name="file5" id="file5"  data-multiple-caption="{count} archivos seleccionados" multiple />
                                 <label for="file5">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="iborrainputfile" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg>
-                                <span class="iborrainputfile">Seleccionar archivo</span>
+                                   
                                 </label>  </td>
                           <td >
-                       
+                          <a href="#" target="_blank" id="visor5"></a>
                                                         </td>
-                        </tr>
-                        <tr>
+                        </tr>                        <tr>
                           
                           <td>Se cotejo vs original: </td>
                           <td >
-                          <div class="medium-3 columns">
-                          <select><option>Si</option><option>No</option></select>
+                          <div class="medium-5 columns">
+                          <select  id="cot" name="cot" ><option value=" ">-Seleccione una opcion-</option><option>Si</option><option>No</option></select>
                                </div>
                                </td>
                         </tr>
                       </table>
-                       <input type="button" class="button" id="subir" name="subir" value="Subir archivo"  >
+                      
   </div>
          <div class="tabs-panel" id="panel2f">
             <p align="left">OTROS DOCUMENTOS QUE SE ADJUNTAN:</p>
-                <table width="100%" border="0">
-                      <tr>
-                       <td width="30%">Se adjunta CURP y/o cédula RFC, FEA* </td>
-                       <td width="70%">
-                       <input type="file" name="file6" id="file6" class="inputfile inputfile-1" data-multiple-caption="{count} archivos seleccionados" multiple />
-                      <label for="file6">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="iborrainputfile" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg>
-                      <span class="iborrainputfile">Seleccionar archivo</span>
-                      </label> 
+              
+                     <div class="row">
 
+<p align="left">
+                     <div class="medium-5 columns">
+          <div id="pfadd"  class="callout primary" style="display: none;" >
 
-                        </tr>
-                    <tr>
-                        <td>Se adjunta comprobante de domicilio </td>
-                        <td>
-                         <input type="file" name="file7" id="file7" class="inputfile inputfile-1" data-multiple-caption="{count} archivos seleccionados" multiple />
+<h5> Se adjunta CURP y/o cédula RFC, FEA* </h5>
+     <input  class="input-group-field" type="file" name="file6" id="file6"  data-multiple-caption="{count} archivos seleccionados" multiple />
+
+                         <a href="#" target="_blank" id="visor6"></a>
+                    
+                        </div>
+                      </div>  
+  
+                   <div class="medium-5 columns">
+                      <div class="callout primary">
+                      <h5>  Se adjunta comprobante de domicilio   </h5> 
+                        
+                         <input type="file" name="file7" id="file7"  data-multiple-caption="{count} archivos seleccionados" multiple />
                         <label for="file7">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="iborrainputfile" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg>
-                        <span class="iborrainputfile">Seleccionar archivo</span>
+                         
                         </label> 
-                    </tr>
-                    <tr>
-                        <td>Fecha del comprobante de domicilio </td>
-                        <td><input name="fechaComprobante" type="date" id="fechaComprobante" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['FechaComprobanteDom']; } ?>" onfocus="datepick(this)"></td>
-                      </tr>
-                      <tr>
-                        <td>Domicilio manifestado coincide con la ID</td>
-                        <td>
+                        
+                           <a href="#" target="_blank" id="visor7"></a>
+                    
+                   <div class="medium-12">
+                        Fecha del comprobante de domicilio 
+                        <input name="fechaComprobante" type="date" id="fechaComprobante" size="50%" value="<?php if(isset($row['Folio_Cliente'])) {  echo $row3['FechaComprobanteDom']; } ?>" onfocus="datepick(this)">
+                      
+                     
+                        Domicilio manifestado coincide con la ID
+                        
 
-                                <select><option>Si</option><option>No</option></select>
+                                <select id="seldom" name="seldom"><option value=" ">-Seleccione una opcion-</option><option>Si</option><option>No</option></select>
+                 </div>
+                   </div>
+</div>
+                      
+</p>
 
-                          </tr>
-                    </table>
+
+
+                          
+   <div id="pmadd" style="display: none;">
+                     <p align="left">
+                      <div class="medium-5 columns">
+                        <div class="callout primary">
+                                
+                      <h5> Se adjunta Acta constitutiva </h5>
+                     
+                       <input type="file" name="file8" id="file8"  data-multiple-caption="{count} archivos seleccionados" multiple />
+                    
+                    
+                    
+                         <a href="#" target="_blank" id="visor8"></a>
+                     </div>
+                        </div>
+                              <div class="medium-5 columns">
+                              <div class="callout primary">
+                     <h5>  Se adjunta Cédula de id Fiscal. </h5>
+                     
+                       <input type="file" name="file9" id="file9"  data-multiple-caption="{count} archivos seleccionados" multiple />
+                  
+                    
+                    
+                         <a href="#" target="_blank" id="visor9"></a>
+                    </div>
+                        </div>
+                         <div class="medium-5 columns">
+                         <div class="callout primary">     
+                     <h5>  Se adjunta Poderes </h5>
+                     
+                       <input type="file" name="file10" id="file10"  data-multiple-caption="{count} archivos seleccionados" multiple />
+                  
+                    
+                    
+                         <a href="#" target="_blank" id="visor10"></a>
+                    </div>
+                        </div>
+</p>
+</div>
+                  </div> 
                        </div>
                              <div class="tabs-panel" id="panel3f">
                                                       <!--<img class="thumbnail" src="assets/img/generic/rectangle-3.jpg">-->
@@ -2194,7 +2219,9 @@
                                                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                              </div>
                           </form>
+
                           </div>
+                           <input type="button" class="button" id="subir" name="subir" value="Subir archivo"  >
         </div>
         </div>
                                       <div class="tabs-panel" id="panel5v">
